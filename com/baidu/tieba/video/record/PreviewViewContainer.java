@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uq8;
+import com.repackage.qr8;
 /* loaded from: classes4.dex */
 public class PreviewViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uq8 a;
+    public qr8 a;
     public View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,21 +76,21 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            uq8 uq8Var = this.a;
-            if (uq8Var != null) {
-                uq8Var.b(motionEvent);
+            qr8 qr8Var = this.a;
+            if (qr8Var != null) {
+                qr8Var.b(motionEvent);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void setZoomHelper(uq8 uq8Var) {
+    public void setZoomHelper(qr8 qr8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, uq8Var) == null) || uq8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, qr8Var) == null) || qr8Var == null) {
             return;
         }
-        this.a = uq8Var;
+        this.a = qr8Var;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

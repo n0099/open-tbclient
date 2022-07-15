@@ -1,6 +1,6 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,13 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class y99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public cb1<ea9> a;
+    public da9 a;
 
-    public y99() {
+    public y99(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,15 +26,6 @@ public class y99 {
                 return;
             }
         }
-        a();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ab1 b = ab1.b();
-            this.a = b;
-            b.a(new fa9());
-        }
+        this.a = new z99(context).a();
     }
 }

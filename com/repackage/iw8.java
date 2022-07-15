@@ -1,5 +1,9 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class iw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fw8 a;
+    public Fragment a;
+    public Activity b;
+    public hw8 c;
 
     public iw8() {
         Interceptable interceptable = $ic;
@@ -22,22 +28,72 @@ public class iw8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public fw8 a() {
-        InterceptResult invokeV;
+    public static iw8 c(Fragment fragment) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (fw8) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            iw8 iw8Var = new iw8();
+            iw8Var.a = fragment;
+            return iw8Var;
+        }
+        return (iw8) invokeL.objValue;
     }
 
-    public void b(fw8 fw8Var) {
+    public void a(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw8Var) == null) {
-            this.a = fw8Var;
+        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) && i == 25069) {
+            if (i2 == -1) {
+                hw8 hw8Var = this.c;
+                if (hw8Var != null) {
+                    hw8Var.a();
+                    return;
+                }
+                return;
+            }
+            hw8 hw8Var2 = this.c;
+            if (hw8Var2 != null) {
+                hw8Var2.b();
+            }
+        }
+    }
+
+    public void b(hw8 hw8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hw8Var) == null) {
+            this.c = hw8Var;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
+                }
+                hw8 hw8Var2 = this.c;
+                if (hw8Var2 != null) {
+                    hw8Var2.a();
+                    return;
+                }
+                return;
+            }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                hw8 hw8Var3 = this.c;
+                if (hw8Var3 != null) {
+                    hw8Var3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

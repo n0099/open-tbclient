@@ -1,10 +1,13 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.util.Log;
-import android.view.Surface;
-import android.view.SurfaceHolder;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,160 +15,328 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class eb0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "eb0";
+    public static /* synthetic */ Interceptable $ic;
+    public static eb0 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public gb0 a;
-    public List<fb0> b;
-    public int c;
+    public String a;
+    public String b;
+    public ab0 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755743522, "Lcom/repackage/eb0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755743522, "Lcom/repackage/eb0;");
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final eb0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-420070655, "Lcom/repackage/eb0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-420070655, "Lcom/repackage/eb0$a;");
+                    return;
+                }
+            }
+            a = new eb0();
         }
     }
 
-    public eb0(Object obj, List<sb0> list) {
+    public eb0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj, list};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        b(obj, list);
+        this.b = Config.TRACE_VISIT_RECENT_DAY;
     }
 
-    public void a(long j) {
-        List<fb0> list;
+    public static eb0 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.a == null || (list = this.b) == null || list.size() == 0) {
-            return;
-        }
-        synchronized (this) {
-            for (fb0 fb0Var : this.b) {
-                this.a.b(fb0Var.c());
-                fb0Var.b(j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                d = a.a;
             }
-            notifyAll();
+            return d;
         }
-        this.a.d(j);
-        this.a.e();
+        return (eb0) invokeV.objValue;
     }
 
-    public final void b(Object obj, List<sb0> list) {
-        fb0 fb0Var;
-        gb0 gb0Var;
+    public int a(Context context, boolean z, String str) {
+        InterceptResult invokeCommon;
+        ab0 ab0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        List<fb0> list2 = this.b;
-        if (list2 == null) {
-            this.b = new ArrayList();
-        } else {
-            list2.clear();
-        }
-        for (int i = 0; i < list.size(); i++) {
-            try {
-                this.b.add(new fb0(list.get(i)));
-                if (list.get(i).k()) {
-                    this.c = i;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
+            if (TextUtils.isEmpty(str) || (ab0Var = this.c) == null) {
+                return -16777216;
             }
+            return ab0Var.a(context, z, str);
         }
-        int size = this.b.size();
-        int i2 = this.c;
-        if (size > i2) {
-            if (obj != null) {
-                if (obj instanceof Surface) {
-                    this.a = new gb0(this.b.get(this.c).c(), (Surface) obj, true);
-                } else if (obj instanceof SurfaceTexture) {
-                    this.a = new gb0(this.b.get(this.c).c(), (SurfaceTexture) obj);
-                } else if (obj instanceof SurfaceHolder) {
-                    this.a = new gb0(this.b.get(this.c).c(), (SurfaceHolder) obj);
-                }
-            } else {
-                List<fb0> list3 = this.b;
-                if (list3 != null && list3 != null && (fb0Var = list3.get(i2)) != null && (gb0Var = this.a) != null) {
-                    gb0Var.f(fb0Var.c());
-                }
+        return invokeCommon.intValue;
+    }
+
+    public int b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            if (z) {
+                return c90.a().h;
             }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return c90.a().f;
+            }
+            if ("dark".equals(this.b)) {
+                return c90.a().g;
+            }
+            return c90.a().e;
         }
-        for (fb0 fb0Var2 : this.b) {
-            gb0 gb0Var2 = this.a;
-            if (gb0Var2 != null) {
-                gb0Var2.b(fb0Var2.c());
-                fb0Var2.f();
+        return invokeZ.intValue;
+    }
+
+    public int c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (z) {
+                return c90.a().n;
             }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return c90.a().l;
+            }
+            if ("dark".equals(this.b)) {
+                return c90.a().m;
+            }
+            return c90.a().k;
+        }
+        return invokeZ.intValue;
+    }
+
+    public int d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (z) {
+                return c90.a().t;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return c90.a().r;
+            }
+            if ("dark".equals(this.b)) {
+                return c90.a().s;
+            }
+            return c90.a().q;
+        }
+        return invokeZ.intValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (z) {
+                return p80.a().o;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return p80.a().m;
+            }
+            if ("dark".equals(this.b)) {
+                return p80.a().n;
+            }
+            return p80.a().l;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            if (z) {
+                return p80.a().s;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return p80.a().q;
+            }
+            if ("dark".equals(this.b)) {
+                return p80.a().r;
+            }
+            return p80.a().p;
+        }
+        return invokeZ.intValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (z) {
+                return p80.a().w;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return p80.a().u;
+            }
+            if ("dark".equals(this.b)) {
+                return p80.a().v;
+            }
+            return p80.a().t;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            if (z) {
+                return p80.a().A;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return p80.a().y;
+            }
+            if ("dark".equals(this.b)) {
+                return p80.a().z;
+            }
+            return p80.a().x;
+        }
+        return invokeZ.intValue;
+    }
+
+    public int j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (z) {
+                return c90.a().d;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return c90.a().b;
+            }
+            if ("dark".equals(this.b)) {
+                return c90.a().c;
+            }
+            return c90.a().a;
+        }
+        return invokeZ.intValue;
+    }
+
+    public String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            if (z) {
+                return p80.a().d;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return p80.a().b;
+            }
+            if ("dark".equals(this.b)) {
+                return p80.a().c;
+            }
+            return p80.a().a;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int l(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            if (z) {
+                return p80.a().h;
+            }
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return p80.a().f;
+            }
+            if ("dark".equals(this.b)) {
+                return p80.a().g;
+            }
+            return p80.a().e;
+        }
+        return invokeZ.intValue;
+    }
+
+    public GradientDrawable m(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, context, z)) == null) {
+            float a2 = t80.a(context, 18.0f);
+            float[] fArr = {a2, a2, a2, a2, a2, a2, a2, a2};
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadii(fArr);
+            gradientDrawable.setColor(a(context, z, "color_btn_fill"));
+            gradientDrawable.setStroke(1, a(context, z, "color_btn_stroke"));
+            return gradientDrawable;
+        }
+        return (GradientDrawable) invokeLZ.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
+                return R.drawable.obfuscated_res_0x7f080cb5;
+            }
+            if ("dark".equals(this.b)) {
+            }
+            return R.drawable.obfuscated_res_0x7f080cb4;
+        }
+        return invokeV.intValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void p(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.a = str;
+            if (q(str2)) {
+                this.b = str2;
+            }
+            if ("baidu".equals(this.a)) {
+                this.c = new za0();
+            } else if ("haokan".equals(this.a)) {
+                this.c = new bb0();
+            } else if ("quanmin".equals(this.a)) {
+                this.c = new cb0();
+            } else if ("tieba".equals(this.a)) {
+                this.c = new db0();
+            }
+            this.c.b(str2);
         }
     }
 
-    public void c() {
+    public final boolean q(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gb0 gb0Var = this.a;
-            if (gb0Var != null) {
-                gb0Var.g();
-                this.a = null;
-            }
-            List<fb0> list = this.b;
-            if (list != null) {
-                for (fb0 fb0Var : list) {
-                    fb0Var.e();
-                }
-                this.b.clear();
-                this.b = null;
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? Config.TRACE_VISIT_RECENT_DAY.equals(str) || SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) || "dark".equals(str) : invokeL.booleanValue;
     }
 
-    public void d(lb0 lb0Var) {
+    public void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lb0Var) == null) {
-            for (fb0 fb0Var : this.b) {
-                gb0 gb0Var = this.a;
-                if (gb0Var != null) {
-                    gb0Var.b(fb0Var.c());
-                    fb0Var.g(lb0Var);
-                }
+        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && q(str)) {
+            this.b = str;
+            ab0 ab0Var = this.c;
+            if (ab0Var != null) {
+                ab0Var.b(str);
             }
-        }
-    }
-
-    public void e(List<sb0> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Log.d(d, "updateSurfaceDrawer !!!");
-            this.a.c();
-            for (fb0 fb0Var : this.b) {
-                fb0Var.e();
-            }
-            this.b.clear();
-            b(null, list);
         }
     }
 }

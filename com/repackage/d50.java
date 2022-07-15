@@ -1,186 +1,30 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h50;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.repackage.f50;
+import com.repackage.p50;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public final class d50 {
+public class d50 implements f50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @Nullable
-    public Runnable c;
-    @Nullable
-    public Executor d;
-    public final Deque<h50.a> e;
-    public final Deque<h50.a> f;
-    public final Deque<h50> g;
+    public final m50 a;
+    public k50 b;
+    public boolean c;
 
-    public d50(Executor executor) {
+    public d50(j50 j50Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
-        this.d = executor;
-    }
-
-    public synchronized void a(h50.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (this.f.size() < this.a && i(aVar) < this.b) {
-                    this.f.add(aVar);
-                    c().execute(aVar);
-                } else {
-                    this.e.add(aVar);
-                }
-            }
-        }
-    }
-
-    public synchronized void b(h50 h50Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h50Var) == null) {
-            synchronized (this) {
-                this.g.add(h50Var);
-            }
-        }
-    }
-
-    public synchronized Executor c() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
-                }
-                executor = this.d;
-            }
-            return executor;
-        }
-        return (Executor) invokeV.objValue;
-    }
-
-    public void d(h50.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            f(this.f, aVar, true);
-        }
-    }
-
-    public void e(h50 h50Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h50Var) == null) {
-            f(this.g, h50Var, false);
-        }
-    }
-
-    public final <T> void f(Deque<T> deque, T t, boolean z) {
-        int h;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
-            synchronized (this) {
-                if (deque.remove(t)) {
-                    if (z) {
-                        g();
-                    }
-                    h = h();
-                    runnable = this.c;
-                } else {
-                    throw new AssertionError("Call wasn't in-flight!");
-                }
-            }
-            if (h != 0 || runnable == null) {
-                return;
-            }
-            runnable.run();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f.size() >= this.a || this.e.isEmpty()) {
-            return;
-        }
-        Iterator<h50.a> it = this.e.iterator();
-        while (it.hasNext()) {
-            h50.a next = it.next();
-            if (i(next) < this.b) {
-                it.remove();
-                this.f.add(next);
-                c().execute(next);
-            }
-            if (this.f.size() >= this.a) {
-                return;
-            }
-        }
-    }
-
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.f.size() + this.g.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int i(h50.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
-            int i = 0;
-            for (h50.a aVar2 : this.f) {
-                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public d50() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
+            Object[] objArr = {j50Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -190,10 +34,49 @@ public final class d50 {
                 return;
             }
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
+        p50.b b = p50.b();
+        b.c(j50Var);
+        this.a = b.b();
+    }
+
+    @Override // com.repackage.f50
+    public Response a(f50.a aVar) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            if (!this.c) {
+                s50 s50Var = (s50) aVar;
+                Request request = aVar.request();
+                request.getNetworkStatRecord().requestBodyLength = request.body() == null ? 0L : request.body().contentLength();
+                k50 c = c(request);
+                this.b = c;
+                return s50Var.b(request, c);
+            }
+            throw new IOException("The request has been cancelled.");
+        }
+        return (Response) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+            k50 k50Var = this.b;
+            if (k50Var != null) {
+                k50Var.disconnect();
+            }
+        }
+    }
+
+    public final k50 c(Request request) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) ? this.a.a(request) : (k50) invokeL.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
     }
 }

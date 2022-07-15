@@ -1,5 +1,7 @@
 package com.fun.ad.sdk.channel;
 
+import android.content.SharedPreferences;
+import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +11,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdConfig;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.ModuleAdConfig;
+import com.fun.ad.sdk.PersonalRecommendObserver;
+import com.fun.ad.sdk.channel.ModuleConfigCsj;
 import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.jc9;
+import com.repackage.ge9;
+import com.repackage.hf9;
+import com.repackage.wd9;
+import com.repackage.xd9;
+import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class CsjModule implements Module {
     public static /* synthetic */ Interceptable $ic;
@@ -22,14 +32,14 @@ public class CsjModule implements Module {
     public class a implements TTAdSdk.InitCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdConfig a;
+        public final /* synthetic */ ModuleConfigCsj a;
 
-        public a(CsjModule csjModule, FunAdConfig funAdConfig) {
+        public a(CsjModule csjModule, ModuleConfigCsj moduleConfigCsj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {csjModule, funAdConfig};
+                Object[] objArr = {csjModule, moduleConfigCsj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,7 +49,7 @@ public class CsjModule implements Module {
                     return;
                 }
             }
-            this.a = funAdConfig;
+            this.a = moduleConfigCsj;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdSdk.InitCallback
@@ -67,6 +77,36 @@ public class CsjModule implements Module {
         }
     }
 
+    /* loaded from: classes4.dex */
+    public static class b implements PersonalRecommendObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.fun.ad.sdk.PersonalRecommendObserver
+        public void notifyStatusChanged(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                TTAdConfig.Builder builder = new TTAdConfig.Builder();
+                builder.data(ge9.b(z));
+                TTAdSdk.updateAdConfig(builder.build());
+            }
+        }
+    }
+
     public CsjModule() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,8 +126,30 @@ public class CsjModule implements Module {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
-            TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(funAdConfig.logEnabled).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).customController(funAdConfig.ttCustomCtr).supportMultiProcess(funAdConfig.ttSupportMultiProcess).build(), new a(this, funAdConfig));
-            return new jc9();
+            Object obj = (ModuleAdConfig) funAdConfig.moduleConfigMap.get(FunAdSdk.PLATFORM_CSJ);
+            if (obj == null) {
+                obj = new ModuleConfigCsj.Builder().build();
+            }
+            if (obj instanceof ModuleConfigCsj) {
+                ModuleConfigCsj moduleConfigCsj = (ModuleConfigCsj) obj;
+                synchronized (xd9.class) {
+                    Handler handler = xd9.a;
+                    Calendar calendar = Calendar.getInstance();
+                    int i = calendar.get(6);
+                    int i2 = calendar.get(1);
+                    SharedPreferences sharedPreferences = hf9.a;
+                    calendar.setTimeInMillis(sharedPreferences.getLong("req_id_update_time", 0L));
+                    if (!(i2 == calendar.get(1) && i == calendar.get(6))) {
+                        sharedPreferences.edit().clear().apply();
+                    }
+                    sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
+                    xd9.a.sendEmptyMessageDelayed(101, xd9.a());
+                }
+                TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(moduleConfigCsj.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(funAdConfig.logEnabled).directDownloadNetworkType(4, 1).customController(moduleConfigCsj.ttCustomCtr).supportMultiProcess(moduleConfigCsj.ttSupportMultiProcess).data(ge9.b(funAdConfig.runtimeAdConfig.personalRecommendStatus)).build(), new a(this, moduleConfigCsj));
+                funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new b());
+                return new wd9();
+            }
+            throw new RuntimeException("The csj config need ModuleConfigCsj!");
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

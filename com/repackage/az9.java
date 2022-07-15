@@ -1,80 +1,51 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes5.dex */
-public class az9<T> extends dv9<T> {
+public class az9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yu9<T> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public az9(dv9<? super T> dv9Var) {
-        this(dv9Var, true);
+    public static qy9 a(int i, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeIL;
+        MiddleRevenueConfig middleRevenueConfig;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((dv9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
+            ProductInfo productInfo = new ProductInfo();
+            productInfo.cid = 0;
+            productInfo.productId = "";
+            productInfo.srcCurrencySymbol = "";
+            productInfo.srcAmount = i / 100.0d;
+            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
+                productInfo.destAmount = i;
+                return new qy9(productInfo, 4);
             }
+            productInfo.destAmount = i;
+            return new qy9(productInfo);
         }
+        return (qy9) invokeIL.objValue;
     }
 
-    @Override // com.repackage.yu9
-    public void onCompleted() {
+    public static IAppPayService b(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
-        }
-    }
-
-    @Override // com.repackage.yu9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
-        }
-    }
-
-    @Override // com.repackage.yu9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az9(dv9<? super T> dv9Var, boolean z) {
-        super(dv9Var, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((dv9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
+                return null;
             }
+            return revenue.getAppPayService();
         }
-        this.e = new zy9(dv9Var);
+        return (IAppPayService) invokeII.objValue;
     }
 }

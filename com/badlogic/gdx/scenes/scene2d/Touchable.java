@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.button.StyleHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes.dex */
 public final class Touchable {
@@ -33,7 +32,7 @@ public final class Touchable {
             }
         }
         enabled = new Touchable(SapiOptions.KEY_CACHE_ENABLED, 0);
-        disabled = new Touchable(StyleHelper.KEY_ONDISABLE, 1);
+        disabled = new Touchable("disabled", 1);
         Touchable touchable = new Touchable("childrenOnly", 2);
         childrenOnly = touchable;
         $VALUES = new Touchable[]{enabled, disabled, touchable};

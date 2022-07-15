@@ -36,12 +36,12 @@ public final class av extends zu {
 
         /* renamed from: com.repackage.av$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0392a implements Runnable {
+        public class RunnableC0593a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0392a(a aVar) {
+            public RunnableC0593a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class av extends zu {
                     Toast unused = av.b = new Toast(this.a.a);
                     av.b.setView(this.a.b);
                     av.b.setGravity(81, 0, this.a.c);
-                    iv.m(av.b, R.style.obfuscated_res_0x7f100410);
+                    iv.m(av.b, R.style.obfuscated_res_0x7f100413);
                     av.b.show();
                 }
             }
@@ -96,7 +96,7 @@ public final class av extends zu {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                av.c.post(new RunnableC0392a(this));
+                av.c.post(new RunnableC0593a(this));
             }
         }
     }
@@ -118,12 +118,12 @@ public final class av extends zu {
 
             /* renamed from: com.repackage.av$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0393a implements View.OnClickListener {
+            public class View$OnClickListenerC0594a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0393a(a aVar) {
+                public View$OnClickListenerC0594a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,8 +177,8 @@ public final class av extends zu {
                     Toast unused = av.b = new Toast(this.a.a);
                     av.b.setView(this.a.b);
                     av.b.setGravity(81, 0, this.a.c);
-                    iv.m(av.b, R.style.obfuscated_res_0x7f100410);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0393a(this));
+                    iv.m(av.b, R.style.obfuscated_res_0x7f100413);
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0594a(this));
                     av.b.show();
                 }
             }
@@ -254,7 +254,7 @@ public final class av extends zu {
                 bvVar.f(viewGroup);
                 bvVar.e(81, 0, this.b);
                 bvVar.d(this.c);
-                bvVar.j(R.style.obfuscated_res_0x7f100410);
+                bvVar.j(R.style.obfuscated_res_0x7f100413);
                 bvVar.c();
             }
         }
@@ -332,7 +332,7 @@ public final class av extends zu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Integer.valueOf(i), str, charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, aVar, wsVar}) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f3);
+            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070653);
             if (wsVar != null) {
                 dimension = wsVar.a();
             }
@@ -349,7 +349,7 @@ public final class av extends zu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, charSequence, Integer.valueOf(i), str, str2, str3, wsVar}) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f3);
+            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070653);
             if (wsVar != null) {
                 dimension = wsVar.a();
             }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public interface TTFullScreenVideoAd {
+public interface TTFullScreenVideoAd extends TTClientBidding {
 
     /* loaded from: classes4.dex */
     public interface FullScreenVideoAdInteractionListener {

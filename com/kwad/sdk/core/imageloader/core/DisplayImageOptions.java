@@ -246,94 +246,94 @@ public final class DisplayImageOptions {
         return new Builder().build();
     }
 
-    public BitmapFactory.Options getDecodingOptions() {
+    public final BitmapFactory.Options getDecodingOptions() {
         return this.decodingOptions;
     }
 
-    public int getDelayBeforeLoading() {
+    public final int getDelayBeforeLoading() {
         return this.delayBeforeLoading;
     }
 
-    public BitmapDisplayer getDisplayer() {
+    public final BitmapDisplayer getDisplayer() {
         return this.displayer;
     }
 
-    public Object getExtraForDownloader() {
+    public final Object getExtraForDownloader() {
         return this.extraForDownloader;
     }
 
-    public Handler getHandler() {
+    public final Handler getHandler() {
         return this.handler;
     }
 
-    public Drawable getImageForEmptyUri(Resources resources) {
+    public final Drawable getImageForEmptyUri(Resources resources) {
         int i = this.imageResForEmptyUri;
         return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
     }
 
-    public Drawable getImageOnFail(Resources resources) {
+    public final Drawable getImageOnFail(Resources resources) {
         int i = this.imageResOnFail;
         return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
     }
 
-    public Drawable getImageOnLoading(Resources resources) {
+    public final Drawable getImageOnLoading(Resources resources) {
         int i = this.imageResOnLoading;
         return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
     }
 
-    public ImageScaleType getImageScaleType() {
+    public final ImageScaleType getImageScaleType() {
         return this.imageScaleType;
     }
 
-    public BitmapProcessor getPostProcessor() {
+    public final BitmapProcessor getPostProcessor() {
         return this.postProcessor;
     }
 
-    public BitmapProcessor getPreProcessor() {
+    public final BitmapProcessor getPreProcessor() {
         return this.preProcessor;
     }
 
-    public boolean isCacheInMemory() {
+    public final boolean isCacheInMemory() {
         return this.cacheInMemory;
     }
 
-    public boolean isCacheOnDisk() {
+    public final boolean isCacheOnDisk() {
         return this.cacheOnDisk;
     }
 
-    public boolean isConsiderExifParams() {
+    public final boolean isConsiderExifParams() {
         return this.considerExifParams;
     }
 
-    public boolean isResetViewBeforeLoading() {
+    public final boolean isResetViewBeforeLoading() {
         return this.resetViewBeforeLoading;
     }
 
-    public boolean isSyncLoading() {
+    public final boolean isSyncLoading() {
         return this.isSyncLoading;
     }
 
-    public boolean shouldDelayBeforeLoading() {
+    public final boolean shouldDelayBeforeLoading() {
         return this.delayBeforeLoading > 0;
     }
 
-    public boolean shouldPostProcess() {
+    public final boolean shouldPostProcess() {
         return this.postProcessor != null;
     }
 
-    public boolean shouldPreProcess() {
+    public final boolean shouldPreProcess() {
         return this.preProcessor != null;
     }
 
-    public boolean shouldShowImageForEmptyUri() {
+    public final boolean shouldShowImageForEmptyUri() {
         return (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true;
     }
 
-    public boolean shouldShowImageOnFail() {
+    public final boolean shouldShowImageOnFail() {
         return (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true;
     }
 
-    public boolean shouldShowImageOnLoading() {
+    public final boolean shouldShowImageOnLoading() {
         return (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true;
     }
 }

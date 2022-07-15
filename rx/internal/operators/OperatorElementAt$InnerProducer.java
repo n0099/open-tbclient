@@ -4,21 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zu9;
+import com.repackage.wr9;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class OperatorElementAt$InnerProducer extends AtomicBoolean implements zu9 {
+public class OperatorElementAt$InnerProducer extends AtomicBoolean implements wr9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zu9 actual;
+    public final wr9 actual;
 
-    public OperatorElementAt$InnerProducer(zu9 zu9Var) {
+    public OperatorElementAt$InnerProducer(wr9 wr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zu9Var};
+            Object[] objArr = {wr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,10 +28,10 @@ public class OperatorElementAt$InnerProducer extends AtomicBoolean implements zu
                 return;
             }
         }
-        this.actual = zu9Var;
+        this.actual = wr9Var;
     }
 
-    @Override // com.repackage.zu9
+    @Override // com.repackage.wr9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

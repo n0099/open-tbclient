@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l17;
 import com.repackage.pi;
-import com.repackage.v07;
 /* loaded from: classes3.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -117,9 +117,9 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082e, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09210c);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09210b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084c, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921af);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921ae);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);
@@ -141,13 +141,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         this.d.notifyDataSetChanged();
     }
 
-    public void setData(v07 v07Var) {
+    public void setData(l17 l17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v07Var) == null) {
-            if (v07Var != null && !ListUtils.isEmpty(v07Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l17Var) == null) {
+            if (l17Var != null && !ListUtils.isEmpty(l17Var.b)) {
                 setVisibility(0);
-                this.b.setText(v07Var.a);
-                this.d.setData(v07Var.b);
+                this.b.setText(l17Var.a);
+                this.d.setData(l17Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

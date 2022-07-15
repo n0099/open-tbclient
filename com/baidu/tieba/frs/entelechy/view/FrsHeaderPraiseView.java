@@ -95,11 +95,11 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = findViewById(R.id.obfuscated_res_0x7f0907d3);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0907ba);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b7a);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090b79);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b77);
+            this.a = findViewById(R.id.obfuscated_res_0x7f0907da);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0907c1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b83);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090b82);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b80);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
@@ -135,7 +135,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     headImageView.setBorderWidth(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
                     headImageView.J(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
-                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070305));
+                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304));
                     }
                     layoutParams.gravity = 5;
                     this.d.addView(headImageView, layoutParams);
@@ -185,7 +185,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0311, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0313, this);
         a();
     }
 }

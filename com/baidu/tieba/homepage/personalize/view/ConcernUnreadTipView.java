@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay6;
-import com.repackage.ht4;
 import com.repackage.pi;
+import com.repackage.qy6;
+import com.repackage.xt4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
@@ -66,12 +66,12 @@ public class ConcernUnreadTipView extends RelativeLayout {
             this.h = pi.f(getContext(), R.dimen.tbds94);
             this.i = 0 - pi.f(getContext(), R.dimen.tbds18);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f1, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090687);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090682);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090683);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090684);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090685);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090686);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09068c);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090687);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090688);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090689);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09068a);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09068b);
             setPadding(0, 0, 0, pi.f(context, R.dimen.tbds44));
             b();
         }
@@ -104,27 +104,27 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(ay6 ay6Var) {
+    public void setData(qy6 qy6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ay6Var) == null) || ay6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, qy6Var) == null) || qy6Var == null) {
             return;
         }
-        if (!ay6Var.a()) {
+        if (!qy6Var.a()) {
             setVisibility(8);
             return;
         }
-        if (ay6Var.c > 0) {
-            ht4.k().x(ht4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + ay6Var.c);
+        if (qy6Var.c > 0) {
+            xt4.k().x(xt4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + qy6Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(ay6Var.d)) {
-            this.d.setText(ay6Var.d);
+        if (this.d != null && !StringUtils.isNull(qy6Var.d)) {
+            this.d.setText(qy6Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout == null || ay6Var.b == null) {
+        if (linearLayout == null || qy6Var.b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = ay6Var.b;
+        List<String> list = qy6Var.b;
         for (int i = 0; i < list.size(); i++) {
             String str = list.get(i);
             if (!StringUtils.isNull(str)) {
@@ -135,10 +135,10 @@ public class ConcernUnreadTipView extends RelativeLayout {
                     layoutParams.leftMargin = this.i;
                 }
                 frameLayout.setLayoutParams(layoutParams);
-                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090ebc);
+                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090ecb);
                 headImageView.setIsRound(true);
                 headImageView.setDrawBorder(false);
-                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0915f3), R.drawable.bg_unread_tip_head_border);
+                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f09169c), R.drawable.bg_unread_tip_head_border);
                 this.c.addView(frameLayout);
                 headImageView.setPageId(this.g);
                 headImageView.J(str, 12, false);

@@ -108,7 +108,7 @@ public class Explode extends Visibility {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, transitionValues) == null) {
-            View view2 = transitionValues.f1020view;
+            View view2 = transitionValues.f1747view;
             view2.getLocationOnScreen(this.mTempLoc);
             int[] iArr = this.mTempLoc;
             int i = iArr[0];
@@ -168,7 +168,7 @@ public class Explode extends Visibility {
             int i2 = rect.top;
             float translationX = view2.getTranslationX();
             float translationY = view2.getTranslationY();
-            int[] iArr = (int[]) transitionValues.f1020view.getTag(R$id.transition_position);
+            int[] iArr = (int[]) transitionValues.f1747view.getTag(R$id.transition_position);
             if (iArr != null) {
                 f = (iArr[0] - rect.left) + translationX;
                 f2 = (iArr[1] - rect.top) + translationY;

@@ -12,23 +12,23 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.kwad.sdk.utils.z;
+import com.kwad.sdk.utils.y;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class KSRelativeLayout extends RelativeLayout implements j {
+public class KSRelativeLayout extends RelativeLayout implements i {
     public final AtomicBoolean a;
-    public h b;
-    public j c;
-    public i d;
+    public g b;
+    public i c;
+    public h d;
     public float e;
-    public final z.a f;
+    public final y.a f;
 
     public KSRelativeLayout(@NonNull Context context) {
         super(context);
         this.a = new AtomicBoolean(true);
         this.e = 0.0f;
-        this.f = new z.a();
+        this.f = new y.a();
         a(context, null);
     }
 
@@ -36,7 +36,7 @@ public class KSRelativeLayout extends RelativeLayout implements j {
         super(context, attributeSet);
         this.a = new AtomicBoolean(true);
         this.e = 0.0f;
-        this.f = new z.a();
+        this.f = new y.a();
         a(context, attributeSet);
     }
 
@@ -44,62 +44,58 @@ public class KSRelativeLayout extends RelativeLayout implements j {
         super(context, attributeSet, i);
         this.a = new AtomicBoolean(true);
         this.e = 0.0f;
-        this.f = new z.a();
+        this.f = new y.a();
         a(context, attributeSet);
+    }
+
+    private void a() {
+        if (this.a.getAndSet(false)) {
+            com.kwad.sdk.core.d.b.c("KSRelativeLayout", "onViewAttached");
+            c();
+        }
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f040371};
+            int[] iArr = {R.attr.obfuscated_res_0x7f040377};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040371), 0.0f);
+            this.e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040377), 0.0f);
             obtainStyledAttributes.recycle();
         }
-        h hVar = new h(this, this);
-        this.b = hVar;
-        hVar.a(c());
-        i iVar = new i();
-        this.d = iVar;
-        iVar.a(context, attributeSet);
+        g gVar = new g(this, this);
+        this.b = gVar;
+        gVar.a(true);
+        h hVar = new h();
+        this.d = hVar;
+        hVar.a(context, attributeSet);
     }
 
-    private void d() {
-        if (this.a.getAndSet(false)) {
-            com.kwad.sdk.core.d.a.c("KSRelativeLayout", "onViewAttached");
-            a();
-        }
-    }
-
-    private void e() {
+    private void b() {
         if (this.a.getAndSet(true)) {
             return;
         }
-        com.kwad.sdk.core.d.a.c("KSRelativeLayout", "onViewDetached");
-        b();
+        com.kwad.sdk.core.d.b.c("KSRelativeLayout", "onViewDetached");
+        d();
     }
 
     @CallSuper
-    public void a() {
-        this.b.b();
-    }
-
-    @Override // com.kwad.sdk.widget.j
-    @CallSuper
-    public void a(View view2) {
-        j jVar = this.c;
-        if (jVar != null) {
-            jVar.a(view2);
-        }
-    }
-
-    @CallSuper
-    public void b() {
+    private void c() {
         this.b.c();
     }
 
-    public boolean c() {
-        return true;
+    @CallSuper
+    private void d() {
+        this.b.d();
+    }
+
+    @Override // com.kwad.sdk.widget.i
+    @CallSuper
+    public final void a(View view2) {
+        i iVar = this.c;
+        if (iVar != null) {
+            iVar.a(view2);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -129,7 +125,7 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     }
 
     @MainThread
-    public z.a getTouchCoords() {
+    public y.a getTouchCoords() {
         return this.f;
     }
 
@@ -141,20 +137,20 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     @Deprecated
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d();
+        a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @Deprecated
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        e();
+        b();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        d();
+        a();
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -169,14 +165,14 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         this.b.a(i, i2, i3, i4);
         super.onSizeChanged(i, i2, i3, i4);
-        this.b.b(i, i2, i3, i4);
+        this.b.b();
         this.d.a(i, i2);
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        e();
+        b();
     }
 
     public void setRadius(float f) {
@@ -188,8 +184,8 @@ public class KSRelativeLayout extends RelativeLayout implements j {
         this.e = f;
     }
 
-    public void setViewVisibleListener(j jVar) {
-        this.c = jVar;
+    public void setViewVisibleListener(i iVar) {
+        this.c = iVar;
     }
 
     public void setVisiblePercent(float f) {

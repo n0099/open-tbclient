@@ -85,7 +85,7 @@ public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
     public static final int countTrailingZeroBits(short s) {
-        return Integer.numberOfTrailingZeros(s | 65536);
+        return Integer.numberOfTrailingZeros(s | UShort.MIN_VALUE);
     }
 
     @SinceKotlin(version = "1.4")

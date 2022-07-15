@@ -33,10 +33,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c9;
-import com.repackage.dh8;
-import com.repackage.nq4;
+import com.repackage.cr4;
+import com.repackage.oh8;
 import com.repackage.oi;
-import com.repackage.tg8;
+import com.repackage.yh8;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemFootNavView extends LinearLayout {
@@ -51,7 +51,7 @@ public class ItemFootNavView extends LinearLayout {
     public View g;
     public RecommendForumInfo h;
     public boolean i;
-    public nq4 j;
+    public cr4 j;
     public LikeModel k;
     public AntiHelper.k l;
 
@@ -80,17 +80,17 @@ public class ItemFootNavView extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(nq4 nq4Var) {
+        public void onNavigationButtonClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(nq4 nq4Var) {
+        public void onPositiveButtonClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
@@ -215,26 +215,29 @@ public class ItemFootNavView extends LinearLayout {
                         this.a.showToast(this.b.k.getErrorString());
                         return;
                     }
-                    tg8 tg8Var = (tg8) obj;
-                    if (tg8Var != null) {
-                        if (tg8Var.d() == 3250013) {
-                            BdToast.h(TbadkCoreApplication.getInst().getContext(), tg8Var.e(), R.drawable.obfuscated_res_0x7f0809b5, 3000, true).n();
+                    oh8 oh8Var = (oh8) obj;
+                    if (oh8Var != null) {
+                        if (oh8Var.d() == 3250013) {
+                            BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), oh8Var.e());
+                            b.f(BdToast.ToastIcon.FAILURE);
+                            b.c(3000);
+                            b.h();
                             return;
-                        } else if (!AntiHelper.l(tg8Var.d())) {
+                        } else if (!AntiHelper.l(oh8Var.d())) {
                             this.b.p(true);
                             TbadkApplication.getInst().addLikeForum(this.b.h.forum_name);
                             this.b.r(true);
-                            tg8Var.y(1);
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, tg8Var));
+                            oh8Var.y(1);
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, oh8Var));
                             return;
                         } else {
-                            AntiHelper.t(this.a.getPageContext().getPageActivity(), this.b.k.N(), this.b.l);
+                            AntiHelper.t(this.a.getPageContext().getPageActivity(), this.b.k.O(), this.b.l);
                             return;
                         }
                     }
                     ForumDetailActivity forumDetailActivity = this.a;
-                    forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c37));
-                } else if (AntiHelper.t(this.a.getPageContext().getPageActivity(), this.b.k.N(), this.b.l) != null) {
+                    forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                } else if (AntiHelper.t(this.a.getPageContext().getPageActivity(), this.b.k.O(), this.b.l) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
                 }
             }
@@ -242,14 +245,14 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements nq4.e {
+    public class e implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
         public final /* synthetic */ ItemFootNavView b;
 
         /* loaded from: classes3.dex */
-        public class a implements dh8.a {
+        public class a implements yh8.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -272,23 +275,26 @@ public class ItemFootNavView extends LinearLayout {
                 this.a = eVar;
             }
 
-            @Override // com.repackage.dh8.a
+            @Override // com.repackage.yh8.a
             public void a(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
                     if (j == 3250013) {
                         if (oi.isEmpty(str)) {
-                            str = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f027c);
+                            str = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f027f);
                         }
-                        BdToast.h(TbadkCoreApplication.getInst().getContext(), str, R.drawable.obfuscated_res_0x7f0809b5, 3000, true).n();
+                        BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), str);
+                        b.f(BdToast.ToastIcon.FAILURE);
+                        b.c(3000);
+                        b.h();
                         return;
                     }
                     BaseActivity baseActivity = this.a.a;
-                    baseActivity.showToast(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d2));
+                    baseActivity.showToast(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cc));
                 }
             }
 
-            @Override // com.repackage.dh8.a
+            @Override // com.repackage.yh8.a
             public void b(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -297,10 +303,10 @@ public class ItemFootNavView extends LinearLayout {
                     if (this.a.b.h == null || this.a.b.h.forum_id.longValue() == 0) {
                         return;
                     }
-                    tg8 tg8Var = new tg8();
-                    tg8Var.v(j + "");
-                    tg8Var.y(0);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, tg8Var));
+                    oh8 oh8Var = new oh8();
+                    oh8Var.v(j + "");
+                    oh8Var.y(0);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, oh8Var));
                     MessageManager messageManager = MessageManager.getInstance();
                     messageManager.sendMessage(new CustomMessage(2003004, this.a.b.h.forum_id + ""));
                 }
@@ -326,21 +332,21 @@ public class ItemFootNavView extends LinearLayout {
             this.a = baseActivity;
         }
 
-        @Override // com.repackage.nq4.e
-        public void onClick(nq4 nq4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.b.j.dismiss();
-                dh8 dh8Var = new dh8();
-                dh8Var.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
-                dh8Var.b(new a(this));
-                dh8Var.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
+                yh8 yh8Var = new yh8();
+                yh8Var.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
+                yh8Var.b(new a(this));
+                yh8Var.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class f implements nq4.e {
+    public class f implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemFootNavView a;
@@ -363,10 +369,10 @@ public class ItemFootNavView extends LinearLayout {
             this.a = itemFootNavView;
         }
 
-        @Override // com.repackage.nq4.e
-        public void onClick(nq4 nq4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.a.j.dismiss();
             }
         }
@@ -405,7 +411,7 @@ public class ItemFootNavView extends LinearLayout {
             this.k.setLoadDataCallBack(new d(this, forumDetailActivity));
             LikeModel likeModel = this.k;
             RecommendForumInfo recommendForumInfo = this.h;
-            likeModel.Q(recommendForumInfo.forum_name, String.valueOf(recommendForumInfo.forum_id));
+            likeModel.R(recommendForumInfo.forum_name, String.valueOf(recommendForumInfo.forum_id));
         }
     }
 
@@ -413,11 +419,11 @@ public class ItemFootNavView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseActivity, z) == null) {
             if (this.j == null) {
-                nq4 nq4Var = new nq4(baseActivity.getPageContext().getPageActivity());
-                this.j = nq4Var;
-                nq4Var.setMessageId(R.string.obfuscated_res_0x7f0f066d);
-                this.j.setPositiveButton(R.string.obfuscated_res_0x7f0f0260, new e(this, baseActivity));
-                this.j.setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new f(this));
+                cr4 cr4Var = new cr4(baseActivity.getPageContext().getPageActivity());
+                this.j = cr4Var;
+                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0677);
+                this.j.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new e(this, baseActivity));
+                this.j.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(this));
                 this.j.setCanceledOnTouchOutside(true);
             }
             this.j.create(baseActivity.getPageContext()).show();
@@ -428,14 +434,14 @@ public class ItemFootNavView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a0, (ViewGroup) this, true);
             setOrientation(1);
             setVisibility(8);
-            this.c = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909be);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909bf);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dba);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909c0);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0909e1);
+            this.c = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909c5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909c6);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dc8);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909c7);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0909e9);
         }
     }
 
@@ -467,16 +473,16 @@ public class ItemFootNavView extends LinearLayout {
     public final void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902be);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902c6);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902c0);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902c8);
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0111);
             if (z) {
                 imageView.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_tips_attention_ok));
-                textView.setText(R.string.obfuscated_res_0x7f0f02a4);
+                textView.setText(R.string.obfuscated_res_0x7f0f02a7);
             } else {
                 imageView.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_tips_attention_cancel));
-                textView.setText(R.string.obfuscated_res_0x7f0f14b7);
+                textView.setText(R.string.obfuscated_res_0x7f0f14b1);
             }
             Toast toast = new Toast(this.b);
             toast.setView(inflate);
@@ -517,11 +523,11 @@ public class ItemFootNavView extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
                 SkinManager.setImageResource(this.e, R.drawable.icon_pop_pass);
-                i = R.string.obfuscated_res_0x7f0f0fa3;
+                i = R.string.obfuscated_res_0x7f0f0f9e;
                 this.c.setTag(0);
             } else {
                 SkinManager.setImageResource(this.e, R.drawable.icon_brief_attention);
-                i = R.string.obfuscated_res_0x7f0f02a4;
+                i = R.string.obfuscated_res_0x7f0f02a7;
                 this.c.setTag(1);
             }
             this.d.setText(this.b.getResources().getString(i));

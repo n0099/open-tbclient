@@ -1,133 +1,63 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.UnsubscribeFailedException;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IEventReporter;
+import tv.athena.revenue.RevenueManager;
 /* loaded from: classes7.dex */
-public class yy9<T> extends dv9<T> {
+public class yy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dv9<? super T> e;
-    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy9(dv9<? super T> dv9Var) {
-        super(dv9Var);
+    public static IEventReporter a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((dv9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("UIStatisticReporter", "getSDKReporter error revenue null", new Object[0]);
+                return null;
             }
+            return revenue.getEventReporter();
         }
-        this.e = dv9Var;
+        return (IEventReporter) invokeII.objValue;
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void g(Throwable th) {
+    public static void b(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            hz9.c().b().a(th);
-            try {
-                this.e.onError(th);
-                try {
-                    unsubscribe();
-                } catch (Throwable th2) {
-                    ez9.j(th2);
-                    throw new OnErrorFailedException(th2);
-                }
-            } catch (OnErrorNotImplementedException e) {
-                try {
-                    unsubscribe();
-                    throw e;
-                } catch (Throwable th3) {
-                    ez9.j(th3);
-                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
-                }
-            } catch (Throwable th4) {
-                ez9.j(th4);
-                try {
-                    unsubscribe();
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
-                } catch (Throwable th5) {
-                    ez9.j(th5);
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
-                }
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
+            IEventReporter a = a(i, i2);
+            if (a == null) {
+                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
+            } else {
+                a.reportUiEvent(str);
             }
         }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // com.repackage.yu9
-    public void onCompleted() {
-        UnsubscribeFailedException unsubscribeFailedException;
+    public static void c(int i, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f) {
-            return;
-        }
-        this.f = true;
-        try {
-            this.e.onCompleted();
-            try {
-                unsubscribe();
-            } finally {
-            }
-        } catch (Throwable th) {
-            try {
-                jv9.e(th);
-                ez9.j(th);
-                throw new OnCompletedFailedException(th.getMessage(), th);
-            } catch (Throwable th2) {
-                try {
-                    unsubscribe();
-                    throw th2;
-                } finally {
-                }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+            IEventReporter a = a(i, i2);
+            if (a == null) {
+                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
+            } else {
+                a.reportUiEvent(str, str2);
             }
         }
     }
 
-    @Override // com.repackage.yu9
-    public void onError(Throwable th) {
+    public static void d(int i, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            jv9.e(th);
-            if (this.f) {
-                return;
-            }
-            this.f = true;
-            g(th);
-        }
-    }
-
-    @Override // com.repackage.yu9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            try {
-                if (this.f) {
-                    return;
-                }
-                this.e.onNext(t);
-            } catch (Throwable th) {
-                jv9.f(th, this);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
+            IEventReporter a = a(i, i2);
+            if (a == null) {
+                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
+            } else {
+                a.reportUvEvent(str, str2, str3, str4);
             }
         }
     }

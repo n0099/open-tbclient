@@ -1,40 +1,71 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.sp7;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbPage.PbSortType;
 /* loaded from: classes7.dex */
-public class wr7 {
+public class wr7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId h;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public BdUniqueId b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public List<PbSortType> g;
 
-    public static zr7 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755191691, "Lcom/repackage/wr7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StatisticItem statisticItem = new StatisticItem(sp7.a.a);
-            int i = 0;
-            int from = iBaseDialogData.getFrom();
-            if (from == 0) {
-                i = 2;
-            } else if (from == 1) {
-                i = 3;
-            } else if (from == 2) {
-                i = 4;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755191691, "Lcom/repackage/wr7;");
+                return;
             }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-            return new xr7(tbPageContext, (CustomDialogData) iBaseDialogData);
         }
-        return (zr7) invokeLL.objValue;
+        h = BdUniqueId.gen();
+        i = BdUniqueId.gen();
+    }
+
+    public wr7(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = i;
+        this.c = 0;
+        this.d = false;
+        this.b = bdUniqueId;
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,13 +1,11 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,38 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi2;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ha2 {
+public abstract class ha2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     /* loaded from: classes6.dex */
-    public static class a implements oi2.c {
+    public class a extends fa2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ fz1 c;
+        public final /* synthetic */ String d;
 
-        public a(CallbackHandler callbackHandler, String str, String str2) {
+        public a(ha2 ha2Var, fz1 fz1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, str, str2};
+                Object[] objArr = {ha2Var, fz1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,53 +48,60 @@ public class ha2 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.c = fz1Var;
+            this.d = str;
         }
 
-        @Override // com.repackage.oi2.c
-        public void a(int i) {
+        @Override // com.repackage.fa2
+        public void c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.repackage.oi2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                sw1.k("DebugDependencyControl", "debug扩展库下载失败 url=" + this.c);
-                if (this.a == null || TextUtils.isEmpty(this.b)) {
-                    return;
-                }
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-            }
-        }
-
-        @Override // com.repackage.oi2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    File j = ha2.j();
-                    sw1.k("DebugDependencyControl", "debug扩展库下载成功 file=" + j.getAbsolutePath());
-                    Pair d = ha2.d(j);
-                    if (((Boolean) d.first).booleanValue()) {
-                        if (!ha2.o((File) d.second)) {
-                            sw1.k("DebugDependencyControl", "debug扩展库解压失败 file=" + j.getAbsolutePath());
-                            this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解压失败").toString());
-                            return;
-                        }
-                        ha2.n(true);
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.isDestroyed()) {
+                    if (ha2.b) {
+                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
                         return;
                     }
-                    sw1.k("DebugDependencyControl", "debug扩展库解密失败 file=" + j.getAbsolutePath());
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解密失败").toString());
                     return;
                 }
-                sw1.k("DebugDependencyControl", "debug扩展库下载成功 handler=" + this.a + " cb=" + this.b);
+                this.c.evaluateJavascript(this.d, null);
+                lt2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends fa2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fz1 c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ ha2 e;
+
+        public b(ha2 ha2Var, fz1 fz1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ha2Var, fz1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ha2Var;
+            this.c = fz1Var;
+            this.d = str;
+        }
+
+        @Override // com.repackage.fa2
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.l(this.c, this.d);
             }
         }
     }
@@ -120,195 +119,269 @@ public class ha2 {
                 return;
             }
         }
-        a = "190d49fefe87b97c6b8adeebd11fc227".getBytes(StandardCharsets.UTF_8);
+        b = rg1.a;
     }
 
-    public static void c() {
+    public ha2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (File file : l()) {
-                uf4.j(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static Pair<Boolean, File> d(File file) {
-        InterceptResult invokeL;
+    public final void b(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file != null && file.exists()) {
-                File g = g();
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    FileOutputStream fileOutputStream = new FileOutputStream(g);
-                    byte[] bArr = new byte[16];
-                    fileInputStream.skip(10L);
-                    fileInputStream.read(bArr, 0, 10);
-                    fileInputStream.skip(5L);
-                    fileInputStream.read(bArr, 10, 6);
-                    fileInputStream.skip(3L);
-                    byte[] bArr2 = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr2);
-                    g.deleteOnExit();
-                    g.createNewFile();
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(a, "AES");
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(2, secretKeySpec, ivParameterSpec);
-                    fileOutputStream.write(cipher.doFinal(bArr2));
-                    fileOutputStream.flush();
-                    uf4.L(file);
-                    Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, g);
-                    fileOutputStream.close();
-                    fileInputStream.close();
-                    return pair;
-                } catch (Exception e) {
-                    sw1.l("DebugDependencyControl", "debug扩展库解密失败: ", e);
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-            }
-            return new Pair<>(Boolean.FALSE, null);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static synchronized void e(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, callbackHandler, str2) == null) {
-            synchronized (ha2.class) {
-                if (TextUtils.isEmpty(str)) {
-                    sw1.k("DebugDependencyControl", "download url is empty");
-                } else {
-                    oi2.G(str, new a(callbackHandler, str2, str));
-                }
-            }
-        }
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? oi2.r() : (String) invokeV.objValue;
-    }
-
-    public static File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new File(f(), "dependency_decrypt.zip") : (File) invokeV.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return f() + File.separator + str + File.separator + "debug_dependency";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return f() + File.separator + "temp_unzip";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(f(), "dependency.zip") : (File) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? g83.a().getBoolean("debugDependency", false) : invokeV.booleanValue;
-    }
-
-    @NonNull
-    public static List<File> l() {
-        InterceptResult invokeV;
-        File[] C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : uf4.C(new File(f()))) {
-                if (file.isDirectory()) {
-                    File[] C2 = uf4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dependency".equals(file2.getName())) {
-                                arrayList.add(file2);
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static String m(@NonNull File file) {
-        InterceptResult invokeL;
-        String str;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, file)) == null) {
-            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                uf4.e(listFiles[0], file);
-                uf4.L(listFiles[0]);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                str = new JSONObject(uf4.E(new File(file, "swan-package.json"))).getString("name");
+                jSONObject.put("type", this.a);
             } catch (JSONException e) {
-                e.printStackTrace();
-                str = "";
+                if (b) {
+                    e.printStackTrace();
+                }
             }
-            return TextUtils.isEmpty(str) ? "unknown" : str;
+        }
+    }
+
+    public String c(fz1 fz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fz1Var)) == null) ? d("event", fz1Var) : (String) invokeL.objValue;
+    }
+
+    public String d(String str, fz1 fz1Var) {
+        InterceptResult invokeLL;
+        String format;
+        String b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, fz1Var)) == null) {
+            if (fz1Var == null || TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "event";
+            }
+            Locale locale = Locale.getDefault();
+            if (fz1Var.isWebView()) {
+                format = String.format(locale, "var %s = new Event('%s');", str, this.a);
+                b2 = "";
+            } else {
+                format = String.format(locale, "var %s = new Object();", str);
+                b2 = da2.b(str, "type", this.a);
+            }
+            return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", da2.c(fz1Var), str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public JSEvent e(fz1 fz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fz1Var)) == null) {
+            if (fz1Var == null || TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            JSEvent jSEvent = new JSEvent(this.a);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                n(jSONObject);
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            b(jSONObject);
+            jSEvent.data = jSONObject;
+            return jSEvent;
+        }
+        return (JSEvent) invokeL.objValue;
+    }
+
+    public boolean f(fz1 fz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fz1Var)) == null) ? (fz1Var == null || fz1Var.isWebView() || !(fz1Var instanceof r72)) ? false : true : invokeL.booleanValue;
+    }
+
+    public void g(fz1 fz1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, fz1Var) == null) || fz1Var == null) {
+            return;
+        }
+        lt2.a("postMessage", "dispatchJSEvent start.");
+        if (ga2.b) {
+            r(fz1Var);
+        } else {
+            q(fz1Var);
+        }
+        lt2.a("postMessage", "dispatchJSEvent buildEvent");
+    }
+
+    public void h(fz1 fz1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, fz1Var) == null) || fz1Var == null) {
+            return;
+        }
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
+        }
+        JSEvent e = e(fz1Var);
+        if (e == null) {
+            return;
+        }
+        j(fz1Var, e);
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
+        }
+    }
+
+    public void i(fz1 fz1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, fz1Var) == null) || fz1Var == null) {
+            return;
+        }
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
+        }
+        String c = c(fz1Var);
+        if (TextUtils.isEmpty(c)) {
+            return;
+        }
+        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
+        k(fz1Var, format);
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
+        }
+    }
+
+    public void j(fz1 fz1Var, JSEvent jSEvent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fz1Var, jSEvent) == null) || fz1Var.isDestroyed()) {
+            return;
+        }
+        if (fz1Var instanceof r72) {
+            ((r72) fz1Var).dispatchEvent(jSEvent);
+        }
+        lt2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+    }
+
+    public void k(fz1 fz1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, fz1Var, str) == null) || fz1Var == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        ea2.b().c(new a(this, fz1Var, str), null);
+    }
+
+    public final void l(fz1 fz1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, fz1Var, str) == null) {
+            if (fz1Var.isDestroyed()) {
+                if (b) {
+                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
+                    return;
+                }
+                return;
+            }
+            fz1Var.evaluateJavascript(str, null);
+            lt2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+        }
+    }
+
+    public abstract void m(Map<String, Object> map);
+
+    public void n(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            m(hashMap);
+            for (String str : hashMap.keySet()) {
+                if (!TextUtils.isEmpty(str)) {
+                    Object obj = hashMap.get(str);
+                    if (p(obj)) {
+                        jSONObject.put(str, obj);
+                    }
+                }
+            }
+        }
+    }
+
+    public String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            Map<String, Object> hashMap = new HashMap<>();
+            m(hashMap);
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : hashMap.keySet()) {
+                if (!TextUtils.isEmpty(str2)) {
+                    Object obj = hashMap.get(str2);
+                    if (p(obj)) {
+                        if (obj instanceof String) {
+                            obj = JSONObject.quote((String) obj);
+                        }
+                        sb.append(str);
+                        sb.append(".");
+                        sb.append(str2);
+                        sb.append("=");
+                        sb.append(obj);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                }
+            }
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public static void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            g83.a().putBoolean("debugDependency", z);
-        }
-    }
-
-    public static boolean o(File file) {
+    public final boolean p(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, file)) == null) {
-            boolean z = false;
-            if (file != null && file.exists()) {
-                File file2 = new File(i());
-                uf4.l(file2);
-                if (uf4.U(file.getAbsolutePath(), file2.getAbsolutePath())) {
-                    File file3 = new File(h(m(file2)));
-                    if (file3.exists()) {
-                        uf4.L(file3);
-                    }
-                    file3.mkdirs();
-                    uf4.e(file2, file3);
-                    uf4.L(file2);
-                    uf4.L(file);
-                    z = true;
-                }
-                sw1.k("DebugDependencyControl", "debug扩展库解压结果: unzipSuccess=" + z);
-                return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            if (obj == null) {
+                return false;
             }
-            sw1.k("DebugDependencyControl", "debug扩展库压缩包不存在");
-            return false;
+            if (obj instanceof String) {
+                return !TextUtils.isEmpty((String) obj);
+            }
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public final void q(fz1 fz1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, fz1Var) == null) {
+            String c = c(fz1Var);
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
+            if (b) {
+                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
+            }
+            if (fz1Var.isWebView()) {
+                ea2.b().c(new b(this, fz1Var, format), null);
+            } else {
+                l(fz1Var, format);
+            }
+        }
+    }
+
+    public final void r(@NonNull fz1 fz1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, fz1Var) == null) {
+            if (f(fz1Var)) {
+                h(fz1Var);
+            } else {
+                i(fz1Var);
+            }
+        }
     }
 }

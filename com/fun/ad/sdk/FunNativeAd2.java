@@ -98,5 +98,7 @@ public interface FunNativeAd2 {
 
     NativeType getNativeType();
 
+    String getPlatform();
+
     void show(Activity activity, NativeInflater nativeInflater, String str, FunAdInteractionListener funAdInteractionListener);
 }

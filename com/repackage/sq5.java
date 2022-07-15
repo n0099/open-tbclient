@@ -1,21 +1,100 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class sq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static sq5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public lq5 a;
-    public List<SpecialLiveTabInfo> b;
-    public boolean c;
-    public AlaUserInfoData d;
-    public tq5 e;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sq5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-5260740, "Lcom/repackage/sq5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-5260740, "Lcom/repackage/sq5$b;");
+                    return;
+                }
+            }
+            a = new sq5(null);
+        }
+    }
+
+    public /* synthetic */ sq5(a aVar) {
+        this();
+    }
+
+    public static sq5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = b.a;
+            }
+            return a;
+        }
+        return (sq5) invokeV.objValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY : (String) invokeI.objValue;
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            if (!LiveFeedPageSdk.f().l()) {
+                p80.a().d(R.raw.lottie_common_pull_refresh, R.raw.obfuscated_res_0x7f11002f, R.raw.obfuscated_res_0x7f110030, R.raw.obfuscated_res_0x7f11002f, 15, 15, 30, 30);
+                p80.a().b("live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json");
+                p80.a().c(R.raw.lottie_full_screen_refresh, R.raw.obfuscated_res_0x7f11003c, R.raw.obfuscated_res_0x7f11003d, R.raw.obfuscated_res_0x7f11003c, "", 67.0f, 67.0f);
+                c90.a().b(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                c90.a().c(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                c90.a().d(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
+                c90.a().e(R.drawable.obfuscated_res_0x7f080cae, R.drawable.obfuscated_res_0x7f080caf, R.drawable.obfuscated_res_0x7f080cad, R.drawable.obfuscated_res_0x7f080cae);
+                LiveFeedPageSdk.f().k(new fh7());
+                LiveFeedPageSdk.f().i("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
+                LiveFeedPageSdk.f().j(new tq5());
+                LiveFeedPageSdk.f().p();
+            }
+            LiveFeedPageSdk.f().o(context);
+            if (LiveFeedPageSdk.f().g() == null || TextUtils.isEmpty(LiveFeedPageSdk.f().g().c())) {
+                return;
+            }
+            LiveFeedPageSdk.f().r(LiveFeedPageSdk.f().g().c());
+        }
+    }
 
     public sq5() {
         Interceptable interceptable = $ic;

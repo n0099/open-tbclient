@@ -5,7 +5,7 @@ import android.view.View;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public interface TTNativeExpressAd {
+public interface TTNativeExpressAd extends TTClientBidding {
 
     /* loaded from: classes4.dex */
     public interface AdInteractionListener extends ExpressAdInteractionListener {

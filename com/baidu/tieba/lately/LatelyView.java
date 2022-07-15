@@ -22,24 +22,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h45;
-import com.repackage.hh5;
-import com.repackage.i45;
-import com.repackage.m46;
+import com.repackage.j55;
+import com.repackage.k55;
+import com.repackage.k56;
+import com.repackage.ki5;
 import com.repackage.ni;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class LatelyView extends FrameLayout implements hh5<String> {
+public class LatelyView extends FrameLayout implements ki5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public h45 e;
-    public i45 f;
+    public j55 e;
+    public k55 f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -95,7 +95,7 @@ public class LatelyView extends FrameLayout implements hh5<String> {
         }
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -103,18 +103,18 @@ public class LatelyView extends FrameLayout implements hh5<String> {
             return;
         }
         this.a = skinType;
-        h45 h45Var = this.e;
-        if (h45Var != null) {
-            h45Var.onChangeSkinType();
+        j55 j55Var = this.e;
+        if (j55Var != null) {
+            j55Var.onChangeSkinType();
         }
-        i45 i45Var = this.f;
-        if (i45Var != null) {
-            i45Var.onChangeSkinType();
+        k55 k55Var = this.f;
+        if (k55Var != null) {
+            k55Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -122,21 +122,21 @@ public class LatelyView extends FrameLayout implements hh5<String> {
     }
 
     public void d() {
-        h45 h45Var;
+        j55 j55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (h45Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (j55Var = this.e) == null) {
             return;
         }
-        h45Var.dettachView(this);
+        j55Var.dettachView(this);
         this.e = null;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            i45 i45Var = this.f;
-            if (i45Var != null) {
-                i45Var.dettachView(this);
+            k55 k55Var = this.f;
+            if (k55Var != null) {
+                k55Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -146,8 +146,8 @@ public class LatelyView extends FrameLayout implements hh5<String> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0741, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c53);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d075f, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091cf8);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(1);
@@ -162,16 +162,16 @@ public class LatelyView extends FrameLayout implements hh5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            i45 i45Var = this.f;
-            if (i45Var != null) {
-                return i45Var.isViewAttached();
+            k55 k55Var = this.f;
+            if (k55Var != null) {
+                return k55Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,12 +179,12 @@ public class LatelyView extends FrameLayout implements hh5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = m46.l().j();
+            RecentlyVisitedForumData j = k56.l().j();
             if (j == null) {
                 i(false, false);
                 return;
@@ -231,7 +231,7 @@ public class LatelyView extends FrameLayout implements hh5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new i45(getContext(), new a(this));
+            this.f = new k55(getContext(), new a(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);
@@ -245,7 +245,7 @@ public class LatelyView extends FrameLayout implements hh5<String> {
         this.b.setVisibility(8);
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

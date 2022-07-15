@@ -47,9 +47,9 @@ public class bi extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             bg.b.c cVar = this.a;
-            if (cVar.a == cVar.f933a.f920a) {
-                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f933a.g);
-                this.a.f933a.f920a = null;
+            if (cVar.a == cVar.f1660a.f1647a) {
+                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f1660a.g);
+                this.a.f1660a.f1647a = null;
             }
         }
     }

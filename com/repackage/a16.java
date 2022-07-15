@@ -1,77 +1,64 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class a16 {
+public final class a16 extends w06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public boolean c;
 
-    public static final <T extends yz5> T a(zz5 zz5Var, Class<T> type, o0 entity, rz5 item) {
-        InterceptResult invokeLLLL;
-        T t;
+    public a16() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, zz5Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            n0 f = zz5Var.f();
-            if (f == null || (t = (T) f.h(type)) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            entity.a(t);
-            t.b(item);
-            return t;
         }
-        return (T) invokeLLLL.objValue;
+        this.b = -1;
     }
 
-    public static final long b(zz5 zz5Var) {
-        InterceptResult invokeL;
+    public final int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zz5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
-            return d(zz5Var).a();
-        }
-        return invokeL.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public static final r16 c(zz5 zz5Var) {
-        InterceptResult invokeL;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zz5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
-            return zz5Var.i().d();
-        }
-        return (r16) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    public static final u16 d(zz5 zz5Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.w06, com.repackage.z7.a
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zz5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
-            return zz5Var.i().f();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.reset();
+            this.b = -1;
+            this.c = false;
         }
-        return (u16) invokeL.objValue;
     }
 
-    public static final boolean e(zz5 zz5Var) {
-        InterceptResult invokeL;
+    public final a16 update(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zz5Var)) == null) {
-            Intrinsics.checkNotNullParameter(zz5Var, "<this>");
-            n0 f = zz5Var.f();
-            xz5 xz5Var = f instanceof xz5 ? (xz5) f : null;
-            if (xz5Var == null) {
-                return true;
-            }
-            return xz5Var.x();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.b = i;
+            this.c = z;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (a16) invokeCommon.objValue;
     }
 }

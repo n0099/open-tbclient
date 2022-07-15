@@ -12,21 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my;
-import com.repackage.ym4;
+import com.repackage.nn4;
+import com.repackage.ny;
 /* loaded from: classes7.dex */
-public abstract class qw<T extends ym4> implements gx, fx<T> {
+public abstract class qw<T extends nn4> implements hx, gx<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public by a;
+    public cy a;
     public Context b;
     public Boolean c;
-    public mx5<T> d;
+    public jy5<T> d;
     public a e;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(ym4 ym4Var);
+        void a(nn4 nn4Var);
     }
 
     public qw(Context context) {
@@ -48,25 +48,25 @@ public abstract class qw<T extends ym4> implements gx, fx<T> {
         this.b = context;
     }
 
-    public void b(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    public void c(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    public mx5<T> d() {
+    public jy5<T> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (mx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (jy5) invokeV.objValue;
     }
 
-    public final ThreadCardView e(View view2, int i) {
+    public final ThreadCardView f(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view2, i)) == null) {
@@ -76,40 +76,40 @@ public abstract class qw<T extends ym4> implements gx, fx<T> {
             if (view2.getParent() instanceof ThreadCardView) {
                 return (ThreadCardView) view2.getParent();
             }
-            return e((View) view2.getParent(), i - 1);
+            return f((View) view2.getParent(), i - 1);
         }
         return (ThreadCardView) invokeLI.objValue;
     }
 
-    public Boolean f() {
+    public Boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Boolean) invokeV.objValue;
     }
 
-    public abstract View g();
+    public abstract View h();
 
-    public void h() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public void i(int i, my.b bVar) {
+    public void j(int i, ny.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i, bVar) == null) {
             this.a.m(i, bVar);
         }
     }
 
-    public void j(by byVar) {
+    public void k(cy cyVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byVar) == null) {
-            this.a = byVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cyVar) == null) {
+            this.a = cyVar;
         }
     }
 
-    public void k(View view2, int i) {
+    public void l(View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
@@ -120,25 +120,25 @@ public abstract class qw<T extends ym4> implements gx, fx<T> {
         }
     }
 
-    public void l(mx5<T> mx5Var) {
+    public void m(jy5<T> jy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mx5Var) == null) {
-            this.d = mx5Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, jy5Var) == null) {
+            this.d = jy5Var;
         }
     }
 
-    public void m(View view2, int i) {
-        ThreadCardView e;
+    public void n(View view2, int i) {
+        ThreadCardView f;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (e = e(view2, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (f = f(view2, i)) == null) {
             return;
         }
-        fr4 d = fr4.d(e);
+        ur4 d = ur4.d(f);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0205);
     }
 
-    public void n(Boolean bool) {
+    public void o(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bool) == null) {
             this.c = bool;

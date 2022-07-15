@@ -1,96 +1,118 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.do1;
 import java.util.ArrayList;
 import java.util.Iterator;
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class k24 extends do1 implements eh1 {
+public final class k24 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<h24> a;
+    public static ArrayList<Integer> b;
+    public static final k24 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<do1.a> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755610780, "Lcom/repackage/k24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755610780, "Lcom/repackage/k24;");
+                return;
+            }
+        }
+        c = new k24();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
+    }
 
     public k24() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    @Nullable
-    public static k24 c() {
-        InterceptResult invokeV;
-        ov3 ov3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            bz1 V = fl2.U().V();
-            if (V == null || (ov3Var = (ov3) V.n(ov3.class)) == null) {
-                return null;
-            }
-            return ov3Var.u3();
-        }
-        return (k24) invokeV.objValue;
-    }
-
-    @Override // com.repackage.do1
-    public synchronized void a(do1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (!this.a.contains(aVar)) {
-                    this.a.add(aVar);
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.do1
-    public synchronized void b(int i) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                Iterator<do1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().b(i);
-                }
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || b.contains(Integer.valueOf(i))) {
+            return;
+        }
+        b.add(Integer.valueOf(i));
+    }
+
+    public final h24 b(JSRuntime jsRuntime) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            h24 h24Var = new h24(jsRuntime);
+            a.add(h24Var);
+            return h24Var;
+        }
+        return (h24) invokeL.objValue;
+    }
+
+    public final boolean c(h24 socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            return !a.contains(socket);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
+    }
+
+    public final void e(h24 socket) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.B());
+                a.remove(socket);
             }
         }
     }
 
-    public synchronized void d() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Iterator<do1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.a.clear();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<h24> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
             }
         }
     }
 
-    @Override // com.repackage.eh1
-    public do1 getInstance() {
-        InterceptResult invokeV;
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c() : (do1) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
+        }
     }
 }

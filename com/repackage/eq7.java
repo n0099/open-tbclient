@@ -1,79 +1,129 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
-import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
-import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class eq7 {
+@SuppressLint({"ResourceAsColor"})
+/* loaded from: classes6.dex */
+public class eq7 extends b9<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PayVcodeActivity a;
+    public ViewGroup b;
+    public View c;
+    public ViewGroup d;
+    public TextView e;
+    public BaseWebView f;
+    public TextView g;
+    public ProgressBar h;
 
-    public eq7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eq7(PayVcodeActivity payVcodeActivity) {
+        super(payVcodeActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
-        a();
+        this.a = payVcodeActivity;
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d066f);
+        m(payVcodeActivity);
     }
 
-    public final void a() {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, bh8.a(TbConfig.FINE_PB_PAGE, 309093));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
+    }
+
+    public TextView h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (TextView) invokeV.objValue;
+    }
+
+    public TextView j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (TextView) invokeV.objValue;
+    }
+
+    public ViewGroup k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (ViewGroup) invokeV.objValue;
+    }
+
+    public BaseWebView l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (BaseWebView) invokeV.objValue;
+    }
+
+    public final void m(PayVcodeActivity payVcodeActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0916f4);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916ee);
+            this.e = textView;
+            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092362);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0924d1);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916f2);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916f3);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916f5);
+            this.f.setHorizontalScrollBarEnabled(false);
+            this.f.setHorizontalScrollbarOverlay(false);
+            this.f.setScrollBarStyle(33554432);
+            this.f.getSettings().setJavaScriptEnabled(true);
         }
     }
 
-    public final void b() {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j95 j95Var = new j95(309093);
-            j95Var.setResponsedClass(ChosenPbSocketResponse.class);
-            j95Var.g(true);
-            j95Var.h(false);
-            MessageManager.getInstance().registerTask(j95Var);
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int k = pi.k(pbChosenActivity.getPageContext().getPageActivity());
-            int i = pi.i(pbChosenActivity.getPageContext().getPageActivity());
-            float h = pi.h(pbChosenActivity.getPageContext().getPageActivity());
-            chosenPbNetMessage.setQ_type(45L);
-            chosenPbNetMessage.setScrH(i);
-            chosenPbNetMessage.setScrW(k);
-            chosenPbNetMessage.setScr_dip(h);
-            chosenPbNetMessage.setExcId(j);
-            chosenPbNetMessage.setTagCode(j2);
-            chosenPbNetMessage.setThreadId(j3);
-            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.h.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            ga5.a(this.a.getPageContext(), this.b);
+            SkinManager.setBgColor(this.g, i);
+            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
         }
     }
 }

@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -258,16 +257,16 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         public final void e(int i, int i2, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.e = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, -i);
-                this.f = PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, f);
-                this.g = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, f2);
-                this.h = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, f2);
+                this.e = PropertyValuesHolder.ofFloat("translationX", -i);
+                this.f = PropertyValuesHolder.ofFloat("alpha", f);
+                this.g = PropertyValuesHolder.ofFloat("scaleX", f2);
+                this.h = PropertyValuesHolder.ofFloat("scaleY", f2);
                 float f3 = -i2;
-                this.i = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f3);
-                this.j = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f3);
-                this.k = PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, 1.0f);
-                this.l = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f);
-                this.m = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f);
+                this.i = PropertyValuesHolder.ofFloat("translationX", f3);
+                this.j = PropertyValuesHolder.ofFloat("translationX", f3);
+                this.k = PropertyValuesHolder.ofFloat("alpha", 1.0f);
+                this.l = PropertyValuesHolder.ofFloat("scaleX", 1.0f);
+                this.m = PropertyValuesHolder.ofFloat("scaleY", 1.0f);
             }
         }
 

@@ -66,7 +66,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     public Drawable getCurrentDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((ImageView) this.f1053view).getDrawable() : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((ImageView) this.f1780view).getDrawable() : (Drawable) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
@@ -139,7 +139,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
-            ((ImageView) this.f1053view).setImageDrawable(drawable);
+            ((ImageView) this.f1780view).setImageDrawable(drawable);
         }
     }
 

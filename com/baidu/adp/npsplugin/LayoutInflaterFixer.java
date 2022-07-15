@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i61;
+import com.repackage.w61;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -79,8 +79,8 @@ public class LayoutInflaterFixer {
             ArrayList arrayList = new ArrayList();
             arrayList.add("androidx.recyclerview");
             try {
-                Field b = i61.b(LayoutInflater.class, "sConstructorMap");
-                i61.h(b);
+                Field b = w61.b(LayoutInflater.class, "sConstructorMap");
+                w61.h(b);
                 Object obj = b.get(null);
                 if (obj instanceof Map) {
                     b.set(null, new PrivateMap(arrayList, (Map) obj));

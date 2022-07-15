@@ -1,11 +1,14 @@
 package com.repackage;
 
-import java.lang.reflect.Type;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface i59 {
-    String a(Object obj);
-
-    <T> T b(String str, Class<T> cls);
-
-    <T> T c(String str, Type type);
+public class i59 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 }

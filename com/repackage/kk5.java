@@ -1,96 +1,108 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class kk5 extends SQLiteOpenHelper {
+public class kk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static kk5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile HashMap<String, List<a>> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kk5(Context context) {
-        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public HashMap<String, Object> b;
+
+        public a(String str, HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = hashMap;
+        }
+    }
+
+    public kk5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public final void a(SQLiteDatabase sQLiteDatabase) {
+    public static kk5 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (kk5.class) {
+                    if (b == null) {
+                        b = new kk5();
+                    }
                 }
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);
-                BdLog.e("create table wrong " + e.toString());
             }
+            return b;
+        }
+        return (kk5) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, HashMap<String, Object> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
+            List<a> list = this.a.get(str);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.a.put(str, list);
+            }
+            list.add(new a(str2, hashMap));
         }
     }
 
-    public final void b(SQLiteDatabase sQLiteDatabase) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
-                }
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.dropTables", new Object[0]);
-                BdLog.e("drop table wrong " + e.toString());
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.remove(str);
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public List<a> d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            b(sQLiteDatabase);
-            a(sQLiteDatabase);
-            try {
-                MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.containsKey(str)) {
+                return this.a.get(str);
             }
+            return new ArrayList();
         }
+        return (List) invokeL.objValue;
     }
 }

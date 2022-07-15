@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.util.i;
+import com.bytedance.pangle.util.k;
 /* loaded from: classes4.dex */
 public final class a extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public final class a extends BroadcastReceiver {
             if (c.a().c.contains(Integer.valueOf(hashCode()))) {
                 c.a().a(context, intent);
             } else {
-                i.a(new Runnable(this, context, intent) { // from class: com.bytedance.pangle.receiver.a.1
+                k.a(new Runnable(this, context, intent) { // from class: com.bytedance.pangle.receiver.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context a;

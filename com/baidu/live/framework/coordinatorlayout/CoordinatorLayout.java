@@ -58,8 +58,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-import com.repackage.s90;
-import com.repackage.t90;
+import com.repackage.v90;
+import com.repackage.w90;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -79,7 +79,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static final Pools.Pool<Rect> y;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<View> a;
-    public final s90<View> b;
+    public final v90<View> b;
     public final List<View> c;
     public final List<View> d;
     public Paint e;
@@ -1260,7 +1260,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void n(View view2, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, view2, rect) == null) {
-            t90.a(this, view2, rect);
+            w90.a(this, view2, rect);
         }
     }
 
@@ -2070,8 +2070,6 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     @Override // androidx.core.view.NestedScrollingParent2
     public void onNestedPreScroll(View view2, int i, int i2, int[] iArr, int i3) {
         Behavior e2;
-        int min;
-        int min2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
             int childCount = getChildCount();
@@ -2087,18 +2085,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                         iArr2[0] = 0;
                         iArr2[1] = 0;
                         e2.q(this, childAt, view2, i, i2, iArr2, i3);
-                        if (i > 0) {
-                            min = Math.max(i4, this.f[0]);
-                        } else {
-                            min = Math.min(i4, this.f[0]);
-                        }
-                        i4 = min;
-                        if (i2 > 0) {
-                            min2 = Math.max(i5, this.f[1]);
-                        } else {
-                            min2 = Math.min(i5, this.f[1]);
-                        }
-                        i5 = min2;
+                        int[] iArr3 = this.f;
+                        i4 = i > 0 ? Math.max(i4, iArr3[0]) : Math.min(i4, iArr3[0]);
+                        int[] iArr4 = this.f;
+                        i5 = i2 > 0 ? Math.max(i5, iArr4[1]) : Math.min(i5, iArr4[1]);
                         z = true;
                     }
                 }
@@ -2206,7 +2196,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
         this.a = new ArrayList();
-        this.b = new s90<>();
+        this.b = new v90<>();
         this.c = new ArrayList();
         this.d = new ArrayList();
         this.f = new int[2];
@@ -2248,7 +2238,6 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void onNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
         Behavior e2;
         int min;
-        int min2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
             int childCount = getChildCount();
@@ -2264,18 +2253,14 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                         iArr2[0] = 0;
                         iArr2[1] = 0;
                         e2.t(this, childAt, view2, i, i2, i3, i4, i5, iArr2);
-                        if (i3 > 0) {
-                            min = Math.max(i6, this.f[0]);
-                        } else {
-                            min = Math.min(i6, this.f[0]);
-                        }
-                        i6 = min;
+                        int[] iArr3 = this.f;
+                        i6 = i3 > 0 ? Math.max(i6, iArr3[0]) : Math.min(i6, iArr3[0]);
                         if (i4 > 0) {
-                            min2 = Math.max(i7, this.f[1]);
+                            min = Math.max(i7, this.f[1]);
                         } else {
-                            min2 = Math.min(i7, this.f[1]);
+                            min = Math.min(i7, this.f[1]);
                         }
-                        i7 = min2;
+                        i7 = min;
                         z = true;
                     }
                 }
@@ -2296,7 +2281,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         public SparseArray<Parcelable> behaviorStates;
 
         /* loaded from: classes2.dex */
-        public class a implements Parcelable.ClassLoaderCreator<SavedState> {
+        public static class a implements Parcelable.ClassLoaderCreator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

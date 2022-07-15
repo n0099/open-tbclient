@@ -25,7 +25,7 @@ public class m extends i {
     }
 
     @Override // com.kwai.filedownloader.i
-    public void a(a aVar, int i, int i2) {
+    public final void a(a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, aVar, i, i2) == null) {
         }
@@ -39,14 +39,14 @@ public class m extends i {
     }
 
     @Override // com.kwai.filedownloader.i
-    public void b(a aVar) {
+    public final void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
         }
     }
 
     @Override // com.kwai.filedownloader.i
-    public void b(a aVar, int i, int i2) {
+    public final void b(a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, aVar, i, i2) == null) {
         }
@@ -60,14 +60,14 @@ public class m extends i {
     }
 
     @Override // com.kwai.filedownloader.i
-    public void c(a aVar, int i, int i2) {
+    public final void c(a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, aVar, i, i2) == null) {
         }
     }
 
     @Override // com.kwai.filedownloader.i
-    public void d(a aVar) {
+    public final void d(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
         }

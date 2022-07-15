@@ -1,101 +1,42 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e22 extends u12 {
+public class e22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755789588, "Lcom/repackage/e22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755789588, "Lcom/repackage/e22;");
-                return;
-            }
-        }
-        l = cg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e22(boolean z, boolean z2) {
-        super(z, z2);
+    public e22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        if (l) {
-            Log.d("PreloadMasterManager", "PreloadMasterManagerSingle created");
         }
     }
 
-    @Override // com.repackage.u12
-    public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLL;
+    public d22 a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, pMSAppInfo)) == null) {
-            PMSAppInfo g = g();
-            if (g == null) {
-                return false;
-            }
-            if (!TextUtils.equals(pMSAppInfo.appId, g.appId)) {
-                if (l) {
-                    Log.e("PreloadMasterManager", "one master can only prefetch one appId");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return new f22(context);
                 }
-                return true;
-            } else if (w(pMSAppInfo, cVar)) {
-                if (l) {
-                    Log.w("PreloadMasterManager", "prefetch app is not the same !!!!");
-                    Log.w("PreloadMasterManager", "bind app info - " + g());
-                    Log.w("PreloadMasterManager", "prefetch app info - " + pMSAppInfo);
-                }
-                return true;
-            } else {
-                return false;
+                return new h22(context);
             }
+            return new f22(context);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo, cVar)) == null) {
-            PMSAppInfo g = g();
-            if (this.c == null) {
-                return false;
-            }
-            return (pMSAppInfo.versionCode == g.versionCode && TextUtils.equals(pMSAppInfo.appId, g.appId) && !m(cVar, this.d)) ? false : true;
-        }
-        return invokeLL.booleanValue;
+        return (d22) invokeLI.objValue;
     }
 }

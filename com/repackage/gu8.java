@@ -1,35 +1,93 @@
 package com.repackage;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.VideoTemplate.DataRes;
+import tbclient.VideoTemplateContent;
 /* loaded from: classes6.dex */
-public interface gu8 {
-    void a();
+public class gu8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<fu8> a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    void b(long j);
+    public gu8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(double d);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
 
-    void d(int i);
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
 
-    void e(int i, int i2);
+    public List<fu8> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
 
-    void f(int i, int i2);
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
 
-    void g(int i, int i2, int i3);
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
 
-    void h();
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
 
-    void i();
-
-    void j(int i, iu8 iu8Var);
-
-    void k();
-
-    void l(double d);
-
-    void m();
-
-    void n(long j, long j2);
-
-    void o(long j, long j2);
-
-    void onClick();
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
+            this.b = dataRes.topic_id.intValue();
+            this.c = dataRes.topic_name;
+            this.d = dataRes.back_url;
+            this.e = dataRes.video_template_url;
+            this.f = dataRes.activity_url;
+            List<VideoTemplateContent> list = dataRes.video_template_content;
+            if (list != null) {
+                this.a = new ArrayList();
+                for (int i = 0; i < list.size(); i++) {
+                    fu8 fu8Var = new fu8();
+                    fu8Var.a(list.get(i));
+                    this.a.add(fu8Var);
+                }
+            }
+        }
+    }
 }

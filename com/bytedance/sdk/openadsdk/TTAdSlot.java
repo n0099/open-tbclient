@@ -27,8 +27,6 @@ public interface TTAdSlot {
 
     String getCreativeId();
 
-    int getDownloadType();
-
     int getDurationSlotType();
 
     float getExpressViewAcceptedHeight();
@@ -52,12 +50,6 @@ public interface TTAdSlot {
     int getOrientation();
 
     String getPrimeRit();
-
-    int getRewardAmount();
-
-    String getRewardName();
-
-    int getSplashButtonType();
 
     String getUserData();
 

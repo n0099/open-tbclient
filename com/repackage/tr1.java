@@ -1,22 +1,120 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class tr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public bs1 a;
+    public boolean b;
+    public bs9 c;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tr1 a;
+
+        public a(tr1 tr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tr1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (tr1.d) {
+                    Log.d("PendingOperationManager", "=============== FMP end, begin loop pending operation ==============");
+                }
+                this.a.j();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tr1 a;
+
+        public b(tr1 tr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tr1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (tr1.d) {
+                    Log.d("PendingOperationManager", "=============== FCP end, begin loop pending operation ==============");
+                }
+                this.a.j();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tr1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(24172799, "Lcom/repackage/tr1$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(24172799, "Lcom/repackage/tr1$c;");
+                    return;
+                }
+            }
+            a = new tr1(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,82 +129,111 @@ public class tr1 {
                 return;
             }
         }
-        a = cg1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        d = rg1.a;
     }
 
-    @NonNull
-    public static Pair<Boolean, rr1> a(sn1 sn1Var, String str) {
-        InterceptResult invokeLL;
+    public /* synthetic */ tr1(a aVar) {
+        this();
+    }
+
+    public static tr1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, sn1Var, str)) == null) {
-            sr1 sr1Var = new sr1();
-            boolean b2 = b(str, sn1Var.a().i());
-            if (b2) {
-                sr1Var.b = 402;
-            }
-            return new Pair<>(Boolean.valueOf(b2), sr1Var);
-        }
-        return (Pair) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a : (tr1) invokeV.objValue;
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
+    public void c(BasePendingOperation basePendingOperation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof am1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            if (basePendingOperation == null) {
+                if (d) {
+                    throw new IllegalStateException("The operation can't be null!");
                 }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    throw new RuntimeException("whitelistName is empty");
-                }
-                return false;
+            } else if (!e() && basePendingOperation.a()) {
+                this.a.a(basePendingOperation);
             } else {
-                String e0 = ((am1) callbackHandler).e0();
-                if ("ai_apps_widget".equals(e0)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(e0)) {
-                    z = !j03.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(e0) && !"swan_app_alliance_choose_address_widget".equals(e0) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
-                    }
-                    return false;
+                if (d) {
+                    Log.d("PendingOperationManager", "=============== Execute module:" + e() + " " + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
+                basePendingOperation.run();
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (d) {
+                Log.d("PendingOperationManager", String.format("=============== FCP end, delay  %d ms to loop ==============", 6000));
             }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (j03.g(str2 + "/" + substring)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return !j03.g(str);
+            this.c = bd3.c(new b(this), "pending_operation", 6000L, TimeUnit.MILLISECONDS);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.c != null) {
+                if (d) {
+                    Log.d("PendingOperationManager", "=============== FMP end, cancel fcp loop operation ==============");
+                }
+                this.c.unsubscribe();
+                this.c = null;
+            }
+            if (e()) {
+                return;
+            }
+            bd3.j(new a(this), "pending_operation");
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (d) {
+                Log.d("PendingOperationManager", "=============== release PendingQueue & reset fmp flag ==============");
+            }
+            i();
+            this.a.b();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+            this.a.d();
+        }
+    }
+
+    public tr1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.a = new bs1();
     }
 }

@@ -13,11 +13,11 @@ import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
 /* loaded from: classes5.dex */
 public class Wrapper {
@@ -28,8 +28,9 @@ public class Wrapper {
     public static final String METHOD_GET_BASE_CONTEXT = "getBaseContext";
     public static final String METHOD_WRAP_CONTEXT = "wrapContextIfNeed";
     public static final String TAG = "Wrapper";
+    public static final int TIMELINE_MINIWRAP = 150;
     public static final ThreadLocal<a> sAutoUnWrapModelTL = new ThreadLocal<>();
-    public static final List<String> sAutoUnWrapStackList = new ArrayList();
+    public static final List<String> sAutoUnWrapStackList = new CopyOnWriteArrayList();
     public static Map<Context, Context> sResContextCache = new WeakHashMap();
 
     /* loaded from: classes5.dex */
@@ -38,6 +39,7 @@ public class Wrapper {
         public int b;
         public StackTraceElement[] c;
         public int d;
+        public long e;
 
         public a() {
             this.a = new WeakReference<>(null);
@@ -46,24 +48,16 @@ public class Wrapper {
             this.d = 0;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a() {
+        public /* synthetic */ a(byte b) {
+            this();
+        }
+
+        public final void a() {
             this.a = new WeakReference<>(null);
             this.b = 0;
             this.c = null;
             this.d = 0;
-        }
-
-        public static /* synthetic */ int b(a aVar) {
-            int i = aVar.b;
-            aVar.b = i + 1;
-            return i;
-        }
-
-        public static /* synthetic */ int f(a aVar) {
-            int i = aVar.d;
-            aVar.d = i + 1;
-            return i;
+            this.e = 0L;
         }
     }
 
@@ -104,14 +98,19 @@ public class Wrapper {
             }
             return false;
         }
-        a.f(aVar);
+        int i3 = aVar.d + 1;
+        aVar.d = i3;
         aVar.c = stackTrace;
-        if (aVar.d < 5) {
+        if (i3 < 5) {
             return false;
         }
         str = "needAutoUnWrap true 连续相同堆栈";
         Log.d(TAG, str);
         return true;
+    }
+
+    public static void onDestroy(Context context) {
+        sResContextCache.remove(context);
     }
 
     public static ClassLoader replaceExternalClassLoader(ClassLoader classLoader) {
@@ -140,20 +139,19 @@ public class Wrapper {
     public static boolean returnUnWrappedContext(Context context) {
         a aVar = sAutoUnWrapModelTL.get();
         if (aVar == null) {
-            sAutoUnWrapModelTL.set(new a());
-            return false;
-        } else if (aVar.a.get() != context) {
+            sAutoUnWrapModelTL.set(new a((byte) 0));
+        } else if (aVar.a.get() != context || Math.abs(System.currentTimeMillis() - aVar.e) >= 150) {
             aVar.a();
-            aVar.a = new WeakReference(context);
-            return false;
+            aVar.a = new WeakReference<>(context);
+            aVar.e = System.currentTimeMillis();
         } else {
-            a.b(aVar);
-            if (aVar.b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
-                return false;
+            aVar.b++;
+            if (aVar.b >= (context instanceof Application ? 15 : 5) && needAutoUnWrap(context, aVar)) {
+                aVar.a();
+                return true;
             }
-            aVar.a();
-            return true;
         }
+        return false;
     }
 
     @Keep
@@ -187,33 +185,33 @@ public class Wrapper {
             if (context instanceof ContextThemeWrapper) {
                 Context context2 = sResContextCache.get(context);
                 if (context2 == null) {
-                    l lVar = new l((ContextThemeWrapper) context);
-                    sResContextCache.put(context, lVar);
-                    return lVar;
+                    m mVar = new m((ContextThemeWrapper) context);
+                    sResContextCache.put(context, mVar);
+                    return mVar;
                 }
                 return context2;
             } else if (context instanceof androidx.appcompat.view.ContextThemeWrapper) {
                 Context context3 = sResContextCache.get(context);
                 if (context3 == null) {
-                    m mVar = new m((androidx.appcompat.view.ContextThemeWrapper) context);
-                    sResContextCache.put(context, mVar);
-                    return mVar;
+                    n nVar = new n((androidx.appcompat.view.ContextThemeWrapper) context);
+                    sResContextCache.put(context, nVar);
+                    return nVar;
                 }
                 return context3;
             } else if (context instanceof ContextWrapper) {
                 Context context4 = sResContextCache.get(context);
                 if (context4 == null) {
-                    n nVar = new n(context);
-                    sResContextCache.put(context, nVar);
-                    return nVar;
+                    o oVar = new o(context);
+                    sResContextCache.put(context, oVar);
+                    return oVar;
                 }
                 return context4;
             } else {
                 Context context5 = sResContextCache.get(context);
                 if (context5 == null) {
-                    n nVar2 = new n(context);
-                    sResContextCache.put(context, nVar2);
-                    return nVar2;
+                    o oVar2 = new o(context);
+                    sResContextCache.put(context, oVar2);
+                    return oVar2;
                 }
                 return context5;
             }

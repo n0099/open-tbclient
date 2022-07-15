@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
-import com.repackage.jo4;
-import com.repackage.kr6;
+import com.repackage.wh8;
+import com.repackage.yo4;
+import com.repackage.yr6;
 import com.repackage.za;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean e;
     public long f;
     public String g;
-    public kr6 h;
+    public yr6 h;
     public b i;
     public za j;
     public int mUserType;
@@ -72,9 +72,9 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             if (z || (responsedMessage instanceof GetPersonalGiftListSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        this.a.I(((GetPersonalGiftListHttpResponseMessage) responsedMessage).getGiftListData());
+                        this.a.J(((GetPersonalGiftListHttpResponseMessage) responsedMessage).getGiftListData());
                     } else if (responsedMessage instanceof GetPersonalGiftListSocketResponseMessage) {
-                        this.a.I(((GetPersonalGiftListSocketResponseMessage) responsedMessage).getGiftListData());
+                        this.a.J(((GetPersonalGiftListSocketResponseMessage) responsedMessage).getGiftListData());
                     }
                 }
                 if (this.a.i != null) {
@@ -87,7 +87,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, boolean z, kr6 kr6Var);
+        void a(int i, String str, boolean z, yr6 yr6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -118,11 +118,11 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         aVar.getHttpMessageListener().setSelfListener(true);
         this.j.getSocketMessageListener().setSelfListener(true);
         registerListener(this.j);
-        bh8.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
-        bh8.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
+        wh8.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
+        wh8.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
-    public final GetPersonalGiftListRequest E(int i, long j) {
+    public final GetPersonalGiftListRequest F(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
@@ -140,74 +140,74 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         return (GetPersonalGiftListRequest) invokeCommon.objValue;
     }
 
-    public boolean F() {
+    public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public final void G() {
-        GetPersonalGiftListRequest E;
+    public final void H() {
+        GetPersonalGiftListRequest F;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!this.c) {
-                E = E(1, this.f);
+                F = F(1, this.f);
             } else {
-                E = E(this.b + 1, this.f);
+                F = F(this.b + 1, this.f);
             }
-            sendMessage(E);
+            sendMessage(F);
         }
     }
 
-    public boolean H() {
+    public boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public final void I(kr6 kr6Var) {
+    public final void J(yr6 yr6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, kr6Var) == null) || kr6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, yr6Var) == null) || yr6Var == null) {
             return;
         }
         if (this.h == null) {
-            this.h = new kr6();
+            this.h = new yr6();
         }
         if (this.h.c() == null) {
-            this.h.i(new kr6.b());
+            this.h.i(new yr6.b());
         }
         if (this.h.d() == null) {
-            this.h.j(new kr6.c());
+            this.h.j(new yr6.c());
         }
         if (this.h.a() == null) {
             this.h.g(new ArrayList<>());
         }
-        this.h.h(kr6Var.b());
-        this.h.k(kr6Var.e());
-        this.h.i(kr6Var.c());
-        this.h.j(kr6Var.d());
-        kr6 kr6Var2 = this.h;
-        kr6Var2.h = kr6Var.h;
-        kr6Var2.f = kr6Var.f;
-        if (kr6Var.g != null) {
-            kr6Var2.g = new jo4();
-            jo4 jo4Var = this.h.g;
-            jo4 jo4Var2 = kr6Var.g;
-            jo4Var.a = jo4Var2.a;
-            jo4Var.b = jo4Var2.b;
+        this.h.h(yr6Var.b());
+        this.h.k(yr6Var.e());
+        this.h.i(yr6Var.c());
+        this.h.j(yr6Var.d());
+        yr6 yr6Var2 = this.h;
+        yr6Var2.h = yr6Var.h;
+        yr6Var2.f = yr6Var.f;
+        if (yr6Var.g != null) {
+            yr6Var2.g = new yo4();
+            yo4 yo4Var = this.h.g;
+            yo4 yo4Var2 = yr6Var.g;
+            yo4Var.a = yo4Var2.a;
+            yo4Var.b = yo4Var2.b;
         }
         if (this.h.c() != null) {
             this.b = this.h.c().a;
             this.a = this.h.c().b == 1;
         }
-        if (kr6Var.a() == null || kr6Var.a().size() <= 0) {
+        if (yr6Var.a() == null || yr6Var.a().size() <= 0) {
             return;
         }
         if (this.c) {
-            ArrayList<kr6.a> a2 = kr6Var.a();
+            ArrayList<yr6.a> a2 = yr6Var.a();
             int size = this.h.a().size() + 1;
             for (int i = 0; i < a2.size(); i++) {
-                kr6.a aVar = a2.get(i);
+                yr6.a aVar = a2.get(i);
                 if (aVar != null) {
                     aVar.h = size;
                     size++;
@@ -217,36 +217,36 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             return;
         }
         this.h.a().clear();
-        this.h.a().addAll(kr6Var.a());
+        this.h.a().addAll(yr6Var.a());
     }
 
-    public void J(b bVar) {
+    public void K(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.i = bVar;
         }
     }
 
-    public final void K(String str) {
+    public final void L(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || str == null || str.length() <= 0 || str.equals("0") || str.startsWith("-")) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(str)) {
-            M(true);
+            N(true);
         } else {
-            M(false);
+            N(false);
         }
     }
 
-    public void L(boolean z) {
+    public void M(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.c = z;
         }
     }
 
-    public void M(boolean z) {
+    public void N(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.d = z;
@@ -274,7 +274,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            G();
+            H();
             return false;
         }
         return invokeV.booleanValue;
@@ -284,7 +284,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
             this.f = j;
-            K(String.valueOf(j));
+            L(String.valueOf(j));
         }
     }
 }

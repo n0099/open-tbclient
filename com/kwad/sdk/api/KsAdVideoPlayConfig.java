@@ -25,6 +25,7 @@ public interface KsAdVideoPlayConfig {
 
         @KsAdSdkApi
         @Keep
+        @Deprecated
         public Builder dataFlowAutoStart(boolean z) {
             this.config.setDataFlowAutoStart(z);
             return this;
@@ -39,11 +40,32 @@ public interface KsAdVideoPlayConfig {
 
         @KsAdSdkApi
         @Keep
+        public Builder videoAutoPlayType(int i) {
+            this.config.setVideoAutoPlayType(i);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder videoSoundEnable(boolean z) {
             this.config.setVideoSoundEnable(z);
             return this;
         }
     }
+
+    @KsAdSdkApi
+    @Keep
+    /* loaded from: classes5.dex */
+    public @interface VideoAutoPlayType {
+        public static final int AUTO_PLAY = 1;
+        public static final int AUTO_PLAY_WIFI = 2;
+        public static final int NO_AUTO_PLAY = 3;
+        public static final int UNKNOWN = 0;
+    }
+
+    @KsAdSdkApi
+    @Keep
+    int getVideoAutoPlayType();
 
     @KsAdSdkApi
     @Keep
@@ -59,11 +81,16 @@ public interface KsAdVideoPlayConfig {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void setDataFlowAutoStart(boolean z);
 
     @KsAdSdkApi
     @Keep
     void setNoCache();
+
+    @KsAdSdkApi
+    @Keep
+    void setVideoAutoPlayType(@VideoAutoPlayType int i);
 
     @KsAdSdkApi
     @Keep

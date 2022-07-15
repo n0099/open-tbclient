@@ -72,7 +72,7 @@ public class SpeechRecognitionDialog extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpeechRecognitionDialog(Activity activity) {
-        super(activity, R.style.obfuscated_res_0x7f1003e1);
+        super(activity, R.style.obfuscated_res_0x7f1003e4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,20 +136,20 @@ public class SpeechRecognitionDialog extends Dialog {
             super.onCreate(bundle);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d6);
-            setContentView(R.layout.obfuscated_res_0x7f0d04b5);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d9);
+            setContentView(R.layout.obfuscated_res_0x7f0d04ce);
             Display defaultDisplay = this.activity.getWindowManager().getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             attributes.height = SapiUtils.dip2px(getContext(), 297.0f);
             getWindow().setAttributes(attributes);
-            this.tipsTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f092015);
-            this.voiceParentLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923c1);
-            this.closeButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f09062e);
-            this.stopSpeechLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d9a);
-            this.tipsAreaLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092013);
-            this.microphoneImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913db);
-            this.stopSpeechTx = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9b);
+            this.tipsTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ba);
+            this.voiceParentLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092481);
+            this.closeButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f090630);
+            this.stopSpeechLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e3e);
+            this.tipsAreaLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920b8);
+            this.microphoneImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f091483);
+            this.stopSpeechTx = (TextView) findViewById(R.id.obfuscated_res_0x7f091e3f);
             VoiceSinWaveView voiceSinWaveView = new VoiceSinWaveView(getContext());
             this.voiceSinWaveView = voiceSinWaveView;
             voiceSinWaveView.showInParentView(this.voiceParentLayout);
@@ -272,7 +272,7 @@ public class SpeechRecognitionDialog extends Dialog {
                     }
                 });
             }
-            this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f107b);
+            this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f1072);
             ResetCallback resetCallback = this.resetCallback;
             if (resetCallback != null) {
                 resetCallback.onReset();
@@ -310,7 +310,7 @@ public class SpeechRecognitionDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             if (i == 0) {
-                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081083);
+                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081002);
                 this.stopSpeechLayout.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -342,14 +342,14 @@ public class SpeechRecognitionDialog extends Dialog {
                         }
                     }
                 });
-                this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f106d);
+                this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f1064);
                 this.stopSpeechTx.setVisibility(0);
             } else if (i != 1) {
                 if (i != 2 || (relativeLayout = this.stopSpeechLayout) == null || this.microphoneImage == null || this.stopSpeechTx == null) {
                     return;
                 }
                 relativeLayout.setClickable(false);
-                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081082);
+                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081001);
                 this.stopSpeechTx.setVisibility(8);
             } else {
                 RelativeLayout relativeLayout2 = this.stopSpeechLayout;
@@ -357,8 +357,8 @@ public class SpeechRecognitionDialog extends Dialog {
                     return;
                 }
                 relativeLayout2.setClickable(false);
-                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081084);
-                this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f107a);
+                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081003);
+                this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f1071);
                 this.stopSpeechTx.setVisibility(0);
             }
         }
@@ -379,7 +379,7 @@ public class SpeechRecognitionDialog extends Dialog {
                 relativeLayout.setVisibility(8);
                 this.voiceParentLayout.setVisibility(8);
             }
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0923bf);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09247f);
             this.viewStub = viewStub;
             View inflate = viewStub != null ? viewStub.inflate() : this.errorParentView;
             this.errorParentView = inflate;
@@ -387,11 +387,11 @@ public class SpeechRecognitionDialog extends Dialog {
                 if (4 != inflate.getVisibility()) {
                     this.errorParentView.setVisibility(0);
                 }
-                ImageView imageView = (ImageView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908d8);
-                TextView textView = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908dc);
-                TextView textView2 = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908d6);
-                TextView textView3 = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908d7);
-                Button button = (Button) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908d4);
+                ImageView imageView = (ImageView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908df);
+                TextView textView = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908e3);
+                TextView textView2 = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908dd);
+                TextView textView3 = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908de);
+                Button button = (Button) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f0908db);
                 button.setVisibility(8);
                 textView3.setVisibility(8);
                 button.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.4
@@ -427,7 +427,7 @@ public class SpeechRecognitionDialog extends Dialog {
                         }
                     }
                 });
-                ((ImageView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f09062f)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.5
+                ((ImageView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f090631)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SpeechRecognitionDialog this$0;
@@ -460,32 +460,32 @@ public class SpeechRecognitionDialog extends Dialog {
                 });
                 switch (i) {
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_INTERRUPT /* -506 */:
-                        textView.setText(R.string.obfuscated_res_0x7f0f106f);
-                        textView2.setText(R.string.obfuscated_res_0x7f0f106e);
+                        textView.setText(R.string.obfuscated_res_0x7f0f1066);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f1065);
                         setStopSpeechLayout(0);
-                        setActualTimeWord(getContext().getString(R.string.obfuscated_res_0x7f0f107c));
+                        setActualTimeWord(getContext().getString(R.string.obfuscated_res_0x7f0f1073));
                         return;
                     case -505:
-                        textView.setText(R.string.obfuscated_res_0x7f0f1077);
-                        textView2.setText(R.string.obfuscated_res_0x7f0f1076);
+                        textView.setText(R.string.obfuscated_res_0x7f0f106e);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f106d);
                         break;
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_MICRO_OFF /* -504 */:
-                        textView.setText(R.string.obfuscated_res_0x7f0f1073);
-                        textView2.setText(R.string.obfuscated_res_0x7f0f1070);
+                        textView.setText(R.string.obfuscated_res_0x7f0f106a);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f1067);
                         button.setVisibility(0);
                         textView3.setVisibility(0);
                         break;
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_NET_OFF /* -503 */:
-                        textView.setText(R.string.obfuscated_res_0x7f0f1075);
-                        textView2.setText(R.string.obfuscated_res_0x7f0f1074);
+                        textView.setText(R.string.obfuscated_res_0x7f0f106c);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f106b);
                         break;
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_INIT_FAIL /* -502 */:
-                        textView.setText(R.string.obfuscated_res_0x7f0f106c);
-                        textView2.setText(R.string.obfuscated_res_0x7f0f1078);
+                        textView.setText(R.string.obfuscated_res_0x7f0f1063);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f106f);
                         break;
                     default:
-                        textView.setText(R.string.obfuscated_res_0x7f0f1079);
-                        textView2.setText(R.string.obfuscated_res_0x7f0f1078);
+                        textView.setText(R.string.obfuscated_res_0x7f0f1070);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f106f);
                         break;
                 }
             }

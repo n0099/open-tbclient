@@ -1,75 +1,43 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x43;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ah3 extends vn1 {
+public class ah3 extends r53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean s;
+    public String t;
 
     /* loaded from: classes5.dex */
-    public class a implements le3<v43<x43.e>> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ah3 b;
-
-        public a(ah3 ah3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ah3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ah3Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: b */
-        public void a(v43<x43.e> v43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                if (q43.h(v43Var)) {
-                    this.b.C(this.a);
-                    return;
-                }
-                int b = v43Var.b();
-                q43.f(b);
-                this.b.d(this.a, new sr1(b, q43.f(b)));
-            }
-        }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements xh3 {
+    public class b extends g53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ah3 b;
+        public final /* synthetic */ ah3 c;
 
         /* loaded from: classes5.dex */
-        public class a implements zh3 {
+        public class a implements af3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -92,27 +60,33 @@ public class ah3 extends vn1 {
                 this.a = bVar;
             }
 
-            @Override // com.repackage.zh3
-            public void onResult(int i) {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.af3
+            /* renamed from: b */
+            public void a(Bundle bundle) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                    if (i == 0) {
-                        b bVar = this.a;
-                        bVar.b.d(bVar.a, new sr1(0));
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                    if (bundle == null) {
+                        this.a.e(new OAuthException("null stoken", 10001));
                         return;
                     }
-                    b bVar2 = this.a;
-                    bVar2.b.d(bVar2.a, new sr1(10004, "user not logged in"));
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
+                    if (!TextUtils.isEmpty(string)) {
+                        this.a.c.t = string;
+                        this.a.d();
+                        return;
+                    }
+                    this.a.e(new OAuthException("empty stoken", 10001));
                 }
             }
         }
 
-        public b(ah3 ah3Var, String str) {
+        public b(ah3 ah3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ah3Var, str};
+                Object[] objArr = {ah3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -122,233 +96,100 @@ public class ah3 extends vn1 {
                     return;
                 }
             }
-            this.b = ah3Var;
-            this.a = str;
+            this.c = ah3Var;
         }
 
-        @Override // com.repackage.xh3
-        public void a(QuickLoginInfo quickLoginInfo) {
+        @Override // com.repackage.g53
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
-                if (quickLoginInfo == null) {
-                    this.b.d(this.a, new sr1(1001));
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.c.s) {
+                    this.c.t = null;
+                    if (ah3.u) {
+                        Log.w("MaOpenDataRequest", "user not login");
+                        return true;
+                    }
+                    return true;
                 }
-                boolean z = quickLoginInfo.supportQuickLogin;
-                int i = quickLoginInfo.loginMode;
-                if (z) {
-                    ai3.e(rz2.K().x(), i, new a(this));
-                } else {
-                    this.b.d(this.a, new sr1(10004, "user not logged in"));
-                }
+                hg3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                return false;
             }
+            return invokeV.booleanValue;
+        }
+
+        public /* synthetic */ b(ah3 ah3Var, a aVar) {
+            this(ah3Var);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements le3<v43<x43.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ah3 b;
-
-        public c(ah3 ah3Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755856827, "Lcom/repackage/ah3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ah3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = ah3Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: b */
-        public void a(v43<x43.e> v43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                if (q43.h(v43Var)) {
-                    this.b.B(this.a);
-                    return;
-                }
-                int b = v43Var.b();
-                q43.f(b);
-                this.b.d(this.a, new sr1(b, q43.f(b)));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755856827, "Lcom/repackage/ah3;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements xh3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ah3 b;
-
-        public d(ah3 ah3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ah3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ah3Var;
-            this.a = str;
-        }
-
-        @Override // com.repackage.xh3
-        public void a(QuickLoginInfo quickLoginInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
-                if (quickLoginInfo == null) {
-                    this.b.D(this.a);
-                } else {
-                    this.b.E(this.a, quickLoginInfo);
-                }
-            }
-        }
+        u = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ah3(@NonNull tn1 tn1Var) {
-        super(tn1Var);
+    public ah3(Activity activity, String str, String str2, boolean z, boolean z2) {
+        super(activity, str, str2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tn1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tn1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.s = z2;
+        y();
     }
 
-    public final void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ai3.b(new d(this, str));
-        }
-    }
-
-    public final void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ai3.b(new b(this, str));
-        }
-    }
-
-    public final void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            d(str, new sr1(10001, "internal error"));
-        }
-    }
-
-    public final void E(String str, QuickLoginInfo quickLoginInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, quickLoginInfo) == null) {
-            if (quickLoginInfo == null) {
-                d(str, new sr1(1001));
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("supportQuickLogin", quickLoginInfo.supportQuickLogin);
-                jSONObject.put("encryptPhoneNum", quickLoginInfo.encryptPhoneNum);
-                jSONObject.put("serviceAgreement", quickLoginInfo.serviceAgreement);
-                jSONObject.put("hasHistory", quickLoginInfo.hasHistory);
-                d(str, new sr1(0, jSONObject));
-            } catch (JSONException unused) {
-                d(str, new sr1(1001));
-            }
-        }
-    }
-
-    public sr1 F(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            Pair<sr1, JSONObject> s = s(str);
-            sr1 sr1Var = (sr1) s.first;
-            if (sr1Var.isSuccess() && (obj = s.second) != null) {
-                String optString = ((JSONObject) obj).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new sr1(1001, "cb is empty");
-                }
-                sz2 b0 = sz2.b0();
-                if (b0 == null) {
-                    return new sr1(1001);
-                }
-                b0.e0().g(getContext(), "scope_quick_login", new c(this, optString));
-                return new sr1(0);
-            }
-            sw1.c("QuickLoginApi", "parse fail");
-            return sr1Var;
-        }
-        return (sr1) invokeL.objValue;
-    }
-
-    public sr1 G(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#quickLogin", false);
-            Pair<sr1, JSONObject> s = s(str);
-            sr1 sr1Var = (sr1) s.first;
-            if (!sr1Var.isSuccess() || (obj = s.second) == null) {
-                return sr1Var;
-            }
-            String optString = ((JSONObject) obj).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new sr1(1001, "cb is empty");
-            }
-            sz2 b0 = sz2.b0();
-            if (b0 == null) {
-                return new sr1(1001);
-            }
-            b0.e0().g(getContext(), "scope_quick_login", new a(this, optString));
-            return sr1.f();
-        }
-        return (sr1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.vn1
-    public String h() {
+    @Override // com.repackage.r53
+    public JSONObject P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "PrivateBusiness" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject P = super.P();
+            if (!TextUtils.isEmpty(this.t)) {
+                try {
+                    P.put("stoken", this.t);
+                } catch (JSONException e) {
+                    if (u) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return P;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.repackage.vn1
-    public String j() {
+    @Override // com.repackage.e53
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "QuickLoginApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h(new b(this, null));
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,168 +1,274 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
+import com.airbnb.lottie.LottieListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class ma1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String b = b();
-            if (TextUtils.isEmpty(b)) {
-                return 0;
+    /* loaded from: classes6.dex */
+    public class a implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public a(ma1 ma1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray(b);
-                for (int i = 0; i < jSONArray2.length(); i++) {
-                    long optLong = jSONArray2.optLong(i);
-                    if (c01.c(optLong, currentTimeMillis)) {
-                        jSONArray.put(optLong);
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.a) == null) {
+                return;
+            }
+            fVar.b();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public b(ma1 ma1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
                     }
+                    return;
                 }
-                g(jSONArray.toString());
-                return jSONArray.length();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return 0;
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
             }
         }
-        return invokeV.intValue;
     }
 
-    @NonNull
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sx0.a().b("splash_sp_name").getString("today_cpc_show_list", "") : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class c implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
 
-    public static long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sx0.a().b("splash_sp_name").getLong("last_show_time", 0L) : invokeV.longValue;
-    }
-
-    public static JSONArray d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String string = sx0.a().b("splash_sp_name").getString("today_show_list", "");
-            JSONArray jSONArray = new JSONArray();
-            if (TextUtils.isEmpty(string)) {
-                return jSONArray;
+        public c(ma1 ma1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                JSONArray jSONArray2 = new JSONArray(string);
-                for (int i = 0; i < jSONArray2.length(); i++) {
-                    JSONObject optJSONObject = jSONArray2.optJSONObject(i);
-                    try {
-                        if (c01.c(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000, System.currentTimeMillis())) {
-                            jSONArray.put(optJSONObject);
-                        }
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.a) == null) {
+                return;
+            }
+            fVar.b();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public d(ma1 ma1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
                     }
+                    return;
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
             }
-            sx0.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public static void e(ka1 ka1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ka1Var) == null) {
-            sx0.a().b("splash_sp_name").h("last_show_time", System.currentTimeMillis() / 1000);
-            h(ka1Var);
         }
     }
 
-    public static void f() {
-        JSONArray jSONArray;
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static ma1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-191931053, "Lcom/repackage/ma1$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-191931053, "Lcom/repackage/ma1$e;");
+                    return;
+                }
+            }
+            a = new ma1(null);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(LottieComposition lottieComposition);
+
+        void b();
+    }
+
+    public /* synthetic */ ma1(a aVar) {
+        this();
+    }
+
+    public static ma1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            String b = b();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e.a : (ma1) invokeV.objValue;
+    }
+
+    public void a(File file, f fVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
             try {
-                if (TextUtils.isEmpty(b)) {
-                    jSONArray = new JSONArray();
-                } else {
-                    jSONArray = new JSONArray(b);
+                LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
+            } catch (Exception unused) {
+                if (fVar != null) {
+                    fVar.b();
                 }
-                jSONArray.put(System.currentTimeMillis());
-                g(jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
 
-    public static void g(@NonNull String str) {
+    public void b(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            sx0.a().b("splash_sp_name").j("today_cpc_show_list", str, false);
-        }
-    }
-
-    public static void h(ka1 ka1Var) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, ka1Var) == null) || ka1Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (ka1Var.f()) {
-            f();
+        File s = xa1.s(str);
+        if (s != null && s.exists()) {
+            a(s, fVar);
             return;
         }
-        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
-        String string = sx0.a().b("splash_sp_name").getString("today_show_list", "");
         try {
-            if (TextUtils.isEmpty(string)) {
-                jSONArray = new JSONArray();
-            } else {
-                jSONArray = new JSONArray(string);
+            LottieCompositionFactory.fromUrl(hh0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
+        } catch (Exception unused) {
+            if (fVar != null) {
+                fVar.b();
             }
-            boolean z = true;
-            if (jSONArray.length() > 0) {
-                int i = 0;
-                while (true) {
-                    if (i >= jSONArray.length()) {
-                        break;
-                    }
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (TextUtils.equals(optJSONObject.optString("k"), ka1Var.c)) {
-                        optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
-                        jSONArray.put(i, optJSONObject);
-                        z = false;
-                        break;
-                    }
-                    i++;
-                }
+        }
+    }
+
+    public ma1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (z) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("k", ka1Var.c);
-                jSONObject.put("t", valueOf);
-                jSONArray.put(jSONObject);
-            }
-            sx0.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

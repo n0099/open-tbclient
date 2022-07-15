@@ -66,7 +66,7 @@ public class EditVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("video_title", str4);
         getIntent().putExtra(WriteActivityConfig.VIDEO_INFO, videoInfo);
-        getIntent().putExtra("KEY_CALL_FROM", str);
+        getIntent().putExtra(BaseWriteConfig.KEY_CALL_FROM, str);
     }
 
     public void addFromType(String str) {
@@ -107,7 +107,7 @@ public class EditVideoActivityConfig extends IntentConfig {
     public void setForumLevel(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            getIntent().putExtra("key_write_level", i);
+            getIntent().putExtra(BaseWriteConfig.KEY_WRITE_LEVEL, i);
         }
     }
 

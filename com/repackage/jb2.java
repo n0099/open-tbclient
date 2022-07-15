@@ -1,258 +1,125 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import com.repackage.m53;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jb2 {
+public class jb2 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements FilenameFilter {
+    public class a implements af3<k53<m53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ Context d;
 
-        public a() {
+        public a(jb2 jb2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? TextUtils.isDigitsOnly(str) : invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = jSONObject;
+            this.d = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(k53<m53.e> k53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                long lastModified = file.lastModified();
-                long lastModified2 = file2.lastModified();
-                if (lastModified == lastModified2) {
-                    return 0;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
+                if (!f53.h(k53Var)) {
+                    f53.p(k53Var, this.a, this.b);
+                    return;
                 }
-                return lastModified - lastModified2 > 0 ? -1 : 1;
+                if (va2.b(this.c.optInt("emitReplaceDynamicLib"))) {
+                    if (xa2.n().isEmpty()) {
+                        Context context = this.d;
+                        if (context == null) {
+                            context = oj2.c();
+                        }
+                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f013d);
+                        zz2.g(context, string).G();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        return;
+                    }
+                    xa2.p();
+                } else {
+                    xa2.f();
+                }
+                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
+                gw2.Z();
             }
-            return invokeLL.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755594505, "Lcom/repackage/jb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755594505, "Lcom/repackage/jb2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jb2(e13 e13Var) {
+        super(e13Var, "/swanAPI/debug/setReplaceDynamicLibConfig");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
     }
 
-    public static void a(Bundle bundle) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, bundle) == null) || bundle == null) {
-            return;
-        }
-        if (!ProcessUtils.isMainProcess()) {
-            iw2 e = iw2.e();
-            kw2 kw2Var = new kw2(18, bundle);
-            kw2Var.f(true);
-            e.h(kw2Var);
-            return;
-        }
-        String string = bundle.getString("arg_dst_folder");
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        b(new File(string), bundle.getLongArray("arg_ignore_vers"));
-    }
-
-    public static void b(File file, long... jArr) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, file, jArr) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                Bundle bundle = new Bundle();
-                bundle.putString("arg_dst_folder", file.getPath());
-                if (jArr != null && jArr.length > 0) {
-                    bundle.putLongArray("arg_ignore_vers", jArr);
-                }
-                a(bundle);
-            } else if (file != null && file.exists() && file.isDirectory()) {
-                ArrayList arrayList = new ArrayList();
-                if (jArr != null) {
-                    for (long j : jArr) {
-                        if (j > 0) {
-                            arrayList.add(Long.valueOf(j));
-                        }
-                    }
-                }
-                arrayList.addAll(e());
-                arrayList.addAll(d(file, 3));
-                if (a) {
-                    Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
-                }
-                for (File file2 : file.listFiles()) {
-                    if (!g(file2, arrayList)) {
-                        if (a) {
-                            Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
-                        }
-                        uf4.L(file2);
-                    }
-                }
-            }
-        }
-    }
-
-    @NonNull
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset" : (String) invokeI.objValue;
-    }
-
-    public static List<Long> d(File file, int i) {
-        InterceptResult invokeLI;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new a())) == null) {
-                return arrayList;
-            }
-            Arrays.sort(listFiles, new b());
-            int min = Math.min(listFiles.length, i);
-            for (int i2 = 0; i2 < min; i2++) {
-                try {
-                    arrayList.add(Long.valueOf(Long.parseLong(listFiles[i2].getName())));
-                } catch (NumberFormatException e) {
-                    sw1.l("ExtCore-Utils", "get extension version fail", e);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeLI.objValue;
-    }
-
-    public static ArrayList<Long> e() {
-        InterceptResult invokeV;
-        ExtensionCore extensionCore;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList<Long> arrayList = new ArrayList<>();
-            for (rw2 rw2Var : tw2.k().q()) {
-                SwanAppCores n = rw2Var.n();
-                if (n != null && rw2Var.T() && (extensionCore = n.getExtensionCore()) != null && !arrayList.contains(Long.valueOf(extensionCore.extensionCoreVersionCode))) {
-                    arrayList.add(Long.valueOf(extensionCore.extensionCoreVersionCode));
-                }
-            }
-            if (a) {
-                Log.d("ExtCore-Utils", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static boolean f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i == 1) {
-                return rv2.z();
-            }
-            return rv2.y();
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean g(File file, List<Long> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, list)) == null) {
-            if (list == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                hx1.c("setReplaceDynamicLibConfig", "'params' is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
+            } else if (!a2.has("emitReplaceDynamicLib")) {
+                hx1.c("setReplaceDynamicLibConfig", "'emitReplaceSwanCore's is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                h03Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                return true;
             }
-            String name = file.getName();
-            for (Long l : list) {
-                if (TextUtils.equals(name, String.valueOf(l.longValue()))) {
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? g83.a().getBoolean(c(i), false) : invokeI.booleanValue;
-    }
-
-    public static void i(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            g83.a().putBoolean(c(i), z);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

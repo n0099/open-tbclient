@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -321,7 +322,7 @@ public final class Constants {
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
+        mSdkPermissions = new String[]{PermissionChecker.INTERNET, PermissionChecker.READ_PHONE_STATE, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", PermissionChecker.ACCESS_COARSE_LOCATION, PermissionChecker.ACCESS_WIFI_STATE};
     }
 
     public Constants() {

@@ -1,9 +1,13 @@
 package com.repackage;
 
-import java.io.IOException;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes5.dex */
 public interface a59 {
-    void close() throws IOException;
+    IMediaPlayer a();
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    String b();
+
+    h69 c();
+
+    String e();
 }

@@ -1,78 +1,45 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import android.text.TextUtils;
+import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c75;
-import com.repackage.x65;
 /* loaded from: classes5.dex */
-public class e75<D, S extends x65, H extends c75<D, S>> extends d75<D, S, H> {
+public class e75 implements l65<PrePageKeyEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<H> n;
-    public final int o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e75(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, viewEventCenter);
+    public e75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls, Integer.valueOf(i), viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewEventCenter) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = i;
-        this.n = cls;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l65
+    /* renamed from: a */
+    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.g && c()) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
+            if (prePageKeyEvent == null || TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
+                return false;
             }
-            return super.getItemViewType(i);
+            TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
+            return true;
         }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
-            if (this.g && c()) {
-                return a();
-            }
-            b();
-            return d(view2, i, this.n, this.o);
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.getViewTypeCount() + 1 : invokeV.intValue;
+        return invokeL.booleanValue;
     }
 }

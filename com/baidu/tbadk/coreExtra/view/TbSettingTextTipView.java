@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
 import com.repackage.pi;
+import com.repackage.ur4;
 /* loaded from: classes3.dex */
 public class TbSettingTextTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -106,18 +106,18 @@ public class TbSettingTextTipView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f7, (ViewGroup) this, true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f05);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ff2);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09029f);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0815, (ViewGroup) this, true);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092096);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a1);
         }
     }
 
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040586, R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f040588, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f040588, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b, R.attr.obfuscated_res_0x7f04058c});
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);
@@ -151,7 +151,7 @@ public class TbSettingTextTipView extends FrameLayout {
             }
             SkinManager.setViewTextColor(textView, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            fr4.d(this).f(R.color.CAM_X0205);
+            ur4.d(this).f(R.color.CAM_X0205);
         }
     }
 

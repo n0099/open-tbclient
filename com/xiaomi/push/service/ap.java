@@ -25,10 +25,10 @@ public class ap {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f897a;
+    public static ThreadPoolExecutor f1624a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Pattern f898a;
+    public static final Pattern f1625a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class ap {
                 return;
             }
         }
-        f898a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+        f1625a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
         a = 0L;
-        f897a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f1624a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public static String a(String str) {
@@ -88,13 +88,13 @@ public class ap {
     }
 
     public static void a() {
-        dw.a m647a;
+        dw.a m1590a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if ((f897a.getActiveCount() <= 0 || currentTimeMillis - a >= FlushManager.ReportTimer.DEFAULT_INTERVAL) && fh.m323a().m328a() && (m647a = bv.a().m647a()) != null && m647a.e() > 0) {
+            if ((f1624a.getActiveCount() <= 0 || currentTimeMillis - a >= FlushManager.ReportTimer.DEFAULT_INTERVAL) && fh.m1266a().m1271a() && (m1590a = bv.a().m1590a()) != null && m1590a.e() > 0) {
                 a = currentTimeMillis;
-                a(m647a.a(), true);
+                a(m1590a.a(), true);
             }
         }
     }
@@ -102,7 +102,7 @@ public class ap {
     public static void a(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, list, z) == null) {
-            f897a.execute(new aq(list, z));
+            f1624a.execute(new aq(list, z));
         }
     }
 
@@ -111,15 +111,15 @@ public class ap {
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             String a2 = a("/proc/self/net/tcp");
             if (!TextUtils.isEmpty(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("dump tcp for uid = " + Process.myUid());
-                com.xiaomi.channel.commonutils.logger.b.m84a(a2);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("dump tcp for uid = " + Process.myUid());
+                com.xiaomi.channel.commonutils.logger.b.m1027a(a2);
             }
             String a3 = a("/proc/self/net/tcp6");
             if (TextUtils.isEmpty(a3)) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m84a("dump tcp6 for uid = " + Process.myUid());
-            com.xiaomi.channel.commonutils.logger.b.m84a(a3);
+            com.xiaomi.channel.commonutils.logger.b.m1027a("dump tcp6 for uid = " + Process.myUid());
+            com.xiaomi.channel.commonutils.logger.b.m1027a(a3);
         }
     }
 
@@ -129,12 +129,12 @@ public class ap {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                com.xiaomi.channel.commonutils.logger.b.m84a("ConnectivityTest: begin to connect to " + str);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("ConnectivityTest: begin to connect to " + str);
                 Socket socket = new Socket();
-                socket.connect(com.xiaomi.push.ct.m244a(str, 5222), 5000);
+                socket.connect(com.xiaomi.push.ct.m1187a(str, 5222), 5000);
                 socket.setTcpNoDelay(true);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                com.xiaomi.channel.commonutils.logger.b.m84a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
                 socket.close();
                 return true;
             } catch (Throwable th) {

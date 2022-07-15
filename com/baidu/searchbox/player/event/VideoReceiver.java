@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes2.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -211,7 +210,7 @@ public class VideoReceiver extends BroadcastReceiver {
                     return;
                 }
             case 7:
-                int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra(AnimationProperty.SCALE, 1);
+                int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra("scale", 1);
                 BdBatteryUtils.batter_level = intExtra2;
                 this.mListener.onBatteryChanged(intExtra2);
                 return;

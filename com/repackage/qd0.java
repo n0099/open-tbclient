@@ -1,68 +1,69 @@
 package com.repackage;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class qd0 {
+import java.io.FileInputStream;
+import java.security.MessageDigest;
+/* loaded from: classes7.dex */
+public class qd0 {
     public static /* synthetic */ Interceptable $ic;
-    public static cd0 a;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public int c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public boolean j;
-        public boolean k;
-        public boolean l;
-        public int m;
-        public int n;
-        public JSONObject o;
-        public JSONObject p;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755384108, "Lcom/repackage/qd0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755384108, "Lcom/repackage/qd0;");
+                return;
+            }
+        }
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        byte[] bArr = new byte[1024];
+        try {
+            FileInputStream fileInputStream = new FileInputStream(str);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read > 0) {
+                    messageDigest.update(bArr, 0, read);
+                } else {
+                    fileInputStream.close();
+                    return b(messageDigest.digest());
                 }
             }
+        } catch (Exception unused) {
+            return "";
         }
     }
 
-    public static void a(String str, JSONObject jSONObject) {
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("sdk_version", Integer.valueOf(zc0.h()));
-                if (jSONObject2.length() > 0) {
-                    jSONObject2.put("debug_info", jSONObject);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
             }
-            cd0 cd0Var = a;
-            if (cd0Var != null) {
-                cd0Var.report(str, jSONObject2);
-            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 }

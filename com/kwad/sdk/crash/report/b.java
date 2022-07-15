@@ -1,162 +1,47 @@
 package com.kwad.sdk.crash.report;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.kwad.sdk.crash.model.message.AnrExceptionMessage;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-import com.kwad.sdk.crash.model.message.MemoryInfo;
-import com.kwad.sdk.crash.model.message.ThreadInfo;
-import com.kwad.sdk.crash.utils.f;
-import com.kwad.sdk.crash.utils.h;
+import com.kwad.sdk.utils.o;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class b {
-    public c a;
-    public String b = "";
-
+public final class b extends d {
     private String a(String str) {
-        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
-    }
-
-    public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
-
-    public void a(c cVar) {
-        this.a = cVar;
-    }
-
-    @SuppressLint({"CheckResult"})
-    public void a(File file) {
-        com.kwad.sdk.core.d.a.a("ExceptionCollector", "reportException dir =" + file);
-        for (File file2 : file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.b.1
-            @Override // java.io.FileFilter
-            public boolean accept(File file3) {
-                return file3.getName().endsWith(".dump");
-            }
-        })) {
-            b(file2);
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x008b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x000d */
-    public void a(File file, ExceptionMessage exceptionMessage) {
-        BufferedReader bufferedReader;
-        String readLine;
-        String str;
-        try {
-            MemoryInfo memoryInfo = new MemoryInfo(exceptionMessage.mMemoryInfo);
-            ArrayList arrayList = new ArrayList();
-            BufferedReader bufferedReader2 = null;
+        File file = new File(str + ".anr");
+        String str2 = "";
+        if (file.exists()) {
             try {
-                try {
-                    bufferedReader = new BufferedReader(new FileReader(file));
-                } catch (Throwable th) {
-                    th = th;
-                }
+                str2 = o.h(file);
             } catch (IOException e) {
-                e = e;
+                this.b += e + "\n";
             }
-            try {
-                ThreadInfo threadInfo = new ThreadInfo();
-                while (true) {
-                    readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    } else if (readLine.isEmpty()) {
-                        arrayList.add(threadInfo);
-                        threadInfo = new ThreadInfo();
-                    } else {
-                        if (!readLine.startsWith("at ") && !readLine.startsWith("(no ")) {
-                            threadInfo.mName = readLine;
-                        }
-                        if (threadInfo.mTrace == null) {
-                            str = readLine;
-                        } else {
-                            str = threadInfo.mTrace + readLine;
-                        }
-                        threadInfo.mTrace = str;
-                        threadInfo.mTrace += "#";
-                    }
-                }
-                memoryInfo.mJavaThreads = arrayList;
-                exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
-                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                bufferedReader2 = readLine;
-            } catch (IOException e2) {
-                e = e2;
-                bufferedReader2 = bufferedReader;
-                com.kwad.sdk.core.d.a.b(e);
-                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
-                bufferedReader2 = bufferedReader2;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
-                throw th;
-            }
-        } catch (Exception e3) {
-            com.kwad.sdk.core.d.a.b(e3);
+            o.e(file);
         }
+        return str2;
     }
 
-    public void b(File file) {
-        File[] listFiles;
-        String a = f.a(file.getPath());
-        File file2 = new File(a + ".msg");
-        File file3 = new File(a + ".log");
-        File file4 = new File(a + ".blog");
-        File file5 = new File(a + ".jtrace");
-        ArrayList<File> arrayList = new ArrayList();
-        try {
-            ExceptionMessage a2 = a(file, file2, file3, a);
-            this.a.a(a2);
-            f.a(file4);
-            ArrayList arrayList2 = new ArrayList();
-            Collections.addAll(arrayList2, file3, file4);
-            Iterator it = arrayList2.iterator();
-            while (it.hasNext()) {
-                if (!((File) it.next()).exists()) {
-                    it.remove();
-                }
-            }
-            File file6 = new File(file.getParentFile().getParent(), "custom");
-            if (file6.exists()) {
-                for (File file7 : file6.listFiles()) {
-                    if (!file7.isDirectory() && (file7.getName().startsWith(a2.mLogUUID) || file7.getName().startsWith(a(a2.mLogUUID)))) {
-                        arrayList.add(file7);
-                    }
-                }
-                arrayList2.addAll(arrayList);
-            }
-            h.b(file.getPath());
-            h.b(file3.getPath());
-            h.b(file4.getPath());
-            for (File file8 : arrayList) {
-                h.b(file8.getPath());
-            }
-            h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.b.b.b);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.b(th);
-        }
-    }
-
-    public void b(File file, ExceptionMessage exceptionMessage) {
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00cc  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00ff  */
+    /* JADX WARN: Removed duplicated region for block: B:69:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void a(AnrExceptionMessage anrExceptionMessage, File file) {
         String str;
-        StringBuilder sb;
-        StringBuilder sb2;
-        StringBuilder sb3;
-        StringBuilder sb4;
-        StringBuilder sb5;
+        String a = com.kwad.sdk.crash.utils.f.a(file.getName());
+        anrExceptionMessage.mLogUUID = a;
+        anrExceptionMessage.mIndex = com.kwad.sdk.crash.utils.f.c(a);
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
         BufferedReader bufferedReader = null;
         try {
             try {
@@ -166,96 +51,58 @@ public abstract class b {
                     try {
                         String readLine = bufferedReader2.readLine();
                         if (readLine == null) {
-                            com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
-                            return;
-                        } else if (z || !readLine.contains("JNI DETECTED ERROR IN APPLICATION")) {
-                            if (!readLine.contains("Waiting for a blocking GC ") && !readLine.contains("WaitForGcToComplete")) {
-                                if (readLine.contains("dvm_lock_sample")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mLockInfo)) {
-                                        sb2 = new StringBuilder();
-                                        sb2.append(readLine);
-                                        sb2.append("\n");
-                                    } else {
-                                        sb2 = new StringBuilder();
-                                        sb2.append(exceptionMessage.mLockInfo);
-                                        sb2.append(readLine);
-                                        sb2.append("\n");
-                                    }
-                                    exceptionMessage.mLockInfo = sb2.toString();
-                                } else if (readLine.contains("Long monitor")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mMonitorInfo)) {
-                                        sb3 = new StringBuilder();
-                                        sb3.append(readLine);
-                                        sb3.append("\n");
-                                    } else {
-                                        sb3 = new StringBuilder();
-                                        sb3.append(exceptionMessage.mMonitorInfo);
-                                        sb3.append(readLine);
-                                        sb3.append("\n");
-                                    }
-                                    exceptionMessage.mMonitorInfo = sb3.toString();
-                                } else if (readLine.contains("Slow Looper")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mSlowLooper)) {
-                                        sb4 = new StringBuilder();
-                                        sb4.append(readLine);
-                                        sb4.append("\n");
-                                    } else {
-                                        sb4 = new StringBuilder();
-                                        sb4.append(exceptionMessage.mSlowLooper);
-                                        sb4.append(readLine);
-                                        sb4.append("\n");
-                                    }
-                                    exceptionMessage.mSlowLooper = sb4.toString();
-                                } else if (readLine.contains("Slow Operation")) {
-                                    if (TextUtils.isEmpty(exceptionMessage.mSlowOperation)) {
-                                        sb5 = new StringBuilder();
-                                        sb5.append(readLine);
-                                        sb5.append("\n");
-                                    } else {
-                                        sb5 = new StringBuilder();
-                                        sb5.append(exceptionMessage.mSlowOperation);
-                                        sb5.append(readLine);
-                                        sb5.append("\n");
-                                    }
-                                    exceptionMessage.mSlowOperation = sb5.toString();
-                                }
-                            }
-                            if (TextUtils.isEmpty(exceptionMessage.mGCInfo)) {
-                                sb = new StringBuilder();
-                                sb.append(readLine);
-                                sb.append("\n");
-                            } else {
-                                sb = new StringBuilder();
-                                sb.append(exceptionMessage.mGCInfo);
-                                sb.append(readLine);
-                                sb.append("\n");
-                            }
-                            exceptionMessage.mGCInfo = sb.toString();
-                        } else {
-                            exceptionMessage.mJNIError = readLine.substring(readLine.indexOf("JNI DETECTED ERROR IN APPLICATION"));
+                            break;
+                        } else if (!z && readLine.startsWith("\"main\" prio")) {
+                            sb2.append(readLine);
+                            sb2.append('\n');
+                            String[] split = readLine.split("\\s+");
+                            anrExceptionMessage.mThreadStatus = split[split.length - 1];
                             z = true;
+                        } else if (!z) {
+                            continue;
+                        } else if (readLine.length() == 0) {
+                            break;
+                        } else if (readLine.startsWith("  |")) {
+                            sb2.append(readLine);
+                            sb2.append('\n');
+                        } else {
+                            sb.append(readLine);
+                            sb.append('\n');
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
                         bufferedReader = bufferedReader2;
                         str = this.b + e + "\n";
                         this.b = str;
-                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                        return;
+                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        if (sb.length() > 1) {
+                        }
+                        if (TextUtils.isEmpty(anrExceptionMessage.mCrashDetail)) {
+                        }
+                        com.kwad.sdk.core.d.b.a("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
+                        if (sb2.length() > 1) {
+                        }
                     } catch (IOException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
                         str = this.b + e + "\n";
                         this.b = str;
-                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                        return;
+                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
+                        if (sb.length() > 1) {
+                        }
+                        if (TextUtils.isEmpty(anrExceptionMessage.mCrashDetail)) {
+                        }
+                        com.kwad.sdk.core.d.b.a("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
+                        if (sb2.length() > 1) {
+                        }
                     } catch (Throwable th) {
                         th = th;
                         bufferedReader = bufferedReader2;
-                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                        com.kwad.sdk.crash.utils.b.a(bufferedReader);
                         throw th;
                     }
                 }
+                com.kwad.sdk.crash.utils.b.a(bufferedReader2);
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -264,5 +111,73 @@ public abstract class b {
         } catch (IOException e4) {
             e = e4;
         }
+        if (sb.length() > 1) {
+            anrExceptionMessage.mCrashDetail = sb.substring(0, sb.length() - 1);
+        }
+        if (TextUtils.isEmpty(anrExceptionMessage.mCrashDetail)) {
+            anrExceptionMessage.mCrashSource = 0;
+        } else if (b(anrExceptionMessage.mCrashDetail)) {
+            anrExceptionMessage.mCrashSource = 1;
+        } else {
+            anrExceptionMessage.mCrashSource = 2;
+        }
+        com.kwad.sdk.core.d.b.a("AnrReporter", " message.mCrashSource=" + anrExceptionMessage.mCrashSource + "message.mCrashDetail = " + anrExceptionMessage.mCrashDetail);
+        if (sb2.length() > 1) {
+            anrExceptionMessage.mThreadDetail = sb2.substring(0, sb2.length() - 1);
+        }
+    }
+
+    private AnrExceptionMessage b(File file) {
+        String str;
+        try {
+            str = o.h(file);
+        } catch (IOException e) {
+            this.b += e + "\n";
+            str = null;
+        }
+        AnrExceptionMessage anrExceptionMessage = new AnrExceptionMessage();
+        if (str != null) {
+            try {
+                anrExceptionMessage.parseJson(new JSONObject(str));
+            } catch (Exception e2) {
+                this.b += e2 + "\n";
+            }
+        }
+        o.e(file);
+        return anrExceptionMessage;
+    }
+
+    public static boolean b(@NonNull String str) {
+        String[] b;
+        for (String str2 : com.kwad.sdk.crash.d.a().b()) {
+            if (str.contains(str2)) {
+                com.kwad.sdk.core.d.b.a("AnrReporter", " tag=" + str2);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override // com.kwad.sdk.crash.report.d
+    public final ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
+        com.kwad.sdk.core.d.b.a("AnrReporter", "AnrReporter parseExceptionInfo basePath=" + str);
+        AnrExceptionMessage b = b(file2);
+        try {
+            b.mReason = a(str);
+            a(b, file);
+            b(file3, b);
+            com.kwad.sdk.crash.utils.f.a(file, (CharSequence) b.toString(), true);
+            com.kwad.sdk.crash.utils.f.a(file3, file);
+            file.renameTo(file3);
+            new StringBuilder("------ ANR Report Begin ------\n").append(b);
+            b.mDumpsys = o.h(new File(str + ".minfo"));
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.b(e);
+            this.b += e + "\n";
+        }
+        if (!TextUtils.isEmpty(this.b)) {
+            b.mErrorMessage += this.b;
+        }
+        return b;
     }
 }

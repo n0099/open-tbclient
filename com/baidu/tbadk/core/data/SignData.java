@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wp4;
+import com.repackage.lq4;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +29,7 @@ public class SignData implements Serializable {
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
-    public wp4 mSignStampInfoData;
+    public lq4 mSignStampInfoData;
     public int miss_sign_num;
     public int sign_bonus_point;
     public int sign_count;
@@ -60,7 +60,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
-        this.mSignStampInfoData = new wp4();
+        this.mSignStampInfoData = new lq4();
     }
 
     public void parserJson(String str) {

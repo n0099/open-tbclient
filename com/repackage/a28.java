@@ -1,28 +1,59 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
+import com.baidu.tieba.R;
+import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class a28 extends an<l38, CardViewHolder<n48>> {
+public class a28 extends jx5<n18> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public eg<PersonCommonForumItemView> j;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public LinearLayout q;
+    public LinearLayout r;
+    public LinearLayout s;
+    public LinearLayout t;
+    public UserData u;
+    public int v;
+    public int w;
 
     /* loaded from: classes5.dex */
-    public class a implements fg<PersonCommonForumItemView> {
+    public class a implements CacheModel.c<fm7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a28 a;
@@ -45,60 +76,26 @@ public class a28 extends an<l38, CardViewHolder<n48>> {
             this.a = a28Var;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            e(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            h(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
+        public void g(WriteCacheRespMsg<List<fm7>> writeCacheRespMsg, WriteCacheMessage<fm7> writeCacheMessage) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) {
+            }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: f */
-        public void b(PersonCommonForumItemView personCommonForumItemView) {
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
+        public void i(ReadCacheRespMsg<List<fm7>> readCacheRespMsg, ReadCacheMessage<fm7> readCacheMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) || personCommonForumItemView == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) || readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                 return;
             }
-            personCommonForumItemView.removeAllViews();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: g */
-        public PersonCommonForumItemView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.a.a) : (PersonCommonForumItemView) invokeV.objValue;
-        }
-
-        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+            this.a.m.setText(Integer.toString(readCacheRespMsg.getData().size()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a28(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), l38.b);
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,42 +105,107 @@ public class a28 extends an<l38, CardViewHolder<n48>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new eg<>(new a(this), 12, 0);
-        this.i = tbPageContext;
+        this.v = 3;
+        this.w = 0;
+        View h = h();
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902bb);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902bc);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09204c);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092060);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090d11);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090d12);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09063e);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09063f);
+        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0902ba);
+        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092019);
+        this.t = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090d10);
+        this.s = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09063d);
+    }
+
+    @Override // com.repackage.jx5
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06ac : invokeV.intValue;
+    }
+
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.v == i) {
+            return;
+        }
+        SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
+        this.v = i;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null) {
+            return;
+        }
+        if (view2.getId() == R.id.obfuscated_res_0x7f09094e) {
+            if (this.u == null) {
+                return;
+            }
+            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), false, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f090681) {
+            if (this.u == null) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), true, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser()).updateFollowNum(this.w, this.u.getPortrait())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0902ba) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092019) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09063d) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 9));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(getContext())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f090d10) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 10));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(getContext())));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public CardViewHolder<n48> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.jx5
+    /* renamed from: s */
+    public void i(n18 n18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            n48 n48Var = new n48(this.i);
-            n48Var.y(this.j);
-            return new CardViewHolder<>(n48Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, n18Var) == null) {
+            this.u = n18Var.e;
+            this.w = n18Var.a;
+            this.i.setText(Integer.toString(n18Var.b));
+            this.k.setText(StringHelper.longNumFormatOver9999wan(n18Var.c));
+            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(this.b);
+            pbHistoryCacheModel.S(new a(this));
+            pbHistoryCacheModel.P();
+            this.o.setText(Integer.toString(this.u.getFavoriteNum()));
+            this.q.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            this.t.setOnClickListener(this);
+            this.s.setOnClickListener(this);
+            j(g(), TbadkCoreApplication.getInst().getSkinType());
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, l38 l38Var, CardViewHolder<n48> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l38Var, cardViewHolder})) == null) {
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().i(l38Var);
-            return cardViewHolder.b();
-        }
-        return (View) invokeCommon.objValue;
     }
 }

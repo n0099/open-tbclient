@@ -1,93 +1,224 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class hu3 extends t92 {
+public class hu3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
+    public ny3 a;
+    public String b;
+    public String c;
+    public fu3 d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hu3(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
+    /* loaded from: classes6.dex */
+    public class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hu3 a;
+
+        public a(hu3 hu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hu3Var;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (hu3.e) {
+                    Log.e("AudioDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
+                }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
+                }
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    InputStream byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            String d = cu3.d(this.a.b);
+                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
+                            File file2 = new File(str);
+                            if (!file2.exists() || !file2.isDirectory()) {
+                                file2.mkdirs();
+                            }
+                            String substring = d.substring(d.lastIndexOf("/") + 1);
+                            file = new File(str, substring + ".bddownload");
+                            try {
+                                fileOutputStream = new FileOutputStream(file);
+                                while (true) {
+                                    try {
+                                        int read = byteStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } catch (Exception e) {
+                                        e = e;
+                                        inputStream = byteStream;
+                                        try {
+                                            if (hu3.e) {
+                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
+                                            }
+                                            if (file != null) {
+                                                file.delete();
+                                            }
+                                            if (this.a.d != null) {
+                                                this.a.d.fail(-1, this.a.b);
+                                            }
+                                            jg4.d(inputStream);
+                                            jg4.d(fileOutputStream);
+                                            jg4.d(response);
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            jg4.d(inputStream);
+                                            jg4.d(fileOutputStream);
+                                            jg4.d(response);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        inputStream = byteStream;
+                                        jg4.d(inputStream);
+                                        jg4.d(fileOutputStream);
+                                        jg4.d(response);
+                                        throw th;
+                                    }
+                                }
+                                fileOutputStream.flush();
+                                File file3 = new File(str, substring);
+                                if (file3.exists() && !file3.isDirectory()) {
+                                    file3.delete();
+                                }
+                                String absolutePath = file3.getAbsolutePath();
+                                if (file.renameTo(file3)) {
+                                    if (hu3.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
+                                    }
+                                    if (this.a.d != null) {
+                                        this.a.d.a(this.a.b, absolutePath);
+                                    }
+                                } else {
+                                    if (hu3.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
+                                    }
+                                    file.delete();
+                                    if (this.a.d != null) {
+                                        this.a.d.fail(-1, absolutePath);
+                                    }
+                                }
+                                jg4.d(byteStream);
+                            } catch (Exception e2) {
+                                e = e2;
+                                fileOutputStream = null;
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            file = null;
+                            fileOutputStream = null;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                }
+                jg4.d(fileOutputStream);
+                jg4.d(response);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755635797, "Lcom/repackage/hu3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755635797, "Lcom/repackage/hu3;");
+                return;
+            }
+        }
+        e = rg1.a;
+    }
+
+    public hu3(ny3 ny3Var, String str, String str2, fu3 fu3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {ny3Var, str, str2, fu3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
+        this.b = "";
+        this.c = "";
+        this.a = ny3Var;
+        this.c = str;
+        this.b = str2;
+        this.d = fu3Var;
     }
 
-    public static t92 t(String str, String str2) {
-        InterceptResult invokeLL;
+    public void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? new hu3("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2) : (t92) invokeLL.objValue;
-    }
-
-    public static t92 u(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            return new hu3("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
         }
-        return (t92) invokeZ.objValue;
-    }
-
-    public static t92 v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? new hu3("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2) : (t92) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.s92
-    public String o(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode == -2011830027) {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode != -774049378) {
-                if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                return c != 1 ? c != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
-            }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(gc3.b(gc3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
-        }
-        return (String) invokeL.objValue;
     }
 }

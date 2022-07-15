@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class bc extends Handler {
+public final class bc extends Handler {
     public WeakReference<a> a;
 
     /* loaded from: classes5.dex */
@@ -17,11 +17,11 @@ public class bc extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         a aVar;
         try {
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
         }
         if (this.a == null || (aVar = this.a.get()) == null) {
             return;

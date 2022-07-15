@@ -1,140 +1,40 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskHTTPResMsg;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cj4 implements Handler.Callback {
+public class cj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<c> a;
-    public BdUniqueId b;
-    public pl4<vh4> c;
-    public aj4 d;
-    public boolean e;
-    public final Handler f;
-    public za g;
-    public CustomMessageListener h;
+    public dj4 a;
+    public long b;
+    public CustomMessageListener c;
 
     /* loaded from: classes5.dex */
-    public class a extends za {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cj4 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cj4 cj4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cj4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cj4Var;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: com.repackage.cj4$f */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.repackage.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            zi4 data;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.e = false;
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.a.r(responsedMessage);
-                    return;
-                }
-                e eVar = null;
-                eVar = null;
-                if (responsedMessage instanceof CompleteTaskHTTPResMsg) {
-                    data = ((CompleteTaskHTTPResMsg) responsedMessage).getData();
-                } else {
-                    data = responsedMessage instanceof CompleteTaskSocketResMsg ? ((CompleteTaskSocketResMsg) responsedMessage).getData() : null;
-                }
-                if (data == null) {
-                    return;
-                }
-                if (this.a.d == null) {
-                    this.a.d = new aj4();
-                }
-                this.a.d.d(data);
-                this.a.d.e();
-                Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
-                if (obj instanceof f) {
-                    f fVar = (f) obj;
-                    vh4 vh4Var = fVar.a;
-                    if (data != null && data.x == 1) {
-                        vh4Var.z = true;
-                    }
-                    this.a.t(vh4Var);
-                    eVar = fVar;
-                } else if (obj instanceof e) {
-                    e eVar2 = (e) obj;
-                    this.a.s(eVar2.a);
-                    eVar = eVar2;
-                } else if (obj instanceof g) {
-                    hi4.b().g();
-                }
-                if (eVar != null) {
-                    this.a.a.remove(eVar);
-                }
-                this.a.u();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cj4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cj4 cj4Var, int i) {
+        public a(cj4 cj4Var, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -158,161 +58,17 @@ public class cj4 implements Handler.Callback {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d)) {
-                d dVar = (d) customResponsedMessage.getData();
-                this.a.k(dVar.a);
-                this.a.l(dVar.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<bi4> a;
-        public List<vh4> b;
-        public List<vh4> c;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(vh4 vh4Var) {
-            List<vh4> list;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, vh4Var) == null) || (list = this.b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            list.add(vh4Var);
-        }
-
-        public void b(bi4 bi4Var) {
-            List<bi4> list;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bi4Var) == null) || (list = this.a) == null) {
-                return;
-            }
-            list.add(bi4Var);
-        }
-
-        public void c(vh4 vh4Var) {
-            List<vh4> list;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vh4Var) == null) || (list = this.c) == null) {
-                return;
-            }
-            list.add(vh4Var);
+            this.a.g();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class e extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class f extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public vh4 a;
-
-        public f(vh4 vh4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vh4Var;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class g extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public cj4(BdUniqueId bdUniqueId) {
+    public cj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -322,282 +78,75 @@ public class cj4 implements Handler.Callback {
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.e = false;
-        this.f = new Handler(Looper.getMainLooper(), this);
-        this.g = new a(this, CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
-        this.h = new b(this, 2921379);
-        this.b = bdUniqueId;
-        p();
-        q();
+        this.c = new a(this, 2001371);
+        this.a = new dj4();
+        MessageManager.getInstance().registerListener(this.c);
+        g();
+        this.b = xt4.k().m("key_redpacket_pop_last_time", 0L);
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d() && e()) {
+            f();
+        }
+    }
+
+    public final boolean c(hj4 hj4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message.what != 1) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hj4Var)) == null) ? hj4Var != null && this.b >= hj4Var.b() && this.b <= hj4Var.a() : invokeL.booleanValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Date date = new Date();
+            return date.getTime() >= this.a.b() && date.getTime() <= this.a.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a.c())) {
                 return false;
             }
-            x();
+            Date date = new Date();
+            Iterator<hj4> it = this.a.c().iterator();
+            while (it.hasNext()) {
+                hj4 next = it.next();
+                if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
+                    return true;
+                }
+            }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void k(List<bi4> list) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || oi.isEmpty(this.a.d())) {
             return;
         }
-        LinkedList<vh4> linkedList = new LinkedList();
-        for (bi4 bi4Var : list) {
-            if (bi4Var != null && bi4Var.c() != null) {
-                vh4 c2 = bi4Var.c();
-                if (c2.M()) {
-                    c2.e0(c2.F());
-                    o(c2);
-                } else if (c2.d() != 0 && c2.q() != 0) {
-                    linkedList.add(c2);
-                }
-            }
-        }
-        if (ListUtils.isEmpty(linkedList)) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        for (vh4 vh4Var : linkedList) {
-            if (vh4Var != null) {
-                HashSet hashSet = (HashSet) hashMap.get(Integer.valueOf(vh4Var.d()));
-                if (hashSet == null) {
-                    hashSet = new HashSet();
-                    hashMap.put(Integer.valueOf(vh4Var.d()), hashSet);
-                }
-                hashSet.add(Integer.valueOf(vh4Var.q()));
-            }
-        }
-        JSONObject jSONObject = new JSONObject();
-        for (Map.Entry entry : hashMap.entrySet()) {
-            StringBuilder sb = new StringBuilder();
-            Iterator it = ((HashSet) entry.getValue()).iterator();
-            while (it.hasNext()) {
-                sb.append(it.next() + ",");
-            }
-            if (sb.length() > 0) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            try {
-                jSONObject.put(String.valueOf(entry.getKey()), sb);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        for (vh4 vh4Var2 : linkedList) {
-            if (vh4Var2 != null) {
-                bj4.a(jSONObject2, vh4Var2.d(), vh4Var2.q(), vh4Var2.E());
-            }
-        }
-        e eVar = new e(jSONObject.toString());
-        eVar.b = jSONObject2.toString();
-        this.a.add(eVar);
-        u();
-    }
-
-    public final void l(List<vh4> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        for (vh4 vh4Var : list) {
-            if (vh4Var.M()) {
-                vh4Var.e0(vh4Var.F());
-                o(vh4Var);
-            } else {
-                this.a.add(new f(vh4Var));
-            }
-        }
-        u();
-    }
-
-    public void m() {
-        aj4 aj4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aj4Var = this.d) == null) {
-            return;
-        }
-        aj4Var.a();
-    }
-
-    public BdUniqueId n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void o(vh4 vh4Var) {
-        pl4<vh4> pl4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, vh4Var) == null) || vh4Var == null || (pl4Var = this.c) == null) {
-            return;
-        }
-        pl4Var.a(vh4Var);
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            bh8.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, bh8.a(TbConfig.COMPLETE_TASK_URL, 309627));
-            tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.b = System.currentTimeMillis();
+        xt4.k().x("key_redpacket_pop_last_time", this.b);
+        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
+        String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
         }
     }
 
-    public final void q() {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g.setTag(n());
-            this.h.setTag(n());
-            MessageManager.getInstance().registerListener(this.g);
-            MessageManager.getInstance().registerListener(this.h);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.e(xt4.k().q("key_redpacket_pop", ""));
         }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: com.repackage.cj4$f */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void r(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, responsedMessage) == null) || responsedMessage == null) {
-            return;
-        }
-        e eVar = null;
-        Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
-        if (obj instanceof f) {
-            f fVar = (f) obj;
-            o(fVar.a);
-            eVar = fVar;
-        } else if (obj instanceof e) {
-            eVar = (e) obj;
-        }
-        if (eVar != null) {
-            this.a.remove(eVar);
-        }
-        u();
-    }
-
-    public final void s(String str) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || str == null) {
-            return;
-        }
-        JSONObject jSONObject = null;
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        if (jSONObject == null) {
-            return;
-        }
-        LinkedList<vh4> linkedList = new LinkedList();
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                String string = jSONObject.getString(next);
-                if (string != null && (split = string.split(",")) != null) {
-                    for (String str2 : split) {
-                        vh4 vh4Var = new vh4();
-                        vh4Var.S(ng.e(next, 0));
-                        vh4Var.b0(ng.e(str2, 0));
-                        if (vh4Var.d() != 0 && vh4Var.q() != 0) {
-                            linkedList.add(vh4Var);
-                        }
-                    }
-                }
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-        }
-        for (vh4 vh4Var2 : linkedList) {
-            o(vh4Var2);
-        }
-    }
-
-    public final void t(vh4 vh4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, vh4Var) == null) || vh4Var == null) {
-            return;
-        }
-        o(vh4Var);
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            this.f.sendMessage(obtain);
-        }
-    }
-
-    public void v(String str, int i, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048588, this, str, i, str2, obj) == null) && ni.z()) {
-            this.e = true;
-            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i);
-            completeTaskReqMsg.setTag(this.b);
-            completeTaskReqMsg.completeId = str;
-            completeTaskReqMsg.setToken(str2);
-            completeTaskReqMsg.extra = obj;
-            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-        }
-    }
-
-    public void w(pl4<vh4> pl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, pl4Var) == null) {
-            this.c = pl4Var;
-        }
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        c peek;
-        e eVar;
-        String str;
-        vh4 vh4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048590, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        try {
-            if (this.e || (peek = this.a.peek()) == null) {
-                return false;
-            }
-            if (peek instanceof f) {
-                f fVar = (f) peek;
-                if (fVar == null || (vh4Var = fVar.a) == null) {
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(String.valueOf(vh4Var.d()), String.valueOf(vh4Var.q()));
-                v(jSONObject.toString(), 1, vh4Var.E(), fVar);
-                return true;
-            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.a) == null) {
-                return false;
-            } else {
-                v(str, 1, eVar.b, eVar);
-                return true;
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        return false;
     }
 }

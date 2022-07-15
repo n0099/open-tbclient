@@ -2,75 +2,221 @@ package com.repackage;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yx0 implements by0 {
+public class yx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder a;
 
-    public yx0() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? TextUtils.isEmpty(str) ? str : j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}") : (String) invokeL.objValue;
+    }
+
+    public static Map<String, String> b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-        this.a = new StringBuilder();
-    }
-
-    @Override // com.repackage.by0
-    public <T extends by0> T a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (T) c(str, str2) : (T) invokeLL.objValue;
-    }
-
-    public <T extends by0> T b(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) ? (T) c(str, obj) : (T) invokeLL.objValue;
-    }
-
-    public <T extends by0> T c(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            if (!TextUtils.isEmpty(str) && obj != null) {
-                try {
-                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
-                        if (this.a.length() > 0) {
-                            this.a.append('&');
-                        }
-                        StringBuilder sb = this.a;
-                        sb.append(str);
-                        sb.append('=');
-                        sb.append(obj);
-                    }
-                } catch (Exception unused) {
+            HashMap hashMap = new HashMap();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    hashMap.put(next, optString);
                 }
             }
-            return this;
+            return hashMap;
         }
-        return (T) invokeLL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.repackage.by0
     @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Exception e) {
+                h(e.getMessage());
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void d(JSONObject jSONObject, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, i);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void e(JSONObject jSONObject, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, j);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static <T> void f(JSONObject jSONObject, String str, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, t);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void g(JSONObject jSONObject, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, z);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        }
+    }
+
+    public static void i(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
+        }
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                StringWriter stringWriter = new StringWriter(str.length());
+                k(stringWriter, str);
+                return stringWriter.toString();
+            } catch (IOException e) {
+                h(e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void k(Writer writer, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
+            if (writer == null) {
+                throw new IllegalArgumentException("The Writer must not be null");
+            }
+            if (str != null) {
+                int length = str.length();
+                StringBuilder sb = new StringBuilder(4);
+                boolean z = false;
+                boolean z2 = false;
+                for (int i = 0; i < length; i++) {
+                    char charAt = str.charAt(i);
+                    if (z2) {
+                        sb.append(charAt);
+                        if (sb.length() == 4) {
+                            try {
+                                writer.write((char) Integer.parseInt(sb.toString(), 16));
+                                sb.setLength(0);
+                                z = false;
+                                z2 = false;
+                            } catch (NumberFormatException e) {
+                                h(e.getMessage());
+                            }
+                        }
+                    } else if (z) {
+                        if (charAt == '\"') {
+                            writer.write(34);
+                        } else if (charAt == '\'') {
+                            writer.write(39);
+                        } else if (charAt == '\\') {
+                            writer.write(92);
+                        } else if (charAt == 'b') {
+                            writer.write(8);
+                        } else if (charAt == 'f') {
+                            writer.write(12);
+                        } else if (charAt == 'n') {
+                            writer.write(10);
+                        } else if (charAt == 'r') {
+                            writer.write(13);
+                        } else if (charAt == 't') {
+                            writer.write(9);
+                        } else if (charAt != 'u') {
+                            writer.write(charAt);
+                        } else {
+                            z = false;
+                            z2 = true;
+                        }
+                        z = false;
+                    } else if (charAt == '\\') {
+                        z = true;
+                    } else {
+                        writer.write(charAt);
+                    }
+                }
+                if (z) {
+                    writer.write(92);
+                }
+            }
+        }
     }
 }

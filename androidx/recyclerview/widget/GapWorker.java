@@ -156,7 +156,7 @@ public final class GapWorker implements Runnable {
         public int position;
 
         /* renamed from: view  reason: collision with root package name */
-        public RecyclerView f1019view;
+        public RecyclerView f1746view;
         public int viewVelocity;
 
         public Task() {
@@ -179,7 +179,7 @@ public final class GapWorker implements Runnable {
                 this.immediate = false;
                 this.viewVelocity = 0;
                 this.distanceToItem = 0;
-                this.f1019view = null;
+                this.f1746view = null;
                 this.position = 0;
             }
         }
@@ -223,8 +223,8 @@ public final class GapWorker implements Runnable {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, task, task2)) == null) {
-                    if ((task.f1019view == null) != (task2.f1019view == null)) {
-                        return task.f1019view == null ? 1 : -1;
+                    if ((task.f1746view == null) != (task2.f1746view == null)) {
+                        return task.f1746view == null ? 1 : -1;
                     }
                     boolean z = task.immediate;
                     if (z != task2.immediate) {
@@ -293,7 +293,7 @@ public final class GapWorker implements Runnable {
                         task.immediate = i6 <= abs;
                         task.viewVelocity = abs;
                         task.distanceToItem = i6;
-                        task.f1019view = recyclerView2;
+                        task.f1746view = recyclerView2;
                         task.position = layoutPrefetchRegistryImpl.mPrefetchArray[i5];
                         i3++;
                     }
@@ -306,7 +306,7 @@ public final class GapWorker implements Runnable {
     private void flushTaskWithDeadline(Task task, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65539, this, task, j) == null) {
-            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1019view, task.position, task.immediate ? Long.MAX_VALUE : j);
+            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1746view, task.position, task.immediate ? Long.MAX_VALUE : j);
             if (prefetchPositionWithDeadline == null || prefetchPositionWithDeadline.mNestedRecyclerView == null || !prefetchPositionWithDeadline.isBound() || prefetchPositionWithDeadline.isInvalid()) {
                 return;
             }
@@ -319,7 +319,7 @@ public final class GapWorker implements Runnable {
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             for (int i = 0; i < this.mTasks.size(); i++) {
                 Task task = this.mTasks.get(i);
-                if (task.f1019view == null) {
+                if (task.f1746view == null) {
                     return;
                 }
                 flushTaskWithDeadline(task, j);

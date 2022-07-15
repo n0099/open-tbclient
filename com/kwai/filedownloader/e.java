@@ -30,7 +30,7 @@ public abstract class e extends com.kwai.filedownloader.event.c {
     public abstract void a();
 
     @Override // com.kwai.filedownloader.event.c
-    public boolean a(com.kwai.filedownloader.event.b bVar) {
+    public final boolean a(com.kwai.filedownloader.event.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
@@ -51,7 +51,7 @@ public abstract class e extends com.kwai.filedownloader.event.c {
 
     public abstract void b();
 
-    public DownloadServiceConnectChangedEvent.ConnectStatus c() {
+    public final DownloadServiceConnectChangedEvent.ConnectStatus c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (DownloadServiceConnectChangedEvent.ConnectStatus) invokeV.objValue;

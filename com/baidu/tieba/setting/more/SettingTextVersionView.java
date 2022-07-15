@@ -72,7 +72,7 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             }
             this.e.setText(TbConfig.getVersion());
             this.e.setBackgroundDrawable(null);
-            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ed : R.style.obfuscated_res_0x7f1003ec);
+            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003f1 : R.style.obfuscated_res_0x7f1003ef);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface zr4 {
-    void a();
+    String a();
 
-    void b();
+    String b();
 }

@@ -1,89 +1,185 @@
 package com.repackage;
 
-import android.util.Base64OutputStream;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
+import android.content.Context;
+import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public class d29 extends Base64OutputStream {
+public class d29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public long c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d29(OutputStream outputStream, int i) {
-        super(outputStream, i);
+    public static void a() {
+        s29 c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (c = y29.c()) == null) {
+            return;
         }
-        this.a = false;
-        this.b = false;
-        this.c = 0L;
+        c.b();
     }
 
-    public long a() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            q29 a = y29.a();
+            if (a != null) {
+                return a.getAppContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
     }
 
-    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
-            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
-                bArr[i] = ContentUtil.GZIP_HEAD_2;
-                this.b = true;
-            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
-                bArr[i] = ContentUtil.GZIP_HEAD_1;
-                this.a = true;
-            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
-                bArr[i] = ContentUtil.GZIP_HEAD_1;
-                this.a = true;
-                bArr[i + 1] = ContentUtil.GZIP_HEAD_2;
-                this.b = true;
-            }
-            if (i2 > 0) {
-                this.c += i2;
-            }
-            super.write(bArr, i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            q29 a = y29.a();
+            return a != null ? a.c(str) : str;
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) throws IOException {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (!this.a) {
-                super.write(117);
-                this.a = true;
-            } else if (!this.b) {
-                super.write(123);
-                this.b = true;
-            } else {
-                super.write(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            q29 a = y29.a();
+            if (a != null) {
+                return a.d();
             }
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            s29 c = y29.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            q29 a = y29.a();
+            return a != null ? a.getInt(str, i) : i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            q29 a = y29.a();
+            return a != null ? a.getLong(str, j) : j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            q29 a = y29.a();
+            return a != null ? a.e(str) : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static s19 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? y29.e() : (s19) invokeV.objValue;
+    }
+
+    public static w19 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? y29.f() : (w19) invokeV.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            q29 a = y29.a();
+            return a != null ? a.b(z) : "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            r29 b = y29.b();
+            if (b != null) {
+                return b.a();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            q29 a = y29.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void n(String str, int i) {
+        q29 a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) || (a = y29.a()) == null) {
+            return;
+        }
+        a.putInt(str, i);
+    }
+
+    public static void o(String str, long j) {
+        q29 a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) || (a = y29.a()) == null) {
+            return;
+        }
+        a.putLong(str, j);
+    }
+
+    public static void p(String str, String str2) {
+        q29 a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) || (a = y29.a()) == null) {
+            return;
+        }
+        a.putString(str, str2);
+    }
+
+    public static void q(int i) {
+        q29 a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65552, null, i) == null) || (a = y29.a()) == null) {
+            return;
+        }
+        a.a(i);
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b68;
+import com.repackage.w68;
 /* loaded from: classes3.dex */
 public class CyberRemotePlayerService extends RemotePlayerService {
     public static /* synthetic */ Interceptable $ic;
@@ -33,10 +33,10 @@ public class CyberRemotePlayerService extends RemotePlayerService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long e = b68.e();
+            long e = w68.e();
             if (e == 0) {
-                b68.f();
-                return b68.e();
+                w68.f();
+                return w68.e();
             }
             return e;
         }
@@ -49,7 +49,7 @@ public class CyberRemotePlayerService extends RemotePlayerService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, i2)) == null) {
             if (intent != null && intent.getBooleanExtra("pcdn", false)) {
-                b68.f();
+                w68.f();
             }
             return super.onStartCommand(intent, i, i2);
         }

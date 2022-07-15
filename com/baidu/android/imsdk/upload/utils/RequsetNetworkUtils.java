@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -193,7 +194,7 @@ public class RequsetNetworkUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission(PermissionChecker.READ_PHONE_STATE) == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -206,7 +207,7 @@ public class RequsetNetworkUtils {
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission("android.permission.ACCESS_WIFI_STATE") != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (context.checkCallingOrSelfPermission(PermissionChecker.ACCESS_WIFI_STATE) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return "nonWifiIp";
             }
             int ipAddress = connectionInfo.getIpAddress();

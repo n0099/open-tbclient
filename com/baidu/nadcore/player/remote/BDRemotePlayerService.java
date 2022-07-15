@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bw0;
+import com.repackage.ow0;
 /* loaded from: classes2.dex */
 public class BDRemotePlayerService extends RemotePlayerService {
     public static /* synthetic */ Interceptable $ic;
@@ -33,14 +33,14 @@ public class BDRemotePlayerService extends RemotePlayerService {
     public long getKernelNetHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bw0.c.a().getNetHandle() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ow0.c.a().getNetHandle() : invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? bw0.c.a().getNetHandle() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ow0.c.a().getNetHandle() : invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service
@@ -48,7 +48,7 @@ public class BDRemotePlayerService extends RemotePlayerService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
-            bw0.c.a().onServiceBind(this);
+            ow0.c.a().onServiceBind(this);
             return super.onBind(intent);
         }
         return (IBinder) invokeL.objValue;

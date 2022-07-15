@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.common.DecoderResult;
-import com.kwad.yoga.YogaNodeJNIBase;
 import java.text.DecimalFormat;
 /* loaded from: classes5.dex */
 public final class DecodedBitStreamParser {
@@ -204,7 +204,7 @@ public final class DecodedBitStreamParser {
     public static int getPostCode2(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, StrictLineReader.CR, 14, 15, 16, 17, 18, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}) : invokeL.intValue;
     }
 
     public static int getPostCode2Length(byte[] bArr) {
@@ -216,7 +216,7 @@ public final class DecodedBitStreamParser {
     public static String getPostCode3(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX})), SETS[0].charAt(getInt(bArr, new byte[]{15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}))}) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, StrictLineReader.CR, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}))}) : (String) invokeL.objValue;
     }
 
     public static int getServiceClass(byte[] bArr) {

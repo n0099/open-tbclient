@@ -1,245 +1,122 @@
 package com.repackage;
 
-import android.database.Cursor;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class t76 {
+public class t76 implements a86 {
     public static /* synthetic */ Interceptable $ic;
-    public static final t76 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public v76 a;
+    public boolean b;
+    public boolean c;
+    public s76 d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755337794, "Lcom/repackage/t76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755337794, "Lcom/repackage/t76;");
-                return;
-            }
-        }
-        a = new t76();
-    }
-
-    public t76() {
+    public t76(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = false;
+        this.e = false;
+        this.a = new v76();
+        this.e = z;
     }
 
-    public static t76 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.a86
+    public void a(String str, b86 b86Var) {
+        s76 s76Var;
+        s76 s76Var2;
+        float f;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (t76) invokeV.objValue;
-    }
-
-    public final boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists() : invokeL.booleanValue;
-    }
-
-    public boolean b(MyEmotionGroupData myEmotionGroupData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
-            if (myEmotionGroupData == null) {
-                return false;
-            }
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
-                return true;
-            } catch (Throwable th) {
-                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, b86Var) == null) || b86Var == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public MyEmotionGroupData d(String str, String str2) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-                try {
-                    if (cursor.moveToNext()) {
-                        return i(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
-                        return null;
-                    } finally {
-                        qi.a(cursor);
-                    }
+        if (this.b) {
+            File file = new File(b86Var.a);
+            Bitmap decodeFile = BitmapFactory.decodeFile(b86Var.a);
+            if (file.exists() && decodeFile != null) {
+                float height = decodeFile.getHeight();
+                float width = decodeFile.getWidth();
+                float f2 = height * 1.0f;
+                float f3 = f2 / width;
+                float f4 = f3 > 1.0f ? 1.7777778f : 0.75f;
+                float f5 = 0.0f;
+                if (f3 > f4) {
+                    float f6 = f4 * width;
+                    f = (height - f6) * 0.5f;
+                    height = f6;
+                } else {
+                    float f7 = f2 / f4;
+                    f5 = (width - f7) * 0.5f;
+                    width = f7;
+                    f = 0.0f;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
+                b86Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f, (int) width, (int) height), 95);
             }
-            return null;
         }
-        return (MyEmotionGroupData) invokeLL.objValue;
+        if ("default".equals(str)) {
+            if (this.c || (s76Var2 = this.d) == null) {
+                return;
+            }
+            s76Var2.h0(b86Var.a);
+        } else if (!"manual".equals(str) || (s76Var = this.d) == null) {
+        } else {
+            s76Var.h0(b86Var.a);
+        }
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    public void b(c86 c86Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor = null;
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
-                return cursor.moveToNext();
-            } catch (Throwable th) {
-                try {
-                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
-                    return false;
-                } finally {
-                    qi.a(cursor);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c86Var, str) == null) {
+            this.a.a(str, this.e).a(c86Var, this);
         }
-        return invokeL.booleanValue;
     }
 
-    public int f(ym7 ym7Var) {
-        InterceptResult invokeL;
-        List<zm7> list;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ym7Var)) == null) {
-            if (ym7Var == null || (list = ym7Var.e) == null || list.size() == 0) {
-                return 0;
-            }
-            String str = ".emotions/" + ym7Var.a;
-            b86 o = b86.o();
-            List<zm7> list2 = ym7Var.e;
-            int i = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                zm7 zm7Var = list2.get(i2);
-                if (a(str + "/" + zm7Var.c)) {
-                    if (a(str + "/" + zm7Var.d)) {
-                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(ym7Var.a + "_" + zm7Var.b);
-                        sb.append(",");
-                        sb.append(zm7Var.f);
-                        sb.append(",");
-                        sb.append(zm7Var.e);
-                        sb.append(",");
-                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + vi.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGifImage = FileHelper.isGifImage(x45.b.e(ym7Var.a, zm7Var.c));
-                        u76.g(ym7Var.a, zm7Var.d, u76.c(str2, true, false));
-                        u76.g(ym7Var.a, zm7Var.c, u76.c(str2, false, isGifImage));
-                        if (o.f(str2, ym7Var.a, i2 + 1)) {
-                            i++;
-                        }
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
         }
-        return invokeL.intValue;
     }
 
-    public int g(String str, InputStream inputStream) throws Exception {
-        InterceptResult invokeLL;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
-            b86 o = b86.o();
-            List<String> a2 = u76.a(str, inputStream);
-            int i = 0;
-            int i2 = 0;
-            while (i < a2.size()) {
-                i++;
-                if (o.f(a2.get(i), str, i)) {
-                    i2++;
-                }
-            }
-            return i2;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
-        return invokeLL.intValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<MyEmotionGroupData> h(String str) {
-        InterceptResult invokeL;
+    public void e(s76 s76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (TextUtils.isEmpty(str)) {
-                return linkedList;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
-                while (cursor.moveToNext()) {
-                    linkedList.add(i(cursor));
-                }
-            } finally {
-                try {
-                    return linkedList;
-                } finally {
-                }
-            }
-            return linkedList;
+        if (interceptable == null || interceptable.invokeL(1048580, this, s76Var) == null) {
+            this.d = s76Var;
         }
-        return (List) invokeL.objValue;
     }
 
-    public MyEmotionGroupData i(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.repackage.a86
+    public void onError(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
-            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
-            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
-            return myEmotionGroupData;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
         }
-        return (MyEmotionGroupData) invokeL.objValue;
     }
 }

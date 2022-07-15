@@ -1,90 +1,38 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public String b;
+    public final View a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public zx2() {
+    public zx2(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = view2;
     }
 
-    @Nullable
-    public static zx2 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int length;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            zx2 zx2Var = new zx2();
-            zx2Var.b = jSONObject.optString("more");
-            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
-            if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        a aVar = new a();
-                        optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                        aVar.b = optJSONObject.optString("app_name");
-                        aVar.a = optJSONObject.optString("photo_addr");
-                        aVar.c = optJSONObject.optString("scheme");
-                        arrayList.add(aVar);
-                    }
-                }
-                zx2Var.a = arrayList;
-                return zx2Var;
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z && this.a.getVisibility() == 4) {
+            this.a.setVisibility(8);
         }
-        return (zx2) invokeL.objValue;
     }
 }

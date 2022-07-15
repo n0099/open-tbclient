@@ -1,180 +1,120 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class by1 extends p13 {
+public class by1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
     public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONArray g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public by1(p03 p03Var) {
-        super(p03Var, "/swanAPI/setPhoneContact");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755810761, "Lcom/repackage/by1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755810761, "Lcom/repackage/by1;");
                 return;
             }
         }
+        h = rg1.a;
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    private void insert(Context context, ay1 ay1Var, CallbackHandler callbackHandler) {
+    public by1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, context, ay1Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
-            intent.putExtra("name", ay1Var.d());
-            intent.putExtra("email", ay1Var.r);
-            intent.putParcelableArrayListExtra("data", k(ay1Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (context != null && callbackHandler != null && sz2Var != null) {
-                if (sz2Var.n0()) {
-                    if (p13.b) {
-                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (p13.b) {
-                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
-                }
-                String optString = optParamsAsJo.optString("action");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                ay1 a = ay1.a(optParamsAsJo);
-                if (!a.t()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                this.c = optParamsAsJo.optString("cb");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -1183792455) {
-                    if (hashCode == 3108362 && optString.equals("edit")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("insert")) {
-                    c = 0;
-                }
-                if (c == 0) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    insert(context, a, callbackHandler);
-                    return true;
-                } else if (c != 1) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    j(context, a, callbackHandler);
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j(Context context, ay1 ay1Var, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ay1Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
-            intent.setType("vnd.android.cursor.item/contact");
-            intent.putExtra("name", ay1Var.d());
-            intent.putExtra("email", ay1Var.r);
-            intent.putParcelableArrayListExtra("data", k(ay1Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
         }
     }
 
-    public final ArrayList<ContentValues> k(ay1 ay1Var) {
+    public static by1 e(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ay1Var)) == null) {
-            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-            arrayList.add(ay1Var.j());
-            arrayList.add(ay1Var.h());
-            arrayList.add(ay1Var.s());
-            arrayList.add(ay1Var.i());
-            arrayList.add(ay1Var.g());
-            arrayList.add(ay1Var.r());
-            arrayList.add(ay1Var.k());
-            arrayList.add(ay1Var.o());
-            arrayList.add(ay1Var.n());
-            arrayList.add(ay1Var.m());
-            arrayList.add(ay1Var.l());
-            arrayList.add(ay1Var.b());
-            arrayList.add(ay1Var.p());
-            arrayList.add(ay1Var.e());
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            by1 by1Var = new by1();
             try {
-                context.startActivity(intent);
-                if (TextUtils.isEmpty(this.c)) {
-                    return;
+                by1Var.a = jSONObject.getString("appKey");
+                by1Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + m93.h(0) + "&appVersion=" + be3.D();
+                by1Var.c = jSONObject.getString("wsUrl");
+                by1Var.d = jSONObject.optString("notInHistory", "1");
+                by1Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
+                by1Var.f = jSONObject.optString("slavePreload");
+                by1Var.g = jSONObject.optJSONArray("hosts");
+                return by1Var;
+            } catch (JSONException unused) {
+                if (h) {
+                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
                 }
-                callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
-            } catch (Exception e) {
-                if (p13.b) {
-                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
-                }
-                if (TextUtils.isEmpty(this.c)) {
-                    return;
-                }
-                callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                return null;
             }
         }
+        return (by1) invokeL.objValue;
+    }
+
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? b(i, this.b) : (String) invokeI.objValue;
+    }
+
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
+                Uri parse = Uri.parse(str);
+                String optString = this.g.optString(i);
+                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
+                    return str.replace(parse.getHost(), optString);
+                }
+            }
+            return str;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? b(i, this.c) : (String) invokeI.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) : invokeV.booleanValue;
     }
 }

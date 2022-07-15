@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.RecomVertical.DataReq;
 import tbclient.RecomVertical.RecomVerticalReqIdl;
 /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class GameVideoRequestMessage extends NetMessage {
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             RecomVerticalReqIdl.Builder builder2 = new RecomVerticalReqIdl.Builder();
             builder2.data = builder.build(false);

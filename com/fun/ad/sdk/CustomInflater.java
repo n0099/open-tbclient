@@ -1,12 +1,12 @@
 package com.fun.ad.sdk;
 
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class CustomInflater implements NativeInflater {
@@ -36,11 +36,9 @@ public abstract class CustomInflater implements NativeInflater {
 
     public abstract List<View> getCreativeViews();
 
-    public abstract NativeAdContainer getGdtNativeAdContainer();
-
     public final FunNativeInfo getNativeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getNativeInfo() : (FunNativeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getNativeInfo() : (FunNativeInfo) invokeV.objValue;
     }
 }

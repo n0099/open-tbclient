@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -14,7 +14,7 @@ public final class ThreadInfo implements b, Serializable {
     public String mTrace;
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -25,12 +25,12 @@ public final class ThreadInfo implements b, Serializable {
     }
 
     @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
+    public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "mName", this.mName);
-        t.a(jSONObject, "mTrace", this.mTrace);
-        t.a(jSONObject, "mTid", this.mTid);
-        t.a(jSONObject, "mIndex", this.mIndex);
+        r.a(jSONObject, "mName", this.mName);
+        r.a(jSONObject, "mTrace", this.mTrace);
+        r.a(jSONObject, "mTid", this.mTid);
+        r.a(jSONObject, "mIndex", this.mIndex);
         return jSONObject;
     }
 }

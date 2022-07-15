@@ -1,18 +1,20 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class z02 extends t02<JSONObject, sr1> {
+public final class z02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b12 a;
+    public long b;
 
     public z02() {
         Interceptable interceptable = $ic;
@@ -24,35 +26,110 @@ public class z02 extends t02<JSONObject, sr1> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = 0L;
+        this.a = new b12();
+    }
+
+    public void a(x02 x02Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, x02Var) == null) {
+            this.a.a(x02Var);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.x02
-    @NonNull
-    /* renamed from: c */
-    public sr1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new sr1(202);
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new sr1(202, "data is required");
-            }
-            String optString = optJSONObject.optString("content");
-            String optString2 = optJSONObject.optString("type");
-            String optString3 = optJSONObject.optString("source");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                sw1.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
-                xz1.d().e(vz1.a(optString2, optString, optString3));
-                return new sr1(0);
-            }
-            return new sr1(202);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int size = this.a.d().size();
+            int i = this.a.i();
+            return i > 0 && (((double) size) * 1.0d) / ((double) i) > 0.5d;
         }
-        return (sr1) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<x02> d = this.a.d();
+            if (d.size() <= 0) {
+                return false;
+            }
+            for (x02 x02Var : d) {
+                if (r52.k().i(x02Var.f)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((double) this.a.g().size()) >= 2.0d : invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.i() <= 2 || System.currentTimeMillis() - this.b < 3000 : invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int size = this.a.f().size();
+            int i = this.a.i();
+            return i > 0 && (((double) size) * 1.0d) / ((double) i) > 0.5d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public a12 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            a12 a12Var = new a12();
+            a12Var.i(this.b);
+            a12Var.h(this.a.d());
+            a12Var.k(this.a.g());
+            a12Var.l(this.a.i());
+            if (c()) {
+                a12Var.j(RequestStatus.STATUS_CORE_FAILED);
+            } else if (e()) {
+                a12Var.j(RequestStatus.STATUS_UNKNOWN);
+            } else if (f()) {
+                a12Var.j(RequestStatus.STATUS_SERVER_FAILED);
+            } else if (b()) {
+                a12Var.j(RequestStatus.STATUS_FAILED);
+            } else if (d()) {
+                a12Var.j(RequestStatus.STATUS_SLOW);
+            } else {
+                a12Var.j(RequestStatus.STATUS_SUCCESS);
+            }
+            return a12Var;
+        }
+        return (a12) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.b();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = System.currentTimeMillis();
+        }
     }
 }

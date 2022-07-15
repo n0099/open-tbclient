@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v54;
+import com.repackage.k64;
 /* loaded from: classes2.dex */
 public class SwanAppLaunchCircleAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -105,8 +105,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.g = System.currentTimeMillis();
-            this.d = getResources().getColor(R.color.obfuscated_res_0x7f0603f7);
-            this.c = getResources().getColor(R.color.obfuscated_res_0x7f0603f5);
+            this.d = getResources().getColor(R.color.obfuscated_res_0x7f0603fa);
+            this.c = getResources().getColor(R.color.obfuscated_res_0x7f0603f8);
             this.a.setColor(this.d);
             this.a.setAntiAlias(true);
             this.a.setStyle(Paint.Style.STROKE);
@@ -123,7 +123,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
             g();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.f = ofFloat;
-            ofFloat.setInterpolator(new v54(0.4f, 0.0f, 0.6f, 1.0f));
+            ofFloat.setInterpolator(new k64(0.4f, 0.0f, 0.6f, 1.0f));
             this.f.setRepeatCount(-1);
             this.f.setRepeatMode(1);
             this.f.setDuration(800L);

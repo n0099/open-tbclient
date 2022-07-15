@@ -36,6 +36,7 @@ import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +44,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.UIListenerManager;
@@ -380,7 +380,7 @@ public class AuthAgent extends BaseApi {
             a2.putString("response_type", "token");
             a2.putString("redirect_uri", "auth://tauth.qq.com/");
             a2.putString("cancel_display", "1");
-            a2.putString("switch", "1");
+            a2.putString(SetImageWatermarkTypeReqMsg.SWITCH, "1");
             a2.putString("compat_v", "1");
             if (z2) {
                 a2.putString("style", "qr");
@@ -854,7 +854,7 @@ public class AuthAgent extends BaseApi {
                 layoutParams2.setMargins(0, 0, (int) f2, 0);
                 relativeLayout.addView(textView, layoutParams2);
                 View view2 = new View(context);
-                view2.setBackgroundColor(Color.rgb((int) w0.c0, (int) w0.c0, (int) w0.c0));
+                view2.setBackgroundColor(Color.rgb(214, 214, 214));
                 view2.setId(3);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, 2);
                 layoutParams3.addRule(3, 1);

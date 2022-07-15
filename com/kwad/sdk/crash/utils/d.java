@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 /* loaded from: classes5.dex */
-public class d {
+public final class d {
     public static Context a;
 
     @WorkerThread

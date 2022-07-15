@@ -1,40 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.PhotoInfo;
-import com.kwad.sdk.core.scene.URLPackage;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ej implements com.kwad.sdk.core.d<PhotoInfo.TubeEpisode> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(PhotoInfo.TubeEpisode tubeEpisode, JSONObject jSONObject) {
+public final class ej implements com.kwad.sdk.core.d<AdMatrixInfo.RotateDegreeInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        tubeEpisode.tubeId = jSONObject.optLong(URLPackage.KEY_TUBE_ID, new Long("-1").longValue());
-        tubeEpisode.tubeName = jSONObject.optString("tubeName");
-        if (jSONObject.opt("tubeName") == JSONObject.NULL) {
-            tubeEpisode.tubeName = "";
-        }
-        tubeEpisode.episodeName = jSONObject.optString("episodeName");
-        if (jSONObject.opt("episodeName") == JSONObject.NULL) {
-            tubeEpisode.episodeName = "";
-        }
-        tubeEpisode.playCount = jSONObject.optLong("playCount");
-        tubeEpisode.hasTube = jSONObject.optBoolean("hasTube");
+        rotateDegreeInfo.rotateDegree = jSONObject.optInt("rotateDegree");
+        rotateDegreeInfo.direction = jSONObject.optInt("direction");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(PhotoInfo.TubeEpisode tubeEpisode, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, URLPackage.KEY_TUBE_ID, tubeEpisode.tubeId);
-        com.kwad.sdk.utils.t.a(jSONObject, "tubeName", tubeEpisode.tubeName);
-        com.kwad.sdk.utils.t.a(jSONObject, "episodeName", tubeEpisode.episodeName);
-        com.kwad.sdk.utils.t.a(jSONObject, "playCount", tubeEpisode.playCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "hasTube", tubeEpisode.hasTube);
+        com.kwad.sdk.utils.r.a(jSONObject, "rotateDegree", rotateDegreeInfo.rotateDegree);
+        com.kwad.sdk.utils.r.a(jSONObject, "direction", rotateDegreeInfo.direction);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo, JSONObject jSONObject) {
+        a2(rotateDegreeInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.RotateDegreeInfo rotateDegreeInfo, JSONObject jSONObject) {
+        return b2(rotateDegreeInfo, jSONObject);
     }
 }

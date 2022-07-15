@@ -1,15 +1,39 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import android.os.Bundle;
+import androidx.annotation.BinderThread;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface gk9 {
-    void a(int i, String str, String str2);
+public abstract class gk9 extends lk9<Boolean> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public final Bundle b;
 
-    void a(String str);
-
-    void a(String str, Bitmap bitmap);
-
-    void b(String str);
-
-    void b(String str, String str2, String str3, long j, String str4, String str5);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @BinderThread
+    public gk9(bk9 bk9Var, @Nullable int i, Bundle bundle) {
+        super(bk9Var, Boolean.TRUE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bk9Var, Integer.valueOf(i), bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((bk9) objArr2[0], objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = bundle;
+    }
 }

@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.s80;
-import com.repackage.z80;
-import com.repackage.za0;
+import com.repackage.c90;
+import com.repackage.eb0;
+import com.repackage.t80;
 /* loaded from: classes2.dex */
 public class ErrorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -63,7 +63,7 @@ public class ErrorView extends LinearLayout {
                     }
                     return;
                 }
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a03, 1).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f09f0, 1).show();
             }
         }
     }
@@ -106,22 +106,22 @@ public class ErrorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (NetWorkUtils.b(getContext())) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams.width = s80.a(getContext(), z80.a().o);
-                layoutParams.height = s80.a(getContext(), z80.a().p);
+                layoutParams.width = t80.a(getContext(), c90.a().o);
+                layoutParams.height = t80.a(getContext(), c90.a().p);
                 this.b.setLayoutParams(layoutParams);
-                setImageResource(za0.e().c(z));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0a02);
+                setImageResource(eb0.e().c(z));
+                this.c.setText(R.string.obfuscated_res_0x7f0f09ef);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams2.width = s80.a(getContext(), z80.a().u);
-                layoutParams2.height = s80.a(getContext(), z80.a().v);
+                layoutParams2.width = t80.a(getContext(), c90.a().u);
+                layoutParams2.height = t80.a(getContext(), c90.a().v);
                 this.b.setLayoutParams(layoutParams2);
-                setImageResource(za0.e().d(z));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0a03);
+                setImageResource(eb0.e().d(z));
+                this.c.setText(R.string.obfuscated_res_0x7f0f09f0);
             }
-            this.c.setTextColor(za0.e().a(getContext(), z, "color_8585852"));
-            this.a.setTextColor(za0.e().a(getContext(), z, "color_5252522"));
-            this.a.setBackground(za0.e().m(getContext(), z));
+            this.c.setTextColor(eb0.e().a(getContext(), z, "color_8585852"));
+            this.a.setTextColor(eb0.e().a(getContext(), z, "color_5252522"));
+            this.a.setBackground(eb0.e().m(getContext(), z));
         }
     }
 
@@ -190,12 +190,12 @@ public class ErrorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04f2, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d050c, this);
         setOrientation(1);
         setGravity(17);
-        this.b = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908e1);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908df);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e0);
+        this.b = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908e8);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e6);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e7);
         b();
     }
 }

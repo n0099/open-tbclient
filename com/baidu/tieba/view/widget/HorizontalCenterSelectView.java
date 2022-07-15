@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
+import com.repackage.ur4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -197,8 +197,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921c3);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092142);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092268);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e5);
             }
         }
 
@@ -242,7 +242,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 }
                 bVar.b.setTextSize(0, this.a.b.getTextSize());
                 bVar.b.setTextColor(this.a.b.getColor());
-                fr4.d(bVar.b).y(R.array.S_O_X001);
+                ur4.d(bVar.b).y(R.array.S_O_X001);
                 bVar.b.setOnClickListener(new a(this, i));
                 if (i == this.a.i) {
                     bVar.b.setAlpha(1.0f);
@@ -516,7 +516,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         this.a = new ArrayList();
         this.b = new Paint();
         this.h = false;
-        this.k = R.layout.obfuscated_res_0x7f0d03e8;
+        this.k = R.layout.obfuscated_res_0x7f0d03eb;
         this.l = new a(this);
         o();
     }

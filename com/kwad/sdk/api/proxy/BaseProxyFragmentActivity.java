@@ -107,6 +107,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onPreDestroy();
         super.onDestroy();
         this.mDelegate.onDestroy();
+        Wrapper.onDestroy(this);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
-import com.repackage.fc5;
+import com.repackage.id5;
 import com.repackage.pi;
+import com.repackage.rl4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
@@ -65,7 +65,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int f = pi.f(context, R.dimen.tbds22);
         layoutParams.rightMargin = f;
         textView.setTag(recommendTopicListData);
-        textView.setText(fc5.a(recommendTopicListData.getTopicName()));
+        textView.setText(id5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
         textView.setTextSize(0, pi.f(context, R.dimen.tbds33));
         textView.setGravity(17);
@@ -82,13 +82,13 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !fc5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !id5.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
                 return;
             }
             Context context = getContext();
-            cl4.o(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            rl4.o(context, "https://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 

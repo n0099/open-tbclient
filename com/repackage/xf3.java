@@ -1,40 +1,45 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xf3 extends ProviderDelegation {
+public class xf3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xf3() {
+    public static void a(@NonNull wf3 wf3Var, @NonNull nq2 nq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, wf3Var, nq2Var) == null) {
+            wf3Var.f(nq2Var.d());
+            wf3Var.g(nq2Var.e());
+            if (nq2Var.g()) {
+                wf3Var.a(1);
+            } else {
+                wf3Var.e(1);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static FrameLayout.LayoutParams b(@NonNull om1 om1Var, @NonNull nq2 nq2Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("result", sf3.q(getAgent().getContext()));
-            return bundle2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, om1Var, nq2Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(nq2Var.f(), nq2Var.c());
+            int i2 = 0;
+            if (nq2Var.g()) {
+                i2 = om1Var.getWebViewScrollX();
+                i = om1Var.getWebViewScrollY();
+            } else {
+                i = 0;
+            }
+            layoutParams.leftMargin = nq2Var.d() + i2;
+            layoutParams.topMargin = nq2Var.e() + i;
+            return layoutParams;
         }
-        return (Bundle) invokeL.objValue;
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

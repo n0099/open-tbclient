@@ -1,33 +1,22 @@
 package com.repackage;
 
 import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.view.View;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes6.dex */
-public interface mo3 {
-    void a(FrameLayout frameLayout);
+public interface mo3<VIEW extends View> {
+    void a(String str);
 
-    void d(boolean z);
+    void b(DownloadState downloadState);
 
-    mo3 e(Context context, @NonNull in3 in3Var);
+    mo3 c(Context context, DownloadParams downloadParams, ho3 ho3Var);
 
-    void g(go3 go3Var);
+    void d(int i);
 
-    int getCurrentPosition();
+    void e(Object obj);
 
-    int getDuration();
+    void f();
 
-    void h(in3 in3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    VIEW getRealView();
 }

@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qn2;
+import com.repackage.fo2;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qn2 a;
+    public fo2 a;
     public SwanAppThumbnailAdapter b;
 
-    public SwanAppThumbnailTouchCallback(qn2 qn2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+    public SwanAppThumbnailTouchCallback(fo2 fo2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qn2Var, swanAppThumbnailAdapter};
+            Object[] objArr = {fo2Var, swanAppThumbnailAdapter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +33,7 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.a = qn2Var;
+        this.a = fo2Var;
         this.b = swanAppThumbnailAdapter;
     }
 
@@ -92,9 +92,9 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
                 this.b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            qn2 qn2Var = this.a;
-            if (qn2Var != null) {
-                qn2Var.onMove(adapterPosition, adapterPosition2);
+            fo2 fo2Var = this.a;
+            if (fo2Var != null) {
+                fo2Var.onMove(adapterPosition, adapterPosition2);
                 return true;
             }
             return true;

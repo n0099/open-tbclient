@@ -27,7 +27,6 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.AvcConfig;
 import com.google.android.exoplayer2.video.HevcConfig;
-import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -629,7 +628,7 @@ public final class AtomParsers {
                                 break;
                             default:
                                 switch (readUnsignedByte2) {
-                                    case w0.w /* 169 */:
+                                    case 169:
                                     case 172:
                                         return Pair.create(MimeTypes.AUDIO_DTS, null);
                                     case Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID /* 170 */:

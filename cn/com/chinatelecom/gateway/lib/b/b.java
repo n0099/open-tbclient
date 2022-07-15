@@ -4,7 +4,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -232,7 +231,7 @@ public class b {
                 jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
                 jSONObject.put("sv", this.k);
                 jSONObject.put("ri", this.l);
-                jSONObject.put(RetrieveTaskManager.KEY, this.m);
+                jSONObject.put("api", this.m);
                 jSONObject.put("p", this.n);
                 jSONObject.put("rt", this.o);
                 jSONObject.put("msg", this.p);

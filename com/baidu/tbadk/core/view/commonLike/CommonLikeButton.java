@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bu4;
 import com.repackage.pi;
+import com.repackage.yu4;
 /* loaded from: classes3.dex */
-public class CommonLikeButton extends AppCompatTextView implements bu4 {
+public class CommonLikeButton extends AppCompatTextView implements yu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -43,14 +43,14 @@ public class CommonLikeButton extends AppCompatTextView implements bu4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
         this.c = false;
         this.e = false;
         d();
     }
 
-    @Override // com.repackage.bu4
+    @Override // com.repackage.yu4
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class CommonLikeButton extends AppCompatTextView implements bu4 {
         onClickListener.onClick(view2);
     }
 
-    @Override // com.repackage.bu4
+    @Override // com.repackage.yu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -68,7 +68,7 @@ public class CommonLikeButton extends AppCompatTextView implements bu4 {
         }
     }
 
-    @Override // com.repackage.bu4
+    @Override // com.repackage.yu4
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -81,7 +81,7 @@ public class CommonLikeButton extends AppCompatTextView implements bu4 {
             } else {
                 setClickable(true);
                 setText(this.b);
-                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070263), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234), 0);
+                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070262), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), 0);
             }
             e(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -150,8 +150,8 @@ public class CommonLikeButton extends AppCompatTextView implements bu4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
         this.c = false;
         this.e = false;
         d();
@@ -176,8 +176,8 @@ public class CommonLikeButton extends AppCompatTextView implements bu4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
         this.c = false;
         this.e = false;
         d();

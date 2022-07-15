@@ -2,8 +2,10 @@ package com.kwad.sdk.api.core;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import androidx.fragment.app.Fragment;
@@ -16,9 +18,21 @@ public class ComponentDestroyer {
         if (activity == null) {
             return;
         }
-        View decorView = activity.getWindow().getDecorView();
+        destroyActivity(activity, activity.getWindow());
+    }
+
+    public static void destroyActivity(Context context, Window window) {
+        if (window == null) {
+            return;
+        }
+        View decorView = window.getDecorView();
         destroyWebViewInTree(decorView);
-        fixInputMethodManagerLeak(activity, decorView);
+        fixInputMethodManagerLeak(context, decorView);
+    }
+
+    public static void destroyFragment(Context context, View view2) {
+        destroyWebViewInTree(view2);
+        fixInputMethodManagerLeak(context, view2);
     }
 
     public static void destroyFragment(Fragment fragment) {
@@ -36,7 +50,10 @@ public class ComponentDestroyer {
                 return;
             }
             if (view2 instanceof WebView) {
-                ((WebView) view2).destroy();
+                try {
+                    ((WebView) view2).destroy();
+                } catch (Throwable unused) {
+                }
             } else if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
@@ -49,7 +66,7 @@ public class ComponentDestroyer {
 
     public static void fixInputMethodManagerLeak(Context context, View view2) {
         InputMethodManager inputMethodManager;
-        if (context == null || view2 == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+        if (context == null || view2 == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};

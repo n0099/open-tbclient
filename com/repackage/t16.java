@@ -1,80 +1,111 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.Comparable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.properties.ReadWriteProperty;
-import kotlin.reflect.KProperty;
 /* loaded from: classes7.dex */
-public final class t16<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
+public final class t16 extends x06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<T, Unit> a;
-    public T b;
+    public j06 e;
 
-    public t16(T initial, Function1<? super T, Unit> onChange) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t16(u06 context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {initial, onChange};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((u06) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(initial, "initial");
-        Intrinsics.checkNotNullParameter(onChange, "onChange");
-        this.a = onChange;
-        this.b = initial;
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
-    /* renamed from: a */
-    public T getValue(Object thisRef, KProperty<?> property) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.q0
+    public void c(n0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            return this.b;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty
-    /* renamed from: b */
-    public void setValue(Object thisRef, KProperty<?> property, T value) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            Intrinsics.checkNotNullParameter(value, "value");
-            T t = this.b;
-            this.b = value;
-            if (Intrinsics.areEqual(t, value)) {
-                return;
-            }
-            this.a.invoke(value);
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
         }
     }
 
-    public String toString() {
+    @Override // com.repackage.x06
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public final j06 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (j06) invokeV.objValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            j06 j06Var = this.e;
+            if (j06Var != null) {
+                j06 c = i().c();
+                if (c.j() != j06Var.j() || c.g() != j06Var.g()) {
+                    BdLog.w("DanmakuEngine [Config] density from " + c.j() + " to " + j06Var.j());
+                    j06Var.G();
+                    j06Var.I();
+                    j06Var.F();
+                    j06Var.C();
+                }
+                if (!(c.v() == j06Var.v())) {
+                    BdLog.w("DanmakuEngine [Config] textSizeScale change from " + c.v() + " to " + j06Var.v());
+                    j06Var.I();
+                    j06Var.F();
+                    j06Var.G();
+                    j06Var.C();
+                }
+                if (c.w() != j06Var.w()) {
+                    j06Var.J();
+                }
+                if (!(c.u() == j06Var.u()) || c.e() != j06Var.e()) {
+                    j06Var.F();
+                    j06Var.J();
+                    j06Var.I();
+                }
+                if (c.n().size() != j06Var.n().size() || c.l() != j06Var.l()) {
+                    j06Var.D();
+                }
+                i().h(j06Var);
+            }
+            this.e = null;
+        }
+    }
+
+    public final void m(j06 danmakuConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
+            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
+            this.e = danmakuConfig;
+        }
+    }
+
+    @Override // com.repackage.q0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            l();
+        }
     }
 }

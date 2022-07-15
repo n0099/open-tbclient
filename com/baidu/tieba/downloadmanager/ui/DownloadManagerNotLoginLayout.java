@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.tu4;
 /* loaded from: classes3.dex */
 public class DownloadManagerNotLoginLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -86,14 +86,14 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0233, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907ed);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907ee);
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0907ec);
-            wt4 wt4Var = new wt4();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03da));
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907f4);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907f5);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0907f3);
+            tu4 tu4Var = new tu4();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03e1));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(wt4Var);
+            this.d.setConfig(tu4Var);
             this.d.setOnClickListener(new a(this));
         }
     }

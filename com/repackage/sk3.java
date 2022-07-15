@@ -1,145 +1,69 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
 import android.content.Context;
-import android.os.Build;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-@SuppressLint({"MissingPermission", "HardwareIds"})
 /* loaded from: classes7.dex */
-public class sk3 implements uk3 {
+public class sk3 implements rk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public tk3 a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755317706, "Lcom/repackage/sk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755317706, "Lcom/repackage/sk3;");
-                return;
-            }
-        }
-        a = cg1.a;
-    }
-
-    public sk3() {
+    public sk3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.repackage.rk3
+    public void a() {
+        tk3 tk3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (tk3Var = this.a) != null && tk3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
     }
 
-    @Override // com.repackage.uk3
-    public String a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.rk3
+    public void b(int i) {
+        tk3 tk3Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.uk3
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.uk3
-    public String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    String meid = telephonyManager == null ? "" : telephonyManager.getMeid();
-                    return TextUtils.isEmpty(meid) ? "" : meid;
-                } catch (Exception e) {
-                    sw1.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
-                }
-            }
-            return "";
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (tk3Var = this.a) != null && tk3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.uk3
-    public String d(Context context) {
-        InterceptResult invokeL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            try {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    String deviceId = telephonyManager.getDeviceId();
-                    if (TextUtils.isEmpty(deviceId)) {
-                        if (Build.VERSION.SDK_INT >= 26) {
-                            deviceId = telephonyManager.getImei();
-                        }
-                        return TextUtils.isEmpty(deviceId) ? "" : deviceId;
-                    }
-                    return deviceId;
-                }
-            } catch (Exception e) {
-                sw1.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
-            }
-            return "";
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = tk3.a(context);
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.uk3
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                if (a) {
-                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
-                }
-                return "";
-            }
-            Application c = zi2.c();
-            if (ContextCompat.checkSelfPermission(c, "android.permission.READ_PHONE_STATE") != 0) {
-                return "";
-            }
-            try {
-                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
-                String deviceId = telephonyManager == null ? "" : telephonyManager.getDeviceId();
-                return TextUtils.isEmpty(deviceId) ? "" : deviceId;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -5,23 +5,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.qq.e.ads.nativ.express2.AdEventListener;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes5.dex */
-public class ag9 implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
+public class ag9 implements AdEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public final /* synthetic */ KsFullScreenVideoAd c;
-    public final /* synthetic */ zf9 d;
+    public final /* synthetic */ NativeExpressADData2 c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ zf9 f;
 
-    public ag9(zf9 zf9Var, KsFullScreenVideoAd ksFullScreenVideoAd) {
+    public ag9(zf9 zf9Var, NativeExpressADData2 nativeExpressADData2, ExpressAdListenerWrapper expressAdListenerWrapper, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zf9Var, ksFullScreenVideoAd};
+            Object[] objArr = {zf9Var, nativeExpressADData2, expressAdListenerWrapper, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,61 +37,81 @@ public class ag9 implements KsFullScreenVideoAd.FullScreenVideoAdInteractionList
                 return;
             }
         }
-        this.d = zf9Var;
-        this.c = ksFullScreenVideoAd;
+        this.f = zf9Var;
+        this.c = nativeExpressADData2;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
     }
 
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onAdClicked() {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onAdClosed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.d.onAdClicked(this.b, new String[0]);
-            this.b = true;
+            this.f.onAdClose(this.c);
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.e);
+            }
         }
     }
 
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onPageDismiss() {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onClick() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.d.onAdClose();
+            this.f.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+            }
         }
     }
 
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onSkippedVideo() {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onExposed() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
+            LogPrinter.e();
+            this.f.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
         }
     }
 
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onVideoPlayEnd() {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onRenderFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogPrinter.d();
+            this.f.onError(0, "RenderFail");
         }
     }
 
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onRenderSuccess() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
-            this.d.onAdError(i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
+            this.f.e.put(this.c, this.d);
+            this.f.onAdLoaded((zf9) this.c);
         }
     }
 }

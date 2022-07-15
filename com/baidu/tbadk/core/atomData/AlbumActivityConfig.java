@@ -102,7 +102,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public void setCallFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            getIntent().putExtra("KEY_CALL_FROM", str);
+            getIntent().putExtra(BaseWriteConfig.KEY_CALL_FROM, str);
         }
     }
 

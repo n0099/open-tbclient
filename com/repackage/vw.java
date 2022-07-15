@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vw extends sw implements fx<ThreadData>, gx {
+public class vw extends sw implements gx<ThreadData>, hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CardForumHeadLayout e;
@@ -49,7 +49,7 @@ public class vw extends sw implements fx<ThreadData>, gx {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
+    @Override // com.repackage.gx
     /* renamed from: k */
     public void a(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class vw extends sw implements fx<ThreadData>, gx {
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {

@@ -36,13 +36,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd5;
+import com.repackage.je5;
+import com.repackage.mw7;
+import com.repackage.n86;
+import com.repackage.ow7;
 import com.repackage.pi;
-import com.repackage.q76;
+import com.repackage.pw7;
 import com.repackage.qg;
-import com.repackage.tv7;
-import com.repackage.vv7;
-import com.repackage.wv7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbEmotionBar extends LinearLayout implements EmotionView.c {
@@ -52,7 +52,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public SearchEmotionModel.b B;
     public RelativeLayout a;
     public HListView b;
-    public vv7 c;
+    public ow7 c;
     public float d;
     public float e;
     public float f;
@@ -65,7 +65,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int m;
     public int n;
     public j o;
-    public tv7 p;
+    public mw7 p;
     public RelativeLayout q;
     public EditText r;
     public ImageView s;
@@ -75,7 +75,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int w;
     public boolean x;
     public boolean y;
-    public wv7 z;
+    public pw7 z;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -142,13 +142,13 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                 int i5 = i4 - i3;
                 int length = 30 - (spanned.length() - i5);
                 String obj = spanned.toString();
-                int b = gd5.b(obj);
+                int b = je5.b(obj);
                 if (i5 > 0) {
                     for (int i6 = i3; i6 < i5 + i3 && obj.length() < i6; i6++) {
-                        b -= gd5.a(obj.charAt(i6));
+                        b -= je5.a(obj.charAt(i6));
                     }
                 } else {
-                    b += gd5.b(charSequence.toString());
+                    b += je5.b(charSequence.toString());
                 }
                 if (b <= 30 && length > 0) {
                     if (length >= i2 - i) {
@@ -202,7 +202,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                 return;
             }
             if (this.a.z == null) {
-                this.a.z = new wv7();
+                this.a.z = new pw7();
                 this.a.z.g(this.a.B);
             }
             this.a.z.f(trim);
@@ -248,12 +248,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, q76 q76Var) {
+        public void a(String str, n86 n86Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, q76Var) == null) || q76Var == null || ListUtils.isEmpty(q76Var.a()) || !this.a.r.getText().toString().trim().equals(str)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, n86Var) == null) || n86Var == null || ListUtils.isEmpty(n86Var.a()) || !this.a.r.getText().toString().trim().equals(str)) {
                 return;
             }
-            this.a.c.e(q76Var.a());
+            this.a.c.e(n86Var.a());
             this.a.c.notifyDataSetChanged();
         }
 
@@ -685,21 +685,21 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     }
 
     public void s() {
-        wv7 wv7Var;
+        pw7 pw7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (wv7Var = this.z) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (pw7Var = this.z) == null) {
             return;
         }
-        wv7Var.e();
+        pw7Var.e();
     }
 
     public void setOnEmotionClickListener(i iVar) {
-        vv7 vv7Var;
+        ow7 ow7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) || iVar == null || (vv7Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) || iVar == null || (ow7Var = this.c) == null) {
             return;
         }
-        vv7Var.g(new h(this, iVar));
+        ow7Var.g(new h(this, iVar));
     }
 
     public void setOnMoveListener(j jVar) {
@@ -712,20 +712,20 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            setId(R.id.obfuscated_res_0x7f091677);
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0491, this);
+            setId(R.id.obfuscated_res_0x7f091720);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04a9, this);
             setOrientation(1);
             setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-            this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f09131d);
-            vv7 vv7Var = new vv7();
-            this.c = vv7Var;
-            vv7Var.f(this);
+            this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f0913c3);
+            ow7 ow7Var = new ow7();
+            this.c = ow7Var;
+            ow7Var.f(this);
             this.b.setAdapter((ListAdapter) this.c);
-            this.b.setDividerWidth(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702f9));
-            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081224));
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0911b1);
-            this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f09082f);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090faf);
+            this.b.setDividerWidth(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702f8));
+            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4));
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091252);
+            this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f090836);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc0);
             this.r.addTextChangedListener(this.A);
             this.r.setOnClickListener(new a(this));
             this.r.setFilters(new InputFilter[]{new b(this)});
@@ -733,10 +733,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
             this.v = ViewConfiguration.getMaximumFlingVelocity();
             this.u = ViewConfiguration.getMinimumFlingVelocity();
-            this.w = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070250);
-            this.k = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e6);
-            this.l = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07023b);
-            this.m = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070234);
+            this.w = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07024f);
+            this.k = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e5);
+            this.l = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07023a);
+            this.m = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070232);
             int f2 = this.h - pi.f(getContext(), R.dimen.tbds196);
             this.i = f2;
             this.g = (this.k - this.l) * (1.0d / f2);
@@ -773,9 +773,9 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0105);
             this.r.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            vv7 vv7Var = this.c;
-            if (vv7Var != null) {
-                vv7Var.notifyDataSetChanged();
+            ow7 ow7Var = this.c;
+            if (ow7Var != null) {
+                ow7Var.notifyDataSetChanged();
             }
         }
     }
@@ -783,9 +783,9 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            vv7 vv7Var = this.c;
-            if (vv7Var != null) {
-                vv7Var.d();
+            ow7 ow7Var = this.c;
+            if (ow7Var != null) {
+                ow7Var.d();
             }
             s();
         }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
-import com.repackage.qc5;
+import com.repackage.td5;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -73,7 +73,7 @@ public class forumRecommendRequestMessage extends NetMessage {
                 }
                 builder.visit_history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    qc5.a(builder, true);
+                    td5.a(builder, true);
                 }
                 ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
                 builder2.data = builder.build(false);

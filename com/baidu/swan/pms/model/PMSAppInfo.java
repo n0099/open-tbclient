@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p84;
-import com.repackage.q84;
+import com.repackage.e94;
+import com.repackage.f94;
 /* loaded from: classes2.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(p84 p84Var) {
+    public void copyMainPkgInfo(e94 e94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p84Var) == null) || p84Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e94Var) == null) || e94Var == null) {
             return;
         }
-        this.appId = p84Var.g;
-        this.versionCode = p84Var.i;
-        this.versionName = p84Var.j;
-        this.type = p84Var.o;
-        this.pkgSize = p84Var.k;
+        this.appId = e94Var.g;
+        this.versionCode = e94Var.i;
+        this.versionName = e94Var.j;
+        this.type = e94Var.o;
+        this.pkgSize = e94Var.k;
     }
 
-    public void copySubPkgInfo(q84 q84Var) {
+    public void copySubPkgInfo(f94 f94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, q84Var) == null) || q84Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, f94Var) == null) || f94Var == null) {
             return;
         }
-        this.appId = q84Var.o;
-        this.versionCode = q84Var.i;
-        this.versionName = q84Var.j;
-        this.type = q84Var.q;
-        this.pkgSize = q84Var.k;
+        this.appId = f94Var.o;
+        this.versionCode = f94Var.i;
+        this.versionName = f94Var.j;
+        this.type = f94Var.q;
+        this.pkgSize = f94Var.k;
     }
 
     public void countLaunch(long j) {

@@ -1,71 +1,42 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.view.RoundTbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.view.BaseLegoCardView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
+import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
+import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s55;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class na8 extends pa8 {
+public class na8 extends wc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout h;
-    public RoundTbImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public CountDownTextView n;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements s55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
 
-        public a(na8 na8Var) {
+        public a(na8 na8Var, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {na8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ na8 a;
-
-        public b(na8 na8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {na8Var};
+                Object[] objArr = {na8Var, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,34 +46,29 @@ public class na8 extends pa8 {
                     return;
                 }
             }
-            this.a = na8Var;
+            this.a = tbPageContext;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            View.OnClickListener onClickListener;
+        @Override // com.repackage.s55.a
+        public Object build() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (onClickListener = this.a.g) == null) {
-                return;
-            }
-            onClickListener.onClick(view2);
-            this.a.n.c();
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdCardSinglePicView(this.a) : invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
+    public class b implements s55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aa8 a;
-        public final /* synthetic */ na8 b;
+        public final /* synthetic */ TbPageContext a;
 
-        public c(na8 na8Var, aa8 aa8Var) {
+        public b(na8 na8Var, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {na8Var, aa8Var};
+                Object[] objArr = {na8Var, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,108 +78,146 @@ public class na8 extends pa8 {
                     return;
                 }
             }
-            this.b = na8Var;
-            this.a = aa8Var;
+            this.a = tbPageContext;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
+        @Override // com.repackage.s55.a
+        public Object build() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                aa8 aa8Var = this.a;
-                String str = aa8Var.d;
-                if (!yg0.n(aa8Var.j) ? xg0.b(this.b.e.getPageActivity(), this.b.c.p) : false) {
-                    i = 3;
-                } else {
-                    AdvertAppInfo advertAppInfo = this.b.c;
-                    i = y88.b(this.b.e, str, advertAppInfo.h() ? this.b.c.getDownloadId() : this.b.c.a, advertAppInfo.g, this.a.j);
-                }
-                if (i == 0) {
-                    return;
-                }
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.w(ClogBuilder.LogType.CLICK).t("VIDEO_FLOW_TAIL").o(String.valueOf(this.b.c.position + 1)).n(this.b.c.g);
-                vx0.c(clogBuilder);
-                jc7.c(this.b.c);
-                this.b.n.c();
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdCardMultiPicView(this.a) : invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public na8(View view2, String str) {
-        super(view2, str);
+    /* loaded from: classes6.dex */
+    public class c implements s55.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int b;
+
+        public c(na8 na8Var, TbPageContext tbPageContext, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {na8Var, tbPageContext, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = i;
+        }
+
+        @Override // com.repackage.s55.a
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdCardVideoView(this.a, this.b) : invokeV.objValue;
+        }
+    }
+
+    public na8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        l();
     }
 
-    @Override // com.repackage.pa8
-    public void c(aa8 aa8Var) {
+    @Override // com.repackage.wc7
+    public <T> pd7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aa8Var) == null) {
-            super.c(aa8Var);
-            if (aa8Var == null) {
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
+            int cardType = iCardInfo == null ? -1 : iCardInfo.getCardType();
+            if (cardType == 17 || cardType == 34) {
+                return e(tbPageContext, iCardInfo, i);
             }
-            this.i.J(aa8Var.c, 30, false);
-            this.j.setText(aa8Var.b);
-            this.k.setText(aa8Var.i);
-            this.l.setText(aa8Var.e);
-            this.m.setOnClickListener(new b(this));
-            this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00b7));
-            this.h.setOnClickListener(new c(this, aa8Var));
+            return null;
+        }
+        return (pd7) invokeLLI.objValue;
+    }
+
+    @Override // com.repackage.wc7
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            if (i == 17 || i == 34) {
+                return new AdCard(jSONObject);
+            }
+            return null;
+        }
+        return (ICardInfo) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.wc7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SparseIntArray sparseIntArray = wc7.a;
+            sparseIntArray.put(17, sparseIntArray.size() + 1);
+            SparseIntArray sparseIntArray2 = wc7.a;
+            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
+            SparseIntArray sparseIntArray3 = wc7.a;
+            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
+            wc7.b.put(17, BdUniqueId.gen());
+            wc7.b.put(33, BdUniqueId.gen());
+            wc7.b.put(34, BdUniqueId.gen());
         }
     }
 
-    @Override // com.repackage.pa8
-    public void d() {
+    @Override // com.repackage.wc7
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.d();
-            this.n.update(5);
-            this.n.e();
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.w(ClogBuilder.LogType.FREE_SHOW).t("VIDEO_FLOW_TAIL").o(String.valueOf(this.c.position + 1)).n(this.c.g);
-            vx0.c(clogBuilder);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.pa8
-    public void j(CountDownTextView.c cVar) {
+    public final BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            super.j(cVar);
-            this.n.setTimeoutListener(cVar);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            if (iCardInfo instanceof AdCard) {
+                AdCard adCard = (AdCard) iCardInfo;
+                int cardType = adCard.getCardType();
+                if (cardType != 17 && cardType != 34) {
+                    BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
+                    return null;
+                }
+                int i2 = adCard.goodsStyle;
+                if (i2 != 2) {
+                    if (i2 != 14) {
+                        if (i2 == 6) {
+                            return (AdCardMultiPicView) s55.e().d(1102, new b(this, tbPageContext));
+                        }
+                        if (i2 != 7) {
+                            if (i2 != 8) {
+                                return null;
+                            }
+                        }
+                    }
+                    AdCardVideoView adCardVideoView = (AdCardVideoView) s55.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
+                    adCardVideoView.setBusinessType(i);
+                    return adCardVideoView;
+                }
+                return (AdCardSinglePicView) s55.e().d(1101, new a(this, tbPageContext));
+            }
+            return null;
         }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setOnClickListener(new a(this));
-            this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090094);
-            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f09226e);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f092285);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f09226b);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f092121);
-            this.m = (TextView) a(R.id.obfuscated_res_0x7f091a2d);
-            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906ce);
-        }
+        return (BaseLegoCardView) invokeLLI.objValue;
     }
 }

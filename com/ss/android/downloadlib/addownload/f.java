@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.addownload;
 
 import android.content.Context;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
-import com.ss.android.download.api.config.u;
+import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -13,7 +13,7 @@ public interface f {
 
     f a(IDownloadButtonClickListener iDownloadButtonClickListener);
 
-    f a(u uVar);
+    f a(OnItemClickListener onItemClickListener);
 
     void a();
 

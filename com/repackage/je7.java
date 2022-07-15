@@ -1,165 +1,77 @@
 package com.repackage;
 
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.R;
-import com.baidu.tieba.location.data.SearchLocationActivityConfig;
-import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class je7 implements f95, View.OnClickListener, AdapterView.OnItemClickListener {
+public class je7 extends jk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<SelectLocationActivity> a;
-    public NavigationBar b;
-    public ImageView c;
-    public LinearLayout d;
-    public BdListView e;
-    public ie7 f;
-    public Intent g;
 
-    public je7(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
+    public je7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        this.d = linearLayout;
-        this.b = navigationBar;
-        b();
-        a();
     }
 
-    @Override // com.repackage.f95
-    public boolean H0() {
+    @Override // com.repackage.jk4, com.repackage.mk4
+    public ok4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
+            ok4 ok4Var = new ok4();
+            if (obj instanceof dd7) {
+                dd7 dd7Var = (dd7) obj;
+                Intent intent = new Intent(baseContext, AlarmReceiver.class);
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    }
+                }
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.setData(Uri.parse(currentAccount));
+                ok4Var.a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
+                dd7Var.m(true);
+                dd7Var.l(ok4Var.a);
+            }
+            return ok4Var;
+        }
+        return (ok4) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.jk4
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0742, (ViewGroup) this.d, true);
-            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091c65);
-            ie7 ie7Var = new ie7(this.a);
-            this.f = ie7Var;
-            this.e.setAdapter((ListAdapter) ie7Var);
-            this.e.setOnItemClickListener(this);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1106));
-            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08af, (View.OnClickListener) null);
-            this.c = imageView;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070234), 0);
-            this.c.setLayoutParams(layoutParams);
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809da, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.c.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.repackage.f95
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (Intent) invokeV.objValue;
-    }
-
-    @Override // com.repackage.f95
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809da, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f.notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 == this.c) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.a.getPageActivity(), 23009)));
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.f == null) {
-            return;
-        }
-        MessageManager messageManager = MessageManager.getInstance();
-        LocationEvent locationEvent = new LocationEvent();
-        locationEvent.setType(1);
-        locationEvent.eventType = 2;
-        if (i == 0) {
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
-            locationEvent.isShowLocation = false;
-            this.a.getOrignalPage().publishEvent(locationEvent);
-            this.a.getOrignalPage().finish();
-            return;
-        }
-        Object item = this.f.getItem(i);
-        if (item instanceof LocationData.NearByAddressData) {
-            LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
-            locationEvent.locName = nearByAddressData.getName();
-            locationEvent.locAddr = nearByAddressData.getAddr();
-            locationEvent.locSn = nearByAddressData.getSn();
-            locationEvent.isShowLocation = true;
-            this.a.getOrignalPage().publishEvent(locationEvent);
-            this.a.getOrignalPage().finish();
-        }
-    }
-
-    @Override // com.repackage.f95
-    public boolean s() {
-        InterceptResult invokeV;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BdListView bdListView = this.e;
-            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.e.getChildAt(0)) != null && childAt.getTop() == 0;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
     }
 }

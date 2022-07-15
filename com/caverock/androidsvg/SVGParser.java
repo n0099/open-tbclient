@@ -19,6 +19,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +33,11 @@ import com.caverock.androidsvg.PreserveAspectRatio;
 import com.caverock.androidsvg.SVG;
 import com.coremedia.iso.boxes.TrackReferenceBox;
 import com.faceunity.gles.GeneratedTexture;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.repackage.bb9;
-import com.repackage.cb9;
-import com.tachikoma.core.component.TKBase;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.ac9;
+import com.repackage.bc9;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -136,7 +136,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGAttr requiredFormats;
 
         /* renamed from: rx  reason: collision with root package name */
-        public static final SVGAttr f1056rx;
+        public static final SVGAttr f1783rx;
         public static final SVGAttr ry;
         public static final SVGAttr solid_color;
         public static final SVGAttr solid_opacity;
@@ -242,7 +242,7 @@ public class SVGParser extends DefaultHandler2 {
             requiredExtensions = new SVGAttr("requiredExtensions", 53);
             requiredFormats = new SVGAttr("requiredFormats", 54);
             requiredFonts = new SVGAttr("requiredFonts", 55);
-            f1056rx = new SVGAttr("rx", 56);
+            f1783rx = new SVGAttr("rx", 56);
             ry = new SVGAttr("ry", 57);
             solid_color = new SVGAttr("solid_color", 58);
             solid_opacity = new SVGAttr("solid_opacity", 59);
@@ -262,7 +262,7 @@ public class SVGParser extends DefaultHandler2 {
             systemLanguage = new SVGAttr("systemLanguage", 73);
             text_anchor = new SVGAttr("text_anchor", 74);
             text_decoration = new SVGAttr("text_decoration", 75);
-            transform = new SVGAttr(AnimationProperty.TRANSFORM, 76);
+            transform = new SVGAttr("transform", 76);
             type = new SVGAttr("type", 77);
             vector_effect = new SVGAttr("vector_effect", 78);
             version = new SVGAttr("version", 79);
@@ -279,7 +279,7 @@ public class SVGParser extends DefaultHandler2 {
             visibility = new SVGAttr("visibility", 90);
             SVGAttr sVGAttr = new SVGAttr("UNSUPPORTED", 91);
             UNSUPPORTED = sVGAttr;
-            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, id, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1056rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
+            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, id, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1783rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
             cache = new HashMap();
         }
 
@@ -384,7 +384,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGElem use;
 
         /* renamed from: view  reason: collision with root package name */
-        public static final SVGElem f1057view;
+        public static final SVGElem f1784view;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -430,10 +430,10 @@ public class SVGParser extends DefaultHandler2 {
             tref = new SVGElem(TrackReferenceBox.TYPE, 27);
             tspan = new SVGElem("tspan", 28);
             use = new SVGElem(TbConfig.ST_TYPE_USE, 29);
-            f1057view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
+            f1784view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
-            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1057view, sVGElem};
+            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1784view, sVGElem};
             cache = new HashMap();
         }
 
@@ -464,7 +464,7 @@ public class SVGParser extends DefaultHandler2 {
                 if (sVGElem != null) {
                     return sVGElem;
                 }
-                if (str.equals("switch")) {
+                if (str.equals(SetImageWatermarkTypeReqMsg.SWITCH)) {
                     cache.put(str, SWITCH);
                     return SWITCH;
                 }
@@ -554,7 +554,7 @@ public class SVGParser extends DefaultHandler2 {
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                b[SVGAttr.f1056rx.ordinal()] = 10;
+                b[SVGAttr.f1783rx.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
@@ -980,7 +980,7 @@ public class SVGParser extends DefaultHandler2 {
             } catch (NoSuchFieldError unused115) {
             }
             try {
-                a[SVGElem.f1057view.ordinal()] = 28;
+                a[SVGElem.f1784view.ordinal()] = 28;
             } catch (NoSuchFieldError unused116) {
             }
             try {
@@ -1080,7 +1080,7 @@ public class SVGParser extends DefaultHandler2 {
             a.put("cornsilk", 16775388);
             a.put("crimson", 14423100);
             a.put("cyan", 65535);
-            a.put("darkblue", 139);
+            a.put("darkblue", Integer.valueOf((int) Cea708Decoder.COMMAND_TGW));
             a.put("darkcyan", 35723);
             a.put("darkgoldenrod", 12092939);
             a.put("darkgray", 11119017);
@@ -1306,7 +1306,7 @@ public class SVGParser extends DefaultHandler2 {
         public String a;
         public int b;
         public int c;
-        public cb9 d;
+        public bc9 d;
 
         public f(String str) {
             Interceptable interceptable = $ic;
@@ -1325,7 +1325,7 @@ public class SVGParser extends DefaultHandler2 {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new cb9();
+            this.d = new bc9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -1834,7 +1834,7 @@ public class SVGParser extends DefaultHandler2 {
             case 74:
                 if (str2.indexOf(124) < 0) {
                     if ("|visible|hidden|collapse|".indexOf('|' + str2 + '|') != -1) {
-                        style.B = Boolean.valueOf(str2.equals(TKBase.VISIBILITY_VISIBLE));
+                        style.B = Boolean.valueOf(str2.equals("visible"));
                         style.a |= 33554432;
                         return;
                     }
@@ -1934,7 +1934,7 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (str.charAt(0) == '#') {
-                bb9 b2 = bb9.b(str, 1, str.length());
+                ac9 b2 = ac9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 == 7) {
@@ -2037,7 +2037,7 @@ public class SVGParser extends DefaultHandler2 {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
-            float b2 = new cb9().b(str, i, i2);
+            float b2 = new bc9().b(str, i, i2);
             if (Float.isNaN(b2)) {
                 throw new SAXException("Invalid float value: " + str);
             }
@@ -2295,8 +2295,8 @@ public class SVGParser extends DefaultHandler2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (!TKBase.VISIBILITY_VISIBLE.equals(str) && !"auto".equals(str)) {
-                if (!TKBase.VISIBILITY_HIDDEN.equals(str) && !"scroll".equals(str)) {
+            if (!"visible".equals(str) && !"auto".equals(str)) {
+                if (!"hidden".equals(str) && !"scroll".equals(str)) {
                     throw new SAXException("Invalid toverflow property: " + str);
                 }
                 return Boolean.FALSE;
@@ -4296,7 +4296,7 @@ public class SVGParser extends DefaultHandler2 {
                         } else {
                             throw new SAXException("Invalid transform list: " + str);
                         }
-                    } else if (n.equals(AnimationProperty.TRANSLATE)) {
+                    } else if (n.equals("translate")) {
                         fVar.w();
                         float m7 = fVar.m();
                         float t = fVar.t();
@@ -4310,7 +4310,7 @@ public class SVGParser extends DefaultHandler2 {
                         } else {
                             throw new SAXException("Invalid transform list: " + str);
                         }
-                    } else if (n.equals(AnimationProperty.SCALE)) {
+                    } else if (n.equals("scale")) {
                         fVar.w();
                         float m8 = fVar.m();
                         float t2 = fVar.t();
@@ -4324,7 +4324,7 @@ public class SVGParser extends DefaultHandler2 {
                         } else {
                             throw new SAXException("Invalid transform list: " + str);
                         }
-                    } else if (n.equals(AnimationProperty.ROTATE)) {
+                    } else if (n.equals("rotate")) {
                         fVar.w();
                         float m9 = fVar.m();
                         float t3 = fVar.t();

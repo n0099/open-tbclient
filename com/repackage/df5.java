@@ -1,145 +1,25 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import android.graphics.Canvas;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
 /* loaded from: classes5.dex */
-public class df5 extends BdAsyncTask<Void, Void, String> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public NetWork c;
-    public a d;
+public interface df5 {
+    void a();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(boolean z, String str);
-    }
+    void b(Canvas canvas);
 
-    public df5(String str, String str2, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-        this.d = aVar;
-    }
+    void onDraw(Canvas canvas);
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                return true;
-            }
-            try {
-                return file.mkdirs();
-            } catch (Exception e) {
-                TiebaStatic.file(e, oi.join("FileHelper", ".", "CheckTempDir", " ", str));
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || oi.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(str));
-    }
+    void onMeasure(int i, int i2);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (oi.isEmpty(this.a) || oi.isEmpty(this.b) || !b(this.a)) {
-                return null;
-            }
-            String c = vi.c(this.b);
-            String str = this.a + c + "/";
-            if (e(str)) {
-                return c;
-            }
-            NetWork netWork = new NetWork();
-            this.c = netWork;
-            netWork.setUrl(this.b);
-            String str2 = this.a + c + ".zip";
-            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
-                c(str2);
-                return c;
-            }
-            c(str2);
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
+    void onSizeChanged(int i, int i2, int i3, int i4);
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (oi.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory() || file.list() == null || file.list().length <= 0) {
-                file.delete();
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean onTouchEvent(MotionEvent motionEvent);
 
-    public final boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (oi.isEmpty(str) || oi.isEmpty(str2)) {
-                return false;
-            }
-            return ps4.b(str, str2);
-        }
-        return invokeLL.booleanValue;
-    }
+    void requestLayout();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d == null) {
-            return;
-        }
-        if (!oi.isEmpty(str)) {
-            this.d.a(true, str);
-        } else {
-            this.d.a(false, null);
-        }
-    }
+    void setAdapter(ListAdapter listAdapter);
 }

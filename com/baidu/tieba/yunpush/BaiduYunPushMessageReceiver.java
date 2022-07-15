@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
 import com.repackage.ng;
-import com.repackage.p55;
-import com.repackage.px4;
+import com.repackage.ny4;
+import com.repackage.r65;
+import com.repackage.xt4;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -55,7 +55,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                ht4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                xt4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -104,8 +104,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                 pushGeneralData.parseData(jSONObject.optString("st_ext"));
                 PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                 pushRecevierEvent.generalData = pushGeneralData;
-                p55.i(pushRecevierEvent);
-            } else if (px4.K()) {
+                r65.i(pushRecevierEvent);
+            } else if (ny4.K()) {
             } else {
                 int e = ng.e(str4, 2500);
                 if (e < 2500) {

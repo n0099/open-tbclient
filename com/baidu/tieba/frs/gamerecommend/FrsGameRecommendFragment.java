@@ -19,24 +19,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lj6;
-import com.repackage.md6;
+import com.repackage.fu4;
+import com.repackage.ik6;
+import com.repackage.je6;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.nn;
-import com.repackage.ot4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements md6 {
+public class FrsGameRecommendFragment extends BaseFragment implements je6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lj6 a;
+    public ik6 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public ot4.g g;
+    public fu4.g g;
     public BdListView.p h;
 
     /* loaded from: classes3.dex */
@@ -123,7 +123,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 this.a.a.b();
                 if (z) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f037e);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0382);
                 } else {
                     FrsGameRecommendFragment frsGameRecommendFragment = this.a;
                     frsGameRecommendFragment.showNetRefreshView(frsGameRecommendFragment.a.d(), str, false);
@@ -134,7 +134,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ot4.g {
+    public class c implements fu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -157,7 +157,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.repackage.ot4.g
+        @Override // com.repackage.fu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -168,7 +168,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
                 this.a.a.b();
             }
         }
@@ -227,7 +227,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
         this.h = new d(this);
     }
 
-    public static FrsGameRecommendFragment v1(String str, String str2) {
+    public static FrsGameRecommendFragment w1(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
@@ -241,8 +241,8 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
         return (FrsGameRecommendFragment) invokeLL.objValue;
     }
 
-    @Override // com.repackage.md6
-    public NavigationBar M0() {
+    @Override // com.repackage.je6
+    public NavigationBar N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.e() : (NavigationBar) invokeV.objValue;
@@ -250,12 +250,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        lj6 lj6Var;
+        ik6 ik6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (lj6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (ik6Var = this.a) == null) {
             return;
         }
-        lj6Var.i(i);
+        ik6Var.i(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -269,9 +269,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            lj6 lj6Var = new lj6(getPageContext(), this.c, this.d);
-            this.a = lj6Var;
-            lj6Var.l(this.g);
+            ik6 ik6Var = new ik6(getPageContext(), this.c, this.d);
+            this.a = ik6Var;
+            ik6Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);
@@ -290,9 +290,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            lj6 lj6Var = this.a;
-            if (lj6Var != null) {
-                lj6Var.j();
+            ik6 ik6Var = this.a;
+            if (ik6Var != null) {
+                ik6Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -321,7 +321,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements md6 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary() && (alaGameRecommendModel = this.b) != null) {
-                if (alaGameRecommendModel.a()) {
+                if (alaGameRecommendModel.c()) {
                     w();
                     return;
                 }

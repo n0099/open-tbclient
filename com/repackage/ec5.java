@@ -1,55 +1,40 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.service.AsyncService;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.EnterForePvThread;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ec5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ec5 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public int d;
-    public AtomicBoolean e;
-    public boolean f;
-    public Handler g;
-    public Runnable h;
+    public d a;
+    public a b;
+    public b c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Handler.Callback {
+    /* loaded from: classes6.dex */
+    public static class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ec5 a;
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
 
-        public a(ec5 ec5Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ec5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,41 +44,32 @@ public class ec5 {
                     return;
                 }
             }
-            this.a = ec5Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 5) {
-                    return false;
-                }
-                if (Boolean.TRUE.equals(message.obj)) {
-                    this.a.o();
-                    this.a.k();
-                    return false;
-                }
-                this.a.l();
-                return false;
-            }
-            return invokeL.booleanValue;
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = ec5.c(R.string.obfuscated_res_0x7f0f0c44, new Object[0]);
+            this.e = ec5.c(R.string.obfuscated_res_0x7f0f0f9a, new Object[0]);
+            this.f = false;
+            this.g = pi.f(ec5.getContext(), R.dimen.obfuscated_res_0x7f0702c1);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    /* loaded from: classes6.dex */
+    public static class b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ec5 a;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
 
-        public b(ec5 ec5Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ec5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -103,43 +79,84 @@ public class ec5 {
                     return;
                 }
             }
-            this.a = ec5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ec5 ec5Var = this.a;
-                if (ec5Var.e == null) {
-                    ec5Var.e = new AtomicBoolean(false);
-                }
-                if (this.a.e.get()) {
-                    return;
-                }
-                this.a.e.set(true);
-                if (this.a.j(true)) {
-                    TbadkCoreApplication.getInst().fixOppoTimeout();
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
-                    p55.i(new AppBackgroundSwitchEvent(true));
-                    TiebaStaticHelper.setCurrentActivity(null);
-                    TiebaStatic.save();
-                }
-            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = pi.f(ec5.getContext(), R.dimen.obfuscated_res_0x7f070294);
+            this.e = ec5.c(R.string.obfuscated_res_0x7f0f0f9a, new Object[0]);
+            this.f = ec5.c(R.string.obfuscated_res_0x7f0f0f9b, new Object[0]);
+            this.g = ec5.c(R.string.obfuscated_res_0x7f0f047b, new Object[0]);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
+    /* loaded from: classes6.dex */
+    public static class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
 
-        public c(ec5 ec5Var) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ec5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pi.f(ec5.getContext(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = ec5.c(R.string.obfuscated_res_0x7f0f0a2c, new Object[0]);
+            this.d = ec5.c(R.string.obfuscated_res_0x7f0f0dc1, new Object[0]);
+            this.e = ec5.c(R.string.obfuscated_res_0x7f0f09e7, new Object[0]);
+            this.f = ec5.c(R.string.obfuscated_res_0x7f0f03e3, new Object[0]);
+            this.g = false;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ec5.c(R.string.obfuscated_res_0x7f0f0a32, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -147,14 +164,6 @@ public class ec5 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                xm4.c().b();
             }
         }
     }
@@ -164,206 +173,24 @@ public class ec5 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0;
-        this.e = null;
-        this.f = false;
-        this.g = new Handler(Looper.getMainLooper(), new a(this));
-        this.h = new b(this);
     }
 
-    public static ec5 g() {
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) ? getContext().getString(i, objArr) : (String) invokeIL.objValue;
+    }
+
+    public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (i == null) {
-                synchronized (ec5.class) {
-                    if (i == null) {
-                        i = new ec5();
-                    }
-                }
-            }
-            return i;
-        }
-        return (ec5) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d++;
-            n();
-            qb.b().a("CornerManager", new c(this));
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d--;
-            n();
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (j(false)) {
-                if (this.f) {
-                    Intent intent = new Intent("com.tieba.baidu.notifyprocess");
-                    intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                    intent.putExtra("message", true);
-                    TbadkCoreApplication.getInst().sendBroadcast(intent);
-                    return false;
-                }
-                return true;
-            }
-            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent2.putExtra("message", false);
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = 0;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AtomicBoolean atomicBoolean = this.e;
-            if (atomicBoolean == null) {
-                return true;
-            }
-            return atomicBoolean.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? TbadkCoreApplication.getInst().isMainProcess(z) : invokeZ.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AsyncService.INSTANCE.sendRunnable(this.h);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AsyncService.INSTANCE.removeRunnable(this.h);
-            if (this.e == null) {
-                this.e = new AtomicBoolean(true);
-            }
-            if (this.e.get()) {
-                this.e.set(false);
-                this.a++;
-                if (j(true)) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.b;
-                    if ((currentTimeMillis - j > 3600000 || j == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
-                        q();
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
-                    p55.i(new AppBackgroundSwitchEvent(false));
-                }
-            }
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f = !z;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.d < 0) {
-                this.d = 0;
-            }
-            if (j(true) && this.c == 0 && this.d > 0) {
-                this.c = System.nanoTime();
-            }
-            this.g.removeMessages(5);
-            if (this.d == 0) {
-                SpeedStats.getInstance().onAppBackground();
-                p();
-                return;
-            }
-            AtomicBoolean atomicBoolean = this.e;
-            if (atomicBoolean == null || atomicBoolean.get()) {
-                SpeedStats.getInstance().onAppForeground();
-                Handler handler = this.g;
-                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
-            }
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.d == 0 && this.c > 0) {
-            long nanoTime = ((System.nanoTime() - this.c) / 1000000) / 1000;
-            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    new PvThread(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
-                }
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
-            }
-            this.c = 0L;
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Handler handler = this.g;
-            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.b = System.currentTimeMillis();
-            new EnterForePvThread().start();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TbadkCoreApplication.getInst().getApplicationContext() : (Context) invokeV.objValue;
     }
 }

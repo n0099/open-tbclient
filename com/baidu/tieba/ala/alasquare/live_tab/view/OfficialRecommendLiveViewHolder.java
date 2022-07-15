@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pp5;
+import com.repackage.nq5;
 /* loaded from: classes3.dex */
 public class OfficialRecommendLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pp5 a;
+    public nq5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OfficialRecommendLiveViewHolder(pp5 pp5Var) {
-        super(pp5Var.h());
+    public OfficialRecommendLiveViewHolder(nq5 nq5Var) {
+        super(nq5Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pp5Var};
+            Object[] objArr = {nq5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class OfficialRecommendLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = pp5Var;
+        this.a = nq5Var;
     }
 }

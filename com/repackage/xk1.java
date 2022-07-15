@@ -1,7 +1,10 @@
 package com.repackage;
 
-import org.json.JSONObject;
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface xk1 {
-    void b(sz2 sz2Var, JSONObject jSONObject);
+    @Nullable
+    List<ContentValues> a();
 }

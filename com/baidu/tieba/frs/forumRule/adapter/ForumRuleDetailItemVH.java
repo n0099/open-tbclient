@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.kf5;
+import com.repackage.ng5;
+import com.repackage.ur4;
 /* loaded from: classes3.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -51,11 +51,11 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public final void c(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a42);
-            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a41);
+            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a4a);
+            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a49);
             this.d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            kf5 layoutStrategy = this.d.getLayoutStrategy();
+            ng5 layoutStrategy = this.d.getLayoutStrategy();
             layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
             this.d.setLayoutStrategy(layoutStrategy);
             d();
@@ -66,13 +66,13 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e) {
-                fr4 d = fr4.d(this.c);
+                ur4 d = ur4.d(this.c);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0301);
                 this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
-            fr4 d2 = fr4.d(this.c);
+            ur4 d2 = ur4.d(this.c);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));

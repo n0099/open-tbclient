@@ -1,68 +1,61 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import com.win.opensdk.bridge.JsBridge;
-import com.win.opensdk.bridge.JsInvokeJavaScope;
-import com.win.opensdk.bridge.core.JsBridgeWebChromeClient;
-import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class fo9 implements ok9 {
+public class fo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public al9 a;
-    public sk9 b;
-    public WebView c;
-    public boolean d;
-    public String e;
+    public int a;
+    public String b;
 
-    public fo9(Context context) {
+    public fo9(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        WebView webView = new WebView(context);
-        this.c = webView;
-        webView.setScrollContainer(false);
-        webView.setVerticalScrollBarEnabled(false);
-        webView.setHorizontalScrollBarEnabled(false);
-        sl9.m(webView);
-        this.c.getSettings().setJavaScriptEnabled(true);
-        JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
-        this.c.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.c.setWebViewClient(new bo9(this));
+        this.a = i;
+        if (i == 0) {
+            this.b = "成功";
+        } else if (i == 1) {
+            this.b = "未能找到可用的授权APP";
+        } else if (i == 2) {
+            this.b = "授权APP版本太低，请先升级";
+        } else if (i != 3) {
+            this.b = "未知错误";
+        } else {
+            this.b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
+        }
     }
 
-    public void a(String str, Info info) {
+    public fo9(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
-            if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-                this.c.loadUrl(str);
-            } else {
-                this.c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            al9 al9Var = this.a;
-            if (al9Var != null) {
-                al9Var.a();
-            }
-            this.c.setOnTouchListener(new io9(info, new xn9(this)));
         }
+        this.a = i;
+        this.b = str;
     }
 }

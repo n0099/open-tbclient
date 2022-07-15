@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt;
 import java.util.Arrays;
 import java.util.zip.Inflater;
 /* loaded from: classes5.dex */
-public class j extends DeflatedChunksSet {
+public final class j extends DeflatedChunksSet {
     public byte[] g;
     public byte[] h;
     public final k i;
@@ -47,12 +47,49 @@ public class j extends DeflatedChunksSet {
     }
 
     public j(String str, boolean z, k kVar, e eVar, Inflater inflater, byte[] bArr) {
-        super(str, z, (eVar != null ? eVar.h() : kVar.k) + 1, kVar.k + 1, inflater, bArr);
+        super(str, z, (eVar != null ? eVar.g() : kVar.k) + 1, kVar.k + 1, null, null);
         this.l = new int[5];
         this.i = kVar;
         this.j = eVar;
         this.k = new p(kVar, eVar);
-        com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "Creating IDAT set ");
+        com.kwad.sdk.core.d.b.a("PNG_ENCRYPT", "Creating IDAT set ");
+    }
+
+    private void b(int i) {
+        byte[] bArr = this.g;
+        if (bArr == null || bArr.length < this.a.length) {
+            byte[] bArr2 = this.a;
+            this.g = new byte[bArr2.length];
+            this.h = new byte[bArr2.length];
+        }
+        if (this.k.j == 0) {
+            Arrays.fill(this.g, (byte) 0);
+        }
+        byte[] bArr3 = this.g;
+        this.g = this.h;
+        this.h = bArr3;
+        byte b = this.a[0];
+        if (!FilterType.isValidStandard(b)) {
+            throw new PngjException("Filter type " + ((int) b) + " invalid");
+        }
+        FilterType byVal = FilterType.getByVal(b);
+        int[] iArr = this.l;
+        iArr[b] = iArr[b] + 1;
+        this.g[0] = this.a[0];
+        int i2 = AnonymousClass1.a[byVal.ordinal()];
+        if (i2 == 1) {
+            d(i);
+        } else if (i2 == 2) {
+            f(i);
+        } else if (i2 == 3) {
+            g(i);
+        } else if (i2 == 4) {
+            c(i);
+        } else if (i2 == 5) {
+            e(i);
+        } else {
+            throw new PngjException("Filter type " + ((int) b) + " not implemented");
+        }
     }
 
     private void c(int i) {
@@ -113,91 +150,49 @@ public class j extends DeflatedChunksSet {
         }
     }
 
-    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public void a() {
-        super.a();
-        this.k.a(h());
-        i();
-        p pVar = this.k;
-        pVar.a(this.g, pVar.m + 1);
-    }
-
-    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public int b() {
-        return j();
-    }
-
-    public void b(int i) {
-        byte[] bArr = this.g;
-        if (bArr == null || bArr.length < this.a.length) {
-            byte[] bArr2 = this.a;
-            this.g = new byte[bArr2.length];
-            this.h = new byte[bArr2.length];
-        }
-        if (this.k.j == 0) {
-            Arrays.fill(this.g, (byte) 0);
-        }
-        byte[] bArr3 = this.g;
-        this.g = this.h;
-        this.h = bArr3;
-        byte b = this.a[0];
-        if (!FilterType.isValidStandard(b)) {
-            throw new PngjException("Filter type " + ((int) b) + " invalid");
-        }
-        FilterType byVal = FilterType.getByVal(b);
-        int[] iArr = this.l;
-        iArr[b] = iArr[b] + 1;
-        this.g[0] = this.a[0];
-        int i2 = AnonymousClass1.a[byVal.ordinal()];
-        if (i2 == 1) {
-            d(i);
-        } else if (i2 == 2) {
-            f(i);
-        } else if (i2 == 3) {
-            g(i);
-        } else if (i2 == 4) {
-            c(i);
-        } else if (i2 == 5) {
-            e(i);
-        } else {
-            throw new PngjException("Filter type " + ((int) b) + " not implemented");
-        }
-    }
-
-    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
-    public void f() {
-        super.f();
-        this.g = null;
-        this.h = null;
-    }
-
-    public void i() {
+    private void h() {
         b(this.k.m);
     }
 
-    public int j() {
-        int h;
+    private int i() {
+        int g;
         e eVar = this.j;
         int i = 0;
         if (eVar == null) {
-            int h2 = h();
+            int g2 = g();
             k kVar = this.i;
-            if (h2 < kVar.b - 1) {
-                h = kVar.k;
-                i = h + 1;
+            if (g2 < kVar.b - 1) {
+                g = kVar.k;
+                i = g + 1;
             }
         } else if (eVar.a()) {
-            h = this.j.h();
-            i = h + 1;
+            g = this.j.g();
+            i = g + 1;
         }
         if (!this.c) {
             a(i);
         }
         return i;
+    }
+
+    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
+    public final void a() {
+        super.a();
+        this.k.a(g());
+        h();
+        p pVar = this.k;
+        pVar.a(this.g, pVar.m + 1);
+    }
+
+    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
+    public final int b() {
+        return i();
+    }
+
+    @Override // com.kwad.sdk.pngencrypt.DeflatedChunksSet
+    public final void e() {
+        super.e();
+        this.g = null;
+        this.h = null;
     }
 }

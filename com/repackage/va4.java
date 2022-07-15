@@ -6,119 +6,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class va4 extends wa4 {
+public class va4 extends l94<bb4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public int i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public va4(String str, int i, String str2, int i2) {
-        super(i2);
+    public va4(a84 a84Var, lb4 lb4Var) {
+        super(a84Var, lb4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
+            Object[] objArr = {a84Var, lb4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((a84) objArr2[0], (lb4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = -1;
-        this.d = str;
-        this.e = str2;
-        this.f = i;
     }
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.intValue;
-    }
-
+    @Override // com.repackage.l94
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getplugin" : (String) invokeV.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public va4 m(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l94
+    /* renamed from: v */
+    public boolean f(bb4 bb4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.g = str;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bb4Var)) == null) {
+            if (bb4Var == null) {
+                return false;
+            }
+            g94 g94Var = bb4Var.a;
+            return g94Var == null || g94Var.a();
         }
-        return (va4) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public va4(String str, String str2, String str3, int i) {
-        super(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l94
+    /* renamed from: w */
+    public z84 t(bb4 bb4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bb4Var)) == null) {
+            this.a.E();
+            nd4 nd4Var = new nd4();
+            q(bb4Var.a, nd4Var);
+            if (nd4Var.n() == 0) {
+                this.a.F();
+                return null;
             }
+            this.a.G(nd4Var);
+            q94.c(bb4Var, this.a);
+            return null;
         }
-        this.i = -1;
-        this.d = str;
-        this.e = str3;
-        try {
-            this.f = Integer.valueOf(str2).intValue();
-        } catch (NumberFormatException unused) {
-            this.f = 0;
-        }
+        return (z84) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l94
+    /* renamed from: x */
+    public bb4 u(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? md4.h(jSONObject) : (bb4) invokeL.objValue;
     }
 }

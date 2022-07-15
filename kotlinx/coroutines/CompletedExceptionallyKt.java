@@ -16,25 +16,25 @@ public final class CompletedExceptionallyKt {
             if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                 th = StackTraceRecoveryKt.access$recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
             }
-            return Result.m693constructorimpl(ResultKt.createFailure(th));
+            return Result.m1636constructorimpl(ResultKt.createFailure(th));
         }
         Result.Companion companion2 = Result.Companion;
-        return Result.m693constructorimpl(obj);
+        return Result.m1636constructorimpl(obj);
     }
 
     public static final <T> Object toState(Object obj) {
-        Throwable m696exceptionOrNullimpl = Result.m696exceptionOrNullimpl(obj);
-        return m696exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m696exceptionOrNullimpl, false, 2, null);
+        Throwable m1639exceptionOrNullimpl = Result.m1639exceptionOrNullimpl(obj);
+        return m1639exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m1639exceptionOrNullimpl, false, 2, null);
     }
 
     public static final <T> Object toState(Object obj, CancellableContinuation<?> cancellableContinuation) {
-        Throwable m696exceptionOrNullimpl = Result.m696exceptionOrNullimpl(obj);
-        if (m696exceptionOrNullimpl == null) {
+        Throwable m1639exceptionOrNullimpl = Result.m1639exceptionOrNullimpl(obj);
+        if (m1639exceptionOrNullimpl == null) {
             return obj;
         }
         if (DebugKt.getRECOVER_STACK_TRACES() && (cancellableContinuation instanceof CoroutineStackFrame)) {
-            m696exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m696exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
+            m1639exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m1639exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
         }
-        return new CompletedExceptionally(m696exceptionOrNullimpl, false, 2, null);
+        return new CompletedExceptionally(m1639exceptionOrNullimpl, false, 2, null);
     }
 }

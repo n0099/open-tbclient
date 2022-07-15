@@ -1,8 +1,8 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.DisplayMetrics;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,29 +11,23 @@ public final class h60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static DisplayMetrics a(Context context) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             if (context == null) {
                 return null;
             }
-            return context.getResources().getDisplayMetrics();
-        }
-        return (DisplayMetrics) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "unknown";
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
+                }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
             }
         }
-        return (String) invokeL.objValue;
+        return (NetworkInfo) invokeL.objValue;
     }
 }

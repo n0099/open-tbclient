@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.br4;
 import com.repackage.d9;
-import com.repackage.mq4;
+import com.repackage.rf8;
+import com.repackage.sf8;
 import com.repackage.te;
-import com.repackage.we8;
-import com.repackage.xe8;
 /* loaded from: classes4.dex */
 public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(boolean z, int i, xe8 xe8Var, String str, boolean z2);
+        void a(boolean z, int i, sf8 sf8Var, String str, boolean z2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         this.e = str3;
     }
 
-    public void H(c cVar) {
+    public void I(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             this.b = cVar;
@@ -103,11 +103,11 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<Object, Integer, we8> {
+    public class b extends BdAsyncTask<Object, Integer, rf8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public we8 b;
+        public rf8 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -127,20 +127,20 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new we8();
+            this.b = new rf8();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public we8 doInBackground(Object... objArr) {
+        public rf8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                mq4.f();
-                te<String> g = mq4.g("tb.my_posts");
+                br4.f();
+                te<String> g = br4.g("tb.my_posts");
                 if (g != null) {
                     str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -177,19 +177,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (we8) invokeL.objValue;
+            return (rf8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(we8 we8Var) {
+        public void onPostExecute(rf8 rf8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, we8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rf8Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, we8Var.b(), this.c.g);
-                } else if (we8Var.h() != null) {
-                    this.c.b.a(true, we8Var.a(), we8Var.h(), we8Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, rf8Var.b(), this.c.g);
+                } else if (rf8Var.h() != null) {
+                    this.c.b.a(true, rf8Var.a(), rf8Var.h(), rf8Var.b(), this.c.g);
                 }
             }
         }

@@ -1,40 +1,97 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Observable;
+import java.util.Observer;
 /* loaded from: classes7.dex */
-public abstract class sp1 extends vn1 {
+public class sp1 implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sp1(@NonNull tn1 tn1Var) {
-        super(tn1Var);
+    public sp1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tn1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.vn1
-    public String h() {
-        InterceptResult invokeV;
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Storage" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            if (i == 200) {
+                return "";
+            }
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            sb.append(response != null ? Integer.valueOf(response.mCode) : "");
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            sb3.append(base != null ? Integer.valueOf(base.mStatus) : "");
+            return sb3.toString();
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    @Override // java.util.Observer
+    @SuppressLint({"BDThrowableCheck"})
+    public void update(Observable observable, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) == null) && (obj instanceof NetRequestResult)) {
+            NetRequestResult netRequestResult = (NetRequestResult) obj;
+            String url = netRequestResult.getUrl();
+            String valueOf = String.valueOf(netRequestResult.getId());
+            int statusCode = netRequestResult.getStatusCode();
+            if (statusCode == 3) {
+                r52.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+            } else if (statusCode != 4) {
+                if (statusCode == 5) {
+                    r52.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
+                } else if (statusCode == 6) {
+                    r52.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+                }
+            } else if (url != null) {
+                r52.k().q(valueOf, url);
+            }
+            NetInfo netInfo = netRequestResult.getNetInfo();
+            int statusCode2 = netRequestResult.getStatusCode();
+            if (netRequestResult.getFromType() != 1 || url == null || netInfo == null) {
+                if (netInfo != null) {
+                    if (statusCode2 < 0 || statusCode2 >= 400) {
+                        a73.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            r52.k().B(valueOf, url, netInfo);
+            long l = r52.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = be3.n().e();
+            a73.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), a73.l(), e, l, currentTimeMillis, valueOf);
+        }
     }
 }

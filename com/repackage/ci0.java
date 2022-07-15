@@ -1,58 +1,80 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ci0 extends SQLiteOpenHelper {
+public final class ci0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ci0() {
-        super(bh0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((Context) objArr[0], (String) objArr[1], (SQLiteDatabase.CursorFactory) objArr[2], ((Integer) objArr[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            f(3, str, str2);
+        }
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, th) == null) {
+            f(3, str, str2 + '\n' + Log.getStackTraceString(th));
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            f(6, str, str2);
+        }
+    }
+
+    public static void d(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            f(6, str, str2 + '\n' + Log.getStackTraceString(th));
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            f(4, str, str2);
+        }
+    }
+
+    public static void f(int i, String str, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) || str == null) {
+            return;
+        }
+        if (str2 != null) {
+            str3 = PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + PreferencesUtil.RIGHT_MOUNT + str2;
+        } else {
+            str3 = "LogEx method param(msg) is null";
+        }
+        g(i, str, str3);
+    }
+
+    public static void g(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65542, null, i, str, str2) == null) {
+            if (str2.length() > 1000) {
+                Log.println(i, str, str2.substring(0, 1000));
+                g(i, str, str2.substring(1000));
                 return;
             }
+            Log.println(i, str, str2);
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public static void h(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            ny0[] ny0VarArr = {new tx0().b()};
-            for (int i = 0; i < 1; i++) {
-                ny0 ny0Var = ny0VarArr[i];
-                sQLiteDatabase.execSQL(ky0.b(ny0Var));
-                Iterator<String> it = ky0.a(ny0Var).iterator();
-                while (it.hasNext()) {
-                    sQLiteDatabase.execSQL(it.next());
-                }
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
+            f(5, str, str2 + '\n' + Log.getStackTraceString(th));
         }
     }
 }

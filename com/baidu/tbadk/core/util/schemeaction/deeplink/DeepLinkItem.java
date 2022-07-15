@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +57,7 @@ public class DeepLinkItem {
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || TextUtils.isEmpty(this.appUrl)) {
             return;
         }
-        if (this.appUrl.startsWith("tiebaapp") || this.appUrl.startsWith("com.baidu.tieba") || this.appUrl.startsWith("tieba") || this.appUrl.startsWith("tiebaclient") || this.appUrl.startsWith(TbPatternsCompat.TB_DOMAIN_NAME) || this.appUrl.startsWith("bdtiebalive")) {
+        if (this.appUrl.startsWith("tiebaapp") || this.appUrl.startsWith("com.baidu.tieba") || this.appUrl.startsWith("tieba") || this.appUrl.startsWith("tiebaclient") || this.appUrl.startsWith("tieba.baidu.com") || this.appUrl.startsWith("bdtiebalive")) {
             this.isDesignatePkg = false;
         }
     }

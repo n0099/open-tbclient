@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -27,10 +27,10 @@ public class DiskInfo implements b, Serializable {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
-        t.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
-        t.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
-        t.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
+        r.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
+        r.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
+        r.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
+        r.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
         return jSONObject;
     }
 
@@ -38,14 +38,11 @@ public class DiskInfo implements b, Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("\t总存储空间: ");
         sb.append(this.mDataTotalGB);
-        sb.append(" (GB)\n");
-        sb.append("\t可用存储空间: ");
+        sb.append(" (GB)\n\t可用存储空间: ");
         sb.append(this.mDataAvailableGB);
-        sb.append(" (GB)\n");
-        sb.append("\t总SD卡空间: ");
+        sb.append(" (GB)\n\t总SD卡空间: ");
         sb.append(this.mExternalStorageTotalGB);
-        sb.append(" (GB)\n");
-        sb.append("\t可用SD卡空间: ");
+        sb.append(" (GB)\n\t可用SD卡空间: ");
         sb.append(this.mExternalStorageAvailableGB);
         sb.append(" (GB)\n");
         return sb.substring(0);

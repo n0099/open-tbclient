@@ -79,7 +79,7 @@ public class PermissionsHelperActivity extends Activity {
                 new CommonDialog.Builder(this).setTitle(this.c.dialogTitle).setMessage(this.c.dialogMsg).setDarkMode(this.c.isDarkMode).setPositiveBtn(this.c.okBtnTxt, new b(this)).setNegativeButton(this.c.cancleBtnTxt, new a(this)).build().show();
                 this.f = true;
             } else {
-                requestPermissions(this.c.permissions, 8001);
+                requestPermissions(this.c.permissions, b);
             }
             LogUtil.logActivity(this, "onCreate");
         }

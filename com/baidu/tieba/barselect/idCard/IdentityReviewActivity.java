@@ -24,24 +24,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bw5;
 import com.repackage.ig;
-import com.repackage.j35;
 import com.repackage.jg;
-import com.repackage.nv5;
-import com.repackage.ov5;
+import com.repackage.kw5;
+import com.repackage.l45;
+import com.repackage.lw5;
 import com.repackage.pi;
+import com.repackage.pw5;
 import com.repackage.sg;
-import com.repackage.sv5;
 import com.repackage.ym;
+import com.repackage.yw5;
 import com.repackage.za;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class IdentityReviewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ov5 a;
-    public nv5 b;
+    public lw5 a;
+    public kw5 b;
     public long c;
     public boolean d;
     public String e;
@@ -56,7 +56,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public TbImageView n;
     public TextView o;
     public TextView p;
-    public bw5 q;
+    public yw5 q;
     public int r;
     public int s;
     public View.OnClickListener t;
@@ -92,20 +92,20 @@ public class IdentityReviewActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090df7) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090e05) {
                     IdentityReviewActivity identityReviewActivity = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.e, CameraActivityConfig.CONTENT_TYPE_ID_CARD_FRONT, 101)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090df5) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e03) {
                     IdentityReviewActivity identityReviewActivity2 = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.f, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0903cd) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0903cf) {
                     IdentityReviewActivity identityReviewActivity3 = this.a;
-                    new sv5(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
+                    new pw5(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
                     this.a.d = true;
-                    this.a.q = new bw5(this.a);
+                    this.a.q = new yw5(this.a);
                     this.a.q.setCancelable(true);
                     this.a.q.setCanceledOnTouchOutside(false);
-                    this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03a5));
+                    this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ac));
                     sg.i(this.a.q, this.a);
                 }
             }
@@ -152,7 +152,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     }
                 }
                 if (str != null) {
-                    j35 k = j35.k();
+                    l45 k = l45.k();
                     k.h(str + 32);
                 }
             }
@@ -211,7 +211,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     if (this.a.a != null) {
                         this.a.d = false;
                         IdentityReviewActivity identityReviewActivity = this.a;
-                        new sv5(identityReviewActivity.e, 1, identityReviewActivity.a).execute(new Void[0]);
+                        new pw5(identityReviewActivity.e, 1, identityReviewActivity.a).execute(new Void[0]);
                         return;
                     }
                     return;
@@ -232,7 +232,7 @@ public class IdentityReviewActivity extends BaseActivity {
                             return;
                         }
                         IdentityReviewActivity identityReviewActivity2 = this.a;
-                        new sv5(identityReviewActivity2.f, 2, identityReviewActivity2.a).execute(new Void[0]);
+                        new pw5(identityReviewActivity2.f, 2, identityReviewActivity2.a).execute(new Void[0]);
                     }
                 } else if (this.a.b != null) {
                     this.a.b.a(this.a.c);
@@ -374,27 +374,27 @@ public class IdentityReviewActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d03b0);
+            setContentView(R.layout.obfuscated_res_0x7f0d03b3);
             this.c = getIntent().getLongExtra("fid", 0L);
-            this.a = new ov5(getPageContext());
-            this.b = new nv5(getPageContext());
+            this.a = new lw5(getPageContext());
+            this.b = new kw5(getPageContext());
             this.e = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
             this.f = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
-            this.g = findViewById(R.id.obfuscated_res_0x7f090dc9);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090de2);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090dd7);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090df0);
             this.h = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02dc));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02e0));
             this.h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903cd);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903cf);
             this.i = textView;
             textView.setEnabled(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090dfa);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a2);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f091500);
-            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090df7);
-            this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090df5);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090df8);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090df6);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e08);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09194b);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a9);
+            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e05);
+            this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e03);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090e06);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090e04);
             MessageManager.getInstance().registerListener(this.v);
             MessageManager.getInstance().registerListener(this.w);
             this.m.setOnClickListener(this.t);
@@ -410,8 +410,8 @@ public class IdentityReviewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.w);
-            bw5 bw5Var = this.q;
-            if (bw5Var != null && bw5Var.isShowing()) {
+            yw5 yw5Var = this.q;
+            if (yw5Var != null && yw5Var.isShowing()) {
                 sg.a(this.q, this);
             }
             super.onDestroy();

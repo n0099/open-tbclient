@@ -1,33 +1,35 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.PhotoShareInfo;
+import com.kwad.sdk.core.response.model.PageInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dr implements com.kwad.sdk.core.d<PhotoShareInfo.ShareUrlInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(PhotoShareInfo.ShareUrlInfo shareUrlInfo, JSONObject jSONObject) {
+public final class dr implements com.kwad.sdk.core.d<PageInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(PageInfo pageInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        shareUrlInfo.shareUrl = jSONObject.optString("shareUrl");
-        if (jSONObject.opt("shareUrl") == JSONObject.NULL) {
-            shareUrlInfo.shareUrl = "";
-        }
-        shareUrlInfo.mediaShareItem = jSONObject.optString("mediaShareItem");
-        if (jSONObject.opt("mediaShareItem") == JSONObject.NULL) {
-            shareUrlInfo.mediaShareItem = "";
-        }
+        pageInfo.pageType = jSONObject.optInt("pageType");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(PhotoShareInfo.ShareUrlInfo shareUrlInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(PageInfo pageInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "shareUrl", shareUrlInfo.shareUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "mediaShareItem", shareUrlInfo.mediaShareItem);
+        com.kwad.sdk.utils.r.a(jSONObject, "pageType", pageInfo.pageType);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(PageInfo pageInfo, JSONObject jSONObject) {
+        a2(pageInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(PageInfo pageInfo, JSONObject jSONObject) {
+        return b2(pageInfo, jSONObject);
     }
 }

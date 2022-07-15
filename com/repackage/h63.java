@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,42 +10,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class h63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
+    public static volatile h63 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public l63 a;
+    public m63 b;
+    public b c;
+    public j63 d;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t63 a;
+    }
 
-        public a(t63 t63Var) {
+    /* loaded from: classes6.dex */
+    public class b implements k63<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONArray b;
+
+        public b(h63 h63Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t63Var};
+                Object[] objArr = {h63Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = t63Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                z53.k("671", this.a.f());
+                this.b = null;
             }
+        }
+
+        public JSONObject c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("extra", this.b);
+                } catch (JSONException e) {
+                    if (k63.a) {
+                        Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(h63 h63Var, a aVar) {
+            this(h63Var);
         }
     }
 
@@ -60,47 +95,148 @@ public final class h63 {
                 return;
             }
         }
-        a = cg1.a;
+        e = rg1.a;
     }
 
-    public static void a(i74 i74Var, int i, boolean z) {
+    public h63() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{i74Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i74Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "pms callback is null");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            lb3 lb3Var = new lb3();
-            lb3Var.k(11L);
-            lb3Var.i(2331L);
-            lb3Var.f("Retry=" + z + ", Scene=" + i74Var.getClass().getName());
-            t63 t63Var = new t63();
-            t63Var.q(l63.n(i));
-            t63Var.p(lb3Var);
-            if (i74Var instanceof t22) {
-                t63Var.r(((t22) i74Var).I0());
+        }
+        this.a = new l63();
+        this.b = new m63();
+        this.c = new b(this, null);
+        this.d = new j63();
+    }
+
+    public static h63 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (h63.class) {
+                    if (f == null) {
+                        f = new h63();
+                    }
+                }
             }
-            b(t63Var);
-            if (a) {
-                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + i74Var.getClass().getSimpleName());
-            }
+            return f;
+        }
+        return (h63) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c();
+            this.b.b();
+            this.c.b();
         }
     }
 
-    public static void b(t63 t63Var) {
+    public File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, t63Var) == null) {
-            if (t63Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "event is null");
-                    return;
-                }
-                return;
-            }
-            mc3.k(new a(t63Var), "SwanStabilityUBC");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            return this.d.d(jSONArray);
         }
+        return (File) invokeV.objValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject c = this.c.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "extraTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject d = this.a.d();
+            if (e) {
+                Log.d("SwanStabilityTracer", "LaunchTraces: " + d);
+            }
+            return d;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public j63 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (j63) invokeV.objValue;
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject c = this.b.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "WhiteTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            this.b.a(jSONObject);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            j(str, null);
+        }
+    }
+
+    public void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            this.a.a(str, str2);
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.a.b(jSONObject);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.c.b == null || this.c.b.length() == 0) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        jSONArray.put(e());
+        jSONArray.put(g());
+        jSONArray.put(c());
+        this.d.d(jSONArray);
     }
 }

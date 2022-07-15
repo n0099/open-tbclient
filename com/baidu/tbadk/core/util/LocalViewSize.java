@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +86,7 @@ public class LocalViewSize {
                 imageSize2.width = i5;
                 if (i5 == 0) {
                     imageSize2.height = 324;
-                    imageSize2.width = 162;
+                    imageSize2.width = BDLocation.TypeServerDecryptError;
                 }
             } else {
                 imageSize2.width = i4;

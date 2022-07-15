@@ -1,95 +1,23 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 /* loaded from: classes6.dex */
-public final class iw2 {
+public class iw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kw2 a;
-        public final /* synthetic */ iw2 b;
-
-        public a(iw2 iw2Var, kw2 kw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iw2Var, kw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = iw2Var;
-            this.a = kw2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.g(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static iw2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-286100497, "Lcom/repackage/iw2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-286100497, "Lcom/repackage/iw2$b;");
-                    return;
-                }
-            }
-            a = new iw2();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-
-        void b(@NonNull kw2 kw2Var);
-
-        void c(String str);
-
-        void d(String str);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -104,96 +32,98 @@ public final class iw2 {
                 return;
             }
         }
-        b = cg1.a;
+        a = rg1.a;
     }
 
-    public iw2() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            hw2 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
+            }
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static hw2 b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
+                }
+                return null;
+            }
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (a) {
+                        throw new RuntimeException("Messenger代理类不存在：" + str);
+                    }
+                    return null;
+                }
+                int modifiers = cls.getModifiers();
+                if (hw2.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof hw2)) {
+                        if (a) {
+                            throw new RuntimeException("Messenger代理类不是:" + hw2.class.getName());
+                        }
+                        return null;
+                    }
+                    return (hw2) newInstance;
+                }
+                if (a) {
+                    throw new RuntimeException("Messenger代理类不合法：" + str);
+                }
+                return null;
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (a) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
+                }
+                return null;
             }
         }
+        return (hw2) invokeL.objValue;
     }
 
-    public static iw2 e() {
-        InterceptResult invokeV;
+    public static void c(int i, String str, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (iw2) invokeV.objValue;
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && b) {
-            Log.i("SwanAppMessenger", str);
-        }
-    }
-
-    public void b(String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (cVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeILL(65539, null, i, str, bundle) == null) || pw2.a(str)) {
             return;
         }
-        cVar.d(str);
-    }
-
-    public void c() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.a) == null) {
-            return;
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
         }
-        cVar.a();
-    }
-
-    public void d(String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (cVar = this.a) == null) {
-            return;
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
         }
-        cVar.c(str);
-    }
-
-    public final void g(@NonNull kw2 kw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kw2Var) == null) {
-            boolean isMainProcess = ProcessUtils.isMainProcess();
-            if (!isMainProcess && !SwanAppProcessInfo.isInited()) {
-                f("send: return by process check");
-                return;
-            }
-            if (this.a == null) {
-                this.a = isMainProcess ? new sw2() : new ow2();
-            }
-            f("send: sender=" + this.a);
-            this.a.a();
-            this.a.b(kw2Var);
-            this.a.a();
-        }
-    }
-
-    public void h(@NonNull kw2 kw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kw2Var) == null) {
-            long i = kw2Var.i();
-            int i2 = (i > 0L ? 1 : (i == 0L ? 0 : -1));
-            if (i2 <= 0 && Looper.getMainLooper() == Looper.myLooper()) {
-                g(kw2Var);
-                return;
-            }
-            Handler M = rz2.M();
-            a aVar = new a(this, kw2Var);
-            if (i2 < 0) {
-                i = 0;
-            }
-            M.postDelayed(aVar, i);
+        if (i == -1000) {
+            ax2.f(bundle2);
+        } else {
+            ax2.e(i, bundle2);
         }
     }
 }

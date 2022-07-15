@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i10;
-import com.repackage.j10;
+import com.repackage.k10;
+import com.repackage.l10;
 import java.io.File;
 /* loaded from: classes.dex */
 public class NativeCrashCapture implements NoProGuard {
@@ -30,7 +30,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static final String TAG = "NativeCrashCapture";
     public static Context sContext;
     public static boolean sInit;
-    public static j10 sNativeCrashHandler;
+    public static l10 sNativeCrashHandler;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -94,9 +94,9 @@ public class NativeCrashCapture implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             if (Build.VERSION.SDK_INT > 19) {
-                j10 j10Var = sNativeCrashHandler;
-                if (j10Var != null) {
-                    j10Var.onCrashStart();
+                l10 l10Var = sNativeCrashHandler;
+                if (l10Var != null) {
+                    l10Var.onCrashStart();
                     return;
                 }
                 return;
@@ -104,20 +104,20 @@ public class NativeCrashCapture implements NoProGuard {
             if (DEBUG) {
                 Log.d(TAG, "beginNativeCrash");
             }
-            j10 j10Var2 = sNativeCrashHandler;
-            if (j10Var2 != null) {
-                j10Var2.onCrashStart();
+            l10 l10Var2 = sNativeCrashHandler;
+            if (l10Var2 != null) {
+                l10Var2.onCrashStart();
             }
         }
     }
 
-    public static void init(@NonNull Context context, @NonNull j10 j10Var, boolean z) {
+    public static void init(@NonNull Context context, @NonNull l10 l10Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j10Var, z) == null) || sInit || j10Var == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, l10Var, z) == null) || sInit || l10Var == null || context == null) {
             return;
         }
         sContext = context;
-        sNativeCrashHandler = j10Var;
+        sNativeCrashHandler = l10Var;
         loadNativeCrashLib();
         if (sInit) {
             File file = new File(sContext.getFilesDir() + "/" + SO_INIT_FLAG_FILE);
@@ -131,7 +131,7 @@ public class NativeCrashCapture implements NoProGuard {
             try {
                 nativeInit(Build.VERSION.SDK_INT);
                 if (z) {
-                    i10.a();
+                    k10.a();
                 }
                 file.delete();
                 if (DEBUG) {
@@ -206,9 +206,9 @@ public class NativeCrashCapture implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65546, null, str, i, i2) == null) {
             if (Build.VERSION.SDK_INT > 19) {
-                j10 j10Var = sNativeCrashHandler;
-                if (j10Var != null) {
-                    j10Var.uncaughtNativeCrash(str, i, i2);
+                l10 l10Var = sNativeCrashHandler;
+                if (l10Var != null) {
+                    l10Var.uncaughtNativeCrash(str, i, i2);
                     return;
                 }
                 return;
@@ -216,9 +216,9 @@ public class NativeCrashCapture implements NoProGuard {
             if (DEBUG) {
                 Log.d(TAG, "uncaughtNativeCrash");
             }
-            j10 j10Var2 = sNativeCrashHandler;
-            if (j10Var2 != null) {
-                j10Var2.uncaughtNativeCrash(str, i, i2);
+            l10 l10Var2 = sNativeCrashHandler;
+            if (l10Var2 != null) {
+                l10Var2.uncaughtNativeCrash(str, i, i2);
             }
         }
     }

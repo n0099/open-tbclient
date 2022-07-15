@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import com.repackage.wg9;
+import com.repackage.mi9;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.Collections;
@@ -18,7 +18,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class Ssp extends wg9 {
+public final class Ssp extends mi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<Pid> pids;
@@ -26,13 +26,14 @@ public final class Ssp extends wg9 {
     public final String type;
 
     /* loaded from: classes4.dex */
-    public static class Pid extends wg9 {
+    public static class Pid extends mi9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final double basePrice;
         public final int height;
         public final long id;
         public final int interval;
+        public final boolean isBidding;
         public final boolean isHorizontal;
         public final String pid;
         public final float sample;
@@ -74,6 +75,7 @@ public final class Ssp extends wg9 {
             }
             this.isHorizontal = objectInput.readBoolean();
             this.basePrice = i >= 2 ? objectInput.readDouble() : 0.0d;
+            this.isBidding = objectInput.readBoolean();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,6 +102,7 @@ public final class Ssp extends wg9 {
             this.type = jSONObject.getString("type");
             this.tmout = jSONObject.getInt("tmout");
             this.sample = NumberUtils.adjustFloat((float) jSONObject.optDouble("sample", 0.0d), 0.0f, 1.0f);
+            this.isBidding = jSONObject.optBoolean("isBidding", false);
             this.width = NumberUtils.adjustInt(jSONObject.optInt("width", 0), 0);
             this.height = NumberUtils.adjustInt(jSONObject.optInt("height", 0), 0);
             this.interval = NumberUtils.adjustInt(jSONObject.optInt("interval", 30), 30);
@@ -133,7 +136,7 @@ public final class Ssp extends wg9 {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(Long.valueOf(this.id), this.pid, this.type, Integer.valueOf(this.tmout), Float.valueOf(this.sample), Integer.valueOf(this.width), Integer.valueOf(this.height), Integer.valueOf(this.interval), Boolean.valueOf(this.isHorizontal)) : invokeV.intValue;
         }
 
-        @Override // com.repackage.wg9
+        @Override // com.repackage.mi9
         public void srzableInternal(ObjectOutput objectOutput) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
@@ -147,6 +150,7 @@ public final class Ssp extends wg9 {
                 objectOutput.writeInt(this.interval);
                 objectOutput.writeBoolean(this.isHorizontal);
                 objectOutput.writeDouble(this.basePrice);
+                objectOutput.writeBoolean(this.isBidding);
             }
         }
 
@@ -238,7 +242,7 @@ public final class Ssp extends wg9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.sspId, this.type, this.pids) : invokeV.intValue;
     }
 
-    @Override // com.repackage.wg9
+    @Override // com.repackage.mi9
     public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {

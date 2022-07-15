@@ -1,53 +1,63 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ImageSpan;
-import android.view.KeyEvent;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.repackage.yh8;
 /* loaded from: classes6.dex */
 public class p76 {
     public static /* synthetic */ Interceptable $ic;
-    public static final KeyEvent a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public View b;
+    public BarImageView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TBSpecificationBtn h;
+    public String i;
+    public String j;
+    public cq4 k;
+    public LikeModel l;
+    public yh8 m;
+    public boolean n;
 
     /* loaded from: classes6.dex */
-    public static class a extends ig<ym> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ nw4 c;
+        public final /* synthetic */ p76 a;
 
-        public a(EditText editText, Context context, nw4 nw4Var) {
+        public a(p76 p76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editText, context, nw4Var};
+                Object[] objArr = {p76Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,38 +67,30 @@ public class p76 {
                     return;
                 }
             }
-            this.a = editText;
-            this.b = context;
-            this.c = nw4Var;
+            this.a = p76Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) || ymVar == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j();
             }
-            int selectionStart = this.a.getSelectionStart();
-            p76.g(this.b, this.a, new SpannableStringBuilder(this.c.d()), selectionStart < 0 ? 0 : selectionStart, ymVar, this.c.getType());
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends ig<ym> {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ SpannableStringBuilder c;
-        public final /* synthetic */ EmotionGroupType d;
+        public final /* synthetic */ p76 a;
 
-        public b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
+        public b(p76 p76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editText, context, spannableStringBuilder, emotionGroupType};
+                Object[] objArr = {p76Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,556 +100,289 @@ public class p76 {
                     return;
                 }
             }
-            this.a = editText;
-            this.b = context;
-            this.c = spannableStringBuilder;
-            this.d = emotionGroupType;
+            this.a = p76Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((b) ymVar, str, i);
-                if (ymVar != null) {
-                    int selectionStart = this.a.getSelectionStart();
-                    p76.g(this.b, this.a, this.c, selectionStart < 0 ? 0 : selectionStart, ymVar, this.d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = new StatisticItem("c13644");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("fid", this.a.k.i());
+                statisticItem.param("obj_locate", 1);
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, this.a.k.s() ? 2 : 1);
+                TiebaStatic.log(statisticItem);
+                if (this.a.k.s()) {
+                    this.a.i();
+                } else {
+                    this.a.h();
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c extends ig<ym> {
+    public class c extends c9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SpannableStringBuilder a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int[] d;
-        public final /* synthetic */ h e;
+        public final /* synthetic */ p76 a;
 
-        public c(SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, h hVar) {
+        public c(p76 p76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), iArr, hVar};
+                Object[] objArr = {p76Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = spannableStringBuilder;
-            this.b = i;
-            this.c = i2;
-            this.d = iArr;
-            this.e = hVar;
+            this.a = p76Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
+        @Override // com.repackage.c9
+        public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((c) ymVar, str, i);
-                if (ymVar != null && ymVar.p() != null) {
-                    Bitmap p = ymVar.p();
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-                    int width = (int) (p.getWidth() * 0.4d);
-                    bitmapDrawable.setBounds(0, 0, width, width);
-                    bitmapDrawable.setGravity(119);
-                    this.a.setSpan(new um(bitmapDrawable, 1), this.b, this.c, 33);
-                    int[] iArr = this.d;
-                    int i2 = iArr[0] - 1;
-                    iArr[0] = i2;
-                    if (i2 == 0) {
-                        this.e.a(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if (this.a.l.getErrorCode() == 22) {
+                    pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0819));
+                } else if (obj == null) {
+                } else {
+                    if (this.a.l.getErrorCode() != 0) {
+                        pi.O(this.a.a.getPageActivity(), this.a.l.getErrorString());
                         return;
                     }
-                    return;
-                }
-                this.a.setSpan("", this.b, this.c, 33);
-                int[] iArr2 = this.d;
-                int i3 = iArr2[0] - 1;
-                iArr2[0] = i3;
-                if (i3 == 0) {
-                    this.e.a(this.a);
+                    this.a.n(true);
+                    pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f02b6));
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends ig<ym> {
+    public class d implements yh8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SpannableStringBuilder a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int[] d;
-        public final /* synthetic */ h e;
+        public final /* synthetic */ p76 a;
 
-        public d(SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, h hVar) {
+        public d(p76 p76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), iArr, hVar};
+                Object[] objArr = {p76Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = spannableStringBuilder;
-            this.b = i;
-            this.c = i2;
-            this.d = iArr;
-            this.e = hVar;
+            this.a = p76Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            h hVar;
-            h hVar2;
+        @Override // com.repackage.yh8.a
+        public void a(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((d) ymVar, str, i);
-                if (ymVar != null) {
-                    Bitmap p = ymVar.p();
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-                    int width = (int) (p.getWidth() * (UbsABTestHelper.isResizeEmotionABTest() ? 0.4d : 0.5d));
-                    bitmapDrawable.setBounds(0, 0, width, width);
-                    bitmapDrawable.setGravity(119);
-                    this.a.setSpan(new s76(bitmapDrawable, 1), this.b, this.c, 33);
-                    int[] iArr = this.d;
-                    int i2 = iArr[0] - 1;
-                    iArr[0] = i2;
-                    if (i2 != 0 || (hVar2 = this.e) == null) {
-                        return;
-                    }
-                    hVar2.a(this.a);
-                    return;
-                }
-                this.a.setSpan("", this.b, this.c, 33);
-                int[] iArr2 = this.d;
-                int i3 = iArr2[0] - 1;
-                iArr2[0] = i3;
-                if (i3 != 0 || (hVar = this.e) == null) {
-                    return;
-                }
-                hVar.a(this.a);
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            }
+        }
+
+        @Override // com.repackage.yh8.a
+        public void b(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                this.a.n(false);
+                pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f14a9));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class e extends ig<ym> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ SpannableStringBuilder b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int[] e;
-        public final /* synthetic */ h f;
-
-        public e(Context context, SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), iArr, hVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = spannableStringBuilder;
-            this.c = i;
-            this.d = i2;
-            this.e = iArr;
-            this.f = hVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            h hVar;
-            Bitmap p;
-            h hVar2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((e) ymVar, str, i);
-                if (ymVar != null) {
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(ymVar.p());
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275);
-                    int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-                    if (width > pi.k(this.a) * 0.6d) {
-                        width = (int) (p.getWidth() * 0.5d);
-                    }
-                    bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
-                    bitmapDrawable.setGravity(119);
-                    this.b.setSpan(new ImageSpan(bitmapDrawable, 0), this.c, this.d, 33);
-                    int[] iArr = this.e;
-                    int i2 = iArr[0] - 1;
-                    iArr[0] = i2;
-                    if (i2 != 0 || (hVar2 = this.f) == null) {
-                        return;
-                    }
-                    hVar2.a(this.b);
-                    return;
-                }
-                this.b.setSpan("", this.c, this.d, 33);
-                int[] iArr2 = this.e;
-                int i3 = iArr2[0] - 1;
-                iArr2[0] = i3;
-                if (i3 != 0 || (hVar = this.f) == null) {
-                    return;
-                }
-                hVar.a(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f extends ig<ym> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ SpannableStringBuilder b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int[] e;
-        public final /* synthetic */ h f;
-
-        public f(Context context, SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), iArr, hVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = spannableStringBuilder;
-            this.c = i;
-            this.d = i2;
-            this.e = iArr;
-            this.f = hVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            h hVar;
-            Bitmap p;
-            h hVar2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((f) ymVar, str, i);
-                if (ymVar != null) {
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(ymVar.p());
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275);
-                    int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-                    if (width > pi.k(this.a) * 0.6d) {
-                        width = (int) (p.getWidth() * 0.5d);
-                    }
-                    bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
-                    bitmapDrawable.setGravity(119);
-                    this.b.setSpan(new ImageSpan(bitmapDrawable, 0), this.c, this.d, 33);
-                    int[] iArr = this.e;
-                    int i2 = iArr[0] - 1;
-                    iArr[0] = i2;
-                    if (i2 != 0 || (hVar2 = this.f) == null) {
-                        return;
-                    }
-                    hVar2.a(this.b);
-                    return;
-                }
-                this.b.setSpan("", this.c, this.d, 33);
-                int[] iArr2 = this.e;
-                int i3 = iArr2[0] - 1;
-                iArr2[0] = i3;
-                if (i3 != 0 || (hVar = this.f) == null) {
-                    return;
-                }
-                hVar.a(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g extends ig<ym> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SpannableStringBuilder a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int[] d;
-        public final /* synthetic */ h e;
-
-        public g(SpannableStringBuilder spannableStringBuilder, int i, int i2, int[] iArr, h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), iArr, hVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = spannableStringBuilder;
-            this.b = i;
-            this.c = i2;
-            this.d = iArr;
-            this.e = hVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            h hVar;
-            h hVar2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((g) ymVar, str, i);
-                if (ymVar != null) {
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(ymVar.p());
-                    int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds54);
-                    bitmapDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-                    bitmapDrawable.setGravity(119);
-                    this.a.setSpan(new um(bitmapDrawable, 1), this.b, this.c, 33);
-                    int[] iArr = this.d;
-                    int i2 = iArr[0] - 1;
-                    iArr[0] = i2;
-                    if (i2 != 0 || (hVar2 = this.e) == null) {
-                        return;
-                    }
-                    hVar2.a(this.a);
-                    return;
-                }
-                this.a.setSpan("", this.b, this.c, 33);
-                int[] iArr2 = this.d;
-                int i3 = iArr2[0] - 1;
-                iArr2[0] = i3;
-                if (i3 != 0 || (hVar = this.e) == null) {
-                    return;
-                }
-                hVar.a(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface h {
-        void a(SpannableStringBuilder spannableStringBuilder);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755456958, "Lcom/repackage/p76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755456958, "Lcom/repackage/p76;");
+    public p76(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new KeyEvent(0, 67);
+        this.a = tbPageContext;
+        this.i = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
+        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13e5);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0727, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090313);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090320);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090754);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e3);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09208e);
+        this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090a32);
+        this.b.setOnClickListener(new a(this));
+        this.h.setOnClickListener(new b(this));
     }
 
-    public static void a(EditText editText) {
-        Editable text;
+    public void g(cq4 cq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, editText) == null) || editText == null || (text = editText.getText()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cq4Var) == null) || cq4Var == null) {
             return;
         }
-        int selectionStart = editText.getSelectionStart() - 1;
-        if (selectionStart > 0 && selectionStart < text.length() && text.charAt(selectionStart) == 0) {
-            editText.onKeyDown(67, a);
+        this.k = cq4Var;
+        this.c.setShowOval(true);
+        this.c.setShowOuterBorder(false);
+        this.c.setShowInnerBorder(true);
+        this.c.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.c.setStrokeColorResId(R.color.CAM_X0401);
+        this.c.J(cq4Var.g(), 10, false);
+        String k = cq4Var.k();
+        if (oi.isEmpty(k)) {
+            k = "";
         }
-        editText.onKeyDown(67, a);
-        int selectionStart2 = editText.getSelectionStart();
-        if (text != null) {
-            editText.setSelection(selectionStart2);
-        }
-    }
-
-    public static void b(Context context, nw4 nw4Var, EditText editText) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, nw4Var, editText) == null) || nw4Var == null || editText == null || nw4Var.d() == null) {
-            return;
-        }
-        String d2 = nw4Var.d();
-        EmotionGroupType type = nw4Var.getType();
-        if (type != EmotionGroupType.LOCAL && type != EmotionGroupType.USER_COLLECT && !d2.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-            editText.getText().insert(editText.getSelectionStart(), d2);
-        } else if (d2 != null) {
-            jg.h().k(d2, 20, new b(editText, context, new SpannableStringBuilder(d2), type), 0, 0, BdUniqueId.gen(), null, d2, Boolean.FALSE, null);
-        }
-    }
-
-    public static void c(Context context, nw4 nw4Var, EditText editText) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, nw4Var, editText) == null) || nw4Var == null || TextUtils.isEmpty(nw4Var.d()) || TextUtils.isEmpty(nw4Var.g()) || editText == null) {
-            return;
-        }
-        editText.getText().toString();
-        jg.h().k(nw4Var.g(), 10, new a(editText, context, nw4Var), 0, 0, BdUniqueId.gen(), new Object[0]);
-    }
-
-    public static void d(Context context, CharSequence charSequence, h hVar) {
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, charSequence, hVar) == null) || context == null || TextUtils.isEmpty(charSequence) || hVar == null) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        int[] iArr = {o76.a(charSequence)};
-        if (iArr[0] <= 0) {
-            if (hVar != null) {
-                hVar.a(spannableStringBuilder);
-                return;
-            }
-            return;
-        }
-        Matcher matcher = o76.a.matcher(spannableStringBuilder);
-        while (matcher.find()) {
-            String group = matcher.group();
-            int start = matcher.start();
-            int end = matcher.end();
-            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                jg.h().k(group, 20, new g(spannableStringBuilder, start, end, iArr, hVar), 0, 0, BdUniqueId.gen(), null, group, Boolean.FALSE, null);
-            }
-        }
-    }
-
-    public static void e(Context context, CharSequence charSequence, h hVar) {
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, context, charSequence, hVar) == null) || context == null || TextUtils.isEmpty(charSequence) || hVar == null) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        int[] iArr = {o76.a(charSequence)};
-        if (iArr[0] <= 0) {
-            hVar.a(spannableStringBuilder);
-            return;
-        }
-        Matcher matcher = o76.a.matcher(spannableStringBuilder);
-        while (matcher.find()) {
-            String group = matcher.group();
-            int start = matcher.start();
-            int end = matcher.end();
-            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
-                jg.h().k(group, 20, new c(spannableStringBuilder, start, end, iArr, hVar), 0, 0, BdUniqueId.gen(), null, group, Boolean.FALSE, null);
-            }
-        }
-    }
-
-    public static void f(Context context, CharSequence charSequence, h hVar) {
-        String str;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, null, context, charSequence, hVar) == null) || context == null || TextUtils.isEmpty(charSequence) || hVar == null) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        int[] iArr = {o76.a(charSequence)};
-        if (iArr[0] <= 0) {
-            if (hVar != null) {
-                hVar.a(spannableStringBuilder);
-                return;
-            }
-            return;
-        }
-        Matcher matcher = o76.a.matcher(spannableStringBuilder);
-        while (matcher.find()) {
-            String group = matcher.group();
-            int start = matcher.start();
-            int end = matcher.end();
-            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                jg.h().k(group, 20, new d(spannableStringBuilder, start, end, iArr, hVar), 0, 0, BdUniqueId.gen(), null, group, Boolean.FALSE, null);
-            }
-        }
-        Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(spannableStringBuilder);
-        while (true) {
-            str = ",";
-            if (!matcher2.find()) {
-                break;
-            }
-            String group2 = matcher2.group();
-            String[] split = group2.split(",");
-            if (split != null && split.length == 5) {
-                jg.h().k(group2, 20, new e(context, spannableStringBuilder, matcher2.start(), matcher2.end(), iArr, hVar), 0, 0, BdUniqueId.gen(), null, group2, Boolean.FALSE, null);
-            }
-        }
-        Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(spannableStringBuilder);
-        while (matcher3.find()) {
-            String[] split2 = matcher3.group().split(str);
-            if (split2 != null && split2.length == 6) {
-                String str2 = str;
-                f fVar = new f(context, spannableStringBuilder, matcher3.start(), matcher3.end(), iArr, hVar);
-                if (!TextUtils.isEmpty(split2[1])) {
-                    jg.h().k(Uri.decode(split2[1].replace("net_", "")), 10, fVar, 0, 0, BdUniqueId.gen(), new Object[0]);
+        this.d.setText(k);
+        this.f.setText(this.i + " " + StringHelper.numFormatOverWanWithoutDecimals(cq4Var.m()));
+        this.g.setText(this.j + " " + StringHelper.numFormatOverWanWithoutDecimals((long) cq4Var.o()));
+        String recomReason = cq4Var.getRecomReason();
+        if (oi.isEmpty(recomReason)) {
+            if (this.e.getVisibility() != 8) {
+                this.e.setVisibility(8);
+                if (this.d.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.d.getLayoutParams()).topMargin = pi.f(this.a.getPageActivity(), R.dimen.tbds47);
+                    this.d.requestLayout();
                 }
-                str = str2;
+            }
+        } else {
+            if (this.e.getVisibility() != 0) {
+                this.e.setVisibility(0);
+                if (this.d.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.d.getLayoutParams()).topMargin = pi.f(this.a.getPageActivity(), R.dimen.tbds24);
+                    this.d.requestLayout();
+                }
+            }
+            this.e.setText(recomReason);
+        }
+        n(this.k.s());
+        l();
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!pi.D()) {
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                return;
+            }
+            cq4 cq4Var = this.k;
+            if (cq4Var == null || StringUtils.isNull(cq4Var.k()) || this.k.i() <= 0) {
+                return;
+            }
+            if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
+                return;
+            }
+            if (this.l == null) {
+                this.l = new LikeModel(this.a);
+            }
+            this.l.setLoadDataCallBack(new c(this));
+            if (oi.isForumName(this.k.k())) {
+                this.l.N();
+                this.l.R(this.k.k(), String.valueOf(this.k.i()));
             }
         }
     }
 
-    public static void g(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, ym ymVar, EmotionGroupType emotionGroupType) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, editText, spannableStringBuilder, Integer.valueOf(i), ymVar, emotionGroupType}) == null) || context == null || editText == null || TextUtils.isEmpty(spannableStringBuilder) || ymVar == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (!pi.D()) {
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                return;
+            }
+            cq4 cq4Var = this.k;
+            if (cq4Var == null || StringUtils.isNull(cq4Var.k()) || this.k.i() <= 0) {
+                return;
+            }
+            if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
+                return;
+            }
+            if (this.m == null) {
+                this.m = new yh8();
+            }
+            this.m.b(new d(this));
+            this.m.c(this.k.k(), this.k.i());
+        }
+    }
+
+    public final void j() {
+        cq4 cq4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cq4Var = this.k) == null) {
             return;
         }
-        Bitmap p = ymVar.p();
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-        int width = p.getWidth();
-        if (emotionGroupType == EmotionGroupType.LOCAL) {
-            int i2 = UbsABTestHelper.isResizeEmotionABTest() ? (int) (width * 0.4d) : (int) (width * 0.5d);
-            bitmapDrawable.setBounds(0, 0, i2, i2);
-        } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275);
-            int width2 = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-            if (width2 > editText.getMeasuredWidth()) {
-                width2 = (int) (p.getWidth() * 0.5d);
-            }
-            bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
+        String k = cq4Var.k();
+        if (oi.isForumName(k)) {
+            this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+            StatisticItem statisticItem = new StatisticItem("c13643");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", this.k.i());
+            statisticItem.param("obj_locate", 1);
+            statisticItem.param("obj_type", this.n ? 4 : 1);
+            TiebaStatic.log(statisticItem);
         }
-        bitmapDrawable.setGravity(119);
-        spannableStringBuilder.setSpan(new s76(bitmapDrawable, 1), 0, spannableStringBuilder.length(), 33);
-        editText.getText().insert(i, spannableStringBuilder);
+    }
+
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (!z) {
+                uu4 uu4Var = new uu4();
+                uu4Var.r(R.color.CAM_X0302);
+                this.h.setConfig(uu4Var);
+                this.h.setText(this.i);
+            } else {
+                uu4 uu4Var2 = new uu4();
+                uu4Var2.t(R.color.CAM_X0109);
+                this.h.setConfig(uu4Var2);
+                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
+            }
+            this.k.u(z);
+        }
     }
 }

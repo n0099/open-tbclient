@@ -1,125 +1,59 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class nv0 extends jv0 {
+public class nv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<iv0> a;
-    public final Boolean b;
-    public final String c;
-    public final String d;
-    public final String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nv0(ArrayList<iv0> arrayList, Boolean bool, String str, String str2, String str3) {
-        super(bool, str, str2, str3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, bool, str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Boolean) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = arrayList;
-        this.b = bool;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-    }
-
-    public final ArrayList<iv0> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public Boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Boolean) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
+    public static int a(BdVideoSeries bdVideoSeries) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof nv0) {
-                    nv0 nv0Var = (nv0) obj;
-                    return Intrinsics.areEqual(this.a, nv0Var.a) && Intrinsics.areEqual(c(), nv0Var.c()) && Intrinsics.areEqual(d(), nv0Var.d()) && Intrinsics.areEqual(e(), nv0Var.e()) && Intrinsics.areEqual(b(), nv0Var.b());
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
+            if (bdVideoSeries == null || bdVideoSeries.getSelectedVideo() == null) {
+                return 0;
             }
-            return true;
+            return ax0.c(bdVideoSeries.getSelectedVideo().getTotalLength());
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<iv0> arrayList = this.a;
-            int hashCode = (arrayList != null ? arrayList.hashCode() : 0) * 31;
-            Boolean c = c();
-            int hashCode2 = (hashCode + (c != null ? c.hashCode() : 0)) * 31;
-            String d = d();
-            int hashCode3 = (hashCode2 + (d != null ? d.hashCode() : 0)) * 31;
-            String e = e();
-            int hashCode4 = (hashCode3 + (e != null ? e.hashCode() : 0)) * 31;
-            String b = b();
-            return hashCode4 + (b != null ? b.hashCode() : 0);
+        if (!(interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) || bdVideoSeries == null || bdVideoSeries.getSelectedVideo() == null) {
+            return;
         }
-        return invokeV.intValue;
+        bdVideoSeries.setPositionMs(i);
+        bdVideoSeries.setDurationMs(i2);
+        BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
+        selectedVideo.setCurrentLength((i / 1000) + "");
+        BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
+        selectedVideo2.setTotalLength((i2 / 1000) + "");
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @NonNull
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "Video(adaptationSetList=" + this.a + ", frmAlign=" + c() + ", pre=" + d() + ", suf=" + e() + ", codecs=" + b() + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    int d = ax0.d(str, -1);
+                    return d < 0 ? "" : ax0.b(d, false);
+                } catch (Exception e) {
+                    ex0.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
+                }
+            }
+            return "";
         }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ nv0(ArrayList arrayList, Boolean bool, String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(arrayList, (i & 2) != 0 ? null : bool, (i & 4) != 0 ? "" : str, (i & 8) != 0 ? "" : str2, (i & 16) != 0 ? "" : str3);
+        return (String) invokeL.objValue;
     }
 }

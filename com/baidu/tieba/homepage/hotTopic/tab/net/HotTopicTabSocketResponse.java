@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lv6;
+import com.repackage.bw6;
+import com.repackage.kv6;
 import com.repackage.nn;
-import com.repackage.uu6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes3.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements lv6 {
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements bw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
@@ -53,7 +53,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = uu6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = kv6.c(hotThreadListResIdl);
                 return hotThreadListResIdl;
             }
             return hotThreadListResIdl;
@@ -61,14 +61,14 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         return invokeIL.objValue;
     }
 
-    @Override // com.repackage.lv6
+    @Override // com.repackage.bw6
     public List<nn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.lv6
+    @Override // com.repackage.bw6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

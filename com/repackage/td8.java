@@ -1,43 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class td8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sd8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public td8() {
+    public static synchronized sd8 a() {
+        InterceptResult invokeV;
+        sd8 sd8Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (td8.class) {
+                if (a == null) {
+                    a = new sd8();
+                }
+                sd8Var = a;
             }
+            return sd8Var;
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
-            this.b = jSONObject.optString("link");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (sd8) invokeV.objValue;
     }
 }

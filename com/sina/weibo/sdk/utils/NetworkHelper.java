@@ -1,6 +1,7 @@
 package com.sina.weibo.sdk.utils;
 
 import android.content.Context;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,6 +50,6 @@ public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getPackageManager().checkPermission("android.permission.INTERNET", context.getPackageName()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getPackageManager().checkPermission(PermissionChecker.INTERNET, context.getPackageName()) == 0 : invokeL.booleanValue;
     }
 }

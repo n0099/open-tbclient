@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r96;
+import com.repackage.oa6;
 import com.squareup.wire.Wire;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.DataRes;
@@ -111,7 +111,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
             if (bawuTeamRequestMessage != null) {
                 this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
             }
-            new r96().c(this.cacheKey, bArr);
+            new oa6().c(this.cacheKey, bArr);
         }
     }
 }

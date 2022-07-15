@@ -3,10 +3,11 @@ package com.kwad.sdk.core.network;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.plugin.DevelopMangerPlugin;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.r;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,101 +15,115 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public abstract class b implements g {
-    public final Map<String, String> b = new HashMap();
-    public final JSONObject a = new JSONObject();
+    public final Map<String, String> mHeader = new HashMap();
+    public final JSONObject mBodyParams = new JSONObject();
 
     public b() {
-        g();
-        h();
-        DevelopMangerPlugin.DevelopValue a = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
-        if (a != null && ((Boolean) a.getValue()).booleanValue()) {
-            a("x-ksad-ignore-decrypt", String.valueOf(true));
+        buildBaseHeader();
+        buildBaseBody();
+        if (encryptDisable()) {
+            addHeader("x-ksad-ignore-decrypt", "true");
         }
-        String b = e.a().b();
-        if (!TextUtils.isEmpty(b)) {
-            a("cookie", b);
+        addHeader("cookie", e.a().b());
+        com.kwad.sdk.core.a.d.a(getHeader());
+        addHeader("User-Agent", n.c());
+        addHeader("BrowserUa", n.d());
+        addHeader("SystemUa", n.a());
+    }
+
+    public void addHeader(String str, String str2) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        com.kwad.sdk.core.a.d.a(c());
+        this.mHeader.put(str, str2);
+    }
+
+    public abstract void buildBaseBody();
+
+    public abstract void buildBaseHeader();
+
+    public boolean encryptDisable() {
+        com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
+        return false;
     }
 
     @Override // com.kwad.sdk.core.network.g
-    public abstract String a();
-
-    public void a(String str, double d) {
-        t.a(this.a, str, d);
-    }
-
-    public void a(String str, int i) {
-        t.a(this.a, str, i);
-    }
-
-    public void a(String str, long j) {
-        t.a(this.a, str, j);
-    }
-
-    public void a(String str, com.kwad.sdk.core.b bVar) {
-        t.a(this.a, str, bVar);
-    }
-
-    public void a(String str, String str2) {
-        this.b.put(str, str2);
-    }
-
-    public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
-        t.a(this.a, str, list);
-    }
-
-    public void a(String str, JSONArray jSONArray) {
-        t.a(this.a, str, jSONArray);
-    }
-
-    public void a(String str, JSONObject jSONObject) {
-        t.a(this.a, str, jSONObject);
-    }
-
-    public void a(String str, boolean z) {
-        t.a(this.a, str, z);
+    public JSONObject getBody() {
+        if (encryptDisable()) {
+            return this.mBodyParams;
+        }
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class);
+        r.a(jSONObject, "version", dVar.i());
+        r.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, !TextUtils.isEmpty(aw.a()) ? aw.a() : dVar.b());
+        r.a(jSONObject, "message", com.kwad.sdk.core.a.d.a(this.mBodyParams.toString()));
+        com.kwad.sdk.core.a.d.a(getUrl(), getHeader(), jSONObject.toString());
+        return jSONObject;
     }
 
     @Override // com.kwad.sdk.core.network.g
+    public Map<String, String> getBodyMap() {
+        return null;
+    }
+
+    @Override // com.kwad.sdk.core.network.g
+    public Map<String, String> getHeader() {
+        return this.mHeader;
+    }
+
+    public String getRequestHost() {
+        return com.kwad.sdk.b.a();
+    }
+
     @Nullable
-    public SceneImpl b() {
-        return null;
-    }
-
-    public void b(String str, String str2) {
-        t.a(this.a, str, str2);
-    }
-
-    @Override // com.kwad.sdk.core.network.g
-    public Map<String, String> c() {
-        return this.b;
-    }
-
-    @Override // com.kwad.sdk.core.network.g
-    public Map<String, String> d() {
+    public SceneImpl getScene() {
         return null;
     }
 
     @Override // com.kwad.sdk.core.network.g
-    public JSONObject e() {
-        DevelopMangerPlugin.DevelopValue a = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
-        if (a == null || !((Boolean) a.getValue()).booleanValue()) {
-            JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "version", KsAdSDKImpl.get().getSDKVersion());
-            t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, KsAdSDKImpl.get().getAppId());
-            t.a(jSONObject, "message", com.kwad.sdk.core.a.d.a(this.a.toString()));
-            com.kwad.sdk.core.a.d.a(a().replace(f(), ""), c(), jSONObject.toString());
-            return jSONObject;
-        }
-        return this.a;
+    public abstract String getUrl();
+
+    public void putBody(String str, byte b) {
+        r.a(this.mBodyParams, str, b);
     }
 
-    public String f() {
-        return com.kwad.sdk.d.a();
+    public void putBody(String str, double d) {
+        r.a(this.mBodyParams, str, d);
     }
 
-    public abstract void g();
+    public void putBody(String str, float f) {
+        r.a(this.mBodyParams, str, f);
+    }
 
-    public abstract void h();
+    public void putBody(String str, int i) {
+        r.a(this.mBodyParams, str, i);
+    }
+
+    public void putBody(String str, long j) {
+        r.a(this.mBodyParams, str, j);
+    }
+
+    public void putBody(String str, com.kwad.sdk.core.b bVar) {
+        r.a(this.mBodyParams, str, bVar);
+    }
+
+    public void putBody(String str, String str2) {
+        r.a(this.mBodyParams, str, str2);
+    }
+
+    public void putBody(String str, List<? extends com.kwad.sdk.core.b> list) {
+        r.a(this.mBodyParams, str, list);
+    }
+
+    public void putBody(String str, JSONArray jSONArray) {
+        r.a(this.mBodyParams, str, jSONArray);
+    }
+
+    public void putBody(String str, JSONObject jSONObject) {
+        r.a(this.mBodyParams, str, jSONObject);
+    }
+
+    public void putBody(String str, boolean z) {
+        r.a(this.mBodyParams, str, z);
+    }
 }

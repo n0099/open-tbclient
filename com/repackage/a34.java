@@ -1,167 +1,74 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class a34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755907729, "Lcom/repackage/a34;")) == null) {
+    public static boolean a(View view2, nq2 nq2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, nq2Var)) == null) {
+            yh1 X = ul2.U().X();
+            return X != null && X.c(view2, nq2Var);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yh1 X = ul2.U().X();
+            if (X != null) {
+                return X.getContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static void c(gf3 gf3Var) {
+        yh1 X;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, gf3Var) == null) || (X = ul2.U().X()) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755907729, "Lcom/repackage/a34;");
-        }
+        X.e(gf3Var);
     }
 
-    public a34() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
-
-    public final String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) ? String.format("%s_%s:%s", str, str2, str3) : (String) invokeLLL.objValue;
-    }
-
-    public void b(int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            String g = g(i);
-            String O = sz2.M() == null ? null : sz2.M().O();
-            u63 u63Var = new u63();
-            u63Var.b = "click";
-            u63Var.g = g;
-            u63Var.e = str;
-            if (str2 != null) {
-                u63Var.a("target_appkey", str2);
-            }
-            u63Var.a("current_appkey", O);
-            if (!TextUtils.isEmpty(str3)) {
-                u63Var.a("location", str3);
-            }
-            l63.g(u63Var);
-        }
-    }
-
-    public void c(int i, g34 g34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, g34Var) == null) {
-            String g = g(i);
-            JSONArray f = f(g34Var);
-            u63 u63Var = new u63();
-            u63Var.b = "show";
-            u63Var.g = g;
-            if (f != null) {
-                u63Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
-            }
-            l63.g(u63Var);
-        }
-    }
-
-    public void d(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-            String g = g(i);
-            String a = a(g, str, str2);
-            if (this.a.contains(a)) {
-                return;
-            }
-            String O = sz2.M() == null ? null : sz2.M().O();
-            u63 u63Var = new u63();
-            u63Var.b = "click";
-            u63Var.g = g;
-            u63Var.e = str;
-            if (str2 != null) {
-                u63Var.a("target_appkey", str2);
-            }
-            u63Var.a("current_appkey", O);
-            l63.g(u63Var);
-            this.a.add(a);
-        }
-    }
-
-    public void e(int i, g34 g34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, g34Var) == null) {
-            String g = g(i);
-            JSONArray f = f(g34Var);
-            u63 u63Var = new u63();
-            u63Var.b = "show";
-            u63Var.g = g;
-            if (f != null) {
-                u63Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
-            }
-            l63.g(u63Var);
-            this.a.clear();
-        }
-    }
-
-    public final JSONArray f(g34 g34Var) {
+    public static boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, g34Var)) == null) {
-            if (g34Var == null || g34Var.b == null) {
-                return null;
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (RecommendItemModel recommendItemModel : g34Var.b) {
-                jSONArray.put(recommendItemModel.appKey);
-            }
-            return jSONArray;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            yh1 X = ul2.U().X();
+            return X != null && X.removeView(view2);
         }
-        return (JSONArray) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final String g(int i) {
-        InterceptResult invokeI;
+    public static void e(gf3 gf3Var) {
+        yh1 X;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return "popview";
-                }
-                return "list";
-            }
-            return "carousel";
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gf3Var) == null) || (X = ul2.U().X()) == null) {
+            return;
         }
-        return (String) invokeI.objValue;
+        X.f(gf3Var);
+    }
+
+    public static boolean f(View view2, nq2 nq2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, nq2Var)) == null) {
+            yh1 X = ul2.U().X();
+            return X != null && X.a(view2, nq2Var);
+        }
+        return invokeLL.booleanValue;
     }
 }

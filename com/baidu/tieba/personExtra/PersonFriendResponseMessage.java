@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fp4;
-import com.repackage.mq4;
+import com.repackage.br4;
 import com.repackage.te;
+import com.repackage.up4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public fp4 data;
+    public up4 data;
     public int errCode;
     public String resultString;
 
@@ -42,7 +42,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = -1;
-        this.data = new fp4();
+        this.data = new up4();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -66,10 +66,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.errCode : invokeV.intValue;
     }
 
-    public fp4 getPersonFriendData() {
+    public up4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (fp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (up4) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -85,10 +85,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonFriendData(fp4 fp4Var) {
+    public void setPersonFriendData(up4 up4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fp4Var) == null) {
-            this.data = fp4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, up4Var) == null) {
+            this.data = up4Var;
         }
     }
 
@@ -110,8 +110,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     String parseToString = parseToString(bArr);
                     if (parseToString != null) {
-                        mq4.f();
-                        te<String> g = mq4.g("tb.my_pages");
+                        br4.f();
+                        te<String> g = br4.g("tb.my_pages");
                         if (g != null) {
                             g.e("personal_myfollow_" + id, parseToString, 604800000L);
                         }

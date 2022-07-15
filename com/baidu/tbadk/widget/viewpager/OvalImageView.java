@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xf8;
+import com.repackage.sg8;
 /* loaded from: classes3.dex */
 public class OvalImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -117,11 +117,11 @@ public class OvalImageView extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.o = skinType;
             if (skinType == 0) {
-                this.i = xf8.f("#2bb8ff");
-                this.j = xf8.f("#2b80ff");
+                this.i = sg8.f("#2bb8ff");
+                this.j = sg8.f("#2b80ff");
             } else if (skinType == 1 || skinType == 4) {
-                this.i = xf8.f("#249BD6");
-                this.j = xf8.f("#246CD6");
+                this.i = sg8.f("#249BD6");
+                this.j = sg8.f("#246CD6");
             }
         }
     }
@@ -202,7 +202,7 @@ public class OvalImageView extends ImageView {
                     float width3 = canvas.getWidth() * 0.054f;
                     double radians = Math.toRadians(getRotation() - 45.0f);
                     double width4 = canvas.getWidth() * 0.0226f;
-                    this.c.setShadowLayer(width3, (float) (Math.cos(radians) * width4), ((float) (width4 * Math.sin(radians))) * (-1.0f), xf8.a(this.h == null ? this.k : this.j, 0.83f));
+                    this.c.setShadowLayer(width3, (float) (Math.cos(radians) * width4), ((float) (width4 * Math.sin(radians))) * (-1.0f), sg8.a(this.h == null ? this.k : this.j, 0.83f));
                 }
                 LinearGradient linearGradient = this.h;
                 if (linearGradient != null) {
@@ -311,8 +311,8 @@ public class OvalImageView extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.i = xf8.f(str);
-            this.j = xf8.f(str2);
+            this.i = sg8.f(str);
+            this.j = sg8.f(str2);
             this.a = true;
             invalidate();
         }
@@ -321,7 +321,7 @@ public class OvalImageView extends ImageView {
     public void setStringColor(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.k = xf8.f(str);
+            this.k = sg8.f(str);
         }
     }
 

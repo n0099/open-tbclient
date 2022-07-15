@@ -1,53 +1,37 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cg3 extends ActivityDelegation implements eg1 {
+public class cg3 {
     public static /* synthetic */ Interceptable $ic;
+    public static eg3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cg3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    @NonNull
+    public static eg3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.mParams.getBoolean("key_login_force", false) && sf3.E(getAgent())) {
-                this.mResult.putInt("result_code", 0);
-                finish();
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (a == null) {
+                a = new eg3("0");
             }
-            sf3.L(getAgent(), this.mParams.getBundle("key_login_params"), this);
-            return false;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (eg3) invokeV.objValue;
     }
 
-    @Override // com.repackage.eg1
-    public void onResult(int i) {
+    public static void b(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            finish();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            eg3 eg3Var = a;
+            if (eg3Var == null) {
+                a = new eg3(str);
+            } else {
+                eg3Var.n(str);
+            }
         }
     }
 }

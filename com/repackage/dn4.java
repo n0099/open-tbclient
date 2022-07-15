@@ -1,145 +1,88 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
+import javax.security.cert.X509Certificate;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class dn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755761657, "Lcom/repackage/dn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755761657, "Lcom/repackage/dn4;");
-                return;
-            }
-        }
-        i = new HashSet();
-    }
 
     public dn4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? i.contains(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
+            JSONArray jSONArray = new JSONArray();
+            byte[] bytes = str2.getBytes("UTF-8");
+            if (bytes.length % 116 == 0) {
+                length = bytes.length / 116;
+            } else {
+                length = (bytes.length / 116) + 1;
+            }
+            for (int i = 0; i < length; i++) {
+                if (1 == length) {
+                    jSONArray.put(gi.j(b(publicKey, bytes)));
+                } else if (i != length - 1) {
+                    byte[] bArr = new byte[116];
+                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                    jSONArray.put(gi.j(b(publicKey, bArr)));
+                } else {
+                    int i2 = i * 116;
+                    int length2 = bytes.length - i2;
+                    byte[] bArr2 = new byte[length2];
+                    System.arraycopy(bytes, i2, bArr2, 0, length2);
+                    jSONArray.put(gi.j(b(publicKey, bArr2)));
+                }
+            }
+            return gi.j(jSONArray.toString().getBytes("UTF-8"));
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public static void b(AdvertAppInfo advertAppInfo) {
-        dn4 dn4Var;
+    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (dn4Var = advertAppInfo.i) == null || dn4Var.h || a(dn4Var.g)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, key);
+            return cipher.doFinal(bArr);
         }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).t(advertAppInfo.j).o(String.valueOf(advertAppInfo.position + 1)).p(dn4Var.d).q(dn4Var.e).r(dn4Var.c).u(String.valueOf(dn4Var.b)).n(advertAppInfo.g);
-        vx0.c(clogBuilder);
-        jc7.b(jc7.a(advertAppInfo));
-        dn4Var.h = true;
-        i.add(dn4Var.g);
-    }
-
-    public static void c(dn4 dn4Var, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{dn4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || dn4Var == null || dn4Var.h || a(dn4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).t(dn4Var.a).o(String.valueOf(i2 + 1)).p(dn4Var.d).q(dn4Var.e).r(dn4Var.c).u(String.valueOf(dn4Var.b)).n(dn4Var.g);
-        vx0.c(clogBuilder);
-        dn4Var.h = true;
-        i.add(dn4Var.g);
-    }
-
-    public static void d(sx5 sx5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, sx5Var) == null) || sx5Var == null || sx5Var.c() == null || sx5Var.c().i == null || sx5Var.c().i.h || a(sx5Var.c().i.g)) {
-            return;
-        }
-        sx5Var.c().j = sx5Var.c().i.a;
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).t(sx5Var.c().j).o(String.valueOf(sx5Var.c().position + 1)).u(String.valueOf(sx5Var.c().i.b)).n(sx5Var.c().i.g);
-        vx0.c(clogBuilder);
-        jc7.b(jc7.a(sx5Var.c()));
-        sx5Var.c().i.h = true;
-        i.add(sx5Var.c().i.g);
-    }
-
-    public static void e(dn4 dn4Var, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{dn4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || dn4Var == null || dn4Var.h || a(dn4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).t(dn4Var.a).o(String.valueOf(i2 + 1)).u(String.valueOf(dn4Var.b)).n(dn4Var.g);
-        vx0.c(clogBuilder);
-        dn4Var.h = true;
-        i.add(dn4Var.g);
-    }
-
-    public static void f(sh8 sh8Var) {
-        dn4 dn4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, sh8Var) == null) || sh8Var == null || sh8Var.getAdvertAppInfo() == null || (dn4Var = sh8Var.getAdvertAppInfo().i) == null || dn4Var.h || a(dn4Var.g)) {
-            return;
-        }
-        sh8Var.J0 = dn4Var.d;
-        sh8Var.K0 = dn4Var.e;
-        sh8Var.I0 = dn4Var.c;
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).o(String.valueOf(sh8Var.O0 + 1)).u(String.valueOf(sh8Var.M0)).t(dn4Var.a).p(dn4Var.d).q(dn4Var.e).r(dn4Var.c).n(dn4Var.g);
-        vx0.c(clogBuilder);
-        dn4Var.h = true;
-        i.add(dn4Var.g);
-    }
-
-    public static void g(dn4 dn4Var, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{dn4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || dn4Var == null || dn4Var.h || a(dn4Var.g)) {
-            return;
-        }
-        boolean equals = "PB_BANNER".equals(dn4Var.a);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).o(String.valueOf(equals ? -1 : i2 + 1)).u(String.valueOf(equals ? -1 : dn4Var.b)).t(dn4Var.a).p(dn4Var.d).q(dn4Var.e).r(dn4Var.c).n(dn4Var.g);
-        vx0.c(clogBuilder);
-        dn4Var.h = true;
-        i.add(dn4Var.g);
+        return (byte[]) invokeLL.objValue;
     }
 }

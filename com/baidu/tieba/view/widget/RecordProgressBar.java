@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eu8;
+import com.repackage.bv8;
 import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class RecordProgressBar extends View implements eu8, Runnable {
+public class RecordProgressBar extends View implements bv8, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,7 +42,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
     public int p;
     public boolean q;
     public boolean r;
-    public eu8.a s;
+    public bv8.a s;
     public float t;
 
     /* loaded from: classes4.dex */
@@ -112,7 +112,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -123,14 +123,14 @@ public class RecordProgressBar extends View implements eu8, Runnable {
                 this.t = getProgress();
                 invalidate();
             }
-            eu8.a aVar = this.s;
+            bv8.a aVar = this.s;
             if (aVar != null) {
                 aVar.b(this.t);
             }
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,19 +155,19 @@ public class RecordProgressBar extends View implements eu8, Runnable {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            eu8.a aVar = this.s;
+            bv8.a aVar = this.s;
             postDelayed(this, (aVar == null || !(aVar.a() == 0.5f || this.s.a() == 0.33333334f)) ? 50L : 25L);
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : invokeV.intValue;
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         return invokeV.floatValue;
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -275,12 +275,12 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.l == 0 || this.k.size() == 0) {
             return;
         }
-        eu8.a aVar = this.s;
+        bv8.a aVar = this.s;
         if (aVar != null) {
             aVar.onProgress(this.t);
         }
         if (this.t >= this.n) {
-            eu8.a aVar2 = this.s;
+            bv8.a aVar2 = this.s;
             if (aVar2 != null) {
                 aVar2.onFinish();
                 return;
@@ -297,7 +297,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -305,7 +305,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
@@ -313,8 +313,8 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
-    public void setOnProgressListener(eu8.a aVar) {
+    @Override // com.repackage.bv8
+    public void setOnProgressListener(bv8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
             this.s = aVar;
@@ -329,7 +329,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.o == z) {
@@ -339,7 +339,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         invalidate();
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -349,7 +349,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -420,7 +420,7 @@ public class RecordProgressBar extends View implements eu8, Runnable {
         paint2.setColor(this.f);
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(1048591, this, j) == null) || this.k.size() <= 0) {

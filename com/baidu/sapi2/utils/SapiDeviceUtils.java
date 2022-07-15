@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,7 +115,7 @@ public class SapiDeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission(PermissionChecker.READ_PHONE_STATE, context)) {
                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                     return deviceId == null ? "" : deviceId;
                 }

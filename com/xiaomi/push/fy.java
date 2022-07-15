@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.w0;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -56,10 +55,7 @@ public class fy {
                 if (message.indexOf("No route to host") != -1) {
                     return 104;
                 }
-                if (message.endsWith("EINVAL (Invalid argument)")) {
-                    return 106;
-                }
-                return w0.b1;
+                return message.endsWith("EINVAL (Invalid argument)") ? 106 : 199;
             }
         }
         return invokeL.intValue;

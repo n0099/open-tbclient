@@ -80,14 +80,14 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
-    public final void o0() {
+    public final void n0() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || getIntent() == null) {
             return;
@@ -131,19 +131,19 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002b);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02a1));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02a4));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             AtMessageFragment atMessageFragment = new AtMessageFragment();
             this.a = atMessageFragment;
             atMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069b, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906a0, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
             VoiceManager u0 = u0();
             this.c = u0;
             u0.onCreate(getPageContext());
-            o0();
+            n0();
         }
     }
 
@@ -169,7 +169,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
                 return;
             }
             atMessageFragment.setArguments(intent.getExtras());
-            this.a.M1();
+            this.a.N1();
         }
     }
 

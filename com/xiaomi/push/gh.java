@@ -16,10 +16,10 @@ public class gh extends Exception {
     public gq a;
 
     /* renamed from: a  reason: collision with other field name */
-    public gr f421a;
+    public gr f1148a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Throwable f422a;
+    public Throwable f1149a;
 
     public gh() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class gh extends Exception {
             }
         }
         this.a = null;
-        this.f421a = null;
-        this.f422a = null;
+        this.f1148a = null;
+        this.f1149a = null;
     }
 
     public gh(gq gqVar) {
@@ -55,8 +55,8 @@ public class gh extends Exception {
             }
         }
         this.a = null;
-        this.f421a = null;
-        this.f422a = null;
+        this.f1148a = null;
+        this.f1149a = null;
         this.a = gqVar;
     }
 
@@ -79,8 +79,8 @@ public class gh extends Exception {
             }
         }
         this.a = null;
-        this.f421a = null;
-        this.f422a = null;
+        this.f1148a = null;
+        this.f1149a = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,9 +102,9 @@ public class gh extends Exception {
             }
         }
         this.a = null;
-        this.f421a = null;
-        this.f422a = null;
-        this.f422a = th;
+        this.f1148a = null;
+        this.f1149a = null;
+        this.f1149a = th;
     }
 
     public gh(Throwable th) {
@@ -123,15 +123,15 @@ public class gh extends Exception {
             }
         }
         this.a = null;
-        this.f421a = null;
-        this.f422a = null;
-        this.f422a = th;
+        this.f1148a = null;
+        this.f1149a = null;
+        this.f1149a = th;
     }
 
     public Throwable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f422a : (Throwable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1149a : (Throwable) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
@@ -142,7 +142,7 @@ public class gh extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String message = super.getMessage();
-            return (message != null || (grVar = this.f421a) == null) ? (message != null || (gqVar = this.a) == null) ? message : gqVar.toString() : grVar.toString();
+            return (message != null || (grVar = this.f1148a) == null) ? (message != null || (gqVar = this.a) == null) ? message : gqVar.toString() : grVar.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -160,9 +160,9 @@ public class gh extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, printStream) == null) {
             super.printStackTrace(printStream);
-            if (this.f422a != null) {
+            if (this.f1149a != null) {
                 printStream.println("Nested Exception: ");
-                this.f422a.printStackTrace(printStream);
+                this.f1149a.printStackTrace(printStream);
             }
         }
     }
@@ -172,9 +172,9 @@ public class gh extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, printWriter) == null) {
             super.printStackTrace(printWriter);
-            if (this.f422a != null) {
+            if (this.f1149a != null) {
                 printWriter.println("Nested Exception: ");
-                this.f422a.printStackTrace(printWriter);
+                this.f1149a.printStackTrace(printWriter);
             }
         }
     }
@@ -190,7 +190,7 @@ public class gh extends Exception {
                 sb.append(message);
                 sb.append(": ");
             }
-            gr grVar = this.f421a;
+            gr grVar = this.f1148a;
             if (grVar != null) {
                 sb.append(grVar);
             }
@@ -198,9 +198,9 @@ public class gh extends Exception {
             if (gqVar != null) {
                 sb.append(gqVar);
             }
-            if (this.f422a != null) {
+            if (this.f1149a != null) {
                 sb.append("\n  -- caused by: ");
-                sb.append(this.f422a);
+                sb.append(this.f1149a);
             }
             return sb.toString();
         }

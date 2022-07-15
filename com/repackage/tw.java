@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tw extends qw<ym4> {
+public class tw extends qw<nn4> implements fw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public ym4 h;
+    public nn4 h;
     public b i;
 
     /* loaded from: classes7.dex */
@@ -53,8 +53,8 @@ public class tw extends qw<ym4> {
                 if (this.a.i != null) {
                     this.a.i.a(this.a.h, view2);
                 }
-                if (this.a.d() != null) {
-                    this.a.d().a(view2, this.a.h);
+                if (this.a.e() != null) {
+                    this.a.e().a(view2, this.a.h);
                 }
             }
         }
@@ -62,7 +62,7 @@ public class tw extends qw<ym4> {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(ym4 ym4Var, View view2);
+        void a(nn4 nn4Var, View view2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,13 +93,13 @@ public class tw extends qw<ym4> {
         this.f.setUserAfterClickListener(new a(this));
     }
 
-    @Override // com.repackage.qw
-    public void b(int i) {
+    @Override // com.repackage.fw8
+    public void b() {
+        CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            int i2 = i | this.g;
-            this.g = i2;
-            u(i2);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.isHasPlayVirtualImage()) {
+            this.f.recoverVirtualImageAnimate();
+            this.f.setHasPlayVirtualImage(false);
         }
     }
 
@@ -107,79 +107,101 @@ public class tw extends qw<ym4> {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = (~i) & this.g;
+            int i2 = i | this.g;
             this.g = i2;
-            u(i2);
+            v(i2);
         }
     }
 
     @Override // com.repackage.qw
-    public View g() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int i2 = (~i) & this.g;
+            this.g = i2;
+            v(i2);
+        }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.qw
+    public View h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
             this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: q */
-    public void a(ym4 ym4Var) {
+    @Override // com.repackage.fw8
+    public void play() {
+        CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ym4Var) == null) {
-            this.h = ym4Var;
-            this.f.setData(ym4Var.getThreadData());
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (cardUserInfoLayout = this.f) == null || !cardUserInfoLayout.isVirtualImage() || this.h.getThreadData().isHasPlayVirtualImage()) {
+            return;
+        }
+        this.f.startVirtualImageAnimate();
+        this.f.setHasPlayVirtualImage(true);
+        this.h.getThreadData().setHasPlayVirtualImage(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.gx
+    /* renamed from: r */
+    public void a(nn4 nn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, nn4Var) == null) {
+            this.h = nn4Var;
+            this.f.setData(nn4Var.getThreadData());
         }
     }
 
-    public void r(boolean z) {
+    public void s(boolean z) {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getAvatar() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getAvatar() == null) {
             return;
         }
         this.f.getAvatar().setClickable(z);
     }
 
-    public void s(b bVar) {
+    public void t(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             this.i = bVar;
         }
     }
 
-    public void t(BdUniqueId bdUniqueId) {
+    public void u(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
             this.f.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public void u(int i) {
+    public void v(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.f.setShowFlag(this.g);
         }
     }
 
-    public void v(TbPageContext tbPageContext) {
+    public void w(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, tbPageContext) == null) {
             this.f.setPageContext(tbPageContext);
         }
     }
 
-    public void w(boolean z) {
+    public void x(boolean z) {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getUserName() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (cardUserInfoLayout = this.f) == null || cardUserInfoLayout.getUserName() == null) {
             return;
         }
         this.f.getUserName().setClickable(z);

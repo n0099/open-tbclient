@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
 import com.repackage.ni;
-import com.repackage.yb8;
+import com.repackage.tc8;
+import com.repackage.xt4;
 /* loaded from: classes4.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yb8 a;
+    public tc8 a;
     public HttpMessageListener b;
 
     /* loaded from: classes4.dex */
@@ -64,7 +64,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    ht4 k = ht4.k();
+                    xt4 k = xt4.k();
                     k.w(operation + currentAccount, type);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                     return;
@@ -75,9 +75,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.a.q();
                 }
                 if (httpResponsedMessage.getError() != -1 && ni.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ef3);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0eee);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            yb8 yb8Var = new yb8(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = yb8Var;
-            setContentView(yb8Var.m());
+            tc8 tc8Var = new tc8(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = tc8Var;
+            setContentView(tc8Var.m());
             registerListener(this.b);
         }
     }

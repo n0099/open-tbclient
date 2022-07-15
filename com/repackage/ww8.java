@@ -1,55 +1,44 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.webkit.WebView;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.write.album.AlbumImageBrowseFragment;
+import com.baidu.tieba.write.album.ImageListFragment;
+import com.baidu.tieba.write.album.TbCameraView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ww8 implements vw8 {
+public class ww8 extends b9<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewVcodeView a;
-    public final NewWriteModel b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public boolean g;
-    public Runnable h;
-    public final NewWriteModel.e i;
-    public NewWriteModel.e j;
+    public String a;
+    public String b;
+    public ax8 c;
+    public Fragment[] d;
+    public String[] e;
+    public ImageListFragment f;
+    public AlbumImageBrowseFragment g;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements TbCameraView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww8 a;
+        public final /* synthetic */ TbCameraView a;
 
-        public a(ww8 ww8Var) {
+        public a(ww8 ww8Var, TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ww8Var};
+                Object[] objArr = {ww8Var, tbCameraView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,257 +48,267 @@ public class ww8 implements vw8 {
                     return;
                 }
             }
-            this.a = ww8Var;
+            this.a = tbCameraView;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.write.album.TbCameraView.e
+        public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
-            }
-            if (StringUtils.isNull(this.a.f)) {
-                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0507));
-            } else {
-                this.a.a.showToast(false, this.a.f);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.o();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements NewWriteModel.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww8 a;
-
-        public b(ww8 ww8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ww8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ww8Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, hx4 hx4Var, WriteData writeData, AntiData antiData) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, hx4Var, writeData, antiData}) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.showPostThreadLoadingView(false);
-            if (z) {
-                this.a.g = true;
-                if (writeData != null && writeData.getVideoReviewType() == 1) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1541));
-                } else if (writeData != null && writeData.getVideoReviewType() == 2) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1540));
-                } else if (writeData != null) {
-                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1122);
-                    String str2 = null;
-                    if (postWriteCallBackData != null) {
-                        str2 = postWriteCallBackData.getPreMsg();
-                        str = postWriteCallBackData.getColorMsg();
-                        string = postWriteCallBackData.getErrorString();
-                    } else {
-                        str = null;
-                    }
-                    if (writeData.getType() != 7) {
-                        uj8.b(this.a.a.getContext().getActivity(), string, str2, str);
-                    }
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.a.getContext();
-                this.a.a.getContext();
-                context.setResult(-1, intent);
-                this.a.a.getContext().finish();
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                this.a.a.getContext().setVisible(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.j != null) {
-                if (this.a.j != null) {
-                    this.a.j.callback(z, postWriteCallBackData, hx4Var, writeData, antiData);
-                }
-            } else if (postWriteCallBackData == null) {
-            } else {
-                if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08f0));
-                } else {
-                    this.a.a.showToast(false, postWriteCallBackData.getErrorString());
-                }
-                this.a.m();
-            }
-        }
-    }
-
-    public ww8(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ww8(TbPageContext tbPageContext, ax8 ax8Var) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
+            Object[] objArr = {tbPageContext, ax8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.f = null;
-        this.h = new a(this);
-        b bVar = new b(this);
-        this.i = bVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.c0(bVar);
+        this.a = "tag_image";
+        this.b = "tag_b_image";
+        this.c = ax8Var;
     }
 
-    @Override // com.repackage.vw8
-    public void a(boolean z) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setRatio(1.2631578f);
-            this.a.showWebView(false);
-            String str = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/captcha";
-            if (z) {
-                str = str + "?feedback=1";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
             }
-            this.a.getWebView().loadUrl(str);
+            return albumImageBrowseFragment.F1();
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.vw8
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
+    public View h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (str.contains("objc:jsChangeVcode")) {
-                String a2 = sd5.a(str);
-                this.c = a2;
-                if (a2 == null || this.b.T() == null) {
-                    return false;
-                }
-                NewVcodeView newVcodeView = this.a;
-                String str2 = this.c;
-                newVcodeView.runJsMethod(str2, "'" + this.b.T().getVcodeUrl() + "'");
-                return true;
-            } else if (str.equals("objc:jumpToFeedback()")) {
-                if (WriteActivityConfig.isAsyncWriting()) {
-                    return false;
-                }
-                WriteActivityConfig.newInstance(this.a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
-                return true;
-            } else if (str.contains("objc:jsSubmit")) {
-                return k(sd5.a(str));
-            } else {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
             }
+            return imageListFragment.L1();
         }
-        return invokeLL.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.vw8
-    public void c(NewWriteModel.e eVar) {
+    public View j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.j = eVar;
-        }
-    }
-
-    @Override // com.repackage.vw8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
-        }
-    }
-
-    @Override // com.repackage.vw8
-    public void e(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-            this.e = z;
-            this.f = str;
-        }
-    }
-
-    public final boolean k(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
             }
-            this.d = split[0];
-            l(split[1]);
-            return true;
+            return albumImageBrowseFragment.G1();
         }
-        return invokeL.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public final void l(String str) {
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (!pi.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c37);
-                this.a.getContext().finish();
-            } else if (!StringUtils.isNull(str)) {
-                this.a.showPostThreadLoadingView(true);
-                this.b.T().setVcode(str);
-                this.b.T().setVcodeType("4");
-                this.b.f0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c37);
-                this.a.getContext().finish();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
             }
+            return imageListFragment.M1();
         }
+        return (View) invokeV.objValue;
     }
 
-    public final void m() {
+    public TbCameraView l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NewVcodeView newVcodeView = this.a;
-            String str = this.d;
-            newVcodeView.runJsMethod(str, "'" + this.b.T().getVcodeUrl() + "'");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.N1();
         }
+        return (TbCameraView) invokeV.objValue;
     }
 
-    @Override // com.repackage.vw8
-    public void onDestroy() {
+    public Fragment m(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            qg.a().removeCallbacks(this.h);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i < 0 || i > 1) {
+                return null;
+            }
+            return this.d[i];
         }
+        return (Fragment) invokeI.objValue;
     }
 
-    @Override // com.repackage.vw8
-    public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView;
+    public String n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || (newVcodeView = this.a) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i < 0 || i > 1) {
+                return null;
+            }
+            return this.e[i];
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public ImageListFragment o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (ImageListFragment) invokeV.objValue;
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) {
             return;
         }
-        newVcodeView.showWebViewDelay(500);
-        if (this.e) {
-            qg.a().postDelayed(this.h, 500L);
+        int i2 = 0;
+        while (true) {
+            Fragment[] fragmentArr = this.d;
+            if (i2 >= fragmentArr.length) {
+                return;
+            }
+            if (fragmentArr[i2] != null && (fragmentArr[i2] instanceof ImageListFragment)) {
+                ((ImageListFragment) fragmentArr[i2]).onChangeSkinType(i);
+            }
+            i2++;
         }
+    }
+
+    public View p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.P1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.H1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d = new Fragment[2];
+            this.e = new String[2];
+            ImageListFragment imageListFragment = new ImageListFragment();
+            this.f = imageListFragment;
+            imageListFragment.V1(this.c);
+            this.d[0] = this.f;
+            this.e[0] = this.a;
+            AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
+            this.g = albumImageBrowseFragment;
+            albumImageBrowseFragment.M1(this.c);
+            this.d[1] = this.g;
+            this.e[1] = this.b;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            TbCameraView l = l();
+            if (l != null) {
+                l.setOnOpenCameraFailedListener(new a(this, l));
+                l.m(false);
+                l.setVisibility(0);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null || imageListFragment.O1() == null) {
+                return;
+            }
+            this.f.O1().n();
+        }
+    }
+
+    public void u() {
+        ImageListFragment imageListFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (imageListFragment = this.f) == null) {
+            return;
+        }
+        imageListFragment.Q1();
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment != null) {
+                albumImageBrowseFragment.L1(z);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment != null) {
+                imageListFragment.U1(z);
+            }
+        }
+    }
+
+    public void w(NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, navigationBar) == null) {
+            this.f.W1(navigationBar);
+        }
+    }
+
+    public void x(fx8 fx8Var) {
+        ImageListFragment imageListFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, fx8Var) == null) || (imageListFragment = this.f) == null) {
+            return;
+        }
+        imageListFragment.X1(fx8Var);
+    }
+
+    public void y() {
+        TbCameraView l;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (l = l()) == null) {
+            return;
+        }
+        l.o();
+        l.setVisibility(4);
     }
 }

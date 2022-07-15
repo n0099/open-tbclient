@@ -1,5 +1,9 @@
 package com.repackage;
-/* loaded from: classes6.dex */
-public interface q75 {
-    r75 getTbPageInfo();
+/* loaded from: classes7.dex */
+public interface q75 extends p75 {
+    boolean isNeedUid();
+
+    boolean p();
+
+    String z();
 }

@@ -1,52 +1,64 @@
 package com.repackage;
 
-import android.util.Base64;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class nw3 implements ex3 {
+public class nw3 implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755455129, "Lcom/repackage/nw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755455129, "Lcom/repackage/nw3;");
+                return;
+            }
+        }
+        b = rg1.a;
+    }
 
     public nw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.ex3
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str == null || bArr == null) {
-                return bArr;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && b && !d14.d()) {
+            if (i == 0) {
+                Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
+            } else if (i == 1) {
+                this.a = System.currentTimeMillis();
+                Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
+            } else if (i != 2) {
+            } else {
+                Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
             }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 76158) {
-                if (hashCode == 1952093519 && str.equals("BASE64")) {
-                    c = 1;
-                }
-            } else if (str.equals("MD5")) {
-                c = 0;
-            }
-            if (c != 0) {
-                return c != 1 ? bArr : Base64.encode(bArr, 2);
-            }
-            return wf4.d(bArr, false).getBytes();
         }
-        return (byte[]) invokeLL.objValue;
     }
 }

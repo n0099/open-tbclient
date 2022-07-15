@@ -21,7 +21,7 @@ public final class DownloadDataConstants {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class Columns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CURRENT_BYTES = "current_bytes";

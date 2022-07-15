@@ -3,6 +3,8 @@ package com.repackage;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,7 +98,7 @@ public class sf {
         InterceptResult invokeZL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(1048581, this, z, qfVar)) == null) {
-            String str = z ? this.b : this.a;
+            String str = z ? this.a : this.b;
             if (this.e.size() == 0) {
                 if (qfVar != null) {
                     qfVar.a = str.length();
@@ -126,110 +128,89 @@ public class sf {
         return (String) invokeZL.objValue;
     }
 
-    public String g(String str) {
-        InterceptResult invokeL;
+    public Map<String, String> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Map<String, String> map = this.d;
-            if (map != null) {
-                return map.get(str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Map) invokeV.objValue;
+    }
+
+    public HttpMessageTask.HTTP_METHOD h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (HttpMessageTask.HTTP_METHOD) invokeV.objValue;
+    }
+
+    public Map<String, String> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (Map) invokeV.objValue;
+    }
+
+    public LinkedList<BasicNameValuePair> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : (LinkedList) invokeV.objValue;
+    }
+
+    public String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            if (z) {
+                return this.a;
             }
-            return null;
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeZ.objValue;
     }
 
-    public Map<String, String> h() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (Map) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public HttpMessageTask.HTTP_METHOD j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (HttpMessageTask.HTTP_METHOD) invokeV.objValue;
-    }
-
-    public Map<String, String> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (Map) invokeV.objValue;
-    }
-
-    public LinkedList<BasicNameValuePair> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : (LinkedList) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             HashMap<String, byte[]> hashMap = this.g;
             return hashMap != null && hashMap.size() > 0;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean o() {
+    public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    public void p(boolean z) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.i = z;
         }
     }
 
-    public void q(boolean z) {
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.h = z;
         }
     }
 
-    public void r(HashMap<String, String> hashMap) {
+    public void p(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, hashMap) == null) {
             this.d = hashMap;
         }
     }
 
-    public void s(String str) {
+    public void q(HttpMessageTask.HTTP_METHOD http_method) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || str == null) {
-            return;
-        }
-        this.b = str;
-    }
-
-    public void t(HttpMessageTask.HTTP_METHOD http_method) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, http_method) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, http_method) == null) {
             this.c = http_method;
         }
     }
 
-    public void u(List<Map.Entry<String, Object>> list) {
+    public void r(List<Map.Entry<String, Object>> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, list) == null) || list == null) {
             return;
         }
         for (Map.Entry<String, Object> entry : list) {
@@ -249,21 +230,36 @@ public class sf {
         }
     }
 
-    public void v(String str) {
+    public void s(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             if (str == null) {
                 this.a = "";
             } else {
                 this.a = str;
             }
+            if (this.a.startsWith(TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS)) {
+                String[] split = this.a.split(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
+                if (split == null || split.length != 2) {
+                    return;
+                }
+                this.b = UrlSchemaHelper.SCHEMA_TYPE_HTTP + split[1];
+            } else if (this.a.contains(TbDomainConfig.DOMAIN_HTTPS_TIEBA)) {
+                String[] split2 = this.a.split(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
+                if (split2 == null || split2.length != 2) {
+                    return;
+                }
+                this.b = UrlSchemaHelper.SCHEMA_TYPE_HTTP + split2[1];
+            } else {
+                this.b = this.a;
+            }
         }
     }
 
-    public void w(HttpURLConnection httpURLConnection) {
+    public void t(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.d) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {

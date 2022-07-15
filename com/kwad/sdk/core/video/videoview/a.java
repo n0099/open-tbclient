@@ -1,387 +1,511 @@
 package com.kwad.sdk.core.video.videoview;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.SurfaceTexture;
+import android.media.AudioManager;
+import android.util.AttributeSet;
+import android.view.Surface;
+import android.view.TextureView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.R;
-import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.aw;
-import com.kwad.sdk.utils.z;
-import com.kwad.sdk.widget.KSRelativeLayout;
-@SuppressLint({"ViewConstructor"})
+import com.kwad.sdk.core.response.model.VideoPlayerStatus;
+import com.kwad.sdk.core.video.kwai.c;
+import com.kwad.sdk.core.video.kwai.e;
+import com.kwad.sdk.core.video.kwai.f;
+import com.kwad.sdk.core.view.AdBasePvFrameLayout;
+import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.service.kwai.g;
+import com.kwad.sdk.utils.as;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 @Deprecated
 /* loaded from: classes5.dex */
-public class a extends c implements View.OnClickListener {
-    public InterfaceC0316a A;
-    public final com.kwad.sdk.core.download.a.c B;
-    public boolean a;
-    public ImageView b;
-    public TextView c;
-    public Context e;
-    @NonNull
-    public AdTemplate f;
-    public AdInfo g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public int k;
+public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceTextureListener, c {
+    public static AtomicBoolean o = new AtomicBoolean(false);
+    public int a;
+    public Context b;
+    public AudioManager c;
+    public com.kwad.sdk.core.video.kwai.c d;
+    public FrameLayout e;
+    public com.kwad.sdk.core.video.a f;
+    public b g;
+    public SurfaceTexture h;
+    public Surface i;
+    public String j;
+    public Map<String, String> k;
     public int l;
-    public KSRelativeLayout m;
-    public RelativeLayout n;
-    public boolean o;
+    public boolean m;
+    public long n;
     public boolean p;
-    public LinearLayout q;
-    public LinearLayout r;
-    public ProgressBar s;
+    public boolean q;
+    public com.kwad.sdk.contentalliance.kwai.kwai.b r;
+    public com.kwad.sdk.contentalliance.kwai.kwai.a s;
     public ImageView t;
-    public ViewGroup u;
-    public ImageView v;
-    public TextView w;
-    public TextView x;
-    public com.kwad.sdk.core.download.a.b y;
-    public b z;
+    public c.e u;
+    public c.h v;
+    public c.b w;
+    public c.InterfaceC0547c x;
+    public c.d y;
+    public c.a z;
 
-    /* renamed from: com.kwad.sdk.core.video.videoview.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0316a {
-        void a(int i, z.a aVar);
+    public a(Context context) {
+        this(context, null);
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(long j);
-
-        void b_();
-
-        void e();
-
-        void f();
-    }
-
-    public a(Context context, @NonNull AdTemplate adTemplate, @NonNull d dVar) {
-        super(context, dVar);
-        this.j = true;
-        this.a = false;
+    public a(Context context, AttributeSet attributeSet) {
+        super(context, null);
+        this.a = 0;
+        this.m = false;
         this.p = false;
-        this.B = new com.kwad.sdk.core.download.a.c() { // from class: com.kwad.sdk.core.video.videoview.a.1
-            @Override // com.kwad.sdk.core.download.a.c
-            public void a(int i) {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.a());
-            }
-
-            @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onDownloadFailed() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.A(a.this.g));
-            }
-
-            @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onDownloadFinished() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.a(a.this.f));
-            }
-
-            @Override // com.kwad.sdk.core.download.a.c, com.kwad.sdk.api.KsAppDownloadListener
-            public void onDownloadStarted() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.a(0));
-            }
-
-            @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onIdle() {
-                a aVar = a.this;
-                aVar.a(com.kwad.sdk.core.response.a.a.A(aVar.g));
-            }
-
-            @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onInstalled() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.m(a.this.g));
-            }
-
-            @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onProgressUpdate(int i) {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.a(i));
+        this.q = false;
+        this.u = new c.e() { // from class: com.kwad.sdk.core.video.videoview.a.1
+            @Override // com.kwad.sdk.core.video.kwai.c.e
+            public final void a(com.kwad.sdk.core.video.kwai.c cVar) {
+                a.this.a = 2;
+                a.this.g.a(a.this.a);
+                com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "onPrepared ——> STATE_PREPARED");
+                cVar.e();
+                if (a.this.m) {
+                    cVar.a((int) as.a(a.this.b, a.this.j));
+                }
+                if (a.this.n != 0) {
+                    cVar.a((int) a.this.n);
+                }
             }
         };
-        this.e = context;
-        this.f = adTemplate;
-        this.g = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        m();
+        this.v = new c.h() { // from class: com.kwad.sdk.core.video.videoview.a.2
+            @Override // com.kwad.sdk.core.video.kwai.c.h
+            public final void a(int i, int i2) {
+                if (!a.this.q || i2 <= i) {
+                    a.this.f.a(i, i2);
+                    com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "onVideoSizeChanged ——> width：" + i + "， height：" + i2);
+                }
+            }
+        };
+        this.w = new c.b() { // from class: com.kwad.sdk.core.video.videoview.a.3
+            @Override // com.kwad.sdk.core.video.kwai.c.b
+            public final void a() {
+                if (a.this.a != 9) {
+                    a.this.a = 9;
+                    a.this.g.a(a.this.a);
+                    com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "onCompletion ——> STATE_COMPLETED");
+                    a.this.e.setKeepScreenOn(false);
+                }
+            }
+        };
+        this.x = new c.InterfaceC0547c() { // from class: com.kwad.sdk.core.video.videoview.a.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0547c
+            public final boolean a(int i, int i2) {
+                if (i != -38) {
+                    a.this.a = -1;
+                    a.this.g.a(i, i2);
+                    a.this.g.a(a.this.a);
+                    com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "onError ——> STATE_ERROR ———— what：" + i + ", extra: " + i2);
+                    return true;
+                }
+                return true;
+            }
+        };
+        this.y = new c.d() { // from class: com.kwad.sdk.core.video.videoview.a.5
+            @Override // com.kwad.sdk.core.video.kwai.c.d
+            public final boolean a(int i, int i2) {
+                String str;
+                String str2;
+                if (i == 3) {
+                    a.this.a = 4;
+                    a.this.g.a(a.this.a);
+                    str = "onInfo ——> MEDIA_INFO_VIDEO_RENDERING_START：STATE_PLAYING";
+                } else if (i == 701) {
+                    if (a.this.a == 5 || a.this.a == 7) {
+                        a.this.a = 7;
+                        str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PAUSED";
+                    } else {
+                        a.this.a = 6;
+                        str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PLAYING";
+                    }
+                    com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", str2);
+                    a.this.g.a(a.this.a);
+                    return true;
+                } else if (i == 702) {
+                    if (a.this.a == 6) {
+                        a.this.a = 4;
+                        a.this.g.a(a.this.a);
+                        com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PLAYING");
+                    }
+                    if (a.this.a != 7) {
+                        return true;
+                    }
+                    a.this.a = 5;
+                    a.this.g.a(a.this.a);
+                    str = "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PAUSED";
+                } else if (i == 10001) {
+                    if (a.this.f == null) {
+                        return true;
+                    }
+                    a.this.f.setRotation(i2);
+                    str = "视频旋转角度：" + i2;
+                } else if (i == 801) {
+                    str = "视频不能seekTo，为直播视频";
+                } else {
+                    str = "onInfo ——> what：" + i;
+                }
+                com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", str);
+                return true;
+            }
+        };
+        this.z = new c.a() { // from class: com.kwad.sdk.core.video.videoview.a.6
+            @Override // com.kwad.sdk.core.video.kwai.c.a
+            public final void a(int i) {
+                a.this.l = i;
+            }
+        };
+        this.b = context;
+        k();
     }
 
-    private void b(int i) {
-        InterfaceC0316a interfaceC0316a = this.A;
-        if (interfaceC0316a != null) {
-            interfaceC0316a.a(i, this.m.getTouchCoords());
+    private void a(AdTemplate adTemplate) {
+        g gVar = (g) ServiceProvider.a(g.class);
+        if (gVar != null) {
+            gVar.load(this.t, d.l(adTemplate), adTemplate);
         }
     }
 
-    private void m() {
-        ImageView imageView;
-        int i;
-        LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d041f, (ViewGroup) this, true);
-        this.m = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091136);
-        this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09101c);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09101e);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101d);
-        this.b = imageView2;
-        imageView2.setOnClickListener(this);
-        this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09112d);
-        this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091126);
-        this.s = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091135);
-        this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f09113d);
-        String a = com.kwad.sdk.core.response.a.a.aa(this.g).a();
-        if (TextUtils.isEmpty(a)) {
-            imageView = this.t;
-            i = 8;
-        } else {
-            this.t.setImageDrawable(null);
-            KSImageLoader.loadImage(this.t, a, this.f);
-            imageView = this.t;
-            i = 0;
-        }
-        imageView.setVisibility(i);
-        this.c.setText(aw.a(com.kwad.sdk.core.response.a.a.b(this.g) * 1000));
-        a();
+    private void k() {
+        this.t = l();
+        this.e = new FrameLayout(this.b);
+        addView(this.e, new FrameLayout.LayoutParams(-1, -1));
+    }
+
+    private ImageView l() {
+        ImageView imageView = new ImageView(this.b);
+        addView(imageView, new FrameLayout.LayoutParams(-1, -1));
+        return imageView;
+    }
+
+    private boolean m() {
+        return this.a == 6;
     }
 
     private void n() {
-        ViewGroup viewGroup = this.u;
-        if (viewGroup != null) {
-            viewGroup.setVisibility(8);
+        if (this.d == null) {
+            f fVar = (f) ServiceProvider.a(f.class);
+            boolean z = true;
+            com.kwad.sdk.core.video.kwai.c a = e.a(this.b, false, fVar != null && fVar.a(), (fVar == null || !fVar.b()) ? false : false);
+            this.d = a;
+            a.b(3);
+            if (this.p) {
+                return;
+            }
+            this.d.a(0.0f, 0.0f);
         }
     }
 
     private void o() {
-        this.n.setVisibility(0);
-        this.t.setVisibility(0);
-        this.f.mVideoPlayerStatus.setVideoPlayerBehavior(2);
+        if (this.f == null) {
+            com.kwad.sdk.core.video.a aVar = new com.kwad.sdk.core.video.a(this.b);
+            this.f = aVar;
+            aVar.setSurfaceTextureListener(this);
+        }
     }
 
     private void p() {
-        this.n.setVisibility(8);
+        this.e.removeView(this.f);
+        this.e.addView(this.f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
     }
 
     private void q() {
-        this.d.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(this.f));
+        this.e.setKeepScreenOn(true);
+        this.d.a(this.u);
+        this.d.a(this.v);
+        this.d.a(this.w);
+        this.d.a(this.x);
+        this.d.a(this.y);
+        this.d.a(this.z);
+        try {
+            if (this.r != null && this.s != null) {
+                this.r.e = this.s;
+            }
+            this.d.a(this.r);
+            if (this.i == null) {
+                this.i = new Surface(this.h);
+            }
+            this.d.a(this.i);
+            if (this.d.d()) {
+                this.a = 1;
+                this.g.a(1);
+                com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "STATE_PREPARING");
+            }
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.d.b.a("KSVideoPlayerViewView", "打开播放器发生错误", e);
+        }
     }
 
-    private void setTopBottomVisible(boolean z) {
-        if (this.p) {
+    private void r() {
+        AudioManager audioManager = this.c;
+        if (audioManager != null) {
+            audioManager.abandonAudioFocus(null);
+            this.c = null;
+        }
+        com.kwad.sdk.core.video.kwai.c cVar = this.d;
+        if (cVar != null) {
+            cVar.i();
+            this.d = null;
+        }
+        this.e.removeView(this.f);
+        Surface surface = this.i;
+        if (surface != null) {
+            surface.release();
+            this.i = null;
+        }
+        SurfaceTexture surfaceTexture = this.h;
+        if (surfaceTexture != null) {
+            surfaceTexture.release();
+            this.h = null;
+        }
+        this.a = 0;
+    }
+
+    private void setPlayType(int i) {
+        VideoPlayerStatus videoPlayerStatus;
+        com.kwad.sdk.contentalliance.kwai.kwai.b bVar = this.r;
+        if (bVar == null || (videoPlayerStatus = bVar.d) == null) {
             return;
         }
-        this.s.setVisibility(z ? 0 : 8);
-        this.o = z;
-    }
-
-    public void a() {
+        videoPlayerStatus.mVideoPlayerType = i;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.c
-    public void a(int i) {
-        com.kwad.sdk.core.d.a.a("AdVideoPlayerController", "onPlayStateChanged playState=" + i);
-        if (i == -1) {
-            l();
-            setTopBottomVisible(false);
-            this.q.setVisibility(8);
-            this.r.setVisibility(0);
-            com.kwad.sdk.core.report.d.b(this.f, this.k, this.l);
-        } else if (i == 4) {
-            b bVar = this.z;
-            if (bVar != null) {
-                bVar.e();
-            }
-            this.t.setVisibility(8);
-        } else if (i == 9) {
-            b bVar2 = this.z;
-            if (bVar2 != null) {
-                bVar2.f();
-            }
-            l();
-            setTopBottomVisible(false);
-            KSImageLoader.loadImage(this.t, com.kwad.sdk.core.response.a.a.h(this.g), this.f);
-            this.t.setVisibility(0);
-            b();
-        } else if (i == 1) {
-            p();
-            this.q.setVisibility(8);
-            this.r.setVisibility(8);
-            this.s.setVisibility(8);
-            n();
-        } else if (i != 2) {
-        } else {
-            b bVar3 = this.z;
-            if (bVar3 != null) {
-                bVar3.b_();
-            }
-            setTopBottomVisible(true);
-            k();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.video.videoview.c
-    public void a(int i, int i2) {
-        this.l = i2;
-        this.k = i;
-    }
-
-    public void a(String str) {
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f090fed)).setText(str);
-    }
-
-    public void a(boolean z) {
-        ProgressBar progressBar;
-        int i;
-        if (this.p) {
+    public final void a() {
+        VideoPlayerStatus videoPlayerStatus;
+        if (this.a != 0) {
+            com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "KSVideoPlayer只有在状态为STATE_IDLE时才能调用start方法.");
             return;
         }
-        if (!z) {
-            progressBar = this.s;
-            i = 8;
-        } else if (!this.o) {
-            return;
-        } else {
-            progressBar = this.s;
-            i = 0;
-        }
-        progressBar.setVisibility(i);
-    }
-
-    public void b() {
-        if (com.kwad.sdk.core.response.a.a.B(this.g)) {
-            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f091117);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff3);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f090fed);
-            KSImageLoader.loadAppIcon(this.v, com.kwad.sdk.core.response.a.d.o(this.f), this.f, 12);
-            this.w.setText(com.kwad.sdk.core.response.a.a.at(this.g));
-            this.x.setText(com.kwad.sdk.core.response.a.a.A(this.g));
-            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091116);
-            this.v.setOnClickListener(this);
-            this.w.setOnClickListener(this);
-            this.x.setOnClickListener(this);
-            com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f);
-            this.y = bVar;
-            bVar.a(this.B);
-        } else {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091047);
-            this.x = textView;
-            textView.setText(com.kwad.sdk.core.response.a.a.A(this.g));
-            this.x.setOnClickListener(this);
-            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091118);
-        }
-        this.u.setOnClickListener(this);
-        this.u.setVisibility(0);
-    }
-
-    public void c() {
-        this.q.setVisibility(0);
-    }
-
-    public void d() {
-        this.q.setVisibility(8);
-    }
-
-    @Override // com.kwad.sdk.core.video.videoview.c
-    public void e() {
-        l();
-        this.s.setProgress(0);
-        this.s.setSecondaryProgress(0);
-        p();
-        this.q.setVisibility(8);
-        this.r.setVisibility(8);
-        this.s.setVisibility(8);
-        this.t.setVisibility(8);
-        this.n.setVisibility(8);
-        this.f.mVideoPlayerStatus.setVideoPlayerBehavior(1);
         n();
+        o();
+        p();
+        com.kwad.sdk.contentalliance.kwai.kwai.b bVar = this.r;
+        if (bVar == null || (videoPlayerStatus = bVar.d) == null) {
+            return;
+        }
+        setPlayType(videoPlayerStatus.mVideoPlayerType == 0 ? 1 : 3);
     }
 
-    public void f() {
-        if (!this.d.d()) {
-            if (this.d.h() || this.d.f()) {
-                q();
-                this.d.b();
-            }
-        } else if (!com.ksad.download.c.b.a(this.e)) {
-            c();
-        } else {
-            d();
-            if (!this.a && ((!this.j || !com.ksad.download.c.b.b(this.e)) && (!this.j || (!this.i && !this.h)))) {
-                o();
-                return;
-            }
-            q();
-            this.d.a();
+    public final void a(int i) {
+        com.kwad.sdk.core.video.kwai.c cVar = this.d;
+        if (cVar != null) {
+            cVar.a(i);
         }
     }
 
-    public void g() {
-        this.d.c();
-    }
-
-    public AdTemplate getAdTemplate() {
-        return this.f;
-    }
-
-    public void h() {
-        this.d.k();
+    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar, Map<String, String> map) {
+        this.r = bVar;
+        this.j = bVar.b;
+        this.k = null;
+        a(bVar.a);
     }
 
     @Override // com.kwad.sdk.core.video.videoview.c
-    public void i() {
-        long currentPosition = this.d.getCurrentPosition();
-        long duration = this.d.getDuration();
-        this.s.setSecondaryProgress(this.d.getBufferPercentage());
-        this.s.setProgress((int) ((((float) currentPosition) * 100.0f) / ((float) duration)));
-        b bVar = this.z;
-        if (bVar != null) {
-            bVar.a(currentPosition);
-        }
-    }
-
-    public void j() {
-        this.p = true;
-        this.s.setVisibility(8);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 == this.b) {
-            this.h = true;
-            this.j = true;
-            f();
-        } else if (view2 == this.v) {
-            b(1);
+    public final void b() {
+        int i = this.a;
+        if (i == 5) {
+            this.d.e();
+            this.a = 4;
+            this.g.a(4);
+            setPlayType(2);
+            com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "STATE_PLAYING");
+        } else if (i == 7) {
+            this.d.e();
+            this.a = 6;
+            this.g.a(6);
+            com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "STATE_BUFFERING_PLAYING");
+        } else if (i == 9 || i == -1) {
+            this.d.j();
+            q();
+            setPlayType(3);
         } else {
-            b(view2 == this.w ? 2 : view2 == this.x ? 3 : 4);
+            com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", "KSVideoPlayer在状态为 " + this.a + " 时不能调用restart()方法.");
         }
     }
 
-    public void setAdClickListener(InterfaceC0316a interfaceC0316a) {
-        this.A = interfaceC0316a;
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final void c() {
+        String str;
+        com.kwad.sdk.core.video.kwai.c cVar = this.d;
+        if (cVar == null) {
+            return;
+        }
+        int i = this.a;
+        if (i == 4) {
+            cVar.f();
+            this.a = 5;
+            this.g.a(5);
+            str = "STATE_PAUSED";
+        } else if (i != 6) {
+            return;
+        } else {
+            cVar.f();
+            this.a = 7;
+            this.g.a(7);
+            str = "STATE_BUFFERING_PAUSED";
+        }
+        com.kwad.sdk.core.d.b.c("KSVideoPlayerViewView", str);
     }
 
-    public void setCanControlPlay(boolean z) {
-        this.a = z;
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final boolean d() {
+        return this.a == 0;
     }
 
-    public void setDataAutoStart(boolean z) {
-        this.j = z;
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final boolean e() {
+        return this.a == 7;
     }
 
-    public void setDataFlowAutoStart(boolean z) {
-        this.i = z;
+    public final boolean f() {
+        return this.a == 4;
     }
 
-    public void setVideoPlayCallback(b bVar) {
-        this.z = bVar;
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final boolean g() {
+        return this.a == 5;
+    }
+
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final int getBufferPercentage() {
+        return this.l;
+    }
+
+    public final b getController() {
+        return this.g;
+    }
+
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final long getCurrentPosition() {
+        com.kwad.sdk.core.video.kwai.c cVar = this.d;
+        if (cVar != null) {
+            return cVar.g();
+        }
+        return 0L;
+    }
+
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final long getDuration() {
+        com.kwad.sdk.core.video.kwai.c cVar = this.d;
+        if (cVar != null) {
+            return cVar.h();
+        }
+        return 0L;
+    }
+
+    public final int getMaxVolume() {
+        AudioManager audioManager = this.c;
+        if (audioManager != null) {
+            return audioManager.getStreamMaxVolume(3);
+        }
+        return 0;
+    }
+
+    public final b getVideoController() {
+        return this.g;
+    }
+
+    public final int getVolume() {
+        AudioManager audioManager = this.c;
+        if (audioManager != null) {
+            return audioManager.getStreamVolume(3);
+        }
+        return 0;
+    }
+
+    public final boolean h() {
+        return this.a == 9;
+    }
+
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final void i() {
+        Context context;
+        String str;
+        long currentPosition;
+        if (this.m) {
+            if (f() || m() || e() || g()) {
+                context = this.b;
+                str = this.j;
+                currentPosition = getCurrentPosition();
+            } else if (h()) {
+                context = this.b;
+                str = this.j;
+                currentPosition = 0;
+            }
+            as.a(context, str, currentPosition);
+        }
+        r();
+        b bVar = this.g;
+        if (bVar != null) {
+            bVar.e();
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public final void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+        SurfaceTexture surfaceTexture2 = this.h;
+        if (surfaceTexture2 != null) {
+            this.f.setSurfaceTexture(surfaceTexture2);
+            return;
+        }
+        this.h = surfaceTexture;
+        q();
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public final boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        return false;
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public final void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public final void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+    }
+
+    public final void setController(b bVar) {
+        this.e.removeView(this.g);
+        this.g = bVar;
+        bVar.e();
+        this.e.addView(this.g, new FrameLayout.LayoutParams(-1, -1));
+    }
+
+    @Override // com.kwad.sdk.core.video.videoview.c
+    public final void setKsPlayLogParam(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.a aVar) {
+        this.s = aVar;
+    }
+
+    public final void setPortraitFullscreen(boolean z) {
+        this.q = z;
+    }
+
+    public final void setVideoSoundEnable(boolean z) {
+        this.p = z;
+        com.kwad.sdk.core.video.kwai.c cVar = this.d;
+        if (cVar != null) {
+            if (z) {
+                cVar.a(1.0f, 1.0f);
+            } else {
+                cVar.a(0.0f, 0.0f);
+            }
+        }
+    }
+
+    public final void setVolume(int i) {
+        AudioManager audioManager = this.c;
+        if (audioManager != null) {
+            audioManager.setStreamVolume(3, i, 0);
+        }
     }
 }

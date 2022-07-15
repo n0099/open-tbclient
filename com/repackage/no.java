@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class no implements kj8 {
+public class no implements gk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ej a;
@@ -99,7 +99,7 @@ public class no implements kj8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     no noVar = this.a.c;
-                    noVar.a.onShowErr(4, noVar.g.getString(R.string.obfuscated_res_0x7f0f156f));
+                    noVar.a.onShowErr(4, noVar.g.getString(R.string.obfuscated_res_0x7f0f1571));
                     gj.a = 1;
                 }
             }
@@ -107,13 +107,13 @@ public class no implements kj8 {
 
         /* renamed from: com.repackage.no$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0483b implements Runnable {
+        public class RunnableC0692b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0483b(b bVar, String str) {
+            public RunnableC0692b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,13 +167,13 @@ public class no implements kj8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = iv4.c(gv4.d(this.a)).a;
+                String str = gw4.c(ew4.d(this.a)).a;
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(str)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0483b(this, str));
+                        this.c.b.post(new RunnableC0692b(this, str));
                     }
                 }
             }
@@ -283,7 +283,7 @@ public class no implements kj8 {
                         this.a.c = null;
                         return;
                     }
-                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1574));
+                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1576));
                     FieldBuilder fieldBuilder2 = new FieldBuilder();
                     fieldBuilder2.append("file", str);
                     fieldBuilder2.append("dur", Integer.valueOf(i));
@@ -318,7 +318,7 @@ public class no implements kj8 {
                     if (noVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        ji.k(gv4.c(this.a.c));
+                        ji.k(ew4.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         gj.a = 1;
@@ -328,11 +328,11 @@ public class no implements kj8 {
                         this.a.c = null;
                         if (this.a.d == cj.b) {
                             no noVar3 = this.a;
-                            noVar3.a.onShowErr(3, noVar3.g.getString(R.string.obfuscated_res_0x7f0f1575));
+                            noVar3.a.onShowErr(3, noVar3.g.getString(R.string.obfuscated_res_0x7f0f1577));
                             return;
                         }
                         no noVar4 = this.a;
-                        noVar4.a.onShowErr(3, noVar4.g.getString(R.string.obfuscated_res_0x7f0f1576));
+                        noVar4.a.onShowErr(3, noVar4.g.getString(R.string.obfuscated_res_0x7f0f1578));
                     }
                 } else {
                     gj.a = 1;
@@ -392,7 +392,7 @@ public class no implements kj8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new no() : (no) invokeV.objValue;
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -400,7 +400,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -418,7 +418,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public boolean c(ej ejVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -431,15 +431,15 @@ public class no implements kj8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1570);
+                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1572);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;
             }
             r(true);
-            String e = gv4.e();
+            String e = ew4.e();
             this.c = e;
-            String c2 = gv4.c(e);
+            String c2 = ew4.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }
@@ -462,7 +462,7 @@ public class no implements kj8 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -470,7 +470,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -479,7 +479,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void e(ej ejVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ejVar) == null) {
@@ -487,7 +487,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -523,7 +523,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -542,7 +542,7 @@ public class no implements kj8 {
         }
     }
 
-    @Override // com.repackage.kj8
+    @Override // com.repackage.gk8
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

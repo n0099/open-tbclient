@@ -1,87 +1,79 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes7.dex */
 public class tm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
 
-    public tm4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public boolean a() {
+    @NonNull
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNULL(this.a) || this.d <= 0) {
-                return false;
-            }
-            int i = this.e;
-            if (i == 1 || i == 3) {
-                long j = this.f;
-                if (j > 0) {
-                    long j2 = this.g;
-                    return j2 > 0 && j2 > j;
-                }
-                return false;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "b122ce58b8954c27b6882f7987c08860" : (String) invokeV.objValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "Host-Night-Wallet-Flutter" : (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TbadkCoreApplication.getInst().getVersionName() : (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(BigdayInfo bigdayInfo) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) || bigdayInfo == null || StringUtils.isNULL(bigdayInfo.img_url) || bigdayInfo.id.longValue() <= 0) {
-            return;
-        }
-        if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-            this.a = bigdayInfo.img_url;
-            this.b = bigdayInfo.jump_url;
-            this.c = bigdayInfo.img_colour.intValue();
-            this.d = bigdayInfo.id.longValue();
-            this.e = bigdayInfo.position.intValue();
-            this.f = bigdayInfo.start_time.longValue();
-            this.g = bigdayInfo.end_time.longValue();
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj instanceof tm4) {
-                tm4 tm4Var = (tm4) obj;
-                return tm4Var.a() && a() && this.d == tm4Var.d && StringHelper.equals(this.a, tm4Var.a) && ((this.b == null && tm4Var.b == null) || StringHelper.equals(this.b, tm4Var.b)) && this.c == tm4Var.c && this.e == tm4Var.e && this.f == tm4Var.f && this.g == tm4Var.g;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

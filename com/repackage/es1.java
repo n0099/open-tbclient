@@ -1,77 +1,103 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class es1 extends cs1 {
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes6.dex */
+public class es1 implements ds1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, pt2> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public es1(p03 p03Var) {
-        super(p03Var, "/swanAPI/camera/remove");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((p03) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755727154, "Lcom/repackage/es1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755727154, "Lcom/repackage/es1;");
                 return;
             }
         }
+        b = rg1.a;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public es1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            rv1 rv1Var = (rv1) fw1.a(m(unitedSchemeEntity));
-            if (rv1Var != null) {
-                jv1 B = rv1Var.B();
-                if (!B.a()) {
-                    sw1.c("CameraRemoveAction", "remove camera fail: " + B.b);
+        }
+        this.a = new ConcurrentHashMap();
+    }
+
+    @Override // com.repackage.ds1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.containsKey(str)) {
+            return;
+        }
+        if (b) {
+            Log.d("Api-FirstRecorder", "markStart: " + str);
+        }
+        pt2 pt2Var = new pt2();
+        this.a.put(str, pt2Var);
+        pt2Var.i(System.currentTimeMillis());
+        pt2Var.f(str);
+    }
+
+    @Override // com.repackage.ds1
+    @SuppressLint({"BDThrowableCheck"})
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            pt2 pt2Var = this.a.get(str);
+            if (pt2Var == null) {
+                if (b) {
+                    throw new RuntimeException(str + " markEnd before markStart");
                 }
-                k(unitedSchemeEntity, callbackHandler, true);
-                return true;
+            } else if (pt2Var.d() > 0) {
+            } else {
+                pt2Var.h(System.currentTimeMillis());
+                if (b) {
+                    Log.d("Api-FirstRecorder", str + " first called cost " + pt2Var.c());
+                }
+                if (TextUtils.equals(str, "request")) {
+                    if (b) {
+                        Log.d("Api-FirstRecorder", "record first request api called " + pt2Var.toString());
+                    }
+                    HybridUbcFlow p = mt2.p("startup");
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
+                    ubcFlowEvent.h(pt2Var.e());
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
+                    ubcFlowEvent2.h(pt2Var.d());
+                    p.F(ubcFlowEvent2);
+                }
             }
-            k(unitedSchemeEntity, callbackHandler, false);
-            return false;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public iv1 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String l = l(unitedSchemeEntity);
-            if (cg1.a) {
-                Log.d("CameraRemoveAction", "parseData:" + l);
-            }
-            return new ms1(l);
-        }
-        return (iv1) invokeL.objValue;
     }
 }

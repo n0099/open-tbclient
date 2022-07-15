@@ -1,24 +1,47 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.feedManager.FeedRecModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
-public class ir4 {
+public class ir4 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ir4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeedRecModel a;
-    public DataRes b;
-    public FeedRecModel.b c;
+    public Activity a;
+    public View b;
+    public ViewGroup c;
+    public View d;
+    public TextView e;
+    public WindowManager f;
+    public WindowManager.LayoutParams g;
+    public int h;
+    public int i;
+    public float j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public Drawable o;
+    public View.OnClickListener p;
+    public final Runnable q;
 
     /* loaded from: classes6.dex */
-    public class a implements FeedRecModel.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ir4 a;
@@ -41,27 +64,21 @@ public class ir4 {
             this.a = ir4Var;
         }
 
-        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
-        public void a(DataRes dataRes, boolean z, boolean z2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.a.b = dataRes;
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.b = null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
             }
         }
     }
 
-    public ir4() {
+    public ir4(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,31 +88,165 @@ public class ir4 {
                 return;
             }
         }
-        this.c = new a(this);
-        FeedRecModel feedRecModel = new FeedRecModel();
-        this.a = feedRecModel;
-        feedRecModel.B(this.c);
+        this.j = 1.0f;
+        this.k = 5000;
+        this.q = new a(this);
+        if (activity == null) {
+            return;
+        }
+        this.a = activity;
+        this.n = pi.f(activity, R.dimen.tbds114);
+        this.l = pi.f(activity, R.dimen.tbds84);
+        this.m = pi.f(activity, R.dimen.tbds44);
+        this.i = pi.f(activity, R.dimen.tbds222);
+        this.h = pi.f(activity, R.dimen.tbds29);
+        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0826, (ViewGroup) null);
+        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09122e);
+        this.d = inflate.findViewById(R.id.obfuscated_res_0x7f0902f9);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09211f);
+        this.b = inflate;
+        this.d.setBackgroundDrawable(b());
+        this.e.setMaxLines(1);
+        this.e.setGravity(17);
+        this.e.setTextSize(0, pi.f(activity, R.dimen.tbfontsize40));
+        this.e.setTextColor(this.a.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.e;
+        int i3 = this.m;
+        textView.setPadding(i3, 0, i3, 0);
+        this.f = (WindowManager) this.a.getSystemService("window");
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        this.g = layoutParams;
+        layoutParams.width = pi.k(this.a) - (this.h * 2);
+        WindowManager.LayoutParams layoutParams2 = this.g;
+        layoutParams2.height = this.n;
+        layoutParams2.type = 1000;
+        layoutParams2.format = -3;
+        layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f10029f;
+        layoutParams2.flags = 262152;
+        layoutParams2.gravity = 81;
+        layoutParams2.y = d();
+        this.g.alpha = this.j;
     }
 
-    public static ir4 b() {
+    public static ir4 f(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
+            ir4 ir4Var = new ir4(activity);
+            ir4Var.a(str);
+            return ir4Var;
+        }
+        return (ir4) invokeLL.objValue;
+    }
+
+    public final ir4 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str)) {
+                String e = je5.e(str, 34);
+                int u = pi.u(this.e.getPaint(), e);
+                ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+                layoutParams.width = u + (this.m * 2);
+                this.c.setLayoutParams(layoutParams);
+                this.e.setText(e);
+            }
+            return this;
+        }
+        return (ir4) invokeL.objValue;
+    }
+
+    public final Drawable b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ir4.class) {
-                    if (d == null) {
-                        d = new ir4();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.o == null) {
+                this.o = c();
             }
-            return d;
+            return this.o;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public final GradientDrawable c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{hd7.b("#FF722B"), hd7.b("#FF2b5D")});
+            gradientDrawable.setCornerRadius(this.l);
+            return gradientDrawable;
+        }
+        return (GradientDrawable) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i + UtilHelper.getNavigationBarHeight(this.a) : invokeV.intValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            qg.a().removeCallbacks(this.q);
+            if (this.b.getWindowToken() != null) {
+                this.f.removeView(this.b);
+            }
+        }
+    }
+
+    public ir4 g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i > 0) {
+                this.k = i * 1000;
+            }
+            return this;
+        }
+        return (ir4) invokeI.objValue;
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+            this.p = onClickListener;
+        }
+    }
+
+    public void i(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            this.c.setTag(obj);
+            this.c.setOnClickListener(this);
+        }
+    }
+
+    public ir4 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            qg.a().removeCallbacks(this.q);
+            View view2 = this.b;
+            if (view2 != null && view2.getWindowToken() != null) {
+                this.f.removeView(this.b);
+            }
+            this.f.addView(this.b, this.g);
+            qg.a().postDelayed(this.q, this.k);
+            return this;
         }
         return (ir4) invokeV.objValue;
     }
 
-    public DataRes c() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (DataRes) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            View.OnClickListener onClickListener = this.p;
+            if (onClickListener != null) {
+                onClickListener.onClick(view2);
+            }
+            e();
+        }
     }
 }

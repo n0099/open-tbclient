@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes5.dex */
 public final class GenericGF {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +47,7 @@ public final class GenericGF {
         AZTEC_DATA_10 = new GenericGF(DebugConstants.HTTP_ERRCODE_VERSION_HIGH, 1024, 1);
         AZTEC_DATA_6 = new GenericGF(67, 64, 1);
         AZTEC_PARAM = new GenericGF(19, 16, 1);
-        QR_CODE_FIELD_256 = new GenericGF(w0.j0, 256, 0);
+        QR_CODE_FIELD_256 = new GenericGF(285, 256, 0);
         GenericGF genericGF = new GenericGF(301, 256, 1);
         DATA_MATRIX_FIELD_256 = genericGF;
         AZTEC_DATA_8 = genericGF;

@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes5.dex */
-public class b {
+public final class b {
     public Set<String> a = new HashSet();
     public Set<String> b = new HashSet();
 
-    public synchronized void a(String[] strArr, String[] strArr2) {
+    public final synchronized void a(String[] strArr, String[] strArr2) {
         if (strArr != null) {
             try {
                 if (strArr.length > 0) {
@@ -31,11 +31,11 @@ public class b {
         }
     }
 
-    public synchronized String[] a() {
+    public final synchronized String[] a() {
         return (String[]) this.a.toArray(new String[this.a.size()]);
     }
 
-    public synchronized String[] b() {
+    public final synchronized String[] b() {
         return (String[]) this.b.toArray(new String[this.b.size()]);
     }
 }

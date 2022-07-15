@@ -1,41 +1,46 @@
 package com.repackage;
 
+import android.os.Build;
+import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ia0 {
+public final class ia0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> int a(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return 0;
-            }
-            return list.size();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755625319, "Lcom/repackage/ia0;")) == null) {
+            return;
         }
-        return invokeL.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755625319, "Lcom/repackage/ia0;");
+        }
     }
 
-    public static <T> T b(List<T> list, int i) {
-        InterceptResult invokeLI;
+    @JvmStatic
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
+                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
             }
-            return list.get(i);
+            String str = Build.MANUFACTURER;
+            Intrinsics.checkNotNullExpressionValue(str, "Build.MANUFACTURER");
+            return str;
         }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean c(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) ? a(list) <= 0 : invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

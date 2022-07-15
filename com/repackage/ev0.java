@@ -2,18 +2,13 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ev0 {
+/* loaded from: classes6.dex */
+public class ev0 implements dv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
 
     public ev0() {
         Interceptable interceptable = $ic;
@@ -25,12 +20,14 @@ public class ev0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "";
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
+    }
+
+    @Override // com.repackage.dv0
+    public cv0 createMessenger() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new bv0() : (cv0) invokeV.objValue;
     }
 }

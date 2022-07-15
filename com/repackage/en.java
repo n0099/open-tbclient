@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class en extends BaseAdapter implements on {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class en extends BaseAdapter implements on {
     public DataSetObserver g;
     public b h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,12 +84,12 @@ public class en extends BaseAdapter implements on {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void onPreLoad();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -421,7 +421,7 @@ public class en extends BaseAdapter implements on {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             TextView textView = new TextView(this.a);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a3e));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a2b));
             int d = pi.d(this.a, 15.0f);
             textView.setPadding(d, d, d, d);
             return textView;

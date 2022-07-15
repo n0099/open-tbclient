@@ -1,131 +1,20 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pj1;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sh1 implements pj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
+public interface sh1 {
+    JSONObject a();
 
-    public sh1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str);
 
-    @Override // com.repackage.pj1
-    public void a(pj1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
-            return;
-        }
-        aVar.onFinish();
-    }
+    void c(CallbackHandler callbackHandler, String str);
 
-    @Override // com.repackage.pj1
-    public void b(Activity activity, Bundle bundle, eg1 eg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, eg1Var) == null) {
-            SwanAppAllianceLoginHelper.d.i(eg1Var);
-        }
-    }
+    void d(CallbackHandler callbackHandler, String str);
 
-    @Override // com.repackage.pj1
-    public void c(gg1 gg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gg1Var) == null) {
-        }
-    }
+    void e(String str);
 
-    @Override // com.repackage.pj1
-    public String d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? dn1.a.a() : (String) invokeL.objValue;
-    }
+    void f(CallbackHandler callbackHandler, String str);
 
-    @Override // com.repackage.pj1
-    public boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            boolean g = SwanAppAllianceLoginHelper.d.g();
-            this.a = Boolean.TRUE;
-            return g;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.pj1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? cg4.b(context).a() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public void g(pj1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || cVar == null) {
-            return;
-        }
-        cVar.b();
-    }
-
-    @Override // com.repackage.pj1
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? gn1.b.a() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public String i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? cg4.b(context).a() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public void j(eg1 eg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eg1Var) == null) {
-        }
-    }
-
-    public boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            if (this.a == null) {
-                e(context);
-            }
-            Boolean bool = this.a;
-            if (bool == null) {
-                return false;
-            }
-            return bool.booleanValue();
-        }
-        return invokeL.booleanValue;
-    }
+    void g(CallbackHandler callbackHandler, String str);
 }

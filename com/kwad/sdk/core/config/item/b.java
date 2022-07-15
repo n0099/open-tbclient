@@ -17,29 +17,29 @@ public abstract class b<T> {
         this.b = str;
         this.c = t;
         this.a = t2;
-        com.kwad.sdk.core.config.a.a(this);
+        com.kwad.sdk.core.config.b.a(this);
     }
 
-    @Nullable
-    public T a() {
-        return this.c;
+    public final String a() {
+        return this.b;
     }
 
     public abstract void a(SharedPreferences.Editor editor);
 
     public abstract void a(SharedPreferences sharedPreferences);
 
-    public void a(T t) {
+    public final void a(T t) {
         this.c = t;
     }
 
     public abstract void a(JSONObject jSONObject);
 
-    public String b() {
-        return this.b;
+    @Nullable
+    public T b() {
+        return this.c;
     }
 
-    public T c() {
+    public final T c() {
         return this.a;
     }
 }

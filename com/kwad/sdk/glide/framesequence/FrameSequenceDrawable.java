@@ -58,12 +58,12 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public static final Object sLock = new Object();
     public static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public Bitmap a(int i, int i2) {
+        public final Bitmap a(int i, int i2) {
             return Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
         }
 
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public void a(Bitmap bitmap) {
+        public final void a(Bitmap bitmap) {
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
@@ -80,7 +80,6 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(FrameSequenceDrawable frameSequenceDrawable);
     }
 
     public FrameSequenceDrawable(FrameSequence frameSequence) {
@@ -95,7 +94,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mTempRectF = new RectF();
         this.mDecodeRunnable = new Runnable() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.2
             @Override // java.lang.Runnable
-            public void run() {
+            public final void run() {
                 boolean z;
                 Bitmap bitmap;
                 synchronized (FrameSequenceDrawable.this.mLock) {
@@ -144,13 +143,13 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         };
         this.mFinishedCallbackRunnable = new Runnable() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.3
             @Override // java.lang.Runnable
-            public void run() {
+            public final void run() {
                 synchronized (FrameSequenceDrawable.this.mLock) {
                     FrameSequenceDrawable.this.mNextFrameToDecode = -1;
                     FrameSequenceDrawable.this.mState = 0;
                 }
                 if (FrameSequenceDrawable.this.mOnFinishedListener != null) {
-                    FrameSequenceDrawable.this.mOnFinishedListener.a(FrameSequenceDrawable.this);
+                    b unused = FrameSequenceDrawable.this.mOnFinishedListener;
                 }
             }
         };
@@ -337,7 +336,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public boolean isRunning() {
         boolean z;
         synchronized (this.mLock) {
-            z = this.mNextFrameToDecode > -1 && !this.mDestroyed;
+            z = this.mNextFrameToDecode >= 0 && !this.mDestroyed;
         }
         return z;
     }

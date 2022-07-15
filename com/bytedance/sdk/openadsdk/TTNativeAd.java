@@ -8,7 +8,7 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public interface TTNativeAd {
+public interface TTNativeAd extends TTClientBidding {
 
     /* loaded from: classes4.dex */
     public interface AdInteractionListener {

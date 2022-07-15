@@ -1,15 +1,9 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public interface f41 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "crius");
-
-    Object a(JSONObject jSONObject);
-
-    t41<View> b(@NonNull Context context);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class f41 extends h41 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

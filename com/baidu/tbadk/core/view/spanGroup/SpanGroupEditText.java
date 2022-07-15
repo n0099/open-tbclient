@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cs6;
 import com.repackage.g9;
-import com.repackage.or6;
-import com.repackage.ru4;
-import com.repackage.vn4;
+import com.repackage.ko4;
+import com.repackage.pv4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -205,7 +205,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void f(int i) {
-        ru4 C;
+        pv4 C;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (C = this.b.C(i)) == null || getText() == null) {
             return;
@@ -213,18 +213,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         this.b.delete(C.f(), C.c());
     }
 
-    public void g(List<or6> list, List<String> list2) {
+    public void g(List<cs6> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            or6 or6Var = list.get(i);
+            cs6 cs6Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.o(or6Var.a())) {
+            if (!this.b.o(cs6Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                vn4 b = vn4.b(tbLinkSpanGroup, or6Var);
+                ko4 b = ko4.b(tbLinkSpanGroup, cs6Var);
                 b.h = str;
                 tbLinkSpanGroup.z(b.d);
                 tbLinkSpanGroup.r();
@@ -327,7 +327,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(ru4.a aVar) {
+    public void setOnSpanGroupChangedListener(pv4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
             this.b.T(aVar);

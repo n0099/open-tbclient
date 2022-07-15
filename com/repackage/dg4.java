@@ -1,91 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes5.dex */
-public class dg4 implements eg4<String> {
+public final class dg4 extends pg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dg4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public dg4(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dg4() {
+        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
     }
 
-    @Override // com.repackage.eg4
-    public boolean a() {
+    public static dg4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && mg4.a(this.a, "android.permission.READ_EXTERNAL_STORAGE")) {
-                return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eg4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() : (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && mg4.a(this.a, "android.permission.READ_EXTERNAL_STORAGE")) {
-                File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
-                if (file.exists()) {
-                    return kg4.c(file);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (dg4.class) {
+                    if (d == null) {
+                        d = new dg4();
+                    }
                 }
-                return null;
             }
-            return null;
+            return d;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eg4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState()) && mg4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            kg4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
-        }
+        return (dg4) invokeV.objValue;
     }
 }

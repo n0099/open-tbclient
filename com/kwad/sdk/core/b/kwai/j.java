@@ -1,71 +1,85 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j implements com.kwad.sdk.core.d<AdMatrixInfo.AdDataV2> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdMatrixInfo.AdDataV2 adDataV2, JSONObject jSONObject) {
+public final class j implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdConversionInfo adConversionInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        adDataV2.templateDataList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("templateDatas");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                AdMatrixInfo.TemplateData templateData = new AdMatrixInfo.TemplateData();
-                templateData.parseJson(optJSONArray.optJSONObject(i));
-                adDataV2.templateDataList.add(templateData);
-            }
+        adConversionInfo.h5Url = jSONObject.optString("h5Url");
+        if (jSONObject.opt("h5Url") == JSONObject.NULL) {
+            adConversionInfo.h5Url = "";
         }
-        AdMatrixInfo.BottomBannerInfo bottomBannerInfo = new AdMatrixInfo.BottomBannerInfo();
-        adDataV2.bottomBannerInfo = bottomBannerInfo;
-        bottomBannerInfo.parseJson(jSONObject.optJSONObject("bottomBannerInfo"));
-        AdMatrixInfo.ActionBarInfoNew actionBarInfoNew = new AdMatrixInfo.ActionBarInfoNew();
-        adDataV2.actionBarInfo = actionBarInfoNew;
-        actionBarInfoNew.parseJson(jSONObject.optJSONObject("actionBarInfo"));
-        AdMatrixInfo.FullPageActionBarInfo fullPageActionBarInfo = new AdMatrixInfo.FullPageActionBarInfo();
-        adDataV2.fullPageActionBarInfo = fullPageActionBarInfo;
-        fullPageActionBarInfo.parseJson(jSONObject.optJSONObject("fullPageActionBarInfo"));
-        AdMatrixInfo.HalfCardInfo halfCardInfo = new AdMatrixInfo.HalfCardInfo();
-        adDataV2.halfCardInfo = halfCardInfo;
-        halfCardInfo.parseJson(jSONObject.optJSONObject("halfCardInfo"));
-        AdMatrixInfo.EndCardInfo endCardInfo = new AdMatrixInfo.EndCardInfo();
-        adDataV2.endCardInfo = endCardInfo;
-        endCardInfo.parseJson(jSONObject.optJSONObject("endCardInfo"));
-        AdMatrixInfo.InteractionInfo interactionInfo = new AdMatrixInfo.InteractionInfo();
-        adDataV2.interactionInfo = interactionInfo;
-        interactionInfo.parseJson(jSONObject.optJSONObject("interactionInfo"));
-        AdMatrixInfo.InterstitialCardInfo interstitialCardInfo = new AdMatrixInfo.InterstitialCardInfo();
-        adDataV2.interstitialCardInfo = interstitialCardInfo;
-        interstitialCardInfo.parseJson(jSONObject.optJSONObject("interstitialCardInfo"));
-        AdMatrixInfo.FeedInfo feedInfo = new AdMatrixInfo.FeedInfo();
-        adDataV2.feedInfo = feedInfo;
-        feedInfo.parseJson(jSONObject.optJSONObject("feedInfo"));
-        AdMatrixInfo.SplashInfo splashInfo = new AdMatrixInfo.SplashInfo();
-        adDataV2.splashInfo = splashInfo;
-        splashInfo.parseJson(jSONObject.optJSONObject("splashInfo"));
+        adConversionInfo.h5Type = jSONObject.optInt("h5Type");
+        adConversionInfo.deeplinkUrl = jSONObject.optString("deeplinkUrl");
+        if (jSONObject.opt("deeplinkUrl") == JSONObject.NULL) {
+            adConversionInfo.deeplinkUrl = "";
+        }
+        adConversionInfo.appDownloadUrl = jSONObject.optString("appDownloadUrl");
+        if (jSONObject.opt("appDownloadUrl") == JSONObject.NULL) {
+            adConversionInfo.appDownloadUrl = "";
+        }
+        adConversionInfo.marketUrl = jSONObject.optString(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
+        if (jSONObject.opt(DeepLinkItem.DEEPLINK_MARKETURL_KEY) == JSONObject.NULL) {
+            adConversionInfo.marketUrl = "";
+        }
+        adConversionInfo.supportThirdDownload = jSONObject.optInt("supportThirdDownload");
+        adConversionInfo.retryH5TimeStep = jSONObject.optInt("retryH5TimeStep", new Integer("2000").intValue());
+        adConversionInfo.playableUrl = jSONObject.optString("playableUrl");
+        if (jSONObject.opt("playableUrl") == JSONObject.NULL) {
+            adConversionInfo.playableUrl = "";
+        }
+        AdInfo.PlayableStyleInfo playableStyleInfo = new AdInfo.PlayableStyleInfo();
+        adConversionInfo.playableStyleInfo = playableStyleInfo;
+        playableStyleInfo.parseJson(jSONObject.optJSONObject("playableStyleInfo"));
+        AdInfo.SmallAppJumpInfo smallAppJumpInfo = new AdInfo.SmallAppJumpInfo();
+        adConversionInfo.smallAppJumpInfo = smallAppJumpInfo;
+        smallAppJumpInfo.parseJson(jSONObject.optJSONObject("smallAppJumpInfo"));
+        adConversionInfo.callbackUrl = jSONObject.optString("callbackUrl");
+        if (jSONObject.opt("callbackUrl") == JSONObject.NULL) {
+            adConversionInfo.callbackUrl = "";
+        }
+        adConversionInfo.callbackUrlInfo = jSONObject.optString("callbackUrlInfo");
+        if (jSONObject.opt("callbackUrlInfo") == JSONObject.NULL) {
+            adConversionInfo.callbackUrlInfo = "";
+        }
+        adConversionInfo.blockCallbackIfSpam = jSONObject.optBoolean("blockCallbackIfSpam");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdMatrixInfo.AdDataV2 adDataV2, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdConversionInfo adConversionInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "templateDatas", adDataV2.templateDataList);
-        com.kwad.sdk.utils.t.a(jSONObject, "bottomBannerInfo", adDataV2.bottomBannerInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "actionBarInfo", adDataV2.actionBarInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "fullPageActionBarInfo", adDataV2.fullPageActionBarInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "halfCardInfo", adDataV2.halfCardInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "endCardInfo", adDataV2.endCardInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "interactionInfo", adDataV2.interactionInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "interstitialCardInfo", adDataV2.interstitialCardInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "feedInfo", adDataV2.feedInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "splashInfo", adDataV2.splashInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "h5Url", adConversionInfo.h5Url);
+        com.kwad.sdk.utils.r.a(jSONObject, "h5Type", adConversionInfo.h5Type);
+        com.kwad.sdk.utils.r.a(jSONObject, "deeplinkUrl", adConversionInfo.deeplinkUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "appDownloadUrl", adConversionInfo.appDownloadUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, DeepLinkItem.DEEPLINK_MARKETURL_KEY, adConversionInfo.marketUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "supportThirdDownload", adConversionInfo.supportThirdDownload);
+        com.kwad.sdk.utils.r.a(jSONObject, "retryH5TimeStep", adConversionInfo.retryH5TimeStep);
+        com.kwad.sdk.utils.r.a(jSONObject, "playableUrl", adConversionInfo.playableUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "playableStyleInfo", adConversionInfo.playableStyleInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "smallAppJumpInfo", adConversionInfo.smallAppJumpInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "callbackUrl", adConversionInfo.callbackUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "callbackUrlInfo", adConversionInfo.callbackUrlInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "blockCallbackIfSpam", adConversionInfo.blockCallbackIfSpam);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdConversionInfo adConversionInfo, JSONObject jSONObject) {
+        a2(adConversionInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdConversionInfo adConversionInfo, JSONObject jSONObject) {
+        return b2(adConversionInfo, jSONObject);
     }
 }

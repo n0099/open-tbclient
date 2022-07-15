@@ -1,37 +1,29 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t92 extends s92 {
+public class t92 extends o92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public t92(@NonNull String str) {
-        this(str, null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t92(@NonNull n92 n92Var) {
+        super(n92Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {n92Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1]);
+                super((n92) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,53 +31,33 @@ public class t92 extends s92 {
         }
     }
 
-    @Override // com.repackage.s92
-    public void m(Map<String, Object> map) {
+    @Override // com.repackage.o92
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
+            h();
+            g();
         }
     }
 
-    public JSONObject s() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                n(jSONObject);
-            } catch (JSONException e) {
-                if (s92.b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qa2.f(0).f().c();
+            qa2.f(0).e().f();
+            yb2.i(0, true);
+            jg4.M(rb2.a);
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public t92(@NonNull String str, @Nullable Map<String, String> map) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        this.c = hashMap;
-        this.a = str;
-        if (map != null) {
-            hashMap.putAll(map);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            r93.b(0);
+            p93.b(0);
+            p93.v(true, 0);
+            jg4.L(m93.d(0));
         }
     }
 }

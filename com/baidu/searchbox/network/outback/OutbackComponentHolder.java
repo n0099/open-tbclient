@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb1;
-import com.repackage.za1;
+import com.repackage.ob1;
+import com.repackage.qb1;
 /* loaded from: classes2.dex */
 public class OutbackComponentHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public bb1<IOutbackContext> outbackContextHolder;
+    public qb1<IOutbackContext> outbackContextHolder;
 
     public OutbackComponentHolder() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class OutbackComponentHolder {
     public void initoutbackContextHolder() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            za1 b = za1.b();
+            ob1 b = ob1.b();
             this.outbackContextHolder = b;
             b.a(new IOutbackContext_OutbackComponentHolder_Provider());
         }

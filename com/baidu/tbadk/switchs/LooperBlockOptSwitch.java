@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
+import com.repackage.xt4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class LooperBlockOptSwitch extends BaseNormalSwitch {
@@ -58,7 +58,7 @@ public class LooperBlockOptSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int l = ht4.k().l("key_looper_block_opt", 0);
+                int l = xt4.k().l("key_looper_block_opt", 0);
                 type = l;
                 if (l == 2) {
                     switchOn = true;

@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ld8;
-import com.repackage.ws4;
+import com.repackage.ge8;
+import com.repackage.mt4;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +34,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public ld8 a;
+    public ge8 a;
     public b b;
     public HttpMessage c;
     public boolean d;
@@ -78,7 +78,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                 this.a.f = httpResponsedMessage;
                 if (!httpResponsedMessage.isSuccess()) {
                     if (error == 110001) {
-                        this.a.F(httpResponsedMessage);
+                        this.a.G(httpResponsedMessage);
                     }
                     this.a.b.d(httpResponsedMessage.getErrorString());
                 } else if (error == 0) {
@@ -89,7 +89,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0c37);
+                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0c2b);
                             }
                             this.a.b.d(errorString);
                         }
@@ -104,7 +104,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(ld8 ld8Var);
+        void a(ge8 ge8Var);
 
         void d(String str);
     }
@@ -149,7 +149,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         this.g = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
         this.d = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.a = new ld8();
+        this.a = new ge8();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, h);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
@@ -157,7 +157,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         registerListener(this.g);
     }
 
-    public final void F(HttpResponsedMessage httpResponsedMessage) {
+    public final void G(HttpResponsedMessage httpResponsedMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
             HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
@@ -174,7 +174,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         sb.append(value.toString());
                         sb.append("&");
                     }
-                    ws4.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
+                    mt4.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -182,13 +182,13 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         }
     }
 
-    public boolean G() {
+    public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public void H(b bVar) {
+    public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;

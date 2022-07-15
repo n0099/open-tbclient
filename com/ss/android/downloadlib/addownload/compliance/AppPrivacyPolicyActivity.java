@@ -8,6 +8,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -15,6 +17,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
 import com.ss.android.downloadlib.addownload.j;
+import com.ss.android.downloadlib.g.k;
 /* loaded from: classes7.dex */
 public class AppPrivacyPolicyActivity extends Activity {
     public ImageView a;
@@ -24,8 +27,8 @@ public class AppPrivacyPolicyActivity extends Activity {
     public String e;
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa9);
-        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f0918ea);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fba);
+        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091993);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
@@ -55,6 +58,27 @@ public class AppPrivacyPolicyActivity extends Activity {
             }
 
             @Override // android.webkit.WebViewClient
+            public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+                if (Build.VERSION.SDK_INT < 26) {
+                    return super.onRenderProcessGone(webView, renderProcessGoneDetail);
+                }
+                if (!renderProcessGoneDetail.didCrash()) {
+                    k.a("System killed the WebView rendering process to reclaim memory. Recreating...");
+                    if (webView != null) {
+                        ((ViewGroup) webView.getParent()).removeView(webView);
+                        webView.destroy();
+                    }
+                    return true;
+                }
+                k.a("The WebView rendering process crashed!");
+                if (webView != null) {
+                    ((ViewGroup) webView.getParent()).removeView(webView);
+                    webView.destroy();
+                }
+                return true;
+            }
+
+            @Override // android.webkit.WebViewClient
             @TargetApi(21)
             public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
                 return a(webResourceRequest.getUrl());
@@ -79,7 +103,7 @@ public class AppPrivacyPolicyActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0834);
+        setContentView(R.layout.obfuscated_res_0x7f0d0852);
         if (a()) {
             b();
         } else {

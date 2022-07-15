@@ -1,17 +1,17 @@
 package com.repackage;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.webviewbase.AdvancedWebView;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.google.android.gms.common.internal.zzaj;
 /* loaded from: classes6.dex */
-public class kk9 {
+public final class kk9 implements Parcelable.Creator<zzaj> {
     public static /* synthetic */ Interceptable $ic;
-    public static kk9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvancedWebView a;
 
     public kk9() {
         Interceptable interceptable = $ic;
@@ -27,19 +27,26 @@ public class kk9 {
         }
     }
 
-    public static kk9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (kk9.class) {
-                    if (b == null) {
-                        b = new kk9();
-                    }
-                }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ zzaj createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        int i = 0;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            if (SafeParcelReader.h(k) != 1) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                i = SafeParcelReader.m(parcel, k);
             }
-            return b;
         }
-        return (kk9) invokeV.objValue;
+        SafeParcelReader.g(parcel, q);
+        return new zzaj(i);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ zzaj[] newArray(int i) {
+        return new zzaj[i];
     }
 }

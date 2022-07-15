@@ -27,13 +27,13 @@ public class d {
         public final int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final long f969a;
+        public final long f1696a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final String f970a;
+        public final String f1697a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final Notification.Action[] f971a;
+        public final Notification.Action[] f1698a;
 
         public a(String str, long j, int i, Notification.Action[] actionArr) {
             Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class d {
                     return;
                 }
             }
-            this.f970a = str;
-            this.f969a = j;
+            this.f1697a = str;
+            this.f1696a = j;
             this.a = i;
-            this.f971a = actionArr;
+            this.f1698a = actionArr;
         }
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
                 a aVar = a.get(size);
-                if (SystemClock.elapsedRealtime() - aVar.f969a > 5000) {
+                if (SystemClock.elapsedRealtime() - aVar.f1696a > 5000) {
                     a.remove(aVar);
                 }
             }
@@ -90,10 +90,10 @@ public class d {
 
     public static void a(Context context, StatusBarNotification statusBarNotification, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65538, null, context, statusBarNotification, i) == null) || !com.xiaomi.push.m.m556a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
+        if (!(interceptable == null || interceptable.invokeLLI(65538, null, context, statusBarNotification, i) == null) || !com.xiaomi.push.m.m1499a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
             return;
         }
-        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m629a(statusBarNotification.getNotification())));
+        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m1572a(statusBarNotification.getNotification())));
     }
 
     public static void a(a aVar) {

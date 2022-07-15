@@ -20,6 +20,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public static final String FROM_TYPE = "from_type";
     public transient /* synthetic */ FieldHolder $fh;
     public int hostTab;
+    public String mRedPotNum;
     public List<Map<String, Object>> serviceAreaListData;
     public ArrayList<String> tabs;
 
@@ -129,35 +130,48 @@ public class ForumDetailActivityConfig extends IntentConfig {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? FromType.FRS.toString().equals(str) || FromType.FRS_GAME_INFO.toString().equals(str) || FromType.FRS_GAME_STRATEGY.toString().equals(str) || FromType.FRS_GAME_LIVE.toString().equals(str) : invokeL.booleanValue;
     }
 
+    public String getRedPotNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRedPotNum : (String) invokeV.objValue;
+    }
+
     public int getSelectHostTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hostTab : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hostTab : invokeV.intValue;
     }
 
     public List<Map<String, Object>> getServiceAreaListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.serviceAreaListData : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.serviceAreaListData : (List) invokeV.objValue;
     }
 
     public void setForumTabs(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
             this.tabs = arrayList;
+        }
+    }
+
+    public void setRedPotNum(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.mRedPotNum = str;
         }
     }
 
     public void setSelectHostTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.hostTab = i;
         }
     }
 
     public void setServiceAreaListData(List<Map<String, Object>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.serviceAreaListData = list;
         }
     }

@@ -1,9 +1,10 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,132 +12,118 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.TreeSet;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class mq2 {
+public class mq2 extends jq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public Set<Integer> b;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public static mq2 a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? b(str, 0.5d) : (mq2) invokeL.objValue;
-        }
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final mq2 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public static mq2 b(String str, double d) {
-            InterceptResult invokeCommon;
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode == -2129978548) {
-                    if (str.equals("simple_parser")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else if (hashCode != -585839565) {
-                    if (hashCode == 544848403 && str.equals("hsv_parser")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("solid_parser")) {
-                        c = 2;
-                    }
-                    c = 65535;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-177125019, "Lcom/repackage/mq2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return new oq2();
-                        }
-                        return new pq2();
-                    }
-                    return new nq2(d);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-177125019, "Lcom/repackage/mq2$b;");
+                    return;
                 }
-                return new oq2();
             }
-            return (mq2) invokeCommon.objValue;
+            a = new mq2(null);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755490717, "Lcom/repackage/mq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public /* synthetic */ mq2(a aVar) {
+        this();
+    }
+
+    public static mq2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (mq2) invokeV.objValue;
+    }
+
+    public boolean h(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            JSONObject d = d(pMSAppInfo);
+            if (d == null || d.length() <= 0) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755490717, "Lcom/repackage/mq2;");
-                return;
+            boolean optBoolean = d.optBoolean("is_opti");
+            if (jq2.c) {
+                Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
             }
+            return optBoolean;
         }
-        c = cg1.a;
+        return invokeL.booleanValue;
+    }
+
+    public boolean i(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
+                z = b2.optBoolean(PrefetchEvent.MODULE);
+            } else {
+                JSONObject a2 = a(pMSAppInfo);
+                z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
+            }
+            if (jq2.c) {
+                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean j(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) ? TextUtils.equals(c(pMSAppInfo), "1") : invokeL.booleanValue;
+    }
+
+    public JSONObject k(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 == null || b2.length() <= 0) {
+                return null;
+            }
+            return b2.optJSONObject("topPages");
+        }
+        return (JSONObject) invokeL.objValue;
     }
 
     public mq2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.a = 1.0d;
-    }
-
-    public abstract boolean a(Bitmap bitmap, Rect rect);
-
-    public boolean b(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
-                return false;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = rect.top;
-            int i2 = rect.bottom;
-            if (i >= i2 || i2 > height) {
-                return false;
-            }
-            int i3 = rect.left;
-            int i4 = rect.right;
-            return i3 < i4 && i4 <= width;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Set<Integer> set = this.b;
-            if (set == null) {
-                this.b = new TreeSet();
-            } else {
-                set.clear();
-            }
-            if (c) {
-                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
-            }
-            this.b.add(Integer.valueOf(i));
         }
     }
 }

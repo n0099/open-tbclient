@@ -10,7 +10,7 @@ import com.kwai.filedownloader.exception.PathConflictException;
 import com.kwai.filedownloader.y;
 import java.io.File;
 /* loaded from: classes5.dex */
-public class c {
+public final class c {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
     public static Context a;
@@ -18,7 +18,7 @@ public class c {
 
     /* loaded from: classes5.dex */
     public interface a {
-        int a(int i, String str, String str2, long j);
+        int a(long j);
     }
 
     /* loaded from: classes5.dex */
@@ -28,22 +28,20 @@ public class c {
 
     /* renamed from: com.kwai.filedownloader.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0364c {
+    public interface InterfaceC0561c {
         com.kwai.filedownloader.a.a a();
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        int a(int i, String str, String str2, boolean z);
-
         int a(String str, String str2, boolean z);
+
+        int b(String str, String str2, boolean z);
     }
 
     /* loaded from: classes5.dex */
     public interface e {
         com.kwai.filedownloader.d.a a(File file);
-
-        boolean a();
     }
 
     public static Context a() {

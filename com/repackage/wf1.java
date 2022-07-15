@@ -1,81 +1,121 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.identifier.IdentifierIdClient;
+import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public class wf1 implements nf1 {
+public final class wf1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public vf1 a;
-    public String b;
-    public Context c;
-    public uf1 d;
 
-    public wf1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755203409, "Lcom/repackage/wf1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755203409, "Lcom/repackage/wf1;");
+                return;
             }
         }
+        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
-    @Override // com.repackage.nf1
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
+    public static String a(byte b) {
+        InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
+        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
+            if (b < 0) {
+                b += 256;
             }
-            return this.b;
+            return a[b / 16] + a[b % 16];
         }
-        return (String) invokeV.objValue;
+        return (String) invokeB.objValue;
     }
 
-    @Override // com.repackage.nf1
-    public void a(Context context, of1 of1Var) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, of1Var) == null) {
-            this.a = new vf1(context);
-            this.c = context;
-            if (b()) {
-                this.d = new uf1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.d);
-            }
-            if (of1Var != null) {
-                of1Var.a();
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
+            return (String) invokeL.objValue;
         }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        String str2 = "";
+        try {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            String str3 = new String(str);
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
+                return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
+            } catch (Throwable th) {
+                th = th;
+                str2 = str3;
+                sf1.d(th);
+                return str2;
             }
-            return "1".equals(str);
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return invokeV.booleanValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b : bArr) {
+                stringBuffer.append(a(b));
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return "";
+            }
+            try {
+                return c(MessageDigest.getInstance("MD5").digest(bArr));
+            } catch (Throwable th) {
+                sf1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] e(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            try {
+                return MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (Throwable th) {
+                sf1.d(th);
+                return null;
+            }
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

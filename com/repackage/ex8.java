@@ -1,27 +1,147 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.RenderMode;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.album.AddMediaInfo;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.write.album.TbCameraView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ex8 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ex8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public zy5 b;
+    public final List<MediaFileInfo> a;
+    public BaseFragmentActivity b;
+    public LayoutInflater c;
+    public yw8 d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public View.OnClickListener h;
+    public cx8 i;
+    public dx8 j;
+    public TbCameraView.g k;
+    public TbCameraView.e l;
+    public wz5 m;
+    public d n;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes6.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ex8 ex8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ex8 a;
 
-        public a(ex8 ex8Var) {
+        public b(ex8 ex8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ex8Var;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.n.d.cancelAnimation();
+                this.a.n.d.setFrame(0);
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ex8 a;
+
+        public c(ex8 ex8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,17 +163,156 @@ public class ex8 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
+                this.a.m.I();
             }
         }
     }
 
-    public ex8(TbPageContext tbPageContext) {
+    /* loaded from: classes6.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public View b;
+        public TbCameraView c;
+        public TBLottieAnimationView d;
+
+        public d(ex8 ex8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(ex8 ex8Var, a aVar) {
+            this(ex8Var);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public MediaFileInfo a;
+        public int b;
+        public final /* synthetic */ ex8 c;
+
+        public e(ex8 ex8Var, MediaFileInfo mediaFileInfo, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var, mediaFileInfo, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ex8Var;
+            this.a = mediaFileInfo;
+            this.b = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0918d9) {
+                    if (this.c.i == null || this.a == null) {
+                        return;
+                    }
+                    this.c.i.a(this.b, this.a);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091216) {
+                    if (this.a == null || this.c.j == null) {
+                        return;
+                    }
+                    this.c.j.a(this.b, this.a);
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f0923fa || this.c.j == null || this.a == null) {
+                } else {
+                    this.c.j.a(this.b, this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public TbImageView b;
+        public TextView c;
+
+        public f(ex8 ex8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ f(ex8 ex8Var, a aVar) {
+            this(ex8Var);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public TbImageView b;
+        public ImageView c;
+        public RelativeLayout d;
+
+        public g(ex8 ex8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ g(ex8 ex8Var, a aVar) {
+            this(ex8Var);
+        }
+    }
+
+    public ex8(BaseFragmentActivity baseFragmentActivity, yw8 yw8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseFragmentActivity, yw8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,46 +322,359 @@ public class ex8 {
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = new ArrayList();
+        this.e = false;
+        this.f = true;
+        this.g = true;
+        this.b = baseFragmentActivity;
+        this.d = yw8Var;
+        this.c = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
-    public void a() {
-        zy5 zy5Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: e */
+    public MediaFileInfo getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (zy5Var = this.b) == null) {
-            return;
-        }
-        zy5Var.I();
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (MediaFileInfo) ListUtils.getItem(this.a, i) : (MediaFileInfo) invokeI.objValue;
     }
 
-    public void b(View view2) {
-        TbPageContext tbPageContext;
+    public final View f(int i, View view2, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (tbPageContext = this.a) == null || view2 == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mediaFileInfo})) == null) {
+            if (mediaFileInfo == null || mediaFileInfo.getType() != 2) {
+                return view2;
+            }
+            d dVar = this.n;
+            if (dVar == null || dVar.c == null) {
+                this.n = new d(this, null);
+                View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0115, viewGroup, false);
+                d dVar2 = this.n;
+                dVar2.a = inflate;
+                dVar2.c = (TbCameraView) inflate.findViewById(R.id.obfuscated_res_0x7f09046a);
+                this.n.d = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090265);
+                this.n.b = inflate.findViewById(R.id.obfuscated_res_0x7f090dcf);
+                this.n.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.n.d.setFrame(0);
+                this.n.d.setRenderMode(RenderMode.HARDWARE);
+                SkinManager.setLottieAnimation(this.n.d, R.raw.obfuscated_res_0x7f110045);
+                inflate.setTag(this.n);
+                x(this.n.b);
+            }
+            SkinManager.setBackgroundColor(this.n.a, R.color.black_alpha90);
+            this.n.c.setOnRequestPermissionListener(this.k);
+            this.n.c.setOnOpenCameraFailedListener(this.l);
+            this.n.d.setOnClickListener(this.h);
+            this.n.c.setOnClickListener(this.h);
+            this.n.a.setOnClickListener(this.h);
+            this.n.d.addAnimatorUpdateListener(new a(this));
+            this.n.d.addAnimatorListener(new b(this));
+            return this.n.a;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final View g(int i, View view2, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
+        InterceptResult invokeCommon;
+        g gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mediaFileInfo})) == null) {
+            if (mediaFileInfo != null && mediaFileInfo.getType() == 0 && (mediaFileInfo instanceof ImageFileInfo)) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
+                if (view2 != null && (view2.getTag() instanceof g)) {
+                    gVar = (g) view2.getTag();
+                } else {
+                    g gVar2 = new g(this, null);
+                    View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0112, viewGroup, false);
+                    gVar2.a = inflate;
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918d9);
+                    gVar2.b = tbImageView;
+                    tbImageView.setDefaultResource(0);
+                    gVar2.b.setTagPaddingDis(8, 8);
+                    gVar2.b.setGifIconSupport(true);
+                    gVar2.b.setLongIconSupport(true);
+                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cfa);
+                    gVar2.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091216);
+                    yw8 yw8Var = this.d;
+                    if (yw8Var != null && yw8Var.m() != null && this.d.m().isFromQRCode()) {
+                        gVar2.d.setVisibility(8);
+                    }
+                    if (!this.g) {
+                        gVar2.d.setVisibility(8);
+                    }
+                    inflate.setTag(gVar2);
+                    gVar = gVar2;
+                    view2 = inflate;
+                }
+                gVar.b.setIsLongPic(imageFileInfo.isLong());
+                gVar.b.J(imageFileInfo.getFilePath(), 35, false);
+                s(gVar.c, mediaFileInfo);
+                e eVar = new e(this, mediaFileInfo, i);
+                gVar.b.setOnClickListener(eVar);
+                gVar.d.setOnClickListener(eVar);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.a) : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(this.a, i);
+            if (mediaFileInfo != null) {
+                return mediaFileInfo.getType();
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            MediaFileInfo item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            if (item.getType() == 2) {
+                return f(i, view2, viewGroup, item);
+            }
+            if (item.getType() == 1) {
+                return h(i, view2, viewGroup, item);
+            }
+            return item.getType() == 0 ? g(i, view2, viewGroup, item) : view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    public final View h(int i, View view2, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
+        InterceptResult invokeCommon;
+        f fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mediaFileInfo})) == null) {
+            if (mediaFileInfo != null && mediaFileInfo.getType() == 1 && (mediaFileInfo instanceof VideoFileInfo)) {
+                VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
+                if (view2 != null && (view2.getTag() instanceof g)) {
+                    fVar = (f) view2.getTag();
+                } else {
+                    f fVar2 = new f(this, null);
+                    View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0116, viewGroup, false);
+                    fVar2.a = inflate;
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fa);
+                    fVar2.b = tbImageView;
+                    tbImageView.setDefaultResource(0);
+                    fVar2.b.setTagPaddingDis(8, 8);
+                    fVar2.b.setGifIconSupport(false);
+                    fVar2.b.setLongIconSupport(false);
+                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d0);
+                    inflate.setTag(fVar2);
+                    fVar = fVar2;
+                    view2 = inflate;
+                }
+                fVar.b.J(videoFileInfo.videoPath, 37, false);
+                fVar.c.setText(StringHelper.stringForVideoTime(videoFileInfo.videoDuration));
+                fVar.b.setOnClickListener(new e(this, mediaFileInfo, i));
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public int i(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        List<MediaFileInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imageFileInfo)) == null) {
+            if (imageFileInfo != null && imageFileInfo.getFilePath() != null && (list = this.a) != null && list.size() != 0) {
+                String filePath = imageFileInfo.getFilePath();
+                int size = this.a.size();
+                for (int i = 0; i < size; i++) {
+                    MediaFileInfo mediaFileInfo = this.a.get(i);
+                    if (mediaFileInfo instanceof ImageFileInfo) {
+                        ImageFileInfo imageFileInfo2 = (ImageFileInfo) mediaFileInfo;
+                        if (imageFileInfo2.getFilePath() != null && imageFileInfo2.getFilePath().equals(filePath)) {
+                            return i;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public TbCameraView j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            d dVar = this.n;
+            if (dVar != null) {
+                return dVar.c;
+            }
+            return null;
+        }
+        return (TbCameraView) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final MediaFileInfo l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new AddMediaInfo() : (MediaFileInfo) invokeV.objValue;
+    }
+
+    public void m(List<MediaFileInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
+            this.a.clear();
+            if (this.f) {
+                this.a.add(l());
+            }
+            if (!ListUtils.isEmpty(list)) {
+                this.a.addAll(list);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    public void n(cx8 cx8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, cx8Var) == null) {
+            this.i = cx8Var;
+        }
+    }
+
+    public void o(TbCameraView.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
+            this.l = eVar;
+        }
+    }
+
+    public void p(TbCameraView.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, gVar) == null) {
+            this.k = gVar;
+        }
+    }
+
+    public void q(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
+            this.h = onClickListener;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public final void s(ImageView imageView, MediaFileInfo mediaFileInfo) {
+        boolean q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048596, this, imageView, mediaFileInfo) == null) {
+            yw8 yw8Var = this.d;
+            if (yw8Var != null && (mediaFileInfo instanceof ImageFileInfo)) {
+                q = yw8Var.n((ImageFileInfo) mediaFileInfo);
+            } else {
+                yw8 yw8Var2 = this.d;
+                q = (yw8Var2 == null || !(mediaFileInfo instanceof VideoFileInfo)) ? false : yw8Var2.q((VideoFileInfo) mediaFileInfo);
+            }
+            t(imageView, q);
+        }
+    }
+
+    public void t(ImageView imageView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048597, this, imageView, z) == null) || imageView == null) {
             return;
         }
-        if (this.b == null) {
-            zy5 zy5Var = new zy5(tbPageContext, view2);
-            this.b = zy5Var;
-            zy5Var.g0(R.drawable.pic_sign_tip_down);
-            this.b.S(1);
-            this.b.O(32);
-            this.b.L(2);
-            this.b.V(false);
-            this.b.M(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds44);
-            int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds50);
-            int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds6);
-            this.b.Z(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
-            this.b.j0(-dimensionPixelSize4);
-            this.b.k0(-dimensionPixelSize5);
-            this.b.N(3000);
+        if (z) {
+            imageView.setContentDescription(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f03a8));
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807ff, WebPManager.ResourceStateType.NORMAL));
+            return;
         }
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15c7);
-        this.b.Y(R.drawable.obfuscated_res_0x7f080918);
-        this.b.R(true);
-        this.b.m0(string, "commodity_tip_show_controller");
+        imageView.setContentDescription(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f03a9));
+        imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807fe, WebPManager.ResourceStateType.NORMAL));
+    }
+
+    public void u(dx8 dx8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, dx8Var) == null) {
+            this.j = dx8Var;
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || this.f == z) {
+            return;
+        }
+        this.f = z;
+        notifyDataSetChanged();
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void x(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
+            if (this.m == null && view2 != null) {
+                wz5 wz5Var = new wz5(this.b.getPageContext(), view2);
+                this.m = wz5Var;
+                wz5Var.e0(R.drawable.obfuscated_res_0x7f0802ef);
+                this.m.M(new c(this));
+                this.m.O(16);
+                this.m.N(5000);
+            }
+            if (this.m != null) {
+                String o = xt4.o("key_show_take_photo_tip");
+                this.m.k0(this.b.getString(R.string.obfuscated_res_0x7f0f0258), o);
+            }
+        }
     }
 }

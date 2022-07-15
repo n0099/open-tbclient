@@ -36,16 +36,16 @@ public final class R$layout {
     public static final int abc_select_dialog_material = 2131558426;
     public static final int abc_tooltip = 2131558427;
     public static final int custom_dialog = 2131558914;
-    public static final int notification_action = 2131559943;
-    public static final int notification_action_tombstone = 2131559944;
-    public static final int notification_template_custom_big = 2131559951;
-    public static final int notification_template_icon_group = 2131559952;
-    public static final int notification_template_part_chronometer = 2131559956;
-    public static final int notification_template_part_time = 2131559957;
-    public static final int select_dialog_item_material = 2131560253;
-    public static final int select_dialog_multichoice_material = 2131560254;
-    public static final int select_dialog_singlechoice_material = 2131560255;
-    public static final int support_simple_spinner_dropdown_item = 2131560346;
+    public static final int notification_action = 2131559971;
+    public static final int notification_action_tombstone = 2131559972;
+    public static final int notification_template_custom_big = 2131559979;
+    public static final int notification_template_icon_group = 2131559980;
+    public static final int notification_template_part_chronometer = 2131559984;
+    public static final int notification_template_part_time = 2131559985;
+    public static final int select_dialog_item_material = 2131560283;
+    public static final int select_dialog_multichoice_material = 2131560284;
+    public static final int select_dialog_singlechoice_material = 2131560285;
+    public static final int support_simple_spinner_dropdown_item = 2131560376;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$layout() {

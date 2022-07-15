@@ -21,7 +21,7 @@ public abstract class BaseRealData extends BaseResultData {
                 parseData(new JSONObject(b));
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
             this.result = 0;
             this.errorMsg = e.getMessage();
         }

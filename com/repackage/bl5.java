@@ -1,128 +1,28 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.R;
+import com.baidu.tieba.addresslist.relationship.ContactComparator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bl5 extends ob1<v91> {
+public class bl5 {
     public static /* synthetic */ Interceptable $ic;
+    public static bl5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public List<a> a;
+    public List<az4> b;
 
     /* loaded from: classes5.dex */
-    public class a implements v91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bl5 c;
-
-        public a(bl5 bl5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bl5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bl5Var;
-        }
-
-        @Override // com.repackage.v91
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.v91
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 120;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.repackage.v91
-        @SuppressLint({"ResourceType"})
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080f7b : invokeV.intValue;
-        }
-
-        @Override // com.repackage.v91
-        public JSONObject d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.c.a == null) {
-                    this.c.a = new JSONObject();
-                    try {
-                        this.c.a.put("query_response_thread", 1);
-                        this.c.a.put("query_unite_pid", "1640058553813");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                return this.c.a;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        @Override // com.repackage.v91
-        @NonNull
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.v91
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (int) jl5.g() : invokeV.intValue;
-        }
-
-        @Override // com.repackage.v91
-        public String from() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.v91
-        @SuppressLint({"ResourceType"})
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080246 : invokeV.intValue;
-        }
-
-        @Override // com.repackage.v91
-        @SuppressLint({"ResourceType"})
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080247 : invokeV.intValue;
-        }
+    public interface a {
+        void p(List<az4> list);
     }
 
     public bl5() {
@@ -135,16 +35,137 @@ public class bl5 extends ob1<v91> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    public static synchronized bl5 d() {
+        InterceptResult invokeV;
+        bl5 bl5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (bl5.class) {
+                if (c == null) {
+                    c = new bl5();
+                }
+                bl5Var = c;
+            }
+            return bl5Var;
+        }
+        return (bl5) invokeV.objValue;
+    }
+
+    public void a(az4 az4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, az4Var) == null) || this.b == null || az4Var == null) {
+            return;
+        }
+        String a2 = az4Var.a();
+        if (TextUtils.isEmpty(a2)) {
+            a2 = "#";
+            az4Var.j("#");
+        }
+        String e = az4Var.e();
+        if (e == null) {
+            e = "";
+        }
+        boolean z = false;
+        boolean z2 = false;
+        for (az4 az4Var2 : this.b) {
+            if (e.equals(az4Var2.e())) {
+                z = true;
+            }
+            if (a2.equals(az4Var2.a())) {
+                z2 = true;
+            }
+        }
+        if (z) {
+            return;
+        }
+        if (!z2) {
+            az4 az4Var3 = new az4();
+            az4Var3.j(a2);
+            this.b.add(az4Var3);
+        }
+        this.b.add(az4Var);
+        Collections.sort(this.b, new ContactComparator());
+        e();
+    }
+
+    public void b(long j) {
+        List<az4> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.b) == null) {
+            return;
+        }
+        String str = null;
+        Iterator<az4> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            az4 next = it.next();
+            if (next.d() == j) {
+                str = next.a();
+                this.b.remove(next);
+                break;
+            }
+        }
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            for (az4 az4Var : this.b) {
+                if (str.equals(az4Var.a())) {
+                    arrayList.add(az4Var);
+                }
+            }
+            if (arrayList.size() <= 1) {
+                this.b.removeAll(arrayList);
+            }
+        }
+        e();
+    }
+
+    public List<az4> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (a aVar : this.a) {
+                aVar.p(this.b);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ob1
-    /* renamed from: c */
-    public v91 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void f(a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (v91) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || this.a.contains(aVar)) {
+            return;
+        }
+        this.a.add(aVar);
+    }
+
+    public void g(List<az4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                Collections.sort(list, new ContactComparator());
+            }
+            e();
+        }
+    }
+
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        this.a.remove(aVar);
     }
 }

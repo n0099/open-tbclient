@@ -4,7 +4,7 @@ import android.view.View;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public interface TTSplashAd {
+public interface TTSplashAd extends TTClientBidding {
 
     /* loaded from: classes4.dex */
     public interface AdInteractionListener {
@@ -31,6 +31,8 @@ public interface TTSplashAd {
 
     void setNotAllowSdkCountdown();
 
+    void setSplashCardListener(ISplashCardListener iSplashCardListener);
+
     void setSplashClickEyeListener(ISplashClickEyeListener iSplashClickEyeListener);
 
     void setSplashInteractionListener(AdInteractionListener adInteractionListener);
@@ -38,4 +40,6 @@ public interface TTSplashAd {
     void splashClickEyeAnimationFinish();
 
     void startClickEye();
+
+    void startClickEye(boolean z);
 }

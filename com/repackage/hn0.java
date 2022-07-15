@@ -1,40 +1,67 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hn0 {
+public class hn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
 
-    public static final String a(JSONObject optStringCheckNonNull, String key) {
-        InterceptResult invokeLL;
+    public hn0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, optStringCheckNonNull, key)) == null) {
-            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
-            Intrinsics.checkNotNullParameter(key, "key");
-            return b(optStringCheckNonNull, key, "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static final String b(JSONObject optStringCheckNonNull, String key, String fallback) {
-        InterceptResult invokeLLL;
+    @Nullable
+    public static List<hn0> a(@Nullable JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, optStringCheckNonNull, key, fallback)) == null) {
-            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(fallback, "fallback");
-            if (optStringCheckNonNull.isNull(key)) {
-                return fallback;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
             }
-            String optString = optStringCheckNonNull.optString(key, fallback);
-            Intrinsics.checkNotNullExpressionValue(optString, "optString(key, fallback)");
-            return optString;
+            int length = jSONArray.length();
+            ArrayList arrayList = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    hn0 hn0Var = new hn0();
+                    hn0Var.a = optJSONObject.optString("url");
+                    hn0Var.b = optJSONObject.optInt("size");
+                    if (!TextUtils.isEmpty(hn0Var.a) && hn0Var.b > 0) {
+                        xx0.b(arrayList, hn0Var);
+                    }
+                }
+            }
+            return arrayList;
         }
-        return (String) invokeLLL.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sl0.b().a(this.a, this.b);
+        }
     }
 }

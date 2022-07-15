@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae6;
 import com.repackage.pi;
-import com.repackage.xc6;
+import com.repackage.ud6;
+import com.repackage.xe6;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PostCategoryView extends TextView {
@@ -177,13 +177,13 @@ public class PostCategoryView extends TextView {
         this.i = drawable2;
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.h.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.h, null);
-        setPadding(0, 0, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702d5), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06d7, (ViewGroup) null);
+        setPadding(0, 0, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702d4), 0);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06f3, (ViewGroup) null);
         this.d = linearLayout;
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091895);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09193e);
         this.e = linearLayout2;
-        this.f = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091896);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f091894);
+        this.f = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09193f);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f09193d);
         this.g = findViewById;
         findViewById.setOnClickListener(new a(this));
     }
@@ -216,7 +216,7 @@ public class PostCategoryView extends TextView {
     public final void d(PostCategoryView postCategoryView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postCategoryView) == null) && this.c == null) {
-            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.a, this.d, this, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081224), new b(this));
+            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.a, this.d, this, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811a4), new b(this));
             this.c = morePopupWindow;
             morePopupWindow.setOnDismissListener(new c(this, postCategoryView));
         }
@@ -251,17 +251,17 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<ae6> list, ae6 ae6Var) {
+    public void setCategoryContainerData(List<xe6> list, xe6 xe6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, list, ae6Var) == null) {
-            this.f.setData(list, ae6Var);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, list, xe6Var) == null) {
+            this.f.setData(list, xe6Var);
         }
     }
 
-    public void setCategoryContainerData(List<xc6> list, xc6 xc6Var, int i) {
+    public void setCategoryContainerData(List<ud6> list, ud6 ud6Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, list, xc6Var, i) == null) {
-            this.f.setData(list, xc6Var, i);
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, list, ud6Var, i) == null) {
+            this.f.setData(list, ud6Var, i);
         }
     }
 }

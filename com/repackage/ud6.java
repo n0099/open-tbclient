@@ -9,9 +9,7 @@ public class ud6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public int c;
-    public boolean d;
+    public int b;
 
     public ud6() {
         Interceptable interceptable = $ic;
@@ -23,9 +21,7 @@ public class ud6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = false;
     }
 }

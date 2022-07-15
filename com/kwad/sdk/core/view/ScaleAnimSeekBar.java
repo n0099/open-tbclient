@@ -62,11 +62,11 @@ public class ScaleAnimSeekBar extends View {
 
     /* loaded from: classes5.dex */
     public interface a {
+        void a();
+
         void a(ScaleAnimSeekBar scaleAnimSeekBar);
 
-        void a(ScaleAnimSeekBar scaleAnimSeekBar, int i, boolean z);
-
-        void b(ScaleAnimSeekBar scaleAnimSeekBar);
+        void a(ScaleAnimSeekBar scaleAnimSeekBar, boolean z);
     }
 
     public ScaleAnimSeekBar(Context context) {
@@ -148,6 +148,38 @@ public class ScaleAnimSeekBar extends View {
         setSecondaryProgress(this.o);
     }
 
+    private void a(int i, boolean z, boolean z2) {
+        int i2 = this.f;
+        if (i <= i2 || i >= (i2 = this.g)) {
+            i = i2;
+        }
+        a(z, i);
+        a onSeekBarChangedListener = getOnSeekBarChangedListener();
+        if (onSeekBarChangedListener != null && this.n != this.m) {
+            this.B = z2;
+            onSeekBarChangedListener.a(this, z2);
+            this.B = false;
+        }
+        this.n = this.m;
+    }
+
+    private void a(Context context) {
+        this.F = true;
+        this.O = com.kwad.sdk.b.kwai.a.a(context, 10.0f);
+        this.e = com.kwad.sdk.b.kwai.a.a(context, 3.0f);
+        this.l = com.kwad.sdk.b.kwai.a.a(context, 20.0f);
+        this.y = null;
+        this.G = false;
+        this.i = com.kwad.sdk.b.kwai.a.a(context, 0.3f);
+        this.h = com.kwad.sdk.b.kwai.a.a(context, 1.0f);
+        this.b = 654311423;
+        this.c = -1;
+        this.d = 1090519039;
+        this.f = 0;
+        this.g = 100;
+        this.j = false;
+    }
+
     private void a(Context context, AttributeSet attributeSet) {
         if (attributeSet != null) {
             a(context);
@@ -217,14 +249,14 @@ public class ScaleAnimSeekBar extends View {
             valueAnimator2.setDuration(300L);
             this.J.setInterpolator(new Interpolator() { // from class: com.kwad.sdk.core.view.ScaleAnimSeekBar.1
                 @Override // android.animation.TimeInterpolator
-                public float getInterpolation(float f) {
+                public final float getInterpolation(float f) {
                     float f2 = f - 1.0f;
                     return (f2 * f2 * f2) + 1.0f;
                 }
             });
             this.J.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.core.view.ScaleAnimSeekBar.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator3) {
+                public final void onAnimationUpdate(ValueAnimator valueAnimator3) {
                     float floatValue = ((Float) valueAnimator3.getAnimatedValue()).floatValue();
                     ScaleAnimSeekBar scaleAnimSeekBar = ScaleAnimSeekBar.this;
                     scaleAnimSeekBar.m = scaleAnimSeekBar.b((int) floatValue);
@@ -244,14 +276,12 @@ public class ScaleAnimSeekBar extends View {
         Rect rect = this.x;
         int i3 = rect.left;
         int i4 = rect.right;
-        if (i3 < i4 && (i = rect.top) < (i2 = rect.bottom)) {
-            float f3 = this.K;
-            int i5 = this.l;
-            if (f >= (i3 * f3) - i5 && f <= (i4 * f3) + i5 && f2 >= (i * f3) - i5 && f2 <= (i2 * f3) + i5) {
-                return true;
-            }
+        if (i3 >= i4 || (i = rect.top) >= (i2 = rect.bottom)) {
+            return false;
         }
-        return false;
+        float f3 = this.K;
+        int i5 = this.l;
+        return f >= (((float) i3) * f3) - ((float) i5) && f <= (((float) i4) * f3) + ((float) i5) && f2 >= (((float) i) * f3) - ((float) i5) && f2 <= (((float) i2) * f3) + ((float) i5);
     }
 
     private float b(float f) {
@@ -283,14 +313,12 @@ public class ScaleAnimSeekBar extends View {
         Rect rect = this.u;
         int i3 = rect.left;
         int i4 = rect.right;
-        if (i3 < i4 && (i = rect.top) < (i2 = rect.bottom)) {
-            float f3 = this.M;
-            int i5 = this.l;
-            if (f >= (i3 * f3) - i5 && f <= (i4 * f3) + i5 && f2 >= (i * f3) - i5 && f2 <= (i2 * f3) + i5) {
-                return true;
-            }
+        if (i3 >= i4 || (i = rect.top) >= (i2 = rect.bottom)) {
+            return false;
         }
-        return false;
+        float f3 = this.M;
+        int i5 = this.l;
+        return f >= (((float) i3) * f3) - ((float) i5) && f <= (((float) i4) * f3) + ((float) i5) && f2 >= (((float) i) * f3) - ((float) i5) && f2 <= (((float) i2) * f3) + ((float) i5);
     }
 
     private void c(boolean z) {
@@ -304,7 +332,7 @@ public class ScaleAnimSeekBar extends View {
             this.H.setInterpolator(new LinearInterpolator());
             this.H.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.core.view.ScaleAnimSeekBar.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator3) {
+                public final void onAnimationUpdate(ValueAnimator valueAnimator3) {
                     ScaleAnimSeekBar.this.K = ((Float) valueAnimator3.getAnimatedValue()).floatValue();
                     ScaleAnimSeekBar.this.requestLayout();
                 }
@@ -327,7 +355,7 @@ public class ScaleAnimSeekBar extends View {
             this.I.setInterpolator(new LinearInterpolator());
             this.I.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.core.view.ScaleAnimSeekBar.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator3) {
+                public final void onAnimationUpdate(ValueAnimator valueAnimator3) {
                     ScaleAnimSeekBar.this.M = ((Float) valueAnimator3.getAnimatedValue()).floatValue();
                     ScaleAnimSeekBar.this.requestLayout();
                 }
@@ -347,43 +375,7 @@ public class ScaleAnimSeekBar extends View {
         return null;
     }
 
-    public void a(int i, boolean z, boolean z2) {
-        int i2 = this.f;
-        if (i <= i2 || i >= (i2 = this.g)) {
-            i = i2;
-        }
-        a(z, i);
-        a onSeekBarChangedListener = getOnSeekBarChangedListener();
-        if (onSeekBarChangedListener != null) {
-            int i3 = this.n;
-            int i4 = this.m;
-            if (i3 != i4) {
-                this.B = z2;
-                onSeekBarChangedListener.a(this, i4, z2);
-                this.B = false;
-            }
-        }
-        this.n = this.m;
-    }
-
-    public void a(Context context) {
-        this.F = true;
-        this.O = com.kwad.sdk.a.kwai.a.a(context, 10.0f);
-        this.e = com.kwad.sdk.a.kwai.a.a(context, 3.0f);
-        this.l = com.kwad.sdk.a.kwai.a.a(context, 20.0f);
-        this.y = null;
-        this.G = false;
-        this.i = com.kwad.sdk.a.kwai.a.a(context, 0.3f);
-        this.h = com.kwad.sdk.a.kwai.a.a(context, 1.0f);
-        this.b = 654311423;
-        this.c = -1;
-        this.d = 1090519039;
-        this.f = 0;
-        this.g = 100;
-        this.j = false;
-    }
-
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.P = z;
         b(z);
     }
@@ -468,7 +460,7 @@ public class ScaleAnimSeekBar extends View {
                     this.z = false;
                     a(b((int) x), this.G, true);
                     if (onSeekBarChangedListener != null) {
-                        onSeekBarChangedListener.b(this);
+                        onSeekBarChangedListener.a(this);
                     }
                 }
                 if (parent != null) {
@@ -485,13 +477,13 @@ public class ScaleAnimSeekBar extends View {
                 this.z = true;
                 this.D = true;
                 if (onSeekBarChangedListener != null) {
-                    onSeekBarChangedListener.a(this);
+                    onSeekBarChangedListener.a();
                 }
             } else if (b(x, y)) {
                 b(true);
                 this.A = true;
                 if (onSeekBarChangedListener != null) {
-                    onSeekBarChangedListener.a(this);
+                    onSeekBarChangedListener.a();
                 }
             }
         }

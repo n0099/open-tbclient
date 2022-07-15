@@ -1,206 +1,29 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.AnyThread;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.pms.model.PMSException;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rd3 implements le3<Exception> {
+public class rd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final Handler b;
-    public Runnable c;
-    public volatile boolean d;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rd3 a;
-
-        /* renamed from: com.repackage.rd3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0515a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0515a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (rd3.e) {
-                        Log.d("SwanH2HeartBeatManager", "do updateCore, isStop=" + this.a.a.d);
-                    }
-                    if (this.a.a.d) {
-                        return;
-                    }
-                    this.a.a.j();
-                }
-            }
-        }
-
-        public a(rd3 rd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rd3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rd3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ProcessUtils.isMainProcess()) {
-                    this.a.d = false;
-                    synchronized (rd3.class) {
-                        this.a.a = System.currentTimeMillis();
-                        if (this.a.c != null) {
-                            this.a.b.removeCallbacks(this.a.c);
-                        }
-                        this.a.c = new RunnableC0515a(this);
-                        long a = wb4.a(300) * 1000;
-                        this.a.b.postDelayed(this.a.c, a);
-                        if (rd3.e) {
-                            Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
-                        }
-                    }
-                    return;
-                }
-                fw2.c(c.class, null);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rd3 a;
-
-        public b(rd3 rd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rd3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rd3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a74.l(new xa4(0), new v22(this.a, true));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                rd3.k().m();
-                return null;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rd3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-45955184, "Lcom/repackage/rd3$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-45955184, "Lcom/repackage/rd3$d;");
-                    return;
-                }
-            }
-            a = new rd3(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -215,90 +38,113 @@ public class rd3 implements le3<Exception> {
                 return;
             }
         }
-        e = cg1.a;
+        a = pe3.b;
     }
 
-    public /* synthetic */ rd3(a aVar) {
-        this();
+    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Resources resources = context.getResources();
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+            boolean z = false;
+            boolean z2 = identifier > 0 ? resources.getBoolean(identifier) : false;
+            try {
+                if (Build.VERSION.SDK_INT < 21) {
+                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                } else {
+                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                }
+                if (i != 0) {
+                    return false;
+                }
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                String str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "qemu.hw.mainkeys");
+                if (!"1".equals(str)) {
+                    z = "0".equals(str) ? true : z2;
+                }
+                return z;
+            } catch (Exception unused) {
+                return z2;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
-    public static rd3 k() {
+    public static Pair<Integer, Integer> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d.a : (rd3) invokeV.objValue;
-    }
-
-    @AnyThread
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mc3.l(new b(this), "SwanH2HeartBeatManager");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Pair<Integer, Integer> d = d();
+            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
         }
+        return (Pair) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.le3
-    /* renamed from: l */
-    public void a(Exception exc) {
-        k84 pmsError;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-            this.c = null;
-            if (e) {
-                Log.w("SwanH2HeartBeatManager", "onCallback", exc);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e()) {
+                return yd3.r(AppRuntime.getAppContext().getResources(), yd3.L() ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
             }
-            if (exc != null) {
-                Throwable cause = exc.getCause();
-                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
-                    n();
-                    wb4.a = false;
-                    sw1.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
-                    return;
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static Pair<Integer, Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            if (windowManager == null) {
+                return new Pair<>(Integer.valueOf(yd3.o(appContext)), Integer.valueOf(yd3.n(appContext)));
+            }
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (f(appContext)) {
+                return false;
+            }
+            return a(appContext);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String str = Build.BRAND;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
                 }
-                m();
+                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
+                    return str.equalsIgnoreCase("XIAOMI") ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) != 0 : str.equalsIgnoreCase("VIVO") ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(a) ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase("SAMSUNG") ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) != 0 : Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0;
+                }
+                return Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
+            } catch (Exception e) {
+                if (rg1.a) {
+                    e.printStackTrace();
+                }
+                return false;
             }
         }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && wb4.a) {
-            if (e) {
-                Log.d("SwanH2HeartBeatManager", "startHeartBeat");
-            }
-            mc3.l(new a(this), "SwanH2HeartBeatManager");
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && wb4.a) {
-            if (e) {
-                Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
-            }
-            this.d = true;
-            Runnable runnable = this.c;
-            if (runnable != null) {
-                this.b.removeCallbacks(runnable);
-            }
-            this.c = null;
-        }
-    }
-
-    public rd3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.b = new Handler(Looper.getMainLooper());
+        return invokeL.booleanValue;
     }
 }

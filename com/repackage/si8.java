@@ -1,285 +1,302 @@
 package com.repackage;
 
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.message.AddPostHttpResponse;
+import com.baidu.tieba.write.message.AddPostRequest;
+import com.baidu.tieba.write.message.AddThreadHttpResponse;
+import com.baidu.tieba.write.message.AddThreadRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class si8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e a;
+    public final BdUniqueId b;
+    public HttpMessageListener c;
+    public HttpMessageListener d;
+
+    /* loaded from: classes7.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ si8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(si8 si8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = si8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AddThreadHttpResponse) && this.a.a != null) {
+                JSONObject resultData = ((AddThreadHttpResponse) httpResponsedMessage).getResultData();
+                qk8 qk8Var = new qk8();
+                if (httpResponsedMessage.hasError()) {
+                    qk8Var.i(true);
+                    qk8Var.f(httpResponsedMessage.getError());
+                    qk8Var.h(httpResponsedMessage.getErrorString());
+                } else {
+                    qk8Var.i(false);
+                    ErrorData errorData = new ErrorData();
+                    errorData.parserJson(resultData);
+                    qk8Var.f(errorData.getError_code());
+                    qk8Var.h(errorData.getError_msg());
+                    qk8Var.g(errorData.getError_data());
+                }
+                qk8Var.j(resultData);
+                this.a.a.a(qk8Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ si8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(si8 si8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = si8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AddPostHttpResponse) && this.a.a != null) {
+                JSONObject resultData = ((AddPostHttpResponse) httpResponsedMessage).getResultData();
+                qk8 qk8Var = new qk8();
+                if (httpResponsedMessage.hasError()) {
+                    qk8Var.i(true);
+                    qk8Var.f(httpResponsedMessage.getError());
+                    qk8Var.h(httpResponsedMessage.getErrorString());
+                } else {
+                    qk8Var.i(false);
+                    ErrorData errorData = new ErrorData();
+                    errorData.parserJson(resultData);
+                    qk8Var.f(errorData.getError_code());
+                    qk8Var.h(errorData.getError_msg());
+                    qk8Var.g(errorData.getError_data());
+                }
+                qk8Var.j(resultData);
+                this.a.a.a(qk8Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddThreadRequest a;
+
+        public c(si8 si8Var, AddThreadRequest addThreadRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si8Var, addThreadRequest};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = addThreadRequest;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddPostRequest a;
+
+        public d(si8 si8Var, AddPostRequest addPostRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {si8Var, addPostRequest};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = addPostRequest;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(qk8 qk8Var);
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755319473, "Lcom/repackage/si8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755319473, "Lcom/repackage/si8;");
-        }
-    }
-
-    public static boolean a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
-            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            c(0);
-        }
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (i == 0) {
-                mainDBDatabaseManager.d("delete from search_data");
-            } else if (i != 1) {
-            } else {
-                mainDBDatabaseManager.d("delete from search_post_data");
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755319473, "Lcom/repackage/si8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755319473, "Lcom/repackage/si8;");
+                return;
             }
         }
+        d();
+    }
+
+    public si8(d9<?> d9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = BdUniqueId.gen();
+        this.c = new a(this, CmdConfigHttp.CMD_WRITE_THREAD_ADD);
+        this.d = new b(this, CmdConfigHttp.CMD_WRITE_POST_ADD);
+        this.c.setTag(this.b);
+        this.c.setSelfListener(true);
+        this.d.setTag(this.b);
+        this.d.setSelfListener(true);
+        if (d9Var != null) {
+            d9Var.registerListener(this.c);
+            d9Var.registerListener(this.d);
+            return;
+        }
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
     public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c(1);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_THREAD_ADD, wh8.a(TbConfig.POST_THREAD_ADDRESS, 309730));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(AddThreadHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_POST_ADD, wh8.a(TbConfig.REPLY_THREAD_ADDRESS, 309731));
+            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask2.setResponsedClass(AddPostHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         }
     }
 
-    public static void e(int i) {
+    public void b(NetWork netWork) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65541, null, i) == null) || TbadkCoreApplication.getCurrentAccount() == null) {
-            return;
-        }
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
-    }
-
-    public static void f(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65542, null, i, str) == null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
+        if (interceptable == null || interceptable.invokeL(1048576, this, netWork) == null) {
+            AddPostRequest addPostRequest = new AddPostRequest();
+            addPostRequest.setRequestData(netWork.getPostDataMap());
+            addPostRequest.setNetType(NetMessage.NetType.HTTP);
+            addPostRequest.setTag(this.b);
+            qg.a().post(new d(this, addPostRequest));
         }
     }
 
-    public static void g(String str) {
+    public void c(NetWork netWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f(13, str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netWork) == null) {
+            AddThreadRequest addThreadRequest = new AddThreadRequest();
+            addThreadRequest.setRequestData(netWork.getPostDataMap());
+            addThreadRequest.setNetType(NetMessage.NetType.HTTP);
+            addThreadRequest.setTag(this.b);
+            qg.a().post(new c(this, addThreadRequest));
         }
     }
 
-    public static void h(String str) {
+    public si8 e(e eVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            i(0, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
+            this.a = eVar;
+            return this;
         }
-    }
-
-    public static void i(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65545, null, i, str) == null) {
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null) {
-                if (i == 0) {
-                    mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
-                } else if (i != 1) {
-                } else {
-                    mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
-                }
-            }
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            e(2);
-        }
-    }
-
-    public static ArrayList<String> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? l(0) : (ArrayList) invokeV.objValue;
-    }
-
-    public static ArrayList<String> l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            ArrayList<String> arrayList = new ArrayList<>();
-            Cursor cursor = null;
-            try {
-                try {
-                    if (i == 0) {
-                        cursor = mainDBDatabaseManager.j("select * from search_data order by time desc limit 20", null);
-                    } else if (i == 1) {
-                        cursor = mainDBDatabaseManager.j("select * from search_post_data order by time desc limit 5", null);
-                    }
-                    while (cursor.moveToNext()) {
-                        String string = cursor.getString(0);
-                        if (string != null && string.length() > 0) {
-                            arrayList.add(string);
-                        }
-                    }
-                } catch (Exception e) {
-                    mainDBDatabaseManager.i(e, "getAllSearchData");
-                }
-                return arrayList;
-            } finally {
-                mg.a(cursor);
-            }
-        }
-        return (ArrayList) invokeI.objValue;
-    }
-
-    public static ArrayList<String> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? l(1) : (ArrayList) invokeV.objValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getCurrentAccount().length() <= 0 || TbadkCoreApplication.getCurrentAccountName() == null) {
-            return;
-        }
-        j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        Cursor cursor = null;
-        try {
-            try {
-                cursor = mainDBDatabaseManager.j("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
-                if (cursor != null && cursor.moveToFirst()) {
-                    rx4.d().J(cursor.getInt(cursor.getColumnIndex("frequency")));
-                    rx4.d().L(cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1);
-                    if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
-                        rx4.d().M(false);
-                    } else {
-                        rx4.d().M(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
-                        rx4.d().H(false);
-                    } else {
-                        rx4.d().H(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
-                        rx4.d().P(false);
-                    } else {
-                        rx4.d().P(true);
-                    }
-                    rx4.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
-                    if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
-                        rx4.d().I(false);
-                    } else {
-                        rx4.d().I(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
-                        rx4.d().R(false);
-                    } else {
-                        rx4.d().R(true);
-                    }
-                    rx4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    rx4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
-                    if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
-                        rx4.d().K(false);
-                    } else {
-                        rx4.d().K(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
-                        rx4.d().X(false);
-                    } else {
-                        rx4.d().X(true);
-                    }
-                } else {
-                    rx4.d().J(300);
-                    rx4.d().L(true);
-                    rx4.d().M(true);
-                    rx4.d().H(true);
-                    rx4.d().P(true);
-                    rx4.d().N(true);
-                    rx4.d().O(false);
-                    rx4.d().K(true);
-                    rx4.d().X(false);
-                    rx4.d().I(true);
-                    rx4.d().R(false);
-                    rx4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    rx4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
-                }
-            } catch (Exception e) {
-                mainDBDatabaseManager.i(e, "getSettingData");
-            }
-            mg.a(cursor);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001311));
-        } catch (Throwable th) {
-            mg.a(null);
-            throw th;
-        }
-    }
-
-    public static void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            p(0, str);
-        }
-    }
-
-    public static void p(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65552, null, i, str) == null) {
-            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null) {
-                if (i == 0) {
-                    mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
-                    mainDBDatabaseManager.e("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
-                } else if (i != 1) {
-                } else {
-                    mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
-                    mainDBDatabaseManager.e("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
-                }
-            }
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            p(1, str);
-        }
-    }
-
-    public static void r() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, null) == null) || TbadkCoreApplication.getCurrentAccount() == null) {
-            return;
-        }
-        j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
-        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(rx4.d().f()), Integer.valueOf(rx4.d().v() ? 1 : 0), Integer.valueOf(rx4.d().x() ? 1 : 0), Integer.valueOf(rx4.d().s() ? 1 : 0), Integer.valueOf(rx4.d().c()), Integer.valueOf(rx4.d().t() ? 1 : 0), Integer.valueOf(rx4.d().B() ? 1 : 0), rx4.d().h(), rx4.d().g(), Integer.valueOf(rx4.d().u() ? 1 : 0), Integer.valueOf(rx4.d().D() ? 1 : 0), Integer.valueOf(rx4.d().A() ? 1 : 0)});
+        return (si8) invokeL.objValue;
     }
 }

@@ -1,39 +1,33 @@
 package com.repackage;
 
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
 /* loaded from: classes7.dex */
 public class y34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755192745, "Lcom/repackage/y34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755192745, "Lcom/repackage/y34;");
-                return;
-            }
+    public static void a(Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
+            b(callback, "6");
         }
-        SDKInitializer.initialize(AppRuntime.getAppContext());
-        SDKInitializer.setCoordType(CoordType.GCJ02);
-        SDKInitializer.setHttpsEnable(true);
     }
 
-    public static void a() {
+    public static void b(Callback callback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, callback, str) == null) || h03.M() == null) {
+            return;
         }
+        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
+        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
+        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, h03.M().O());
+        newBuilder.addQueryParameter("source", "4");
+        ((ny3) h03.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
     }
 }

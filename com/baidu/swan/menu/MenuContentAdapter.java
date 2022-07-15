@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vf4;
-import com.repackage.y54;
+import com.repackage.kg4;
+import com.repackage.n64;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<y54> a;
-    public List<y54> b;
+    public List<n64> a;
+    public List<n64> b;
     public int c;
     public Context d;
 
@@ -52,8 +52,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f09097d);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091c3d);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090984);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091ce1);
         }
     }
 
@@ -124,7 +124,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d07a6, viewGroup, false);
+            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d07c4, viewGroup, false);
             ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -137,10 +137,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return (a) invokeLI.objValue;
     }
 
-    public void g(List<List<y54>> list, boolean z, int i) {
+    public void g(List<List<n64>> list, boolean z, int i) {
         int max;
-        List<y54> list2;
-        List<y54> list3;
+        List<n64> list2;
+        List<n64> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.a.clear();
@@ -161,10 +161,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
             float f = d(z) ? 5.5f : 5.0f;
-            if (vf4.d()) {
+            if (kg4.d()) {
                 Context context = this.d;
-                if ((context instanceof Activity) && vf4.e((Activity) context)) {
-                    max = vf4.a((Activity) this.d);
+                if ((context instanceof Activity) && kg4.e((Activity) context)) {
+                    max = kg4.a((Activity) this.d);
                 }
             }
             this.c = (int) (max / f);

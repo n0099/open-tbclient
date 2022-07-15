@@ -1,76 +1,37 @@
 package com.repackage;
 
-import android.util.Base64InputStream;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class c29 extends Base64InputStream {
+public class c29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c29(InputStream inputStream, int i) {
-        super(inputStream, i);
+    public static void a(n29 n29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, n29Var) == null) || n29Var == null || n29Var.y()) {
+            return;
+        }
+        JSONArray n = n29Var.n();
+        int length = n.length();
+        boolean B = n29Var.B();
+        for (int i = 0; i < length; i++) {
+            try {
+                if (B != i19.o().e(n.getJSONObject(i).getString("id"))) {
+                    Log.w("UBCDebug", " data is " + B + "  content " + n29Var.u().toString());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        this.a = false;
-        this.b = false;
     }
 
-    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int read = super.read();
-            if (!this.a && read == 117) {
-                this.a = true;
-                return 31;
-            } else if (this.b || read != 123) {
-                return read;
-            } else {
-                this.b = true;
-                return 139;
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            int read = super.read(bArr, i, i2);
-            if (!this.a && read >= 2) {
-                bArr[i] = 31;
-                bArr[i + 1] = -117;
-                this.a = true;
-            }
-            return read;
-        }
-        return invokeLII.intValue;
     }
 }

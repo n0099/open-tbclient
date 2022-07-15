@@ -1,22 +1,18 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class w53 implements v53<JSONObject> {
+public final class w53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
+    public FrameLayout a;
 
     public w53() {
         Interceptable interceptable = $ic;
@@ -31,62 +27,39 @@ public class w53 implements v53<JSONObject> {
                 return;
             }
         }
-        this.b = new JSONArray();
+        this.a = null;
     }
 
-    public void a(String str, String str2) {
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (v53.a) {
-                    Log.d("LaunchTraceCollector", "event is empty");
-                    return;
-                }
-                return;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("actionId", str);
-                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("info", str2);
-                b(jSONObject);
-            } catch (JSONException e) {
-                if (v53.a) {
-                    Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
-                }
-            }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.b.put(jSONObject);
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603cb);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
     }
 
-    public void c() {
+    public void b(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = new JSONArray();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+            return;
         }
+        viewGroup.removeView(frameLayout);
+        this.a = null;
     }
 
-    public JSONObject d() {
-        InterceptResult invokeV;
+    public void c(int i) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("launchLog", this.b);
-            } catch (JSONException e) {
-                if (v53.a) {
-                    Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (frameLayout = this.a) == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
+        frameLayout.setVisibility(i);
     }
 }

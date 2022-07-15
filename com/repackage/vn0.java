@@ -1,9 +1,17 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.app.Application;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface vn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "net");
+public class vn0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    tn0 a();
+    public static void a(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
+            wb1.b(application);
+        }
+    }
 }

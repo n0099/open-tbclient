@@ -1,109 +1,106 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.Build;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class k88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
 
-    public k88() {
+    public static Bitmap a(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        float height;
+        float width;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0;
-    }
-
-    public void a(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z2) {
-                if (z) {
-                    this.e++;
-                } else {
-                    this.d++;
-                }
-            } else if (z) {
-                this.b++;
-            } else {
-                this.c++;
-            }
-        }
-    }
-
-    public int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z2 ? z ? this.e : this.d : z ? this.b : this.c : invokeCommon.intValue;
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("forum_name", this.a);
-                jSONObject.put("refresh_count", this.b);
-                jSONObject.put("loadmore_count", this.c);
-                jSONObject.put("loadmore_count_pb", this.d);
-                jSONObject.put("refresh_count_pb", this.e);
-                return jSONObject;
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
+            if (bitmap == null) {
                 return null;
             }
+            Matrix matrix = new Matrix();
+            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
+            if (i == 90) {
+                height = bitmap.getHeight();
+                width = 0.0f;
+            } else {
+                height = bitmap.getHeight();
+                width = bitmap.getWidth();
+            }
+            float[] fArr = new float[9];
+            matrix.getValues(fArr);
+            matrix.postTranslate(height - fArr[2], width - fArr[5]);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
+            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
+            return createBitmap;
         }
-        return (JSONObject) invokeV.objValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    public k88(JSONObject jSONObject) {
+    public static int b(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
+    }
+
+    public static final int c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Point d = d(context);
+            return d.x > d.y ? 1 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Point d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            Point point = new Point();
+            if (Build.VERSION.SDK_INT >= 13) {
+                defaultDisplay.getSize(point);
+            } else {
+                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
             }
+            return point;
         }
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0;
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("forum_name");
-            this.b = jSONObject.optInt("refresh_count");
-            this.c = jSONObject.optInt("loadmore_count");
-            this.d = jSONObject.optInt("loadmore_count_pb");
-            this.e = jSONObject.optInt("refresh_count_pb");
+        return (Point) invokeL.objValue;
+    }
+
+    public static Bitmap e(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+            Canvas canvas = new Canvas(createBitmap);
+            Paint paint = new Paint();
+            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
+            return createBitmap;
         }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public static int f(Context context, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) ? (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
     }
 }

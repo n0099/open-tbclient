@@ -1,167 +1,170 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.SimpleForum;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class rw8 {
+public class rw8 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public List<SimpleForum> b;
-    public String c;
-    public b d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public BdUniqueId i;
-    public za j;
+    public int a;
+    public a b;
+    public int c;
+    public LinearLayout d;
+    public Context e;
+    public int f;
 
     /* loaded from: classes7.dex */
-    public class a extends za {
+    public interface a {
+        void U0(int i);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rw8 a;
+        public int a;
+        public a b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rw8 rw8Var, int i, int i2) {
-            super(i, i2);
+        public b(int i, a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rw8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i), aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = rw8Var;
+            this.a = i;
+            this.b = aVar;
         }
 
-        @Override // com.repackage.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.b) == null) {
                 return;
             }
-            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
-            if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
-                    if (responsedMessage.hasError()) {
-                        if (this.a.d != null) {
-                            this.a.d.onError();
-                            return;
-                        }
-                        return;
-                    }
-                    if (z) {
-                        GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                        this.a.b = getRepostForumHttpResMessage.getForumList();
-                        this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
-                        this.a.g = getRepostForumHttpResMessage.getPrivateThread();
-                    }
-                    if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                        GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                        this.a.b = getRepostForumSocketResMessage.getForumList();
-                        this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
-                        this.a.g = getRepostForumSocketResMessage.getPrivateThread();
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(this.a.b, this.a.g);
-                    }
-                }
-            }
+            aVar.U0(this.a);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(List<SimpleForum> list, int i);
-
-        void onError();
-    }
-
-    public rw8(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rw8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.j = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.j);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.j.getSocketMessageListener().setSelfListener(true);
+        this.a = -1;
+        this.e = context;
+        b(context);
     }
 
-    public void h() {
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.e);
-            getRepostForumReqMessage.setThreadContent(this.f);
-            getRepostForumReqMessage.setForumId(this.h);
-            getRepostForumReqMessage.setTag(this.a);
-            getRepostForumReqMessage.setRequestId(this.i);
-            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            view2.setOnClickListener(new b(this.c, this.b));
+            this.d.addView(view2);
+            this.c++;
         }
     }
 
-    public void i(b bVar) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            ScrollView scrollView = new ScrollView(context);
+            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            LinearLayout linearLayout = new LinearLayout(context);
+            this.d = linearLayout;
+            linearLayout.setOrientation(1);
+            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            scrollView.addView(this.d);
+            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            scrollView.setPadding(0, 0, pi.d(context, 1.0f), pi.d(context, 1.0f));
+            scrollView.setFadingEdgeLength(0);
+            scrollView.setScrollbarFadingEnabled(false);
+            try {
+                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(scrollView, 2);
+            } catch (Exception unused) {
+            }
+            setContentView(scrollView);
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = this.a;
+            if (i2 != -1) {
+                this.d.getChildAt(i2).setSelected(false);
+            }
+            this.a = i;
+            this.d.getChildAt(i).setSelected(true);
         }
     }
 
-    public void k(String str) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public void l(String str) {
+    public void e(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
+            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+            int measuredWidth = getContentView().getMeasuredWidth();
+            if (measuredWidth < view2.getWidth()) {
+                measuredWidth = view2.getWidth();
+            }
+            int measuredHeight = getContentView().getMeasuredHeight();
+            int i3 = this.f;
+            if (measuredHeight > i3) {
+                measuredHeight = i3;
+            }
+            setWidth(measuredWidth);
+            setHeight(measuredHeight);
+            super.showAsDropDown(view2, i, i2);
         }
     }
 }

@@ -1,100 +1,158 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qz1;
 /* loaded from: classes7.dex */
-public class tz1 {
+public class tz1 extends nz1 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout F0;
+    public RelativeLayout G0;
 
-    /* loaded from: classes7.dex */
-    public static class a implements SwanAppNetworkUtils.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                tz1.b(this.a, i);
+    public tz1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(String str) {
+    public static tz1 V2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            SwanAppNetworkUtils.b(new a(str));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new tz1() : (tz1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.nz1
+    public boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.nz1
+    public void U1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            V1(view2);
+            t2(-1);
+            C2(-16777216);
+            v2(G(R.string.obfuscated_res_0x7f0f125c));
+            x2(true);
+            J2(false);
         }
     }
 
-    public static void b(String str, int i) {
+    public final void U2(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            c(str, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            d(str, str2, null);
-        }
-    }
-
-    public static void d(String str, String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            e(str, str2, str3, 0, 0, 0, 0L);
-        }
-    }
-
-    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            u63 u63Var = new u63();
-            u63Var.a = "swan";
-            u63Var.b = str;
-            u63Var.a("appid", rz2.K().getAppId());
-            u63Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
-            if (!TextUtils.isEmpty(str3)) {
-                u63Var.a("request", str3);
-                u63Var.a("request_total", String.valueOf(i));
-                u63Var.a("request_fail", String.valueOf(i2));
-                u63Var.a("request_slow", String.valueOf(i3));
-                u63Var.a("error_duration", String.valueOf(j));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091474);
+            this.F0 = relativeLayout;
+            relativeLayout.setOnClickListener(this);
+            if (oj2.y0().d() || !be3.G()) {
+                this.F0.setVisibility(8);
             }
-            u63Var.a("jserror", xz1.d().c() ? "1" : "0");
-            u63Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, sz1.b() ? "1" : "0");
-            l63.x("1619", u63Var);
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902dc);
+            this.G0 = relativeLayout2;
+            relativeLayout2.setOnClickListener(this);
         }
+    }
+
+    public final void W2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (nz1.E0) {
+                Log.d("SwanAppBaseFragment", "startSettingFragment");
+            }
+            qz1 M1 = M1();
+            if (M1 == null) {
+                zz2.f(getContext(), R.string.obfuscated_res_0x7f0f01a1).G();
+                return;
+            }
+            qz1.b i = M1.i("navigateTo");
+            i.n(qz1.g, qz1.i);
+            i.k("authority", null).a();
+            xp2.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+        }
+    }
+
+    @Override // com.repackage.nz1
+    public boolean c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.nz1
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.nz1
+    public void j2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091474) {
+                oj2.t0().a();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902dc) {
+                W2();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    @Nullable
+    public View x0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07cc, viewGroup, false);
+            U1(inflate);
+            U2(inflate);
+            if (T1()) {
+                inflate = W1(inflate);
+            }
+            return D1(inflate, this);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

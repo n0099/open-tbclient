@@ -1,74 +1,68 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.LinkedBlockingDeque;
+@SuppressLint({"MobilebdThread"})
 /* loaded from: classes6.dex */
-public class l24 {
+public final class l24 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedBlockingDeque<c24> a;
+    public volatile boolean b;
 
-    public static boolean a(View view2, yp2 yp2Var) {
-        InterceptResult invokeLL;
+    public l24() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, yp2Var)) == null) {
-            jh1 X = fl2.U().X();
-            return X != null && X.c(view2, yp2Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        this.a = new LinkedBlockingDeque<>(1024);
     }
 
-    public static Context b() {
+    public final LinkedBlockingDeque<c24> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            jh1 X = fl2.U().X();
-            if (X != null) {
-                return X.getContext();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (LinkedBlockingDeque) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    this.a.take().a();
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                }
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void c(re3 re3Var) {
-        jh1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, re3Var) == null) || (X = fl2.U().X()) == null) {
-            return;
-        }
-        X.e(re3Var);
-    }
-
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            jh1 X = fl2.U().X();
-            return X != null && X.removeView(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(re3 re3Var) {
-        jh1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, re3Var) == null) || (X = fl2.U().X()) == null) {
-            return;
-        }
-        X.f(re3Var);
-    }
-
-    public static boolean f(View view2, yp2 yp2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, yp2Var)) == null) {
-            jh1 X = fl2.U().X();
-            return X != null && X.a(view2, yp2Var);
-        }
-        return invokeLL.booleanValue;
     }
 }

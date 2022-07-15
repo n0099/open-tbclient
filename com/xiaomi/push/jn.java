@@ -13,7 +13,7 @@ public class jn extends jp {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ix f807a;
+    public ix f1534a;
 
     public jn(int i) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class jn extends jp {
                 return;
             }
         }
-        this.f807a = new ix(i);
+        this.f1534a = new ix(i);
     }
 
     @Override // com.xiaomi.push.jp
@@ -38,12 +38,12 @@ public class jn extends jp {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            byte[] m528a = this.f807a.m528a();
-            if (i2 > this.f807a.a() - this.a) {
-                i2 = this.f807a.a() - this.a;
+            byte[] m1471a = this.f1534a.m1471a();
+            if (i2 > this.f1534a.a() - this.a) {
+                i2 = this.f1534a.a() - this.a;
             }
             if (i2 > 0) {
-                System.arraycopy(m528a, this.a, bArr, i, i2);
+                System.arraycopy(m1471a, this.a, bArr, i, i2);
                 this.a += i2;
             }
             return i2;
@@ -55,13 +55,13 @@ public class jn extends jp {
     public void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) {
-            this.f807a.write(bArr, i, i2);
+            this.f1534a.write(bArr, i, i2);
         }
     }
 
     public int a_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f807a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1534a.size() : invokeV.intValue;
     }
 }

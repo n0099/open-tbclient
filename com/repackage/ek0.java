@@ -1,146 +1,116 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.util.NetUtil;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ek0 {
     public static /* synthetic */ Interceptable $ic;
+    public static gk0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public int c;
-    public BroadcastReceiver d;
-    public bk0 e;
 
-    /* loaded from: classes5.dex */
-    public class a implements ik0 {
+    /* loaded from: classes6.dex */
+    public static class a implements gk0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ek0 a;
 
-        /* renamed from: com.repackage.ek0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0418a extends BroadcastReceiver {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a this$1;
-
-            public C0418a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = aVar;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && NetUtil.a(bh0.b())) {
-                    dk0.c().b();
-                    try {
-                        bh0.b().unregisterReceiver(this);
-                    } catch (Exception unused) {
-                    }
-                    this.this$1.a.d = null;
-                }
-            }
-        }
-
-        public a(ek0 ek0Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ek0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ek0Var;
         }
 
-        @Override // com.repackage.ik0
-        public void a(ADConfigError aDConfigError) {
+        @Override // com.repackage.gk0
+        public <T extends fk0> void a(@Nullable T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) || this.a.e == null || this.a.e.i() || aDConfigError == null || TextUtils.isEmpty(aDConfigError.reason)) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
             }
-            if (!NetUtil.a(bh0.b())) {
-                if (this.a.d == null) {
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0418a(this);
-                    bh0.b().registerReceiver(this.a.d, intentFilter);
-                    return;
-                }
-                return;
+        }
+
+        @Override // com.repackage.gk0
+        public <T extends fk0> void b(@NonNull Object obj, @NonNull ik0<T> ik0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, ik0Var) == null) {
             }
-            dk0.c().b();
+        }
+
+        @Override // com.repackage.gk0
+        public <T extends fk0> void c(@NonNull Object obj, int i, @NonNull ik0<T> ik0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, ik0Var) == null) {
+                b(obj, ik0Var);
+            }
+        }
+
+        @Override // com.repackage.gk0
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            }
         }
     }
 
-    public ek0(int i, int i2, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755734873, "Lcom/repackage/ek0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755734873, "Lcom/repackage/ek0;");
+        }
+    }
+
+    public ek0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = i;
-        this.c = i2;
-        this.b = z;
     }
 
-    public void d() {
-        bk0 bk0Var;
+    public static gk0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bk0Var = this.e) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (ek0.class) {
+                    if (a == null) {
+                        a = (gk0) ServiceManager.getService(gk0.a);
+                    }
+                    if (a == null) {
+                        a = new a();
+                    }
+                }
+            }
+            return a;
         }
-        bk0Var.l(null);
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bk0 bk0Var = new bk0(this.a, this.b, this.c);
-            this.e = bk0Var;
-            bk0Var.l(new a(this));
-            ty0.c(this.e, "adc_async_request", 0);
-        }
+        return (gk0) invokeV.objValue;
     }
 }

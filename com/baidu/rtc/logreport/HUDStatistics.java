@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.ReturnKeyType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -561,7 +560,7 @@ public class HUDStatistics {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, statsReportArr) == null) {
             for (StatsReport statsReport : statsReportArr) {
-                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains(ReturnKeyType.SEND)) {
+                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("send")) {
                     Map<String, String> reportMap2 = getReportMap(statsReport);
                     String str = reportMap2.get("googTrackId");
                     if (str != null && str.contains(PeerConnectionClient.VIDEO_TRACK_ID)) {

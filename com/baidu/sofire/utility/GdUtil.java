@@ -634,7 +634,7 @@ public class GdUtil {
     private boolean hasReadImeiPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? checkSelfPermission("android.permission.READ_PHONE_STATE") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? checkSelfPermission(PermissionChecker.READ_PHONE_STATE) : invokeV.booleanValue;
     }
 
     public static String imeiCheck(String str) {

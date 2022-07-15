@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af5;
+import com.repackage.dg5;
 /* loaded from: classes3.dex */
 public class ObservedChangeRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public af5 a;
+    public dg5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeRelativeLayout(Context context) {
@@ -36,10 +36,10 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public af5 getOnSizeChangeListener() {
+    public dg5 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (af5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (dg5) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -47,9 +47,9 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            af5 af5Var = this.a;
-            if (af5Var != null) {
-                af5Var.a(this, i, i2, i3, i4);
+            dg5 dg5Var = this.a;
+            if (dg5Var != null) {
+                dg5Var.a(this, i, i2, i3, i4);
             }
         }
     }
@@ -62,10 +62,10 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void setOnSizeChangeListener(af5 af5Var) {
+    public void setOnSizeChangeListener(dg5 dg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, af5Var) == null) {
-            this.a = af5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dg5Var) == null) {
+            this.a = dg5Var;
         }
     }
 

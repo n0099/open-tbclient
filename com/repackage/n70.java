@@ -1,46 +1,25 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
+import com.repackage.y60;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n70 {
+public class n70 extends k70 {
     public static /* synthetic */ Interceptable $ic;
-    public static n70 c;
-    public static final int d;
-    public static final int e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public Context b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755516726, "Lcom/repackage/n70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755516726, "Lcom/repackage/n70;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        d = availableProcessors;
-        e = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f = (d * 2) + 1;
-    }
+    public y60.d b;
 
     public n70(Context context) {
         Interceptable interceptable = $ic;
@@ -48,49 +27,117 @@ public class n70 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(e, f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        Executors.newSingleThreadExecutor();
+        this.b = null;
+        this.a = context;
     }
 
-    public static n70 a(Context context) {
-        InterceptResult invokeL;
+    public void a(y60.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (c == null) {
-                synchronized (n70.class) {
-                    if (c == null) {
-                        c = new n70(context);
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.b = dVar;
         }
-        return (n70) invokeL.objValue;
     }
 
-    public void b(Runnable runnable) {
+    @Override // com.repackage.m70.b
+    public Map<String, String> getHeaders() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Host", IMHttpDnsUrlRequest.HTTP_DNS_HOST);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m70.b
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? IMHttpDnsUrlRequest.HTTP_DNS_URL : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m70.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.k70, com.repackage.m70.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m70.b
+    public byte[] getRequestParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ("type=ipv4,ipv6&dn=" + c70.S(this.a).x).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m70.d
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            t70.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
+            y60.f(true);
+            y60.c(this.a).b(c70.S(this.a).x, this.b);
+        }
+    }
+
+    @Override // com.repackage.m70.d
+    public void onSuccess(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            String str = new String(bArr);
+            t70.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + c70.S(this.a).x + " is " + str);
             try {
-                this.a.submit(runnable);
-            } catch (Throwable th) {
-                s70.c("TaskManager", "Exception ", th);
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(c70.S(this.a).x);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+                int length2 = optJSONArray == null ? 0 : optJSONArray.length();
+                if (length2 + length > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && length2 > 0) {
+                        arrayList.add(optJSONArray.getString(0));
+                    }
+                    if (optJSONArray2 != null && length > 0) {
+                        arrayList.add(optJSONArray2.getString(0));
+                    }
+                    y60.j(arrayList);
+                    if (this.b == null || y60.c.size() <= 0) {
+                        return;
+                    }
+                    this.b.a(0, "ok", y60.c.get(0));
+                    if (y60.c.size() > 1) {
+                        y60.d++;
+                        return;
+                    }
+                    return;
+                }
+                t70.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
+                y60.f(true);
+                y60.c(this.a).b(c70.S(this.a).x, this.b);
+            } catch (Exception e) {
+                t70.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
+                y60.f(true);
+                y60.c(this.a).b(c70.S(this.a).x, this.b);
             }
         }
     }

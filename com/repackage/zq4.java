@@ -1,73 +1,25 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import org.json.JSONObject;
+import tbclient.FrsPage.Yule;
 /* loaded from: classes7.dex */
-public class zq4 extends BaseAdapter {
+public class zq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ar4> a;
-    public TbPageContext<?> b;
-    public boolean c;
+    public int a;
+    public yq4 b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(zq4 zq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(zq4 zq4Var, a aVar) {
-            this(zq4Var);
-        }
-    }
-
-    public zq4(TbPageContext<?> tbPageContext) {
+    public zq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,102 +29,41 @@ public class zq4 extends BaseAdapter {
                 return;
             }
         }
-        this.c = false;
-        this.b = tbPageContext;
-        this.a = new ArrayList<>();
+        this.a = 0;
+        this.b = new yq4();
     }
 
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList<ar4> arrayList = this.a;
-            return arrayList != null && i == arrayList.size() - 1;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void c(ArrayList<ar4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a != 0 : invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public yq4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a.get(i) : invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (yq4) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            ar4 ar4Var = this.a.get(i);
-            if (ar4Var == null) {
-                return null;
-            }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0229, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3b);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f1e);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905e6);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            bVar.a.setText(ar4Var.c());
-            if (StringUtils.isNull(ar4Var.a())) {
-                bVar.b.setVisibility(8);
-            } else {
-                bVar.b.setText(ar4Var.a());
-                bVar.b.setVisibility(0);
-            }
-            if (ar4Var.d()) {
-                bVar.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807f6, WebPManager.ResourceStateType.NORMAL));
-                bVar.c.setVisibility(0);
-            } else if (this.c) {
-                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809b1, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
-                bVar.c.setVisibility(0);
-            } else {
-                bVar.c.setVisibility(4);
-            }
-            if (a(i)) {
-                SkinManager.setBackgroundResource(view2, R.drawable.dialog_single_button_bg_selector);
-            } else {
-                SkinManager.setBackgroundResource(view2, R.drawable.dialg_alert_btn_bg);
-            }
-            view2.setTag(bVar);
-            this.b.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.b.getLayoutMode().j(view2);
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (View) invokeILL.objValue;
+        try {
+            this.a = jSONObject.optInt("activity_show");
+            this.b.d(jSONObject.optJSONObject("yule_activity"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void d(Yule yule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yule) == null) || yule == null) {
+            return;
+        }
+        this.a = yule.activity_show.intValue();
+        this.b.e(yule.yule_activity);
     }
 }

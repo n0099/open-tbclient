@@ -1,31 +1,36 @@
 package com.repackage;
 
-import android.view.KeyEvent;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sd2;
-/* loaded from: classes6.dex */
-public class qd2 extends nd2<sd2> {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class qd2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sd2.f h;
 
-    /* loaded from: classes6.dex */
-    public class a implements sd2.f {
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qd2 a;
+        public final /* synthetic */ String a;
 
-        public a(qd2 qd2Var) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qd2Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,71 +40,176 @@ public class qd2 extends nd2<sd2> {
                     return;
                 }
             }
-            this.a = qd2Var;
+            this.a = str;
         }
 
-        @Override // com.repackage.sd2.f
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                v83.a().putString("swan_guide_toast", this.a);
             }
-            this.a.b.onCallback(this.a, "onCustomKeyboardHide", null);
-        }
-
-        @Override // com.repackage.sd2.f
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "onCustomKeyboardShow", Integer.valueOf(i));
-        }
-
-        @Override // com.repackage.sd2.f
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "committext", str);
-        }
-
-        @Override // com.repackage.sd2.f
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "deletebutton", new KeyEvent(0, 67));
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd2(@NonNull sd2 sd2Var) {
-        super(sd2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sd2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((pd2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755384046, "Lcom/repackage/qd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755384046, "Lcom/repackage/qd2;");
                 return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        sd2Var.D0(aVar);
-        this.a.a(new xd2());
-        this.a.a(new td2());
-        this.a.a(new wd2());
-        this.a.a(new vd2());
-        this.a.a(new ud2());
+        a = rg1.a;
+    }
+
+    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, jSONObject, jSONObject2) == null) || jSONObject == null || jSONObject2 == null) {
+            return;
+        }
+        try {
+            if (!TextUtils.equals(jSONObject.optString("bbasp_guide_reset", "0"), jSONObject2.optString("bbasp_guide_reset", "-1"))) {
+                jSONObject.put("bbasp_guide_shown_count", "0");
+                jSONObject.put("bbasp_guide_last_time", "0");
+                jSONObject.put("bbasp_guide_image_index", "0");
+            } else {
+                jSONObject.put("bbasp_guide_shown_count", jSONObject2.optString("bbasp_guide_shown_count", "0"));
+                jSONObject.put("bbasp_guide_last_time", jSONObject2.optString("bbasp_guide_last_time", "0"));
+            }
+            if (!TextUtils.equals(jSONObject.optString("bbaspg_guide_reset", "0"), jSONObject2.optString("bbaspg_guide_reset", "-1"))) {
+                jSONObject.put("bbaspg_guide_shown_count", "0");
+                jSONObject.put("bbaspg_guide_last_time", "0");
+                jSONObject.put("bbaspg_guide_image_index", "0");
+                return;
+            }
+            jSONObject.put("bbaspg_guide_shown_count", jSONObject2.optString("bbaspg_guide_shown_count", "0"));
+            jSONObject.put("bbaspg_guide_last_time", jSONObject2.optString("bbaspg_guide_last_time", "0"));
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void b(JSONObject jSONObject, JSONObject jSONObject2) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, jSONObject2) == null) || jSONObject == null || jSONObject2 == null || (optJSONArray = jSONObject2.optJSONArray("custom_guide_list")) == null || optJSONArray.length() <= 0 || (optJSONArray2 = jSONObject.optJSONArray("custom_guide_list")) == null || optJSONArray2.length() <= 0) {
+            return;
+        }
+        int length = optJSONArray2.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i);
+            String optString = optJSONObject.optString("appid", "");
+            String optString2 = optJSONObject.optString("reset", "0");
+            int length2 = optJSONArray.length();
+            int i2 = 0;
+            while (true) {
+                if (i2 < length2) {
+                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
+                    String optString3 = optJSONObject2.optString("appid", "-1");
+                    String optString4 = optJSONObject2.optString("reset", "0");
+                    if (TextUtils.equals(optString3, optString)) {
+                        try {
+                            if (!TextUtils.equals(optString4, optString2)) {
+                                optJSONObject.put("shown_count", "0");
+                                optJSONObject.put("last_time", "0");
+                                optJSONObject.put("image_index", "0");
+                            } else {
+                                optJSONObject.put("shown_count", jSONObject2.optString("shown_count", "0"));
+                                optJSONObject.put("last_time", jSONObject2.optString("last_time", "0"));
+                                optJSONObject.put("image_index", jSONObject2.optString("image_index", "0"));
+                            }
+                        } catch (JSONException e) {
+                            if (a) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } else {
+                        i2++;
+                    }
+                }
+            }
+        }
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "guide_pull_toast" : (String) invokeV.objValue;
+    }
+
+    public static JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String string = v83.a().getString("swan_guide_toast", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                return new JSONObject(string);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String string = v83.a().getString("guide_toast_version", "0");
+            if (a) {
+                Log.d("SwanAppGuideToast", "version = " + string);
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) {
+            if (a) {
+                Log.d("SwanAppGuideToast", "processGuide guideObject = " + jSONObject);
+            }
+            if (jSONObject == null) {
+                return;
+            }
+            String optString = jSONObject.optString("version");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null || TextUtils.equals(e(), optString)) {
+                return;
+            }
+            JSONObject d = d();
+            if (d == null) {
+                g(optJSONObject.toString());
+                return;
+            }
+            a(optJSONObject, d);
+            b(optJSONObject, d);
+            g(optJSONObject.toString());
+            v83.a().putString("guide_toast_version", optString);
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        bd3.k(new a(str), "swanGuideUpdateRunnable");
     }
 }

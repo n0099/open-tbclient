@@ -1,97 +1,56 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.kwad.sdk.utils.j;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.text.TextUtils;
+import com.kwad.sdk.core.request.model.StatusInfo;
+import com.kwad.sdk.internal.api.SceneImpl;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b {
-    public static volatile b e;
-    public j a;
-    public List<WeakReference<j.a>> b = new ArrayList();
-    public boolean c = false;
-    public boolean d = false;
-
-    public b(@NonNull Context context) {
-        b(context);
-    }
-
-    public static b a(@NonNull Context context) {
-        if (e == null) {
-            synchronized (b.class) {
-                if (e == null) {
-                    e = new b(context.getApplicationContext());
-                }
-            }
+public final class b {
+    public static int a() {
+        String c = as.c();
+        if (TextUtils.isEmpty(c)) {
+            return 0;
         }
-        return e;
-    }
-
-    private void b(Context context) {
-        this.c = false;
-        j jVar = new j(context);
-        this.a = jVar;
-        jVar.a(new j.a() { // from class: com.kwad.sdk.utils.b.1
-            @Override // com.kwad.sdk.utils.j.a
-            public void a() {
-                j.a aVar;
-                Iterator it = b.this.b.iterator();
-                while (it.hasNext()) {
-                    WeakReference weakReference = (WeakReference) it.next();
-                    if (weakReference == null || (aVar = (j.a) weakReference.get()) == null) {
-                        it.remove();
-                    } else {
-                        aVar.a();
-                    }
-                }
-                b.this.d = true;
+        try {
+            JSONObject jSONObject = new JSONObject(c);
+            int optInt = jSONObject.optInt("currentDailyCount");
+            if (a(jSONObject.optLong("lastShowTimestamp"), System.currentTimeMillis())) {
+                return optInt;
             }
-
-            @Override // com.kwad.sdk.utils.j.a
-            public void b() {
-                j.a aVar;
-                Iterator it = b.this.b.iterator();
-                while (it.hasNext()) {
-                    WeakReference weakReference = (WeakReference) it.next();
-                    if (weakReference == null || (aVar = (j.a) weakReference.get()) == null) {
-                        it.remove();
-                    } else {
-                        aVar.b();
-                    }
-                }
-            }
-        });
-    }
-
-    public void a(j.a aVar) {
-        this.b.add(new WeakReference<>(aVar));
-    }
-
-    public void a(boolean z) {
-        if (this.a == null) {
-            return;
-        }
-        if (z || !this.c) {
-            this.a.a();
-            this.c = true;
-            this.d = false;
+            return 0;
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.b(e);
+            return 0;
         }
     }
 
-    public boolean a() {
-        return this.d;
+    public static StatusInfo.SplashStyleControl a(SceneImpl sceneImpl) {
+        StatusInfo.SplashStyleControl splashStyleControl = new StatusInfo.SplashStyleControl();
+        if (sceneImpl != null && b(sceneImpl)) {
+            com.kwad.sdk.internal.api.b bVar = sceneImpl.splashExtraData;
+            splashStyleControl.disableShake = bVar.a;
+            splashStyleControl.disableRotate = bVar.b;
+            splashStyleControl.disableSlide = bVar.c;
+            return splashStyleControl;
+        }
+        return null;
     }
 
-    public void b(j.a aVar) {
-        Iterator<WeakReference<j.a>> it = this.b.iterator();
-        while (it.hasNext()) {
-            WeakReference<j.a> next = it.next();
-            if (next == null || next.get() == aVar) {
-                it.remove();
+    public static boolean a(long j, long j2) {
+        if (j > 0 && j2 > 0) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                return simpleDateFormat.format(new Date(j)).equals(simpleDateFormat.format(new Date(j2)));
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.b.b(e);
             }
         }
+        return false;
+    }
+
+    public static boolean b(SceneImpl sceneImpl) {
+        return sceneImpl.splashExtraData != null;
     }
 }

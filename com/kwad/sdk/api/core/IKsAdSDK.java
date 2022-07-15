@@ -1,9 +1,11 @@
 package com.kwad.sdk.api.core;
 
 import android.content.Context;
+import androidx.annotation.ColorInt;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.api.proxy.IComponentProxy;
@@ -15,6 +17,9 @@ import org.json.JSONObject;
 public interface IKsAdSDK {
     @Keep
     void addHp(@NonNull Map<String, String> map);
+
+    @Keep
+    Object dM(String str, Object... objArr);
 
     @KsAdSdkDynamicApi
     @Keep
@@ -114,6 +119,10 @@ public interface IKsAdSDK {
     @Keep
     void sR(String str, Map<String, String> map, String str2);
 
+    @KsAdSdkApi
+    @Keep
+    void setAdxEnable(boolean z);
+
     @KsAdSdkDynamicApi
     @Keep
     void setApiVersion(String str);
@@ -129,6 +138,18 @@ public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep
     void setIsExternal(boolean z);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setLaunchTime(long j);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setLoadingLottieAnimation(boolean z, @RawRes int i);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setLoadingLottieAnimationColor(boolean z, @ColorInt int i);
 
     @KsAdSdkDynamicApi
     @Keep

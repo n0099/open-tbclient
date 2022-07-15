@@ -1,92 +1,75 @@
 package com.repackage;
 
-import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pm5 extends p13 {
+public class pm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm5(p03 p03Var) {
-        super(p03Var, "/swan/publishThread");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ml5.a(optString2, "", "", 0)));
-                    return true;
-                }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(oi.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    public static String a(String str, String str2, String str3, Integer num) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("tiebaclient://");
+            if (num.intValue() > 0) {
+                sb.append("swangame/");
+            } else {
+                sb.append("swan/");
+            }
+            sb.append(str);
+            if (!TextUtils.isEmpty(str2)) {
+                if (!str2.startsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append(str2);
+            } else {
+                sb.append("/");
+            }
+            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
+                sb.append("&");
+            } else {
+                if (!sb.toString().endsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append("?");
+            }
+            sb.append("_baiduboxapp=");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sb.append(URLEncoder.encode(jSONObject.toString()));
+            sb.append("&callback=_bdbox_js_275&upgrade=0");
+            return sb.toString();
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static final boolean b(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
+            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
             return true;
         }
         return invokeLLLL.booleanValue;

@@ -1,5 +1,6 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ms3 extends xr3 {
+public abstract class ms3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,44 +29,26 @@ public class ms3 extends xr3 {
                 return;
             }
         }
-        c = cg1.a;
+        b = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ms3() {
-        super("getSid");
+    public ms3(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.repackage.xr3
-    public sr1 a(JSONObject jSONObject, wc2 wc2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, wc2Var)) == null) {
-            String k = zi2.g0().k();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("sid", k);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-            }
-            wc2Var.a(jSONObject2);
-            return null;
-        }
-        return (sr1) invokeLL.objValue;
-    }
+    public abstract hs1 a(@NonNull JSONObject jSONObject, @NonNull ld2 ld2Var);
 }

@@ -1,132 +1,77 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.ForumToolPerm;
-/* loaded from: classes5.dex */
-public class ec6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ec6 extends an<mc6, CardViewHolder<rc6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static UserData a;
-    public static boolean b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public View.OnClickListener j;
 
-    public static UserData a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ec6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (UserData) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = tbPageContext;
     }
 
-    public static UserData b(FrsViewData frsViewData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public CardViewHolder<rc6> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
-            UserData userData = frsViewData != null ? frsViewData.getUserData() : null;
-            a = userData;
-            return userData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            rc6 rc6Var = new rc6(this.i);
+            rc6Var.t(this.j);
+            return new CardViewHolder<>(rc6Var);
         }
-        return (UserData) invokeL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, mc6 mc6Var, CardViewHolder<rc6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mc6Var, cardViewHolder})) == null) {
+            cardViewHolder.c().i(mc6Var);
+            return cardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
     }
 
-    public static boolean d(UserData userData) {
-        InterceptResult invokeL;
+    public void b0(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
-            if (userData == null) {
-                return false;
-            }
-            int is_manager = userData.getIs_manager();
-            return is_manager == 1 || is_manager == 2 || is_manager == 3 || is_manager == 4;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            UserData a2 = a();
-            return a2 != null && a2.getIs_manager() == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            UserData a2 = a();
-            return a2 != null && a2.getIs_manager() == 3;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        List<ForumToolPerm> forumToolAuth;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            UserData a2 = a();
-            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
-                for (int i = 0; i < forumToolAuth.size(); i++) {
-                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
-                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i(qw qwVar, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, qwVar, frsViewData) == null) || qwVar == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && (d(b(frsViewData)) || h())) {
-            qwVar.b(4);
-        } else {
-            qwVar.c(4);
-        }
-    }
-
-    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) == null) || threadCommentAndPraiseInfoLayout == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && d(b(frsViewData))) {
-            threadCommentAndPraiseInfoLayout.setManageVisible(true);
-        } else {
-            threadCommentAndPraiseInfoLayout.setManageVisible(false);
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.j = onClickListener;
         }
     }
 }

@@ -1,21 +1,33 @@
 package com.kwad.sdk.utils;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
-public class i {
-    public static volatile Executor a = com.kwad.sdk.core.i.b.n();
-    public static volatile ScheduledExecutorService b;
+public abstract class i<T> {
+    public boolean a;
+    public boolean b = false;
 
-    public static void a(Runnable runnable) {
-        a.execute(runnable);
+    public i(boolean z) {
+        this.a = z;
     }
 
-    public static void a(Runnable runnable, long j, TimeUnit timeUnit) {
-        if (b == null) {
-            b = com.kwad.sdk.core.i.b.o();
+    @Nullable
+    public final T a(Context context) {
+        if (this.a && !this.b) {
+            try {
+                return b(context);
+            } catch (Throwable th) {
+                com.kwad.sdk.core.d.b.b(th);
+                return null;
+            }
         }
-        b.schedule(runnable, j, timeUnit);
+        return null;
     }
+
+    public final void a(boolean z) {
+        this.a = z;
+    }
+
+    @Nullable
+    public abstract T b(Context context);
 }

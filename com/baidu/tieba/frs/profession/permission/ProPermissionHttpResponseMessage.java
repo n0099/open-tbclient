@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zl6;
+import com.repackage.wm6;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes3.dex */
-public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<zl6, ZoneRightResIdl> {
+public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<wm6, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,9 +50,9 @@ public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMe
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             try {
-                zl6 zl6Var = new zl6();
-                zl6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
-                setData(zl6Var);
+                wm6 wm6Var = new wm6();
+                wm6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
+                setData(wm6Var);
             } catch (IOException e) {
                 e.printStackTrace();
             }

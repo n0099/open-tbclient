@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gp4;
+import com.repackage.vp4;
 /* loaded from: classes3.dex */
 public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gp4 data;
+    public vp4 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseLocalPersonListMessage() {
@@ -32,20 +32,20 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setData(gp4 gp4Var) {
+    public void setData(vp4 vp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gp4Var) == null) {
-            this.data = gp4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vp4Var) == null) {
+            this.data = vp4Var;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.repackage.gp4' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.repackage.vp4' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (gp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (vp4) invokeV.objValue;
     }
 }

@@ -41,13 +41,13 @@ public class hj extends OutputStream {
         allocateDirect.clear();
     }
 
-    public Buffer a() {
+    public Buffer c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.clear() : (Buffer) invokeV.objValue;
     }
 
-    public synchronized void c() throws IOException {
+    public synchronized void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
@@ -57,7 +57,7 @@ public class hj extends OutputStream {
         }
     }
 
-    public synchronized void d(int i) {
+    public synchronized void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             synchronized (this) {
@@ -74,25 +74,25 @@ public class hj extends OutputStream {
         }
     }
 
-    public Buffer e() {
+    public Buffer g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.flip() : (Buffer) invokeV.objValue;
     }
 
-    public ByteBuffer f() {
+    public ByteBuffer j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ByteBuffer) invokeV.objValue;
     }
 
-    public int g() {
+    public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.remaining() : invokeV.intValue;
     }
 
-    public synchronized void h(String str) throws IOException {
+    public synchronized void l(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             synchronized (this) {
@@ -107,7 +107,7 @@ public class hj extends OutputStream {
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             synchronized (this) {
                 if (this.c.position() + 1 > this.c.capacity()) {
-                    d(this.c.capacity() + 1);
+                    f(this.c.capacity() + 1);
                 }
                 this.c.put((byte) i);
             }
@@ -120,7 +120,7 @@ public class hj extends OutputStream {
         if (interceptable == null || interceptable.invokeLII(1048585, this, bArr, i, i2) == null) {
             synchronized (this) {
                 if (this.c.position() + i2 > this.c.capacity()) {
-                    d(this.c.capacity() + i2);
+                    f(this.c.capacity() + i2);
                 }
                 this.c.put(bArr, i, i2);
             }

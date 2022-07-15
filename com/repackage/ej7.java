@@ -1,34 +1,38 @@
 package com.repackage;
 
-import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import tbclient.GetVipInfo.VipSpecialItem;
+/* loaded from: classes6.dex */
 public class ej7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TailData b;
 
-    public ej7(int i, TailData tailData) {
+    public ej7(VipSpecialItem vipSpecialItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), tailData};
+            Object[] objArr = {vipSpecialItem};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.a = i;
-        this.b = tailData;
+        String str = vipSpecialItem.title;
+        String str2 = vipSpecialItem.desc;
+        String str3 = vipSpecialItem.img_url;
+        String str4 = vipSpecialItem.link;
+        String str5 = vipSpecialItem.update_time;
+        vipSpecialItem.id.intValue();
+        vipSpecialItem.type.intValue();
+        vipSpecialItem.task_id.intValue();
+        vipSpecialItem.is_finish.intValue();
     }
 }

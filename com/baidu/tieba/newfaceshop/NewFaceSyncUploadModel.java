@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm7;
+import com.repackage.nn7;
 /* loaded from: classes3.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003350 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    vm7.w(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pkg_update_time")).longValue());
+                    nn7.w(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pkg_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -79,11 +79,22 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
+            httpMessage.addParam("package_ids", str);
+            httpMessage.addParam("pkg_update_time", currentTimeMillis);
+            sendMessage(httpMessage);
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -93,7 +104,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -101,21 +112,10 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/uploadPackage");
             tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
-            httpMessage.addParam("package_ids", str);
-            httpMessage.addParam("pkg_update_time", currentTimeMillis);
-            sendMessage(httpMessage);
         }
     }
 }

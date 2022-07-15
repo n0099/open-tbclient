@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mo6;
+import com.repackage.ap6;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +92,7 @@ public class AcceleratorData implements Serializable {
             }
             this.availableTornadoNodeInfoList = new ArrayList();
             for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
-                if (mo6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
+                if (ap6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
                     this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
                     this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
                 }

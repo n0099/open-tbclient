@@ -1,36 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class ol3 implements wk1 {
+public class ol3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nl3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ol3() {
+    public static synchronized nl3 a() {
+        InterceptResult invokeV;
+        nl3 nl3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ol3.class) {
+                if (a == null) {
+                    a = new nl3();
+                }
+                nl3Var = a;
             }
+            return nl3Var;
         }
-    }
-
-    @Override // com.repackage.wk1
-    public void a(String str, tp2 tp2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, tp2Var, context) == null) {
-            bs2.e().a(str, tp2Var, context);
-        }
+        return (nl3) invokeV.objValue;
     }
 }

@@ -1,159 +1,115 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.webkit.WebResourceResponse;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
+import android.util.Log;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface oh4 {
+public final class oh4 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final SparseArray<Integer> b;
+    public static final SparseArray<String> c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements oh4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final oh4 a;
-
-        public a(oh4 delegation) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755439722, "Lcom/repackage/oh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
-        }
-
-        @Override // com.repackage.oh4
-        public String a(String url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
-                Intrinsics.checkNotNullParameter(url, "url");
-                return this.a.a(url);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755439722, "Lcom/repackage/oh4;");
+                return;
             }
-            return (String) invokeL.objValue;
         }
-
-        @Override // com.repackage.oh4
-        public WebResourceResponse b(Uri url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
-                Intrinsics.checkNotNullParameter(url, "url");
-                return this.a.b(url);
-            }
-            return (WebResourceResponse) invokeL.objValue;
-        }
-
-        @Override // com.repackage.oh4
-        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
-                Intrinsics.checkNotNullParameter(transform, "transform");
-                return (Target) this.a.c(webResourceResponse, transform);
-            }
-            return (Target) invokeLL.objValue;
-        }
+        a = rg1.a;
+        SparseArray<Integer> sparseArray = new SparseArray<>(32);
+        b = sparseArray;
+        sparseArray.put(10015, 2001);
+        b.put(10013, 2002);
+        b.put(904, 2003);
+        b.put(10012, 2004);
+        b.put(10004, 2006);
+        b.put(701, 2007);
+        b.put(10005, 2008);
+        b.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
+        b.put(10007, -2301);
+        b.put(10008, 2101);
+        b.put(923, 2103);
+        b.put(10009, 2105);
+        b.put(10010, 2106);
+        b.put(10003, 2107);
+        b.put(10011, 2108);
+        b.put(10014, 3001);
+        b.put(3002, 3002);
+        b.put(3003, 3003);
+        b.put(3004, 3005);
+        SparseArray<String> sparseArray2 = new SparseArray<>();
+        c = sparseArray2;
+        sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
+        c.put(10014, "MEDIA_ERR_NETWORK");
+        c.put(3002, "MEDIA_ERR_NETWORK");
+        c.put(3003, "MEDIA_ERR_NETWORK");
+        c.put(3004, "MEDIA_ERR_NETWORK");
+        c.put(-2022, "MEDIA_ERR_NETWORK");
+        c.put(-111, "MEDIA_ERR_NETWORK");
+        c.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Inject
-        public bb1<oh4> a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            b();
-        }
-
-        public final bb1<oh4> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                bb1<oh4> bb1Var = this.a;
-                if (bb1Var == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("impl");
-                }
-                return bb1Var;
-            }
-            return (bb1) invokeV.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                za1 b = za1.b();
-                this.a = b;
-                b.a(new ph4());
-            }
-        }
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED") : (String) invokeI.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static class c extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Illegal instructions before constructor call */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public c(b ioc) {
-            super(r7);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ioc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((oh4) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (b.indexOfKey(i) < 0) {
+                if (a) {
+                    Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
+                    return 100;
                 }
+                return 100;
             }
-            Intrinsics.checkNotNullParameter(ioc, "ioc");
-            oh4 oh4Var = ioc.a().get();
-            Intrinsics.checkNotNullExpressionValue(oh4Var, "ioc.impl.get()");
+            return b.get(i).intValue();
         }
+        return invokeI.intValue;
     }
 
-    String a(String str);
+    public static JSONObject c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? d(StatConstants.KEY_EXT_ERR_MSG, a(i)) : (JSONObject) invokeI.objValue;
+    }
 
-    WebResourceResponse b(Uri uri);
-
-    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
+    public static JSONObject d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (obj instanceof Integer) {
+                    jSONObject.put(str, ((Integer) obj).intValue());
+                } else if (obj instanceof String) {
+                    jSONObject.put(str, obj);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
 }

@@ -95,7 +95,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         statisticsData.mSize = qfVar.b;
         statisticsData.mTime = qfVar.f;
         statisticsData.mTimesNum = qfVar.e;
-        statisticsData.mMethod = rfVar.b().j() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
+        statisticsData.mMethod = rfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }
 

@@ -81,7 +81,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.a;
             if (pipedInputStreamAndroid25 != null) {
-                pipedInputStreamAndroid25.f(i);
+                pipedInputStreamAndroid25.h(i);
                 return;
             }
             throw new IOException("Pipe not connected");
@@ -104,7 +104,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
                 if (i2 == 0) {
                     return;
                 }
-                pipedInputStreamAndroid25.g(bArr, i, i2);
+                pipedInputStreamAndroid25.i(bArr, i, i2);
                 return;
             }
             throw null;

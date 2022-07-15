@@ -1,39 +1,50 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.IBinder;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.style.AbsoluteSizeSpan;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+import kotlin.text.StringsKt__StringsKt;
+@JvmName(name = "PrivacyPolicyDialogUtil")
 /* loaded from: classes7.dex */
-public class rj5 {
+public final class rj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements View.OnClickListener {
+    public static final class a extends qj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ Activity b;
+        public final /* synthetic */ Context a;
 
-        public a(AlertDialog alertDialog, Activity activity) {
+        public a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, activity};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,102 +54,176 @@ public class rj5 {
                     return;
                 }
             }
-            this.a = alertDialog;
-            this.b = activity;
+            this.a = context;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View widget) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rj5.a(this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+                Intrinsics.checkNotNullParameter(widget, "widget");
+                rl4.l(this.a, "https://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
             }
         }
     }
 
-    public static final boolean a(Dialog dialog, Activity activity) {
+    /* loaded from: classes7.dex */
+    public static final class b extends qj5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public b(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View widget) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+                Intrinsics.checkNotNullParameter(widget, "widget");
+                rl4.l(this.a, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+            }
+        }
+    }
+
+    public static final cr4 a(TbPageContext<?> tbPageContext, View.OnClickListener listener, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65536, null, tbPageContext, listener, i, i2)) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0706, (ViewGroup) null);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bc);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f10e6);
+            ur4 d = ur4.d(eMTextView);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X05);
+            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ae);
+            eMTextView2.setHighlightColor(0);
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = tbPageContext.getString(i);
+            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ee9), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14f7)}, 2));
+            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+            Activity pageActivity = tbPageContext.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
+            SpannableString d2 = d(pageActivity, format);
+            eMTextView2.setMovementMethod(LinkMovementMethod.getInstance());
+            eMTextView2.setText(d2);
+            ur4.d(eMTextView2).z(R.dimen.T_X07);
+            EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ea);
+            eMTextView3.setText(i2);
+            ur4.d(eMTextView3).z(R.dimen.T_X08);
+            eMTextView3.setOnClickListener(listener);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092548);
+            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10da));
+            tBSpecificationBtn.setTextSize(R.dimen.T_X07);
+            uu4 uu4Var = new uu4();
+            uu4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
+            tBSpecificationBtn.setConfig(uu4Var);
+            tBSpecificationBtn.setOnClickListener(listener);
+            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+            cr4Var.setContentView(inflate);
+            cr4Var.setContentViewSize(8);
+            cr4Var.setAutoNight(false);
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.setCancelable(false);
+            cr4Var.create(tbPageContext);
+            return cr4Var;
+        }
+        return (cr4) invokeLLII.objValue;
+    }
+
+    public static final cr4 b(TbPageContext<?> tbPageContext, View.OnClickListener listener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, listener)) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0707, (ViewGroup) null);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09199e)).setText(R.string.obfuscated_res_0x7f0f10e6);
+            inflate.findViewById(R.id.obfuscated_res_0x7f0919e2).setVisibility(0);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919e3);
+            textView.setHighlightColor(0);
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e5);
+            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(…tring.secret_hint_format)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e4), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e9), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10dd), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10de), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10df), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e0), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e1)}, 7));
+            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+            Activity pageActivity = tbPageContext.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
+            SpannableString d = d(pageActivity, format);
+            Matcher matcher = Pattern.compile("\n\n").matcher(format);
+            while (matcher.find()) {
+                d.setSpan(new AbsoluteSizeSpan(2, true), matcher.start() + 1, matcher.end(), 33);
             }
-            dialog.dismiss();
-            return true;
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            textView.setText(d);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09199a);
+            textView2.setOnClickListener(listener);
+            SkinManager.setViewTextColorSelector(textView2, R.color.CAM_X0110, R.color.CAM_X0110, 0);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09199f);
+            textView3.setOnClickListener(listener);
+            ur4 d2 = ur4.d(textView3);
+            d2.n(R.string.J_X01);
+            d2.f(R.color.CAM_X0303);
+            SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
+            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+            cr4Var.setContentView(inflate);
+            cr4Var.setContentViewSize(7);
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.setAutoNight(false);
+            cr4Var.setCancelable(false);
+            cr4Var.create(tbPageContext);
+            return cr4Var;
         }
-        return invokeLL.booleanValue;
+        return (cr4) invokeLL.objValue;
     }
 
-    public static final boolean b(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
+    public static final int[] c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 == null || (windowToken = view2.getWindowToken()) == null) {
-                return false;
-            }
-            try {
-                if (windowToken.isBinderAlive()) {
-                    return windowToken.pingBinder();
-                }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            String string = TbadkCoreApplication.getInst().getString(i);
+            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(patternTextResId)");
+            int[] iArr = {StringsKt__StringsKt.indexOf$default((CharSequence) str, string, 0, false, 6, (Object) null), iArr[0] + string.length()};
+            return iArr;
         }
-        return invokeL.booleanValue;
+        return (int[]) invokeLI.objValue;
     }
 
-    public static final boolean c(Dialog dialog, Activity activity) {
+    public static final SpannableString d(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            int[] c = c(str, R.string.obfuscated_res_0x7f0f0ee9);
+            if (c[0] != -1) {
+                spannableString.setSpan(new a(context), c[0], c[1], 18);
             }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14f7);
+            if (c2[0] != -1) {
+                spannableString.setSpan(new b(context), c2[0], c2[1], 18);
             }
-            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return false;
+            return spannableString;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static Dialog d(@NonNull qj5 qj5Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, qj5Var, view2, activity, onDismissListener, onShowListener)) == null) {
-            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100104).create();
-            create.setCanceledOnTouchOutside(true);
-            create.setOnDismissListener(onDismissListener);
-            create.setOnShowListener(onShowListener);
-            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
-            downloadRectifyView.a(qj5Var);
-            downloadRectifyView.setDownloadView(view2);
-            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
-            c(create, activity);
-            Window window = create.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(downloadRectifyView);
-            }
-            return create;
-        }
-        return (Dialog) invokeLLLLL.objValue;
+        return (SpannableString) invokeLL.objValue;
     }
 }

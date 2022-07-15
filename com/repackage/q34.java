@@ -1,25 +1,35 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String url;
+    public volatile float height;
+    @V8JavascriptField
+    public volatile float left;
+    @V8JavascriptField
+    public volatile float top;
+    @V8JavascriptField
+    public volatile float width;
 
-    public q34(String str) {
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
+
+    public q34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,15 +39,36 @@ public class q34 {
                 return;
             }
         }
-        this.url = str;
+        Resources resources = oj2.c() != null ? oj2.c().getResources() : null;
+        this.left = a(resources, R.dimen.obfuscated_res_0x7f070719);
+        this.top = a(resources, R.dimen.obfuscated_res_0x7f07071a);
+        this.width = a(resources, R.dimen.obfuscated_res_0x7f07071b);
+        this.height = a(resources, R.dimen.obfuscated_res_0x7f070718);
     }
 
-    @NonNull
+    public final float a(Resources resources, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
+            if (resources == null || i == 0) {
+                return 0.0f;
+            }
+            return w24.b(resources.getDimension(i));
+        }
+        return invokeLI.floatValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        }
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GameWebViewCommonResult{url='" + this.url + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
         }
         return (String) invokeV.objValue;
     }

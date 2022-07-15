@@ -22,10 +22,10 @@ public class ba {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f913a;
+    public SharedPreferences f1640a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashSet<a> f914a;
+    public HashSet<a> f1641a;
     public SharedPreferences b;
 
     /* loaded from: classes8.dex */
@@ -92,8 +92,8 @@ public class ba {
                 return;
             }
         }
-        this.f914a = new HashSet<>();
-        this.f913a = context.getSharedPreferences("mipush_oc_normal", 0);
+        this.f1641a = new HashSet<>();
+        this.f1640a = context.getSharedPreferences("mipush_oc_normal", 0);
         this.b = context.getSharedPreferences("mipush_oc_custom", 0);
     }
 
@@ -159,9 +159,9 @@ public class ba {
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             try {
                 String a2 = a(i);
-                return this.b.contains(a2) ? this.b.getInt(a2, 0) : this.f913a.contains(a2) ? this.f913a.getInt(a2, 0) : i2;
+                return this.b.contains(a2) ? this.b.getInt(a2, 0) : this.f1640a.contains(a2) ? this.f1640a.getInt(a2, 0) : i2;
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(i + " oc int error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a(i + " oc int error " + e);
                 return i2;
             }
         }
@@ -173,9 +173,9 @@ public class ba {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hpVar, i)) == null) {
             try {
-                return this.f913a.getInt(a(hpVar), i);
+                return this.f1640a.getInt(a(hpVar), i);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(hpVar + " version error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a(hpVar + " version error " + e);
                 return i;
             }
         }
@@ -188,9 +188,9 @@ public class ba {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             try {
                 String a2 = a(i);
-                return this.b.contains(a2) ? this.b.getLong(a2, 0L) : this.f913a.contains(a2) ? this.f913a.getLong(a2, 0L) : j;
+                return this.b.contains(a2) ? this.b.getLong(a2, 0L) : this.f1640a.contains(a2) ? this.f1640a.getLong(a2, 0L) : j;
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(i + " oc long error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a(i + " oc long error " + e);
                 return j;
             }
         }
@@ -203,9 +203,9 @@ public class ba {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
             try {
                 String a2 = a(i);
-                return this.b.contains(a2) ? this.b.getString(a2, null) : this.f913a.contains(a2) ? this.f913a.getString(a2, null) : str;
+                return this.b.contains(a2) ? this.b.getString(a2, null) : this.f1640a.contains(a2) ? this.f1640a.getString(a2, null) : str;
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(i + " oc string error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a(i + " oc string error " + e);
                 return str;
             }
         }
@@ -216,7 +216,7 @@ public class ba {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                this.f914a.clear();
+                this.f1641a.clear();
             }
         }
     }
@@ -225,8 +225,8 @@ public class ba {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             synchronized (this) {
-                if (!this.f914a.contains(aVar)) {
-                    this.f914a.add(aVar);
+                if (!this.f1641a.contains(aVar)) {
+                    this.f1641a.add(aVar);
                 }
             }
         }
@@ -256,10 +256,10 @@ public class ba {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, list, list2) == null) {
             if (com.xiaomi.push.ag.a(list) || com.xiaomi.push.ag.a(list2)) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("not update oc, because versions or configs are empty");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("not update oc, because versions or configs are empty");
                 return;
             }
-            SharedPreferences.Editor edit = this.f913a.edit();
+            SharedPreferences.Editor edit = this.f1640a.edit();
             edit.clear();
             for (Pair<hp, Integer> pair : list) {
                 Object obj = pair.first;
@@ -283,9 +283,9 @@ public class ba {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             try {
                 String a2 = a(i);
-                return this.b.contains(a2) ? this.b.getBoolean(a2, false) : this.f913a.contains(a2) ? this.f913a.getBoolean(a2, false) : z;
+                return this.b.contains(a2) ? this.b.getBoolean(a2, false) : this.f1640a.contains(a2) ? this.f1640a.getBoolean(a2, false) : z;
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(i + " oc boolean error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a(i + " oc boolean error " + e);
                 return z;
             }
         }
@@ -298,7 +298,7 @@ public class ba {
             com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
             HashSet hashSet = new HashSet();
             synchronized (this) {
-                hashSet.addAll(this.f914a);
+                hashSet.addAll(this.f1641a);
             }
             Iterator it = hashSet.iterator();
             while (it.hasNext()) {

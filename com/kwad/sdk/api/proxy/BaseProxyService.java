@@ -42,6 +42,7 @@ public abstract class BaseProxyService extends Service {
     public void onDestroy() {
         super.onDestroy();
         this.mDelegate.onDestroy(this);
+        Wrapper.onDestroy(this);
     }
 
     @Override // android.app.Service

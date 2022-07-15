@@ -1,20 +1,16 @@
 package com.repackage;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x53 implements v53<JSONObject> {
+public final class x53 implements y53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
 
     public x53() {
         Interceptable interceptable = $ic;
@@ -30,41 +26,27 @@ public class x53 implements v53<JSONObject> {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        if (this.b == null) {
-            this.b = new JSONArray();
-        }
-        this.b.put(jSONObject);
-        if (v53.a) {
-            Log.d("WhiteCollector", "FEStage: " + jSONObject);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = null;
-        }
-    }
-
-    public JSONObject c() {
+    public static x53 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("stageError", this.b);
-            } catch (JSONException e) {
-                if (v53.a) {
-                    Log.e("WhiteCollector", Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new x53() : (x53) invokeV.objValue;
+    }
+
+    @Override // com.repackage.y53
+    @SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.y53
+    @SuppressLint({"BDSoLoader"})
+    public void loadLibrary(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
+        }
     }
 }

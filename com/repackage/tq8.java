@@ -1,230 +1,228 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.pm.FeatureInfo;
-import android.content.pm.PackageManager;
-import android.hardware.Camera;
-import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class tq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tq8 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements e15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ tq8 c;
 
-    /* loaded from: classes7.dex */
-    public static class b implements Comparator<Camera.Size> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        public a(tq8 tq8Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tq8Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = tq8Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Camera.Size size, Camera.Size size2) {
-            InterceptResult invokeLL;
+        @Override // com.repackage.e15
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
-                int i = size.width;
-                int i2 = size2.width;
-                return i != i2 ? i - i2 : size.height - size2.height;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
             }
-            return invokeLL.intValue;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        @Override // com.repackage.e15
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
+                return;
+            }
+            if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                this.c.b = null;
+            }
+            if (this.a != null) {
+                this.c.a.put(downloadData.getPath().substring(yp8.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                this.a.c(this.b, downloadData.getPath());
+            }
+        }
+
+        @Override // com.repackage.e15
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.repackage.e15
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        @Override // com.repackage.e15
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
+    }
+
+    public tq8() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static int b(Activity activity, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, activity, i)) == null) {
-            if (Build.VERSION.SDK_INT > 8) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                int e = e(activity);
-                if (cameraInfo.facing == 1) {
-                    return (360 - ((cameraInfo.orientation + e) % 360)) % 360;
-                }
-                return ((cameraInfo.orientation - e) + 360) % 360;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 0;
         }
-        return invokeLI.intValue;
     }
 
-    public static int c(boolean z) {
-        InterceptResult invokeZ;
+    public static tq8 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
-            for (int i = 0; i < numberOfCameras; i++) {
-                cameraInfoArr[i] = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfoArr[i]);
-            }
-            int i2 = -1;
-            int i3 = -1;
-            for (int i4 = 0; i4 < numberOfCameras; i4++) {
-                if (i3 == -1 && cameraInfoArr[i4].facing == 0) {
-                    i3 = i4;
-                } else if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
-                    i2 = i4;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (tq8.class) {
+                    if (c == null) {
+                        c = new tq8();
+                    }
                 }
             }
-            if (i2 == -1 || !z) {
-                if (i3 == -1 || z) {
-                    if (z && i2 == -1) {
-                        return i3;
-                    }
-                    if (i2 != -1) {
-                        return i2;
-                    }
-                    if (i3 != -1) {
-                        return i3;
-                    }
-                    return -1;
-                }
-                return i3;
-            }
-            return i2;
+            return c;
         }
-        return invokeZ.intValue;
+        return (tq8) invokeV.objValue;
     }
 
-    public static Camera.Size d(Camera camera, int i, int i2) {
-        InterceptResult invokeLII;
+    public void d() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, camera, i, i2)) == null) {
-            List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-            Camera.Size size = null;
-            Collections.sort(supportedPreviewSizes, new b(null));
-            if (supportedPreviewSizes != null && supportedPreviewSizes.size() > 0) {
-                boolean z = false;
-                Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
-                int i3 = -1;
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(yp8.h);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
-                    Camera.Size next = it.next();
-                    i3++;
-                    if (next != null && next.width >= i2 && next.height >= i) {
-                        size = next;
-                        z = true;
-                        break;
-                    }
-                }
-                if (!z) {
-                    i3 = supportedPreviewSizes.size() - 1;
-                    size = supportedPreviewSizes.get(i3);
-                }
-                int i4 = ((int) (1080 * ((i2 * 1.0f) / i))) * 1080;
-                while (size.width * size.height > i4 && i3 > 0) {
-                    i3--;
-                    size = supportedPreviewSizes.get(i3);
                 }
             }
-            return size;
         }
-        return (Camera.Size) invokeLII.objValue;
     }
 
-    public static int e(Activity activity) {
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) == null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
+        }
+        if (this.b != null) {
+            f15.k().h(this.b.getUrl(), true);
+        }
+        File file = new File(yp8.h);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData = new DownloadData();
+        downloadData.setType(18);
+        downloadData.setId(str);
+        downloadData.setUrl(str2);
+        downloadData.setPath(yp8.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData.setCallback(new a(this, bVar, str2));
+        this.b = downloadData;
+        f15.k().l(downloadData);
+    }
+
+    public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation != 1) {
-                    if (rotation != 2) {
-                        return rotation != 3 ? 0 : 270;
-                    }
-                    return 180;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
+            }
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                d();
+                if (this.a.size() > 0) {
+                    return this.a.get(nameMd5FromUrl);
                 }
-                return 90;
+                return null;
             }
-            return 0;
+            return hashMap.get(nameMd5FromUrl);
         }
-        return invokeL.intValue;
-    }
-
-    public static boolean f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
-            for (int i = 0; i < numberOfCameras; i++) {
-                cameraInfoArr[i] = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfoArr[i]);
-            }
-            int i2 = -1;
-            int i3 = -1;
-            for (int i4 = 0; i4 < numberOfCameras; i4++) {
-                if (i3 == -1 && cameraInfoArr[i4].facing == 0) {
-                    i3 = i4;
-                } else if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
-                    i2 = i4;
-                }
-            }
-            if (i2 == -1 || !z) {
-                return (i3 == -1 || z) ? false : true;
-            }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public static boolean g(PackageManager packageManager) {
-        InterceptResult invokeL;
-        FeatureInfo[] systemAvailableFeatures;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, packageManager)) == null) {
-            if (packageManager != null && (systemAvailableFeatures = packageManager.getSystemAvailableFeatures()) != null) {
-                for (FeatureInfo featureInfo : systemAvailableFeatures) {
-                    if (featureInfo != null && "android.hardware.camera.flash".equals(featureInfo.name)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

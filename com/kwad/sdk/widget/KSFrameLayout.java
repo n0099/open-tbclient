@@ -12,24 +12,25 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.kwad.sdk.utils.z;
+import com.kwad.sdk.utils.y;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class KSFrameLayout extends FrameLayout implements j {
+public class KSFrameLayout extends FrameLayout implements e, i {
     public final AtomicBoolean a;
-    public h b;
-    public j c;
-    public i d;
+    public g b;
+    public i c;
+    public h d;
     public float e;
-    public final z.a f;
+    public final y.a f;
     public boolean g;
+    public View h;
 
     public KSFrameLayout(@NonNull Context context) {
         super(context);
         this.a = new AtomicBoolean(true);
         this.e = 0.0f;
-        this.f = new z.a();
+        this.f = new y.a();
         this.g = true;
         a(context, null);
     }
@@ -38,7 +39,7 @@ public class KSFrameLayout extends FrameLayout implements j {
         super(context, attributeSet);
         this.a = new AtomicBoolean(true);
         this.e = 0.0f;
-        this.f = new z.a();
+        this.f = new y.a();
         this.g = true;
         a(context, attributeSet);
     }
@@ -47,35 +48,45 @@ public class KSFrameLayout extends FrameLayout implements j {
         super(context, attributeSet, i);
         this.a = new AtomicBoolean(true);
         this.e = 0.0f;
-        this.f = new z.a();
+        this.f = new y.a();
         this.g = true;
         a(context, attributeSet);
     }
 
-    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f040371};
-            Arrays.sort(iArr);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040371), 0.0f);
-            obtainStyledAttributes.recycle();
-        }
-        h hVar = new h(this, this);
-        this.b = hVar;
-        hVar.a(n());
-        i iVar = new i();
-        this.d = iVar;
-        iVar.a(context, attributeSet);
+    public KSFrameLayout(@NonNull Context context, View view2) {
+        super(context);
+        this.a = new AtomicBoolean(true);
+        this.e = 0.0f;
+        this.f = new y.a();
+        this.g = true;
+        this.h = view2;
+        a(context, null);
     }
 
-    private float[] b(float f, float f2, float f3, float f4) {
+    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        if (attributeSet != null) {
+            int[] iArr = {R.attr.obfuscated_res_0x7f040377};
+            Arrays.sort(iArr);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
+            this.e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040377), 0.0f);
+            obtainStyledAttributes.recycle();
+        }
+        g gVar = new g(getPvView(), this);
+        this.b = gVar;
+        gVar.a(true);
+        h hVar = new h();
+        this.d = hVar;
+        hVar.a(context, attributeSet);
+    }
+
+    public static float[] b(float f, float f2, float f3, float f4) {
         return new float[]{f, f, f2, f2, f3, f3, f4, f4};
     }
 
     private void c() {
         if (this.a.getAndSet(false)) {
-            com.kwad.sdk.core.d.a.c("KSFrameLayout", "onViewAttached");
-            a();
+            com.kwad.sdk.core.d.b.c("KSFrameLayout", "onViewAttached");
+            b_();
         }
     }
 
@@ -83,30 +94,35 @@ public class KSFrameLayout extends FrameLayout implements j {
         if (this.a.getAndSet(true)) {
             return;
         }
-        com.kwad.sdk.core.d.a.c("KSFrameLayout", "onViewDetached");
-        b();
+        com.kwad.sdk.core.d.b.c("KSFrameLayout", "onViewDetached");
+        a_();
     }
 
-    @CallSuper
-    public void a() {
-        this.b.b();
+    private View getPvView() {
+        View view2 = this.h;
+        return view2 == null ? this : view2;
     }
 
-    public void a(float f, float f2, float f3, float f4) {
+    public final void a(float f, float f2, float f3, float f4) {
         this.d.a(b(f, f2, f3, f4));
         postInvalidate();
     }
 
     @CallSuper
     public void a(View view2) {
-        j jVar = this.c;
-        if (jVar != null) {
-            jVar.a(view2);
+        i iVar = this.c;
+        if (iVar != null) {
+            iVar.a(view2);
         }
     }
 
     @CallSuper
-    public void b() {
+    public void a_() {
+        this.b.d();
+    }
+
+    @CallSuper
+    public void b_() {
         this.b.c();
     }
 
@@ -136,17 +152,14 @@ public class KSFrameLayout extends FrameLayout implements j {
         this.d.b(canvas);
     }
 
+    @Override // com.kwad.sdk.widget.e
     @MainThread
-    public z.a getTouchCoords() {
+    public y.a getTouchCoords() {
         return this.f;
     }
 
     public float getVisiblePercent() {
         return this.b.a();
-    }
-
-    public boolean n() {
-        return true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -185,7 +198,7 @@ public class KSFrameLayout extends FrameLayout implements j {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         this.b.a(i, i2, i3, i4);
         super.onSizeChanged(i, i2, i3, i4);
-        this.b.b(i, i2, i3, i4);
+        this.b.b();
         this.d.a(i, i2);
     }
 
@@ -204,8 +217,8 @@ public class KSFrameLayout extends FrameLayout implements j {
         this.e = f;
     }
 
-    public void setViewVisibleListener(j jVar) {
-        this.c = jVar;
+    public void setViewVisibleListener(i iVar) {
+        this.c = iVar;
     }
 
     public void setVisiblePercent(float f) {

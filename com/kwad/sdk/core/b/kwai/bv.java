@@ -1,49 +1,40 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.HotspotInfo;
-import com.kwad.sdk.core.scene.URLPackage;
+import com.kwad.sdk.core.report.a;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bv implements com.kwad.sdk.core.d<HotspotInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(HotspotInfo hotspotInfo, JSONObject jSONObject) {
+public final class bv implements com.kwad.sdk.core.d<a.C0544a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(a.C0544a c0544a, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        hotspotInfo.trendId = jSONObject.optLong(URLPackage.KEY_TREND_ID);
-        hotspotInfo.name = jSONObject.optString("name");
-        if (jSONObject.opt("name") == JSONObject.NULL) {
-            hotspotInfo.name = "";
+        c0544a.a = jSONObject.optInt("code");
+        c0544a.b = jSONObject.optString("msg");
+        if (jSONObject.opt("msg") == JSONObject.NULL) {
+            c0544a.b = "";
         }
-        hotspotInfo.viewCount = jSONObject.optLong("viewCount");
-        hotspotInfo.offlineTime = jSONObject.optLong("offlineTime");
-        hotspotInfo.photoCount = jSONObject.optInt("photoCount");
-        hotspotInfo.coverUrl = jSONObject.optString("coverUrl");
-        if (jSONObject.opt("coverUrl") == JSONObject.NULL) {
-            hotspotInfo.coverUrl = "";
-        }
-        hotspotInfo.iconUrl = jSONObject.optString("iconUrl");
-        if (jSONObject.opt("iconUrl") == JSONObject.NULL) {
-            hotspotInfo.iconUrl = "";
-        }
-        hotspotInfo.rank = jSONObject.optInt("rank");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(HotspotInfo hotspotInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(a.C0544a c0544a, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, URLPackage.KEY_TREND_ID, hotspotInfo.trendId);
-        com.kwad.sdk.utils.t.a(jSONObject, "name", hotspotInfo.name);
-        com.kwad.sdk.utils.t.a(jSONObject, "viewCount", hotspotInfo.viewCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "offlineTime", hotspotInfo.offlineTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "photoCount", hotspotInfo.photoCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "coverUrl", hotspotInfo.coverUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "iconUrl", hotspotInfo.iconUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "rank", hotspotInfo.rank);
+        com.kwad.sdk.utils.r.a(jSONObject, "code", c0544a.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "msg", c0544a.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(a.C0544a c0544a, JSONObject jSONObject) {
+        a2(c0544a, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(a.C0544a c0544a, JSONObject jSONObject) {
+        return b2(c0544a, jSONObject);
     }
 }

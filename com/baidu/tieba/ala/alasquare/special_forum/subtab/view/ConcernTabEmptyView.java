@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mw5;
-import com.repackage.pq5;
+import com.repackage.jx5;
+import com.repackage.mr5;
 /* loaded from: classes3.dex */
-public class ConcernTabEmptyView extends mw5<pq5> {
+public class ConcernTabEmptyView extends jx5<mr5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -49,8 +49,8 @@ public class ConcernTabEmptyView extends mw5<pq5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092184);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090766);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092227);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f09076d);
         }
     }
 
@@ -77,14 +77,14 @@ public class ConcernTabEmptyView extends mw5<pq5> {
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0769 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0787 : invokeV.intValue;
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -101,11 +101,11 @@ public class ConcernTabEmptyView extends mw5<pq5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     /* renamed from: r */
-    public void i(pq5 pq5Var) {
+    public void i(mr5 mr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pq5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, mr5Var) == null) {
         }
     }
 }

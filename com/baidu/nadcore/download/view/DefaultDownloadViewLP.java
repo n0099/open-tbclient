@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
@@ -17,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ii0;
-import com.repackage.yi0;
+import com.repackage.kj0;
+import com.repackage.si0;
 /* loaded from: classes2.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements yi0<DefaultDownloadViewLP> {
+public class DefaultDownloadViewLP extends FrameLayout implements kj0<DefaultDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerDownloadView a;
@@ -46,7 +47,25 @@ public class DefaultDownloadViewLP extends FrameLayout implements yi0<DefaultDow
         }
     }
 
-    @Override // com.repackage.yi0
+    private void setProgress(float f) {
+        BannerDownloadView bannerDownloadView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(65539, this, f) == null) || (bannerDownloadView = this.a) == null) {
+            return;
+        }
+        bannerDownloadView.setProgress(f);
+    }
+
+    private void setText(String str) {
+        BannerDownloadView bannerDownloadView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (bannerDownloadView = this.a) == null) {
+            return;
+        }
+        bannerDownloadView.setText(str);
+    }
+
+    @Override // com.repackage.kj0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -58,26 +77,26 @@ public class DefaultDownloadViewLP extends FrameLayout implements yi0<DefaultDow
         }
     }
 
-    public final void c(Context context) {
+    public void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d058f, this);
-            setBackgroundResource(R.color.obfuscated_res_0x7f06086f);
-            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f091318);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05aa, this);
+            setBackgroundResource(R.color.obfuscated_res_0x7f060868);
+            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f0913be);
         }
     }
 
     public void d(boolean z) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f091482)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f09152a)) == null) {
             return;
         }
         findViewById.setVisibility(z ? 0 : 8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.yi0
+    @Override // com.repackage.kj0
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -85,31 +104,19 @@ public class DefaultDownloadViewLP extends FrameLayout implements yi0<DefaultDow
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (DefaultDownloadViewLP) invokeV.objValue;
     }
 
-    public void setProgress(float f) {
-        BannerDownloadView bannerDownloadView;
+    public void setAbsorbColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048581, this, f) == null) || (bannerDownloadView = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
-        bannerDownloadView.setProgress(f);
     }
 
-    public void setText(String str) {
-        BannerDownloadView bannerDownloadView;
+    @Override // com.repackage.kj0
+    public void update(String str, @NonNull si0 si0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (bannerDownloadView = this.a) == null) {
-            return;
-        }
-        bannerDownloadView.setText(str);
-    }
-
-    @Override // com.repackage.yi0
-    public void update(String str, @NonNull ii0 ii0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, ii0Var) == null) {
-            if (ii0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b9e) + str;
-                setProgress(ii0Var.i);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, si0Var) == null) {
+            if (si0Var.c == AdDownloadStatus.DOWNLOADING) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b8f) + str;
+                setProgress(si0Var.i);
             } else {
                 setProgress(0.0f);
             }

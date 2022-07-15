@@ -12,7 +12,7 @@ public class aq implements Runnable {
     public final /* synthetic */ ao.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ao f99a;
+    public final /* synthetic */ ao f826a;
 
     public aq(ao aoVar, ao.b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class aq implements Runnable {
                 return;
             }
         }
-        this.f99a = aoVar;
+        this.f826a = aoVar;
         this.a = bVar;
     }
 
@@ -37,7 +37,7 @@ public class aq implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f99a.a(this.a);
+            this.f826a.a(this.a);
         }
     }
 }

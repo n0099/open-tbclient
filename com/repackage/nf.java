@@ -245,46 +245,14 @@ public class nf {
         return (byte[]) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:135:0x030a */
-    /* JADX WARN: Code restructure failed: missing block: B:114:0x02cc, code lost:
-        r10.flush();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:115:0x02cf, code lost:
-        r2 = r8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x02d0, code lost:
-        r7.w = r2;
-        r7.x = r14;
-        r7.y = r5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x02d9, code lost:
-        if ((r2 + r14) < r5) goto L123;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:119:0x02db, code lost:
-        r8 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:120:0x02dd, code lost:
-        r8 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x02de, code lost:
-        r21.f = java.lang.System.currentTimeMillis();
-        com.repackage.mg.c(r1);
-        com.repackage.mg.e(r21.b);
-        com.repackage.mg.d(r10);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x02ef, code lost:
-        return r8;
-     */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v56 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX WARN: Type inference failed for: r15v0, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r15v1 */
     public boolean d(String str, vf vfVar, int i, int i2, boolean z, qf qfVar, boolean z2) throws Exception {
         InterceptResult invokeCommon;
         FileOutputStream fileOutputStream;
-        String m;
-        URL m2;
+        String k;
+        URL m;
         File i3;
         InputStream inputStream;
         InputStream inputStream2;
@@ -299,13 +267,12 @@ public class nf {
             qf qfVar2 = qfVar == null ? new qf() : qfVar;
             InputStream inputStream3 = null;
             try {
-                m = this.a.b().m();
-                qfVar2.s = m;
-                m2 = m(m, false, qfVar2, null);
-                this.b = g(m2, i2, i);
+                k = this.a.b().k(true);
+                qfVar2.s = k;
+                m = m(k, false, qfVar2, null);
+                this.b = g(m, i2, i);
             } catch (Throwable th) {
                 th = th;
-                fileOutputStream = null;
             }
             if (this.a.c().a) {
                 this.f = System.currentTimeMillis();
@@ -315,7 +282,11 @@ public class nf {
                 return false;
             }
             if (z2) {
-                ji.k(str);
+                try {
+                    ji.k(str);
+                } catch (Throwable th2) {
+                    th = th2;
+                }
             }
             if (z) {
                 i3 = new File(str);
@@ -323,20 +294,20 @@ public class nf {
                 i3 = ji.i(str);
             }
             if (i3 != null) {
-                long length = i3.length();
                 try {
+                    long length = i3.length();
                     FileOutputStream fileOutputStream2 = new FileOutputStream(i3, true);
                     try {
-                        this.a.b().w(this.b);
+                        this.a.b().t(this.b);
                         this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
                         this.b.connect();
                         if (this.c <= 0) {
                             try {
                                 this.c = System.currentTimeMillis();
-                            } catch (Throwable th2) {
-                                th = th2;
-                                fileOutputStream = fileOutputStream2;
+                            } catch (Throwable th3) {
+                                th = th3;
                                 inputStream3 = null;
+                                fileOutputStream = fileOutputStream2;
                             }
                         }
                         this.d = System.currentTimeMillis();
@@ -349,10 +320,10 @@ public class nf {
                             }
                             if (url != null) {
                                 i4 = responseCode;
-                                if (!TextUtils.equals(url.getProtocol(), m2.getProtocol())) {
+                                if (!TextUtils.equals(url.getProtocol(), m.getProtocol())) {
                                     mg.e(this.b);
                                     this.b = g(new URL(url.toString()), i2, i);
-                                    this.a.b().w(this.b);
+                                    this.a.b().t(this.b);
                                     this.b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
                                     this.b.connect();
                                     responseCode = this.b.getResponseCode();
@@ -377,7 +348,7 @@ public class nf {
                         if (!n()) {
                             str2 = "";
                             if (responseCode == 302) {
-                                str2 = (z3 ? "isReConn " : "") + "url=" + m2 + "-newUrl=" + url;
+                                str2 = (z3 ? "isReConn " : "") + "url=" + m + "-newUrl=" + url;
                             } else if (responseCode == 416) {
                                 if (e > 0 && e == length) {
                                     this.f = System.currentTimeMillis();
@@ -399,7 +370,7 @@ public class nf {
                             mg.d(fileOutputStream2);
                             return d;
                         } else {
-                            qfVar2.a = m.getBytes().length;
+                            qfVar2.a = k.getBytes().length;
                             long length2 = this.b.getHeaderFields().toString().getBytes().length;
                             qfVar2.b = length2;
                             long j = e;
@@ -425,31 +396,45 @@ public class nf {
                                     int i7 = 0;
                                     while (!this.a.c().a) {
                                         int read = inputStream2.read(bArr);
-                                        if (read != -1) {
-                                            try {
-                                                fileOutputStream2.write(bArr, 0, read);
-                                                i6 += read;
-                                                i7 += read;
-                                                if (vfVar == null || (i7 <= i5 && i6 != e)) {
-                                                    bArr = bArr;
-                                                } else {
-                                                    byte[] bArr2 = bArr;
-                                                    vfVar.onProgress((int) (i6 + length), e);
-                                                    bArr = bArr2;
-                                                }
-                                            } catch (Exception unused) {
-                                                throw new FileNotFoundException();
+                                        if (read == -1) {
+                                            break loop0;
+                                        }
+                                        try {
+                                            fileOutputStream2.write(bArr, 0, read);
+                                            i6 += read;
+                                            int i8 = i7 + read;
+                                            if (vfVar == null || (i8 <= i5 && i6 != e)) {
+                                                i7 = i8;
+                                                j = j;
+                                            } else {
+                                                long j2 = j;
+                                                vfVar.onProgress((int) (i6 + length), e);
+                                                j = j2;
                                             }
+                                        } catch (Exception unused) {
+                                            throw new FileNotFoundException();
                                         }
                                     }
-                                    try {
-                                        break loop0;
-                                    } catch (Exception unused2) {
-                                        throw new FileNotFoundException();
-                                    }
+                                    break loop0;
                                 }
-                            } catch (Throwable th3) {
-                                th = th3;
+                                long j3 = j;
+                                try {
+                                    fileOutputStream2.flush();
+                                    long j4 = i6;
+                                    qfVar2.w = j4;
+                                    qfVar2.x = length;
+                                    qfVar2.y = j3;
+                                    boolean z4 = j4 + length >= j3;
+                                    this.f = System.currentTimeMillis();
+                                    mg.c(inputStream2);
+                                    mg.e(this.b);
+                                    mg.d(fileOutputStream2);
+                                    return z4;
+                                } catch (Exception unused2) {
+                                    throw new FileNotFoundException();
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
                                 inputStream3 = inputStream2;
                                 fileOutputStream = fileOutputStream2;
                                 this.f = System.currentTimeMillis();
@@ -459,24 +444,24 @@ public class nf {
                                 throw th;
                             }
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
+                    } catch (Throwable th5) {
+                        th = th5;
                         inputStream2 = null;
                     }
-                } catch (Throwable th5) {
-                    th = th5;
+                } catch (Throwable th6) {
+                    th = th6;
                     inputStream = null;
                 }
             } else {
                 inputStream = null;
                 try {
                     throw new FileNotFoundException();
-                } catch (Throwable th6) {
-                    th = th6;
+                } catch (Throwable th7) {
+                    th = th7;
                 }
             }
             inputStream3 = inputStream;
-            fileOutputStream = inputStream;
+            fileOutputStream = inputStream3;
             this.f = System.currentTimeMillis();
             mg.c(inputStream3);
             mg.e(this.b);
@@ -618,13 +603,13 @@ public class nf {
                             if (!this.a.c().a) {
                                 byte[] execute = iHttpNet2.execute();
                                 this.a.c().a(iHttpNet2);
-                                if (this.a.b().o() && this.m != null && this.j >= 0 && this.j < 3) {
+                                if (this.a.b().m() && this.m != null && this.j >= 0 && this.j < 3) {
                                     this.m.schedule(this.l, (this.j + 1) * 3000);
                                 }
                                 this.e = System.currentTimeMillis();
                                 iHttpNet2.h();
                                 qfVar.j = -8;
-                                if (f.contains("c.tieba.baidu.com") && (map = this.a.c().h) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                                if (f.contains("tiebac.baidu.com") && (map = this.a.c().h) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                                     qfVar.t = list.get(0);
                                     qfVar.u = list.get(1);
                                 }
@@ -768,9 +753,9 @@ public class nf {
             qfVar.j = -1;
             IHttpNet iHttpNet = null;
             try {
-                String i3 = z ? this.a.b().i() : this.a.b().m();
-                qfVar.s = i3;
-                URL m = m(i3, z2, qfVar, yfVar);
+                String k = this.a.b().k(z);
+                qfVar.s = k;
+                URL m = m(k, z2, qfVar, yfVar);
                 if (!this.a.c().a) {
                     qfVar.j = -2;
                     if (((mf) ServiceManager.getService(mf.a)).netABTest()) {
@@ -856,9 +841,9 @@ public class nf {
             qfVar.j = -1;
             IHttpNet iHttpNet = null;
             try {
-                String i3 = z ? this.a.b().i() : this.a.b().m();
-                qfVar.s = i3;
-                URL m = m(i3, z2, qfVar, yfVar);
+                String k = this.a.b().k(z);
+                qfVar.s = k;
+                URL m = m(k, z2, qfVar, yfVar);
                 if (!this.a.c().a) {
                     qfVar.j = -2;
                     if (((mf) ServiceManager.getService(mf.a)).netABTest()) {

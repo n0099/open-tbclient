@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -482,7 +483,7 @@ public class HiidoSDKOld implements HiidoApi {
     public boolean imeiPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? !HiidoSDK.instance().getOptions().isUseOaid() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, "android.permission.READ_PHONE_STATE") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? !HiidoSDK.instance().getOptions().isUseOaid() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, PermissionChecker.READ_PHONE_STATE) : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

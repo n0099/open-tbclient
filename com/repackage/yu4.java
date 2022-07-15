@@ -1,23 +1,11 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface yu4 {
-    int getFansNum();
+    void a(View view2);
 
-    boolean getIsLike();
+    void b(View.OnClickListener onClickListener);
 
-    int getLikeStatus();
-
-    String getPortrait();
-
-    String getUserId();
-
-    boolean isGod();
-
-    void setFansNum(int i);
-
-    void setIsFromNetWork(boolean z);
-
-    void setIsLike(boolean z);
-
-    void setLikeStatus(int i);
+    void c(boolean z);
 }

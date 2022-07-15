@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b85;
-import com.repackage.f85;
-import com.repackage.pd5;
+import com.repackage.d95;
+import com.repackage.h95;
+import com.repackage.se5;
 /* loaded from: classes4.dex */
 public class BuyTBeanActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
@@ -87,7 +87,7 @@ public class BuyTBeanActivityStatic {
                                 return 3;
                             }
                             if (str.contains("tdoudiscount:")) {
-                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, pd5.d(str, MemberPayStatistic.REFER_PAGE), pd5.d(str, MemberPayStatistic.CLICK_ZONE), new b85(this) { // from class: com.baidu.tieba.wallet.BuyTBeanActivityStatic.1.1
+                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, se5.d(str, MemberPayStatistic.REFER_PAGE), se5.d(str, MemberPayStatistic.CLICK_ZONE), new d95(this) { // from class: com.baidu.tieba.wallet.BuyTBeanActivityStatic.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 this$0;
@@ -110,7 +110,7 @@ public class BuyTBeanActivityStatic {
                                         this.this$0 = this;
                                     }
 
-                                    @Override // com.repackage.b85
+                                    @Override // com.repackage.d95
                                     public void onFail(int i, String str2) {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i, str2) == null) {
@@ -118,19 +118,19 @@ public class BuyTBeanActivityStatic {
                                         }
                                     }
 
-                                    @Override // com.repackage.b85
-                                    public void onSuccess(f85 f85Var) {
+                                    @Override // com.repackage.d95
+                                    public void onSuccess(h95 h95Var) {
                                         Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f85Var) == null) {
+                                        if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h95Var) == null) {
                                             TbWebViewActivity.YYPayResultCallback4CallJs.j();
                                         }
                                     }
                                 });
                                 return 0;
                             }
-                            Bundle i = pd5.i(str);
+                            Bundle i = se5.i(str);
                             if (i != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i.getString("path"))) {
-                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, pd5.d(str, MemberPayStatistic.REFER_PAGE), pd5.d(str, MemberPayStatistic.CLICK_ZONE));
+                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, se5.d(str, MemberPayStatistic.REFER_PAGE), se5.d(str, MemberPayStatistic.CLICK_ZONE));
                                 return 0;
                             }
                         }

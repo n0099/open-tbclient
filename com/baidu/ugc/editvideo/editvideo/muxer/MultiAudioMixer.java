@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x79;
+import com.repackage.w89;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -85,7 +85,7 @@ public abstract class MultiAudioMixer {
                 }
                 for (int i = 0; i < bArr.length; i++) {
                     if (bArr[i].length != bArr2.length) {
-                        x79.d("column of the road of audio + " + i + " is diffrent.");
+                        w89.d("column of the road of audio + " + i + " is diffrent.");
                         return null;
                     }
                 }

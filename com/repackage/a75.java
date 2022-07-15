@@ -1,173 +1,46 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.fluency.BdTracesManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n65;
-import com.repackage.te;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class a75<T extends n65> extends y65<T> {
+public class a75 implements l65<ImageFpsEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a75(int i, String str, Class<T> cls) {
-        super(i, str, cls);
+    public a75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
-    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v12 */
-    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v36 */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l65
+    /* renamed from: a */
+    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
         InterceptResult invokeL;
-        String str;
-        ?? arrayList;
-        String str2;
-        n65 n65Var;
-        byte[] bArr;
-        n65 n65Var2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, customMessage)) != null) {
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-        n65 n65Var3 = null;
-        if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
-            return null;
-        }
-        ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-        n65 n65Var4 = (n65) a();
-        try {
-            try {
-                if (readCacheMessage.isNeedUid()) {
-                    str = TbadkCoreApplication.getCurrentAccount();
-                    if (str == null) {
-                        str = "";
-                    }
-                } else {
-                    str = null;
-                }
-                if (n65Var4 != null) {
-                    if (readCacheMessage.getRequestData() == null) {
-                        try {
-                            if (n65Var4 instanceof m65) {
-                                mq4.f();
-                                List<te.b<byte[]>> a = ui.a(mq4.e(this.b, str));
-                                if (a != null) {
-                                    arrayList = new ArrayList(a.size());
-                                    for (te.b<byte[]> bVar : a) {
-                                        if (bVar != null && (bArr = bVar.b) != null && (n65Var2 = (n65) a()) != null) {
-                                            ((m65) n65Var2).initByByteArray(bArr);
-                                            arrayList.add(n65Var2);
-                                        }
-                                    }
-                                    n65Var3 = arrayList;
-                                }
-                            } else if (n65Var4 instanceof p65) {
-                                mq4.f();
-                                List<te.b<String>> b = ui.b(mq4.h(this.b, str));
-                                if (b != null) {
-                                    arrayList = new ArrayList(b.size());
-                                    for (te.b<String> bVar2 : b) {
-                                        if (bVar2 != null && (str2 = bVar2.b) != null && (n65Var = (n65) a()) != null) {
-                                            ((p65) n65Var).q(str2);
-                                            arrayList.add(n65Var);
-                                        }
-                                    }
-                                    n65Var3 = arrayList;
-                                }
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            n65Var3 = n65Var4;
-                            e.printStackTrace();
-                            return new ReadCacheRespMsg(this.a, n65Var3);
-                        } catch (Throwable th) {
-                            th = th;
-                            n65Var3 = n65Var4;
-                            new ReadCacheRespMsg(this.a, n65Var3);
-                            throw th;
-                        }
-                    } else {
-                        String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                        String y = readCacheMessage.getRequestData().y();
-                        try {
-                            if (n65Var4 instanceof m65) {
-                                mq4.f();
-                                byte[] bArr2 = mq4.e(y, str).get(cacheKey);
-                                if (bArr2 != null) {
-                                    ((m65) n65Var4).initByByteArray(bArr2);
-                                    ArrayList arrayList2 = new ArrayList();
-                                    arrayList2.add(n65Var4);
-                                    y = arrayList2;
-                                    n65Var3 = y;
-                                }
-                            } else if (n65Var4 instanceof p65) {
-                                mq4.f();
-                                String str3 = mq4.h(y, str).get(cacheKey);
-                                if (str3 != null) {
-                                    ((p65) n65Var4).q(str3);
-                                    ?? arrayList3 = new ArrayList();
-                                    arrayList3.add(n65Var4);
-                                    y = arrayList3;
-                                    n65Var3 = y;
-                                }
-                            }
-                        } catch (Exception e2) {
-                            n65Var3 = y;
-                            e = e2;
-                            e.printStackTrace();
-                            return new ReadCacheRespMsg(this.a, n65Var3);
-                        } catch (Throwable th2) {
-                            n65Var3 = y;
-                            th = th2;
-                            new ReadCacheRespMsg(this.a, n65Var3);
-                            throw th;
-                        }
-                    }
-                }
-                return new ReadCacheRespMsg(this.a, n65Var3);
-            } catch (Exception e3) {
-                e = e3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
+                return true;
             }
-        } catch (Throwable th3) {
-            th = th3;
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

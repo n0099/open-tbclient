@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.no4;
+import com.repackage.cp4;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String title;
     public int unReadCount;
     public int unReadCountExtra;
-    public no4 userExtraData;
+    public cp4 userExtraData;
     public int userType;
 
     public ImMessageCenterShowItemData() {
@@ -261,10 +261,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.unReadCountExtra : invokeV.intValue;
     }
 
-    public no4 getUserExtraData() {
+    public cp4 getUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userExtraData : (no4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userExtraData : (cp4) invokeV.objValue;
     }
 
     public int getUserType() {
@@ -488,10 +488,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setUserExtraData(no4 no4Var) {
+    public void setUserExtraData(cp4 cp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, no4Var) == null) {
-            this.userExtraData = no4Var;
+        if (interceptable == null || interceptable.invokeL(1048640, this, cp4Var) == null) {
+            this.userExtraData = cp4Var;
         }
     }
 

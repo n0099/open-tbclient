@@ -1,304 +1,225 @@
 package com.repackage;
 
-import android.content.res.AssetManager;
-import android.text.TextUtils;
-import android.util.Xml;
-import androidx.multidex.MultiDexExtractor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nps.main.manager.NPSManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialConstants;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import dalvik.system.PathClassLoader;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class m51 {
+public class m51 extends PathClassLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final m51 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public Map<Integer, Integer> b;
-    public Map<String, Integer> c;
-    public Map<String, Integer> d;
-    public boolean e;
+    public final ClassLoader a;
+    public Method b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Set<String> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755548408, "Lcom/repackage/m51;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755548408, "Lcom/repackage/m51;");
-                return;
-            }
-        }
-        f = "nps" + File.separator + "manifest";
-        g = new m51();
-    }
-
-    public m51() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m51(ClassLoader classLoader, ClassLoader classLoader2) {
+        super("", "", classLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {classLoader, classLoader2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (ClassLoader) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new HashMap();
-        this.e = false;
+        this.f = new HashSet();
+        this.a = classLoader2;
+        b(classLoader2);
+        c(classLoader2);
+        this.f.add("android.widget.ViewStub");
+        this.f.add("android.widget.View");
+        this.f.add("android.webkit.ViewStub");
+        this.f.add("android.webkit.View");
+        this.f.add("android.app.ViewStub");
+        this.f.add("android.app.View");
+        this.f.add("com.google.android.gms.net.PlayServicesCronetProvider");
+        this.f.add("com.google.android.gms.net.GmsCoreCronetProvider");
+        this.f.add("org.chromium.net.impl.JavaCronetProvider");
     }
 
-    public static m51 b() {
-        InterceptResult invokeV;
+    public final void a(String str, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? g : (m51) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, classLoader) == null) {
+            try {
+                Field b = w61.b(classLoader.getClass(), str);
+                w61.h(b);
+                w61.l(b, this, w61.g(b, classLoader));
+            } catch (IllegalAccessException unused) {
+            }
+        }
     }
 
-    public int a(String str) {
+    public final void b(ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader) == null) {
+            a("pathList", classLoader);
+        }
+    }
+
+    public final void c(ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, classLoader) == null) {
+            Class<?> cls = classLoader.getClass();
+            Method c = w61.c(cls, "findResource", String.class);
+            this.b = c;
+            c.setAccessible(true);
+            Method c2 = w61.c(cls, "findResources", String.class);
+            this.c = c2;
+            c2.setAccessible(true);
+            Method c3 = w61.c(cls, "findLibrary", String.class);
+            this.d = c3;
+            c3.setAccessible(true);
+            Method c4 = w61.c(cls, "getPackage", String.class);
+            this.e = c4;
+            c4.setAccessible(true);
+        }
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Class<?> findClass(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.d.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            return -1;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.findClass(str) : (Class) invokeL.objValue;
     }
 
-    public int c(String str) {
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public String findLibrary(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            g();
-            if (this.c.containsKey(str)) {
-                return this.c.get(str).intValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return (String) this.d.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findLibrary(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findLibrary(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findLibrary(str);
             }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public List<BundleInfo> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g();
-            ArrayList arrayList = new ArrayList();
-            for (String str : this.c.keySet()) {
-                BundleInfo bundleInfo = new BundleInfo();
-                bundleInfo.setPackageName(str);
-                bundleInfo.setMinVersion(this.c.get(str).intValue());
-                arrayList.add(bundleInfo);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            g();
-            return this.a.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0067, code lost:
-        if (r0 != null) goto L23;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized boolean f() {
-        InterceptResult invokeV;
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public URL findResource(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        synchronized (this) {
-            if (this.e) {
-                return true;
-            }
-            InputStream inputStream = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
-                AssetManager assets = ContextHolder.getApplicationContext().getAssets();
-                inputStream = assets.open(f + File.separator + "manifest.json");
-                StringBuilder sb = new StringBuilder();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, Xml.Encoding.UTF_8.toString()), 8192);
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    sb.append(readLine);
-                }
-                h(new JSONArray(sb.toString()), this.c, this.a, this.b, this.d);
-            } catch (IOException unused) {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused2) {
-                        this.e = true;
-                        return true;
-                    }
-                }
-                this.e = true;
-                return true;
-            } catch (JSONException unused3) {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-                this.e = true;
-                return true;
-            } catch (Throwable th) {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                throw th;
+                return (URL) this.b.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findResource(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findResource(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findResource(str);
             }
         }
+        return (URL) invokeL.objValue;
     }
 
-    public final synchronized boolean g() {
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Enumeration<URL> findResources(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            try {
+                return (Enumeration) this.c.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findResources(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findResources(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findResources(str);
+            }
+        }
+        return (Enumeration) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Package getPackage(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            Package r0 = null;
+            if (str != null && !str.isEmpty()) {
+                try {
+                    r0 = (Package) this.e.invoke(this.a, str);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e2) {
+                    e2.printStackTrace();
+                } catch (InvocationTargetException e3) {
+                    e3.printStackTrace();
+                }
+                if (r0 == null) {
+                    r0 = super.getPackage(str);
+                }
+                if (r0 == null) {
+                    return definePackage(str, "Unknown", "0.0", "Unknown", "Unknown", "0.0", "Unknown", null);
+                }
+            }
+            return r0;
+        }
+        return (Package) invokeL.objValue;
+    }
+
+    @Override // java.lang.ClassLoader
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        Class<?> loadComponentClass;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            try {
+                return this.a.loadClass(str);
+            } catch (ClassNotFoundException unused) {
+                return (this.f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
+            }
+        }
+        return (Class) invokeLZ.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return true;
-                }
-                f();
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return m51.class.getName() + "[mBase=" + this.a.toString() + PreferencesUtil.RIGHT_MOUNT;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void h(JSONArray jSONArray, Map<String, Integer> map, Map<String, String> map2, Map<Integer, Integer> map3, Map<String, Integer> map4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, jSONArray, map, map2, map3, map4) == null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                    if (!TextUtils.isEmpty(optString)) {
-                        map.put(optString, Integer.valueOf(optJSONObject.optInt("min_version")));
-                        JSONArray optJSONArray = optJSONObject.optJSONArray("activity");
-                        if (optJSONArray != null) {
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                                if (optJSONObject2 != null) {
-                                    String optString2 = optJSONObject2.optString("name");
-                                    if (!TextUtils.isEmpty(optString2)) {
-                                        map2.put(optString2, optString);
-                                        map4.put(optString2, 1);
-                                    }
-                                }
-                            }
-                        }
-                        JSONArray optJSONArray2 = optJSONObject.optJSONArray("service");
-                        if (optJSONArray2 != null) {
-                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
-                                if (optJSONObject3 != null) {
-                                    String optString3 = optJSONObject3.optString("name");
-                                    if (!TextUtils.isEmpty(optString3)) {
-                                        map2.put(optString3, optString);
-                                        map4.put(optString3, 2);
-                                    }
-                                }
-                            }
-                        }
-                        JSONArray optJSONArray3 = optJSONObject.optJSONArray("provider");
-                        if (optJSONArray3 != null) {
-                            for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                                JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
-                                if (optJSONObject4 != null) {
-                                    String optString4 = optJSONObject4.optString("name");
-                                    if (!TextUtils.isEmpty(optString4)) {
-                                        map2.put(optString4, optString);
-                                        map4.put(optString4, 4);
-                                    }
-                                }
-                            }
-                        }
-                        JSONArray optJSONArray4 = optJSONObject.optJSONArray(SocialConstants.PARAM_RECEIVER);
-                        if (optJSONArray4 != null) {
-                            for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
-                                JSONObject optJSONObject5 = optJSONArray4.optJSONObject(i5);
-                                if (optJSONObject5 != null) {
-                                    String optString5 = optJSONObject5.optString("name");
-                                    if (!TextUtils.isEmpty(optString5)) {
-                                        map2.put(optString5, optString);
-                                        map4.put(optString5, 3);
-                                    }
-                                }
-                            }
-                        }
-                        JSONArray optJSONArray5 = optJSONObject.optJSONArray(MultiDexExtractor.DEX_PREFIX);
-                        if (optJSONArray5 != null) {
-                            for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
-                                JSONObject optJSONObject6 = optJSONArray5.optJSONObject(i6);
-                                if (optJSONObject6 != null) {
-                                    String optString6 = optJSONObject6.optString("name");
-                                    if (!TextUtils.isEmpty(optString6)) {
-                                        map2.put(optString6, optString);
-                                    }
-                                }
-                            }
-                        }
-                        JSONArray optJSONArray6 = optJSONObject.optJSONArray("ids");
-                        if (optJSONArray6 != null) {
-                            for (int i7 = 0; i7 < optJSONArray6.length(); i7++) {
-                                JSONObject optJSONObject7 = optJSONArray6.optJSONObject(i7);
-                                if (optJSONObject7 != null) {
-                                    int optInt = optJSONObject7.optInt("bundle");
-                                    int optInt2 = optJSONObject7.optInt("host");
-                                    if (optInt > 0 && optInt2 > 0) {
-                                        map3.put(Integer.valueOf(optInt), Integer.valueOf(optInt2));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

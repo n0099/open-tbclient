@@ -22,7 +22,7 @@ public class CustomAlertDialog extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10017f);
+        super(context, R.style.obfuscated_res_0x7f100180);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,12 +45,12 @@ public class CustomAlertDialog extends Dialog {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04b4);
+            setContentView(R.layout.obfuscated_res_0x7f0d04cd);
             setCanceledOnTouchOutside(true);
-            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b67);
-            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b64);
-            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b66);
-            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b65);
+            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091c03);
+            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091c05);
+            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091c04);
         }
     }
 

@@ -205,7 +205,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.d = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275);
             this.e = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275);
-            this.f = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
+            this.f = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d);
             this.c = new LinearLayout(this.b);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.width = -2;

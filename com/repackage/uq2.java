@@ -1,13 +1,11 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,22 +13,95 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import okhttp3.Headers;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.br2;
 /* loaded from: classes7.dex */
-public class uq2 extends p13 {
+public final class uq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> d;
+    public static final boolean a;
+    public static volatile String b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, Long> c;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        /* renamed from: com.repackage.uq2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0742a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
+            public final /* synthetic */ Bitmap b;
+            public final /* synthetic */ Rect c;
+
+            public RunnableC0742a(a aVar, int i, Bitmap bitmap, Rect rect) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, Integer.valueOf(i), bitmap, rect};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = i;
+                this.b = bitmap;
+                this.c = rect;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    br2 a = br2.a.a("simple_parser");
+                    a.c(this.a);
+                    if (a.a(this.b, this.c)) {
+                        return;
+                    }
+                    uq2.h();
+                }
+            }
+        }
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SwanAppActivity activity;
+            qz1 X;
+            pz1 o;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = ul2.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || (X = activity.X()) == null || (o = X.o()) == null) {
+                return;
+            }
+            Bitmap p = yd3.p();
+            bd3.f().execute(new RunnableC0742a(this, qq2.d(o), p, qq2.b(p, o, ul2.U().B(this.a))), "SwanNAArrivalCheck");
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,234 +116,148 @@ public class uq2 extends p13 {
                 return;
             }
         }
-        d = Sets.newHashSet("REFERER", "USER-AGENT");
+        a = rg1.a;
+        b = "";
+        c = true;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uq2(p03 p03Var, String str) {
-        super(p03Var, str);
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            be3.a0(new a(str));
+        }
+    }
+
+    public static void c() {
+        qz1 V;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (a) {
+                Log.d("SwanArrivalMonitor", "start handle arrival report");
+            }
+            if (r63.f() || (V = ul2.U().V()) == null) {
                 return;
             }
-        }
-        this.c = new ConcurrentHashMap<>();
-    }
-
-    public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null || jSONObject.length() < 1) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !d.contains(next.toUpperCase())) {
-                    String optString = jSONObject.optString(next);
-                    if (TextUtils.isEmpty(optString)) {
-                        optString = "";
-                    }
-                    hashMap.put(next, optString);
+            pz1 o = V.o();
+            ym1 ym1Var = null;
+            if (o != null) {
+                nm1 o3 = o.o3();
+                if (o3 == null) {
+                    return;
+                }
+                qm1 l = o3.l();
+                if (l != null) {
+                    ym1Var = l.O();
+                } else {
+                    ym1Var = o3.O();
                 }
             }
-            return hashMap;
+            if (ym1Var == null || ym1Var.b <= 0) {
+                return;
+            }
+            r63.a(ym1Var);
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap<String, String> m(@Nullable JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, jSONObject, z)) == null) {
-            HashMap<String, String> l = l(jSONObject);
-            if (z) {
-                if (l == null) {
-                    l = new HashMap<>();
-                }
-                l.put("Referer", hp1.d());
-            }
-            return l;
-        }
-        return (HashMap) invokeLZ.objValue;
-    }
-
-    public static JSONObject s(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str)) {
-                    List<String> values = headers.values(str);
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void j(@NonNull JSONObject jSONObject, String str) throws JSONException {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || r63.h()) {
             return;
         }
-        String optString = jSONObject.optString("Cookie");
-        if (TextUtils.isEmpty(optString)) {
-            jSONObject.put("Cookie", str);
-            return;
-        }
-        if (optString.endsWith(ParamableElem.DIVIDE_PARAM)) {
-            str2 = optString + str;
+        pz1 H = ul2.U().H();
+        if (H == null) {
+            if (a) {
+                Log.d("SwanArrivalMonitor", "NAArrival：top fragment is null");
+            }
+        } else if (!f(H)) {
+            if (a) {
+                Log.d("SwanArrivalMonitor", "start na report");
+            }
+            h();
         } else {
-            str2 = optString + ParamableElem.DIVIDE_PARAM + str;
+            if (a) {
+                Log.d("SwanArrivalMonitor", "start check for na arrival");
+            }
+            b(H.t3());
         }
-        jSONObject.put("Cookie", str2);
     }
 
-    public boolean k(sz2 sz2Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sz2Var, unitedSchemeEntity)) == null) {
-            if (sz2Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
-            }
-            JSONObject a = p13.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
-                return false;
-            } else if (TextUtils.isEmpty(a.optString("cb"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal cb");
-                return false;
-            } else if (TextUtils.isEmpty(a.optString("url"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal url");
-                return false;
-            } else {
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            b = str;
         }
-        return invokeLL.booleanValue;
     }
 
-    public JSONObject n(String str) {
+    public static boolean f(pz1 pz1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("cancelTag", str);
-                }
-            } catch (JSONException e) {
-                if (p13.b) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pz1Var)) == null) {
+            if (pz1Var == null) {
+                return false;
             }
-            return jSONObject;
+            boolean equals = TextUtils.equals(b, pz1Var.t3());
+            if (a) {
+                Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
+            }
+            return equals;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String o() {
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? zi2.q().a().getCookie(".baidu.com") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c : invokeV.booleanValue;
     }
 
-    public final long p(String str) {
-        InterceptResult invokeL;
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            r63.o(h03.M() != null ? h03.M().Y() : null);
+        }
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            if (a) {
+                Log.d("SwanArrivalMonitor", "on swan page change, isFromRoute : " + z);
             }
-            try {
-                return this.c.get(str).longValue();
-            } catch (Exception unused) {
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.c == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.c.remove(str);
-    }
-
-    public void r(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) || TextUtils.isEmpty(str) || jSONObject == null || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("header", jSONObject);
-            HashMap hashMap = new HashMap();
-            hashMap.put("data", jSONObject2.toString());
-            fl2.U().u(new t92(str, hashMap));
-        } catch (JSONException e) {
-            if (p13.b) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public JSONObject t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-                                }
-                                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal upload file over size.");
-                            }
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "HTTP method is invalid");
-                        }
-                        return UnitedSchemeUtility.wrapCallbackParams(202, "request:fail parameter error: arrayBuffer of data exceed size limit.");
-                    }
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "request url header must be https or wss");
+            if (z && r63.j()) {
+                if (a) {
+                    Log.d("SwanArrivalMonitor", "end handle swan page change");
+                    return;
                 }
-                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
+                return;
             }
-            return UnitedSchemeUtility.wrapCallbackParams(0);
+            if (z) {
+                c = false;
+            }
+            if (!z) {
+                d();
+            }
+            r63.G();
+            c();
+            h03 M = h03.M();
+            if (M == null || z) {
+                return;
+            }
+            r63.q(M.Y());
         }
-        return (JSONObject) invokeI.objValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            b = "";
+            c = true;
+        }
     }
 }

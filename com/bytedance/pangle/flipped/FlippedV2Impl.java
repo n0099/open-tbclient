@@ -62,7 +62,6 @@ public class FlippedV2Impl implements c {
                 Method declaredMethod2 = getDeclaredMethod(cls, "setHiddenApiExemptions", new Class[]{String[].class});
                 declaredMethod2.setAccessible(true);
                 declaredMethod2.invoke(invoke, new String[]{"L"});
-                Log.e(TAG, "V2 invokeHiddenApiRestrictions success.");
             } catch (Exception e) {
                 Log.e(TAG, "V2 invokeHiddenApiRestrictions fail: " + Log.getStackTraceString(e));
             }

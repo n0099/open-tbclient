@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hg7 extends ob1<LiveLocationService> {
+public class hg7 extends dc1<LiveRealAuthService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class hg7 extends ob1<LiveLocationService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ob1
+    @Override // com.repackage.dc1
     /* renamed from: a */
-    public LiveLocationService createService() throws ServiceNotFoundException {
+    public LiveRealAuthService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ig7() : (LiveLocationService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ig7() : (LiveRealAuthService) invokeV.objValue;
     }
 }

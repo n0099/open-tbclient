@@ -2,9 +2,10 @@ package com.kwad.sdk.core.diskcache;
 
 import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.core.i.b;
-import com.kwad.sdk.utils.aq;
+import com.kwad.sdk.core.threads.b;
+import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.service.kwai.d;
+import com.kwad.sdk.utils.ap;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,12 +26,12 @@ public class ApkCacheManager {
     public enum Holder {
         INSTANCE;
         
-        public ApkCacheManager mInstance = new ApkCacheManager();
+        public ApkCacheManager mInstance = new ApkCacheManager((byte) 0);
 
         Holder() {
         }
 
-        public ApkCacheManager getInstance() {
+        public final ApkCacheManager getInstance() {
             return this.mInstance;
         }
     }
@@ -39,6 +40,7 @@ public class ApkCacheManager {
         this.c = b.j();
         this.d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: private */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Void call() {
@@ -58,14 +60,17 @@ public class ApkCacheManager {
                 }
             }
         };
-        if (KsAdSDKImpl.get().getContext() == null) {
+        if (((d) ServiceProvider.a(d.class)).a() == null) {
             return;
         }
         try {
-            this.b = aq.c(KsAdSDKImpl.get().getContext());
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.a(th);
+            this.b = ap.c(((d) ServiceProvider.a(d.class)).a());
+        } catch (Throwable unused) {
         }
+    }
+
+    public /* synthetic */ ApkCacheManager(byte b) {
+        this();
     }
 
     private int a(File file) {
@@ -78,14 +83,17 @@ public class ApkCacheManager {
 
     private void a(List<File> list) {
         Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(File file, File file2) {
+            public static int a(File file, File file2) {
                 if (file.lastModified() >= file2.lastModified()) {
                     return file.lastModified() == file2.lastModified() ? 0 : 1;
                 }
                 return -1;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            @Override // java.util.Comparator
+            public final /* synthetic */ int compare(File file, File file2) {
+                return a(file, file2);
             }
         });
     }
@@ -104,20 +112,18 @@ public class ApkCacheManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(File file) {
-        if (file == null || !file.exists()) {
-            return;
-        }
-        try {
-            if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    c(file2);
+        if (file != null && file.exists()) {
+            try {
+                if (file.isDirectory()) {
+                    for (File file2 : file.listFiles()) {
+                        c(file2);
+                    }
+                    file.delete();
+                } else if (file.exists()) {
+                    file.delete();
                 }
-            } else if (!file.exists()) {
-                return;
+            } catch (Exception unused) {
             }
-            file.delete();
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
         }
     }
 
@@ -128,7 +134,10 @@ public class ApkCacheManager {
             return false;
         }
         File[] listFiles = this.b.listFiles();
-        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.b) <= 400);
+        if (listFiles.length > 5) {
+            return listFiles.length <= 10 && a(this.b) <= 400;
+        }
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -143,7 +152,7 @@ public class ApkCacheManager {
         return arrayList;
     }
 
-    public void b() {
+    public final void b() {
         File file = this.b;
         if (file == null || !file.exists()) {
             return;

@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eq9;
-import com.repackage.iq9;
-import com.repackage.mq9;
-import com.repackage.qq9;
-import com.repackage.sl9;
-import com.repackage.uq9;
+import com.win.opensdk.M;
+import com.win.opensdk.t2;
+import com.win.opensdk.u2;
+import com.win.opensdk.v2;
+import com.win.opensdk.w2;
+import com.win.opensdk.x2;
 /* loaded from: classes8.dex */
 public class CloseParentView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class CloseParentView extends LinearLayout {
     public Context d;
     public View e;
     public View f;
-    public qq9 g;
+    public w2 g;
     public int h;
     public Handler i;
 
@@ -76,16 +76,16 @@ public class CloseParentView extends LinearLayout {
                 return;
             }
         }
-        this.i = new eq9(this, Looper.getMainLooper());
+        this.i = new t2(this, Looper.getMainLooper());
         this.d = context;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d08b6, this);
-        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092444);
-        this.e = findViewById(R.id.obfuscated_res_0x7f092441);
-        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092445);
-        this.f = findViewById(R.id.obfuscated_res_0x7f09244b);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09244f);
-        this.b.setOnClickListener(new iq9(this));
-        this.f.setOnClickListener(new mq9(this));
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d08d6, this);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092504);
+        this.e = findViewById(R.id.obfuscated_res_0x7f092501);
+        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092505);
+        this.f = findViewById(R.id.obfuscated_res_0x7f09250b);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09250f);
+        this.b.setOnClickListener(new u2(this));
+        this.f.setOnClickListener(new v2(this));
         setAreaLevel(1);
     }
 
@@ -95,7 +95,7 @@ public class CloseParentView extends LinearLayout {
         }
     }
 
-    public void c() {
+    public void b() {
         Handler handler;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.i) == null) {
@@ -104,12 +104,12 @@ public class CloseParentView extends LinearLayout {
         handler.removeCallbacksAndMessages(null);
     }
 
-    public final void d() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b.removeView(this.c);
             this.b.addView(this.c, 1);
-            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = sl9.b(this.d, 12);
+            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = M.a(this.d, 12);
             ((LinearLayout.LayoutParams) this.c.getLayoutParams()).rightMargin = 0;
         }
     }
@@ -119,9 +119,9 @@ public class CloseParentView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             int i2 = i != 0 ? i != 1 ? i != 2 ? 0 : 30 : 22 : 10;
             ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            int b = sl9.b(this.d, i2);
-            layoutParams.width = b;
-            layoutParams.height = b;
+            int a = M.a(this.d, i2);
+            layoutParams.width = a;
+            layoutParams.height = a;
         }
     }
 
@@ -145,26 +145,26 @@ public class CloseParentView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             if (i != 110) {
-                d();
+                c();
                 return;
             }
             this.b.removeView(this.c);
             this.b.addView(this.c, 0);
             ((LinearLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = 0;
-            ((LinearLayout.LayoutParams) this.c.getLayoutParams()).rightMargin = sl9.b(this.d, 12);
+            ((LinearLayout.LayoutParams) this.c.getLayoutParams()).rightMargin = M.a(this.d, 12);
         }
     }
 
-    public void setOnCloseListener(qq9 qq9Var) {
+    public void setOnCloseListener(w2 w2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qq9Var) == null) {
-            this.g = qq9Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, w2Var) == null) {
+            this.g = w2Var;
         }
     }
 
-    public void setOnCollectListener(uq9 uq9Var) {
+    public void setOnCollectListener(x2 x2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uq9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x2Var) == null) {
         }
     }
 }

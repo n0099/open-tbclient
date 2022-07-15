@@ -1,43 +1,35 @@
 package com.repackage;
+
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface dx3 {
-    String a();
+public class dx3 implements ux3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b();
+    public dx3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    String c();
-
-    String d();
-
-    String e();
-
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    @Override // com.repackage.ux3
+    public void a(@NonNull Activity activity, tw3 tw3Var, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, tw3Var, xx3Var) == null) {
+            xx3Var.a();
+        }
+    }
 }

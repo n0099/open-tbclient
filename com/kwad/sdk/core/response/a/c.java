@@ -7,51 +7,39 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class c {
-    public static String a(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : h(adTemplate).playDetailInfo.detailTopToolBarInfo.rewardCallDescription;
-    }
-
-    public static String b(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : h(adTemplate).playDetailInfo.detailTopToolBarInfo.rewardIconUrl;
-    }
-
-    public static String c(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : h(adTemplate).playEndInfo.endTopToolBarInfo.rewardIconUrl;
-    }
-
-    public static long d(@Nullable AdTemplate adTemplate) {
+public final class c {
+    public static long a(@Nullable AdTemplate adTemplate) {
         if (adTemplate == null) {
             return 0L;
         }
-        return h(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonShowTime;
+        return e(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonShowTime;
     }
 
-    public static String e(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : h(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonDescription;
+    public static String b(@Nullable AdTemplate adTemplate) {
+        return adTemplate == null ? "" : e(adTemplate).playDetailInfo.detailTopToolBarInfo.callButtonDescription;
     }
 
-    public static String f(@Nullable AdTemplate adTemplate) {
-        return adTemplate == null ? "" : h(adTemplate).playEndInfo.endTopToolBarInfo.callButtonDescription;
+    public static String c(@Nullable AdTemplate adTemplate) {
+        return adTemplate == null ? "" : e(adTemplate).playEndInfo.endTopToolBarInfo.callButtonDescription;
     }
 
-    public static boolean g(@Nullable AdTemplate adTemplate) {
-        if (adTemplate != null && d.c(adTemplate)) {
-            return h(adTemplate).slideClick;
+    public static boolean d(@Nullable AdTemplate adTemplate) {
+        if (adTemplate != null && d.a(adTemplate)) {
+            return e(adTemplate).slideClick;
         }
         return false;
     }
 
     @NonNull
-    public static AdStyleInfo h(@NonNull AdTemplate adTemplate) {
-        return d.j(adTemplate).adStyleInfo;
+    public static AdStyleInfo e(@NonNull AdTemplate adTemplate) {
+        return d.i(adTemplate).adStyleInfo;
     }
 
-    public static List<String> i(@NonNull AdTemplate adTemplate) {
-        AdStyleInfo h = h(adTemplate);
+    public static List<String> f(@NonNull AdTemplate adTemplate) {
+        AdStyleInfo e = e(adTemplate);
         ArrayList arrayList = new ArrayList();
         try {
-            for (AdStyleInfo.ExposeTagInfo exposeTagInfo : h.extraDisplayInfo.exposeTagInfoList) {
+            for (AdStyleInfo.ExposeTagInfo exposeTagInfo : e.extraDisplayInfo.exposeTagInfoList) {
                 arrayList.add(exposeTagInfo.text);
             }
         } catch (Exception unused) {

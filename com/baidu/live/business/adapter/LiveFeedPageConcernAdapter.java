@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.d80;
-import com.repackage.ia0;
-import com.repackage.j80;
-import com.repackage.oa0;
-import com.repackage.s80;
-import com.repackage.za0;
+import com.repackage.e80;
+import com.repackage.eb0;
+import com.repackage.k80;
+import com.repackage.na0;
+import com.repackage.t80;
+import com.repackage.ta0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -37,7 +37,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public LayoutInflater b;
-    public List<j80> c;
+    public List<k80> c;
     public Context d;
     public boolean e;
     public String f;
@@ -113,17 +113,17 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                 if (i < 0 || i >= this.c.c.size() || this.c.c.get(this.a) == null) {
                     return;
                 }
-                LiveFeedPageSdk.m("FollowItemClick: scheme: " + ((j80) this.c.c.get(this.a)).d);
-                j80 j80Var = (j80) this.c.c.get(this.a);
+                LiveFeedPageSdk.m("FollowItemClick: scheme: " + ((k80) this.c.c.get(this.a)).d);
+                k80 k80Var = (k80) this.c.c.get(this.a);
                 String str = this.c.e ? "chenjinshi" : "zhibopindao";
-                if (j80Var.a) {
-                    LiveFeedPageSdk.f().g().invokeScheme(this.b.itemView.getContext(), j80Var.d);
-                    d80.j(this.c.d, this.c.a, str);
+                if (k80Var.a) {
+                    LiveFeedPageSdk.f().g().invokeScheme(this.b.itemView.getContext(), k80Var.d);
+                    e80.k(this.c.d, this.c.a, str);
                     return;
                 }
-                LiveFeedPageSdk.f().g().invokeScheme(this.b.itemView.getContext(), j80Var.d);
-                LiveHostInfo liveHostInfo = j80Var.e;
-                d80.h(this.c.d, this.c.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, this.a + 1, j80Var.c, j80Var.b, j80Var.f);
+                LiveFeedPageSdk.f().g().invokeScheme(this.b.itemView.getContext(), k80Var.d);
+                LiveHostInfo liveHostInfo = k80Var.e;
+                e80.i(this.c.d, this.c.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, this.a + 1, k80Var.c, k80Var.b, k80Var.f);
             }
         }
     }
@@ -148,8 +148,8 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         this.a = str;
         this.e = z;
         this.b = LayoutInflater.from(context);
-        this.f = za0.e().o();
-        float a2 = s80.a(this.d, 8.0f);
+        this.f = eb0.e().o();
+        float a2 = t80.a(this.d, 8.0f);
         this.g = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
     }
 
@@ -175,7 +175,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         }
         if (this.e) {
             lottieAnimationView.setAnimation("live_feed_page_shinning.json");
-        } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(za0.e().o()) && !"dark".equals(za0.e().o())) {
+        } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(eb0.e().o()) && !"dark".equals(eb0.e().o())) {
             lottieAnimationView.setAnimation("live_feed_page_shinning.json");
         } else {
             lottieAnimationView.setAnimation("live_feed_page_shinning_night.json");
@@ -186,29 +186,29 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: j */
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        j80 j80Var;
+        k80 k80Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (j80Var = (j80) ia0.b(this.c, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (k80Var = (k80) na0.b(this.c, i)) == null) {
             return;
         }
-        if (j80Var.g) {
+        if (k80Var.g) {
             String str = this.e ? "chenjinshi" : "zhibopindao";
-            if (j80Var.a) {
-                d80.k(this.d, this.a, str);
+            if (k80Var.a) {
+                e80.l(this.d, this.a, str);
             } else {
-                LiveHostInfo liveHostInfo = j80Var.e;
-                d80.i(this.d, this.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, i + 1, j80Var.c, j80Var.b, j80Var.f);
+                LiveHostInfo liveHostInfo = k80Var.e;
+                e80.j(this.d, this.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, i + 1, k80Var.c, k80Var.b, k80Var.f);
             }
-            j80Var.g = false;
+            k80Var.g = false;
         }
-        if (j80Var.a) {
+        if (k80Var.a) {
             h(viewHolder);
             if (this.e) {
-                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d2a);
-            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(za0.e().o()) && !"dark".equals(za0.e().o())) {
-                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d29);
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080ca6);
+            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(eb0.e().o()) && !"dark".equals(eb0.e().o())) {
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080ca5);
             } else {
-                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d2b);
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080ca7);
             }
             viewHolder.e.setVisibility(0);
             viewHolder.b.setVisibility(8);
@@ -219,33 +219,33 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
             viewHolder.b.setVisibility(0);
             viewHolder.d.setVisibility(0);
             viewHolder.c.setVisibility(0);
-            LiveHostInfo liveHostInfo2 = j80Var.e;
+            LiveHostInfo liveHostInfo2 = k80Var.e;
             if (liveHostInfo2 != null) {
                 viewHolder.c.setImageURI(liveHostInfo2.avatar);
             }
-            viewHolder.d.setTextColor(za0.e().a(this.d, this.e, "color_white3"));
+            viewHolder.d.setTextColor(eb0.e().a(this.d, this.e, "color_white3"));
         }
-        LiveHostInfo liveHostInfo3 = j80Var.e;
+        LiveHostInfo liveHostInfo3 = k80Var.e;
         if (liveHostInfo3 != null) {
-            if (oa0.a(liveHostInfo3.name)) {
-                viewHolder.a.setText(R.string.obfuscated_res_0x7f0f0a0b);
+            if (ta0.a(liveHostInfo3.name)) {
+                viewHolder.a.setText(R.string.obfuscated_res_0x7f0f09f8);
             } else {
-                viewHolder.a.setText(j80Var.e.name);
+                viewHolder.a.setText(k80Var.e.name);
             }
-            viewHolder.a.setTextColor(za0.e().a(this.d, this.e, "color_1F1F1F"));
+            viewHolder.a.setTextColor(eb0.e().a(this.d, this.e, "color_1F1F1F"));
         }
         viewHolder.itemView.setOnClickListener(new a(this, i, viewHolder));
-        viewHolder.c.getHierarchy().setPlaceholderImage(za0.e().j(this.e), ScalingUtils.ScaleType.FIT_XY);
+        viewHolder.c.getHierarchy().setPlaceholderImage(eb0.e().j(this.e), ScalingUtils.ScaleType.FIT_XY);
         if (this.e) {
             viewHolder.c.getHierarchy().setUseGlobalColorFilter(false);
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(za0.e().a(this.d, this.e, "color_FF3333"));
+        gradientDrawable.setColor(eb0.e().a(this.d, this.e, "color_FF3333"));
         gradientDrawable.setCornerRadii(this.g);
-        gradientDrawable.setStroke(s80.a(this.d, 1.0f), za0.e().a(this.d, this.e, "color_white1"));
+        gradientDrawable.setStroke(t80.a(this.d, 1.0f), eb0.e().a(this.d, this.e, "color_white1"));
         viewHolder.d.setBackgroundDrawable(gradientDrawable);
-        this.f = za0.e().o();
-        if (oa0.a(viewHolder.f) || viewHolder.f.equals(this.f)) {
+        this.f = eb0.e().o();
+        if (ta0.a(viewHolder.f) || viewHolder.f.equals(this.f)) {
             return;
         }
         viewHolder.f = this.f;
@@ -262,13 +262,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d04f5, viewGroup, false);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d050f, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a4);
-            viewHolder.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f0);
-            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909d6);
-            viewHolder.b = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0902eb);
-            viewHolder.c = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ea);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092247);
+            viewHolder.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f2);
+            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909de);
+            viewHolder.b = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ed);
+            viewHolder.c = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ec);
             viewHolder.f = this.f;
             i(viewHolder.b);
             viewHolder.b.loop(true);
@@ -310,12 +310,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         }
     }
 
-    public void o(List<j80> list) {
+    public void o(List<k80> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || ia0.c(list)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || na0.c(list)) {
             return;
         }
-        List<j80> list2 = this.c;
+        List<k80> list2 = this.c;
         if (list2 != null) {
             list2.clear();
         } else {

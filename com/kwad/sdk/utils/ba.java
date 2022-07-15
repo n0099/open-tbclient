@@ -1,26 +1,30 @@
 package com.kwad.sdk.utils;
 
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 /* loaded from: classes5.dex */
-public class ba {
-    public View d;
-    public Point c = new Point();
-    public Rect a = new Rect();
-    public Rect b = new Rect();
-
-    public ba(View view2) {
-        this.d = view2;
-    }
-
-    public boolean a() {
-        boolean globalVisibleRect = this.d.getGlobalVisibleRect(this.a, this.c);
-        Point point = this.c;
-        if (point.x == 0 && point.y == 0 && this.a.height() == this.d.getHeight() && this.b.height() != 0 && Math.abs(this.a.top - this.b.top) > this.d.getHeight() / 2) {
-            this.a.set(this.b);
+public final class ba {
+    public static boolean a(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            for (int i = 0; i < split.length && i < split2.length; i++) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
+                    if (parseInt > 0) {
+                        return true;
+                    }
+                    if (parseInt < 0) {
+                        return false;
+                    }
+                } catch (NumberFormatException unused) {
+                    return false;
+                }
+            }
+            if (split.length >= split2.length) {
+                return true;
+            }
         }
-        this.b.set(this.a);
-        return globalVisibleRect;
+        return false;
     }
 }

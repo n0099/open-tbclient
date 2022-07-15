@@ -3,7 +3,6 @@ package com.kwai.sodler.lib.ext;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
@@ -13,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 @SuppressLint({"LongLogTag"})
 /* loaded from: classes5.dex */
-public class d {
+public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,7 +114,7 @@ public class d {
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0368d {
+    public static final class C0568d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,20 +176,24 @@ public class d {
                 if (file != null) {
                     if (file.exists()) {
                         if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                            C0368d.b(classLoader, file);
+                            C0568d.b(classLoader, file);
+                            return;
                         } else if (Build.VERSION.SDK_INT == 24) {
                             c.b(classLoader, file);
+                            return;
                         } else if (Build.VERSION.SDK_INT >= 23) {
                             b.b(classLoader, file);
+                            return;
                         } else if (Build.VERSION.SDK_INT >= 14) {
                             a.b(classLoader, file);
+                            return;
                         } else {
                             e.b(classLoader, file);
+                            return;
                         }
-                        return;
                     }
                 }
-                Log.e("Sodler.ShareLibraryLoader", String.format("installNativeLibraryPath, folder %s is illegal", file));
+                com.kwai.sodler.lib.a.a("Sodler.ShareLibraryLoader", String.format("installNativeLibraryPath, folder %s is illegal", file));
             }
         }
     }

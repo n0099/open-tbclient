@@ -1,20 +1,81 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes6.dex */
-public final class m61 {
+public class m61 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile m61 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    @Inject
-    public static w61 a() {
+    public m61() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public static m61 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? v61.a() : (w61) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (m61.class) {
+                    if (b == null) {
+                        b = new m61();
+                    }
+                }
+            }
+            return b;
+        }
+        return (m61) invokeV.objValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.a) {
+            return;
+        }
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+            c(context);
+            return;
+        }
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        new l61(context, countDownLatch).sendMessage(Message.obtain());
+        try {
+            countDownLatch.await();
+        } catch (Exception unused) {
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            y51.a().c();
+            try {
+                new WebView(context);
+            } catch (Exception unused) {
+            }
+            this.a = true;
+        }
     }
 }

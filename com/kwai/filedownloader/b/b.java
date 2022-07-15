@@ -23,13 +23,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.kwai.filedownloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0363a implements b {
+        public static class C0560a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0363a(IBinder iBinder) {
+            public C0560a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a() {
+            public final void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -68,7 +68,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a(int i, Notification notification) {
+            public final void a(int i, Notification notification) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, notification) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -92,7 +92,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a(com.kwai.filedownloader.b.a aVar) {
+            public final void a(com.kwai.filedownloader.b.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -110,7 +110,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
+            public final void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)}) != null) {
                     return;
@@ -140,11 +140,9 @@ public interface b extends IInterface {
                     try {
                         if (this.b.transact(4, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
-                            obtain2.recycle();
-                            obtain.recycle();
-                            return;
+                        } else {
+                            a.d().a(str, str2, z, i, i2, i3, z2, bVar, z3);
                         }
-                        a.d().a(str, str2, z, i, i2, i3, z2, bVar, z3);
                         obtain2.recycle();
                         obtain.recycle();
                     } catch (Throwable th) {
@@ -159,7 +157,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a(boolean z) {
+            public final void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -177,7 +175,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean a(int i) {
+            public final boolean a(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
@@ -200,7 +198,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean a(String str, String str2) {
+            public final boolean a(String str, String str2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
@@ -224,14 +222,14 @@ public interface b extends IInterface {
             }
 
             @Override // android.os.IInterface
-            public IBinder asBinder() {
+            public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void b(com.kwai.filedownloader.b.a aVar) {
+            public final void b(com.kwai.filedownloader.b.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -249,7 +247,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean b() {
+            public final boolean b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -271,7 +269,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean b(int i) {
+            public final boolean b(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -294,7 +292,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public long c(int i) {
+            public final long c(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
@@ -317,7 +315,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void c() {
+            public final void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -337,7 +335,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public long d(int i) {
+            public final long d(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
@@ -360,7 +358,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public byte e(int i) {
+            public final byte e(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
@@ -383,7 +381,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean f(int i) {
+            public final boolean f(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
@@ -430,7 +428,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0363a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0560a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -438,7 +436,7 @@ public interface b extends IInterface {
         public static b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0363a.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0560a.a : (b) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -460,11 +458,11 @@ public interface b extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        a(a.AbstractBinderC0361a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0558a.a(parcel.readStrongBinder()));
                         return true;
                     case 2:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(a.AbstractBinderC0361a.a(parcel.readStrongBinder()));
+                        b(a.AbstractBinderC0558a.a(parcel.readStrongBinder()));
                         return true;
                     case 3:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");

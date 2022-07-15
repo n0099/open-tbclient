@@ -1,7 +1,20 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.UserData;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,42 +22,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class e67 {
     public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
+    public static e67 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ArrayList<c> b;
+    public d c;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends TypeToken<List<c>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public int g;
-        public long h;
-        public String i;
-        public int j;
-        public long k;
-        public long l;
-        public long m;
-        public String n;
 
-        public a() {
+        public a(e67 e67Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e67Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,84 +57,197 @@ public class e67 {
         }
     }
 
+    /* loaded from: classes5.dex */
+    public class b extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ e67 b;
+
+        public b(e67 e67Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e67Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = e67Var;
+            this.a = cVar;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.c.a(this.a.d);
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(this.b.a.getResources().getColor(this.b.d(this.a.b)));
+                textPaint.setUnderlineText(false);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public Integer e;
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(String str);
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755785589, "Lcom/repackage/e67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755785589, "Lcom/repackage/e67;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755785589, "Lcom/repackage/e67;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755785589, "Lcom/repackage/e67;");
+        }
+    }
+
+    public e67(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        this.b = new ArrayList<>();
+        this.a = context;
     }
 
-    public static List<a> a(String str, String str2, long j, long j2) {
-        InterceptResult invokeCommon;
+    public static e67 f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) ? b(str, str2, null, 0L, j, j2) : (List) invokeCommon.objValue;
-    }
-
-    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                d = new e67(context);
             }
-            int i = -1;
-            int userType = userData != null ? userData.getUserType() : -1;
-            LinkedList linkedList = new LinkedList();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                int i2 = 0;
-                while (i2 < length) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    String optString = optJSONObject.optString("title");
-                    String optString2 = optJSONObject.optString("url");
-                    String optString3 = optJSONObject.optString("src");
-                    String optString4 = optJSONObject.optString("text");
-                    optJSONObject.optLong("picId");
-                    String optString5 = optJSONObject.optString("msg_src");
-                    a aVar = new a();
-                    if (!TextUtils.isEmpty(optString2)) {
-                        optString2 = optString2.trim();
-                        Matcher matcher = a.matcher(optString2);
-                        if (matcher.find()) {
-                            aVar.n = matcher.group(1);
-                        }
-                    }
-                    aVar.d = optString2;
-                    aVar.a = optString;
-                    aVar.b = optString4;
-                    aVar.c = optString3;
-                    aVar.e = str2;
-                    aVar.k = j2;
-                    aVar.l = j3;
-                    aVar.f = optString5;
-                    if (userType > i) {
-                        aVar.g = userType;
-                    }
-                    if (userData != null) {
-                        aVar.h = j;
-                        aVar.i = userData.getUserId();
-                        aVar.j = userData.getUserType();
-                    }
-                    linkedList.add(aVar);
-                    i2++;
-                    i = -1;
-                }
-                return linkedList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+            return d;
         }
-        return (List) invokeCommon.objValue;
+        return (e67) invokeL.objValue;
+    }
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                return 0;
+            }
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                i2 += this.b.get(i3).a.length();
+            }
+            return i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int identifier = this.a.getResources().getIdentifier(str, "color", this.a.getPackageName());
+            return identifier == 0 ? this.a.getResources().getIdentifier("CAM_X0101", "color", this.a.getPackageName()) : identifier;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int identifier = this.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, this.a.getPackageName());
+            return identifier == 0 ? this.a.getResources().getIdentifier("T_X09", EMABTest.TYPE_DIMEN, this.a.getPackageName()) : identifier;
+        }
+        return invokeL.intValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = (ArrayList) new Gson().fromJson(str, new a(this).getType());
+        }
+    }
+
+    public void h(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textView) == null) {
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            textView.setHighlightColor(0);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            for (int i = 0; i < this.b.size(); i++) {
+                c cVar = this.b.get(i);
+                SpannableString spannableString = new SpannableString(cVar.a);
+                spannableString.setSpan(new ForegroundColorSpan(this.a.getResources().getColor(d(cVar.b))), 0, cVar.a.length(), 33);
+                spannableString.setSpan(new AbsoluteSizeSpan((int) this.a.getResources().getDimension(e(cVar.c))), 0, cVar.a.length(), 0);
+                spannableStringBuilder.append((CharSequence) spannableString);
+                if (cVar.e.intValue() == 1) {
+                    spannableStringBuilder.setSpan(new b(this, cVar), c(i), c(i) + cVar.a.length(), 17);
+                }
+            }
+            textView.setText(spannableStringBuilder);
+        }
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (!q99.a(str)) {
+                if (str.startsWith("{") && str.endsWith("}")) {
+                    return true;
+                }
+                if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            this.c = dVar;
+        }
     }
 }

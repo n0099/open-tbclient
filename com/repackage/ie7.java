@@ -1,21 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,79 +19,146 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ie7 extends BaseAdapter {
+public class ie7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Object> a;
-    public TbPageContext<SelectLocationActivity> b;
-    public boolean c;
+    public ListViewPager a;
+    public IndicatorView b;
+    public qd7 c;
+    public TextView d;
+    public BdBaseViewPagerAdapter e;
+    public bw4 f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Context j;
+    public List<nn> k;
+    public ViewPager.OnPageChangeListener l;
+    public long m;
+    public final Handler.Callback n;
+    public final Handler o;
+    public ViewPager.OnPageChangeListener p;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ie7 a;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-
-        public b() {
+        public a(ie7 ie7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ie7Var;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what == 1 && this.a.k()) {
+                    this.a.i();
+                    return false;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c {
+    public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public View c;
+        public final /* synthetic */ ie7 a;
 
-        public c() {
+        public b(ie7 ie7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ie7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ie7Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.l != null) {
+                    this.a.l.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.s();
+                } else if (i != 0 || (count = this.a.e.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.r();
                 }
             }
         }
 
-        public /* synthetic */ c(a aVar) {
-            this();
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.l == null) {
+                return;
+            }
+            this.a.l.onPageScrolled(i, f, i2);
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.f != null && this.a.f.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.f.c(i));
+                    if (this.a.c != null) {
+                        this.a.b.setVisibility(8);
+                        this.a.c.b(this.a.f.c(i));
+                    }
+                }
+                if (this.a.l != null) {
+                    this.a.l.onPageSelected(this.a.f.c(i));
+                }
+            }
         }
     }
 
-    public ie7(TbPageContext<SelectLocationActivity> tbPageContext) {
+    public ie7(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, listViewPager, indicatorView, textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -106,200 +168,213 @@ public class ie7 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
-        LocationData b2 = ri8.a().b();
-        this.c = !ri8.a().d();
-        if (b2 == null) {
+        this.g = false;
+        this.h = true;
+        this.i = 2;
+        this.k = new ArrayList();
+        this.m = 5000L;
+        this.n = new a(this);
+        this.o = new Handler(this.n);
+        this.p = new b(this);
+        j(context, listViewPager, indicatorView, textView);
+    }
+
+    public final void i() {
+        int count;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || this.e == null) {
             return;
         }
-        this.a = c(b2.getPoi_info(), b2.getFormatted_address());
-    }
-
-    public final View a(View view2, int i, boolean z) {
-        InterceptResult invokeCommon;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Object item = getItem(i);
-            if (item instanceof LocationData.NearByAddressData) {
-                LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
-                if (view2 != null && (view2.getTag() instanceof c)) {
-                    bVar = (b) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0743, (ViewGroup) null);
-                    bVar = new b(null);
-                    bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c5c);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c5a);
-                    bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c5d);
-                    view2.setTag(bVar);
-                }
-                bVar.b.setText(nearByAddressData.getAddr());
-                if (this.c && i == 1) {
-                    bVar.c.setVisibility(0);
-                    bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808f6, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
-                    if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                        bVar.b.setText(R.string.obfuscated_res_0x7f0f1104);
-                    }
-                } else {
-                    bVar.c.setVisibility(4);
-                }
-                bVar.a.setText(nearByAddressData.getName());
-                this.b.getLayoutMode().k(z);
-                this.b.getLayoutMode().j(view2);
-                SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
-                return view2;
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final View b(View view2, int i, boolean z) {
-        InterceptResult invokeCommon;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Object item = getItem(i);
-            if (item instanceof String) {
-                String str = (String) item;
-                if (view2 != null && (view2.getTag() instanceof c)) {
-                    cVar = (c) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0744, (ViewGroup) null);
-                    cVar = new c(null);
-                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c5e);
-                    cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c5d);
-                    cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091c5b);
-                    view2.setTag(cVar);
-                }
-                if (i == 0 && !this.c) {
-                    cVar.b.setVisibility(0);
-                    cVar.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808f6, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
-                } else {
-                    cVar.b.setVisibility(4);
-                }
-                cVar.a.setText(str);
-                SkinManager.setBackgroundColor(cVar.c, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(cVar.a, R.color.CAM_X0302, 1);
-                SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
-                return view2;
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final ArrayList<Object> c(List<LocationData.NearByAddressData> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
-            LocationData.NearByAddressData nearByAddressData = null;
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            ArrayList<Object> arrayList = new ArrayList<>();
-            for (LocationData.NearByAddressData nearByAddressData2 : list) {
-                if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
-                    if (TextUtils.equals(nearByAddressData2.getName(), str)) {
-                        nearByAddressData = nearByAddressData2;
-                    } else {
-                        arrayList.add(nearByAddressData2);
-                    }
-                }
-            }
-            if (nearByAddressData != null) {
-                arrayList.add(0, nearByAddressData);
+        g9 c = h9.c(this.j);
+        if ((c == null || !c.isScroll()) && (count = this.e.getCount()) >= 2) {
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
             } else {
-                LocationData.NearByAddressData nearByAddressData3 = new LocationData.NearByAddressData();
-                nearByAddressData3.setName(str);
-                arrayList.add(0, nearByAddressData3);
+                this.a.setCurrentItem(currentItem + 1);
             }
-            TbPageContext<SelectLocationActivity> tbPageContext = this.b;
-            if (tbPageContext != null) {
-                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f1105));
-            }
-            return arrayList;
         }
-        return (ArrayList) invokeLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final void j(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, listViewPager, indicatorView, textView) == null) {
+            this.a = listViewPager;
+            this.b = indicatorView;
+            this.d = textView;
+            this.j = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.e = bdBaseViewPagerAdapter;
+            ListViewPager listViewPager2 = this.a;
+            if (listViewPager2 != null) {
+                listViewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.p);
+            }
+        }
+    }
+
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<Object> arrayList = this.a;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ListViewPager listViewPager = this.a;
+            if (listViewPager == null) {
+                return false;
             }
-            return arrayList.size();
+            int[] iArr = new int[2];
+            listViewPager.getLocationOnScreen(iArr);
+            int measuredHeight = iArr[1] + (this.a.getMeasuredHeight() / 2);
+            return measuredHeight > 0 && measuredHeight < pi.i(this.j);
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void l(Context context, aw4<?, ?> aw4Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ArrayList<Object> arrayList = this.a;
-            if (arrayList == null || i < 0 || i >= arrayList.size()) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, aw4Var) == null) || (bdBaseViewPagerAdapter = this.e) == null) {
+            return;
+        }
+        bdBaseViewPagerAdapter.g(context, aw4Var);
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            return this.a.get(i);
+            this.m = j;
         }
-        return invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void n(List<nn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.getCount(list) == 0) {
+            return;
         }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            Object item = getItem(i);
-            if (item instanceof String) {
-                return 0;
-            }
-            return item instanceof LocationData.NearByAddressData ? 1 : 2;
+        this.k = list;
+        bw4 bw4Var = new bw4(list, this.g, this.i);
+        this.f = bw4Var;
+        bw4Var.i(2);
+        boolean z = true;
+        this.f.g(1);
+        this.e.h(this.f.e());
+        this.e.notifyDataSetChanged();
+        this.a.setCurrentItem(this.f.d(), false);
+        if (this.f.b() <= 0) {
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            boolean z = TbadkCoreApplication.getInst().getSkinType() == 1;
-            if (itemViewType != 0) {
-                if (itemViewType != 1) {
-                    return null;
+        if (this.f.b() > this.i) {
+            TextView textView = this.d;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.d.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
                 }
-                return a(view2, i, z);
             }
-            return b(view2, i, z);
+            if (this.b != null && this.d == null && this.g) {
+                z = false;
+            }
+            if (!z) {
+                this.b.setVisibility(8);
+                int count = this.b.getCount();
+                int i = this.i;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
+            r();
         }
-        return (View) invokeILL.objValue;
+        if (this.f.b() >= 2 && this.f.b() <= this.i) {
+            TextView textView2 = this.d;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView2 = this.b;
+            if (indicatorView2 != null) {
+                indicatorView2.setVisibility(0);
+                if (this.b.getCount() != this.f.b()) {
+                    this.b.setCount(this.f.b());
+                    qd7 qd7Var = this.c;
+                    if (qd7Var != null) {
+                        qd7Var.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                } else {
+                    qd7 qd7Var2 = this.c;
+                    if (qd7Var2 != null) {
+                        qd7Var2.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                }
+            }
+            r();
+        }
+        if (this.f.b() < 2) {
+            TextView textView3 = this.d;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null) {
+                indicatorView3.setVisibility(8);
+            }
+            s();
+        }
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    public void o(qd7 qd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 3;
+        if (interceptable == null || interceptable.invokeL(1048582, this, qd7Var) == null) {
+            if (qd7Var != null) {
+                this.b.setVisibility(8);
+            } else {
+                this.b.setVisibility(0);
+            }
+            this.c = qd7Var;
         }
-        return invokeV.intValue;
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            bw4 bw4Var = this.f;
+            if (bw4Var != null) {
+                bw4Var.h(i);
+            }
+        }
+    }
+
+    public void q(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.l = onPageChangeListener;
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.h) {
+                this.o.removeMessages(1);
+                this.o.sendEmptyMessageDelayed(1, this.m);
+                return;
+            }
+            this.o.removeMessages(1);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.o.removeMessages(1);
+        }
     }
 }

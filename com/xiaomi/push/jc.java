@@ -12,10 +12,10 @@ public class jc {
     public final byte a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f801a;
+    public final String f1528a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final short f802a;
+    public final short f1529a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public jc() {
@@ -51,16 +51,16 @@ public class jc {
                 return;
             }
         }
-        this.f801a = str;
+        this.f1528a = str;
         this.a = b;
-        this.f802a = s;
+        this.f1529a = s;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "<TField name:'" + this.f801a + "' type:" + ((int) this.a) + " field-id:" + ((int) this.f802a) + ">";
+            return "<TField name:'" + this.f1528a + "' type:" + ((int) this.a) + " field-id:" + ((int) this.f1529a) + ">";
         }
         return (String) invokeV.objValue;
     }

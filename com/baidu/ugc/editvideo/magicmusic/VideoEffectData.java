@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import com.repackage.c89;
-import com.repackage.j59;
-import com.repackage.x79;
+import com.repackage.b99;
+import com.repackage.i69;
+import com.repackage.w89;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class VideoEffectData implements Serializable, Cloneable {
             if (videoEffectData == null) {
                 return false;
             }
-            return !c89.e(videoEffectData.mMagicEffectList) || hasReverseTimeEffect(videoEffectData) || hasRepeatTimeEffect(videoEffectData);
+            return !b99.e(videoEffectData.mMagicEffectList) || hasReverseTimeEffect(videoEffectData) || hasRepeatTimeEffect(videoEffectData);
         }
         return invokeL.booleanValue;
     }
@@ -56,7 +56,7 @@ public class VideoEffectData implements Serializable, Cloneable {
     public static boolean hasMagicEffect(VideoEffectData videoEffectData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoEffectData)) == null) ? (videoEffectData == null || c89.e(videoEffectData.getMagicEffectList())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoEffectData)) == null) ? (videoEffectData == null || b99.e(videoEffectData.getMagicEffectList())) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean hasRepeatTimeEffect(VideoEffectData videoEffectData) {
@@ -82,7 +82,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 if (str.contains("SCALE_SMALL")) {
                     str = str.replace("SCALE_SMALL", "NINE_FRAME");
                 }
-                return (VideoEffectData) new j59().b(str, VideoEffectData.class);
+                return (VideoEffectData) new i69().b(str, VideoEffectData.class);
             } catch (Exception unused) {
                 return null;
             }
@@ -98,7 +98,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 return null;
             }
             try {
-                return new j59().a(videoEffectData);
+                return new i69().a(videoEffectData);
             } catch (Exception unused) {
                 return null;
             }
@@ -112,7 +112,7 @@ public class VideoEffectData implements Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             VideoEffectData videoEffectData = new VideoEffectData();
             try {
-                if (!c89.e(this.mMagicEffectList)) {
+                if (!b99.e(this.mMagicEffectList)) {
                     ArrayList arrayList = new ArrayList();
                     for (BaseEffect baseEffect : this.mMagicEffectList) {
                         arrayList.add((BaseEffect) baseEffect.clone());
@@ -122,7 +122,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 if (this.mTimeEffect != null) {
                     videoEffectData.setTimeEffect((BaseEffect) this.mTimeEffect.clone());
                 }
-                if (!c89.e(this.mTransitionEffectList)) {
+                if (!b99.e(this.mTransitionEffectList)) {
                     CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
                     for (BaseEffect baseEffect2 : this.mTransitionEffectList) {
                         copyOnWriteArrayList.add((BaseEffect) baseEffect2.clone());
@@ -130,7 +130,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                     videoEffectData.setTransitionEffectList(copyOnWriteArrayList);
                 }
             } catch (Exception e) {
-                x79.g(e);
+                w89.g(e);
             }
             return videoEffectData;
         }
@@ -165,11 +165,11 @@ public class VideoEffectData implements Serializable, Cloneable {
                         return false;
                     }
                 }
-                if (c89.e(this.mMagicEffectList)) {
-                    if (!c89.e(videoEffectData.mMagicEffectList)) {
+                if (b99.e(this.mMagicEffectList)) {
+                    if (!b99.e(videoEffectData.mMagicEffectList)) {
                         return false;
                     }
-                } else if (c89.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
+                } else if (b99.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
                     return false;
                 } else {
                     for (int i = 0; i < this.mMagicEffectList.size(); i++) {

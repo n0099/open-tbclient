@@ -1,34 +1,39 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import tbclient.ApkDetail;
 /* loaded from: classes7.dex */
 public class u36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static void a(j36 j36Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ht4.k().h("like_forum_sort_level", false) ? 2 : 1 : invokeI.intValue;
-    }
-
-    public static void b(TbPageContext<?> tbPageContext, String str) {
-        ForumSquareActivityConfig forumSquareActivityConfig;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, str) == null) || tbPageContext == null) {
+        if (!(interceptable == null || interceptable.invokeL(65536, null, j36Var) == null) || j36Var == null || (itemData = j36Var.a) == null) {
             return;
         }
-        if (!StringUtils.isNull(str)) {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
-        } else {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+        httpMessage.addParam("item_id", itemData.itemId);
+        httpMessage.addParam("app_name", itemData.mTitle);
+        httpMessage.addParam("source_type", j36Var.b);
+        httpMessage.addParam("icon_url", itemData.mIconUrl);
+        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+        httpMessage.addParam("tags", itemData.mTags);
+        httpMessage.addParam("apk_name", itemData.pkgName);
+        ApkDetail apkDetail = itemData.apkDetail;
+        if (apkDetail != null) {
+            httpMessage.addParam("developer", apkDetail.developer);
+            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+            httpMessage.addParam("version", itemData.apkDetail.version);
+            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
         }
-        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.crash.utils.g;
 import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import com.kwai.filedownloader.exception.FileDownloadOutOfSpaceException;
 import java.io.File;
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
 /* loaded from: classes5.dex */
-public class d implements Handler.Callback {
+public final class d implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwai.filedownloader.c.c a;
@@ -62,40 +63,40 @@ public class d implements Handler.Callback {
             }
         }
 
-        public void a(int i) {
+        public final void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 this.c = i;
             }
         }
 
-        public void a(Exception exc) {
+        public final void a(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
                 this.b = exc;
             }
         }
 
-        public void a(boolean z) {
+        public final void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 this.a = z;
             }
         }
 
-        public boolean a() {
+        public final boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
         }
 
-        public Exception b() {
+        public final Exception b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (Exception) invokeV.objValue;
         }
 
-        public int c() {
+        public final int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.intValue;
@@ -236,8 +237,8 @@ public class d implements Handler.Callback {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, exc)) == null) {
             String e = this.a.e();
             if ((this.a.i() || com.kwai.filedownloader.e.e.a().f) && (exc instanceof IOException) && new File(e).exists()) {
-                long f = com.kwai.filedownloader.e.f.f(e);
-                if (f <= 4096) {
+                long a2 = g.a(e);
+                if (a2 <= 4096) {
                     File file = new File(e);
                     if (file.exists()) {
                         length = file.length();
@@ -245,7 +246,7 @@ public class d implements Handler.Callback {
                         com.kwai.filedownloader.e.d.a(this, exc, "Exception with: free space isn't enough, and the target file not exist.", new Object[0]);
                         length = 0;
                     }
-                    return Build.VERSION.SDK_INT >= 9 ? new FileDownloadOutOfSpaceException(f, 4096L, length, exc) : new FileDownloadOutOfSpaceException(f, 4096L, length);
+                    return Build.VERSION.SDK_INT >= 9 ? new FileDownloadOutOfSpaceException(a2, 4096L, length, exc) : new FileDownloadOutOfSpaceException(a2, 4096L, length);
                 }
                 return exc;
             }
@@ -362,7 +363,7 @@ public class d implements Handler.Callback {
         }
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             this.m.addAndGet(j);
@@ -378,14 +379,14 @@ public class d implements Handler.Callback {
         }
     }
 
-    public void a(Exception exc) {
+    public final void a(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
             c(exc);
         }
     }
 
-    public void a(Exception exc, int i, long j) {
+    public final void a(Exception exc, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exc, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.m.set(0L);
@@ -399,7 +400,7 @@ public class d implements Handler.Callback {
         }
     }
 
-    public void a(boolean z, long j, String str, String str2) {
+    public final void a(boolean z, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), str, str2}) == null) {
             String j2 = this.a.j();
@@ -418,7 +419,7 @@ public class d implements Handler.Callback {
         }
     }
 
-    public boolean a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -428,7 +429,7 @@ public class d implements Handler.Callback {
         return invokeV.booleanValue;
     }
 
-    public void b() {
+    public final void b() {
         Handler handler;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (handler = this.h) == null) {
@@ -443,7 +444,7 @@ public class d implements Handler.Callback {
         this.k = null;
     }
 
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a.a((byte) 1);
@@ -452,7 +453,7 @@ public class d implements Handler.Callback {
         }
     }
 
-    public void d() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a.a((byte) 6);
@@ -461,7 +462,7 @@ public class d implements Handler.Callback {
         }
     }
 
-    public void e() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HandlerThread handlerThread = new HandlerThread("source-status-callback", 10);
@@ -471,14 +472,14 @@ public class d implements Handler.Callback {
         }
     }
 
-    public void f() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             k();
         }
     }
 
-    public void g() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || j()) {
             return;
@@ -491,7 +492,7 @@ public class d implements Handler.Callback {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean handleMessage(Message message) {
+    public final boolean handleMessage(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, message)) == null) {

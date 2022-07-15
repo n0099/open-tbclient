@@ -1,108 +1,118 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.View;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz1;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ns3 implements ho3 {
+public class ns3 implements cm1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, ms3> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755458973, "Lcom/repackage/ns3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755458973, "Lcom/repackage/ns3;");
+                return;
+            }
+        }
+        b = rg1.a;
+    }
 
     public ns3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.ho3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            bz1 V = fl2.U().V();
-            Context appContext = AppRuntime.getAppContext();
-            if (V == null) {
-                if (appContext != null) {
-                    kz2.f(appContext, R.string.obfuscated_res_0x7f0f019f).G();
-                    return;
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            sp2 d = sp2.d(str, str);
-            d.h(jSONObject.toString());
-            bz1.b i = V.i("adLanding");
-            i.n(bz1.g, bz1.i);
-            i.k("adLanding", d).b();
         }
+        this.a = new HashMap<>();
+        c();
     }
 
-    @Override // com.repackage.ho3
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.cm1
+    public hs1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull ld2 ld2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? qs3.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, ld2Var)) == null) ? b(str, jSONObject, ld2Var) : (hs1) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.ho3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
+    public final hs1 b(String str, JSONObject jSONObject, ld2 ld2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? qs3.c(view2) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.ho3
-    public boolean d(View view2, bn3 bn3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, bn3Var)) == null) ? qs3.a(view2, new yp2(bn3Var.c(), bn3Var.d(), bn3Var.e(), bn3Var.b())) : invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.ho3
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
-            SwanAppActivity activity = fl2.U().getActivity();
-            if (activity != null) {
-                activity.setRequestedOrientation(1);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, ld2Var)) == null) {
+            ms3 ms3Var = this.a.get(str);
+            if (ms3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
+                }
+                return ms3Var.a(jSONObject, ld2Var);
             }
-            fl2.U().W().g(true);
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new hs1(10002, "no such api.");
+        }
+        return (hs1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new ks3());
+            d(new ls3());
+            d(new ir3());
+            d(new mr3());
+            d(new jr3());
+            d(new bt3());
+            d(new kr3());
+            d(new rs3());
+            d(new ys3());
+            d(new hr3());
+            d(new or3());
+            d(new lr3());
+            d(new nr3());
+            d(new us3());
+            d(new at3());
+            d(new vs3());
+            d(new xs3());
+            d(new ws3());
         }
     }
 
-    @Override // com.repackage.ho3
-    public boolean f(View view2, bn3 bn3Var) {
-        InterceptResult invokeLL;
+    public void d(ms3 ms3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, bn3Var)) == null) {
-            jh1 W = fl2.U().W();
-            return W != null && W.a(view2, new yp2(bn3Var.c(), bn3Var.d(), bn3Var.e(), bn3Var.b()));
+        if (interceptable == null || interceptable.invokeL(1048579, this, ms3Var) == null) {
+            if (b && TextUtils.isEmpty(ms3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
+            }
+            if (b && this.a.containsKey(ms3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + ms3Var);
+            }
+            this.a.put(ms3Var.a, ms3Var);
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.ho3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) ? qs3.d(view2) : invokeL.booleanValue;
     }
 }

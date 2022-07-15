@@ -53,6 +53,7 @@ import android.widget.Toolbar;
 import androidx.annotation.Keep;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -532,11 +533,25 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return (LayoutInflater) invokeV.objValue;
     }
 
+    @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, androidx.lifecycle.LifecycleOwner
+    public Lifecycle getLifecycle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
+            if (generatePluginAppCompatActivity != null) {
+                return generatePluginAppCompatActivity.getLifecycle();
+            }
+            return super.getLifecycle();
+        }
+        return (Lifecycle) invokeV.objValue;
+    }
+
     @Override // android.app.Activity
     public LoaderManager getLoaderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getLoaderManager();
@@ -550,7 +565,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public String getLocalClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getLocalClassName();
@@ -564,7 +579,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public int getMaxNumPictureInPictureActions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getMaxNumPictureInPictureActions();
@@ -578,7 +593,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public MenuInflater getMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getMenuInflater();
@@ -592,7 +607,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Intent getParentActivityIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getParentActivityIntent();
@@ -606,7 +621,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Plugin getPlugin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mPlugin : (Plugin) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mPlugin : (Plugin) invokeV.objValue;
     }
 
     @Override // com.bytedance.pangle.activity.b
@@ -616,7 +631,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public SharedPreferences getPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getPreferences(i);
@@ -630,7 +645,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Uri getReferrer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getReferrer();
@@ -644,7 +659,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public int getRequestedOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getRequestedOrientation();
@@ -654,11 +669,25 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return invokeV.intValue;
     }
 
+    @Override // androidx.appcompat.app.AppCompatActivity
+    public androidx.appcompat.app.ActionBar getSupportActionBar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
+            if (generatePluginAppCompatActivity != null) {
+                return generatePluginAppCompatActivity.getSupportActionBar();
+            }
+            return super.getSupportActionBar();
+        }
+        return (androidx.appcompat.app.ActionBar) invokeV.objValue;
+    }
+
     @Override // androidx.fragment.app.FragmentActivity
     public androidx.fragment.app.FragmentManager getSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getSupportFragmentManager();
@@ -672,7 +701,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Object getSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getSystemService(str);
@@ -686,7 +715,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public int getTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getTaskId();
@@ -700,7 +729,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public VoiceInteractor getVoiceInteractor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getVoiceInteractor();
@@ -714,7 +743,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Window getWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getWindow();
@@ -728,7 +757,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.getWindowManager();
@@ -742,7 +771,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean hasWindowFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.hasWindowFocus();
@@ -755,7 +784,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void invalidateOptionsMenu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.invalidateOptionsMenu();
@@ -769,7 +798,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isActivityTransitionRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isActivityTransitionRunning();
@@ -783,7 +812,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isChangingConfigurations();
@@ -797,7 +826,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isDestroyed();
@@ -811,7 +840,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isFinishing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isFinishing();
@@ -825,7 +854,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isImmersive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isImmersive();
@@ -839,7 +868,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isInMultiWindowMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isInMultiWindowMode();
@@ -853,7 +882,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isInPictureInPictureMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isInPictureInPictureMode();
@@ -867,7 +896,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isLocalVoiceInteractionSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isLocalVoiceInteractionSupported();
@@ -881,7 +910,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isTaskRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isTaskRoot();
@@ -895,7 +924,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isVoiceInteraction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isVoiceInteraction();
@@ -909,7 +938,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean isVoiceInteractionRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.isVoiceInteractionRoot();
@@ -923,7 +952,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean moveTaskToBack(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048639, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048641, this, z)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.moveTaskToBack(z);
@@ -937,7 +966,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean navigateUpTo(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, intent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.navigateUpTo(intent);
@@ -951,7 +980,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean navigateUpToFromChild(Activity activity, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, activity, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, activity, intent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.navigateUpToFromChild(activity, intent);
@@ -964,7 +993,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onActionModeFinished(ActionMode actionMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, actionMode) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, actionMode) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onActionModeFinished(actionMode);
@@ -977,7 +1006,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onActionModeStarted(ActionMode actionMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, actionMode) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, actionMode) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onActionModeStarted(actionMode);
@@ -990,7 +1019,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onActivityReenter(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048644, this, i, intent) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048646, this, i, intent) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onActivityReenter(i, intent);
@@ -1003,7 +1032,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048645, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048647, this, i, i2, intent) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onActivityResult(i, i2, intent);
@@ -1016,7 +1045,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.ContextThemeWrapper
     public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onApplyThemeResource(theme, i, z);
@@ -1029,7 +1058,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onAttachFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, fragment) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, fragment) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onAttachFragment(fragment);
@@ -1042,7 +1071,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onAttachedToWindow();
@@ -1055,7 +1084,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onBackPressed();
@@ -1068,7 +1097,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048650, this, activity, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048652, this, activity, charSequence) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onChildTitleChanged(activity, charSequence);
@@ -1081,7 +1110,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, configuration) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onConfigurationChanged(configuration);
@@ -1094,7 +1123,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.Window.Callback
     public void onContentChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048652, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onContentChanged();
@@ -1108,7 +1137,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onContextItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, menuItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, menuItem)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onContextItemSelected(menuItem);
@@ -1121,7 +1150,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onContextMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048654, this, menu) == null) {
+        if (interceptable == null || interceptable.invokeL(1048656, this, menu) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onContextMenuClosed(menu);
@@ -1134,7 +1163,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048655, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048657, this, bundle) == null) {
             c.a(this, bundle);
             LogUtil.logActivity(this, "onCreate");
         }
@@ -1143,7 +1172,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048657, this, contextMenu, view2, contextMenuInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048659, this, contextMenu, view2, contextMenuInfo) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
@@ -1157,7 +1186,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public CharSequence onCreateDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateDescription();
@@ -1171,7 +1200,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Dialog onCreateDialog(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048659, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048661, this, i)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateDialog(i);
@@ -1184,7 +1213,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onCreateNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, taskStackBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048663, this, taskStackBuilder) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onCreateNavigateUpTaskStack(taskStackBuilder);
@@ -1198,7 +1227,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onCreateOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, menu)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, menu)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateOptionsMenu(menu);
@@ -1212,7 +1241,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048663, this, i, menu)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048665, this, i, menu)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreatePanelMenu(i, menu);
@@ -1226,7 +1255,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public View onCreatePanelView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048664, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048666, this, i)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreatePanelView(i);
@@ -1240,7 +1269,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048665, this, bitmap, canvas)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048667, this, bitmap, canvas)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateThumbnail(bitmap, canvas);
@@ -1254,7 +1283,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048666, this, view2, str, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048668, this, view2, str, context, attributeSet)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateView(view2, str, context, attributeSet);
@@ -1267,7 +1296,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onDestroy();
@@ -1280,7 +1309,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048669, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048671, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onDetachedFromWindow();
@@ -1293,7 +1322,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onEnterAnimationComplete() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048672, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onEnterAnimationComplete();
@@ -1307,7 +1336,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048671, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, motionEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onGenericMotionEvent(motionEvent);
@@ -1320,7 +1349,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onGetDirectActions(CancellationSignal cancellationSignal, Consumer consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048672, this, cancellationSignal, consumer) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048674, this, cancellationSignal, consumer) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onGetDirectActions(cancellationSignal, consumer);
@@ -1334,7 +1363,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048673, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048675, this, i, keyEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onKeyDown(i, keyEvent);
@@ -1348,7 +1377,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048674, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, keyEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onKeyLongPress(i, keyEvent);
@@ -1362,7 +1391,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048675, this, i, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048677, this, i, i2, keyEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onKeyMultiple(i, i2, keyEvent);
@@ -1376,7 +1405,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048678, this, i, keyEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onKeyShortcut(i, keyEvent);
@@ -1390,7 +1419,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048677, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048679, this, i, keyEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onKeyUp(i, keyEvent);
@@ -1403,7 +1432,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onLocalVoiceInteractionStarted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048678, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048680, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onLocalVoiceInteractionStarted();
@@ -1416,7 +1445,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onLocalVoiceInteractionStopped() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048679, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048681, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onLocalVoiceInteractionStopped();
@@ -1429,7 +1458,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048680, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048682, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onLowMemory();
@@ -1443,7 +1472,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048681, this, i, menu)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048683, this, i, menu)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onMenuOpened(i, menu);
@@ -1456,7 +1485,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onMultiWindowModeChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048682, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048684, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onMultiWindowModeChanged(z);
@@ -1470,7 +1499,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onNavigateUp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onNavigateUp();
@@ -1484,7 +1513,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onNavigateUpFromChild(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048685, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, activity)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onNavigateUpFromChild(activity);
@@ -1497,7 +1526,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048686, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048688, this, intent) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onNewIntent(intent);
@@ -1511,7 +1540,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, menuItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, menuItem)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onOptionsItemSelected(menuItem);
@@ -1524,7 +1553,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onOptionsMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, menu) == null) {
+        if (interceptable == null || interceptable.invokeL(1048690, this, menu) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onOptionsMenuClosed(menu);
@@ -1537,7 +1566,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048689, this, i, menu) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048691, this, i, menu) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPanelClosed(i, menu);
@@ -1550,7 +1579,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048690, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048692, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPause();
@@ -1563,7 +1592,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onPerformDirectAction(String str, Bundle bundle, CancellationSignal cancellationSignal, Consumer consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048691, this, str, bundle, cancellationSignal, consumer) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048693, this, str, bundle, cancellationSignal, consumer) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPerformDirectAction(str, bundle, cancellationSignal, consumer);
@@ -1576,7 +1605,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPictureInPictureModeChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048692, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048694, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPictureInPictureModeChanged(z);
@@ -1590,7 +1619,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onPictureInPictureRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onPictureInPictureRequested();
@@ -1603,7 +1632,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void onPostCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048695, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048697, this, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPostCreate(bundle);
@@ -1616,7 +1645,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPostResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048697, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048699, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPostResume();
@@ -1629,7 +1658,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048698, this, i, dialog) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048700, this, i, dialog) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPrepareDialog(i, dialog);
@@ -1642,7 +1671,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onPrepareNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048700, this, taskStackBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048702, this, taskStackBuilder) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPrepareNavigateUpTaskStack(taskStackBuilder);
@@ -1656,7 +1685,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onPrepareOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048701, this, menu)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048703, this, menu)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onPrepareOptionsMenu(menu);
@@ -1670,7 +1699,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048702, this, i, view2, menu)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048704, this, i, view2, menu)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onPreparePanel(i, view2, menu);
@@ -1683,7 +1712,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onProvideAssistContent(AssistContent assistContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048703, this, assistContent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048705, this, assistContent) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onProvideAssistContent(assistContent);
@@ -1696,7 +1725,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onProvideAssistData(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048704, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048706, this, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onProvideAssistData(bundle);
@@ -1709,7 +1738,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048705, this, list, menu, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048707, this, list, menu, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onProvideKeyboardShortcuts(list, menu, i);
@@ -1723,7 +1752,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Uri onProvideReferrer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onProvideReferrer();
@@ -1736,7 +1765,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048707, this, i, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048709, this, i, strArr, iArr) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onRequestPermissionsResult(i, strArr, iArr);
@@ -1749,7 +1778,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onRestart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048708, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048710, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onRestart();
@@ -1762,7 +1791,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048709, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048711, this, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onRestoreInstanceState(bundle);
@@ -1775,7 +1804,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048711, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048713, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onResume();
@@ -1788,7 +1817,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048712, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048714, this, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onSaveInstanceState(bundle);
@@ -1802,7 +1831,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048714, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onSearchRequested();
@@ -1815,7 +1844,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048716, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048718, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onStart();
@@ -1828,7 +1857,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStateNotSaved() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048717, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048719, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onStateNotSaved();
@@ -1841,7 +1870,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048718, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048720, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onStop();
@@ -1854,7 +1883,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void onTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048719, this, charSequence, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048721, this, charSequence, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onTitleChanged(charSequence, i);
@@ -1867,7 +1896,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onTopResumedActivityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048720, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048722, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onTopResumedActivityChanged(z);
@@ -1881,7 +1910,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048721, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048723, this, motionEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onTouchEvent(motionEvent);
@@ -1895,7 +1924,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048722, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048724, this, motionEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onTrackballEvent(motionEvent);
@@ -1908,7 +1937,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048723, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048725, this, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onTrimMemory(i);
@@ -1921,7 +1950,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onUserInteraction() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048724, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048726, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onUserInteraction();
@@ -1934,7 +1963,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onUserLeaveHint() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048725, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048727, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onUserLeaveHint();
@@ -1947,7 +1976,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onVisibleBehindCanceled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048726, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048728, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onVisibleBehindCanceled();
@@ -1960,7 +1989,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048727, this, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048729, this, layoutParams) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onWindowAttributesChanged(layoutParams);
@@ -1973,7 +2002,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048728, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048730, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onWindowFocusChanged(z);
@@ -1987,7 +2016,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048729, this, callback)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048731, this, callback)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onWindowStartingActionMode(callback);
@@ -2000,7 +2029,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void openContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048731, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048733, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.openContextMenu(view2);
@@ -2013,7 +2042,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void openOptionsMenu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048732, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048734, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.openOptionsMenu();
@@ -2026,7 +2055,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048733, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048735, this, i, i2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.overridePendingTransition(i, i2);
@@ -2039,7 +2068,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void postponeEnterTransition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048734, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048736, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.postponeEnterTransition();
@@ -2052,7 +2081,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void recreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048735, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048737, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.recreate();
@@ -2065,7 +2094,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048736, this, activityLifecycleCallbacks) == null) {
+        if (interceptable == null || interceptable.invokeL(1048738, this, activityLifecycleCallbacks) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
@@ -2078,7 +2107,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void registerForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048737, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048739, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.registerForContextMenu(view2);
@@ -2092,7 +2121,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean releaseInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048738, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048740, this)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.releaseInstance();
@@ -2105,7 +2134,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void reportFullyDrawn() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048739, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048741, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.reportFullyDrawn();
@@ -2119,7 +2148,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public DragAndDropPermissions requestDragAndDropPermissions(DragEvent dragEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048740, this, dragEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048742, this, dragEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.requestDragAndDropPermissions(dragEvent);
@@ -2133,7 +2162,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean requestVisibleBehind(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048741, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048743, this, z)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.requestVisibleBehind(z);
@@ -2146,7 +2175,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setActionBar(Toolbar toolbar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048742, this, toolbar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048744, this, toolbar) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setActionBar(toolbar);
@@ -2159,7 +2188,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setContentTransitionManager(TransitionManager transitionManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048743, this, transitionManager) == null) {
+        if (interceptable == null || interceptable.invokeL(1048745, this, transitionManager) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setContentTransitionManager(transitionManager);
@@ -2172,7 +2201,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048744, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048746, this, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setContentView(i);
@@ -2185,7 +2214,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setEnterSharedElementCallback(SharedElementCallback sharedElementCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048747, this, sharedElementCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048749, this, sharedElementCallback) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setEnterSharedElementCallback(sharedElementCallback);
@@ -2198,7 +2227,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setExitSharedElementCallback(SharedElementCallback sharedElementCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048748, this, sharedElementCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048750, this, sharedElementCallback) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setExitSharedElementCallback(sharedElementCallback);
@@ -2211,7 +2240,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setFinishOnTouchOutside(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048749, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048751, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setFinishOnTouchOutside(z);
@@ -2224,7 +2253,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setImmersive(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048750, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048752, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setImmersive(z);
@@ -2237,7 +2266,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setInheritShowWhenLocked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048751, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048753, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setInheritShowWhenLocked(z);
@@ -2250,7 +2279,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048752, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048754, this, intent) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setIntent(intent);
@@ -2263,7 +2292,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setLocusContext(LocusId locusId, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048753, this, locusId, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048755, this, locusId, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setLocusContext(locusId, bundle);
@@ -2276,7 +2305,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setPictureInPictureParams(PictureInPictureParams pictureInPictureParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048754, this, pictureInPictureParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048756, this, pictureInPictureParams) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setPictureInPictureParams(pictureInPictureParams);
@@ -2289,7 +2318,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // com.bytedance.pangle.activity.b
     public void setPlugin(Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048755, this, plugin) == null) {
+        if (interceptable == null || interceptable.invokeL(1048757, this, plugin) == null) {
             this.mPlugin = plugin;
         }
     }
@@ -2297,7 +2326,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048756, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048758, this, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setRequestedOrientation(i);
@@ -2310,7 +2339,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setShowWhenLocked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048757, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048759, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setShowWhenLocked(z);
@@ -2323,7 +2352,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // com.bytedance.pangle.activity.b
     public void setTargetActivity(IPluginActivity iPluginActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048758, this, iPluginActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048760, this, iPluginActivity) == null) {
             this.mTargetActivity = (GeneratePluginAppCompatActivity) iPluginActivity;
         }
     }
@@ -2331,7 +2360,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setTaskDescription(ActivityManager.TaskDescription taskDescription) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048759, this, taskDescription) == null) {
+        if (interceptable == null || interceptable.invokeL(1048761, this, taskDescription) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setTaskDescription(taskDescription);
@@ -2344,7 +2373,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048760, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048762, this, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setTheme(i);
@@ -2357,7 +2386,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048761, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048763, this, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setTitle(i);
@@ -2370,7 +2399,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setTitleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048763, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048765, this, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setTitleColor(i);
@@ -2384,7 +2413,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean setTranslucent(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048764, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048766, this, z)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.setTranslucent(z);
@@ -2397,7 +2426,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setTurnScreenOn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048765, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048767, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setTurnScreenOn(z);
@@ -2410,7 +2439,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048766, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048768, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setVisible(z);
@@ -2423,7 +2452,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setVrModeEnabled(boolean z, ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048767, this, z, componentName) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048769, this, z, componentName) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setVrModeEnabled(z, componentName);
@@ -2437,7 +2466,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean shouldShowRequestPermissionRationale(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048768, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048770, this, str)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.shouldShowRequestPermissionRationale(str);
@@ -2451,7 +2480,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean shouldUpRecreateTask(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048769, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048771, this, intent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.shouldUpRecreateTask(intent);
@@ -2465,7 +2494,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean showAssist(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048770, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048772, this, bundle)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.showAssist(bundle);
@@ -2478,7 +2507,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void showLockTaskEscapeMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048771, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048773, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.showLockTaskEscapeMessage();
@@ -2492,7 +2521,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode startActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048772, this, callback)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048774, this, callback)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.startActionMode(callback);
@@ -2505,7 +2534,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivities(Intent[] intentArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048774, this, intentArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048776, this, intentArr) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivities(intentArr);
@@ -2518,7 +2547,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048776, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048778, this, intent) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivity(intent);
@@ -2531,7 +2560,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048778, this, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048780, this, intent, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivityForResult(intent, i);
@@ -2544,7 +2573,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048780, this, activity, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048782, this, activity, intent, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivityFromChild(activity, intent, i);
@@ -2557,7 +2586,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048782, this, fragment, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048784, this, fragment, intent, i) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivityFromFragment(fragment, intent, i);
@@ -2571,7 +2600,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean startActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048784, this, intent, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048786, this, intent, i)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.startActivityIfNeeded(intent, i);
@@ -2584,7 +2613,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048786, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startIntentSender(intentSender, intent, i, i2, i3);
@@ -2597,7 +2626,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
@@ -2610,7 +2639,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048792, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
@@ -2623,7 +2652,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startLocalVoiceInteraction(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048792, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048794, this, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startLocalVoiceInteraction(bundle);
@@ -2636,7 +2665,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startLockTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048793, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048795, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startLockTask();
@@ -2649,7 +2678,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048794, this, cursor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048796, this, cursor) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startManagingCursor(cursor);
@@ -2663,7 +2692,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean startNextMatchingActivity(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048795, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048797, this, intent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.startNextMatchingActivity(intent);
@@ -2676,7 +2705,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startPostponedEnterTransition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048797, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048799, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startPostponedEnterTransition();
@@ -2689,7 +2718,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startSearch(String str, boolean z, Bundle bundle, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048798, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048800, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startSearch(str, z, bundle, z2);
@@ -2702,7 +2731,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void stopLocalVoiceInteraction() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048799, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048801, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.stopLocalVoiceInteraction();
@@ -2715,7 +2744,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void stopLockTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048800, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048802, this) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.stopLockTask();
@@ -2728,7 +2757,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void stopManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048801, this, cursor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048803, this, cursor) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.stopManagingCursor(cursor);
@@ -2741,7 +2770,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void takeKeyEvents(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048802, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048804, this, z) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.takeKeyEvents(z);
@@ -2754,7 +2783,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void triggerSearch(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048803, this, str, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048805, this, str, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.triggerSearch(str, bundle);
@@ -2767,7 +2796,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void unregisterActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048804, this, activityLifecycleCallbacks) == null) {
+        if (interceptable == null || interceptable.invokeL(1048806, this, activityLifecycleCallbacks) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
@@ -2780,7 +2809,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void unregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048805, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048807, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.unregisterForContextMenu(view2);
@@ -2792,7 +2821,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
 
     public void zeusSuperAddContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048806, this, view2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048808, this, view2, layoutParams) == null) {
             super.addContentView(view2, layoutParams);
         }
     }
@@ -2800,21 +2829,21 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // com.bytedance.pangle.activity.b
     public void zeusSuperAttachBaseContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048807, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048809, this, context) == null) {
             super.attachBaseContext(context);
         }
     }
 
     public void zeusSuperCloseContextMenu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048808, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048810, this) == null) {
             super.closeContextMenu();
         }
     }
 
     public void zeusSuperCloseOptionsMenu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048809, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048811, this) == null) {
             super.closeOptionsMenu();
         }
     }
@@ -2822,7 +2851,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperConvertToTranslucent(Activity.TranslucentConversionListener translucentConversionListener, ActivityOptions activityOptions) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048810, this, translucentConversionListener, activityOptions)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048812, this, translucentConversionListener, activityOptions)) == null) {
             try {
                 Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", Class.forName("android.app.Activity$TranslucentConversionListener"), ActivityOptions.class);
                 declaredMethod.setAccessible(true);
@@ -2838,55 +2867,55 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public PendingIntent zeusSuperCreatePendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048811, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? super.createPendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048813, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? super.createPendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
     }
 
     public boolean zeusSuperDispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048812, this, motionEvent)) == null) ? super.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048814, this, motionEvent)) == null) ? super.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperDispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048813, this, keyEvent)) == null) ? super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048815, this, keyEvent)) == null) ? super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperDispatchKeyShortcutEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048814, this, keyEvent)) == null) ? super.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048816, this, keyEvent)) == null) ? super.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048815, this, accessibilityEvent)) == null) ? super.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048817, this, accessibilityEvent)) == null) ? super.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperDispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048816, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048818, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperDispatchTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048817, this, motionEvent)) == null) ? super.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048819, this, motionEvent)) == null) ? super.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public void zeusSuperDump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048818, this, str, fileDescriptor, printWriter, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048820, this, str, fileDescriptor, printWriter, strArr) == null) {
             super.dump(str, fileDescriptor, printWriter, strArr);
         }
     }
 
     public void zeusSuperEnterPictureInPictureMode() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048819, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048821, this) == null) {
             super.enterPictureInPictureMode();
         }
     }
@@ -2894,54 +2923,54 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public View zeusSuperFindViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048821, this, i)) == null) ? super.findViewById(i) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048823, this, i)) == null) ? super.findViewById(i) : (View) invokeI.objValue;
     }
 
     public void zeusSuperFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048822, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048824, this) == null) {
             super.finish();
         }
     }
 
     public void zeusSuperFinishActivity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048823, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048825, this, i) == null) {
             super.finishActivity(i);
         }
     }
 
     public void zeusSuperFinishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048824, this, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048826, this, activity, i) == null) {
             super.finishActivityFromChild(activity, i);
         }
     }
 
     public void zeusSuperFinishAffinity() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048825, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048827, this) == null) {
             super.finishAffinity();
         }
     }
 
     public void zeusSuperFinishAfterTransition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048826, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048828, this) == null) {
             super.finishAfterTransition();
         }
     }
 
     public void zeusSuperFinishAndRemoveTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048827, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048829, this) == null) {
             super.finishAndRemoveTask();
         }
     }
 
     public void zeusSuperFinishFromChild(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048828, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048830, this, activity) == null) {
             super.finishFromChild(activity);
         }
     }
@@ -2949,168 +2978,180 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionBar zeusSuperGetActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048829, this)) == null) ? super.getActionBar() : (ActionBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048831, this)) == null) ? super.getActionBar() : (ActionBar) invokeV.objValue;
     }
 
     public ComponentName zeusSuperGetCallingActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048830, this)) == null) ? super.getCallingActivity() : (ComponentName) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) ? super.getCallingActivity() : (ComponentName) invokeV.objValue;
     }
 
     public String zeusSuperGetCallingPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048831, this)) == null) ? super.getCallingPackage() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048833, this)) == null) ? super.getCallingPackage() : (String) invokeV.objValue;
     }
 
     public int zeusSuperGetChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) ? super.getChangingConfigurations() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048834, this)) == null) ? super.getChangingConfigurations() : invokeV.intValue;
     }
 
     public ComponentName zeusSuperGetComponentName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048833, this)) == null) ? super.getComponentName() : (ComponentName) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048835, this)) == null) ? super.getComponentName() : (ComponentName) invokeV.objValue;
     }
 
     public Scene zeusSuperGetContentScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048834, this)) == null) ? super.getContentScene() : (Scene) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048836, this)) == null) ? super.getContentScene() : (Scene) invokeV.objValue;
     }
 
     public TransitionManager zeusSuperGetContentTransitionManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048835, this)) == null) ? super.getContentTransitionManager() : (TransitionManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048837, this)) == null) ? super.getContentTransitionManager() : (TransitionManager) invokeV.objValue;
     }
 
     public View zeusSuperGetCurrentFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048836, this)) == null) ? super.getCurrentFocus() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048838, this)) == null) ? super.getCurrentFocus() : (View) invokeV.objValue;
     }
 
     public FragmentManager zeusSuperGetFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048837, this)) == null) ? super.getFragmentManager() : (FragmentManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048839, this)) == null) ? super.getFragmentManager() : (FragmentManager) invokeV.objValue;
     }
 
     public Intent zeusSuperGetIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048838, this)) == null) ? super.getIntent() : (Intent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048840, this)) == null) ? super.getIntent() : (Intent) invokeV.objValue;
     }
 
     public Object zeusSuperGetLastNonConfigurationInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048839, this)) == null) ? super.getLastNonConfigurationInstance() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048841, this)) == null) ? super.getLastNonConfigurationInstance() : invokeV.objValue;
     }
 
     public LayoutInflater zeusSuperGetLayoutInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048840, this)) == null) ? super.getLayoutInflater() : (LayoutInflater) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048842, this)) == null) ? super.getLayoutInflater() : (LayoutInflater) invokeV.objValue;
+    }
+
+    public Lifecycle zeusSuperGetLifecycle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048843, this)) == null) ? super.getLifecycle() : (Lifecycle) invokeV.objValue;
     }
 
     public LoaderManager zeusSuperGetLoaderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048841, this)) == null) ? super.getLoaderManager() : (LoaderManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048844, this)) == null) ? super.getLoaderManager() : (LoaderManager) invokeV.objValue;
     }
 
     public String zeusSuperGetLocalClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048842, this)) == null) ? super.getLocalClassName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048845, this)) == null) ? super.getLocalClassName() : (String) invokeV.objValue;
     }
 
     public int zeusSuperGetMaxNumPictureInPictureActions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048843, this)) == null) ? super.getMaxNumPictureInPictureActions() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048846, this)) == null) ? super.getMaxNumPictureInPictureActions() : invokeV.intValue;
     }
 
     public MenuInflater zeusSuperGetMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048844, this)) == null) ? super.getMenuInflater() : (MenuInflater) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048847, this)) == null) ? super.getMenuInflater() : (MenuInflater) invokeV.objValue;
     }
 
     public Intent zeusSuperGetParentActivityIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048845, this)) == null) ? super.getParentActivityIntent() : (Intent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048848, this)) == null) ? super.getParentActivityIntent() : (Intent) invokeV.objValue;
     }
 
     public SharedPreferences zeusSuperGetPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048846, this, i)) == null) ? super.getPreferences(i) : (SharedPreferences) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048849, this, i)) == null) ? super.getPreferences(i) : (SharedPreferences) invokeI.objValue;
     }
 
     public Uri zeusSuperGetReferrer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048847, this)) == null) ? super.getReferrer() : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048850, this)) == null) ? super.getReferrer() : (Uri) invokeV.objValue;
     }
 
     public int zeusSuperGetRequestedOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048848, this)) == null) ? super.getRequestedOrientation() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048851, this)) == null) ? super.getRequestedOrientation() : invokeV.intValue;
+    }
+
+    public androidx.appcompat.app.ActionBar zeusSuperGetSupportActionBar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048852, this)) == null) ? super.getSupportActionBar() : (androidx.appcompat.app.ActionBar) invokeV.objValue;
     }
 
     public androidx.fragment.app.FragmentManager zeusSuperGetSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048849, this)) == null) ? super.getSupportFragmentManager() : (androidx.fragment.app.FragmentManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048853, this)) == null) ? super.getSupportFragmentManager() : (androidx.fragment.app.FragmentManager) invokeV.objValue;
     }
 
     public Object zeusSuperGetSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048850, this, str)) == null) ? super.getSystemService(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048854, this, str)) == null) ? super.getSystemService(str) : invokeL.objValue;
     }
 
     public int zeusSuperGetTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048851, this)) == null) ? super.getTaskId() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048855, this)) == null) ? super.getTaskId() : invokeV.intValue;
     }
 
     public VoiceInteractor zeusSuperGetVoiceInteractor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048852, this)) == null) ? super.getVoiceInteractor() : (VoiceInteractor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048856, this)) == null) ? super.getVoiceInteractor() : (VoiceInteractor) invokeV.objValue;
     }
 
     public Window zeusSuperGetWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048853, this)) == null) ? super.getWindow() : (Window) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048857, this)) == null) ? super.getWindow() : (Window) invokeV.objValue;
     }
 
     public WindowManager zeusSuperGetWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048854, this)) == null) ? super.getWindowManager() : (WindowManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048858, this)) == null) ? super.getWindowManager() : (WindowManager) invokeV.objValue;
     }
 
     public boolean zeusSuperHasWindowFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048855, this)) == null) ? super.hasWindowFocus() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048859, this)) == null) ? super.hasWindowFocus() : invokeV.booleanValue;
     }
 
     public void zeusSuperInvalidateOptionsMenu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048856, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048860, this) == null) {
             super.invalidateOptionsMenu();
         }
     }
@@ -3118,160 +3159,160 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperIsActivityTransitionRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048857, this)) == null) ? super.isActivityTransitionRunning() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048861, this)) == null) ? super.isActivityTransitionRunning() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048858, this)) == null) ? super.isChangingConfigurations() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048862, this)) == null) ? super.isChangingConfigurations() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048859, this)) == null) ? super.isDestroyed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048863, this)) == null) ? super.isDestroyed() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsFinishing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048860, this)) == null) ? super.isFinishing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048864, this)) == null) ? super.isFinishing() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsImmersive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048861, this)) == null) ? super.isImmersive() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048865, this)) == null) ? super.isImmersive() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsInMultiWindowMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048862, this)) == null) ? super.isInMultiWindowMode() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048866, this)) == null) ? super.isInMultiWindowMode() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsInPictureInPictureMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048863, this)) == null) ? super.isInPictureInPictureMode() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048867, this)) == null) ? super.isInPictureInPictureMode() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsLocalVoiceInteractionSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048864, this)) == null) ? super.isLocalVoiceInteractionSupported() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048868, this)) == null) ? super.isLocalVoiceInteractionSupported() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsTaskRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048865, this)) == null) ? super.isTaskRoot() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048869, this)) == null) ? super.isTaskRoot() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsVoiceInteraction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048866, this)) == null) ? super.isVoiceInteraction() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048870, this)) == null) ? super.isVoiceInteraction() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperIsVoiceInteractionRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048867, this)) == null) ? super.isVoiceInteractionRoot() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048871, this)) == null) ? super.isVoiceInteractionRoot() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperMoveTaskToBack(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048868, this, z)) == null) ? super.moveTaskToBack(z) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048872, this, z)) == null) ? super.moveTaskToBack(z) : invokeZ.booleanValue;
     }
 
     public boolean zeusSuperNavigateUpTo(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048869, this, intent)) == null) ? super.navigateUpTo(intent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048873, this, intent)) == null) ? super.navigateUpTo(intent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperNavigateUpToFromChild(Activity activity, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048870, this, activity, intent)) == null) ? super.navigateUpToFromChild(activity, intent) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048874, this, activity, intent)) == null) ? super.navigateUpToFromChild(activity, intent) : invokeLL.booleanValue;
     }
 
     public void zeusSuperOnActionModeFinished(ActionMode actionMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048871, this, actionMode) == null) {
+        if (interceptable == null || interceptable.invokeL(1048875, this, actionMode) == null) {
             super.onActionModeFinished(actionMode);
         }
     }
 
     public void zeusSuperOnActionModeStarted(ActionMode actionMode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048872, this, actionMode) == null) {
+        if (interceptable == null || interceptable.invokeL(1048876, this, actionMode) == null) {
             super.onActionModeStarted(actionMode);
         }
     }
 
     public void zeusSuperOnActivityReenter(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048873, this, i, intent) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048877, this, i, intent) == null) {
             super.onActivityReenter(i, intent);
         }
     }
 
     public void zeusSuperOnActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048874, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048878, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
         }
     }
 
     public void zeusSuperOnApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048875, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048879, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             super.onApplyThemeResource(theme, i, z);
         }
     }
 
     public void zeusSuperOnAttachFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048876, this, fragment) == null) {
+        if (interceptable == null || interceptable.invokeL(1048880, this, fragment) == null) {
             super.onAttachFragment(fragment);
         }
     }
 
     public void zeusSuperOnAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048877, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048881, this) == null) {
             super.onAttachedToWindow();
         }
     }
 
     public void zeusSuperOnBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048878, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048882, this) == null) {
             super.onBackPressed();
         }
     }
 
     public void zeusSuperOnChildTitleChanged(Activity activity, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048879, this, activity, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048883, this, activity, charSequence) == null) {
             super.onChildTitleChanged(activity, charSequence);
         }
     }
 
     public void zeusSuperOnConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048880, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048884, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
         }
     }
 
     public void zeusSuperOnContentChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048881, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048885, this) == null) {
             super.onContentChanged();
         }
     }
@@ -3279,12 +3320,12 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnContextItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048882, this, menuItem)) == null) ? super.onContextItemSelected(menuItem) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048886, this, menuItem)) == null) ? super.onContextItemSelected(menuItem) : invokeL.booleanValue;
     }
 
     public void zeusSuperOnContextMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048883, this, menu) == null) {
+        if (interceptable == null || interceptable.invokeL(1048887, this, menu) == null) {
             super.onContextMenuClosed(menu);
         }
     }
@@ -3292,14 +3333,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // com.bytedance.pangle.activity.b
     public void zeusSuperOnCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048884, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048888, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
 
     public void zeusSuperOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048886, this, contextMenu, view2, contextMenuInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048890, this, contextMenu, view2, contextMenuInfo) == null) {
             super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
         }
     }
@@ -3307,18 +3348,18 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public CharSequence zeusSuperOnCreateDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048887, this)) == null) ? super.onCreateDescription() : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048891, this)) == null) ? super.onCreateDescription() : (CharSequence) invokeV.objValue;
     }
 
     public Dialog zeusSuperOnCreateDialog(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048888, this, i)) == null) ? super.onCreateDialog(i) : (Dialog) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048892, this, i)) == null) ? super.onCreateDialog(i) : (Dialog) invokeI.objValue;
     }
 
     public void zeusSuperOnCreateNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048890, this, taskStackBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048894, this, taskStackBuilder) == null) {
             super.onCreateNavigateUpTaskStack(taskStackBuilder);
         }
     }
@@ -3326,50 +3367,50 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnCreateOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048891, this, menu)) == null) ? super.onCreateOptionsMenu(menu) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048895, this, menu)) == null) ? super.onCreateOptionsMenu(menu) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperOnCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048892, this, i, menu)) == null) ? super.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048896, this, i, menu)) == null) ? super.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
     public View zeusSuperOnCreatePanelView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048893, this, i)) == null) ? super.onCreatePanelView(i) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048897, this, i)) == null) ? super.onCreatePanelView(i) : (View) invokeI.objValue;
     }
 
     public boolean zeusSuperOnCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048894, this, bitmap, canvas)) == null) ? super.onCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048898, this, bitmap, canvas)) == null) ? super.onCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
     }
 
     public View zeusSuperOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048895, this, view2, str, context, attributeSet)) == null) ? super.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048899, this, view2, str, context, attributeSet)) == null) ? super.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     public void zeusSuperOnDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048897, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048901, this) == null) {
             super.onDestroy();
         }
     }
 
     public void zeusSuperOnDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048898, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048902, this) == null) {
             super.onDetachedFromWindow();
         }
     }
 
     public void zeusSuperOnEnterAnimationComplete() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048899, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048903, this) == null) {
             super.onEnterAnimationComplete();
         }
     }
@@ -3377,12 +3418,12 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048900, this, motionEvent)) == null) ? super.onGenericMotionEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048904, this, motionEvent)) == null) ? super.onGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public void zeusSuperOnGetDirectActions(CancellationSignal cancellationSignal, Consumer consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048901, this, cancellationSignal, consumer) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048905, this, cancellationSignal, consumer) == null) {
             super.onGetDirectActions(cancellationSignal, consumer);
         }
     }
@@ -3390,50 +3431,50 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048902, this, i, keyEvent)) == null) ? super.onKeyDown(i, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048906, this, i, keyEvent)) == null) ? super.onKeyDown(i, keyEvent) : invokeIL.booleanValue;
     }
 
     public boolean zeusSuperOnKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048903, this, i, keyEvent)) == null) ? super.onKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048907, this, i, keyEvent)) == null) ? super.onKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
     }
 
     public boolean zeusSuperOnKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048904, this, i, i2, keyEvent)) == null) ? super.onKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048908, this, i, i2, keyEvent)) == null) ? super.onKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
     }
 
     public boolean zeusSuperOnKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048905, this, i, keyEvent)) == null) ? super.onKeyShortcut(i, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048909, this, i, keyEvent)) == null) ? super.onKeyShortcut(i, keyEvent) : invokeIL.booleanValue;
     }
 
     public boolean zeusSuperOnKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048906, this, i, keyEvent)) == null) ? super.onKeyUp(i, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048910, this, i, keyEvent)) == null) ? super.onKeyUp(i, keyEvent) : invokeIL.booleanValue;
     }
 
     public void zeusSuperOnLocalVoiceInteractionStarted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048907, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048911, this) == null) {
             super.onLocalVoiceInteractionStarted();
         }
     }
 
     public void zeusSuperOnLocalVoiceInteractionStopped() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048908, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048912, this) == null) {
             super.onLocalVoiceInteractionStopped();
         }
     }
 
     public void zeusSuperOnLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048909, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048913, this) == null) {
             super.onLowMemory();
         }
     }
@@ -3441,12 +3482,12 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048910, this, i, menu)) == null) ? super.onMenuOpened(i, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048914, this, i, menu)) == null) ? super.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
     public void zeusSuperOnMultiWindowModeChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048911, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048915, this, z) == null) {
             super.onMultiWindowModeChanged(z);
         }
     }
@@ -3454,18 +3495,18 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnNavigateUp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048913, this)) == null) ? super.onNavigateUp() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048917, this)) == null) ? super.onNavigateUp() : invokeV.booleanValue;
     }
 
     public boolean zeusSuperOnNavigateUpFromChild(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048914, this, activity)) == null) ? super.onNavigateUpFromChild(activity) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048918, this, activity)) == null) ? super.onNavigateUpFromChild(activity) : invokeL.booleanValue;
     }
 
     public void zeusSuperOnNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048915, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048919, this, intent) == null) {
             super.onNewIntent(intent);
         }
     }
@@ -3473,40 +3514,40 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnOptionsItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048916, this, menuItem)) == null) ? super.onOptionsItemSelected(menuItem) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048920, this, menuItem)) == null) ? super.onOptionsItemSelected(menuItem) : invokeL.booleanValue;
     }
 
     public void zeusSuperOnOptionsMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048917, this, menu) == null) {
+        if (interceptable == null || interceptable.invokeL(1048921, this, menu) == null) {
             super.onOptionsMenuClosed(menu);
         }
     }
 
     public void zeusSuperOnPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048918, this, i, menu) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048922, this, i, menu) == null) {
             super.onPanelClosed(i, menu);
         }
     }
 
     public void zeusSuperOnPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048919, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048923, this) == null) {
             super.onPause();
         }
     }
 
     public void zeusSuperOnPerformDirectAction(String str, Bundle bundle, CancellationSignal cancellationSignal, Consumer consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048920, this, str, bundle, cancellationSignal, consumer) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048924, this, str, bundle, cancellationSignal, consumer) == null) {
             super.onPerformDirectAction(str, bundle, cancellationSignal, consumer);
         }
     }
 
     public void zeusSuperOnPictureInPictureModeChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048921, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048925, this, z) == null) {
             super.onPictureInPictureModeChanged(z);
         }
     }
@@ -3514,33 +3555,33 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnPictureInPictureRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048923, this)) == null) ? super.onPictureInPictureRequested() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048927, this)) == null) ? super.onPictureInPictureRequested() : invokeV.booleanValue;
     }
 
     public void zeusSuperOnPostCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048924, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048928, this, bundle) == null) {
             super.onPostCreate(bundle);
         }
     }
 
     public void zeusSuperOnPostResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048926, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048930, this) == null) {
             super.onPostResume();
         }
     }
 
     public void zeusSuperOnPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048927, this, i, dialog) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048931, this, i, dialog) == null) {
             super.onPrepareDialog(i, dialog);
         }
     }
 
     public void zeusSuperOnPrepareNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048929, this, taskStackBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048933, this, taskStackBuilder) == null) {
             super.onPrepareNavigateUpTaskStack(taskStackBuilder);
         }
     }
@@ -3548,32 +3589,32 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnPrepareOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048930, this, menu)) == null) ? super.onPrepareOptionsMenu(menu) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048934, this, menu)) == null) ? super.onPrepareOptionsMenu(menu) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperOnPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048931, this, i, view2, menu)) == null) ? super.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048935, this, i, view2, menu)) == null) ? super.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
     public void zeusSuperOnProvideAssistContent(AssistContent assistContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048932, this, assistContent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048936, this, assistContent) == null) {
             super.onProvideAssistContent(assistContent);
         }
     }
 
     public void zeusSuperOnProvideAssistData(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048933, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048937, this, bundle) == null) {
             super.onProvideAssistData(bundle);
         }
     }
 
     public void zeusSuperOnProvideKeyboardShortcuts(List list, Menu menu, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048934, this, list, menu, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048938, this, list, menu, i) == null) {
             super.onProvideKeyboardShortcuts(list, menu, i);
         }
     }
@@ -3581,40 +3622,40 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Uri zeusSuperOnProvideReferrer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048935, this)) == null) ? super.onProvideReferrer() : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048939, this)) == null) ? super.onProvideReferrer() : (Uri) invokeV.objValue;
     }
 
     public void zeusSuperOnRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048936, this, i, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048940, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
     public void zeusSuperOnRestart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048937, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048941, this) == null) {
             super.onRestart();
         }
     }
 
     public void zeusSuperOnRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048938, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048942, this, bundle) == null) {
             super.onRestoreInstanceState(bundle);
         }
     }
 
     public void zeusSuperOnResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048940, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048944, this) == null) {
             super.onResume();
         }
     }
 
     public void zeusSuperOnSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048941, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048945, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
         }
     }
@@ -3622,40 +3663,40 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048943, this)) == null) ? super.onSearchRequested() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048947, this)) == null) ? super.onSearchRequested() : invokeV.booleanValue;
     }
 
     public void zeusSuperOnStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048945, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048949, this) == null) {
             super.onStart();
         }
     }
 
     public void zeusSuperOnStateNotSaved() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048946, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048950, this) == null) {
             super.onStateNotSaved();
         }
     }
 
     public void zeusSuperOnStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048947, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048951, this) == null) {
             super.onStop();
         }
     }
 
     public void zeusSuperOnTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048948, this, charSequence, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048952, this, charSequence, i) == null) {
             super.onTitleChanged(charSequence, i);
         }
     }
 
     public void zeusSuperOnTopResumedActivityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048949, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048953, this, z) == null) {
             super.onTopResumedActivityChanged(z);
         }
     }
@@ -3663,53 +3704,53 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048950, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048954, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperOnTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048951, this, motionEvent)) == null) ? super.onTrackballEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048955, this, motionEvent)) == null) ? super.onTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public void zeusSuperOnTrimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048952, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048956, this, i) == null) {
             super.onTrimMemory(i);
         }
     }
 
     public void zeusSuperOnUserInteraction() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048953, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048957, this) == null) {
             super.onUserInteraction();
         }
     }
 
     public void zeusSuperOnUserLeaveHint() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048954, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048958, this) == null) {
             super.onUserLeaveHint();
         }
     }
 
     public void zeusSuperOnVisibleBehindCanceled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048955, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048959, this) == null) {
             super.onVisibleBehindCanceled();
         }
     }
 
     public void zeusSuperOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048956, this, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048960, this, layoutParams) == null) {
             super.onWindowAttributesChanged(layoutParams);
         }
     }
 
     public void zeusSuperOnWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048957, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048961, this, z) == null) {
             super.onWindowFocusChanged(z);
         }
     }
@@ -3717,54 +3758,54 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode zeusSuperOnWindowStartingActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048958, this, callback)) == null) ? super.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048962, this, callback)) == null) ? super.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
     }
 
     public void zeusSuperOpenContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048960, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048964, this, view2) == null) {
             super.openContextMenu(view2);
         }
     }
 
     public void zeusSuperOpenOptionsMenu() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048961, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048965, this) == null) {
             super.openOptionsMenu();
         }
     }
 
     public void zeusSuperOverridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048962, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048966, this, i, i2) == null) {
             super.overridePendingTransition(i, i2);
         }
     }
 
     public void zeusSuperPostponeEnterTransition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048963, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048967, this) == null) {
             super.postponeEnterTransition();
         }
     }
 
     public void zeusSuperRecreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048964, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048968, this) == null) {
             super.recreate();
         }
     }
 
     public void zeusSuperRegisterActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048965, this, activityLifecycleCallbacks) == null) {
+        if (interceptable == null || interceptable.invokeL(1048969, this, activityLifecycleCallbacks) == null) {
             super.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
         }
     }
 
     public void zeusSuperRegisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048966, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048970, this, view2) == null) {
             super.registerForContextMenu(view2);
         }
     }
@@ -3772,12 +3813,12 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperReleaseInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048967, this)) == null) ? super.releaseInstance() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048971, this)) == null) ? super.releaseInstance() : invokeV.booleanValue;
     }
 
     public void zeusSuperReportFullyDrawn() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048968, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048972, this) == null) {
             super.reportFullyDrawn();
         }
     }
@@ -3785,109 +3826,109 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public DragAndDropPermissions zeusSuperRequestDragAndDropPermissions(DragEvent dragEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048969, this, dragEvent)) == null) ? super.requestDragAndDropPermissions(dragEvent) : (DragAndDropPermissions) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048973, this, dragEvent)) == null) ? super.requestDragAndDropPermissions(dragEvent) : (DragAndDropPermissions) invokeL.objValue;
     }
 
     public boolean zeusSuperRequestVisibleBehind(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048970, this, z)) == null) ? super.requestVisibleBehind(z) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048974, this, z)) == null) ? super.requestVisibleBehind(z) : invokeZ.booleanValue;
     }
 
     public void zeusSuperSetActionBar(Toolbar toolbar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048971, this, toolbar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048975, this, toolbar) == null) {
             super.setActionBar(toolbar);
         }
     }
 
     public void zeusSuperSetContentTransitionManager(TransitionManager transitionManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048972, this, transitionManager) == null) {
+        if (interceptable == null || interceptable.invokeL(1048976, this, transitionManager) == null) {
             super.setContentTransitionManager(transitionManager);
         }
     }
 
     public void zeusSuperSetContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048973, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048977, this, i) == null) {
             super.setContentView(i);
         }
     }
 
     public void zeusSuperSetEnterSharedElementCallback(SharedElementCallback sharedElementCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048976, this, sharedElementCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048980, this, sharedElementCallback) == null) {
             super.setEnterSharedElementCallback(sharedElementCallback);
         }
     }
 
     public void zeusSuperSetExitSharedElementCallback(SharedElementCallback sharedElementCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048977, this, sharedElementCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048981, this, sharedElementCallback) == null) {
             super.setExitSharedElementCallback(sharedElementCallback);
         }
     }
 
     public void zeusSuperSetFinishOnTouchOutside(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048978, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048982, this, z) == null) {
             super.setFinishOnTouchOutside(z);
         }
     }
 
     public void zeusSuperSetImmersive(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048979, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048983, this, z) == null) {
             super.setImmersive(z);
         }
     }
 
     public void zeusSuperSetInheritShowWhenLocked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048980, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048984, this, z) == null) {
             super.setInheritShowWhenLocked(z);
         }
     }
 
     public void zeusSuperSetIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048981, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048985, this, intent) == null) {
             super.setIntent(intent);
         }
     }
 
     public void zeusSuperSetLocusContext(LocusId locusId, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048982, this, locusId, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048986, this, locusId, bundle) == null) {
             super.setLocusContext(locusId, bundle);
         }
     }
 
     public void zeusSuperSetPictureInPictureParams(PictureInPictureParams pictureInPictureParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048983, this, pictureInPictureParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048987, this, pictureInPictureParams) == null) {
             super.setPictureInPictureParams(pictureInPictureParams);
         }
     }
 
     public void zeusSuperSetRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048984, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048988, this, i) == null) {
             super.setRequestedOrientation(i);
         }
     }
 
     public void zeusSuperSetShowWhenLocked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048985, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048989, this, z) == null) {
             super.setShowWhenLocked(z);
         }
     }
 
     public void zeusSuperSetTaskDescription(ActivityManager.TaskDescription taskDescription) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048986, this, taskDescription) == null) {
+        if (interceptable == null || interceptable.invokeL(1048990, this, taskDescription) == null) {
             super.setTaskDescription(taskDescription);
         }
     }
@@ -3895,21 +3936,21 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // com.bytedance.pangle.activity.b
     public void zeusSuperSetTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048987, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048991, this, i) == null) {
             super.setTheme(i);
         }
     }
 
     public void zeusSuperSetTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048988, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048992, this, i) == null) {
             super.setTitle(i);
         }
     }
 
     public void zeusSuperSetTitleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048990, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048994, this, i) == null) {
             super.setTitleColor(i);
         }
     }
@@ -3917,26 +3958,26 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperSetTranslucent(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048991, this, z)) == null) ? super.setTranslucent(z) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048995, this, z)) == null) ? super.setTranslucent(z) : invokeZ.booleanValue;
     }
 
     public void zeusSuperSetTurnScreenOn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048992, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048996, this, z) == null) {
             super.setTurnScreenOn(z);
         }
     }
 
     public void zeusSuperSetVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048993, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048997, this, z) == null) {
             super.setVisible(z);
         }
     }
 
     public void zeusSuperSetVrModeEnabled(boolean z, ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048994, this, z, componentName) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048998, this, z, componentName) == null) {
             super.setVrModeEnabled(z, componentName);
         }
     }
@@ -3944,24 +3985,24 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperShouldShowRequestPermissionRationale(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048995, this, str)) == null) ? super.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048999, this, str)) == null) ? super.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperShouldUpRecreateTask(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048996, this, intent)) == null) ? super.shouldUpRecreateTask(intent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1049000, this, intent)) == null) ? super.shouldUpRecreateTask(intent) : invokeL.booleanValue;
     }
 
     public boolean zeusSuperShowAssist(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048997, this, bundle)) == null) ? super.showAssist(bundle) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1049001, this, bundle)) == null) ? super.showAssist(bundle) : invokeL.booleanValue;
     }
 
     public void zeusSuperShowLockTaskEscapeMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048998, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1049002, this) == null) {
             super.showLockTaskEscapeMessage();
         }
     }
@@ -3969,40 +4010,40 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode zeusSuperStartActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048999, this, callback)) == null) ? super.startActionMode(callback) : (ActionMode) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1049003, this, callback)) == null) ? super.startActionMode(callback) : (ActionMode) invokeL.objValue;
     }
 
     public void zeusSuperStartActivities(Intent[] intentArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049001, this, intentArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1049005, this, intentArr) == null) {
             super.startActivities(intentArr);
         }
     }
 
     public void zeusSuperStartActivity(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049003, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1049007, this, intent) == null) {
             super.startActivity(intent);
         }
     }
 
     public void zeusSuperStartActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1049005, this, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1049009, this, intent, i) == null) {
             super.startActivityForResult(intent, i);
         }
     }
 
     public void zeusSuperStartActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1049007, this, activity, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1049011, this, activity, intent, i) == null) {
             super.startActivityFromChild(activity, intent, i);
         }
     }
 
     public void zeusSuperStartActivityFromFragment(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1049009, this, fragment, intent, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1049013, this, fragment, intent, i) == null) {
             super.startActivityFromFragment(fragment, intent, i);
         }
     }
@@ -4010,47 +4051,47 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperStartActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1049011, this, intent, i)) == null) ? super.startActivityIfNeeded(intent, i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1049015, this, intent, i)) == null) ? super.startActivityIfNeeded(intent, i) : invokeLI.booleanValue;
     }
 
     public void zeusSuperStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049013, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049017, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             super.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
     public void zeusSuperStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049015, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049019, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
     }
 
     public void zeusSuperStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049017, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049021, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
         }
     }
 
     public void zeusSuperStartLocalVoiceInteraction(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049019, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1049023, this, bundle) == null) {
             super.startLocalVoiceInteraction(bundle);
         }
     }
 
     public void zeusSuperStartLockTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1049020, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1049024, this) == null) {
             super.startLockTask();
         }
     }
 
     public void zeusSuperStartManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049021, this, cursor) == null) {
+        if (interceptable == null || interceptable.invokeL(1049025, this, cursor) == null) {
             super.startManagingCursor(cursor);
         }
     }
@@ -4058,68 +4099,68 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperStartNextMatchingActivity(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1049022, this, intent)) == null) ? super.startNextMatchingActivity(intent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1049026, this, intent)) == null) ? super.startNextMatchingActivity(intent) : invokeL.booleanValue;
     }
 
     public void zeusSuperStartPostponedEnterTransition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1049024, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1049028, this) == null) {
             super.startPostponedEnterTransition();
         }
     }
 
     public void zeusSuperStartSearch(String str, boolean z, Bundle bundle, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049025, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049029, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
             super.startSearch(str, z, bundle, z2);
         }
     }
 
     public void zeusSuperStopLocalVoiceInteraction() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1049026, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1049030, this) == null) {
             super.stopLocalVoiceInteraction();
         }
     }
 
     public void zeusSuperStopLockTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1049027, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1049031, this) == null) {
             super.stopLockTask();
         }
     }
 
     public void zeusSuperStopManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049028, this, cursor) == null) {
+        if (interceptable == null || interceptable.invokeL(1049032, this, cursor) == null) {
             super.stopManagingCursor(cursor);
         }
     }
 
     public void zeusSuperTakeKeyEvents(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1049029, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1049033, this, z) == null) {
             super.takeKeyEvents(z);
         }
     }
 
     public void zeusSuperTriggerSearch(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1049030, this, str, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1049034, this, str, bundle) == null) {
             super.triggerSearch(str, bundle);
         }
     }
 
     public void zeusSuperUnregisterActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049031, this, activityLifecycleCallbacks) == null) {
+        if (interceptable == null || interceptable.invokeL(1049035, this, activityLifecycleCallbacks) == null) {
             super.unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
         }
     }
 
     public void zeusSuperUnregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049032, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1049036, this, view2) == null) {
             super.unregisterForContextMenu(view2);
         }
     }
@@ -4127,7 +4168,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048656, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048658, this, bundle, persistableBundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onCreate(bundle, persistableBundle);
@@ -4140,12 +4181,12 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperEnterPictureInPictureMode(PictureInPictureParams pictureInPictureParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048820, this, pictureInPictureParams)) == null) ? super.enterPictureInPictureMode(pictureInPictureParams) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048822, this, pictureInPictureParams)) == null) ? super.enterPictureInPictureMode(pictureInPictureParams) : invokeL.booleanValue;
     }
 
     public void zeusSuperOnCreate(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048885, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048889, this, bundle, persistableBundle) == null) {
             super.onCreate(bundle, persistableBundle);
         }
     }
@@ -4153,53 +4194,53 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Dialog zeusSuperOnCreateDialog(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048889, this, i, bundle)) == null) ? super.onCreateDialog(i, bundle) : (Dialog) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048893, this, i, bundle)) == null) ? super.onCreateDialog(i, bundle) : (Dialog) invokeIL.objValue;
     }
 
     public View zeusSuperOnCreateView(String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048896, this, str, context, attributeSet)) == null) ? super.onCreateView(str, context, attributeSet) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048900, this, str, context, attributeSet)) == null) ? super.onCreateView(str, context, attributeSet) : (View) invokeLLL.objValue;
     }
 
     public void zeusSuperOnMultiWindowModeChanged(boolean z, Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048912, this, z, configuration) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048916, this, z, configuration) == null) {
             super.onMultiWindowModeChanged(z, configuration);
         }
     }
 
     public void zeusSuperOnPictureInPictureModeChanged(boolean z, Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048922, this, z, configuration) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048926, this, z, configuration) == null) {
             super.onPictureInPictureModeChanged(z, configuration);
         }
     }
 
     public void zeusSuperOnPostCreate(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048925, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048929, this, bundle, persistableBundle) == null) {
             super.onPostCreate(bundle, persistableBundle);
         }
     }
 
     public void zeusSuperOnPrepareDialog(int i, Dialog dialog, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048928, this, i, dialog, bundle) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048932, this, i, dialog, bundle) == null) {
             super.onPrepareDialog(i, dialog, bundle);
         }
     }
 
     public void zeusSuperOnRestoreInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048939, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048943, this, bundle, persistableBundle) == null) {
             super.onRestoreInstanceState(bundle, persistableBundle);
         }
     }
 
     public void zeusSuperOnSaveInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048942, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048946, this, bundle, persistableBundle) == null) {
             super.onSaveInstanceState(bundle, persistableBundle);
         }
     }
@@ -4207,25 +4248,25 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperOnSearchRequested(SearchEvent searchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048944, this, searchEvent)) == null) ? super.onSearchRequested(searchEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048948, this, searchEvent)) == null) ? super.onSearchRequested(searchEvent) : invokeL.booleanValue;
     }
 
     public ActionMode zeusSuperOnWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048959, this, callback, i)) == null) ? super.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048963, this, callback, i)) == null) ? super.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
     public void zeusSuperSetContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048974, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048978, this, view2) == null) {
             super.setContentView(view2);
         }
     }
 
     public void zeusSuperSetTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048989, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048993, this, charSequence) == null) {
             super.setTitle(charSequence);
         }
     }
@@ -4233,40 +4274,40 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode zeusSuperStartActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1049000, this, callback, i)) == null) ? super.startActionMode(callback, i) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1049004, this, callback, i)) == null) ? super.startActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
     public void zeusSuperStartActivities(Intent[] intentArr, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1049002, this, intentArr, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1049006, this, intentArr, bundle) == null) {
             super.startActivities(intentArr, bundle);
         }
     }
 
     public void zeusSuperStartActivity(Intent intent, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1049004, this, intent, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1049008, this, intent, bundle) == null) {
             super.startActivity(intent, bundle);
         }
     }
 
     public void zeusSuperStartActivityForResult(Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1049006, this, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1049010, this, intent, i, bundle) == null) {
             super.startActivityForResult(intent, i, bundle);
         }
     }
 
     public void zeusSuperStartActivityFromChild(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1049008, this, activity, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1049012, this, activity, intent, i, bundle) == null) {
             super.startActivityFromChild(activity, intent, i, bundle);
         }
     }
 
     public void zeusSuperStartActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1049010, this, fragment, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1049014, this, fragment, intent, i, bundle) == null) {
             super.startActivityFromFragment(fragment, intent, i, bundle);
         }
     }
@@ -4274,26 +4315,26 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperStartActivityIfNeeded(Intent intent, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1049012, this, intent, i, bundle)) == null) ? super.startActivityIfNeeded(intent, i, bundle) : invokeLIL.booleanValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1049016, this, intent, i, bundle)) == null) ? super.startActivityIfNeeded(intent, i, bundle) : invokeLIL.booleanValue;
     }
 
     public void zeusSuperStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049014, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049018, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
             super.startIntentSender(intentSender, intent, i, i2, i3, bundle);
         }
     }
 
     public void zeusSuperStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049016, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049020, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
 
     public void zeusSuperStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1049018, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1049022, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
@@ -4301,12 +4342,12 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean zeusSuperStartNextMatchingActivity(Intent intent, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1049023, this, intent, bundle)) == null) ? super.startNextMatchingActivity(intent, bundle) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1049027, this, intent, bundle)) == null) ? super.startNextMatchingActivity(intent, bundle) : invokeLL.booleanValue;
     }
 
     public void zeusSuperSetContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048975, this, view2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048979, this, view2, layoutParams) == null) {
             super.setContentView(view2, layoutParams);
         }
     }
@@ -4329,7 +4370,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public Dialog onCreateDialog(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048660, this, i, bundle)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048662, this, i, bundle)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateDialog(i, bundle);
@@ -4343,7 +4384,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048667, this, str, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048669, this, str, context, attributeSet)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onCreateView(str, context, attributeSet);
@@ -4356,7 +4397,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onMultiWindowModeChanged(boolean z, Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048683, this, z, configuration) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048685, this, z, configuration) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onMultiWindowModeChanged(z, configuration);
@@ -4369,7 +4410,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onPictureInPictureModeChanged(boolean z, Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048693, this, z, configuration) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048695, this, z, configuration) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPictureInPictureModeChanged(z, configuration);
@@ -4382,7 +4423,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048696, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048698, this, bundle, persistableBundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPostCreate(bundle, persistableBundle);
@@ -4395,7 +4436,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onPrepareDialog(int i, Dialog dialog, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048699, this, i, dialog, bundle) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048701, this, i, dialog, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onPrepareDialog(i, dialog, bundle);
@@ -4408,7 +4449,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onRestoreInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048710, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048712, this, bundle, persistableBundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onRestoreInstanceState(bundle, persistableBundle);
@@ -4421,7 +4462,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048713, this, bundle, persistableBundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048715, this, bundle, persistableBundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.onSaveInstanceState(bundle, persistableBundle);
@@ -4435,7 +4476,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean onSearchRequested(SearchEvent searchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, searchEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048717, this, searchEvent)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onSearchRequested(searchEvent);
@@ -4449,7 +4490,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048730, this, callback, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048732, this, callback, i)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.onWindowStartingActionMode(callback, i);
@@ -4462,7 +4503,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048745, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048747, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setContentView(view2);
@@ -4475,7 +4516,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void setTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048762, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048764, this, charSequence) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setTitle(charSequence);
@@ -4489,7 +4530,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public ActionMode startActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048773, this, callback, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048775, this, callback, i)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.startActionMode(callback, i);
@@ -4502,7 +4543,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivities(Intent[] intentArr, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048775, this, intentArr, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048777, this, intentArr, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivities(intentArr, bundle);
@@ -4515,7 +4556,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048777, this, intent, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048779, this, intent, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivity(intent, bundle);
@@ -4528,7 +4569,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startActivityForResult(Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048779, this, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048781, this, intent, i, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivityForResult(intent, i, bundle);
@@ -4541,7 +4582,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startActivityFromChild(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048781, this, activity, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048783, this, activity, intent, i, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivityFromChild(activity, intent, i, bundle);
@@ -4554,7 +4595,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048783, this, fragment, intent, i, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048785, this, fragment, intent, i, bundle) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startActivityFromFragment(fragment, intent, i, bundle);
@@ -4568,7 +4609,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean startActivityIfNeeded(Intent intent, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048785, this, intent, i, bundle)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048787, this, intent, i, bundle)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.startActivityIfNeeded(intent, i, bundle);
@@ -4581,7 +4622,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048787, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startIntentSender(intentSender, intent, i, i2, i3, bundle);
@@ -4594,7 +4635,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048791, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
@@ -4607,7 +4648,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // android.app.Activity
     public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048791, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048793, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
@@ -4621,7 +4662,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     public boolean startNextMatchingActivity(Intent intent, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048796, this, intent, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048798, this, intent, bundle)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 return generatePluginAppCompatActivity.startNextMatchingActivity(intent, bundle);
@@ -4634,7 +4675,7 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048746, this, view2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048748, this, view2, layoutParams) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
                 generatePluginAppCompatActivity.setContentView(view2, layoutParams);

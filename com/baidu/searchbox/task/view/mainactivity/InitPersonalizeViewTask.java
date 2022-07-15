@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q45;
+import com.repackage.s55;
 /* loaded from: classes2.dex */
 public class InitPersonalizeViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -38,10 +38,10 @@ public class InitPersonalizeViewTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
-                if (mainActivity == null || (personalizePageView = (PersonalizePageView) q45.e().c(1011)) == null) {
+                if (mainActivity == null || (personalizePageView = (PersonalizePageView) s55.e().c(1011)) == null) {
                     return;
                 }
-                personalizePageView.f0(mainActivity);
+                personalizePageView.g0(mainActivity);
             } catch (Exception e) {
                 BdLog.e(e);
             }

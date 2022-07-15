@@ -1,41 +1,22 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sj0;
+import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class vj0<T extends sj0> {
+public class vj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<T> a;
 
-    public vj0(Class<T> cls) {
+    public static File a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            File externalCacheDir = context.getExternalCacheDir();
+            return externalCacheDir == null ? context.getCacheDir() : externalCacheDir;
         }
-        this.a = cls;
+        return (File) invokeL.objValue;
     }
-
-    public final Class<T> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Class) invokeV.objValue;
-    }
-
-    public abstract void onEvent(@NonNull T t);
 }

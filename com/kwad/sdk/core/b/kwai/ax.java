@@ -1,44 +1,41 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ax implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.DetailTopToolBarInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdStyleInfo.PlayDetailInfo.DetailTopToolBarInfo detailTopToolBarInfo, JSONObject jSONObject) {
+public final class ax implements com.kwad.sdk.core.d<AdInfo.ComplianceInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.ComplianceInfo complianceInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        detailTopToolBarInfo.callButtonShowTime = jSONObject.optLong("callButtonShowTime");
-        detailTopToolBarInfo.callButtonDescription = jSONObject.optString("callButtonDescription");
-        if (jSONObject.opt("callButtonDescription") == JSONObject.NULL) {
-            detailTopToolBarInfo.callButtonDescription = "";
-        }
-        detailTopToolBarInfo.rewardIconUrl = jSONObject.optString("rewardIconUrl");
-        if (jSONObject.opt("rewardIconUrl") == JSONObject.NULL) {
-            detailTopToolBarInfo.rewardIconUrl = "";
-        }
-        detailTopToolBarInfo.rewardCallDescription = jSONObject.optString("rewardCallDescription");
-        if (jSONObject.opt("rewardCallDescription") == JSONObject.NULL) {
-            detailTopToolBarInfo.rewardCallDescription = "";
-        }
-        detailTopToolBarInfo.style = jSONObject.optInt("style");
-        detailTopToolBarInfo.maxTimeOut = jSONObject.optLong("maxTimeOut");
+        complianceInfo.materialJumpType = jSONObject.optInt("materialJumpType");
+        complianceInfo.actionBarType = jSONObject.optInt("actionBarType");
+        complianceInfo.describeBarType = jSONObject.optInt("describeBarType");
+        complianceInfo.titleBarTextSwitch = jSONObject.optInt("titleBarTextSwitch");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdStyleInfo.PlayDetailInfo.DetailTopToolBarInfo detailTopToolBarInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.ComplianceInfo complianceInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "callButtonShowTime", detailTopToolBarInfo.callButtonShowTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "callButtonDescription", detailTopToolBarInfo.callButtonDescription);
-        com.kwad.sdk.utils.t.a(jSONObject, "rewardIconUrl", detailTopToolBarInfo.rewardIconUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "rewardCallDescription", detailTopToolBarInfo.rewardCallDescription);
-        com.kwad.sdk.utils.t.a(jSONObject, "style", detailTopToolBarInfo.style);
-        com.kwad.sdk.utils.t.a(jSONObject, "maxTimeOut", detailTopToolBarInfo.maxTimeOut);
+        com.kwad.sdk.utils.r.a(jSONObject, "materialJumpType", complianceInfo.materialJumpType);
+        com.kwad.sdk.utils.r.a(jSONObject, "actionBarType", complianceInfo.actionBarType);
+        com.kwad.sdk.utils.r.a(jSONObject, "describeBarType", complianceInfo.describeBarType);
+        com.kwad.sdk.utils.r.a(jSONObject, "titleBarTextSwitch", complianceInfo.titleBarTextSwitch);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.ComplianceInfo complianceInfo, JSONObject jSONObject) {
+        a2(complianceInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.ComplianceInfo complianceInfo, JSONObject jSONObject) {
+        return b2(complianceInfo, jSONObject);
     }
 }

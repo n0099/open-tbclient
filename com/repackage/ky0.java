@@ -1,132 +1,76 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class ky0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ClogBuilder.LogType a;
+    public String b;
+    public String c;
+    public boolean d;
 
-    public static ArrayList<String> a(ny0 ny0Var) {
-        InterceptResult invokeL;
-        fy0[][] e;
+    public ky0(ClogBuilder.LogType logType, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ny0Var)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>(2);
-            for (fy0[] fy0VarArr : ny0Var.e()) {
-                String[] strArr = new String[fy0VarArr.length];
-                for (int i = 0; i < fy0VarArr.length; i++) {
-                    strArr[i] = fy0VarArr[i].b;
-                }
-                arrayList.add("CREATE INDEX IF NOT EXISTS i_" + ny0Var.g() + "_" + TextUtils.join("_", strArr) + " ON " + ny0Var.g() + " (" + TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, strArr) + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return arrayList;
         }
-        return (ArrayList) invokeL.objValue;
+        this.c = "";
+        this.a = logType;
+        this.b = str;
+        this.c = str2;
+        this.d = z;
     }
 
-    public static String b(ny0 ny0Var) {
-        InterceptResult invokeL;
+    public py0 a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ny0Var)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + ny0Var.g() + " (" + f(ny0Var.d()) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) ? b(i, str, "normal") : (py0) invokeIL.objValue;
     }
 
-    public static String c(fy0 fy0Var) {
-        InterceptResult invokeL;
+    public py0 b(int i, String str, String str2) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fy0Var)) == null) {
-            int i = fy0Var.d;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return " PRIMARY KEY AUTOINCREMENT";
-                        }
-                        throw new IllegalArgumentException("Unsupported field attribute " + fy0Var.d);
-                    }
-                    return " PRIMARY KEY";
-                }
-                return " DEFAULT 0";
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
+            py0 py0Var = new py0();
+            try {
+                py0Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
-            return "";
+            return py0Var;
         }
-        return (String) invokeL.objValue;
+        return (py0) invokeILL.objValue;
     }
 
-    public static String d(fy0... fy0VarArr) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fy0VarArr)) == null) ? e(fy0VarArr, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public static String e(fy0[] fy0VarArr, String str) {
-        InterceptResult invokeLL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fy0VarArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = fy0VarArr.length;
-            String str2 = "";
-            int i = 0;
-            while (i < length) {
-                fy0 fy0Var = fy0VarArr[i];
-                sb.append(str2);
-                if (str != null && str.length() != 0) {
-                    sb.append(str);
-                    sb.append(".");
-                }
-                sb.append(fy0Var.b);
-                i++;
-                str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR;
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f(fy0[] fy0VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, fy0VarArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = fy0VarArr.length;
-            String str = "";
-            int i = 0;
-            while (i < length) {
-                fy0 fy0Var = fy0VarArr[i];
-                sb.append(str);
-                sb.append(fy0Var.b);
-                sb.append(getType(fy0Var));
-                sb.append(c(fy0Var));
-                i++;
-                str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getType(fy0 fy0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, fy0Var)) == null) {
-            int i = fy0Var.a;
-            if (i == 1 || i == 2 || i == 3) {
-                return " INTEGER";
-            }
-            if (i == 4) {
-                return " TEXT";
-            }
-            throw new IllegalArgumentException("Unsupported field type " + fy0Var.a);
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

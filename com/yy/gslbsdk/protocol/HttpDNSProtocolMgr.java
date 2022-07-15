@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import com.kuaishou.weapon.un.x;
+import com.kuaishou.weapon.p0.C0400;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
 import com.yy.gslbsdk.db.ResultTB;
@@ -122,7 +122,7 @@ public class HttpDNSProtocolMgr {
                         for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
                             HashMap hashMap = new HashMap();
-                            hashMap.put(x.B, optJSONObject.optString(x.B, ""));
+                            hashMap.put(C0400.f418, optJSONObject.optString(C0400.f418, ""));
                             hashMap.put("ut", optJSONObject.optString("ut", "0"));
                             resInfo.addRefresh(hashMap);
                         }

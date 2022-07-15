@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.jd3;
+import com.repackage.rg1;
+import com.repackage.yd3;
 import com.sina.weibo.sdk.constant.WBConstants;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -196,12 +196,12 @@ public final class GameGuideProgressView extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = jd3.h(1.0f);
+        this.a = yd3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = jd3.h(20.0f);
-        float h = jd3.h(6.0f);
+        this.d = yd3.h(20.0f);
+        float h = yd3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
@@ -412,7 +412,7 @@ public final class GameGuideProgressView extends View {
             float h = h(f);
             this.k = h;
             if (h == 1.0f) {
-                if (cg1.a) {
+                if (rg1.a) {
                     Log.d("GameTimeProgressView", "当前进度为1，不处理");
                 }
                 invalidate();
@@ -484,7 +484,7 @@ public final class GameGuideProgressView extends View {
             this.h = i;
             this.i = i2;
             if (i <= this.d) {
-                if (!cg1.a) {
+                if (!rg1.a) {
                     this.d = i;
                     return;
                 }
@@ -537,12 +537,12 @@ public final class GameGuideProgressView extends View {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.a = jd3.h(1.0f);
+        this.a = yd3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = jd3.h(20.0f);
-        float h = jd3.h(6.0f);
+        this.d = yd3.h(20.0f);
+        float h = yd3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
@@ -570,12 +570,12 @@ public final class GameGuideProgressView extends View {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.a = jd3.h(1.0f);
+        this.a = yd3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = jd3.h(20.0f);
-        float h = jd3.h(6.0f);
+        this.d = yd3.h(20.0f);
+        float h = yd3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);

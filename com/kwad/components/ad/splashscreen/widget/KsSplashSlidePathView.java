@@ -1,0 +1,257 @@
+package com.kwad.components.ad.splashscreen.widget;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.widget.ImageView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class KsSplashSlidePathView extends ImageView {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Path a;
+    public Paint b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public int g;
+    public a h;
+    public GestureDetector i;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+
+        void a(float f, float f2, float f3, float f4);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public KsSplashSlidePathView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = Color.parseColor("#66ffffff");
+        a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public KsSplashSlidePathView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = Color.parseColor("#66ffffff");
+        a();
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.a = new Path();
+            Paint paint = new Paint();
+            this.b = paint;
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            this.b.setStrokeWidth(com.kwad.sdk.b.kwai.a.a(getContext(), 15.0f));
+            this.b.setStyle(Paint.Style.STROKE);
+            this.b.setColor(this.g);
+            this.b.setDither(true);
+            this.i = new GestureDetector(new GestureDetector.OnGestureListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.KsSplashSlidePathView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ KsSplashSlidePathView a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.view.GestureDetector.OnGestureListener
+                public final boolean onDown(MotionEvent motionEvent) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, motionEvent)) == null) {
+                        return false;
+                    }
+                    return invokeL.booleanValue;
+                }
+
+                @Override // android.view.GestureDetector.OnGestureListener
+                public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+                    InterceptResult invokeCommon;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                        return false;
+                    }
+                    return invokeCommon.booleanValue;
+                }
+
+                @Override // android.view.GestureDetector.OnGestureListener
+                public final void onLongPress(MotionEvent motionEvent) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
+                    }
+                }
+
+                @Override // android.view.GestureDetector.OnGestureListener
+                public final boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+                    InterceptResult invokeCommon;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                        return false;
+                    }
+                    return invokeCommon.booleanValue;
+                }
+
+                @Override // android.view.GestureDetector.OnGestureListener
+                public final void onShowPress(MotionEvent motionEvent) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, motionEvent) == null) {
+                    }
+                }
+
+                @Override // android.view.GestureDetector.OnGestureListener
+                public final boolean onSingleTapUp(MotionEvent motionEvent) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048581, this, motionEvent)) == null) {
+                        if (this.a.h != null) {
+                            this.a.h.a();
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL.booleanValue;
+                }
+            });
+        }
+    }
+
+    private void a(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            float abs = Math.abs(f - this.e);
+            float abs2 = Math.abs(f2 - this.f);
+            if (abs >= 3.0f || abs2 >= 3.0f) {
+                Path path = this.a;
+                float f3 = this.e;
+                float f4 = this.f;
+                path.quadTo(f3, f4, (f + f3) / 2.0f, (f2 + f4) / 2.0f);
+                this.e = f;
+                this.f = f2;
+            }
+        }
+    }
+
+    private void a(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, this, motionEvent) == null) || this.i.onTouchEvent(motionEvent)) {
+            return;
+        }
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked == 0) {
+            this.a.reset();
+            this.c = motionEvent.getX();
+            float y = motionEvent.getY();
+            this.d = y;
+            float f = this.c;
+            this.e = f;
+            this.f = y;
+            this.a.moveTo(f, y);
+            invalidate();
+            if (this.h != null) {
+            }
+        } else if (actionMasked != 1) {
+            if (actionMasked != 2) {
+                return;
+            }
+            a(motionEvent.getX(), motionEvent.getY());
+            invalidate();
+        } else {
+            this.a.reset();
+            invalidate();
+            a aVar = this.h;
+            if (aVar != null) {
+                aVar.a(this.c, this.d, motionEvent.getX(), motionEvent.getY());
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.onDraw(canvas);
+            canvas.drawPath(this.a, this.b);
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            a(motionEvent);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setOnSlideTouchListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.h = aVar;
+        }
+    }
+}

@@ -25,4 +25,8 @@ public class FailReason {
     public FailType getType() {
         return this.type;
     }
+
+    public String toString() {
+        return "FailReason{type=" + this.type + ", cause=" + this.cause + '}';
+    }
 }

@@ -13,11 +13,16 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.security.cert.X509Certificate;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+import okhttp3.CertificatePinner;
+import okhttp3.Handshake;
+import okhttp3.internal.tls.OkHostnameVerifier;
 /* loaded from: classes7.dex */
 public class wf extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -121,10 +126,12 @@ public class wf extends SSLSocketFactory {
                     Log.w(this.a, " SNI Setting failed", e);
                 }
             }
-            if (this.b.verify(str, sSLSocket.getSession())) {
+            SSLSession session = sSLSocket.getSession();
+            if (this.b.verify(str, session)) {
                 return sSLSocket;
             }
-            throw new SSLPeerUnverifiedException("Verify hostname(" + str + ") failed.");
+            X509Certificate x509Certificate = (X509Certificate) Handshake.get(session).peerCertificates().get(0);
+            throw new SSLPeerUnverifiedException("Hostname " + str + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
         }
         return (Socket) invokeCommon.objValue;
     }

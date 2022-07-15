@@ -193,12 +193,14 @@ public class g implements m.a {
             }
             return com.ss.android.downloadlib.b.a.a(this.b);
         } else if (a(i) && !TextUtils.isEmpty(this.b.b.getPackageName()) && j.i().optInt("disable_market") != 1) {
-            return com.ss.android.downloadlib.b.a.a(this.b, i);
-        } else {
-            if (z && this.b.d.getDownloadMode() == 4 && !this.d.e()) {
-                this.d.c(true);
+            if (com.ss.android.downloadlib.b.a.a(this.b, i)) {
                 return true;
             }
+            return this.d.i() && this.d.d(true);
+        } else if (z && this.b.d.getDownloadMode() == 4 && !this.d.e()) {
+            this.d.c(true);
+            return true;
+        } else {
             return false;
         }
     }

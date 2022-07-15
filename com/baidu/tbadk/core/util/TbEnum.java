@@ -230,6 +230,7 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_REPLY_CARD = 23;
         public static final short MSG_CONTENT_TYPE_SHARE_FORUM = 33;
         public static final short MSG_CONTENT_TYPE_SHARE_THREAD = 32;
+        public static final short MSG_CONTENT_TYPE_STRANGER_TIP = 8001;
         public static final short MSG_CONTENT_TYPE_TEXT = 1;
         public static final short MSG_CONTENT_TYPE_VOICE = 3;
         public static final short MSG_SYSTEM = 11;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public final class b {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final KWEGIDDFP a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,10 +25,5 @@ public final class b {
             }
         }
         a = new KWEGIDDFP(null);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.yxcorp.kuaishou.addfp.KWEGIDDFP.instance():com.yxcorp.kuaishou.addfp.KWEGIDDFP] */
-    public static /* synthetic */ KWEGIDDFP a() {
-        return a;
     }
 }

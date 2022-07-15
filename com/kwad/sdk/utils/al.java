@@ -1,67 +1,27 @@
 package com.kwad.sdk.utils;
 
-import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import java.lang.reflect.Method;
-import java.util.List;
+import android.content.res.Resources;
+import com.kwad.sdk.api.core.ResContext;
+import com.sina.weibo.sdk.utils.ResourceManager;
 /* loaded from: classes5.dex */
-public class al {
-    public static String a = "";
-
-    public static String a() {
-        return Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "";
-    }
-
-    public static String a(@NonNull Context context) {
-        if (TextUtils.isEmpty(a)) {
-            String a2 = a();
-            a = a2;
-            if (TextUtils.isEmpty(a2)) {
-                String b = b();
-                a = b;
-                if (TextUtils.isEmpty(b)) {
-                    String b2 = b(context);
-                    a = b2;
-                    return b2;
-                }
-                return a;
-            }
-            return a;
+public final class al {
+    public static int a(Context context, String str) {
+        Resources a = a(context);
+        if (a == null) {
+            a = context.getResources();
         }
-        return a;
+        return a.getIdentifier(str, ResourceManager.DRAWABLE, context.getPackageName());
     }
 
-    public static String b() {
-        try {
-            Method declaredMethod = Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()).getDeclaredMethod("currentProcessName", new Class[0]);
-            declaredMethod.setAccessible(true);
-            Object invoke = declaredMethod.invoke(null, new Object[0]);
-            return invoke instanceof String ? (String) invoke : "";
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return "";
-        }
-    }
-
-    public static String b(@NonNull Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+    public static Resources a(Context context) {
         if (context == null) {
-            return "";
+            return null;
         }
-        int myPid = Process.myPid();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
+        Context applicationContext = context.getApplicationContext();
+        if (applicationContext instanceof ResContext) {
+            applicationContext = ((ResContext) applicationContext).getDelegatedContext();
         }
-        return "";
+        return applicationContext.getResources();
     }
 }

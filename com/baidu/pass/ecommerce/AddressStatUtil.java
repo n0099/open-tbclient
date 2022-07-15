@@ -1,7 +1,6 @@
 package com.baidu.pass.ecommerce;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
@@ -40,7 +39,7 @@ public class AddressStatUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("scene", RetrieveTaskManager.KEY);
+            hashMap.put("scene", "api");
             AddressManageDTO addressManageDTO = EcommerceRouter.getInstance().getAddressManageDTO();
             if (addressManageDTO != null) {
                 hashMap.put("tplse", addressManageDTO.tplse);

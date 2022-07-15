@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cm7;
 import com.repackage.d9;
-import com.repackage.kl7;
-import com.repackage.ml7;
-import com.repackage.uk4;
-import com.repackage.ws4;
+import com.repackage.em7;
+import com.repackage.jl4;
+import com.repackage.mt4;
 /* loaded from: classes3.dex */
 public class MarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public uk4.a d;
+    public jl4.a d;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
@@ -35,7 +35,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public ml7 c;
+        public em7 c;
         public final /* synthetic */ MarkModel d;
 
         public a(MarkModel markModel, boolean z) {
@@ -58,7 +58,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new ml7();
+            this.c = new em7();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,9 +70,9 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    kl7 kl7Var = new kl7();
-                    kl7Var.j(this.d.b);
-                    this.a.addPostData("data", kl7Var.E(0, 1));
+                    cm7 cm7Var = new cm7();
+                    cm7Var.j(this.d.b);
+                    this.a.addPostData("data", cm7Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -117,7 +117,7 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        ws4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        mt4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
@@ -163,7 +163,7 @@ public class MarkModel extends BdBaseModel {
         this.b = new MarkData();
     }
 
-    public void C() {
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = this.c;
@@ -177,7 +177,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void D() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a aVar = this.c;
@@ -191,19 +191,19 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public boolean E() {
+    public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public MarkData F() {
+    public MarkData G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (MarkData) invokeV.objValue;
     }
 
-    public String G() {
+    public String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -216,21 +216,21 @@ public class MarkModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void H(boolean z) {
+    public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.a = z;
         }
     }
 
-    public void I(MarkData markData) {
+    public void J(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
             this.b = markData;
         }
     }
 
-    public void J(uk4.a aVar) {
+    public void K(jl4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;

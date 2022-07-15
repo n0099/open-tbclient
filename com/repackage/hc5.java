@@ -1,40 +1,60 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hc5 {
+public abstract class hc5 implements mc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public hc5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int indexOf = str.indexOf("hiphotos");
-            if (indexOf <= 0 || indexOf >= 20) {
-                int indexOf2 = str.indexOf("tiebapic");
-                return indexOf2 > 0 && indexOf2 < 20;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        this.a = false;
+        new SparseArray();
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public void b(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            c(view2, false);
+        }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public void c(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? FileHelper.checkSD() && ob.c() : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) || view2 == null || getView() == null) {
+            return;
+        }
+        View view3 = getView();
+        if (view3.getParent() != null) {
+            return;
+        }
+        h55.b(view2, this.a).a(view2, view3, z);
+        d();
     }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public abstract View getView();
 }

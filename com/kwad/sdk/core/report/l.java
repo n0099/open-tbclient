@@ -1,123 +1,48 @@
 package com.kwad.sdk.core.report;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.core.report.c;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class l implements h<ReportAction> {
-    public static volatile l a;
-    public SQLiteDatabase b;
+public final class l<T extends c> implements j<T> {
+    public final Map<String, T> a = new LinkedHashMap();
 
-    public l(Context context) {
-        this.b = new k(context, k.a).getWritableDatabase();
+    private synchronized void a(@NonNull T t) {
+        this.a.put(t.a, t);
     }
 
-    private synchronized ReportAction a(@NonNull Cursor cursor) {
-        return ReportAction.a(cursor.getString(cursor.getColumnIndex("aLog")));
+    @Override // com.kwad.sdk.core.report.j
+    public final synchronized long a() {
+        int size;
+        size = this.a.size();
+        com.kwad.sdk.core.d.b.a("MemReportCache", "size() = " + size);
+        return size;
     }
 
-    public static l a(Context context) {
-        if (a == null) {
-            synchronized (l.class) {
-                if (a == null) {
-                    a = new l(context);
-                }
-            }
-        }
-        return a;
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.kwad.sdk.core.report.l<T extends com.kwad.sdk.core.report.c> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.kwad.sdk.core.report.j
+    public final /* bridge */ /* synthetic */ void a(@NonNull Object obj) {
+        a((l<T>) ((c) obj));
     }
 
-    private synchronized void b(ReportAction reportAction) {
-        com.kwad.sdk.core.d.a.a("ReportActionDBManager", "deleteAction action = " + reportAction);
-        try {
-            this.b.delete("ksad_actions", "actionId=?", new String[]{reportAction.a});
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+    @Override // com.kwad.sdk.core.report.j
+    public final synchronized void a(List<T> list) {
+        for (T t : list) {
+            this.a.remove(t.a);
         }
     }
 
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized long a() {
-        long j;
-        Cursor cursor = null;
-        try {
-            cursor = this.b.rawQuery("select count(*) from ksad_actions", null);
-            cursor.moveToFirst();
-            j = cursor.getLong(0);
-            ae.a(cursor);
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
-            ae.a(cursor);
-            j = 0;
+    @Override // com.kwad.sdk.core.report.j
+    public final synchronized List<T> b() {
+        ArrayList arrayList;
+        arrayList = new ArrayList(this.a.size());
+        for (Map.Entry<String, T> entry : this.a.entrySet()) {
+            arrayList.add(entry.getValue());
         }
-        return j;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized void a(ReportAction reportAction) {
-        com.kwad.sdk.core.d.a.a("ReportActionDBManager", "write = " + reportAction);
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("actionId", reportAction.a);
-            contentValues.put("aLog", reportAction.toJson().toString());
-            try {
-                this.b.insert("ksad_actions", null, contentValues);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
-            }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-        }
-    }
-
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized void a(List<ReportAction> list) {
-        com.kwad.sdk.core.d.a.a("ReportActionDBManager", "delete size= " + list.size());
-        try {
-            this.b.beginTransaction();
-            for (ReportAction reportAction : list) {
-                b(reportAction);
-            }
-            this.b.setTransactionSuccessful();
-            this.b.endTransaction();
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
-        }
-    }
-
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized List<ReportAction> b() {
-        Cursor cursor = null;
-        try {
-            cursor = this.b.rawQuery("select  * from ksad_actions", null);
-            if (cursor != null) {
-                ArrayList arrayList = new ArrayList();
-                while (cursor.moveToNext()) {
-                    try {
-                        arrayList.add(a(cursor));
-                    } catch (Exception e) {
-                        com.kwad.sdk.core.d.a.a(e);
-                    }
-                }
-                com.kwad.sdk.core.d.a.a("ReportActionDBManager", "read size= " + arrayList.size());
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    com.kwad.sdk.core.d.a.a("ReportActionDBManager", "read action=" + ((ReportAction) it.next()));
-                }
-                ae.a(cursor);
-                return arrayList;
-            }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-        }
-        ae.a(cursor);
-        return new ArrayList();
+        return arrayList;
     }
 }

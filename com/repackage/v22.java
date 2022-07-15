@@ -1,10 +1,10 @@
 package com.repackage;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c93;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class v22 extends a32 {
+public class v22 implements k22<j22> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean k;
+    public volatile Boolean a;
+    public volatile k22<j22> b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,186 +33,149 @@ public class v22 extends a32 {
                 return;
             }
         }
-        l = cg1.a;
+        c = rg1.a;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public v22(le3<Exception> le3Var) {
-        this(le3Var, false);
+    public v22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {le3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((le3) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.repackage.l74
-    public Map<String, String> B() {
-        InterceptResult invokeV;
+    @Override // com.repackage.k22
+    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Map<String, String> B = super.B();
-            if (this.k && wb4.a) {
-                if (B == null) {
-                    B = new HashMap<>();
-                }
-                B.put("hb_type", "1");
-                B.put("lastsynctime", String.valueOf(wb4.c));
-                B.put("SWAN-TIMEOUT-SETTING", String.valueOf(wb4.b(60) * 1000));
-            }
-            return B;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
+            l().b(str, cVar, pMSAppInfo);
         }
-        return (Map) invokeV.objValue;
     }
 
-    @Override // com.repackage.a32
-    public int U() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.m22<com.repackage.j22> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.repackage.l22
+    public void c(m22<j22> m22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m22Var) == null) {
+            l().c(m22Var);
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.a32
-    public PMSDownloadType V() {
+    @Override // com.repackage.k22
+    public void d(ha2 ha2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ha2Var) == null) {
+            l().d(ha2Var);
+        }
+    }
+
+    @Override // com.repackage.l22
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PMSDownloadType.SWAN_APP_UPDATE_CORE : (PMSDownloadType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l().f() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.a32
-    public String W() {
+    @Override // com.repackage.l22
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? k32.d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? l().g() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.a32
-    public String X() {
+    @Override // com.repackage.l22
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? k32.h() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? l().h() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.a32
-    public lb3 b0(l84 l84Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.k22
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, l84Var)) == null) {
-            if (l84Var == null) {
-                lb3 lb3Var = new lb3();
-                lb3Var.k(14L);
-                lb3Var.b(2908L);
-                lb3Var.d("小程序Extension包 Extension null");
-                return lb3Var;
-            }
-            ya2 ya2Var = new ya2();
-            ya2Var.b = l84Var.i;
-            ya2Var.a = l84Var.j;
-            ya2Var.c = l84Var.a;
-            ya2Var.d = l84Var.m;
-            if (ba2.b(0, ya2Var) == null) {
-                if (l) {
-                    Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
-                }
-                boolean m = zi2.g0().m();
-                if (l) {
-                    Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + m);
-                }
-                if (m) {
-                    if (l) {
-                        Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
-                    }
-                    ea2 f = ba2.f(0);
-                    if (f == null) {
-                        return null;
-                    }
-                    long g = f.f().g();
-                    if (g > 0) {
-                        if (l) {
-                            Log.d("SwanAppUpdateCore", "发送extension core更新事件");
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? l().i() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.k22
+    public void j(boolean z, s22 s22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048585, this, z, s22Var) == null) {
+            l().j(z, s22Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l22
+    /* renamed from: k */
+    public j22 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (j22) l().a() : (j22) invokeV.objValue;
+    }
+
+    public final k22<j22> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        this.b = m() ? new z22() : new u22();
+                        if (c) {
+                            Log.d("SwanAppMasterProviderWrapper", "provider - " + this.b.getClass().getSimpleName());
                         }
-                        SwanAppMessengerService.sendMessageWithDataToAllClient(121, g);
                     }
                 }
-                return null;
             }
-            lb3 lb3Var2 = new lb3();
-            lb3Var2.k(14L);
-            lb3Var2.b(2908L);
-            lb3Var2.d("小程序Extension包更新失败");
-            return lb3Var2;
+            return this.b;
         }
-        return (lb3) invokeL.objValue;
+        return (k22) invokeV.objValue;
     }
 
-    @Override // com.repackage.a32
-    public lb3 c0(n84 n84Var) {
+    public final boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a == null) {
+                this.a = Boolean.valueOf(h42.l() > 0 && h42.i());
+            }
+            if (c) {
+                Log.d("SwanAppMasterProviderWrapper", "loaded swan core version - " + b72.U().d0());
+                Log.d("SwanAppMasterProviderWrapper", "use multi preload - " + this.a);
+            }
+            return this.a.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l22
+    /* renamed from: n */
+    public j22 e(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, n84Var)) == null) {
-            if (l) {
-                Log.d("SwanAppUpdateCore", "onFrameworkDownloadFinish framework = " + n84Var);
-            }
-            if (n84Var == null) {
-                lb3 lb3Var = new lb3();
-                lb3Var.k(13L);
-                lb3Var.b(2907L);
-                lb3Var.d("小程序Core包 Framework null");
-                return lb3Var;
-            }
-            c93.b c = c93.c(n84Var, 0);
-            sw1.k("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c);
-            uf4.k(n84Var.a);
-            if (c.c()) {
-                long e = c93.e(0);
-                if (e > 0) {
-                    SwanJSVersionUpdateEvent.sendEvent(e);
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(114, e);
-                    return null;
-                }
-                return null;
-            }
-            lb3 lb3Var2 = new lb3();
-            lb3Var2.k(13L);
-            lb3Var2.b(2907L);
-            lb3Var2.d("小程序Core包更新失败");
-            return lb3Var2;
-        }
-        return (lb3) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, pMSAppInfo)) == null) ? (j22) l().e(pMSAppInfo) : (j22) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v22(le3<Exception> le3Var, boolean z) {
-        super(le3Var);
+    @Override // com.repackage.l22
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {le3Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((le3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            l().reset();
+            synchronized (this) {
+                this.a = null;
+                this.b = null;
             }
         }
-        this.k = z;
     }
 }

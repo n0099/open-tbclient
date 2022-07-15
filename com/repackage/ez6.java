@@ -1,287 +1,255 @@
 package com.repackage;
 
+import android.animation.ValueAnimator;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class ez6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ez6 extends jx5<fz6> {
     public static /* synthetic */ Interceptable $ic;
+    public static final int o;
+    public static final int p;
+    public static final int q;
+    public static final int r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> i;
+    public View j;
+    public TextView k;
+    public int l;
+    public String m;
+    public fz6 n;
 
-    public static void a(String str, Object obj, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
-            if (obj instanceof iv6) {
-                StatisticItem statisticItem = new StatisticItem(str);
-                statisticItem.param("obj_type", 2);
-                statisticItem.param("obj_locate", i);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("topic_id", ((iv6) obj).a);
-                statisticItem.param("obj_source", str2);
-                statisticItem.eventStat();
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ez6 a;
+
+        public a(ez6 ez6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ez6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof SpecialColumnItemData) {
-                SpecialColumnItemData specialColumnItemData = (SpecialColumnItemData) obj;
-                StatisticItem statisticItem2 = new StatisticItem(str);
-                statisticItem2.param("obj_type", 2);
-                statisticItem2.param("obj_locate", i);
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem2.param("tid", specialColumnItemData.threadId);
-                statisticItem2.param("obj_id", specialColumnItemData.liveId);
-                statisticItem2.eventStat();
-            } else if (obj instanceof MetaData) {
-                StatisticItem statisticItem3 = new StatisticItem(str);
-                statisticItem3.param("obj_type", 2);
-                statisticItem3.param("obj_locate", i);
-                statisticItem3.param("uid", ((MetaData) obj).getUserIdLong());
-                statisticItem3.eventStat();
-            } else if (obj instanceof np4) {
-                StatisticItem statisticItem4 = new StatisticItem(str);
-                statisticItem4.param("obj_type", 2);
-                statisticItem4.param("obj_locate", i);
-                statisticItem4.param("fid", ((np4) obj).j());
-                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem4.eventStat();
-            } else if (obj instanceof ln4) {
-                ln4 ln4Var = (ln4) obj;
-                StatisticItem statisticItem5 = new StatisticItem(str);
-                statisticItem5.param("obj_type", 2);
-                statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem5.param("obj_locate", i);
-                statisticItem5.param("obj_param1", ln4Var.c());
-                statisticItem5.param("obj_source", str2);
-                d(statisticItem5, ln4Var.c());
-                statisticItem5.eventStat();
-            } else if (obj instanceof Boolean) {
-                StatisticItem statisticItem6 = new StatisticItem(str);
-                statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem6.param("obj_locate", i);
-                statisticItem6.eventStat();
+            this.a = ez6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e() == null) {
+                return;
             }
+            this.a.e().a(view2, this.a.n);
         }
     }
 
-    public static void b(String str, Object obj, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, str, obj, i, str2) == null) {
-            if (obj instanceof SpecialColumnItemData) {
-                SpecialColumnItemData specialColumnItemData = (SpecialColumnItemData) obj;
-                StatisticItem statisticItem = new StatisticItem(str);
-                statisticItem.param("obj_type", 1);
-                statisticItem.param("obj_locate", i);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("tid", specialColumnItemData.threadId);
-                statisticItem.param("obj_id", specialColumnItemData.liveId);
-                fx5.b().a(statisticItem);
-            } else if (obj instanceof MetaData) {
-                StatisticItem statisticItem2 = new StatisticItem(str);
-                statisticItem2.param("obj_type", 1);
-                statisticItem2.param("obj_locate", i);
-                statisticItem2.param("uid", ((MetaData) obj).getUserIdLong());
-                fx5.b().a(statisticItem2);
-            } else if (obj instanceof np4) {
-                StatisticItem statisticItem3 = new StatisticItem(str);
-                statisticItem3.param("obj_type", 1);
-                statisticItem3.param("obj_locate", i);
-                statisticItem3.param("fid", ((np4) obj).j());
-                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                fx5.b().a(statisticItem3);
-            } else if (obj instanceof ln4) {
-                ln4 ln4Var = (ln4) obj;
-                StatisticItem statisticItem4 = new StatisticItem(str);
-                statisticItem4.param("obj_type", 1);
-                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem4.param("obj_locate", i);
-                statisticItem4.param("obj_param1", ln4Var.c());
-                statisticItem4.param("obj_source", str2);
-                d(statisticItem4, ln4Var.c());
-                fx5.b().a(statisticItem4);
+    /* loaded from: classes6.dex */
+    public class b implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup.LayoutParams a;
+        public final /* synthetic */ ez6 b;
+
+        public b(ez6 ez6Var, ViewGroup.LayoutParams layoutParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ez6Var, layoutParams};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ez6Var;
+            this.a = layoutParams;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.b.k.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.a.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (ez6.q - ez6.r)) + ez6.r);
+                this.b.j.setLayoutParams(this.a);
             }
         }
     }
 
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", 1);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", str2);
-            fx5.b().a(statisticItem);
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ez6 a;
 
-    public static void d(StatisticItem statisticItem, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14472");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            TiebaStatic.log(new StatisticItem("c14521"));
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14486");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void h(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14490");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_locate", i);
-            statisticItem.param("obj_source", i2);
-            statisticItem.param("obj_param1", i3);
-            statisticItem.param("obj_id", str);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14492");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static StatisticItem j(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) ? k(str, i, -1, null) : (StatisticItem) invokeLI.objValue;
-    }
-
-    public static StatisticItem k(String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", 0);
-            statisticItem.param("obj_locate", i);
-            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-            if (i2 >= 0) {
-                statisticItem.param("obj_param1", i2);
+        public c(ez6 ez6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ez6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (!StringUtils.isNull(str2)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            }
-            return statisticItem;
+            this.a = ez6Var;
         }
-        return (StatisticItem) invokeCommon.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.y();
+            }
+        }
     }
 
-    public static void l(View view2, ym4 ym4Var, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755720272, "Lcom/repackage/ez6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755720272, "Lcom/repackage/ez6;");
+                return;
+            }
+        }
+        UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
+        o = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        p = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        q = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds105);
+        r = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ez6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, view2, ym4Var, str) == null) || ym4Var == null || ym4Var.getThreadData() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.l = 3;
+        this.i = tbPageContext;
+        View h = h();
+        this.j = h;
+        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091a63);
+        this.k = textView;
+        int i3 = p;
+        textView.setPadding(0, i3, 0, i3 - o);
+        this.m = this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0860);
+        this.j.setOnClickListener(new a(this));
+    }
+
+    @Override // com.repackage.jx5
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b2 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.l != i) {
+                SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
+                Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808fa, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+                pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
+                this.k.setCompoundDrawables(pureDrawable, null, null, null);
+            }
+            this.l = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jx5
+    /* renamed from: x */
+    public void i(fz6 fz6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fz6Var) == null) || fz6Var == null || this.j.getLayoutParams() == null) {
             return;
         }
-        ThreadData threadData = ym4Var.getThreadData();
-        int id = view2.getId();
-        if (view2.getId() == R.id.obfuscated_res_0x7f091f85 || id == R.id.obfuscated_res_0x7f091f99) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092266) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092285) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f090a38 || id == R.id.obfuscated_res_0x7f090a10) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f091f99) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (view2 instanceof TbImageView) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f0915c5 || id == R.id.obfuscated_res_0x7f0906b4) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
+        if (!fz6Var.b) {
+            this.j.getLayoutParams().height = r;
+            this.j.requestLayout();
+            this.k.setAlpha(0.0f);
         }
+        if (this.j.getLayoutParams().height != q) {
+            fz6Var.b = true;
+            qg.a().postDelayed(new c(this), 1600L);
+        }
+        String formatTimeShort = StringHelper.getFormatTimeShort(fz6Var.a);
+        TextView textView = this.k;
+        textView.setText(formatTimeShort + this.m);
+        j(this.i, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public static void m() {
+    public final void y() {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14479");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            TiebaStatic.log(new StatisticItem("c14520"));
-        }
-    }
-
-    public static void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14485");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void p(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65551, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14489");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_locate", i);
-            statisticItem.param("obj_source", i2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14491");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void r(ym4 ym4Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65553, null, ym4Var, str) == null) || ym4Var == null || ym4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (layoutParams = this.j.getLayoutParams()) == null || layoutParams.height == q) {
             return;
         }
-        if (ym4Var.getThreadData().isVideoThreadType()) {
-            fx5.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(ym4Var.getThreadData(), str));
-        } else {
-            fx5.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(ym4Var.getThreadData(), str));
-        }
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        ofFloat.addUpdateListener(new b(this, layoutParams));
+        ofFloat.setDuration(400L);
+        ofFloat.start();
     }
 }

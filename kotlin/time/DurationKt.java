@@ -28,14 +28,54 @@ public final class DurationKt {
     public static final long MAX_NANOS_IN_MILLIS = 4611686018426L;
     public static final int NANOS_IN_MILLIS = 1000000;
 
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.unaryMinus-UwyO8pc(long):long] */
+    public static final /* synthetic */ long access$durationOf(long j, int i) {
+        return durationOf(j, i);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.<clinit>():void, kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
+    public static final /* synthetic */ long access$durationOfMillis(long j) {
+        return durationOfMillis(j);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.plus-LRDsOJo(long, long):long] */
+    public static final /* synthetic */ long access$durationOfMillisNormalized(long j) {
+        return durationOfMillisNormalized(j);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
+    public static final /* synthetic */ long access$durationOfNanos(long j) {
+        return durationOfNanos(j);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.plus-LRDsOJo(long, long):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
+    public static final /* synthetic */ long access$durationOfNanosNormalized(long j) {
+        return durationOfNanosNormalized(j);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.getInWholeNanoseconds-impl(long):long, kotlin.time.Duration.getNanosecondsComponent-impl(long):int, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
+    public static final /* synthetic */ long access$millisToNanos(long j) {
+        return millisToNanos(j);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
+    public static final /* synthetic */ long access$nanosToMillis(long j) {
+        return nanosToMillis(j);
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.Companion.parse-UwyO8pc(java.lang.String):long, kotlin.time.Duration.Companion.parseIsoString-UwyO8pc(java.lang.String):long, kotlin.time.Duration.Companion.parseIsoStringOrNull-FghU774(java.lang.String):kotlin.time.Duration, kotlin.time.Duration.Companion.parseOrNull-FghU774(java.lang.String):kotlin.time.Duration] */
+    public static final /* synthetic */ long access$parseDuration(String str, boolean z) {
+        return parseDuration(str, z);
+    }
+
     @ExperimentalTime
     public static final long durationOf(long j, int i) {
-        return Duration.m1978constructorimpl((j << 1) + i);
+        return Duration.m2921constructorimpl((j << 1) + i);
     }
 
     @ExperimentalTime
     public static final long durationOfMillis(long j) {
-        return Duration.m1978constructorimpl((j << 1) + 1);
+        return Duration.m2921constructorimpl((j << 1) + 1);
     }
 
     @ExperimentalTime
@@ -48,7 +88,7 @@ public final class DurationKt {
 
     @ExperimentalTime
     public static final long durationOfNanos(long j) {
-        return Duration.m1978constructorimpl(j << 1);
+        return Duration.m2921constructorimpl(j << 1);
     }
 
     @ExperimentalTime
@@ -231,15 +271,15 @@ public final class DurationKt {
         boolean z2;
         int i;
         String str2;
-        long m2014plusLRDsOJo;
+        long m2957plusLRDsOJo;
         int i2;
         boolean z3;
-        long m2014plusLRDsOJo2;
+        long m2957plusLRDsOJo2;
         boolean z4;
         String str3 = str;
         int length = str.length();
         if (length != 0) {
-            long m2038getZEROUwyO8pc = Duration.Companion.m2038getZEROUwyO8pc();
+            long m2981getZEROUwyO8pc = Duration.Companion.m2981getZEROUwyO8pc();
             char charAt = str3.charAt(0);
             int i3 = (charAt == '+' || charAt == '-') ? 1 : 0;
             boolean z5 = i3 > 0;
@@ -300,21 +340,21 @@ public final class DurationKt {
                                         }
                                         int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) substring, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
                                         if (durationUnitByIsoChar != TimeUnit.SECONDS || indexOf$default <= 0) {
-                                            m2014plusLRDsOJo2 = Duration.m2014plusLRDsOJo(m2038getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
+                                            m2957plusLRDsOJo2 = Duration.m2957plusLRDsOJo(m2981getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
                                         } else if (substring != null) {
                                             String substring2 = substring.substring(0, indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                            long m2014plusLRDsOJo3 = Duration.m2014plusLRDsOJo(m2038getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
+                                            long m2957plusLRDsOJo3 = Duration.m2957plusLRDsOJo(m2981getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
                                             if (substring == null) {
                                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                             }
                                             String substring3 = substring.substring(indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring3, "(this as java.lang.String).substring(startIndex)");
-                                            m2014plusLRDsOJo2 = Duration.m2014plusLRDsOJo(m2014plusLRDsOJo3, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
+                                            m2957plusLRDsOJo2 = Duration.m2957plusLRDsOJo(m2957plusLRDsOJo3, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
                                         } else {
                                             throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                         }
-                                        m2038getZEROUwyO8pc = m2014plusLRDsOJo2;
+                                        m2981getZEROUwyO8pc = m2957plusLRDsOJo2;
                                         str3 = str;
                                         timeUnit = durationUnitByIsoChar;
                                         z6 = z3;
@@ -342,7 +382,7 @@ public final class DurationKt {
                     if (!z) {
                         String str4 = "(this as java.lang.String).substring(startIndex)";
                         if (StringsKt__StringsJVMKt.regionMatches(str, i3, "Infinity", 0, Math.max(length - i3, 8), true)) {
-                            m2038getZEROUwyO8pc = Duration.Companion.m2036getINFINITEUwyO8pc();
+                            m2981getZEROUwyO8pc = Duration.Companion.m2979getINFINITEUwyO8pc();
                         } else {
                             boolean z8 = !z5;
                             if (z5 && str.charAt(i3) == '(' && StringsKt___StringsKt.last(str) == ')') {
@@ -398,16 +438,16 @@ public final class DurationKt {
                                             int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) substring4, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
                                             if (indexOf$default2 <= 0) {
                                                 str2 = str4;
-                                                m2014plusLRDsOJo = Duration.m2014plusLRDsOJo(m2038getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
+                                                m2957plusLRDsOJo = Duration.m2957plusLRDsOJo(m2981getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
                                             } else if (substring4 != null) {
                                                 String substring6 = substring4.substring(0, indexOf$default2);
                                                 Intrinsics.checkNotNullExpressionValue(substring6, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                                                 str2 = str4;
-                                                long m2014plusLRDsOJo4 = Duration.m2014plusLRDsOJo(m2038getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
+                                                long m2957plusLRDsOJo4 = Duration.m2957plusLRDsOJo(m2981getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
                                                 if (substring4 != null) {
                                                     String substring7 = substring4.substring(indexOf$default2);
                                                     Intrinsics.checkNotNullExpressionValue(substring7, str2);
-                                                    m2014plusLRDsOJo = Duration.m2014plusLRDsOJo(m2014plusLRDsOJo4, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
+                                                    m2957plusLRDsOJo = Duration.m2957plusLRDsOJo(m2957plusLRDsOJo4, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
                                                     if (i3 < i) {
                                                         throw new IllegalArgumentException("Fractional component must be last");
                                                     }
@@ -417,7 +457,7 @@ public final class DurationKt {
                                             } else {
                                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                             }
-                                            m2038getZEROUwyO8pc = m2014plusLRDsOJo;
+                                            m2981getZEROUwyO8pc = m2957plusLRDsOJo;
                                             timeUnit2 = durationUnitByShortName;
                                             str4 = str2;
                                             z9 = true;
@@ -436,7 +476,7 @@ public final class DurationKt {
                         throw new IllegalArgumentException();
                     }
                 }
-                return z2 ? Duration.m2030unaryMinusUwyO8pc(m2038getZEROUwyO8pc) : m2038getZEROUwyO8pc;
+                return z2 ? Duration.m2973unaryMinusUwyO8pc(m2981getZEROUwyO8pc) : m2981getZEROUwyO8pc;
             }
             throw new IllegalArgumentException("No components");
         }
@@ -502,16 +542,16 @@ public final class DurationKt {
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-kIfJnKk */
-    public static final long m2061timeskIfJnKk(double d, long j) {
-        return Duration.m2015timesUwyO8pc(j, d);
+    public static final long m3004timeskIfJnKk(double d, long j) {
+        return Duration.m2958timesUwyO8pc(j, d);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-mvk6XK0 */
-    public static final long m2062timesmvk6XK0(int i, long j) {
-        return Duration.m2016timesUwyO8pc(j, i);
+    public static final long m3005timesmvk6XK0(int i, long j) {
+        return Duration.m2959timesUwyO8pc(j, i);
     }
 
     @SinceKotlin(version = "1.3")

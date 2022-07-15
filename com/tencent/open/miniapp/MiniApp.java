@@ -22,7 +22,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MiniApp extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINIAPP_CONTEXT_NULL = -6;

@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ia8;
+import com.repackage.db8;
+import com.repackage.dp4;
 import com.repackage.nn;
-import com.repackage.oo4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -122,18 +122,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                oo4 oo4Var = new oo4();
-                                oo4Var.h(threadData.getLegoCard());
-                                this.threadList.add(oo4Var);
+                                dp4 dp4Var = new dp4();
+                                dp4Var.g(threadData.getLegoCard());
+                                this.threadList.add(dp4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = ia8.b(threadInfo);
+                                JSONObject b = db8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        ia8.f().h("FRS", arrayList);
+                        db8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

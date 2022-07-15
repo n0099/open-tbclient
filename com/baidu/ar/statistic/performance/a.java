@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONArray;
@@ -113,7 +114,7 @@ public class a {
                             try {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put("name", c0061a.name);
-                                jSONObject3.put("func", c0061a.xr);
+                                jSONObject3.put(WebChromeClient.KEY_FUNCTION_NAME, c0061a.xr);
                                 jSONObject3.put("time_cost", c0061a.xs);
                                 jSONObject3.put("count", c0061a.count);
                                 jSONArray2.put(jSONObject3);

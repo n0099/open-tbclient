@@ -1,17 +1,20 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oh4;
-/* loaded from: classes6.dex */
-public final class qh4 extends oh4.c {
+import java.text.DecimalFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class qh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final qh4 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,24 +30,62 @@ public final class qh4 extends oh4.c {
                 return;
             }
         }
-        b = new qh4();
+        a = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qh4() {
-        super(new oh4.b());
+    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((oh4.b) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
+                    jSONObject2.put("vtype", str3);
+                    jSONObject.putOpt("videoId", str);
+                    jSONObject2.put("data", jSONObject.toString());
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+                hx1.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
+                of3.d(str2, str, "video", str3, jSONObject2);
+            } else if (a) {
+                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
             }
+        }
+    }
+
+    public static void b(String str, String str2, String str3, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            String format = TextUtils.isEmpty(str3) ? "0" : new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
+                jSONObject.putOpt("width", Integer.valueOf(yd3.O(i)));
+                jSONObject.putOpt("height", Integer.valueOf(yd3.O(i2)));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "loadedmetadata", jSONObject);
+        }
+    }
+
+    public static void c(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("fullscreen", z ? "1" : "0");
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "fullscreenchange", jSONObject);
         }
     }
 }

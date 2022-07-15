@@ -41,7 +41,7 @@ public abstract class cy {
     public abstract String a(Context context, String str, List<bi> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m256a(Context context, String str, List<bi> list) {
+    public boolean m1199a(Context context, String str, List<bi> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, list)) == null) {

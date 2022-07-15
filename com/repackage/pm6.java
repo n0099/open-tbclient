@@ -1,27 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
 /* loaded from: classes6.dex */
-public abstract class pm6 implements rm6 {
+public class pm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
 
     public pm6() {
         Interceptable interceptable = $ic;
@@ -36,98 +32,47 @@ public abstract class pm6 implements rm6 {
                 return;
             }
         }
-        xf8.b();
+        a();
+        b();
     }
 
-    @Override // com.repackage.rm6, com.repackage.zm6
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.repackage.rm6
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
-    @Override // com.repackage.rm6
-    public void e(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeElement) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ma5 h = wh8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
+            h.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
+            h.g(true);
+            h.h(false);
+            h.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(h);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, wh8.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    @Override // com.repackage.rm6
-    public void f(@NonNull FrsFragment frsFragment, @NonNull View view2) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, frsFragment, view2) == null) && this.c == null) {
-            this.a = frsFragment;
-            this.b = view2.getContext();
-            this.c = view2;
-            o();
-        }
-    }
-
-    @Override // com.repackage.zm6
-    public void g(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.rm6
-    @NonNull
-    public wm6 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.k1().f0() : (wm6) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zm6
-    public void j(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.repackage.zm6
-    public void k(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.zm6
-    public void l(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.rm6
-    public int n(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void o();
-
-    @Override // com.repackage.zm6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ma5 h = wh8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
+            h.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
+            h.g(true);
+            h.h(false);
+            h.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(h);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, wh8.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

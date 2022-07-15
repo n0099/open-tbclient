@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lz5;
-import com.repackage.n16;
-import com.repackage.o76;
-import com.repackage.r16;
-import com.repackage.rz5;
-import com.repackage.sz5;
-import com.repackage.z16;
+import com.repackage.j06;
+import com.repackage.l26;
+import com.repackage.l86;
+import com.repackage.p06;
+import com.repackage.p26;
+import com.repackage.q06;
+import com.repackage.x26;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.Metadata;
@@ -42,7 +42,7 @@ import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Dispatchers;
 @Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\r\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u001d2\u00020\u0001:\u0001\u001dB\u0005¢\u0006\u0002\u0010\u0002J(\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u001e\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u0004J \u0010\u001a\u001a\u00020\u001b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J \u0010\u001c\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/videoplay/danmu/DefaultRenderer;", "Lcom/baidu/tieba/danmu/render/DanmakuRenderer;", "()V", "SELF_SEND_LEFT_PADDING", "", "SELF_SEND_TOP_PADDING", "borderPaint", "Landroid/graphics/Paint;", "strokePaint", "Landroid/text/TextPaint;", "textPaint", "draw", "", "item", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "canvas", "Landroid/graphics/Canvas;", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tieba/danmu/DanmakuConfig;", "makeLayout", "Landroid/text/StaticLayout;", "charSequence", "", "width", "measure", "Lcom/baidu/tieba/danmu/utils/Size;", "updatePaint", "Companion", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
-public final class DefaultRenderer implements n16 {
+public final class DefaultRenderer implements l26 {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public static final Map<Float, Float> g;
@@ -150,8 +150,8 @@ public final class DefaultRenderer implements n16 {
         this.e = paint;
     }
 
-    @Override // com.repackage.n16
-    public z16 a(rz5 item, r16 displayer, lz5 config) {
+    @Override // com.repackage.l26
+    public x26 a(p06 item, p26 displayer, j06 config) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
@@ -159,8 +159,8 @@ public final class DefaultRenderer implements n16 {
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
             i(item, displayer, config);
-            sz5 e = item.e();
-            int b = o76.b(e.c());
+            q06 e = item.e();
+            int b = l86.b(e.c());
             float textSize = b * (this.c.getTextSize() + UtilHelper.getDimenPixelSize(R.dimen.tbds6));
             String replace = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").replace(e.c(), "");
             if (TextUtils.isEmpty(replace)) {
@@ -172,13 +172,13 @@ public final class DefaultRenderer implements n16 {
             if (e.g() == 8) {
                 measureText += this.b * 2;
             }
-            return new z16(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f.b(this.c)) + MathKt__MathJVMKt.roundToInt(34.86f));
+            return new x26(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f.b(this.c)) + MathKt__MathJVMKt.roundToInt(34.86f));
         }
-        return (z16) invokeLLL.objValue;
+        return (x26) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.n16
-    public void b(rz5 item, Canvas canvas, r16 displayer, lz5 config) {
+    @Override // com.repackage.l26
+    public void b(p06 item, Canvas canvas, p26 displayer, j06 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -186,7 +186,7 @@ public final class DefaultRenderer implements n16 {
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
             i(item, displayer, config);
-            sz5 e = item.e();
+            q06 e = item.e();
             if (e.d().length() > 0) {
                 BuildersKt__Builders_commonKt.launch$default(CoroutineScopeKt.CoroutineScope(Dispatchers.getMain()), null, null, new DefaultRenderer$draw$1(e, canvas, this, null), 3, null);
             }
@@ -216,13 +216,13 @@ public final class DefaultRenderer implements n16 {
         return (StaticLayout) invokeLLI.objValue;
     }
 
-    public void i(rz5 item, r16 displayer, lz5 config) {
+    public void i(p06 item, p26 displayer, j06 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            sz5 e = item.e();
+            q06 e = item.e();
             float clamp = MathUtils.clamp(e.n(), 12.0f, 25.0f) * (displayer.b() - 0.6f);
             this.c.setColor(e.m() | Color.argb(255, 0, 0, 0));
             this.c.setTextSize(clamp * config.v());

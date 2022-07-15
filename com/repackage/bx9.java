@@ -1,59 +1,81 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.YYPayUIKit;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public final class bx9<T> implements yu9<T> {
+public class bx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lv9<? super T> a;
-    public final lv9<? super Throwable> b;
-    public final kv9 c;
 
-    public bx9(lv9<? super T> lv9Var, lv9<? super Throwable> lv9Var2, kv9 kv9Var) {
+    public static void a(String str, int i, int i2, PayFlowType payFlowType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lv9Var, lv9Var2, kv9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
                 return;
             }
-        }
-        this.a = lv9Var;
-        this.b = lv9Var2;
-        this.c = kv9Var;
-    }
-
-    @Override // com.repackage.yu9
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.call();
+            rx9 payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayActivityDestory  payFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.b(str, payFlowType);
+            }
         }
     }
 
-    @Override // com.repackage.yu9
-    public void onError(Throwable th) {
+    public static void b(String str, int i, int i2, PayFlowType payFlowType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.call(th);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), payFlowType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            rx9 payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayActivityVisit  payFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.c(str, payFlowType);
+            }
         }
     }
 
-    @Override // com.repackage.yu9
-    public void onNext(T t) {
+    public static void c(int i, int i2, PayFlowType payFlowType, PayDialogType payDialogType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.a.call(t);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, payDialogType}) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayDialogTypeChange error payUIKit null", new Object[0]);
+                return;
+            }
+            rx9 payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayDialogTypeChange mPayFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.d(payFlowType, payDialogType);
+            }
+        }
+    }
+
+    public static void d(int i, int i2, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65539, null, i, i2, payFlowType) == null) {
+            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
+            if (uIKit == null) {
+                RLog.error("PayFlowLifecycleHandler", "notifyPayFlowWork error payUIKit null", new Object[0]);
+                return;
+            }
+            rx9 payFlowLifecycle = uIKit.getPayFlowLifecycle();
+            boolean z = payFlowLifecycle != null;
+            RLog.info("PayFlowLifecycleHandler", "notifyPayFlowWork mPayFlowType:" + payFlowType + " shouldNotify:" + z);
+            if (z) {
+                payFlowLifecycle.a(payFlowType);
+            }
         }
     }
 }

@@ -1,134 +1,56 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+@Deprecated
 /* loaded from: classes7.dex */
-public abstract class s73 implements w73 {
+public class s73 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755367678, "Lcom/repackage/s73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755367678, "Lcom/repackage/s73;");
-                return;
-            }
-        }
-        c = new ReentrantReadWriteLock();
-    }
-
-    public s73() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s73(e13 e13Var) {
+        super(e13Var, "/swanAPI/clearStorage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d();
-        this.b = getMaxSize();
     }
 
-    @Override // com.repackage.w73
-    public boolean a(long j) {
-        InterceptResult invokeJ;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            c.readLock().lock();
-            try {
-                return e() + j > this.b;
-            } finally {
-                c.readLock().unlock();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
+            h03Var.f0().g().edit().clear().apply();
+            dc3.h.update();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.repackage.w73
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c.writeLock().lock();
-            try {
-                try {
-                    if (this.a == null) {
-                        this.a = d();
-                    }
-                    File file = this.a;
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    uf4.O(String.valueOf(e() + j).getBytes(), file);
-                } catch (Exception e) {
-                    if (cg1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            } finally {
-                c.writeLock().unlock();
-            }
-        }
-    }
-
-    @NonNull
-    public abstract String c();
-
-    public final File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(c() + File.separator + "record.pro");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                this.a = d();
-            }
-            File file = this.a;
-            if (file.exists() && file.isFile()) {
-                String E = uf4.E(file);
-                try {
-                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
-                        return Long.parseLong(E.trim());
-                    }
-                } catch (Exception e) {
-                    if (cg1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
+        return invokeLLLL.booleanValue;
     }
 }

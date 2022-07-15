@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.GetBackground.DataReq;
 import tbclient.GetBackground.GetBackgroundReqIdl;
 /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class BackgroundGetRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.props_id = Integer.valueOf(this.propId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             GetBackgroundReqIdl.Builder builder2 = new GetBackgroundReqIdl.Builder();
             builder2.data = builder.build(false);

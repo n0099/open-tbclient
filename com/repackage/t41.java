@@ -1,20 +1,15 @@
 package com.repackage;
 
-import android.view.ViewGroup;
+import android.content.Context;
+import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface t41<View> {
-    void a();
+public interface t41 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius");
 
-    void b(String str, boolean z);
+    Object a(JSONObject jSONObject);
 
-    void c(boolean z);
-
-    View getRealView();
-
-    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
-
-    void setCriusPopListener(@NonNull r41 r41Var);
-
-    void setData(@NonNull qm0 qm0Var);
+    h51<View> b(@NonNull Context context);
 }

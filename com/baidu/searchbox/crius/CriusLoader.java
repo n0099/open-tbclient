@@ -1,6 +1,7 @@
 package com.baidu.searchbox.crius;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.crius.CriusConstants;
@@ -70,45 +71,47 @@ public class CriusLoader {
         if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && criusStatus == 0) {
             CriusConstants.DEBUG = CriusRuntime.DEBUG;
             criusStatus = 2;
+            if (!TextUtils.isEmpty("gnustl_shared")) {
+                try {
+                    SoLoader.load(context, "gnustl_shared");
+                    if (!SoLoader.isSoLoadedSucc("gnustl_shared")) {
+                        criusStatus = 6;
+                        return;
+                    }
+                } catch (Throwable unused) {
+                    if (!CriusRuntime.DEBUG) {
+                        criusStatus = 3;
+                        return;
+                    }
+                    throw new IllegalArgumentException("crius lib gnustl_shared load failed!");
+                }
+            }
             try {
-                SoLoader.load(context, "gnustl_shared");
-                if (!SoLoader.isSoLoadedSucc("gnustl_shared")) {
-                    criusStatus = 6;
+                SoLoader.load(context, "criusbase");
+                if (!SoLoader.isSoLoadedSucc("criusbase")) {
+                    criusStatus = 7;
                     return;
                 }
                 try {
-                    SoLoader.load(context, "criusbase");
-                    if (!SoLoader.isSoLoadedSucc("criusbase")) {
-                        criusStatus = 7;
-                        return;
-                    }
-                    try {
-                        SoLoader.load(context, "crius");
-                        if (!SoLoader.isSoLoadedSucc("crius")) {
-                            criusStatus = 8;
-                        } else {
-                            criusStatus = 1;
-                        }
-                    } catch (Throwable unused) {
-                        if (!CriusRuntime.DEBUG) {
-                            criusStatus = 5;
-                            return;
-                        }
-                        throw new IllegalArgumentException("crius lib crius load failed!");
+                    SoLoader.load(context, "crius");
+                    if (!SoLoader.isSoLoadedSucc("crius")) {
+                        criusStatus = 8;
+                    } else {
+                        criusStatus = 1;
                     }
                 } catch (Throwable unused2) {
                     if (!CriusRuntime.DEBUG) {
-                        criusStatus = 4;
+                        criusStatus = 5;
                         return;
                     }
-                    throw new IllegalArgumentException("crius lib criusbase load failed!");
+                    throw new IllegalArgumentException("crius lib crius load failed!");
                 }
             } catch (Throwable unused3) {
                 if (!CriusRuntime.DEBUG) {
-                    criusStatus = 3;
+                    criusStatus = 4;
                     return;
                 }
-                throw new IllegalArgumentException("crius lib gnustl_shared load failed!");
+                throw new IllegalArgumentException("crius lib criusbase load failed!");
             }
         }
     }

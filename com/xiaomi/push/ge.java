@@ -14,7 +14,7 @@ public class ge extends XMPushService.j {
     public final /* synthetic */ long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ gd f418a;
+    public final /* synthetic */ gd f1145a;
     public final /* synthetic */ long b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -35,7 +35,7 @@ public class ge extends XMPushService.j {
                 return;
             }
         }
-        this.f418a = gdVar;
+        this.f1145a = gdVar;
         this.a = j;
         this.b = j2;
     }
@@ -55,11 +55,11 @@ public class ge extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f418a.m355c() || this.f418a.a(this.a)) {
+            if (!this.f1145a.m1298c() || this.f1145a.a(this.a)) {
                 return;
             }
-            com.xiaomi.push.service.o.a(this.f418a.b).m661b();
-            this.f418a.b.a(22, (Exception) null);
+            com.xiaomi.push.service.o.a(this.f1145a.b).m1604b();
+            this.f1145a.b.a(22, (Exception) null);
         }
     }
 }

@@ -16,7 +16,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CONTINUOUS_SIGN_ALL_DAYS = "continuous_sign_all_days";
     public static String FORUM_ID = "forum_id";
-    public static String JUMP_URL = "http://tieba.baidu.com/mo/q/resign/index";
+    public static String JUMP_URL = "https://tieba.baidu.com/mo/q/resign/index";
     public static String SIGN_BONUS_POINT = "signBonusPoint";
     public static String SUPPLEMENT_SIGN_DAYS = "supplement_sign_days";
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
                 return;
             }
         }
-        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0fef);
+        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0fea);
         getIntent().putExtra(FORUM_ID, i);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

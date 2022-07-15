@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zd7;
+import com.repackage.re7;
 /* loaded from: classes3.dex */
 public class AlaShareInBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -71,7 +71,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, zd7 zd7Var);
+        void a(int i, String str, re7 re7Var);
     }
 
     public AlaShareInBarModel() {
@@ -88,11 +88,11 @@ public class AlaShareInBarModel extends BdBaseModel {
             }
         }
         this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        A();
+        B();
         MessageManager.getInstance().registerListener(this.b);
     }
 
-    public final void A() {
+    public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR);
@@ -102,7 +102,7 @@ public class AlaShareInBarModel extends BdBaseModel {
         }
     }
 
-    public void B(String str, String str2, String str3, String str4) {
+    public void C(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
@@ -118,7 +118,7 @@ public class AlaShareInBarModel extends BdBaseModel {
         }
     }
 
-    public void C(b bVar) {
+    public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;

@@ -1,93 +1,54 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes6.dex */
-public class ji7 implements nn {
+public class ji7 implements ToastService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755587623, "Lcom/repackage/ji7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755587623, "Lcom/repackage/ji7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public ji7(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    public ji7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (dataRes == null || (vipUser = dataRes.user) == null || (vipUpgrade = dataRes.upgrade) == null) {
-            return;
-        }
-        String str = vipUser.card_id;
-        String str2 = vipUser.total_scores_link;
-        String str3 = vipUser.speed_link;
-        String str4 = vipUser.task_scores_link;
-        vipUser.task_scores.intValue();
-        String str5 = vipUser.name;
-        vipUser.id.longValue();
-        String str6 = vipUser.portrait;
-        String str7 = vipUser.name_show;
-        String str8 = vipUser.vip_link;
-        VipInfo vipInfo = vipUser.vipInfo;
-        if (vipInfo != null) {
-            String str9 = vipInfo.icon_url;
-            vipInfo.s_time.intValue();
-            vipUser.vipInfo.e_time.intValue();
-            vipUser.now_time.intValue();
-            vipUser.vipInfo.v_status.intValue();
-            vipUser.vipInfo.v_level.intValue();
-            vipUser.vipInfo.ext_score.intValue();
-            vipUser.vipInfo.a_score.intValue();
-            vipUser.vipInfo.n_score.intValue();
-        }
-        dataRes.today_get_score.intValue();
-        dataRes.today_unget_score.intValue();
-        vipUpgrade.normal.intValue();
-        vipUpgrade.pay.intValue();
-        AutoPayInfo autoPayInfo = dataRes.autopay_info;
     }
 
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
+            pi.O(TbadkCoreApplication.getInst(), str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showNormal(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+            pi.O(TbadkCoreApplication.getInst(), str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastBottom(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
+            pi.O(TbadkCoreApplication.getInst(), str);
+        }
     }
 }

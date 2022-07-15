@@ -16,10 +16,10 @@ public class ba implements au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f121a;
+    public int f848a;
 
     /* renamed from: a  reason: collision with other field name */
-    public au f122a;
+    public au f849a;
 
     public ba(Context context) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class ba implements au {
                 return;
             }
         }
-        this.f122a = az.a(context);
-        this.f121a = az.a;
-        com.xiaomi.channel.commonutils.logger.b.m84a("create id manager is: " + this.f121a);
+        this.f849a = az.a(context);
+        this.f848a = az.a;
+        com.xiaomi.channel.commonutils.logger.b.m1027a("create id manager is: " + this.f848a);
     }
 
     public static ba a(Context context) {
@@ -67,7 +67,7 @@ public class ba implements au {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f122a.a()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f849a.a()) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.au
@@ -98,14 +98,14 @@ public class ba implements au {
         if (!TextUtils.isEmpty(d)) {
             map.put("aaid", d);
         }
-        map.put("oaid_type", String.valueOf(this.f121a));
+        map.put("oaid_type", String.valueOf(this.f848a));
     }
 
     @Override // com.xiaomi.push.au
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f122a.m168a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f849a.m1111a() : invokeV.booleanValue;
     }
 
     public String b() {

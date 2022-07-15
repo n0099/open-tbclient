@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
-import com.repackage.p76;
-import com.repackage.sz5;
+import com.repackage.m86;
+import com.repackage.q06;
+import com.repackage.sr4;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -34,19 +34,19 @@ import kotlinx.coroutines.CoroutineScope;
 public final class DefaultRenderer$draw$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Canvas $canvas;
-    public final /* synthetic */ sz5 $danmakuItemData;
+    public final /* synthetic */ q06 $danmakuItemData;
     public transient /* synthetic */ FieldHolder $fh;
     public int label;
     public final /* synthetic */ DefaultRenderer this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultRenderer$draw$1(sz5 sz5Var, Canvas canvas, DefaultRenderer defaultRenderer, Continuation<? super DefaultRenderer$draw$1> continuation) {
+    public DefaultRenderer$draw$1(q06 q06Var, Canvas canvas, DefaultRenderer defaultRenderer, Continuation<? super DefaultRenderer$draw$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sz5Var, canvas, defaultRenderer, continuation};
+            Object[] objArr = {q06Var, canvas, defaultRenderer, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,13 +58,13 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 return;
             }
         }
-        this.$danmakuItemData = sz5Var;
+        this.$danmakuItemData = q06Var;
         this.$canvas = canvas;
         this.this$0 = defaultRenderer;
     }
 
     /* renamed from: invokeSuspend$lambda-0  reason: not valid java name */
-    public static final void m53invokeSuspend$lambda0(Canvas canvas, DefaultRenderer defaultRenderer, sz5 sz5Var, SpannableStringBuilder stringBuilder) {
+    public static final void m53invokeSuspend$lambda0(Canvas canvas, DefaultRenderer defaultRenderer, q06 q06Var, SpannableStringBuilder stringBuilder) {
         TextPaint textPaint;
         TextPaint textPaint2;
         TextPaint textPaint3;
@@ -75,7 +75,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         int i2;
         Paint paint3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, canvas, defaultRenderer, sz5Var, stringBuilder) == null) || canvas.getWidth() <= 6) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, canvas, defaultRenderer, q06Var, stringBuilder) == null) || canvas.getWidth() <= 6) {
             return;
         }
         Intrinsics.checkNotNullExpressionValue(stringBuilder, "stringBuilder");
@@ -86,12 +86,12 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         textPaint3 = defaultRenderer.c;
         textPaint4 = defaultRenderer.c;
         canvas.save();
-        canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + sz5Var.e());
+        canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + q06Var.e());
         h.draw(canvas);
         h2.draw(canvas);
         canvas.restore();
-        if (sz5Var.g() == 8) {
-            float[] y = dr4.y(R.string.J_X04);
+        if (q06Var.g() == 8) {
+            float[] y = sr4.y(R.string.J_X04);
             paint = defaultRenderer.e;
             float strokeWidth = paint.getStrokeWidth() * 0.2f;
             i = defaultRenderer.a;
@@ -131,16 +131,16 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 CharSequence d = this.$danmakuItemData.d();
                 final Canvas canvas = this.$canvas;
                 final DefaultRenderer defaultRenderer = this.this$0;
-                final sz5 sz5Var = this.$danmakuItemData;
-                p76.d(inst, d, new p76.h() { // from class: com.repackage.sr8
+                final q06 q06Var = this.$danmakuItemData;
+                m86.d(inst, d, new m86.h() { // from class: com.repackage.os8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.repackage.p76.h
+                    @Override // com.repackage.m86.h
                     public final void a(SpannableStringBuilder spannableStringBuilder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
-                            DefaultRenderer$draw$1.m53invokeSuspend$lambda0(canvas, defaultRenderer, sz5Var, spannableStringBuilder);
+                            DefaultRenderer$draw$1.m53invokeSuspend$lambda0(canvas, defaultRenderer, q06Var, spannableStringBuilder);
                         }
                     }
                 });

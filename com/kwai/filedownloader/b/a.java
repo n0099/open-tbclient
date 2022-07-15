@@ -16,19 +16,19 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractBinderC0361a extends Binder implements a {
+    public static abstract class AbstractBinderC0558a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0362a implements a {
+        public static class C0559a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0362a(IBinder iBinder) {
+            public C0559a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public interface a extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.a
-            public void a(MessageSnapshot messageSnapshot) {
+            public final void a(MessageSnapshot messageSnapshot) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -59,10 +59,10 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (this.b.transact(1, obtain, null, 1) || AbstractBinderC0361a.a() == null) {
+                        if (this.b.transact(1, obtain, null, 1) || AbstractBinderC0558a.a() == null) {
                             return;
                         }
-                        AbstractBinderC0361a.a().a(messageSnapshot);
+                        AbstractBinderC0558a.a().a(messageSnapshot);
                     } finally {
                         obtain.recycle();
                     }
@@ -70,14 +70,14 @@ public interface a extends IInterface {
             }
 
             @Override // android.os.IInterface
-            public IBinder asBinder() {
+            public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (IBinder) invokeV.objValue;
             }
         }
 
-        public AbstractBinderC0361a() {
+        public AbstractBinderC0558a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public interface a extends IInterface {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0362a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0559a.a : (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {
@@ -107,7 +107,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0362a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0559a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

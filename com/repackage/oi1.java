@@ -1,17 +1,21 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.t13;
 import java.io.File;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class oi1 implements yk1 {
+public class oi1 implements tk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,27 +33,52 @@ public class oi1 implements yk1 {
         }
     }
 
-    @Override // com.repackage.yk1
-    public void a(@NonNull JSONArray jSONArray) {
+    @Override // com.repackage.tk1
+    public boolean a(Activity activity, String str, t13.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.yk1
-    public v32 b(Context context, File file, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.tk1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return true;
         }
-        return (v32) invokeCommon.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.yk1
-    public void c(@NonNull JSONArray jSONArray) {
+    @Override // com.repackage.tk1
+    public boolean c(Activity activity, Uri uri, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
+            if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (oc3.i()) {
+                uri = ee3.a(activity, new File(uri.getPath()));
+            }
+            d(activity, uri, str);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void d(Activity activity, Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.addFlags(1);
+            intent.setDataAndType(uri, str);
+            qc3.f(activity, intent);
         }
     }
 }

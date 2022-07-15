@@ -1,7 +1,8 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,12 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public final class rq2 extends qq2<String, JSONObject> {
+public class rq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
+    public int d;
+    public long e;
+    public long f;
+    public int g;
+    public Rect h;
+    public boolean i;
 
     static {
         InterceptResult invokeClinit;
@@ -30,46 +40,90 @@ public final class rq2 extends qq2<String, JSONObject> {
                 return;
             }
         }
-        b = sz2.v;
+        j = h03.v;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rq2() {
-        super("swanCookie");
+    public rq2(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.g = 0;
+        this.a = str;
+        this.b = str2;
+        this.e = System.currentTimeMillis();
+        this.f = j2;
+        this.d = 0;
+        this.i = z;
     }
 
-    public final boolean b() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = 2;
+        }
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? o83.l().o() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
+            }
+            return this.f;
+        }
+        return invokeV.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.sq2
-    /* renamed from: c */
-    public boolean a(@NonNull String str) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = TextUtils.equals(str, (CharSequence) this.a) && !b();
-            if (b) {
-                sw1.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d == 2 : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
+                if (j) {
+                    Log.d("SwanAppPageMonitor", "pause, left " + this.f + "ms");
+                }
             }
-            return z;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e = System.currentTimeMillis();
+        }
+    }
+
+    public void f(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
+            new WeakReference(bitmap);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = 1;
+        }
     }
 }

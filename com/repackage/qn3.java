@@ -1,147 +1,158 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class qn3 implements tn3 {
+public class qn3 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
-    public static final int e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public rn3 a;
-    public final SQLiteDatabase b;
-    public final SQLiteDatabase c;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755374405, "Lcom/repackage/qn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755374405, "Lcom/repackage/qn3;");
+    public qn3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
-        e = DownloadState.DOWNLOADED.value();
-        f = DownloadState.DOWNLOAD_PAUSED.value();
+        this.e = false;
+        this.f = false;
     }
 
-    public qn3(Context context, ln3 ln3Var) {
+    public static qn3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            qn3 qn3Var = new qn3();
+            qn3Var.i(true);
+            qn3Var.g(true);
+            qn3Var.h(-1);
+            qn3Var.f(-1);
+            return qn3Var;
+        }
+        return (qn3) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.clone() : invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof qn3) {
+                qn3 qn3Var = (qn3) obj;
+                return this.a == qn3Var.a && this.b == qn3Var.b && this.d == qn3Var.d && this.c == qn3Var.c && this.g == qn3Var.g;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "Position{l=" + this.a + ", t=" + this.b + ", w=" + this.c + ", h=" + this.d + ", WAuto=" + this.e + ", HAuto=" + this.f + ", fixed=" + this.g + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public qn3(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ln3Var};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        rn3 rn3Var = new rn3(context);
-        this.a = rn3Var;
-        this.b = rn3Var.getWritableDatabase();
-        this.c = this.a.getReadableDatabase();
-    }
-
-    @Override // com.repackage.tn3
-    public void a(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            this.b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
-        }
-    }
-
-    @Override // com.repackage.tn3
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f), Integer.valueOf(e)});
-        }
-    }
-
-    @Override // com.repackage.tn3
-    public DownloadInfo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Cursor query = this.c.query("ad_download", d, "_id=?", new String[]{str}, null, null, "createAt desc");
-            if (query.moveToNext()) {
-                DownloadInfo downloadInfo = new DownloadInfo();
-                d(query, downloadInfo);
-                query.close();
-                return downloadInfo;
-            }
-            query.close();
-            return null;
-        }
-        return (DownloadInfo) invokeL.objValue;
-    }
-
-    @Override // com.repackage.tn3
-    public synchronized void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                try {
-                    this.a.close();
-                    this.a = null;
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    public final void d(Cursor cursor, DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cursor, downloadInfo) == null) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex("createAt");
-            int columnIndex3 = cursor.getColumnIndex("uri");
-            int columnIndex4 = cursor.getColumnIndex("packagename");
-            int columnIndex5 = cursor.getColumnIndex("path");
-            int columnIndex6 = cursor.getColumnIndex("size");
-            int columnIndex7 = cursor.getColumnIndex("progress");
-            int columnIndex8 = cursor.getColumnIndex("status");
-            downloadInfo.setId(cursor.getString(columnIndex));
-            downloadInfo.setCreateAt(cursor.getLong(columnIndex2));
-            downloadInfo.setUri(cursor.getString(columnIndex3));
-            downloadInfo.setPackageName(cursor.getString(columnIndex4));
-            downloadInfo.setPath(cursor.getString(columnIndex5));
-            downloadInfo.setSize(cursor.getLong(columnIndex6));
-            downloadInfo.setProgress(cursor.getLong(columnIndex7));
-            downloadInfo.setStatus(cursor.getInt(columnIndex8));
-        }
-    }
-
-    @Override // com.repackage.tn3
-    public void delete(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-            this.b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
-        }
+        this.e = false;
+        this.f = false;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 }

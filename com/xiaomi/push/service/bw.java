@@ -19,7 +19,7 @@ public class bw extends ao.b {
     public final /* synthetic */ bv a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f947a;
+    public boolean f1674a;
 
     public bw(bv bvVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class bw extends ao.b {
             }
         }
         this.a = bvVar;
-        this.f947a = false;
+        this.f1674a = false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x003d A[Catch: Exception -> 0x004b, TRY_LEAVE, TryCatch #0 {Exception -> 0x004b, blocks: (B:4:0x0004, B:6:0x0016, B:11:0x0028, B:13:0x003d), top: B:21:0x0004 }] */
@@ -54,45 +54,45 @@ public class bw extends ao.b {
             return;
         }
         try {
-            String a2 = a.a(com.xiaomi.push.v.m682a()).a();
+            String a2 = a.a(com.xiaomi.push.v.m1625a()).a();
             if (!TextUtils.isEmpty(a2) && !com.xiaomi.push.q.a.name().equals(a2)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m682a(), str, (List<com.xiaomi.push.bi>) null), 10));
+                a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m1625a(), str, (List<com.xiaomi.push.bi>) null), 10));
                 if (a == null) {
-                    this.a.f945a = a;
-                    this.f947a = true;
+                    this.a.f1672a = a;
+                    this.f1674a = true;
                     this.a.e();
                     return;
                 }
                 return;
             }
             str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m682a(), str, (List<com.xiaomi.push.bi>) null), 10));
+            a = dw.a.a(Base64.decode(cz.a(com.xiaomi.push.v.m1625a(), str, (List<com.xiaomi.push.bi>) null), 10));
             if (a == null) {
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("fetch config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m1027a("fetch config failure: " + e.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.ao.b
     /* renamed from: c */
-    public void mo260c() {
+    public void mo1203c() {
         List list;
         List list2;
         bv.a[] aVarArr;
         dw.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.f944a = null;
-            if (this.f947a) {
+            this.a.f1671a = null;
+            if (this.f1674a) {
                 synchronized (this.a) {
-                    list = this.a.f946a;
-                    list2 = this.a.f946a;
+                    list = this.a.f1673a;
+                    list2 = this.a.f1673a;
                     aVarArr = (bv.a[]) list.toArray(new bv.a[list2.size()]);
                 }
                 for (bv.a aVar2 : aVarArr) {
-                    aVar = this.a.f945a;
+                    aVar = this.a.f1672a;
                     aVar2.a(aVar);
                 }
             }

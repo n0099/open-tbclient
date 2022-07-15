@@ -1,64 +1,75 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sk6 extends qw<zk6> {
+public class sk6 extends bt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sk6(Context context) {
-        super(context);
+    public sk6(zs4 zs4Var) {
+        super(zs4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {zs4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                super((zs4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new CardItemRecentUpdateLayout(context);
     }
 
-    @Override // com.repackage.qw
-    public View g() {
+    @ct4(isAsync = false, value = "isGameInstall")
+    private JSONObject isGameInstall(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            String optString = jSONObject.optString("packagename");
+            try {
+                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
+                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
+                    jSONObject2.put("isInstall", true);
+                } else {
+                    jSONObject2.put("isInstall", false);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                try {
+                    jSONObject2.put("isInstall", false);
+                } catch (JSONException unused) {
+                    BdLog.e(e.getMessage());
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.bt4
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: o */
-    public void a(zk6 zk6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zk6Var) == null) {
-            this.f.setData(zk6Var.c());
-        }
-    }
-
-    @Override // com.repackage.gx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
     }
 }

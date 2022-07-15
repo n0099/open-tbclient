@@ -19,6 +19,7 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaShareInfoData;
@@ -43,9 +44,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.of5;
 import com.repackage.pi;
+import com.repackage.rg5;
+import com.repackage.ur4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OriginalThreadCardView extends RelativeLayout {
@@ -106,12 +107,15 @@ public class OriginalThreadCardView extends RelativeLayout {
                 return;
             }
             OriginalThreadInfo originalThreadInfo = (OriginalThreadInfo) view2.getTag();
-            if (originalThreadInfo.a == 4) {
-                this.a.q(originalThreadInfo);
+            int i = originalThreadInfo.a;
+            if (i == 4) {
+                this.a.r(originalThreadInfo);
+            } else if (i == 5) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, Long.toString(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName())));
             } else if (originalThreadInfo.k == 40) {
-                this.a.p(originalThreadInfo);
+                this.a.q(originalThreadInfo);
             } else {
-                this.a.o(originalThreadInfo);
+                this.a.p(originalThreadInfo);
             }
             if (this.a.l != null) {
                 this.a.l.a(originalThreadInfo);
@@ -165,10 +169,10 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.o = true;
         this.q = false;
         this.r = 3;
-        l(context);
+        m(context);
     }
 
-    public final void f(ItemData itemData) {
+    public final void g(ItemData itemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
             if (itemData == null) {
@@ -181,9 +185,9 @@ public class OriginalThreadCardView extends RelativeLayout {
             setPadding(i, i, i, u);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
             if (this.c.getVisibility() == 0) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090e48);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090e56);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091f5f);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092004);
             }
             this.f.setLayoutParams(layoutParams);
             this.h.setStarSpacing(s);
@@ -203,7 +207,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         }
     }
 
-    public void g(OriginalThreadInfo.ShareInfo shareInfo) {
+    public void h(OriginalThreadInfo.ShareInfo shareInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareInfo) == null) || shareInfo == null) {
             return;
@@ -250,74 +254,94 @@ public class OriginalThreadCardView extends RelativeLayout {
             this.e.setVisibility(8);
         }
         this.b.setText(shareInfo.showText);
-        j(shareInfo);
+        k(shareInfo);
         this.j.setVisibility(8);
         setTag(shareInfo);
     }
 
-    public void h(OriginalThreadInfo originalThreadInfo) {
+    public void i(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            i(originalThreadInfo, null);
+            j(originalThreadInfo, null);
         }
     }
 
-    public void i(OriginalThreadInfo originalThreadInfo, String str) {
+    /* JADX WARN: Removed duplicated region for block: B:26:0x00a7  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00b9  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00cf  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00e3  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void j(OriginalThreadInfo originalThreadInfo, String str) {
+        SpannableString c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, originalThreadInfo, str) == null) {
             if (originalThreadInfo != null) {
                 this.q = false;
                 int i = originalThreadInfo.a;
-                if (i == 1) {
-                    this.k = 0;
-                    this.c.setDefaultResource(R.color.CAM_X0204);
-                    if (this.o) {
-                        this.c.setPlaceHolder(2);
-                    } else {
+                if (i != 1) {
+                    if (i == 2) {
+                        this.k = 0;
+                        this.c.setDefaultResource(R.drawable.icon_card_url_n);
                         this.c.setDefaultBgResource(R.color.CAM_X0209);
+                        this.c.setVisibility(0);
+                        this.c.J(originalThreadInfo.c, 10, false);
+                    } else if (i == 3) {
+                        this.k = R.drawable.icon_share_play_n;
+                        this.c.setDefaultResource(R.color.CAM_X0204);
+                        this.c.setDefaultBgResource(R.color.CAM_X0209);
+                        this.c.setVisibility(0);
+                        this.c.J(originalThreadInfo.c, 10, false);
+                    } else if (i == 4) {
+                        this.k = R.drawable.icon_share_card_live;
+                        this.c.setDefaultResource(R.color.CAM_X0204);
+                        this.c.setDefaultBgResource(R.color.CAM_X0209);
+                        this.c.setVisibility(0);
+                        this.c.J(originalThreadInfo.c, 10, false);
+                    } else if (i != 5) {
+                        this.k = 0;
+                        this.c.setVisibility(8);
                     }
-                    this.c.setVisibility(0);
-                    this.c.J(originalThreadInfo.c, 10, false);
-                } else if (i == 2) {
-                    this.k = 0;
-                    this.c.setDefaultResource(R.drawable.icon_card_url_n);
-                    this.c.setDefaultBgResource(R.color.CAM_X0209);
-                    this.c.setVisibility(0);
-                    this.c.J(originalThreadInfo.c, 10, false);
-                } else if (i == 3) {
-                    this.k = R.drawable.icon_share_play_n;
-                    this.c.setDefaultResource(R.color.CAM_X0204);
-                    this.c.setDefaultBgResource(R.color.CAM_X0209);
-                    this.c.setVisibility(0);
-                    this.c.J(originalThreadInfo.c, 10, false);
-                } else if (i != 4) {
-                    this.k = 0;
-                    this.c.setVisibility(8);
-                } else {
-                    this.k = R.drawable.icon_share_card_live;
-                    this.c.setDefaultResource(R.color.CAM_X0204);
-                    this.c.setDefaultBgResource(R.color.CAM_X0209);
-                    this.c.setVisibility(0);
-                    this.c.J(originalThreadInfo.c, 10, false);
+                    if (this.k == 0) {
+                        this.d.setVisibility(0);
+                        this.e.setVisibility(8);
+                        SkinManager.setImageResource(this.d, this.k);
+                    } else {
+                        this.d.setVisibility(8);
+                        this.e.setVisibility(8);
+                    }
+                    c = originalThreadInfo.c();
+                    if (str == null) {
+                        this.b.setText(str);
+                    } else {
+                        this.b.setText((c == null || c.length() == 0) ? originalThreadInfo.b : c);
+                    }
+                    if (c != null) {
+                        TiePlusEventController.p(originalThreadInfo.g());
+                    }
+                    l(originalThreadInfo.G, originalThreadInfo.f, originalThreadInfo.e);
+                    setTag(originalThreadInfo);
+                    return;
                 }
-                if (this.k != 0) {
-                    this.d.setVisibility(0);
-                    this.e.setVisibility(8);
-                    SkinManager.setImageResource(this.d, this.k);
+                this.k = 0;
+                this.c.setDefaultResource(R.color.CAM_X0204);
+                if (this.o) {
+                    this.c.setPlaceHolder(2);
                 } else {
-                    this.d.setVisibility(8);
-                    this.e.setVisibility(8);
+                    this.c.setDefaultBgResource(R.color.CAM_X0209);
                 }
-                SpannableString c = originalThreadInfo.c();
-                if (str != null) {
-                    this.b.setText(str);
-                } else {
-                    this.b.setText((c == null || c.length() == 0) ? originalThreadInfo.b : c);
+                this.c.setVisibility(0);
+                this.c.J(originalThreadInfo.c, 10, false);
+                if (this.k == 0) {
+                }
+                c = originalThreadInfo.c();
+                if (str == null) {
                 }
                 if (c != null) {
-                    TiePlusEventController.p(originalThreadInfo.g());
                 }
-                k(originalThreadInfo.G, originalThreadInfo.f, originalThreadInfo.e);
+                l(originalThreadInfo.G, originalThreadInfo.f, originalThreadInfo.e);
                 setTag(originalThreadInfo);
                 return;
             }
@@ -331,11 +355,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         }
     }
 
-    public final void j(OriginalThreadInfo.ShareInfo shareInfo) {
+    public final void k(OriginalThreadInfo.ShareInfo shareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, shareInfo) == null) {
             ItemData itemData = shareInfo.itemData;
-            f(itemData);
+            g(itemData);
             if (itemData != null) {
                 this.g.setText(itemData.mTitle);
                 this.h.setStarCount(itemData.mStar);
@@ -344,7 +368,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                     TextView textView = this.i;
                     textView.setText(itemData.mScore + "");
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f06c1);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f06cb);
                 }
                 if (this.c.getVisibility() == 8) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -354,12 +378,12 @@ public class OriginalThreadCardView extends RelativeLayout {
             }
             ItemStarData itemStarData = shareInfo.itemStarData;
             if (itemStarData != null) {
-                this.b.setText(m(shareInfo.showText, itemStarData), TextView.BufferType.SPANNABLE);
+                this.b.setText(n(shareInfo.showText, itemStarData), TextView.BufferType.SPANNABLE);
             }
         }
     }
 
-    public final void k(PollData pollData, String str, long j) {
+    public final void l(PollData pollData, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{pollData, str, Long.valueOf(j)}) == null) {
             this.j.setVisibility(8);
@@ -372,7 +396,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         }
     }
 
-    public final void l(Context context) {
+    public final void m(Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, context) == null) || context == null) {
             return;
@@ -380,15 +404,15 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) this, true);
         this.p = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5f);
-        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e48);
-        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090dc8);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fae);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092004);
+        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e56);
+        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090dd6);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092052);
         this.c.setLongIconSupport(false);
         this.c.setGifIconSupport(false);
         this.c.setRadius(pi.f(context, R.dimen.tbds10));
         this.c.setConrers(15);
-        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e5));
+        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070740));
         this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.c.setBorderSurroundContent(true);
         this.c.setDrawBorder(true);
@@ -405,30 +429,30 @@ public class OriginalThreadCardView extends RelativeLayout {
         RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams3.height = k;
         this.b.setLayoutParams(layoutParams3);
-        this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090111);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090f66);
+        this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090112);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090f77);
         this.g = textView;
         textView.setMaxWidth(pi.q(context)[0] / 2);
-        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f5d);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f59);
-        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f0923fc);
+        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f6e);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f6a);
+        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f0924bc);
         this.j = voteView;
         voteView.setBgColor(R.color.CAM_X0207);
         setOnClickListener(new a(this));
     }
 
-    public final SpannableStringBuilder m(String str, ItemStarData itemStarData) {
+    public final SpannableStringBuilder n(String str, ItemStarData itemStarData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = of5.d(itemStarData);
+            SpannableStringBuilder d = rg5.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public final void n(OriginalThreadInfo originalThreadInfo) {
+    public final void o(OriginalThreadInfo originalThreadInfo) {
         AlaInfoData alaInfoData;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, originalThreadInfo) == null) || originalThreadInfo == null || (alaInfoData = originalThreadInfo.j) == null || alaInfoData.live_status != 1) {
@@ -443,9 +467,17 @@ public class OriginalThreadCardView extends RelativeLayout {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a, alaLiveInfoCoreData, null, "", false, "")));
     }
 
-    public final void o(OriginalThreadInfo originalThreadInfo) {
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, originalThreadInfo) == null) || originalThreadInfo == null) {
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public final void p(OriginalThreadInfo originalThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, originalThreadInfo) == null) || originalThreadInfo == null) {
             return;
         }
         if (ThreadCardUtils.isUgcThreadType(originalThreadInfo.p)) {
@@ -465,15 +497,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig2));
     }
 
-    @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public final void p(OriginalThreadInfo originalThreadInfo) {
+    public final void q(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048587, this, originalThreadInfo) == null) || originalThreadInfo == null) {
             return;
@@ -487,46 +511,88 @@ public class OriginalThreadCardView extends RelativeLayout {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
     }
 
-    public final void q(OriginalThreadInfo originalThreadInfo) {
+    public final void r(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, originalThreadInfo) == null) && originalThreadInfo != null && originalThreadInfo.a == 4) {
             int i = originalThreadInfo.k;
             if (i == 49 || i == 69) {
-                n(originalThreadInfo);
+                o(originalThreadInfo);
             } else if (i == 60) {
                 AlaInfoData alaInfoData = originalThreadInfo.j;
                 if (alaInfoData != null) {
                     if (alaInfoData.live_status == 1) {
-                        n(originalThreadInfo);
+                        o(originalThreadInfo);
                         return;
                     }
                     AlaShareInfoData alaShareInfoData = alaInfoData.share_info;
                     if (alaShareInfoData != null && alaShareInfoData.record_tid <= 0) {
-                        n(originalThreadInfo);
+                        o(originalThreadInfo);
                         return;
                     } else {
-                        o(originalThreadInfo);
+                        p(originalThreadInfo);
                         return;
                     }
                 }
-                o(originalThreadInfo);
+                p(originalThreadInfo);
             } else {
-                o(originalThreadInfo);
+                p(originalThreadInfo);
             }
         }
     }
 
-    public void r() {
+    public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            s(R.color.CAM_X0206, R.color.CAM_X0105, R.color.CAM_X0109);
+            t(R.color.CAM_X0206, R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
-    public void s(int i, int i2, int i3) {
+    public void setCardFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public void setContainerAndTextBackGroundColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            View view2 = this.p;
+            if (view2 != null) {
+                ur4.d(view2).f(i);
+            }
+            TextView textView = this.b;
+            if (textView != null) {
+                ur4.d(textView).f(i);
+            }
+        }
+    }
+
+    public void setReadState(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            SkinManager.setViewTextColor(this.b, z ? R.color.CAM_X0109 : R.color.CAM_X0107);
+        }
+    }
+
+    public void setSubClickListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) {
+            this.l = bVar;
+        }
+    }
+
+    public void setUsePlaceHolder(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    public void t(int i, int i2, int i3) {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048590, this, i, i2, i3) == null) || this.r == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (!(interceptable == null || interceptable.invokeIII(1048595, this, i, i2, i3) == null) || this.r == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             return;
         }
         this.r = skinType;
@@ -542,48 +608,6 @@ public class OriginalThreadCardView extends RelativeLayout {
         SkinManager.setViewTextColor(this.b, R.color.CAM_X0107, 1);
         SkinManager.setViewTextColor(this.i, i3, 1);
         this.h.f();
-    }
-
-    public void setCardFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void setContainerAndTextBackGroundColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            View view2 = this.p;
-            if (view2 != null) {
-                fr4.d(view2).f(i);
-            }
-            TextView textView = this.b;
-            if (textView != null) {
-                fr4.d(textView).f(i);
-            }
-        }
-    }
-
-    public void setReadState(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            SkinManager.setViewTextColor(this.b, z ? R.color.CAM_X0109 : R.color.CAM_X0107);
-        }
-    }
-
-    public void setSubClickListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bVar) == null) {
-            this.l = bVar;
-        }
-    }
-
-    public void setUsePlaceHolder(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.o = z;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -608,7 +632,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.o = true;
         this.q = false;
         this.r = 3;
-        l(context);
+        m(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -633,6 +657,6 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.o = true;
         this.q = false;
         this.r = 3;
-        l(context);
+        m(context);
     }
 }

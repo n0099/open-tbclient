@@ -1,26 +1,33 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GiftInfo;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class k48 {
+public class k48 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final int c;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
+    public List<nn> g;
 
     static {
         InterceptResult invokeClinit;
@@ -35,137 +42,67 @@ public class k48 {
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-        b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-        c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+        h = BdUniqueId.gen();
     }
 
-    public static List<nn> a(List<ThreadData> list) {
-        InterceptResult invokeL;
+    public k48() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (ListUtils.isEmpty(list)) {
-                return arrayList;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            for (int i = 0; i < list.size(); i++) {
-                ThreadData threadData = (ThreadData) ListUtils.getItem(list, i);
-                if (threadData != null) {
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    qx5 d = d(threadData);
-                    if (d != null) {
-                        arrayList.add(d);
-                    }
-                }
-            }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<nn> b(List<ThreadData> list) {
-        InterceptResult invokeL;
+    public void c(User user) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                t38 t38Var = new t38();
-                t38Var.d = c;
-                t38Var.c = b;
-                t38Var.b = a;
-                t38Var.a = R.string.obfuscated_res_0x7f0f0e21;
-                arrayList.add(t38Var);
-                for (int i = 0; i < list.size(); i++) {
-                    ThreadData threadData = list.get(i);
-                    if (threadData != null) {
-                        AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                        qx5 d = d(threadData);
-                        if (d != null) {
-                            arrayList.add(d);
-                        }
-                    }
-                }
-                AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
-            }
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null || ListUtils.isEmpty(user.gift_list)) {
+            return;
         }
-        return (List) invokeL.objValue;
+        this.c = String.valueOf(user.id);
+        this.d = user.name;
+        this.e = user.name_show;
+        this.f = user.sex.intValue();
+        String str = this.c;
+        if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
+            this.a = true;
+        } else {
+            this.a = false;
+        }
+        if (user.sex.intValue() == 2) {
+            this.b = false;
+        } else {
+            this.b = true;
+        }
+        Integer num = user.gift_num;
+        if (num != null) {
+            num.intValue();
+        }
+        this.g = new ArrayList();
+        for (GiftInfo giftInfo : user.gift_list) {
+            if (giftInfo != null) {
+                s48 s48Var = new s48();
+                s48Var.c(giftInfo);
+                this.g.add(s48Var);
+            }
+        }
     }
 
-    public static List<nn> c(List<nn> list) {
-        InterceptResult invokeL;
-        ThreadData threadData;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (ListUtils.isEmpty(list)) {
-                return arrayList;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                nn nnVar = (nn) ListUtils.getItem(list, i);
-                if ((nnVar instanceof CardPersonDynamicThreadData) && (threadData = ((CardPersonDynamicThreadData) nnVar).p) != null) {
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    qx5 d = d(threadData);
-                    if (d != null) {
-                        arrayList.add(d);
-                    }
-                }
-            }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
     }
 
-    public static qx5 d(ThreadData threadData) {
-        InterceptResult invokeL;
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData)) == null) {
-            qx5 qx5Var = null;
-            if (threadData == null) {
-                return null;
-            }
-            threadData.isFromPersonPolymeric = true;
-            threadData.insertItemToTitleOrAbstractText();
-            if (threadData.isShareThread) {
-                qx5Var = new yx5();
-                qx5Var.a = threadData;
-            } else if (tx5.W(threadData)) {
-                qx5Var = new tx5(threadData);
-            } else if (ux5.Z(threadData)) {
-                qx5Var = new ux5(threadData);
-            } else if (!yx5.W(threadData) && !yx5.X(threadData)) {
-                if (zx5.R(threadData)) {
-                    qx5Var = new zx5(threadData);
-                }
-            } else {
-                qx5Var = new yx5();
-                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
-                    threadData.isGodThread();
-                }
-                qx5Var.a = threadData;
-            }
-            if (qx5Var != null) {
-                AbsGroupUbsABTest.setCardInfoUbsABTest(qx5Var);
-            }
-            return qx5Var;
-        }
-        return (qx5) invokeL.objValue;
-    }
-
-    public static ThreadData e(nn nnVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, nnVar)) == null) {
-            if (nnVar != null && (nnVar instanceof ym4)) {
-                ThreadData threadData = ((ym4) nnVar).getThreadData();
-                threadData.isFromPersonPolymeric = true;
-                AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                return threadData;
-            }
-            return null;
-        }
-        return (ThreadData) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !ListUtils.isEmpty(this.g) : invokeV.booleanValue;
     }
 }

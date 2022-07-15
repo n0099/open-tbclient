@@ -1,211 +1,123 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.os.Bundle;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kz2;
+import com.repackage.mz2;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class iz2 {
+public class iz2 extends mz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Context b;
-    public WindowManager c;
-    public volatile int d;
-    public View e;
-    public View f;
-    public WindowManager.LayoutParams g;
-    public Handler h;
-    public Runnable i;
-    public Runnable j;
-    public kz2.b k;
-    public boolean l;
-    public View m;
-    public View n;
+    public BdMultiPicker c;
+    public JSONArray d;
+    public JSONArray e;
+    public BdMultiPicker.b f;
+    public boolean g;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a extends mz2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz2 a;
+        public JSONArray e;
+        public JSONArray f;
+        public boolean g;
+        public BdMultiPicker.b h;
 
-        public a(iz2 iz2Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iz2Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = iz2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.mz2.a
+        public mz2 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e != null) {
-                    if (this.a.e.getParent() != null) {
-                        this.a.c.removeView(this.a.e);
-                        if (this.a.k != null) {
-                            this.a.k.onDismiss();
-                            this.a.k = null;
-                        }
-                    }
-                    this.a.e = null;
-                }
-                if (this.a.m != null) {
-                    if (this.a.m.getParent() != null) {
-                        this.a.c.removeView(this.a.m);
-                    }
-                    this.a.m = null;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                iz2 iz2Var = (iz2) super.a();
+                iz2Var.g(this.e);
+                iz2Var.h(this.f);
+                iz2Var.j(this.g);
+                iz2Var.i(this.h);
+                return iz2Var;
             }
+            return (mz2) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mz2.a
+        public mz2 b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new iz2(context) : (mz2) invokeL.objValue;
+        }
+
+        public a l(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+                this.e = jSONArray;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a m(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+                this.f = jSONArray;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a n(BdMultiPicker.b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
+                this.h = bVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a o(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.g = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz2 a;
-
-        public b(iz2 iz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iz2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            try {
-                if (this.a.l) {
-                    if (this.a.m != null && (this.a.m.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.a.m.getParent()).removeView(this.a.m);
-                    }
-                    WindowManager.LayoutParams t = this.a.t();
-                    this.a.n = new FrameLayout(this.a.b);
-                    this.a.n.setClickable(true);
-                    this.a.c.addView(this.a.n, t);
-                    this.a.m = this.a.n;
-                }
-                if (this.a.f != null && (this.a.f.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) this.a.f.getParent()).removeView(this.a.f);
-                }
-                this.a.c.addView(this.a.f, this.a.g);
-                this.a.e = this.a.f;
-                this.a.h.postDelayed(this.a.j, this.a.d * 1000);
-                if (this.a.a) {
-                    Log.d("ToastCustom", "add mView");
-                }
-            } finally {
-                if (!z) {
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz2 a;
-
-        public c(iz2 iz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iz2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            try {
-                if (this.a.e != null) {
-                    if (this.a.e.getParent() != null) {
-                        this.a.c.removeViewImmediate(this.a.e);
-                    }
-                    if (this.a.k != null) {
-                        this.a.k.onDismiss();
-                        this.a.k = null;
-                    }
-                    if (this.a.a) {
-                        Log.d("ToastCustom", "remove mView");
-                    }
-                    this.a.e = null;
-                }
-                if (this.a.m != null) {
-                    if (this.a.m.getParent() != null) {
-                        this.a.c.removeViewImmediate(this.a.m);
-                    }
-                    if (this.a.a) {
-                        Log.d("ToastCustom", "remove mMaskView");
-                    }
-                    this.a.m = null;
-                }
-            } finally {
-                if (!z) {
-                }
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public iz2(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001a1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,131 +127,77 @@ public class iz2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = (WindowManager) context.getSystemService("window");
-        this.h = new Handler(Looper.getMainLooper());
-        this.j = new a(this);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.g = layoutParams;
-        layoutParams.height = -2;
-        layoutParams.width = -2;
-        layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100410;
-        layoutParams.type = 2005;
-        layoutParams.setTitle("Toast");
-        WindowManager.LayoutParams layoutParams2 = this.g;
-        layoutParams2.flags = com.kuaishou.weapon.un.w0.d0;
-        layoutParams2.gravity = 81;
-        layoutParams2.y = -30;
-        this.d = 2;
-        this.a = false;
     }
 
-    public void A(@StyleRes int i) {
-        WindowManager.LayoutParams layoutParams;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (layoutParams = this.g) == null) {
-            return;
-        }
-        layoutParams.windowAnimations = i;
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Runnable runnable = this.i;
-            if (runnable != null) {
-                this.h.removeCallbacks(runnable);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new BdMultiPicker(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setMultiWheelData(this.d, this.e);
+            if (this.g) {
+                return;
             }
-            b bVar = new b(this);
-            this.i = bVar;
-            this.h.post(bVar);
+            this.c.setMultiSelectedListener(this.f);
         }
     }
 
-    public void s() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (handler = this.h) == null) {
-            return;
-        }
-        handler.post(new c(this));
-        this.h.removeCallbacks(this.j);
-        if (this.a) {
-            Log.d("ToastCustom", "cancel");
-        }
-    }
-
-    public final WindowManager.LayoutParams t() {
+    public JSONArray f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.verticalMargin = kz2.c(this.b);
-            layoutParams.flags = 2176;
-            layoutParams.type = 2005;
-            return layoutParams;
-        }
-        return (WindowManager.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getCurrentIndex() : (JSONArray) invokeV.objValue;
     }
 
-    public boolean u() {
-        InterceptResult invokeV;
+    public void g(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            View view2 = this.e;
-            return (view2 == null || view2.getParent() == null) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            if (i <= 0) {
-                i = 2;
-            }
-            this.d = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            this.d = jSONArray;
         }
     }
 
-    public void w(int i, int i2, int i3) {
-        WindowManager.LayoutParams layoutParams;
+    public void h(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) || (layoutParams = this.g) == null) {
-            return;
-        }
-        layoutParams.gravity = i;
-        layoutParams.x = i2;
-        layoutParams.y = i3;
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.l = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
+            this.e = jSONArray;
         }
     }
 
-    public void y(kz2.b bVar) {
+    public void i(BdMultiPicker.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.k = bVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f = bVar;
         }
     }
 
-    public void z(@NonNull View view2) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            this.f = view2;
-            view2.setClickable(true);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void k(int i, JSONArray jSONArray, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), jSONArray, Integer.valueOf(i2)}) == null) {
+            this.c.j(i, jSONArray, i2);
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            e();
+            b().j(this.c);
         }
     }
 }

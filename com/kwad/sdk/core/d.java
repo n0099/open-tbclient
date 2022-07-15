@@ -1,10 +1,10 @@
 package com.kwad.sdk.core;
 
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.response.kwai.a;
+import com.kwad.sdk.core.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface d<T extends com.kwad.sdk.core.response.kwai.a> {
+public interface d<T extends b> {
     void a(T t, @Nullable JSONObject jSONObject);
 
     JSONObject b(T t, JSONObject jSONObject);

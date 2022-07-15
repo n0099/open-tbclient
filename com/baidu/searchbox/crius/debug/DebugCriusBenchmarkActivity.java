@@ -118,7 +118,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     public void startBenchmark() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f05);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
             int i = this.mBenchmarkWhich;
             if (i == 1) {
                 benchmarkInflate(textView);
@@ -135,7 +135,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     private void updatePreview() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091abd);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b5c);
             View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0152, (ViewGroup) linearLayout, false);
             inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             linearLayout.removeAllViews();
@@ -152,7 +152,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002d);
             updatePreview();
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0903f3)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0903f5)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DebugCriusBenchmarkActivity this$0;
@@ -183,7 +183,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
                     }
                 }
             });
-            Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f090358);
+            Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f09035a);
             spinner.setAdapter((SpinnerAdapter) new ArrayAdapter((Context) this, 17367048, (Object[]) new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
             spinner.setOnItemSelectedListener(this);
         }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g34;
+import com.repackage.v34;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
@@ -22,7 +22,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
     public a b;
-    public g34 c;
+    public v34 c;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -72,7 +72,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d07d2, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d07f0, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
     }
 
     public void f(a aVar) {
@@ -82,10 +82,10 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         }
     }
 
-    public void g(g34 g34Var) {
+    public void g(v34 v34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, g34Var) == null) {
-            this.c = g34Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, v34Var) == null) {
+            this.c = v34Var;
             notifyDataSetChanged();
         }
     }
@@ -96,8 +96,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            g34 g34Var = this.c;
-            if (g34Var == null || (list = g34Var.b) == null) {
+            v34 v34Var = this.c;
+            if (v34Var == null || (list = v34Var.b) == null) {
                 return 0;
             }
             return list.size();

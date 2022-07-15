@@ -53,10 +53,10 @@ public class MsgSettingItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054d, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091c84);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c85);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091c83);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0567, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091d28);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d29);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091d27);
             this.c = bdSwitchView;
             pi.b(context, bdSwitchView, 10, 10, 10, 10);
         }

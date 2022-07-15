@@ -1,34 +1,31 @@
 package com.kwad.sdk.api.loader;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.DigestInputStream;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
-public class q {
-    public static String a = "kssdk_api_pref";
+public final class q {
+    public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String a(Context context, String str) {
-        return b(context, str, "");
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public static void a(Context context, String str, long j) {
-        context.getSharedPreferences(a, 0).edit().putLong(str, j).commit();
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public static void a(Context context, String str, String str2) {
-        context.getSharedPreferences(a, 0).edit().putString(str, str2).commit();
-    }
-
-    public static long b(Context context, String str) {
-        return b(context, str, 0L);
-    }
-
-    public static long b(Context context, String str, long j) {
-        return context.getSharedPreferences(a, 0).getLong(str, j);
-    }
-
-    public static String b(Context context, String str, String str2) {
-        return context.getSharedPreferences(a, 0).getString(str, str2);
+    public static String a(File file) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            while (new DigestInputStream(new FileInputStream(file), messageDigest).read(new byte[1024]) != -1) {
+            }
+            byte[] digest = messageDigest.digest();
+            StringBuilder sb = new StringBuilder(digest.length * 2);
+            for (byte b : digest) {
+                int i = b & 255;
+                if (i < 16) {
+                    sb.append("0");
+                }
+                sb.append(Integer.toHexString(i));
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

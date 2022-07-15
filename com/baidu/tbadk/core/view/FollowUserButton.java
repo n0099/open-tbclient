@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xt4;
-import com.repackage.zu4;
+import com.repackage.uu4;
+import com.repackage.xv4;
 /* loaded from: classes3.dex */
-public class FollowUserButton extends TBSpecificationBtn implements zu4 {
+public class FollowUserButton extends TBSpecificationBtn implements xv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -51,7 +51,7 @@ public class FollowUserButton extends TBSpecificationBtn implements zu4 {
         }
     }
 
-    @Override // com.repackage.zu4
+    @Override // com.repackage.xv4
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class FollowUserButton extends TBSpecificationBtn implements zu4 {
         aVar.onClick(view2);
     }
 
-    @Override // com.repackage.zu4
+    @Override // com.repackage.xv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -69,7 +69,7 @@ public class FollowUserButton extends TBSpecificationBtn implements zu4 {
         }
     }
 
-    @Override // com.repackage.zu4
+    @Override // com.repackage.xv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -77,14 +77,14 @@ public class FollowUserButton extends TBSpecificationBtn implements zu4 {
         }
     }
 
-    @Override // com.repackage.zu4
+    @Override // com.repackage.xv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.zu4
+    @Override // com.repackage.xv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -109,20 +109,20 @@ public class FollowUserButton extends TBSpecificationBtn implements zu4 {
             if (z) {
                 setVisibility(0);
                 setClickable(this.q);
-                xt4 xt4Var = new xt4();
-                xt4Var.t(R.color.CAM_X0109);
-                xt4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-                setConfig(xt4Var);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3));
+                uu4 uu4Var = new uu4();
+                uu4Var.t(R.color.CAM_X0109);
+                uu4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+                setConfig(uu4Var);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
             } else {
                 setVisibility(0);
-                xt4 xt4Var2 = new xt4();
-                xt4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-                xt4Var2.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
-                xt4Var2.r(R.color.CAM_X0304);
-                setConfig(xt4Var2);
+                uu4 uu4Var2 = new uu4();
+                uu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+                uu4Var2.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
+                uu4Var2.r(R.color.CAM_X0304);
+                setConfig(uu4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -192,11 +192,11 @@ public class FollowUserButton extends TBSpecificationBtn implements zu4 {
         }
         this.p = 0;
         this.q = true;
-        xt4 xt4Var = new xt4();
-        xt4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-        xt4Var.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
-        xt4Var.r(R.color.CAM_X0304);
-        setConfig(xt4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
+        uu4 uu4Var = new uu4();
+        uu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+        uu4Var.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
+        uu4Var.r(R.color.CAM_X0304);
+        setConfig(uu4Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
     }
 }

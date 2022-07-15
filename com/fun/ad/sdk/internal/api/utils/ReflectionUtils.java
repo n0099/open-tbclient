@@ -1,6 +1,7 @@
 package com.fun.ad.sdk.internal.api.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,21 +39,18 @@ public class ReflectionUtils {
                         for (Field field : cls.getDeclaredFields()) {
                             if (TextUtils.equals(str, field.getType().getName())) {
                                 field.setAccessible(true);
-                                try {
-                                    return field.get(obj);
-                                } catch (IllegalAccessException e) {
-                                    e.printStackTrace();
-                                    return null;
-                                }
+                                return field.get(obj);
                             }
                         }
                         cls = cls.getSuperclass();
                         if (cls == Object.class) {
-                            break;
+                            return null;
                         }
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
             }
             return null;
@@ -60,10 +58,46 @@ public class ReflectionUtils {
         return invokeLL.objValue;
     }
 
+    public static Object getField(Object obj, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, strArr)) == null) {
+            if (obj == null || strArr == null || strArr.length == 0) {
+                return null;
+            }
+            for (String str : strArr) {
+                obj = getField(str, obj);
+                if (obj == null) {
+                    return null;
+                }
+            }
+            return obj;
+        }
+        return invokeLL.objValue;
+    }
+
+    public static Object getField(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getDeclaredField(str);
+                declaredField.setAccessible(true);
+                return declaredField.get(obj);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return invokeLL.objValue;
+    }
+
     public static Object invoke(Object obj, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, obj, str, clsArr, objArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, clsArr, objArr)) == null) {
             if (obj == null) {
                 return null;
             }
@@ -79,7 +113,7 @@ public class ReflectionUtils {
 
     public static void traverseAllField(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
             LogPrinter.d();
             Field[] declaredFields = obj.getClass().getDeclaredFields();
             int length = declaredFields.length;

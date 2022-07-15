@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
 import com.repackage.ni;
-import com.repackage.ox8;
+import com.repackage.ry8;
+import com.repackage.wh8;
 import com.repackage.za;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ox8 a;
+    public ry8 a;
     public za b;
 
     /* loaded from: classes4.dex */
@@ -99,10 +99,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void A(ox8 ox8Var) {
+    public void B(ry8 ry8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ox8Var) == null) {
-            this.a = ox8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ry8Var) == null) {
+            this.a = ry8Var;
         }
     }
 
@@ -130,8 +130,8 @@ public class StickerModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (ni.A()) {
-                bh8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                bh8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                wh8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                wh8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);

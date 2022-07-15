@@ -17,7 +17,7 @@ public abstract class ChunkReader implements f {
 
     public ChunkReader(int i, String str, long j, ChunkReaderMode chunkReaderMode) {
         if (chunkReaderMode == null || str.length() != 4 || i < 0) {
-            com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk paramenters: " + chunkReaderMode));
+            com.kwad.sdk.core.d.b.a(new PngjException("Bad chunk paramenters: " + chunkReaderMode));
         }
         this.a = chunkReaderMode;
         com.kwad.sdk.pngencrypt.chunk.d dVar = new com.kwad.sdk.pngencrypt.chunk.d(i, str, chunkReaderMode == ChunkReaderMode.BUFFER);
@@ -33,7 +33,7 @@ public abstract class ChunkReader implements f {
             return 0;
         }
         if (i2 < 0) {
-            com.kwad.sdk.core.d.a.a(new PngjException("negative length??"));
+            com.kwad.sdk.core.d.b.a(new PngjException("negative length??"));
         }
         if (this.b == 0 && this.e == 0 && this.f) {
             com.kwad.sdk.pngencrypt.chunk.d dVar = this.d;
@@ -80,7 +80,7 @@ public abstract class ChunkReader implements f {
                         }
                         this.d.a(this.c == ErrorBehaviour.STRICT);
                     }
-                    com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "Chunk done");
+                    com.kwad.sdk.core.d.b.a("PNG_ENCRYPT", "Chunk done");
                     c();
                 }
             }
@@ -92,17 +92,14 @@ public abstract class ChunkReader implements f {
         return -1;
     }
 
-    public com.kwad.sdk.pngencrypt.chunk.d a() {
+    public final com.kwad.sdk.pngencrypt.chunk.d a() {
         return this.d;
     }
 
     public abstract void a(int i, byte[] bArr, int i2, int i3);
 
-    public void a(boolean z) {
-        if (this.b != 0 && z && !this.f) {
-            com.kwad.sdk.core.d.a.a(new PngjException("too late!"));
-        }
-        this.f = z;
+    public final void a(boolean z) {
+        this.f = false;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
@@ -133,7 +130,7 @@ public abstract class ChunkReader implements f {
 
     public int hashCode() {
         com.kwad.sdk.pngencrypt.chunk.d dVar = this.d;
-        return 31 + (dVar == null ? 0 : dVar.hashCode());
+        return (dVar == null ? 0 : dVar.hashCode()) + 31;
     }
 
     public String toString() {

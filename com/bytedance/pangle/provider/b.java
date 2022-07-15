@@ -21,7 +21,7 @@ public final class b {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(ContentProviderManager.PLUGIN_PROCESS_NAME, str);
-                jSONObject.put(ContentProviderManager.PLUGIN_PKG_NAME, str2);
+                jSONObject.put("plugin_pkg_name", str2);
                 jSONObject.put("uri", uri != null ? uri.toString() : "");
             } catch (Throwable unused) {
             }

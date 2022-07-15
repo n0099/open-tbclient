@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.x;
+import com.kuaishou.weapon.p0.C0400;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -91,7 +91,7 @@ public class AdapterHelper implements OpReorderer.Callback {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 int i = this.cmd;
-                return i != 1 ? i != 2 ? i != 4 ? i != 8 ? "??" : "mv" : "up" : x.C : "add";
+                return i != 1 ? i != 2 ? i != 4 ? i != 8 ? "??" : "mv" : "up" : C0400.f420 : "add";
             }
             return (String) invokeV.objValue;
         }

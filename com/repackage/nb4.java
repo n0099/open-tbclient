@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nb4 {
+public abstract class nb4 implements qb4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nb4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public nb4() {
@@ -28,40 +27,17 @@ public class nb4 {
         }
     }
 
-    public static nb4 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qb4
+    public void a(JSONArray jSONArray, a84 a84Var, @Nullable a84 a84Var2, @Nullable a84 a84Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (nb4.class) {
-                    if (a == null) {
-                        a = new nb4();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, a84Var, a84Var2, a84Var3) == null) {
         }
-        return (nb4) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qb4
+    public void b(JSONObject jSONObject, a84 a84Var, @Nullable a84 a84Var2, @Nullable a84 a84Var3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b74.b().i().getString("get_pkg_retry_version", "0") : (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, a84Var, a84Var2, a84Var3) == null) {
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("switch")) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("switch", 0);
-        b74.b().i().putString("get_pkg_retry_version", optString);
-        b74.b().i().putInt("get_pkg_retry_switch", optInt);
     }
 }

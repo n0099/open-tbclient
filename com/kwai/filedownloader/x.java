@@ -13,37 +13,37 @@ public interface x extends s.a {
 
         boolean b(MessageSnapshot messageSnapshot);
 
-        boolean c(MessageSnapshot messageSnapshot);
+        t c();
 
-        t d();
+        boolean c(MessageSnapshot messageSnapshot);
 
         boolean d(MessageSnapshot messageSnapshot);
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void p();
+        void o();
     }
 
-    void e();
+    void d();
 
-    boolean f();
+    boolean e();
 
-    byte g();
+    byte f();
 
-    long h();
+    long g();
 
-    void i();
+    void h();
+
+    long i();
 
     long j();
 
-    long k();
+    Throwable k();
 
-    Throwable l();
+    int l();
 
-    int m();
+    boolean m();
 
-    boolean n();
-
-    void o();
+    void n();
 }

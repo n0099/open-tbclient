@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes3.dex */
 public class RecordVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,7 +48,7 @@ public class RecordVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("video_title", str);
         getIntent().putExtra(ENTRANCE_FLAG, i);
         getIntent().putExtra("from_type", i2);
-        setRequestCode(w0.A6);
+        setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

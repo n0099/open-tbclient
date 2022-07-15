@@ -1,34 +1,33 @@
 package com.repackage;
 
-import android.location.Address;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.location.LocationCallback;
-import com.baidu.searchbox.live.interfaces.location.LocationInfo;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.ICertification;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jf;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ig7 implements LiveLocationService {
+public class ig7 implements LiveRealAuthService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements jf.c {
+    public class a implements ICertification.CertificationCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LocationCallback a;
-        public final /* synthetic */ ig7 b;
+        public final /* synthetic */ LiveRealAuthCallback a;
 
-        public a(ig7 ig7Var, LocationCallback locationCallback) {
+        public a(ig7 ig7Var, LiveRealAuthCallback liveRealAuthCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ig7Var, locationCallback};
+                Object[] objArr = {ig7Var, liveRealAuthCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,23 +37,17 @@ public class ig7 implements LiveLocationService {
                     return;
                 }
             }
-            this.b = ig7Var;
-            this.a = locationCallback;
+            this.a = liveRealAuthCallback;
         }
 
-        @Override // com.repackage.jf.c
-        public void a(int i, String str, Address address) {
+        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
+        public void onResult(int i, Map<String, Object> map) {
+            LiveRealAuthCallback liveRealAuthCallback;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
-                try {
-                    if (this.a == null || address == null) {
-                        return;
-                    }
-                    this.a.onReceiveLocation(this.b.b(address));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) || (liveRealAuthCallback = this.a) == null) {
+                return;
             }
+            liveRealAuthCallback.onRealAuthResult(i, map);
         }
     }
 
@@ -72,35 +65,13 @@ public class ig7 implements LiveLocationService {
         }
     }
 
-    public final LocationInfo b(Address address) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
+    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
-            LocationInfo locationInfo = new LocationInfo();
-            if (address != null) {
-                locationInfo.setCity(address.getLocality());
-                locationInfo.setLatitude(address.getLatitude());
-                locationInfo.setLongitude(address.getLongitude());
-                locationInfo.setProvince(address.getAdminArea());
-                locationInfo.setCounty(address.getCountryName());
-            }
-            return locationInfo;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) || (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) == null || runTask.getData() == null) {
+            return;
         }
-        return (LocationInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public LocationInfo getLocationInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(jf.n().k(false, null)) : (LocationInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public void requestLocate(LocationCallback locationCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
-            jf.n().k(false, new a(this, locationCallback));
-        }
+        ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
     }
 }

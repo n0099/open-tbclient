@@ -4,9 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.sodler.lib.kwai.b;
+import com.kwai.sodler.lib.a.b;
 /* loaded from: classes5.dex */
-public class b implements com.kwai.sodler.lib.kwai.b {
+public final class b implements com.kwai.sodler.lib.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a a;
@@ -25,15 +25,15 @@ public class b implements com.kwai.sodler.lib.kwai.b {
         }
     }
 
-    @Override // com.kwai.sodler.lib.kwai.b
-    public void a(com.kwai.sodler.lib.kwai.f fVar) {
+    @Override // com.kwai.sodler.lib.a.b
+    public final void a(com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
             b.a aVar = this.a;
             if (aVar != null) {
-                fVar.a(aVar.a(fVar.i()));
+                fVar.a(aVar.a());
             } else {
-                a.e("Sodler.PluginConfigUpdater", "config reqester not set");
+                a.b("Sodler.PluginConfigUpdater", "config reqester not set");
             }
         }
     }

@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qh7 extends ob1<ToastService> {
+/* loaded from: classes7.dex */
+public class qh7 extends dc1<ILivePlayerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class qh7 extends ob1<ToastService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ob1
+    @Override // com.repackage.dc1
     /* renamed from: a */
-    public ToastService createService() throws ServiceNotFoundException {
+    public ILivePlayerService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rh7() : (ToastService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rh7() : (ILivePlayerService) invokeV.objValue;
     }
 }

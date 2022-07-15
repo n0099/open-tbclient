@@ -26,51 +26,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.a91;
-import com.repackage.b71;
-import com.repackage.b91;
-import com.repackage.c81;
-import com.repackage.c91;
-import com.repackage.e71;
+import com.repackage.e91;
 import com.repackage.f91;
+import com.repackage.h91;
 import com.repackage.i91;
-import com.repackage.k91;
-import com.repackage.l81;
+import com.repackage.l91;
+import com.repackage.n91;
+import com.repackage.o91;
+import com.repackage.p71;
+import com.repackage.p91;
 import com.repackage.q81;
-import com.repackage.r81;
-import com.repackage.t81;
-import com.repackage.u81;
-import com.repackage.x81;
+import com.repackage.q91;
+import com.repackage.s71;
+import com.repackage.t91;
+import com.repackage.w91;
+import com.repackage.y91;
 import com.repackage.z81;
 /* loaded from: classes2.dex */
-public class PolyActivity extends Activity implements ChannelListView.m, f91 {
+public class PolyActivity extends Activity implements ChannelListView.m, t91 {
     public static /* synthetic */ Interceptable $ic;
     public static IChannelPay d;
     public static IChannelAuth e;
-    public static i91 f;
+    public static w91 f;
     public static Activity g;
-    public static b71.c h;
+    public static p71.c h;
     public static boolean i;
     public static PolyActivity j;
     public transient /* synthetic */ FieldHolder $fh;
     public ChannelListView a;
     public Bundle b;
-    public z81 c;
+    public n91 c;
 
     /* loaded from: classes2.dex */
-    public class a extends k91.e {
+    public class a extends y91.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* renamed from: com.baidu.poly.widget.PolyActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0123a implements k91.f {
+        public class C0125a implements y91.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0123a(a aVar) {
+            public C0125a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.k91.f
+            @Override // com.repackage.y91.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -119,29 +119,29 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             this.a = polyActivity;
         }
 
-        @Override // com.repackage.k91.e
+        @Override // com.repackage.y91.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "我知道了" : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.k91.e
-        public k91.f b() {
+        @Override // com.repackage.y91.e
+        public y91.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0123a(this) : (k91.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0125a(this) : (y91.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends k91.e {
+    public class b extends y91.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes2.dex */
-        public class a implements k91.f {
+        public class a implements y91.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -164,7 +164,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 this.a = bVar;
             }
 
-            @Override // com.repackage.k91.f
+            @Override // com.repackage.y91.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -195,30 +195,30 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             this.a = polyActivity;
         }
 
-        @Override // com.repackage.k91.e
+        @Override // com.repackage.y91.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.k91.e
-        public k91.f b() {
+        @Override // com.repackage.y91.e
+        public y91.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (k91.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (y91.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class c extends k91.e {
+    public class c extends y91.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z81 a;
+        public final /* synthetic */ n91 a;
         public final /* synthetic */ PolyActivity b;
 
         /* loaded from: classes2.dex */
-        public class a implements k91.f {
+        public class a implements y91.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -241,7 +241,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 this.a = cVar;
             }
 
-            @Override // com.repackage.k91.f
+            @Override // com.repackage.y91.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -252,12 +252,12 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             }
         }
 
-        public c(PolyActivity polyActivity, z81 z81Var) {
+        public c(PolyActivity polyActivity, n91 n91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {polyActivity, z81Var};
+                Object[] objArr = {polyActivity, n91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -268,32 +268,32 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 }
             }
             this.b = polyActivity;
-            this.a = z81Var;
+            this.a = n91Var;
         }
 
-        @Override // com.repackage.k91.e
+        @Override // com.repackage.y91.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "去验证" : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.k91.e
-        public k91.f b() {
+        @Override // com.repackage.y91.e
+        public y91.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (k91.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (y91.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class d extends k91.e {
+    public class d extends y91.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes2.dex */
-        public class a implements k91.f {
+        public class a implements y91.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -316,7 +316,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 this.a = dVar;
             }
 
-            @Override // com.repackage.k91.f
+            @Override // com.repackage.y91.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -347,29 +347,29 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             this.a = polyActivity;
         }
 
-        @Override // com.repackage.k91.e
+        @Override // com.repackage.y91.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.k91.e
-        public k91.f b() {
+        @Override // com.repackage.y91.e
+        public y91.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (k91.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (y91.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class e extends k91.e {
+    public class e extends y91.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes2.dex */
-        public class a implements k91.f {
+        public class a implements y91.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -392,7 +392,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 this.a = eVar;
             }
 
-            @Override // com.repackage.k91.f
+            @Override // com.repackage.y91.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -421,18 +421,18 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             this.a = polyActivity;
         }
 
-        @Override // com.repackage.k91.e
+        @Override // com.repackage.y91.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "去验证" : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.k91.e
-        public k91.f b() {
+        @Override // com.repackage.y91.e
+        public y91.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (k91.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (y91.f) invokeV.objValue;
         }
     }
 
@@ -471,14 +471,14 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             return;
         }
         if (h != null) {
-            String a2 = r81.a(2, null, "repeat_pay_cancel");
+            String a2 = f91.a(2, null, "repeat_pay_cancel");
             h.a(2, a2);
-            l81.j(2, a2, "0");
+            z81.j(2, a2, "0");
         }
         j.finish();
     }
 
-    public static void l(Context context, IChannelPay iChannelPay, b71.c cVar, Bundle bundle) {
+    public static void l(Context context, IChannelPay iChannelPay, p71.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, context, iChannelPay, cVar, bundle) == null) {
             if (i) {
@@ -489,65 +489,65 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             Intent intent = new Intent(context, PolyActivity.class);
             intent.putExtra("pay_arguements", bundle);
             if (!(context instanceof Activity)) {
-                u81.g("!context instanceof Activity");
+                i91.g("!context instanceof Activity");
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
         }
     }
 
-    public static void m(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, b71.c cVar, Bundle bundle) {
+    public static void m(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, p71.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, context, iChannelPay, iChannelAuth, cVar, bundle) == null) {
             e = iChannelAuth;
             if (context instanceof Activity) {
                 g = (Activity) context;
             }
-            c81.a().c((Activity) context);
+            q81.a().c((Activity) context);
             l(context, iChannelPay, cVar, bundle);
         }
     }
 
-    public static void n(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, i91 i91Var, b71.c cVar, Bundle bundle) {
+    public static void n(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, w91 w91Var, p71.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, iChannelPay, iChannelAuth, i91Var, cVar, bundle}) == null) {
-            f = i91Var;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, iChannelPay, iChannelAuth, w91Var, cVar, bundle}) == null) {
+            f = w91Var;
             m(context, iChannelPay, iChannelAuth, cVar, bundle);
         }
     }
 
-    @Override // com.repackage.f91
+    @Override // com.repackage.t91
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k91.d dVar = new k91.d();
+            y91.d dVar = new y91.d();
             dVar.e("账号风险提示");
             dVar.c("当前帐号存在比较高的风险，无法完成本次支付");
             dVar.d(new a(this));
-            k91 a2 = dVar.a(this);
+            y91 a2 = dVar.a(this);
             a2.setCancelable(false);
             a2.show();
         }
     }
 
-    @Override // com.repackage.f91
-    public void b(z81 z81Var) {
-        e71 e71Var;
+    @Override // com.repackage.t91
+    public void b(n91 n91Var) {
+        s71 s71Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z81Var) == null) || this.a == null || z81Var == null || (e71Var = z81Var.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n91Var) == null) || this.a == null || n91Var == null || (s71Var = n91Var.a) == null) {
             return;
         }
-        if (TextUtils.isEmpty(e71Var.a("authId"))) {
-            this.a.M(z81Var);
-        } else if (t81.a(this) == null) {
-            this.a.M(z81Var);
+        if (TextUtils.isEmpty(s71Var.a("authId"))) {
+            this.a.M(n91Var);
+        } else if (h91.a(this) == null) {
+            this.a.M(n91Var);
         } else {
-            this.c = z81Var;
-            k91.d dVar = new k91.d();
+            this.c = n91Var;
+            y91.d dVar = new y91.d();
             dVar.e("账号风险提示");
             dVar.c("当前账号存在风险，请完成本人身份验证后继续支付");
-            dVar.b(new b(this), new c(this, z81Var));
-            k91 a2 = dVar.a(this);
+            dVar.b(new b(this), new c(this, n91Var));
+            y91 a2 = dVar.a(this);
             a2.setCancelable(false);
             a2.show();
         }
@@ -572,22 +572,22 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             super.finish();
             overridePendingTransition(0, 0);
             f();
-            l81.f();
+            z81.f();
         }
     }
 
-    public final void h(z81 z81Var) {
+    public final void h(n91 n91Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, z81Var) == null) {
-            Intent a2 = t81.a(this);
+        if (interceptable == null || interceptable.invokeL(1048580, this, n91Var) == null) {
+            Intent a2 = h91.a(this);
             if (a2 != null) {
-                a2.putExtra("EXTRA_PARAM_AUTH_ID", z81Var.a.a("authId"));
+                a2.putExtra("EXTRA_PARAM_AUTH_ID", n91Var.a.a("authId"));
                 startActivityForResult(a2, 100);
                 return;
             }
             ChannelListView channelListView = this.a;
             if (channelListView != null) {
-                channelListView.M(z81Var);
+                channelListView.M(n91Var);
             }
         }
     }
@@ -616,11 +616,11 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.c == null) {
             return;
         }
-        k91.d dVar = new k91.d();
+        y91.d dVar = new y91.d();
         dVar.e("验证失败提示");
         dVar.c("身份证验证未通过，请通过验证后再继续支付");
         dVar.b(new d(this), new e(this));
-        k91 a2 = dVar.a(this);
+        y91 a2 = dVar.a(this);
         a2.setCancelable(false);
         a2.show();
     }
@@ -660,7 +660,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
                 return;
             }
             if (i3 == -1) {
-                a91.h().i(this, intent.getExtras(), this.a, true);
+                o91.h().i(this, intent.getExtras(), this.a, true);
                 return;
             }
             ChannelListView channelListView2 = this.a;
@@ -682,7 +682,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             if (!channelListView.Y()) {
                 super.onBackPressed();
             }
-            u81.g("PolyActivity onBackPressed");
+            i91.g("PolyActivity onBackPressed");
         }
     }
 
@@ -701,11 +701,11 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             j();
             i = true;
             j = this;
-            l81.k();
+            z81.k();
             super.onCreate(bundle);
             overridePendingTransition(0, 0);
             i();
-            u81.g("PolyActivity onCreate");
+            i91.g("PolyActivity onCreate");
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -757,20 +757,20 @@ public class PolyActivity extends Activity implements ChannelListView.m, f91 {
             this.a.setResultListener(h);
             this.a.setCloseListener(this);
             this.a.setChannelAuth(e);
-            c91 c91Var = new c91(new b91(this, d), this);
-            c91Var.s(f);
-            this.a.setWalletList(c91Var);
+            q91 q91Var = new q91(new p91(this, d), this);
+            q91Var.s(f);
+            this.a.setWalletList(q91Var);
             String string = this.b.getString("chosenChannel");
             String string2 = this.b.getString("panelType");
             String string3 = this.b.getString("tradeType");
-            u81.g("onWindowFocusChanged panelType=" + string2 + ", tradeType=" + string3);
+            i91.g("onWindowFocusChanged panelType=" + string2 + ", tradeType=" + string3);
             if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && TextUtils.equals(string3, "DIRECTPAY")) {
-                q81.e(this.b);
-                this.a.R(x81.b(this, this.b), string);
+                e91.e(this.b);
+                this.a.R(l91.b(this, this.b), string);
             } else if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && !TextUtils.isEmpty(string)) {
-                this.a.q0(x81.b(this, this.b), string);
+                this.a.q0(l91.b(this, this.b), string);
             } else {
-                this.a.j0(x81.b(this, this.b));
+                this.a.j0(l91.b(this, this.b));
                 this.a.l0();
             }
         }

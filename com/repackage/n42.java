@@ -1,25 +1,8 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
+import com.repackage.c52;
 /* loaded from: classes6.dex */
 public interface n42 {
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(String str);
-
-        WebResourceResponse b(String str, Map<String, String> map, boolean z);
-
-        boolean c();
-
-        String d();
-
-        String getMimeType();
-
-        Map<String, String> getRequestHeaders();
-    }
-
-    WebResourceResponse a(@NonNull a aVar);
+    boolean a(@NonNull c52.a aVar);
 }

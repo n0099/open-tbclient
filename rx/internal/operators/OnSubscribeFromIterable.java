@@ -5,33 +5,33 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv9;
-import com.repackage.jv9;
-import com.repackage.sv9;
-import com.repackage.xu9;
-import com.repackage.zu9;
+import com.repackage.as9;
+import com.repackage.gs9;
+import com.repackage.ps9;
+import com.repackage.ur9;
+import com.repackage.wr9;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OnSubscribeFromIterable<T> implements xu9.a<T> {
+public final class OnSubscribeFromIterable<T> implements ur9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<? extends T> a;
 
     /* loaded from: classes8.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements zu9 {
+    public static final class IterableProducer<T> extends AtomicLong implements wr9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730475647105475802L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Iterator<? extends T> it;
-        public final dv9<? super T> o;
+        public final as9<? super T> o;
 
-        public IterableProducer(dv9<? super T> dv9Var, Iterator<? extends T> it) {
+        public IterableProducer(as9<? super T> as9Var, Iterator<? extends T> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dv9Var, it};
+                Object[] objArr = {as9Var, it};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public final class OnSubscribeFromIterable<T> implements xu9.a<T> {
                     return;
                 }
             }
-            this.o = dv9Var;
+            this.o = as9Var;
             this.it = it;
         }
 
@@ -49,35 +49,35 @@ public final class OnSubscribeFromIterable<T> implements xu9.a<T> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dv9<? super T> dv9Var = this.o;
+                as9<? super T> as9Var = this.o;
                 Iterator<? extends T> it = this.it;
-                while (!dv9Var.isUnsubscribed()) {
+                while (!as9Var.isUnsubscribed()) {
                     try {
-                        dv9Var.onNext((T) it.next());
-                        if (dv9Var.isUnsubscribed()) {
+                        as9Var.onNext((T) it.next());
+                        if (as9Var.isUnsubscribed()) {
                             return;
                         }
                         try {
                             if (!it.hasNext()) {
-                                if (dv9Var.isUnsubscribed()) {
+                                if (as9Var.isUnsubscribed()) {
                                     return;
                                 }
-                                dv9Var.onCompleted();
+                                as9Var.onCompleted();
                                 return;
                             }
                         } catch (Throwable th) {
-                            jv9.f(th, dv9Var);
+                            gs9.f(th, as9Var);
                             return;
                         }
                     } catch (Throwable th2) {
-                        jv9.f(th2, dv9Var);
+                        gs9.f(th2, as9Var);
                         return;
                     }
                 }
             }
         }
 
-        @Override // com.repackage.zu9
+        @Override // com.repackage.wr9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || get() == Long.MAX_VALUE) {
@@ -85,7 +85,7 @@ public final class OnSubscribeFromIterable<T> implements xu9.a<T> {
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j <= 0 || sv9.b(this, j) != 0) {
+            } else if (j <= 0 || ps9.b(this, j) != 0) {
             } else {
                 slowPath(j);
             }
@@ -95,41 +95,41 @@ public final class OnSubscribeFromIterable<T> implements xu9.a<T> {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                dv9<? super T> dv9Var = this.o;
+                as9<? super T> as9Var = this.o;
                 Iterator<? extends T> it = this.it;
                 do {
                     long j2 = 0;
                     while (true) {
                         if (j2 != j) {
-                            if (dv9Var.isUnsubscribed()) {
+                            if (as9Var.isUnsubscribed()) {
                                 return;
                             }
                             try {
-                                dv9Var.onNext((T) it.next());
-                                if (dv9Var.isUnsubscribed()) {
+                                as9Var.onNext((T) it.next());
+                                if (as9Var.isUnsubscribed()) {
                                     return;
                                 }
                                 try {
                                     if (!it.hasNext()) {
-                                        if (dv9Var.isUnsubscribed()) {
+                                        if (as9Var.isUnsubscribed()) {
                                             return;
                                         }
-                                        dv9Var.onCompleted();
+                                        as9Var.onCompleted();
                                         return;
                                     }
                                     j2++;
                                 } catch (Throwable th) {
-                                    jv9.f(th, dv9Var);
+                                    gs9.f(th, as9Var);
                                     return;
                                 }
                             } catch (Throwable th2) {
-                                jv9.f(th2, dv9Var);
+                                gs9.f(th2, as9Var);
                                 return;
                             }
                         } else {
                             j = get();
                             if (j2 == j) {
-                                j = sv9.g(this, j2);
+                                j = ps9.g(this, j2);
                             }
                         }
                     }
@@ -160,27 +160,27 @@ public final class OnSubscribeFromIterable<T> implements xu9.a<T> {
         throw new NullPointerException("iterable must not be null");
     }
 
-    @Override // com.repackage.xu9.a, com.repackage.lv9
+    @Override // com.repackage.ur9.a, com.repackage.is9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dv9) ((dv9) obj));
+        call((as9) ((as9) obj));
     }
 
-    public void call(dv9<? super T> dv9Var) {
+    public void call(as9<? super T> as9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dv9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, as9Var) == null) {
             try {
                 Iterator<? extends T> it = this.a.iterator();
                 boolean hasNext = it.hasNext();
-                if (dv9Var.isUnsubscribed()) {
+                if (as9Var.isUnsubscribed()) {
                     return;
                 }
                 if (!hasNext) {
-                    dv9Var.onCompleted();
+                    as9Var.onCompleted();
                 } else {
-                    dv9Var.f(new IterableProducer(dv9Var, it));
+                    as9Var.f(new IterableProducer(as9Var, it));
                 }
             } catch (Throwable th) {
-                jv9.f(th, dv9Var);
+                gs9.f(th, as9Var);
             }
         }
     }

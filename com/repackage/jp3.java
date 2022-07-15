@@ -1,134 +1,219 @@
 package com.repackage;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jp3 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class jp3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String k = "ug_";
+    public static String l = "ug_business";
+    public static String m = "ctkey";
+    public static String n = "CTK";
+    public static String o = "sid_eid";
+    public static String p = "exps";
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Context b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public hp3 i;
+    public String j;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context != null) {
-                try {
-                    if (context.getPackageManager() != null) {
-                        context.getPackageManager().getPackageInfo(str, 0);
-                        return true;
-                    }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755581020, "Lcom/repackage/jp3;")) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755581020, "Lcom/repackage/jp3;");
+        }
     }
 
-    public static boolean b(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
+    public jp3(Context context, hp3 hp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (!kp3.m()) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                    }
-                    e(context, file, intent);
-                    context.startActivity(intent);
-                } catch (Exception unused) {
-                    intent.setComponent(null);
-                    e(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                    } catch (Exception unused2) {
-                    }
-                }
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, hp3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLLZ.booleanValue;
+        this.a = "https://mobads.baidu.com/cpro/ui/mads.php";
+        this.f = "1";
+        this.g = "2";
+        this.h = "8.800201";
+        this.b = context;
+        this.i = hp3Var;
+        if (hp3Var != null) {
+            this.c = hp3Var.b();
+            this.d = this.i.e();
+            this.e = this.i.g();
+        }
+        if (zp3.o()) {
+            return;
+        }
+        this.j = zp3.b();
     }
 
-    public static boolean c(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public abstract HashMap<String, String> a();
+
+    public final HashMap<String, String> b() {
+        InterceptResult invokeV;
+        JSONArray optJSONArray;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
             try {
-                return b(AppRuntime.getAppContext(), new File(str), z);
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static String d(Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageArchiveInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            File file = new File(str);
-            return (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) == null) ? "" : packageArchiveInfo.packageName;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
-            if (kp3.m()) {
-                try {
-                    Uri r = jo3.b().r(context, file);
-                    if (r == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(r, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, r, 1);
+                hashMap.put("lw", String.valueOf(Math.round(zp3.i(this.b) / zp3.d(this.b))));
+                hashMap.put("lh", String.valueOf(Math.round(zp3.h(this.b) / zp3.d(this.b))));
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(NetworkUtils.c(false));
+                hashMap.put("net", sb.toString());
+                hashMap.put("n", this.f);
+                hashMap.put(PushConstants.URI_PACKAGE_NAME, this.e);
+                hashMap.put("appid", this.d);
+                hashMap.put(TbConfig.SW_APID, "" + zp3.i(this.b));
+                hashMap.put("sh", "" + zp3.h(this.b));
+                hashMap.put("sn", "" + f());
+                hashMap.put("os", "android");
+                hashMap.put("pa", yo3.b().c());
+                hashMap.put("apid", "" + this.c);
+                hashMap.put("chid", "0");
+                String m2 = yo3.b().m();
+                if (m2.equals("0")) {
+                    m2 = "";
+                }
+                hashMap.put("imei", m2);
+                hashMap.put("cuid", yo3.b().e());
+                hashMap.put("osv", zp3.f());
+                hashMap.put("tp", zp3.e());
+                hashMap.put("app_ver", zp3.l());
+                String c = zp3.c(d(), "BAIDUID");
+                hashMap.put("baiduid", (TextUtils.isEmpty(c) || c.split(":").length <= 0) ? "" : c.split(":")[0]);
+                hashMap.put("p_ver", this.h);
+                hashMap.put("rpt", this.g);
+                hashMap.put("tab", "2");
+                hashMap.put("req_id", "");
+                hashMap.put("scene", yo3.b().getScene());
+                String e = e();
+                hashMap.put(p, e);
+                hashMap.put(TiebaStatic.Params.EQID, yo3.b().g());
+                JSONObject n2 = yo3.b().n();
+                if (n2 != null) {
+                    if (n2.has(l) && (jSONObject = n2.getJSONObject(l)) != null) {
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys != null && keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next)) {
+                                String optString = jSONObject.optString(next, "none");
+                                if (n.equals(next)) {
+                                    hashMap.put(m, optString);
+                                    this.j = optString;
+                                } else {
+                                    hashMap.put(k + next, optString);
+                                }
+                            }
                         }
                     }
-                } catch (IllegalArgumentException unused) {
-                    return false;
+                    if (n2.has(o) && (optJSONArray = n2.optJSONArray(o)) != null && optJSONArray.length() > 0) {
+                        StringBuilder sb2 = new StringBuilder();
+                        if (!TextUtils.isEmpty(e)) {
+                            sb2.append(e + ",");
+                        }
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            String optString2 = optJSONArray.optString(i);
+                            if (!TextUtils.isEmpty(optString2)) {
+                                sb2.append(optString2);
+                                if (i >= 0 && i < optJSONArray.length() - 1) {
+                                    sb2.append(",");
+                                }
+                            }
+                        }
+                        if (sb2.length() > 0) {
+                            hashMap.put(p, sb2.toString());
+                        }
+                    }
                 }
+                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.j)) {
+                    hashMap.put(n, this.j);
+                }
+                hashMap.put("con_name", yo3.b().a());
+            } catch (Exception unused) {
             }
-            return true;
+            return hashMap;
         }
-        return invokeLLL.booleanValue;
+        return (HashMap) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? yo3.b().f(".baidu.com") : (String) invokeV.objValue;
+    }
+
+    public abstract String e();
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                String m2 = yo3.b().m();
+                return TextUtils.isEmpty(m2) ? NetworkUtils.e(this.b) : m2;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            HashMap<String, String> b = b();
+            b.putAll(a());
+            return wp3.a(this.a, b);
+        }
+        return (String) invokeV.objValue;
     }
 }

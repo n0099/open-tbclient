@@ -6,10 +6,9 @@ import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.d.a;
-import com.kwad.sdk.utils.av;
-import com.kwad.sdk.utils.ba;
-import com.kwad.sdk.widget.k;
+import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.utils.bb;
+import com.kwad.sdk.widget.j;
 /* loaded from: classes5.dex */
 public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public long a;
@@ -19,8 +18,8 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public int e;
     public ViewTreeObserver.OnScrollChangedListener f;
     public ViewTreeObserver g;
-    public ba h;
-    public k i;
+    public bb h;
+    public j i;
 
     public AdBasePvFrameLayout(@NonNull Context context) {
         super(context);
@@ -47,21 +46,27 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     }
 
     private void a() {
-        this.h = new ba(this);
-        this.e = av.o(getContext());
-        this.d = l();
+        this.h = new bb(this);
+        this.e = com.kwad.sdk.utils.j.c(getContext());
+        this.d = true;
     }
 
     private void b() {
-        if (c()) {
-            n();
+        if (this.d) {
+            c();
+        }
+    }
+
+    private void c() {
+        if (d()) {
+            j();
         } else {
-            d();
+            e();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean c() {
+    public boolean d() {
         if (!this.h.a() || Math.abs(this.h.a.height() - getHeight()) > getHeight() * (1.0f - this.b) || getHeight() <= 0 || getWidth() <= 0) {
             return false;
         }
@@ -69,13 +74,13 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         return rect.bottom > 0 && rect.top < this.e;
     }
 
-    private void d() {
+    private void e() {
         if (this.f == null) {
             this.f = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-                public void onScrollChanged() {
-                    if (AdBasePvFrameLayout.this.c()) {
-                        AdBasePvFrameLayout.this.n();
+                public final void onScrollChanged() {
+                    if (AdBasePvFrameLayout.this.d()) {
+                        AdBasePvFrameLayout.this.j();
                     }
                 }
             };
@@ -87,45 +92,35 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         }
     }
 
-    public boolean l() {
-        return true;
-    }
-
-    public void m() {
-        if (this.d) {
-            b();
-        }
-    }
-
-    public void n() {
-        o();
-        k kVar = this.i;
-        if (kVar != null) {
-            kVar.a();
-        }
-    }
-
-    public void o() {
+    private void f() {
         try {
             if (this.f != null && this.g != null && this.g.isAlive()) {
                 this.g.removeOnScrollChangedListener(this.f);
             }
             this.f = null;
         } catch (Exception e) {
-            a.a(e);
+            b.a(e);
+        }
+    }
+
+    public final void j() {
+        f();
+        j jVar = this.i;
+        if (jVar != null) {
+            jVar.a();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d();
+        e();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        o();
+        f();
         this.c = false;
     }
 
@@ -139,7 +134,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         }
         super.onSizeChanged(i, i2, i3, i4);
         if (z) {
-            m();
+            b();
         }
     }
 
@@ -147,7 +142,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         this.b = f;
     }
 
-    public void setVisibleListener(k kVar) {
-        this.i = kVar;
+    public void setVisibleListener(j jVar) {
+        this.i = jVar;
     }
 }

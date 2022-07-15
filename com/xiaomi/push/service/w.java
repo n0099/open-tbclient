@@ -19,10 +19,10 @@ public class w extends XMPushService.j {
     public XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1001a;
+    public String f1728a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f1002a;
+    public byte[] f1729a;
     public String b;
     public String c;
 
@@ -45,8 +45,8 @@ public class w extends XMPushService.j {
             }
         }
         this.a = xMPushService;
-        this.f1001a = str;
-        this.f1002a = bArr;
+        this.f1728a = str;
+        this.f1729a = bArr;
         this.b = str2;
         this.c = str3;
     }
@@ -63,38 +63,38 @@ public class w extends XMPushService.j {
         bg.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            t m675a = u.m675a((Context) this.a);
-            if (m675a == null) {
+            t m1618a = u.m1618a((Context) this.a);
+            if (m1618a == null) {
                 try {
-                    m675a = u.a(this.a, this.f1001a, this.b, this.c);
+                    m1618a = u.a(this.a, this.f1728a, this.b, this.c);
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
                 }
             }
-            if (m675a == null) {
+            if (m1618a == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("no account for registration.");
                 x.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m84a("do registration now.");
-            Collection<bg.b> m632a = bg.a().m632a("5");
-            if (m632a.isEmpty()) {
-                next = m675a.a(this.a);
+            com.xiaomi.channel.commonutils.logger.b.m1027a("do registration now.");
+            Collection<bg.b> m1575a = bg.a().m1575a("5");
+            if (m1575a.isEmpty()) {
+                next = m1618a.a(this.a);
                 ah.a(this.a, next);
                 bg.a().a(next);
             } else {
-                next = m632a.iterator().next();
+                next = m1575a.iterator().next();
             }
-            if (!this.a.m592c()) {
-                x.a(this.f1001a, this.f1002a);
+            if (!this.a.m1535c()) {
+                x.a(this.f1728a, this.f1729a);
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f924a == bg.c.c) {
-                    ah.a(this.a, this.f1001a, this.f1002a);
-                } else if (next.f924a == bg.c.a) {
-                    x.a(this.f1001a, this.f1002a);
+                if (next.f1651a == bg.c.c) {
+                    ah.a(this.a, this.f1728a, this.f1729a);
+                } else if (next.f1651a == bg.c.a) {
+                    x.a(this.f1728a, this.f1729a);
                     XMPushService xMPushService = this.a;
                     XMPushService xMPushService2 = this.a;
                     xMPushService2.getClass();

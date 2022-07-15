@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.sodler.lib.kwai.f;
+import com.kwai.sodler.lib.a.f;
 /* loaded from: classes5.dex */
-public class a {
+public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,63 +28,54 @@ public class a {
     }
 
     @Nullable
-    public b a(f fVar) {
+    public static b d(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? fVar.m() : (b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fVar)) == null) ? fVar.n() : (b) invokeL.objValue;
     }
 
-    public void a(f fVar, PluginError pluginError) {
-        b a;
+    public final void a(f fVar) {
+        b d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, pluginError) == null) || (a = a(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || (d = d(fVar)) == null) {
             return;
         }
-        a.a((b) fVar, pluginError);
+        d.a(fVar);
     }
 
-    public void a(f fVar, com.kwai.sodler.lib.kwai.a aVar) {
-        b a;
+    public final void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
+        b d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, aVar) == null) || (a = a(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, aVar) == null) || (d = d(fVar)) == null) {
             return;
         }
-        a.a((b) fVar, (f) aVar);
+        d.a((b) fVar, (f) aVar);
     }
 
-    public void b(f fVar) {
-        b a;
+    public final void a(f fVar, PluginError pluginError) {
+        b d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) || (a = a(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, pluginError) == null) || (d = d(fVar)) == null) {
             return;
         }
-        a.a(fVar);
+        d.a((b) fVar, pluginError);
     }
 
-    public void c(f fVar) {
-        b a;
+    public final void b(f fVar) {
+        b d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || (a = a(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) || (d = d(fVar)) == null) {
             return;
         }
-        a.c(fVar);
+        d.c(fVar);
     }
 
-    public void d(f fVar) {
-        b a;
+    public final void c(f fVar) {
+        b d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || (a = a(fVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || (d = d(fVar)) == null) {
             return;
         }
-        a.b(fVar);
-    }
-
-    public void e(f fVar) {
-        b a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) || (a = a(fVar)) == null) {
-            return;
-        }
-        a.d(fVar);
+        d.b(fVar);
     }
 }

@@ -1,11 +1,7 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mt3 extends ym2 {
+public final class mt3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EventTargetImpl d;
-    public jt3 e;
+    public ou3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,72 +30,73 @@ public class mt3 extends ym2 {
                 return;
             }
         }
-        f = cg1.a;
+        b = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mt3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
-        super(null, jSONObject);
+    public mt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eventTargetImpl, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = eventTargetImpl;
     }
 
-    @Override // com.repackage.ym2
-    public void b(String str, JSONObject jSONObject) {
+    public static mt3 d(os1 os1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            String optString = this.b.optString(str);
-            jt3 jt3Var = this.e;
-            if (jt3Var != null) {
-                jt3Var.q(optString, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, os1Var)) == null) {
+            if (os1Var == null) {
+                return null;
             }
-            if (this.d.hasEventListener(optString)) {
-                JSEvent jSEvent = new JSEvent(optString);
-                if (jSONObject != null) {
-                    jSEvent.data = jSONObject;
+            mt3 mt3Var = new mt3();
+            mt3Var.a = ou3.e(os1Var);
+            return mt3Var;
+        }
+        return (mt3) invokeL.objValue;
+    }
+
+    public final JSONObject a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", tp3.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
                 }
-                if (f && !"onTimeUpdate".equals(str)) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("type = ");
-                    sb.append(str);
-                    sb.append("  result = ");
-                    sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
-                    Log.d("AudioCallbackForV8", sb.toString());
-                }
-                this.d.dispatchEvent(jSEvent);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            ou3 ou3Var = this.a;
+            if (ou3Var != null) {
+                ou3Var.b(a);
             }
         }
     }
 
-    @Override // com.repackage.ym2
-    public boolean c() {
-        InterceptResult invokeV;
+    public void c() {
+        ou3 ou3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (ou3Var = this.a) == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void e(jt3 jt3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jt3Var) == null) {
-            this.e = jt3Var;
-        }
+        ou3Var.c();
     }
 }

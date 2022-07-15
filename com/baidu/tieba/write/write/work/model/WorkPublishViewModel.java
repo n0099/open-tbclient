@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.wg8;
+import com.repackage.rh8;
 import java.util.ArrayList;
 import java.util.Iterator;
 import kotlin.Metadata;
@@ -126,7 +126,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wg8.v("");
+            rh8.v("");
         }
     }
 
@@ -233,11 +233,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            wg8.m(new wg8.g() { // from class: com.repackage.az8
+            rh8.m(new rh8.g() { // from class: com.repackage.zz8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.repackage.wg8.g
+                @Override // com.repackage.rh8.g
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -320,7 +320,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            wg8.v(f());
+            rh8.v(f());
         }
     }
 

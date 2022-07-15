@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk4;
-import com.repackage.gk4;
-import com.repackage.hk4;
 import com.repackage.pi;
+import com.repackage.uk4;
+import com.repackage.vk4;
+import com.repackage.wk4;
 /* loaded from: classes3.dex */
 public class PersonListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements hk4 {
+    public static class a implements wk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,16 +45,16 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // com.repackage.hk4
+        @Override // com.repackage.wk4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = gk4.a(context);
+                TextView a = vk4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(pi.f(context, R.dimen.obfuscated_res_0x7f070305), 0, pi.f(context, R.dimen.obfuscated_res_0x7f070305), 0);
+                    layoutParams.setMargins(pi.f(context, R.dimen.obfuscated_res_0x7f070304), 0, pi.f(context, R.dimen.obfuscated_res_0x7f070304), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -99,7 +99,7 @@ public class PersonListActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            fk4.b().c(5, new a());
+            uk4.b().c(5, new a());
         }
     }
 }

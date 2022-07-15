@@ -1,46 +1,41 @@
 package com.kwad.sdk.collector.kwai;
 
-import android.content.Context;
+import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwad.components.offline.api.BuildConfig;
+import com.kwad.sdk.core.network.d;
+import com.kwad.sdk.utils.r;
 import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class a implements b {
-    public boolean a;
-    public List<b> b;
+public final class a extends d {
+    public C0535a a;
 
-    public a() {
-        this.a = true;
-    }
+    /* renamed from: com.kwad.sdk.collector.kwai.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public static class C0535a {
+        public List<String> a;
 
-    public a(boolean z) {
-        this.a = z;
-    }
-
-    public List<b> a() {
-        return this.b;
-    }
-
-    @Override // com.kwad.sdk.collector.kwai.b
-    public boolean a(Context context) {
-        if (this.a) {
-            List<b> a = a();
-            if (a == null || a.size() <= 0) {
-                try {
-                    return b(context);
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            for (b bVar : a) {
-                if (bVar.a(context)) {
-                    return true;
-                }
-            }
-            return false;
+        public C0535a(List<String> list) {
+            this.a = list;
         }
-        return false;
+
+        public final JSONObject a() {
+            JSONObject jSONObject = new JSONObject();
+            r.a(jSONObject, "packageName", this.a);
+            return jSONObject;
+        }
     }
 
-    public boolean b(Context context) {
-        return false;
+    public a(List<String> list) {
+        C0535a c0535a = new C0535a(list);
+        this.a = c0535a;
+        putBody("targetAppInfo", c0535a.a());
+        putBody(CommandMessage.SDK_VERSION, BuildConfig.VERSION_NAME);
+        putBody("sdkVersionCode", BuildConfig.VERSION_CODE);
+    }
+
+    @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
+    public final String getUrl() {
+        return com.kwad.sdk.b.k();
     }
 }

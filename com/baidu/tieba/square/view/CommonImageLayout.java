@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
 import com.repackage.pi;
+import com.repackage.rl4;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes4.dex */
 public class CommonImageLayout extends ViewGroup {
@@ -72,7 +72,7 @@ public class CommonImageLayout extends ViewGroup {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cl4.o(this.b.g, this.a.getVideoUrl());
+                rl4.o(this.b.g, this.a.getVideoUrl());
             }
         }
     }

@@ -1,72 +1,12 @@
 package com.kwad.sdk.utils;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class c {
-    @Nullable
-    @WorkerThread
-    public static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return b(new File(str));
-    }
-
-    public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException unused) {
-            }
-        }
-    }
-
-    @Nullable
-    @WorkerThread
-    public static byte[] a(File file) {
-        if (file == null) {
-            return null;
-        }
-        FileInputStream fileInputStream = new FileInputStream(file);
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            byte[] bArr = new byte[4096];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read == -1) {
-                    return messageDigest.digest();
-                }
-                messageDigest.update(bArr, 0, read);
-            }
-        } catch (Exception e) {
-            Log.e("FileMD5Utils", "getting file md5 digest error.", e);
-            return null;
-        } finally {
-            a(fileInputStream);
-        }
-    }
-
-    @Nullable
-    @WorkerThread
-    public static String b(File file) {
-        try {
-            byte[] a = a(file);
-            if (a != null && a.length != 0) {
-                return aa.a(a, 0, a.length);
-            }
-            return null;
-        } catch (IOException | NoSuchAlgorithmException e) {
-            Log.e("FileMD5Utils", "cannot calculate md5 of file", e);
-            return null;
-        }
+public final class c {
+    public static boolean a(@NonNull Context context) {
+        return context.getApplicationInfo().targetSdkVersion >= 29 && Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy();
     }
 }

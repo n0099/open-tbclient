@@ -13,7 +13,7 @@ public class ag {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f879a;
+    public static b f1606a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -21,7 +21,7 @@ public class ag {
         Map<String, String> a(Context context, Cif cif);
 
         /* renamed from: a  reason: collision with other method in class */
-        void m597a(Context context, Cif cif);
+        void m1540a(Context context, Cif cif);
 
         boolean a(Context context, Cif cif, boolean z);
     }
@@ -33,7 +33,7 @@ public class ag {
         void a(String str);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m598a(Cif cif);
+        boolean m1541a(Cif cif);
     }
 
     public static Map<String, String> a(Context context, Cif cif) {
@@ -42,7 +42,7 @@ public class ag {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) {
             a aVar = a;
             if (aVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("pepa listener or container is null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("pepa listener or container is null");
                 return null;
             }
             return aVar.a(context, cif);
@@ -51,14 +51,14 @@ public class ag {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m595a(Context context, Cif cif) {
+    public static void m1538a(Context context, Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, cif) == null) {
             a aVar = a;
             if (aVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("handle msg wrong");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("handle msg wrong");
             } else {
-                aVar.m597a(context, cif);
+                aVar.m1540a(context, cif);
             }
         }
     }
@@ -66,9 +66,9 @@ public class ag {
     public static void a(Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cif) == null) {
-            b bVar = f879a;
+            b bVar = f1606a;
             if (bVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("pepa clearMessage is null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("pepa clearMessage is null");
             } else {
                 bVar.a(cif);
             }
@@ -78,9 +78,9 @@ public class ag {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            b bVar = f879a;
+            b bVar = f1606a;
             if (bVar == null || str == null) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("pepa clearMessage is null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("pepa clearMessage is null");
             } else {
                 bVar.a(str);
             }
@@ -93,7 +93,7 @@ public class ag {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cif, z)) == null) {
             a aVar = a;
             if (aVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("pepa judement listener or container is null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("pepa judement listener or container is null");
                 return false;
             }
             return aVar.a(context, cif, z);
@@ -102,16 +102,16 @@ public class ag {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m596a(Cif cif) {
+    public static boolean m1539a(Cif cif) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
-            b bVar = f879a;
+            b bVar = f1606a;
             if (bVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("pepa handleReceiveMessage is null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("pepa handleReceiveMessage is null");
                 return false;
             }
-            return bVar.m598a(cif);
+            return bVar.m1541a(cif);
         }
         return invokeL.booleanValue;
     }

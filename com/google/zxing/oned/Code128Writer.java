@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -205,8 +205,8 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     char charAt = str.charAt(i2);
                     if (charAt < ' ' || charAt > '~') {
                         switch (charAt) {
-                            case 241:
-                            case w0.i0 /* 242 */:
+                            case MatroskaExtractor.ID_CUE_CLUSTER_POSITION /* 241 */:
+                            case 242:
                             case 243:
                             case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                                 break;
@@ -225,10 +225,10 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     int i7 = 100;
                     if (chooseCode == i5) {
                         switch (str.charAt(i3)) {
-                            case 241:
+                            case MatroskaExtractor.ID_CUE_CLUSTER_POSITION /* 241 */:
                                 i7 = 102;
                                 break;
-                            case w0.i0 /* 242 */:
+                            case 242:
                                 i7 = 97;
                                 break;
                             case 243:

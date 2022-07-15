@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class DownloadServiceConnectChangedEvent extends b {
+public final class DownloadServiceConnectChangedEvent extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConnectStatus c;
@@ -98,7 +98,7 @@ public class DownloadServiceConnectChangedEvent extends b {
         this.d = cls;
     }
 
-    public ConnectStatus a() {
+    public final ConnectStatus a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ConnectStatus) invokeV.objValue;

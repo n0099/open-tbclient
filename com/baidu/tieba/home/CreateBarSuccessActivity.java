@@ -68,19 +68,19 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092017);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920bc);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
                 relativeLayout.setLayoutParams(layoutParams);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0457));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f05);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f2a);
+            this.e.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f045f));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fcf);
         }
     }
 
@@ -106,20 +106,20 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             getLayoutMode().k(i == 1);
             getLayoutMode().j(this.d);
             boolean isOn = new CreateBarTipSwitch().isOn();
-            String string = getPageContext().getString(isOn ? R.string.obfuscated_res_0x7f0f045b : R.string.obfuscated_res_0x7f0f0458);
+            String string = getPageContext().getString(isOn ? R.string.obfuscated_res_0x7f0f0463 : R.string.obfuscated_res_0x7f0f0460);
             int length = string.length();
             if (isOn) {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i2 = R.string.obfuscated_res_0x7f0f045c;
+                i2 = R.string.obfuscated_res_0x7f0f0464;
             } else {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i2 = R.string.obfuscated_res_0x7f0f0459;
+                i2 = R.string.obfuscated_res_0x7f0f0461;
             }
             sb.append(pageContext.getString(i2));
             SpannableString spannableString = new SpannableString(sb.toString());

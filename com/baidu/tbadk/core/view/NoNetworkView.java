@@ -184,11 +184,11 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091558);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905de);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091601);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e0);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040317});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040315});
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -228,7 +228,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0604 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0620 : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -277,7 +277,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c70);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c64);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0cd7);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0ccb);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

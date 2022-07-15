@@ -1,37 +1,35 @@
 package com.kwad.sdk.core.webview.request;
 
 import com.kwad.sdk.core.network.d;
-import com.kwad.sdk.core.network.k;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.core.network.n;
+import com.kwad.sdk.utils.r;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a extends d {
+public final class a extends d {
+    public String a;
     public String b;
-    public String c;
 
     public a(String str, String str2, String str3) {
         JSONObject jSONObject;
-        this.b = str;
-        this.c = str2;
+        this.a = str;
+        this.b = str2;
         try {
             jSONObject = new JSONObject(str3);
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
             jSONObject = null;
         }
-        com.kwad.sdk.core.d.a.a("WebCardGetDataRequest", "mBodyParams1 size=" + this.a.length());
-        com.kwad.sdk.core.d.a.a("WebCardGetDataRequest", "paramsJsonObj=" + jSONObject.toString());
-        t.a(this.a, jSONObject);
-        com.kwad.sdk.core.d.a.a("WebCardGetDataRequest", "mBodyParams2 size=" + this.a.length());
-        a("user-agent", k.c());
-        a("BrowserUa", k.d());
-        a("SystemUa", k.a());
-        com.kwad.sdk.core.d.a.a("WebCardGetDataRequest", "user-agent" + k.c());
+        com.kwad.sdk.core.d.b.a("WebCardGetDataRequest", "mBodyParams1 size=" + this.mBodyParams.length());
+        com.kwad.sdk.core.d.b.a("WebCardGetDataRequest", "paramsJsonObj=" + jSONObject.toString());
+        r.a(this.mBodyParams, jSONObject);
+        com.kwad.sdk.core.d.b.a("WebCardGetDataRequest", "mBodyParams2 size=" + this.mBodyParams.length());
+        addHeader("user-agent", n.c());
+        com.kwad.sdk.core.d.b.a("WebCardGetDataRequest", "user-agent" + n.c());
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
-    public String a() {
-        return com.kwad.sdk.d.a() + this.b;
+    public final String getUrl() {
+        return com.kwad.sdk.b.a() + this.a;
     }
 }

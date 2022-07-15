@@ -1,19 +1,29 @@
 package com.repackage;
 
-import android.util.Pair;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class z39 {
+public final class z39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) || a49.c().g() == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                if (!g49.i() || j49.f(context) == 1) {
+                    return a49.c(a49.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
+                }
+                return false;
+            }
+            return false;
         }
-        a49.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
+        return invokeLL.booleanValue;
     }
 }

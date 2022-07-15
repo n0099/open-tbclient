@@ -1,14 +1,22 @@
 package com.repackage;
 
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.repackage.iz1;
 /* loaded from: classes6.dex */
 public interface kk1 {
-    void a();
+    int a();
 
-    void b(String str, io1 io1Var);
+    VideoPlayerFactory b();
 
-    void c(SwanAppActivity swanAppActivity, String str, io1 io1Var);
+    int c();
 
-    void d(String str, String str2, JSONObject jSONObject, io1 io1Var);
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(iz1.c cVar);
 }

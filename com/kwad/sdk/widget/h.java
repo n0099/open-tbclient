@@ -1,127 +1,177 @@
 package com.kwad.sdk.widget;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import com.kwad.sdk.utils.av;
-import com.kwad.sdk.utils.ba;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
+import android.os.Build;
+import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.R;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class h {
-    public final View a;
-    public final j b;
-    public final ba c;
-    public final int d;
+public final class h {
+    public float[] a;
+    public float b;
+    public Path c;
+    public Paint d;
+    public RectF e;
     public boolean f;
-    public boolean g;
-    public ViewTreeObserver.OnScrollChangedListener i;
-    public float e = 0.1f;
-    public boolean h = true;
+    @NonNull
+    public a g;
 
-    public h(View view2, j jVar) {
-        this.a = view2;
-        this.b = jVar;
-        this.c = new ba(view2);
-        this.d = av.o(view2.getContext());
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public boolean a = true;
+        public boolean b = true;
+        public boolean c = true;
+        public boolean d = true;
 
-    private void d() {
-        if (this.h) {
-            e();
+        public final a a(boolean z) {
+            this.a = z;
+            return this;
+        }
+
+        public final boolean a() {
+            return this.a;
+        }
+
+        public final a b(boolean z) {
+            this.b = z;
+            return this;
+        }
+
+        public final boolean b() {
+            return this.b;
+        }
+
+        public final a c(boolean z) {
+            this.c = z;
+            return this;
+        }
+
+        public final boolean c() {
+            return this.c;
+        }
+
+        public final a d(boolean z) {
+            this.d = z;
+            return this;
+        }
+
+        public final boolean d() {
+            return this.d;
+        }
+
+        public final void e(boolean z) {
+            this.a = true;
+            this.b = true;
+            this.c = true;
+            this.d = true;
         }
     }
 
-    private void e() {
-        if (g()) {
-            f();
-            return;
-        }
-        i();
-        h();
+    public h() {
+        this.a = new float[8];
+        this.g = new a();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        i();
-        j jVar = this.b;
-        if (jVar != null) {
-            jVar.a(this.a);
-        }
+    public h(a aVar) {
+        this.a = new float[8];
+        this.g = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean g() {
-        if (!this.c.a() || Math.abs(this.c.a.height() - this.a.getHeight()) > this.a.getHeight() * (1.0f - this.e) || this.a.getHeight() <= 0 || this.a.getWidth() <= 0) {
-            return false;
-        }
-        Rect rect = this.c.a;
-        return rect.bottom > 0 && rect.top < this.d;
+    private float[] b() {
+        this.a[0] = this.g.a() ? this.b : 0.0f;
+        this.a[1] = this.g.a() ? this.b : 0.0f;
+        this.a[2] = this.g.b() ? this.b : 0.0f;
+        this.a[3] = this.g.b() ? this.b : 0.0f;
+        this.a[4] = this.g.c() ? this.b : 0.0f;
+        this.a[5] = this.g.c() ? this.b : 0.0f;
+        this.a[6] = this.g.d() ? this.b : 0.0f;
+        this.a[7] = this.g.d() ? this.b : 0.0f;
+        return this.a;
     }
 
-    private void h() {
-        if (this.i == null) {
-            this.i = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.widget.h.1
-                @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-                public void onScrollChanged() {
-                    if (h.this.g()) {
-                        h.this.f();
-                    }
-                }
-            };
-            ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-            if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.i);
-            }
-        }
-    }
-
-    private void i() {
-        if (this.i == null) {
-            return;
-        }
+    private Path c() {
         try {
-            ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-            if (viewTreeObserver != null) {
-                viewTreeObserver.removeOnScrollChangedListener(this.i);
+            this.c.reset();
+        } catch (Exception unused) {
+        }
+        this.c.addRoundRect(this.e, this.b == 0.0f ? this.a : b(), Path.Direction.CW);
+        return this.c;
+    }
+
+    @NonNull
+    public final a a() {
+        return this.g;
+    }
+
+    public final void a(float f) {
+        this.b = f;
+    }
+
+    public final void a(int i, int i2) {
+        this.e.set(0.0f, 0.0f, i, i2);
+    }
+
+    public final void a(Context context, @Nullable AttributeSet attributeSet) {
+        if (attributeSet != null) {
+            int[] iArr = {R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f04034a};
+            Arrays.sort(iArr);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
+            this.b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040376), 0);
+            this.f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f04034a), true);
+            obtainStyledAttributes.recycle();
+        }
+        this.c = new Path();
+        this.d = new Paint(1);
+        this.e = new RectF();
+        this.d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+    }
+
+    public final void a(Canvas canvas) {
+        if (this.f) {
+            if (Build.VERSION.SDK_INT < 28) {
+                canvas.saveLayer(this.e, null, 31);
+                return;
             }
-            this.i = null;
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            canvas.save();
+            canvas.clipPath(c());
         }
     }
 
-    public float a() {
-        return this.e;
+    public final void a(float[] fArr) {
+        this.a = fArr;
     }
 
-    public void a(float f) {
-        this.e = f;
+    public final void b(Canvas canvas) {
+        if (this.f) {
+            if (Build.VERSION.SDK_INT < 28) {
+                canvas.drawPath(c(), this.d);
+            }
+            canvas.restore();
+        }
     }
 
-    public void a(int i, int i2, int i3, int i4) {
-        this.g = false;
-        if (this.f || (i3 | i4) != 0 || (i | i2) == 0) {
+    public final void c(Canvas canvas) {
+        if (Build.VERSION.SDK_INT < 28) {
+            canvas.saveLayer(this.e, null, 31);
             return;
         }
-        this.g = true;
-        this.f = true;
+        canvas.save();
+        canvas.clipPath(c());
     }
 
-    public void a(boolean z) {
-        this.h = z;
-    }
-
-    public void b() {
-        h();
-    }
-
-    public void b(int i, int i2, int i3, int i4) {
-        if (this.g) {
-            d();
+    public final void d(Canvas canvas) {
+        if (Build.VERSION.SDK_INT < 28) {
+            canvas.drawPath(c(), this.d);
         }
-    }
-
-    public void c() {
-        i();
-        this.f = false;
+        canvas.restore();
     }
 }

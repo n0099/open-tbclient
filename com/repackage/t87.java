@@ -1,52 +1,53 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t87 {
+public class t87 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        InterceptResult invokeLI;
+    public t87() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
-            if (TbadkCoreApplication.getInst().appResponseToCmd(i)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            c(baseFragmentActivity);
-            return false;
         }
-        return invokeLI.booleanValue;
     }
 
-    public static boolean b(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, baseFragmentActivity, cls)) == null) {
-            if (TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
+                return null;
             }
-            c(baseFragmentActivity);
-            return false;
+            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
+            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
+            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
+            responseSearchGroupLocalMessage.setError(0);
+            responseSearchGroupLocalMessage.setGid(groupId);
+            String str = groupId + "";
+            br4.f();
+            te<String> g = br4.g("tb.im_group_search_history");
+            g.g(str, g.get(str));
+            return responseSearchGroupLocalMessage;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void c(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, baseFragmentActivity) == null) || baseFragmentActivity == null) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT <= 10) {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e9d);
-        } else {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e9c);
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

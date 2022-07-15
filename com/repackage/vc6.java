@@ -4,13 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes7.dex */
 public class vc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public nd6 b;
-    public boolean c;
 
     public vc6() {
         Interceptable interceptable = $ic;
@@ -22,9 +20,17 @@ public class vc6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = true;
+    }
+
+    public void a(BrandForumInfo brandForumInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, brandForumInfo) == null) || brandForumInfo == null) {
+            return;
+        }
+        String str = brandForumInfo.brand_desc;
+        String str2 = brandForumInfo.jump_url;
+        String str3 = brandForumInfo.jump_desc;
     }
 }

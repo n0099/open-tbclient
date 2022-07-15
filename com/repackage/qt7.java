@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewStub;
-import android.webkit.WebView;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,122 +20,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class qt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ViewStub b;
-    public PbGiftListView c;
-    public ViewStub d;
-    public LinearLayout e;
-    public View f;
-    public BaseWebView g;
+    public TbPageContext a;
 
-    /* loaded from: classes7.dex */
-    public class a implements BaseWebView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(qt7 qt7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qt7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements BaseWebView.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(qt7 qt7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qt7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qt7 a;
-
-        public c(qt7 qt7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qt7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qt7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.g != null) {
-                        this.a.g.destroy();
-                        this.a.g = null;
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-    }
-
-    public qt7(View view2) {
+    public qt7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -146,111 +37,78 @@ public class qt7 {
                 return;
             }
         }
-        this.a = view2;
-        this.b = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090c56);
-        this.d = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09122e);
+        this.a = tbPageContext;
     }
 
-    public void a() {
-        BaseWebView baseWebView;
+    public final void a(PbModel pbModel, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (baseWebView = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, pbModel, i) == null) || pbModel == null) {
             return;
         }
-        baseWebView.removeAllViews();
-        this.g.getSettings().setBuiltInZoomControls(true);
-        this.g.setVisibility(8);
-        qg.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+        StatisticItem statisticItem = new StatisticItem("c13719");
+        statisticItem.param("fid", pbModel.G.m());
+        statisticItem.param("tid", pbModel.G.Q());
+        statisticItem.param("obj_type", i);
+        if (pbModel.Q1() == 5) {
+            statisticItem.param("obj_source", 1);
+        } else if (pbModel.Q1() == 7) {
+            statisticItem.param("obj_source", 2);
+        } else {
+            statisticItem.param("obj_source", 3);
+        }
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
     }
 
-    public void b(bp4 bp4Var, String str, String str2, long j, long j2, long j3) {
-        ViewStub viewStub;
+    public boolean b(PbModel pbModel) {
+        InterceptResult invokeL;
+        jr7 jr7Var;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bp4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (bp4Var != null && !ListUtils.isEmpty(bp4Var.a()) && (viewStub = this.b) != null) {
-                if (this.c == null) {
-                    this.c = (PbGiftListView) viewStub.inflate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
+            int i = 0;
+            if (this.a.getPageActivity() != null && pbModel != null && (jr7Var = pbModel.G) != null) {
+                if ("3".equals(jr7Var.g0)) {
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f1366));
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    return true;
                 }
-                this.c.setVisibility(0);
-                this.c.g(bp4Var, str, str2, j, j2, j3);
-                this.c.i();
-                return;
-            }
-            PbGiftListView pbGiftListView = this.c;
-            if (pbGiftListView != null) {
-                pbGiftListView.setVisibility(8);
-            }
-        }
-    }
-
-    public void c(qo4 qo4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qo4Var) == null) || qo4Var == null || oi.isEmpty(qo4Var.e())) {
-            return;
-        }
-        BaseWebView baseWebView = this.g;
-        if ((baseWebView == null || !baseWebView.getIsLoaded()) && qo4Var.c() == qo4.g && this.d != null) {
-            if (qo4Var.f()) {
-                LinearLayout linearLayout = this.e;
-                if (linearLayout != null) {
-                    linearLayout.setVisibility(8);
-                    return;
+                String q = xt4.k().q("key_pb_back_sid1", "");
+                String q2 = xt4.k().q("key_pb_back_sid2", "");
+                if (TextUtils.isEmpty(q) || UbsABTestDataManager.getInstance().getABTestSwitchData(q) == null) {
+                    str = (TextUtils.isEmpty(q2) || UbsABTestDataManager.getInstance().getABTestSwitchData(q2) == null) ? null : "2";
+                } else {
+                    str = "1";
                 }
-                return;
+                if (str == null && (str2 = pbModel.G.f0) != null) {
+                    str = str2;
+                }
+                if (str == null) {
+                    return false;
+                }
+                if (str.equals("1")) {
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg2.setSubTab(1, null);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    a(pbModel, 1);
+                    return true;
+                } else if (str.equals("2")) {
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
+                    createNormalCfg3.setSubTab(0, pbModel.G.g0);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    if ("游戏".equals(pbModel.G.g0)) {
+                        i = 2;
+                    } else if ("数码".equals(pbModel.G.g0)) {
+                        i = 3;
+                    }
+                    a(pbModel, i);
+                    return true;
+                }
             }
-            if (this.e == null) {
-                LinearLayout linearLayout2 = (LinearLayout) this.d.inflate();
-                this.e = linearLayout2;
-                this.f = linearLayout2.findViewById(R.id.obfuscated_res_0x7f091229);
-                this.g = (BaseWebView) this.e.findViewById(R.id.obfuscated_res_0x7f09122f);
-            }
-            this.f.setVisibility(0);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-            this.g.setVisibility(0);
-            this.g.setFocusable(false);
-            this.g.setBackgroundColor(0);
-            this.g.getSettings().setCacheMode(-1);
-            this.g.setVerticalScrollBarEnabled(false);
-            this.g.setHorizontalScrollBarEnabled(false);
-            this.g.getSettings().setAllowFileAccess(true);
-            this.g.getSettings().setAppCacheEnabled(true);
-            this.g.getSettings().setDomStorageEnabled(true);
-            this.g.getSettings().setDatabaseEnabled(true);
-            this.g.setOnLoadUrlListener(new a(this));
-            this.g.setOnPageFinishedListener(new b(this));
-            this.g.loadUrl(qo4Var.e());
+            return false;
         }
-    }
-
-    public void d() {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (baseWebView = this.g) == null) {
-            return;
-        }
-        try {
-            baseWebView.onPause();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void e() {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baseWebView = this.g) == null) {
-            return;
-        }
-        try {
-            baseWebView.onResume();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
+        return invokeL.booleanValue;
     }
 }

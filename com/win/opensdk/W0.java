@@ -1,0 +1,112 @@
+package com.win.opensdk;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class W0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final W0 a;
+    public static ConcurrentHashMap b;
+    public static Context c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1639724618, "Lcom/win/opensdk/W0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1639724618, "Lcom/win/opensdk/W0;");
+                return;
+            }
+        }
+        a = new W0();
+        b = new ConcurrentHashMap();
+    }
+
+    public W0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static W0 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            c = context.getApplicationContext();
+            return a;
+        }
+        return (W0) invokeL.objValue;
+    }
+
+    public long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Long l = (Long) b.get(str);
+            if (l == null || l.longValue() <= 0) {
+                try {
+                    String j = Z1.j(c);
+                    if (!TextUtils.isEmpty(j)) {
+                        JSONObject jSONObject = new JSONObject(j);
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (TextUtils.equals(str, next)) {
+                                return jSONObject.optLong(next, 0L);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return 0L;
+            }
+            return l.longValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            b.put(str, Long.valueOf(j));
+            try {
+                String j2 = Z1.j(c);
+                JSONObject jSONObject = !TextUtils.isEmpty(j2) ? new JSONObject(j2) : new JSONObject();
+                jSONObject.put(str, j);
+                Context context = c;
+                String jSONObject2 = jSONObject.toString();
+                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
+                edit.putString("key_local_res", jSONObject2);
+                edit.apply();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}

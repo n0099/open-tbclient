@@ -1,10 +1,12 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qo2 extends uo2 {
+public class qo2 implements oo2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,46 +36,87 @@ public class qo2 extends uo2 {
                 return;
             }
         }
-        boolean z = cg1.a;
+        a = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qo2(String str) {
-        super(str);
+    public qo2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.uo2
-    public boolean a(ko2 ko2Var, mo2 mo2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.oo2
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decode(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Bitmap bitmap;
+        Resources resourcesForApplication;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ko2Var, mo2Var, context, unitedSchemeEntity, callbackHandler, sz2Var})) == null) {
-            sw1.i("video", "pause, video id:" + mo2Var.j + " slave id: " + mo2Var.c);
-            d(ko2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+                }
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                int i = 0;
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                    try {
+                        i = Integer.parseInt(pathSegments.get(0));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } else {
+                InputStream inputStream = null;
+                if (uri2.startsWith("file:///android_asset/")) {
+                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
+                } else if (uri2.startsWith("file://")) {
+                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
+                } else {
+                    try {
+                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                        try {
+                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+                            jg4.d(openInputStream);
+                            bitmap = decodeStream;
+                        } catch (Throwable th) {
+                            th = th;
+                            inputStream = openInputStream;
+                            jg4.d(inputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
+            }
+            if (bitmap == null) {
+                if (!a) {
+                    hx1.k("SkiaImageDecoder", "bitmap is null");
+                } else {
+                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
+                }
+            }
+            return bitmap;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(ko2 ko2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko2Var, unitedSchemeEntity, callbackHandler) == null) {
-            ko2Var.p();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
+        return (Bitmap) invokeLL.objValue;
     }
 }

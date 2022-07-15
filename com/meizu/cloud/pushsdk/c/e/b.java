@@ -7,7 +7,7 @@ import com.baidu.sofire.d.D;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.kuaishou.weapon.un.x;
+import com.kuaishou.weapon.p0.C0400;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
@@ -69,7 +69,7 @@ public class b {
     }
 
     private void f() {
-        a(x.B, Build.MODEL);
+        a(C0400.f418, Build.MODEL);
     }
 
     private void g() {

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uf6;
+import com.repackage.rg6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes3.dex */
-public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<uf6, GeneralTabListResIdl> {
+public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<rg6, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,9 +42,9 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            uf6 uf6Var = new uf6();
+            rg6 rg6Var = new rg6();
             GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            uf6Var.a(generalTabListResIdl.data);
+            rg6Var.a(generalTabListResIdl.data);
             if (generalTabListResIdl != null && (error = generalTabListResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,7 +52,7 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
                 }
                 setErrorString(generalTabListResIdl.error.usermsg);
             }
-            setData(uf6Var);
+            setData(rg6Var);
             return generalTabListResIdl;
         }
         return invokeIL.objValue;

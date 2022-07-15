@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lq5;
-import com.repackage.sq5;
-import com.repackage.tq5;
+import com.repackage.ir5;
+import com.repackage.pr5;
+import com.repackage.qr5;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq5 mData;
+    public pr5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpecialLiveResponseMessage() {
@@ -47,13 +47,13 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.mData = new sq5();
+            this.mData = new pr5();
             jSONObject.optInt("concern_live_show");
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
-                lq5 lq5Var = new lq5();
-                lq5Var.a(optJSONObject);
-                this.mData.a = lq5Var;
+                ir5 ir5Var = new ir5();
+                ir5Var.a(optJSONObject);
+                this.mData.a = ir5Var;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -77,16 +77,16 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             this.mData.c = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
-                tq5 tq5Var = new tq5();
-                tq5Var.a(optJSONObject3);
-                this.mData.e = tq5Var;
+                qr5 qr5Var = new qr5();
+                qr5Var.a(optJSONObject3);
+                this.mData.e = qr5Var;
             }
         }
     }
 
-    public sq5 getData() {
+    public pr5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (sq5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (pr5) invokeV.objValue;
     }
 }

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab1;
-import com.repackage.cb1;
+import com.repackage.pb1;
+import com.repackage.rb1;
 /* loaded from: classes2.dex */
 public class ActiveUploadObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public cb1<IActiveUploadResult> mActiveObserverList;
+    public rb1<IActiveUploadResult> mActiveObserverList;
 
     public ActiveUploadObserver() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class ActiveUploadObserver {
     public void initmActiveObserverList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ab1 b = ab1.b();
+            pb1 b = pb1.b();
             this.mActiveObserverList = b;
             b.a(new IActiveUploadResult_ActiveUploadObserver_ListProvider());
         }

@@ -1,120 +1,139 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class uf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static uf8 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tf8 a;
-    public int b;
-    public SparseArray<HashSet<String>> c;
-    public c d;
-    public Handler e;
-    public CustomMessageListener f;
+    public ArrayList<nq4> a;
+    public ArrayList<a> b;
+    public ArrayList<b> c;
+    public boolean d;
+    public long e;
+    public ArrayList<d> f;
 
     /* loaded from: classes7.dex */
-    public class a extends Handler {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public boolean d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(uf8 uf8Var, Looper looper) {
-            super(looper);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf8Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            c cVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 5) {
-                    return;
-                }
-                Object obj = message.obj;
-                if (!(obj instanceof c) || (cVar = (c) obj) == null) {
-                    return;
-                }
-                cVar.d = false;
-                cVar.a = false;
-                cVar.b = 0;
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uf8 a;
+        public boolean a;
+        public String b;
+        public boolean c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public long j;
+        public long k;
+        public String l;
+        public int m;
+        public int n;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(uf8 uf8Var, int i) {
-            super(i);
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = uf8Var;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public long d;
+        public long e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+
+        public c() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (this.a.c != null) {
-                this.a.c.clear();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public String c;
+        public String d;
+        public ArrayList<c> e;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            this.a.a.g();
         }
     }
 
@@ -131,188 +150,354 @@ public class uf8 {
                 return;
             }
         }
-        this.e = new a(this, Looper.getMainLooper());
-        this.f = new b(this, 2005016);
-        this.b = ht4.k().l("card_show_statistic_max_count", 200);
-        this.a = new tf8();
-        MessageManager.getInstance().registerListener(this.f);
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new ArrayList<>();
+        this.f = new ArrayList<>();
+        this.d = true;
     }
 
-    public static uf8 g() {
+    public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (g == null) {
-                synchronized (uf8.class) {
-                    if (g == null) {
-                        g = new uf8();
-                    }
-                }
-            }
-            return g;
-        }
-        return (uf8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
     }
 
-    public void c(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
+    public ArrayList<b> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) {
-            this.a.d(bdUniqueId, true);
-            TiebaStatic.log(statisticItem);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
     }
 
-    public void d(BdUniqueId bdUniqueId, String str, StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId, str, statisticItem) == null) || bdUniqueId == null || statisticItem == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (!this.a.c(bdUniqueId)) {
-            BdLog.e("error, bdUniqueId not register");
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            BdLog.e("id is null, statistic key is=" + statisticItem.getKey());
-        }
-        if (this.c == null) {
-            this.c = new SparseArray<>();
-        }
-        HashSet<String> hashSet = this.c.get(bdUniqueId.getId());
-        if (hashSet == null) {
-            hashSet = new HashSet<>();
-            this.c.put(bdUniqueId.getId(), hashSet);
-        }
-        String str2 = statisticItem.getKey() + "_" + str;
-        if (hashSet.contains(str2) || e()) {
-            return;
-        }
-        hashSet.add(str2);
-        this.a.a(bdUniqueId, statisticItem);
-        if (BdLog.isDebugMode()) {
-            BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
-        }
-    }
-
-    public final boolean e() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null) {
-                this.d = new c(this, null);
-            }
-            if (this.d.d) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            c cVar = this.d;
-            if (cVar.a) {
-                int i = cVar.b + 1;
-                cVar.b = i;
-                if (currentTimeMillis - cVar.c < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                    if (i >= this.b) {
-                        cVar.d = true;
-                        f(cVar);
-                        return true;
-                    }
-                } else {
-                    cVar.a = false;
-                    cVar.b = 0;
-                }
-            } else {
-                cVar.a = true;
-                cVar.c = currentTimeMillis;
-            }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void f(c cVar) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            Message obtainMessage = this.e.obtainMessage();
-            obtainMessage.what = 5;
-            obtainMessage.obj = cVar;
-            this.e.removeMessages(5);
-            this.e.sendMessageDelayed(obtainMessage, 300000L);
-        }
-    }
-
-    public void h(BdUniqueId bdUniqueId, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, bdUniqueId, z) == null) {
-            if (BdLog.isDebugMode()) {
-                BdLog.d("logStatisticByKey start write log ");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            try {
+                if (this.a != null && this.a.size() != 0) {
+                    Iterator<nq4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        nq4 next = it.next();
+                        if (next != null) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("pic_url_bigger", next.a());
+                            jSONObject2.put("link", next.b());
+                            jSONArray2.put(jSONObject2);
+                        }
+                    }
+                    jSONObject.put(SpeedStatsUtils.UBC_VALUE_BANNER, jSONArray2);
+                }
+                jSONObject.put("prevtime", this.e);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
-            this.a.d(bdUniqueId, z);
-        }
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            pi.c();
-            if (bdUniqueId == null) {
-                return;
+            if (this.f != null && this.f.size() != 0) {
+                Iterator<d> it2 = this.f.iterator();
+                while (it2.hasNext()) {
+                    d next2 = it2.next();
+                    if (next2 != null) {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("title", next2.a);
+                        jSONObject3.put("type", next2.b);
+                        jSONObject3.put("pic", next2.c);
+                        jSONObject3.put("link", next2.d);
+                        ArrayList<c> arrayList = next2.e;
+                        if (arrayList != null && arrayList.size() != 0) {
+                            JSONArray jSONArray3 = new JSONArray();
+                            Iterator<c> it3 = arrayList.iterator();
+                            while (it3.hasNext()) {
+                                c next3 = it3.next();
+                                if (next3 != null) {
+                                    JSONObject jSONObject4 = new JSONObject();
+                                    jSONObject4.put("forum_id", next3.a);
+                                    jSONObject4.put("forum_name", next3.b);
+                                    jSONObject4.put("avatar", next3.c);
+                                    jSONObject4.put("explain", next3.f);
+                                    jSONObject4.put("desc", next3.g);
+                                    jSONObject4.put("tag", next3.h);
+                                    jSONObject4.put("thread_num", next3.e);
+                                    jSONObject4.put("member_count", next3.d);
+                                    jSONObject4.put("link", next3.i);
+                                    jSONArray3.put(jSONObject4);
+                                }
+                            }
+                            jSONObject3.put("forum_list", jSONArray3);
+                            jSONArray.put(jSONObject3);
+                        }
+                        jSONArray.put(jSONObject3);
+                    }
+                }
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("new_list", jSONArray);
+                jSONObject.put("new_recommend_topic", jSONObject5);
+                return jSONObject.toString();
             }
-            this.a.f(bdUniqueId);
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void j(BdUniqueId bdUniqueId) {
-        SparseArray<HashSet<String>> sparseArray;
+    public ArrayList<nq4> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) || (sparseArray = this.c) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        ArrayList<a> arrayList;
+        ArrayList<b> arrayList2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.d) {
+                ArrayList<nq4> arrayList3 = this.a;
+                return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.b) == null || arrayList.size() == 0) && ((arrayList2 = this.c) == null || arrayList2.size() == 0);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void h(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
-        sparseArray.remove(bdUniqueId.getId());
-    }
-
-    public void k(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            pi.c();
-            if (bdUniqueId == null) {
+        try {
+            if (jSONArray.length() == 0) {
                 return;
             }
-            this.a.h(bdUniqueId);
-            j(bdUniqueId);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("pic_url_bigger", "");
+                    String optString2 = jSONObject.optString("link", "");
+                    String optString3 = jSONObject.optString("template_id", "");
+                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                        nq4 nq4Var = new nq4();
+                        nq4Var.d(optString);
+                        nq4Var.e(optString2);
+                        nq4Var.f(optString3);
+                        this.a.add(nq4Var);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public int b;
-        public long c;
-        public boolean d;
+    /* JADX WARN: Type inference failed for: r2v11 */
+    /* JADX WARN: Type inference failed for: r2v3, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    public final void i(JSONArray jSONArray) {
+        int optInt;
+        JSONArray optJSONArray;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) || jSONArray == null) {
+            return;
+        }
+        try {
+            if (jSONArray.length() == 0) {
+                return;
+            }
+            boolean z = false;
+            int i2 = 0;
+            int i3 = 0;
+            while (i2 < jSONArray.length()) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                if (jSONObject != null && (optInt = jSONObject.optInt("type", -1)) != -1) {
+                    boolean z2 = true;
+                    String str2 = "";
+                    if (optInt == 1) {
+                        i3++;
+                        a aVar = new a();
+                        aVar.a = jSONObject.optString("title", "");
+                        aVar.b = jSONObject.optString("link", "");
+                        aVar.c = jSONObject.optString("pic", "");
+                        aVar.d = z;
+                        this.b.add(aVar);
+                    } else if (optInt == 3) {
+                        i3++;
+                        a aVar2 = new a();
+                        aVar2.a = jSONObject.optString("title", "");
+                        aVar2.b = jSONObject.optString("link", "");
+                        aVar2.c = jSONObject.optString("pic", "");
+                        aVar2.d = true;
+                        this.b.add(aVar2);
+                    } else if ((optInt == 2 || optInt == 0) && (optJSONArray = jSONObject.optJSONArray("forum_list")) != null && optJSONArray.length() != 0) {
+                        b bVar = new b();
+                        bVar.a = true;
+                        int i4 = i2 - i3;
+                        bVar.m = i4;
+                        if (optInt == 2) {
+                            bVar.c = true;
+                        } else {
+                            bVar.c = z;
+                        }
+                        bVar.l = jSONObject.optString("link", "");
+                        bVar.b = jSONObject.optString("title", "");
+                        this.c.add(bVar);
+                        int i5 = 0;
+                        ?? r2 = z;
+                        while (i5 < optJSONArray.length()) {
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i5);
+                            if (jSONObject2 == null) {
+                                i = i2;
+                                str = str2;
+                            } else {
+                                b bVar2 = new b();
+                                if (optInt == 2) {
+                                    bVar2.c = z2;
+                                } else {
+                                    bVar2.c = r2;
+                                }
+                                bVar2.a = r2;
+                                bVar2.m = i4;
+                                bVar2.n = i5;
+                                bVar2.d = jSONObject2.optInt("forum_id", r2);
+                                bVar2.e = jSONObject2.optString("forum_name", str2);
+                                bVar2.f = jSONObject2.optString("avatar", str2);
+                                bVar2.h = jSONObject2.optString("explain", str2);
+                                bVar2.i = jSONObject2.optString("desc", str2);
+                                bVar2.g = jSONObject2.optString("tag", str2);
+                                i = i2;
+                                bVar2.j = jSONObject2.optLong("member_count", 0L);
+                                bVar2.k = jSONObject2.optLong("thread_num", 0L);
+                                str = str2;
+                                bVar2.l = jSONObject2.optString("link", str);
+                                this.c.add(bVar2);
+                            }
+                            i5++;
+                            str2 = str;
+                            i2 = i;
+                            r2 = 0;
+                            z2 = true;
+                        }
+                    }
+                }
+                i2++;
+                z = false;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
 
-        public c(uf8 uf8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (str != null && str.length() >= 1) {
+                try {
+                    k(new JSONObject(str));
+                    l(str);
+                    return;
+                } catch (Exception e) {
+                    this.d = false;
+                    BdLog.e(e.toString());
                     return;
                 }
             }
-            this.a = false;
-            this.b = 0;
-            this.c = 0L;
             this.d = false;
         }
+    }
 
-        public /* synthetic */ c(uf8 uf8Var, a aVar) {
-            this(uf8Var);
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            h(jSONObject.optJSONArray(SpeedStatsUtils.UBC_VALUE_BANNER));
+            this.e = jSONObject.optLong("prevtime");
+            JSONObject optJSONObject = jSONObject.optJSONObject("new_recommend_topic");
+            if (optJSONObject == null) {
+                return;
+            }
+            i(optJSONObject.optJSONArray("new_list"));
+        } catch (Exception e) {
+            this.d = false;
+            BdLog.e(e.toString());
+        }
+    }
+
+    public final void l(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("new_recommend_topic");
+            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("new_list")) != null && optJSONArray.length() != 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject = optJSONArray.getJSONObject(i);
+                    if (jSONObject != null) {
+                        d dVar = new d();
+                        this.f.add(dVar);
+                        dVar.e = new ArrayList<>();
+                        dVar.a = jSONObject.optString("title", "");
+                        dVar.b = jSONObject.optInt("type", -1);
+                        dVar.c = jSONObject.optString("pic", "");
+                        dVar.d = jSONObject.optString("link", "");
+                        JSONArray optJSONArray2 = jSONObject.optJSONArray("forum_list");
+                        if (optJSONArray2 != null && optJSONArray2.length() != 0) {
+                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                                JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                                if (jSONObject2 != null) {
+                                    c cVar = new c();
+                                    cVar.a = jSONObject2.optInt("forum_id", 0);
+                                    cVar.b = jSONObject2.optString("forum_name", "");
+                                    cVar.c = jSONObject2.optString("avatar", "");
+                                    cVar.f = jSONObject2.optString("explain", "");
+                                    cVar.g = jSONObject2.optString("desc", "");
+                                    cVar.h = jSONObject2.optString("tag", "");
+                                    cVar.d = jSONObject2.optLong("member_count", 0L);
+                                    cVar.e = jSONObject2.optLong("thread_num", 0L);
+                                    cVar.i = jSONObject2.optString("link", "");
+                                    dVar.e.add(cVar);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void m(ArrayList<nq4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.e = j;
         }
     }
 }

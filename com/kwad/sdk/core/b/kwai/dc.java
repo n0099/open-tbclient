@@ -1,39 +1,36 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dc implements com.kwad.sdk.core.d<AdStyleInfo.PlayEndInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
+public final class dc implements com.kwad.sdk.core.d<com.kwad.components.ad.fullscreen.a.b> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.ad.fullscreen.a.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        playEndInfo.type = jSONObject.optInt("type");
-        playEndInfo.showLandingPage3 = jSONObject.optInt("showLandingPage3");
-        AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo = new AdStyleInfo.PlayEndInfo.AdWebCardInfo();
-        playEndInfo.adWebCardInfo = adWebCardInfo;
-        adWebCardInfo.parseJson(jSONObject.optJSONObject("adWebCardInfo"));
-        AdStyleInfo.PlayEndInfo.EndTopToolBarInfo endTopToolBarInfo = new AdStyleInfo.PlayEndInfo.EndTopToolBarInfo();
-        playEndInfo.endTopToolBarInfo = endTopToolBarInfo;
-        endTopToolBarInfo.parseJson(jSONObject.optJSONObject("endTopToolBarInfo"));
-        AdStyleInfo.PlayEndInfo.HorizontalPatchAdInfo horizontalPatchAdInfo = new AdStyleInfo.PlayEndInfo.HorizontalPatchAdInfo();
-        playEndInfo.horizontalPatchAdInfo = horizontalPatchAdInfo;
-        horizontalPatchAdInfo.parseJson(jSONObject.optJSONObject("horizontalPatchAdInfo"));
+        bVar.a = jSONObject.optLong("lastShowTimestamp");
+        bVar.b = jSONObject.optInt("currentDailyCount");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdStyleInfo.PlayEndInfo playEndInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.ad.fullscreen.a.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "type", playEndInfo.type);
-        com.kwad.sdk.utils.t.a(jSONObject, "showLandingPage3", playEndInfo.showLandingPage3);
-        com.kwad.sdk.utils.t.a(jSONObject, "adWebCardInfo", playEndInfo.adWebCardInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "endTopToolBarInfo", playEndInfo.endTopToolBarInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "horizontalPatchAdInfo", playEndInfo.horizontalPatchAdInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "lastShowTimestamp", bVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "currentDailyCount", bVar.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.ad.fullscreen.a.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.ad.fullscreen.a.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

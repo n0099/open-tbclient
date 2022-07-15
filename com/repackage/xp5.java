@@ -1,54 +1,70 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xp5 {
+public class xp5 extends an<or5, LiveTabConcernTitleView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
 
-    public static void a(ln5 ln5Var, String str) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        SdkLiveInfoData.YYExt yYExt;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), or5.c);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, ln5Var, str) == null) || ln5Var == null || (sdkLiveInfoData = ln5Var.a) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-        if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-            str2 = "";
-            str3 = str2;
-            str4 = str3;
-            str5 = str4;
-        } else {
-            str3 = yYExt.sid;
-            str4 = yYExt.ssid;
-            str5 = yYExt.yyUid;
-            str2 = yYExt.templateId;
-        }
-        TiebaStatic.log(new StatisticItem(str).param("fid", ln5Var.c).param("liveid", ln5Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str3).param(TiebaStatic.YYParams.YYSSID, str4).param(TiebaStatic.YYParams.YYUID, str5).param("template_id", str2).param(TiebaStatic.YYParams.YYLIVEID, TextUtils.isEmpty(str3) ? "" : "1").param(TiebaStatic.Params.VID, ln5Var.a.nid));
+        this.i = tbPageContext;
     }
 
-    public static void b(ln5 ln5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public LiveTabConcernTitleView.ViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, ln5Var) == null) {
-            a(ln5Var, "c14705");
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new LiveTabConcernTitleView.ViewHolder(new LiveTabConcernTitleView(this.i, viewGroup)) : (LiveTabConcernTitleView.ViewHolder) invokeL.objValue;
     }
 
-    public static void c(ln5 ln5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, or5 or5Var, LiveTabConcernTitleView.ViewHolder viewHolder) {
+        InterceptResult invokeCommon;
+        LiveTabConcernTitleView liveTabConcernTitleView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ln5Var) == null) {
-            a(ln5Var, "c14704");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, or5Var, viewHolder})) == null) {
+            if (viewHolder == null || (liveTabConcernTitleView = viewHolder.a) == null) {
+                return null;
+            }
+            liveTabConcernTitleView.i(or5Var);
+            viewHolder.a.j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return viewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -101,8 +101,8 @@ public class GamenowDownloadButtomView extends View {
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
         this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070144);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060396);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060397);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060399);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f06039a);
     }
 
     public final void a(Canvas canvas, RectF rectF) {

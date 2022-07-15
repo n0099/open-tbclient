@@ -1,60 +1,69 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewHottopic.PkModule;
+import tbclient.NewHottopic.TimeLine;
+import tbclient.NewHottopic.TopicDetail;
 /* loaded from: classes6.dex */
-public class h17 extends BaseCardInfo {
+public class h17 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755701021, "Lcom/repackage/h17;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755701021, "Lcom/repackage/h17;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public w17 e;
+    public l17 f;
 
     public h17() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = R.dimen.tbds16;
-        this.b = R.color.CAM_X0204;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(TopicDetail topicDetail) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicDetail) == null) || topicDetail == null) {
+            return;
+        }
+        this.a = topicDetail.topic_id.longValue();
+        this.b = topicDetail.topic_desc;
+        topicDetail.discuss_num.longValue();
+        this.c = topicDetail.topic_image;
+        this.d = topicDetail.bg_image;
+    }
+
+    public void b(PkModule pkModule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+            return;
+        }
+        w17 w17Var = new w17();
+        this.e = w17Var;
+        w17Var.a = this.a;
+        w17Var.f = 2;
+        w17Var.a(pkModule);
+    }
+
+    public void c(TimeLine timeLine) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) == null) || timeLine == null) {
+            return;
+        }
+        l17 l17Var = new l17();
+        this.f = l17Var;
+        l17Var.a(this.a, timeLine);
     }
 }

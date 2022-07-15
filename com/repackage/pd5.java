@@ -1,335 +1,131 @@
 package com.repackage;
 
-import android.os.Build;
-import android.os.Bundle;
+import android.content.Context;
+import android.graphics.Rect;
 import android.text.TextUtils;
-import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class pd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static BaseWebView a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseWebView a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, BaseWebView baseWebView) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), baseWebView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = baseWebView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            BaseWebView baseWebView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921024 || (baseWebView = this.a) == null) {
-                return;
-            }
-            baseWebView.reload();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = "";
-            this.a = str;
-            this.b = str2;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj != null && b.class == obj.getClass()) {
-                    b bVar = (b) obj;
-                    String str = this.a;
-                    if (str == null) {
-                        if (bVar.a != null) {
-                            return false;
-                        }
-                    } else if (!str.equals(bVar.a)) {
-                        return false;
-                    }
-                    String str2 = this.b;
-                    if (str2 == null) {
-                        if (bVar.b != null) {
-                            return false;
-                        }
-                    } else if (!str2.equals(bVar.b)) {
-                        return false;
-                    }
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = this.a;
-                int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-                String str2 = this.b;
-                return hashCode + (str2 != null ? str2.hashCode() : 0);
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(int i, boolean z, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (oi.isEmpty(str) || str.contains("page_type")) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            if (str.contains("?")) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append("page_type");
-            sb.append("=");
-            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                StringBuilder sb = new StringBuilder();
-                String q = ht4.k().q("key_default_useragent", "");
-                try {
-                    if (TextUtils.isEmpty(q)) {
-                        q = WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst());
-                        ht4.k().y("key_default_useragent", q);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                sb.append(q);
-                sb.append(" tieba/");
-                sb.append(TbConfig.getVersion());
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            int indexOf = str.indexOf(str2);
-            if (indexOf != -1) {
-                int length = indexOf + str2.length();
-                int i = length;
-                while (i < str.length() && str.charAt(i) != '&') {
-                    i++;
-                }
-                try {
-                    return URLDecoder.decode(str.substring(length, i));
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            String str3 = "";
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
-                for (int i = 1; i < split.length; i++) {
-                    String[] split2 = split[i].split("&");
-                    if (split2 != null && split2.length > 0) {
-                        int length = split2.length;
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 < length) {
-                                String[] split3 = split2[i2].split("=");
-                                if (split3.length == 2) {
-                                    String str4 = split3[0];
-                                    String str5 = split3[1];
-                                    if (str2.equals(str4)) {
-                                        try {
-                                            str3 = URLDecoder.decode(str5);
-                                            break;
-                                        } catch (Exception unused) {
-                                            str3 = str5;
-                                        }
-                                    }
-                                }
-                                i2++;
-                            }
-                        }
-                    }
-                }
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            f();
-            BaseWebView baseWebView = a;
-            if (baseWebView == null || baseWebView.getSettings() == null) {
-                return null;
-            }
-            return a.getSettings().getUserAgentString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            try {
-                if (a == null) {
-                    a = new BaseWebView(TbadkCoreApplication.getInst());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void g(BaseWebView baseWebView, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, baseWebView, bdUniqueId) == null) || baseWebView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) == null) || threadData == null) {
             return;
         }
-        a aVar = new a(2921024, baseWebView);
-        if (bdUniqueId != null) {
-            aVar.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(aVar);
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+    }
+
+    public static void b(int i, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) == null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+    }
+
+    public static void c(boolean z, Context context, ThreadData threadData, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, threadData, Integer.valueOf(i), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) || threadData == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        VideoItemData videoItemData = new VideoItemData();
+        if (z) {
+            videoItemData.buildWithOriginThreadData(threadData.originalThreadData);
+        } else {
+            videoItemData.buildWithThreadData(threadData);
+        }
+        arrayList.add(videoItemData);
+        OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+        boolean z3 = true;
+        if (originalThreadInfo != null && originalThreadInfo.r != null && threadData.getThreadData().originalThreadData.r.is_vertical.intValue() != 1) {
+            z3 = false;
+        }
+        String str6 = null;
+        OriginalThreadInfo originalThreadInfo2 = threadData.originalThreadData;
+        if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
+            str6 = baijiahaoData.oriUgcNid;
+        }
+        e(context, arrayList, str6, z3, i, rect, str, str2, str3, str4, str5, false, z2, true);
+    }
+
+    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            e(context, list, str, z, i, rect, str2, str3, str4, str5, str6, z2, z3, false);
         }
     }
 
-    public static boolean h(String str) {
-        InterceptResult invokeL;
+    public static void e(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, boolean z4) {
+        String str7;
+        String str8;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i, rect, str2, str3, str4, str5, str6);
+            if (z4) {
+                videoPlayActivityConfig.setForceUseBigDataList(list);
             }
-            return str.toLowerCase().startsWith("http://") || str.toLowerCase().startsWith("https://");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Bundle i(String str) {
-        InterceptResult invokeL;
-        URL url;
-        String query;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+            videoPlayActivityConfig.setParamIsVertail(z);
+            TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z2);
+            if (str != null) {
+                videoPlayActivityConfig.setNid(str);
             }
-            Bundle bundle = new Bundle();
-            try {
-                url = new URL(str);
-                query = url.getQuery();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
+            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
+                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(true);
             }
-            if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
-                return null;
-            }
-            bundle.putString("path", url.getPath());
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
-                    bundle.putString(split2[0], split2[1]);
+            if (z3) {
+                if (ListUtils.getCount(list) <= 0 || list.get(0) == null || TextUtils.isEmpty(list.get(0).thread_id)) {
+                    str7 = "";
+                } else {
+                    String str9 = list.get(0).thread_id;
+                    str7 = list.get(0).forum_id;
+                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str7);
+                    int size = videoTabListByFid.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        if (videoTabListByFid.get(i3) != null && str9.equals(videoTabListByFid.get(i3).thread_id)) {
+                            str8 = str7;
+                            i2 = i3;
+                            break;
+                        }
+                    }
                 }
+                str8 = str7;
+                i2 = 0;
+                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i2, rect, str2, str3, str4, str5, str6);
+                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
+                frsVideoTabPlayActivityConfig.setFid(str8);
+                if ("frs".equals(str5)) {
+                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_FROM, FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE, "tran");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
+                return;
             }
-            return bundle;
+            if ("frs".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_FRS, "video", "tran");
+            } else if ("index".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_HOME, "video", "tran");
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
         }
-        return (Bundle) invokeL.objValue;
     }
 }

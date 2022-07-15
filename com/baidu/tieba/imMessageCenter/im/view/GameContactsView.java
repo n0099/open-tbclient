@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
+import com.repackage.k57;
 import com.repackage.pi;
-import com.repackage.u47;
+import com.repackage.s67;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -35,7 +35,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(View view2, u47 u47Var, int i);
+        void a(View view2, k57 k57Var, int i);
     }
 
     static {
@@ -76,17 +76,17 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void a(@NonNull List<u47> list) {
+    public void a(@NonNull List<k57> list) {
         ImMessageCenterPojo i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
-                u47 u47Var = list.get(i2);
-                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(u47Var.b()));
+                k57 k57Var = list.get(i2);
+                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(k57Var.b()));
                 if (gameContactsItemView != null) {
-                    gameContactsItemView.setGameMatchUser(u47Var);
+                    gameContactsItemView.setGameMatchUser(k57Var);
                     gameContactsItemView.setVisibility(0);
-                    if (u47Var.b() != this.d && (i = a67.o().i(u47Var.d(), 2)) != null && i.getUnread_count() > 0) {
+                    if (k57Var.b() != this.d && (i = s67.o().i(k57Var.d(), 2)) != null && i.getUnread_count() > 0) {
                         gameContactsItemView.g(i.getUnread_count());
                     }
                 }
@@ -104,11 +104,11 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public boolean b(u47 u47Var) {
+    public boolean b(k57 k57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u47Var)) == null) {
-            int b = u47Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k57Var)) == null) {
+            int b = k57Var.b();
             int i = this.d;
             if (b == i) {
                 return false;
@@ -117,7 +117,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             if (gameContactsItemView != null) {
                 gameContactsItemView.a();
             }
-            int b2 = u47Var.b();
+            int b2 = k57Var.b();
             this.d = b2;
             GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(b2));
             if (gameContactsItemView2 != null) {

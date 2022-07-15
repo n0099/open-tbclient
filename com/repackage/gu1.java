@@ -1,19 +1,16 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class gu1 extends ys1 {
+public class gu1 extends nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     public gu1() {
         Interceptable interceptable = $ic;
@@ -25,42 +22,27 @@ public class gu1 extends ys1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
+    @Override // com.repackage.nt1
+    public void a(ot1 ot1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) {
-            zs1Var.k = this.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
+            ot1Var.e();
+            try {
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                hx1.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
+            }
         }
     }
 
-    @Override // com.repackage.ys1
+    @Override // com.repackage.nt1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "top")) {
-                        this.a = 1;
-                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
-                        this.a = 2;
-                    } else if (TextUtils.equals(optString, "bottom")) {
-                        this.a = 3;
-                    } else {
-                        this.a = 0;
-                    }
-                }
-            } catch (Exception e) {
-                if (cg1.a) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

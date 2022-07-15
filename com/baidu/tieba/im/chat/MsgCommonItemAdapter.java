@@ -34,7 +34,7 @@ public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHol
     public int o;
     public boolean p;
     public ArrayList<ReportPrivateMsgData> q;
-    public AbsMsglistView.i r;
+    public AbsMsglistView.j r;
     public int s;
 
     /* loaded from: classes3.dex */
@@ -184,10 +184,10 @@ public abstract class MsgCommonItemAdapter<T> extends an<ChatMessage, MsgViewHol
         }
     }
 
-    public void k0(AbsMsglistView.i iVar) {
+    public void k0(AbsMsglistView.j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
-            this.r = iVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jVar) == null) {
+            this.r = jVar;
         }
     }
 }

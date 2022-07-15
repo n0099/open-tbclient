@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nc7;
-import com.repackage.sg8;
+import com.repackage.fd7;
+import com.repackage.nh8;
 /* loaded from: classes3.dex */
 public class MoreButton extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -22,15 +22,15 @@ public class MoreButton extends TextView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ nc7 b;
+        public final /* synthetic */ fd7 b;
         public final /* synthetic */ MoreButton c;
 
-        public a(MoreButton moreButton, TbPageContext tbPageContext, nc7 nc7Var) {
+        public a(MoreButton moreButton, TbPageContext tbPageContext, fd7 fd7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {moreButton, tbPageContext, nc7Var};
+                Object[] objArr = {moreButton, tbPageContext, fd7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,14 +42,14 @@ public class MoreButton extends TextView {
             }
             this.c = moreButton;
             this.a = tbPageContext;
-            this.b = nc7Var;
+            this.b = fd7Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sg8.c(this.a, this.b.d());
+                nh8.c(this.a, this.b.d());
             }
         }
     }
@@ -75,17 +75,17 @@ public class MoreButton extends TextView {
         }
     }
 
-    public void setData(nc7 nc7Var, TbPageContext tbPageContext) {
+    public void setData(fd7 fd7Var, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, nc7Var, tbPageContext) == null) {
-            if (nc7Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, fd7Var, tbPageContext) == null) {
+            if (fd7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            setText(nc7Var.e());
-            if (!TextUtils.isEmpty(nc7Var.d())) {
-                setOnClickListener(new a(this, tbPageContext, nc7Var));
+            setText(fd7Var.e());
+            if (!TextUtils.isEmpty(fd7Var.d())) {
+                setOnClickListener(new a(this, tbPageContext, fd7Var));
             } else {
                 setOnClickListener(null);
             }

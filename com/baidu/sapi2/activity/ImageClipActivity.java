@@ -289,7 +289,7 @@ public class ImageClipActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04b8);
+            setContentView(R.layout.obfuscated_res_0x7f0d04d1);
             this.e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
             this.f = intExtra;
@@ -297,8 +297,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091b13);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091b11);
+            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091bb2);
+            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091bb0);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -310,8 +310,8 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.F = false;
             }
             setPendingTransition(R.anim.obfuscated_res_0x7f010112, R.anim.obfuscated_res_0x7f010111, R.anim.obfuscated_res_0x7f010110, R.anim.obfuscated_res_0x7f010113);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091dc4);
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f09046e);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e68);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090470);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
             } else {

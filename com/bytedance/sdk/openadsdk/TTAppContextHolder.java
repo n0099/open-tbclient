@@ -3,7 +3,6 @@ package com.bytedance.sdk.openadsdk;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
-import com.bytedance.sdk.openadsdk.api.b.d;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class TTAppContextHolder {
@@ -19,9 +18,9 @@ public class TTAppContextHolder {
             try {
                 Object b = b();
                 a = (Application) b.getClass().getMethod("getApplication", new Class[0]).invoke(b, new Object[0]);
-                d.c("MyApplication", "application get success");
+                com.bytedance.sdk.openadsdk.api.a.d("MyApplication", "application get success");
             } catch (Throwable th) {
-                d.b("MyApplication", "application get failed", th);
+                com.bytedance.sdk.openadsdk.api.a.b("MyApplication", "application get failed", th);
             }
         }
 
@@ -35,7 +34,7 @@ public class TTAppContextHolder {
                 method.setAccessible(true);
                 return method.invoke(null, new Object[0]);
             } catch (Throwable th) {
-                d.b("MyApplication", "ActivityThread get error, maybe api level <= 4.2.2", th);
+                com.bytedance.sdk.openadsdk.api.a.b("MyApplication", "ActivityThread get error, maybe api level <= 4.2.2", th);
                 return null;
             }
         }

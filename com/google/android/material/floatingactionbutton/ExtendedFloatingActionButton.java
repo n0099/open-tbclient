@@ -1157,7 +1157,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.isExtended = true;
         Context context2 = getContext();
         this.behavior = new ExtendedFloatingActionButtonBehavior(context2, attributeSet);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040268, R.attr.obfuscated_res_0x7f0402c8, R.attr.obfuscated_res_0x7f04059a, R.attr.obfuscated_res_0x7f0405a0}, i, obfuscated_res_0x7f10035e, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040268, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f04059b, R.attr.obfuscated_res_0x7f0405a1}, i, obfuscated_res_0x7f10035e, new int[0]);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 3);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 2);
         MotionSpec createFromAttribute3 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 1);

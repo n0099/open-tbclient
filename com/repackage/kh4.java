@@ -1,44 +1,68 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.util.Log;
+import android.view.Surface;
+import android.view.Window;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.tieba.R;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k93;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.repackage.ee2;
+import com.repackage.si2;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kh4 implements View.OnClickListener, View.OnTouchListener, SeekBar.OnSeekBarChangeListener {
+public abstract class kh4 implements si2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean x;
+    public static boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public SwanVideoView b;
-    public FrameLayout c;
-    public LinearLayout d;
-    public LinearLayout e;
-    public SeekBar f;
-    public SeekBar g;
-    public AudioManager h;
-    public int i;
+    public int a;
+    public String b;
+    public Context c;
+    public ZeusPluginFactory.Invoker d;
+    public CyberPlayer e;
+    public String f;
+    public AudioManager g;
+    public String h;
+    public si2.a i;
     public boolean j;
+    public boolean k;
+    public boolean l;
+    public int m;
+    public int n;
+    public ph4 o;
+    public final CyberPlayerManager.OnPreparedListener p;
+    public final CyberPlayerManager.OnErrorListener q;
+    public final CyberPlayerManager.OnCompletionListener r;
+    public final CyberPlayerManager.OnInfoListener s;
+    public final CyberPlayerManager.OnBufferingUpdateListener t;
+    public final CyberPlayerManager.OnSeekCompleteListener u;
+    public final CyberPlayerManager.OnVideoSizeChangedListener v;
+    public final AudioManager.OnAudioFocusChangeListener w;
 
     /* loaded from: classes6.dex */
-    public class a implements k93.b {
+    public class a implements CyberPlayerManager.OnSeekCompleteListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kh4 a;
@@ -61,287 +85,1196 @@ public class kh4 implements View.OnClickListener, View.OnTouchListener, SeekBar.
             this.a = kh4Var;
         }
 
-        @Override // com.repackage.k93.b
-        public void a(int i) {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+        public void onSeekComplete() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.g.setProgress(i);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && kh4.x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onSeekComplete()");
             }
         }
     }
 
-    public kh4(Context context) {
+    /* loaded from: classes6.dex */
+    public class b implements CyberPlayerManager.OnVideoSizeChangedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh4 a;
+
+        public b(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
+        public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
+                if (kh4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onVideoSizeChanged(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                this.a.o.e = i;
+                this.a.o.f = i2;
+                if (i3 == 0 || i4 == 0) {
+                    this.a.m = 1;
+                    this.a.n = 1;
+                } else {
+                    this.a.m = i3;
+                    this.a.n = i4;
+                }
+                si2.a aVar = this.a.i;
+                if (aVar != null) {
+                    aVar.f();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements AudioManager.OnAudioFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.media.AudioManager.OnAudioFocusChangeListener
+        public void onAudioFocusChange(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (kh4.x) {
+                    Log.i("SwanInlineCyberWidget", "onAudioFocusChange: focusChange " + i);
+                }
+                if (i == -1 && kh4.x) {
+                    Log.i("SwanInlineCyberWidget", "onAudioFocusChange: focusChange = AudioManager.AUDIOFOCUS_LOSS");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ee2.a a;
+
+        public d(kh4 kh4Var, ee2.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.repackage.kh4.m
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.a(z);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements af3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HashMap a;
+        public final /* synthetic */ kh4 b;
+
+        public e(kh4 kh4Var, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = kh4Var;
+            this.a = hashMap;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.b.x0().setDataSource(this.b.c, Uri.parse(str), this.a);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m a;
+
+        public f(m mVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mVar;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (kh4.x) {
+                    Log.i("【CyberCallback】", "CyberPlayer播放内核安装失败");
+                }
+                boolean unused = kh4.y = false;
+                m mVar = this.a;
+                if (mVar != null) {
+                    mVar.a(false);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                if (kh4.x) {
+                    Log.i("【CyberCallback】", "CyberPlayer播放内核安装成功");
+                }
+                boolean unused = kh4.y = false;
+                m mVar = this.a;
+                if (mVar != null) {
+                    mVar.a(true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+
+        public g(kh4 kh4Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            h03 M;
+            SwanAppActivity w;
+            Window window;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (M = h03.M()) == null || (w = M.w()) == null || (window = w.getWindow()) == null) {
+                return;
+            }
+            try {
+                if (this.a) {
+                    window.addFlags(128);
+                } else {
+                    window.clearFlags(128);
+                }
+            } catch (Exception e) {
+                if (kh4.x) {
+                    throw new RuntimeException("inline video set screenOn/Off in wrong thread", e);
+                }
+            }
+            if (kh4.x) {
+                Log.d("SwanInlineCyberWidget", "setKeepScreenOn: " + this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class h implements CyberPlayerManager.OnPreparedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh4 a;
+
+        public h(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+        public void onPrepared() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (kh4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onPrepared()");
+                }
+                this.a.o.e = this.a.getVideoWidth();
+                this.a.o.f = this.a.getVideoHeight();
+                si2.a aVar = this.a.i;
+                if (aVar != null) {
+                    aVar.onPrepared();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class i implements CyberPlayerManager.OnErrorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh4 a;
+
+        public i(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
+                String obj2 = obj != null ? obj.toString() : StringUtil.NULL_STRING;
+                if (kh4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onError(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj2 + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                this.a.o0();
+                this.a.A0(i);
+                int i3 = i == -10000 ? 0 : i;
+                si2.a aVar = this.a.i;
+                if (aVar != null) {
+                    aVar.onError(i3);
+                }
+                this.a.C0(i, i2, obj2);
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class j implements CyberPlayerManager.OnCompletionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh4 a;
+
+        public j(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean z = this.a.getDuration() != 0 && this.a.getCurrentPosition() >= this.a.getDuration();
+                if (kh4.x) {
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onCompletion:(" + z + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                this.a.o0();
+                kh4 kh4Var = this.a;
+                si2.a aVar = kh4Var.i;
+                if (aVar != null) {
+                    if (z) {
+                        aVar.onEnded();
+                    } else {
+                        aVar.c(kh4Var.c());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class k implements CyberPlayerManager.OnInfoListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh4 a;
+
+        public k(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
+                if (kh4.x) {
+                    String obj2 = obj != null ? obj.toString() : StringUtil.NULL_STRING;
+                    Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onInfo(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj2 + SmallTailInfo.EMOTION_SUFFIX);
+                }
+                switch (i) {
+                    case CyberPlayerManager.MEDIA_INFO_AUDIO_BITRATE /* 938 */:
+                        this.a.o.b = i2;
+                        break;
+                    case CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE /* 939 */:
+                        this.a.o.a = i2;
+                        break;
+                    case CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE /* 940 */:
+                        this.a.o.c = i2;
+                        break;
+                }
+                this.a.A0(i);
+                this.a.i.b(i);
+                if (i == 904) {
+                    this.a.D0();
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class l implements CyberPlayerManager.OnBufferingUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh4 a;
+
+        public l(kh4 kh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh4Var;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
+        public void onBufferingUpdate(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && kh4.x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + this.a.hashCode() + " - onBufferingUpdate(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface m {
+        void a(boolean z);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755558886, "Lcom/repackage/kh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755558886, "Lcom/repackage/kh4;");
+                return;
+            }
+        }
+        x = rg1.a;
+        y = true;
+    }
+
+    public kh4(ZeusPluginFactory.Invoker invoker, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        f();
-    }
-
-    public void b(SwanVideoView swanVideoView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
-            this.b = swanVideoView;
-        }
-    }
-
-    public FrameLayout c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (FrameLayout) invokeV.objValue;
-    }
-
-    public void d() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linearLayout = this.d) == null) {
-            return;
-        }
-        linearLayout.setVisibility(8);
-    }
-
-    public void e() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (linearLayout = this.e) == null) {
-            return;
-        }
-        linearLayout.setVisibility(8);
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c9, (ViewGroup) null);
-            this.c = frameLayout;
-            frameLayout.setOnTouchListener(this);
-            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091dea);
-            this.d = linearLayout;
-            linearLayout.setVisibility(8);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091df2).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091df3).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091df4).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091df5).setOnClickListener(this);
-            this.d.findViewById(R.id.obfuscated_res_0x7f091df6).setOnClickListener(this);
-            this.i = R.id.obfuscated_res_0x7f091df3;
-            j(R.id.obfuscated_res_0x7f091df3, -13399809);
-            h();
-            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091deb);
-            this.e = linearLayout2;
-            linearLayout2.setVisibility(8);
-            this.e.setOnTouchListener(this);
-            this.f = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f091dfa);
-            this.g = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f091dfb);
-            this.f.setOnSeekBarChangeListener(this);
-            this.g.setOnSeekBarChangeListener(this);
-            this.f.setMax(100);
-            AudioManager audioManager = (AudioManager) this.a.getSystemService("audio");
-            this.h = audioManager;
-            this.g.setMax(audioManager.getStreamMaxVolume(3));
-            n();
-            k93.e().d("#com.baidu.swan.videoplayer&MediaSettingViewLayer", new a(this));
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            j(this.i, -1);
-            if (TextUtils.equals("0.75", str)) {
-                this.i = R.id.obfuscated_res_0x7f091df2;
-            } else if (TextUtils.equals("1.0", str)) {
-                this.i = R.id.obfuscated_res_0x7f091df3;
-            } else if (TextUtils.equals("1.25", str)) {
-                this.i = R.id.obfuscated_res_0x7f091df4;
-            } else if (TextUtils.equals("1.5", str)) {
-                this.i = R.id.obfuscated_res_0x7f091df5;
-            } else if (TextUtils.equals("2.0", str)) {
-                this.i = R.id.obfuscated_res_0x7f091df6;
-            } else {
-                this.i = 0;
-            }
-            j(this.i, -13399809);
-            SwanVideoView swanVideoView = this.b;
-            if (swanVideoView != null) {
-                swanVideoView.Q(str);
+        this.a = -1;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = 1;
+        this.n = 1;
+        this.o = new ph4();
+        this.p = new h(this);
+        this.q = new i(this);
+        this.r = new j(this);
+        this.s = new k(this);
+        this.t = new l(this);
+        this.u = new a(this);
+        this.v = new b(this);
+        this.w = new c(this);
+        this.d = invoker;
+        if (invoker != null) {
+            Object obj = invoker.get("id");
+            if (obj instanceof String) {
+                this.f = (String) obj;
             }
         }
+        this.c = oj2.c();
+        this.h = str;
     }
 
-    public void h() {
-        float dimension;
+    public static String B0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.d == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            h03 M = h03.M();
+            return (!p73.E(str) || M == null) ? str : p73.H(str, M);
         }
-        if (this.j) {
-            dimension = this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0706b2);
-        } else {
-            dimension = this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0706b1);
-        }
-        ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-        layoutParams.width = (int) dimension;
-        this.d.setLayoutParams(layoutParams);
+        return (String) invokeL.objValue;
     }
 
-    public void i(int i) {
-        SwanVideoView swanVideoView;
+    public static void I0(@NonNull Context context, @Nullable m mVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (swanVideoView = this.b) == null || swanVideoView.A()) {
-            return;
-        }
-        AudioManager audioManager = this.h;
-        if (audioManager != null) {
-            audioManager.setStreamVolume(3, i, 0);
-        }
-        if (i == 0) {
-            this.b.setMuted(true);
-        } else if (this.b.y()) {
-            this.b.setMuted(false);
-        }
-    }
-
-    public final void j(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) || i == 0) {
-            return;
-        }
-        ((TextView) this.c.findViewById(i)).setTextColor(i2);
-    }
-
-    public void k(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048585, this, f) == null) && (this.a instanceof Activity)) {
-            q93.c().e((Activity) this.a, f / 100.0f);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SwanVideoView swanVideoView = this.b;
-            boolean x = swanVideoView != null ? swanVideoView.x() : false;
-            if (this.d != null) {
-                if (x != this.j) {
-                    this.j = x;
-                    h();
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, mVar) == null) {
+            if (y) {
+                if (x) {
+                    Log.i("【CyberCallback】", "CyberPlayer播放内核开始安装 " + context.getApplicationContext());
                 }
-                this.d.setVisibility(0);
+                try {
+                    CyberPlayerManager.install(context.getApplicationContext(), oj2.h0().i(context), (String) null, 7, (Class<?>) null, (Map<String, String>) null, new f(mVar));
+                    return;
+                } catch (Exception e2) {
+                    hx1.o("SwanInlineCyberWidget", "CyberPlayer Install failed by catch e=" + e2 + " :> " + Log.getStackTraceString(e2));
+                    if (mVar != null) {
+                        mVar.a(false);
+                        return;
+                    }
+                    return;
+                }
+            }
+            if (x) {
+                Log.v("【CyberCallback】", "CyberPlayer播放内核已安装，无需重复安装");
+            }
+            if (mVar != null) {
+                mVar.a(true);
             }
         }
     }
 
-    public void m() {
+    @Override // com.repackage.ee2
+    public void A(@NonNull ee2.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.e == null) {
-            return;
-        }
-        n();
-        this.e.setVisibility(0);
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.a instanceof Activity) {
-                this.f.setProgress((int) (q93.c().a((Activity) this.a) * 100.0f));
-            }
-            SwanVideoView swanVideoView = this.b;
-            if (swanVideoView != null && swanVideoView.y()) {
-                this.g.setProgress(0);
-            } else {
-                this.g.setProgress(this.h.getStreamVolume(3));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            I0(oj2.c(), new d(this, aVar));
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final void A0(int i2) {
+        si2.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            d();
-            if (this.b == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            int b2 = oh4.b(i2);
+            if (x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onStateChange(what " + i2 + ", statusCode " + b2 + SmallTailInfo.EMOTION_SUFFIX);
+            }
+            if (b2 != 100) {
+                if (b2 == 2101 && (aVar = this.i) != null) {
+                    aVar.a(2102);
+                }
+                si2.a aVar2 = this.i;
+                if (aVar2 != null) {
+                    aVar2.a(b2);
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                ZeusPluginFactory.Invoker invoker = this.d;
+                if (invoker != null) {
+                    x0().changeProxyDynamic((String) invoker.get("Proxy"), true);
+                    return;
+                }
                 return;
             }
-            int id = view2.getId();
-            int i = this.i;
-            if (id == i) {
+            x0().changeProxyDynamic(null, false);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public abstract void C0(int i2, int i3, String str);
+
+    public abstract void D0();
+
+    public final void E0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.k) {
+                if (x) {
+                    Log.i("SwanInlineCyberWidget", "requestAudioFocus: abandon request audio focus. Muted video.");
+                    return;
+                }
                 return;
             }
-            j(i, -1);
-            int id2 = view2.getId();
-            this.i = id2;
-            j(id2, -13399809);
-            int i2 = this.i;
-            String str = i2 == R.id.obfuscated_res_0x7f091df2 ? "0.75" : i2 == R.id.obfuscated_res_0x7f091df3 ? "1.0" : i2 == R.id.obfuscated_res_0x7f091df4 ? "1.25" : i2 == R.id.obfuscated_res_0x7f091df5 ? "1.5" : i2 == R.id.obfuscated_res_0x7f091df6 ? "2.0" : "";
-            if (TextUtils.isEmpty(str)) {
+            if (this.g == null) {
+                this.g = (AudioManager) this.c.getSystemService("audio");
+            }
+            AudioManager audioManager = this.g;
+            if (audioManager == null) {
                 return;
             }
             try {
-                this.b.J(Float.parseFloat(str));
-                this.b.Q(str);
-            } catch (NumberFormatException unused) {
+                audioManager.requestAudioFocus(this.w, 3, 1);
+            } catch (Exception e2) {
+                if (x) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+    public final void F0(String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-            if (seekBar.getId() == R.id.obfuscated_res_0x7f091dfb) {
-                i(i);
-            } else if (seekBar.getId() == R.id.obfuscated_res_0x7f091dfa) {
-                k(i);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, hashMap) == null) {
+            oj2.l().b(getContext(), str, new e(this, hashMap));
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void G(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && x) {
+            Log.d("SwanInlineCyberWidget", "setMinCache (ignore) : " + i2);
+        }
+    }
+
+    public final void G0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            be3.a0(new g(this, z));
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public final void H0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void L(int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i2, i3, i4, i5) == null) {
+        }
+    }
+
+    @Override // com.repackage.si2
+    public boolean O(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", "setDataSource: " + str + " ;userAgent: " + str3 + " ;cookies: " + str2);
             }
-        }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, seekBar) == null) {
-        }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, seekBar) == null) {
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, view2, motionEvent)) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091deb) {
-                return true;
+            this.l = true;
+            this.b = str;
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            e();
-            d();
-            return false;
+            if (str.startsWith(ImageSource.FILE_SCHEME)) {
+                str = str.substring(8);
+            }
+            String B0 = B0(str);
+            ZeusPluginFactory.Invoker invoker = this.d;
+            if (invoker != null) {
+                String str4 = (String) invoker.get("Proxy");
+                if (!TextUtils.isEmpty(str4)) {
+                    x0().setOption(CyberPlayerManager.OPT_HTTP_PROXY, str4);
+                    x0().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "true");
+                } else {
+                    x0().setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
+                    x0().setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
+                }
+            }
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str2)) {
+                hashMap.put("Cookie", str2);
+            }
+            if (z) {
+                hashMap.put("x-hide-urls-from-log", "true");
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                hashMap.put("User-Agent", str3);
+            }
+            String b2 = od3.b();
+            if (!TextUtils.isEmpty(b2) && od3.c(B0)) {
+                if (x) {
+                    Log.d("SwanInlineCyberWidget", "set referer for InlineVideo; referer is " + b2);
+                }
+                hashMap.put("Referer", b2);
+            }
+            if (p73.s(B0) == PathType.CLOUD) {
+                F0(B0, hashMap);
+            } else {
+                x0().setDataSource(this.c, Uri.parse(B0), hashMap);
+            }
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public void release() {
+    @Override // com.repackage.si2
+    public boolean P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.l : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.si2
+    public si2.a Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.i : (si2.a) invokeV.objValue;
+    }
+
+    @Override // com.repackage.si2
+    public void T(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, map) == null) {
+            x0().setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, map);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.si2
+    @CallSuper
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            b(null);
-            k93.e().i("#com.baidu.swan.videoplayer&MediaSettingViewLayer");
+            this.a = 0;
+            boolean isPlaying = isPlaying();
+            pause();
+            if (isPlaying) {
+                H0(true);
+            }
+        }
+    }
+
+    @Override // com.repackage.si2
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.ee2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.si2
+    public void b0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            mi2.b().a(c(), str);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.f + "-" + hashCode();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.si2
+    @CallSuper
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.a = 1;
+            if (isPlaying() || !w0()) {
+                return;
+            }
+            H0(false);
+            start();
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void g0(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048600, this, i2) == null) && x) {
+            Log.d("SwanInlineCyberWidget", "setMaxCache (ignore) : " + i2);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.c : (Context) invokeV.objValue;
+    }
+
+    @Override // com.repackage.si2
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? x0().getCurrentPosition() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.si2
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? x0().getDuration() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.si2
+    public int getVideoHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? x0().getVideoHeight() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.si2
+    public int getVideoSarDen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.n : invokeV.intValue;
+    }
+
+    @Override // com.repackage.si2
+    public int getVideoSarNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    @Override // com.repackage.si2
+    public int getVideoWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? x0().getVideoWidth() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.si2
+    public void h0(@NonNull si2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, aVar) == null) {
+            this.i = aVar;
+        }
+    }
+
+    @Override // com.repackage.si2
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? x0().isPlaying() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.si2
+    public boolean j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.ee2
+    @Nullable
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.si2
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            if (x) {
+                Log.i("SwanInlineCyberWidget", "setMuted: " + z);
+            }
+            this.k = z;
+            if (z) {
+                o0();
+            } else {
+                E0();
+            }
+            x0().muteOrUnmuteAudio(z);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+        }
+    }
+
+    public final void o0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            if (this.g == null) {
+                this.g = (AudioManager) this.c.getSystemService("audio");
+            }
+            AudioManager audioManager = this.g;
+            if (audioManager == null) {
+                return;
+            }
+            audioManager.abandonAudioFocus(this.w);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", this.f + "-" + hashCode() + " pause()");
+            }
+            x0().pause();
+            G0(false);
+            H0(false);
+            si2.a aVar = this.i;
+            if (aVar != null) {
+                aVar.c(c());
+            }
+        }
+    }
+
+    @Override // com.repackage.si2
+    public boolean prepareAsync() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            E0();
+            x0().prepareAsync();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.si2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", this.f + " release()");
+            }
+            si2.a aVar = this.i;
+            if (aVar != null) {
+                aVar.onRelease(c());
+            }
+            o0();
+            yq1.e().r(c());
+            x0().release();
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void seekTo(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            x0().seekTo(i2);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void setSpeed(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
+            x0().setSpeed(f2);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void setSurface(Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, surface) == null) {
+            x0().setSurface(surface);
+        }
+    }
+
+    @Override // com.repackage.si2
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            if (x) {
+                Log.d("SwanInlineCyberWidget", this.f + "-" + hashCode() + " start()");
+            }
+            if (y0()) {
+                if (x) {
+                    Log.e("SwanInlineCyberWidget", this.f + "-" + hashCode() + " start ignored, widget is in background");
+                }
+                H0(true);
+                si2.a aVar = this.i;
+                if (aVar != null) {
+                    aVar.c(c());
+                    return;
+                }
+                return;
+            }
+            E0();
+            x0().start();
+            G0(true);
+            si2.a aVar2 = this.i;
+            if (aVar2 != null) {
+                aVar2.e(c());
+            }
+        }
+    }
+
+    public final boolean w0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.j : invokeV.booleanValue;
+    }
+
+    public final synchronized CyberPlayer x0() {
+        InterceptResult invokeV;
+        CyberPlayer cyberPlayer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            synchronized (this) {
+                if (this.e == null) {
+                    if (oj2.g0().C()) {
+                        if (x) {
+                            Log.d("SwanInlineCyberWidget", "getPlayer: same process");
+                        }
+                        this.e = new CyberPlayer(0);
+                    } else {
+                        if (x) {
+                            Log.d("SwanInlineCyberWidget", "getPlayer: self process");
+                        }
+                        this.e = new CyberPlayer(0);
+                    }
+                    this.e.setOnPreparedListener(this.p);
+                    this.e.setOnVideoSizeChangedListener(this.v);
+                    this.e.setOnCompletionListener(this.r);
+                    this.e.setOnErrorListener(this.q);
+                    this.e.setOnInfoListener(this.s);
+                    this.e.setOnBufferingUpdateListener(this.t);
+                    this.e.setOnSeekCompleteListener(this.u);
+                    if (x) {
+                        Log.d("SwanInlineCyberWidget", "create " + this.e.hashCode() + " player");
+                    }
+                }
+                cyberPlayer = this.e;
+            }
+            return cyberPlayer;
+        }
+        return (CyberPlayer) invokeV.objValue;
+    }
+
+    public final boolean y0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            if (this.a == -1) {
+                SwanAppActivity w = g03.K().w();
+                if (w == null) {
+                    if (x) {
+                        Log.v("SwanInlineCyberWidget", "check background by activity null, background ? true");
+                    }
+                    return true;
+                }
+                gd2 Q = w.Q();
+                if (Q == null) {
+                    if (x) {
+                        Log.v("SwanInlineCyberWidget", "check background by frame null, background ? true");
+                    }
+                    return true;
+                }
+                if (x) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("check background by frame lifeState, background ? ");
+                    sb.append(!Q.a0().hasStarted());
+                    Log.v("SwanInlineCyberWidget", sb.toString());
+                }
+                return !Q.a0().hasStarted();
+            }
+            if (x) {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("check background by kernel state, background ? ");
+                sb2.append(this.a == 0);
+                Log.v("SwanInlineCyberWidget", sb2.toString());
+            }
+            return this.a == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            String a2 = this.o.a();
+            if (TextUtils.isEmpty(a2)) {
+                return;
+            }
+            if (x) {
+                Log.d("【CyberCallback】", "CyberPlayer" + hashCode() + " - send onNetStatus(" + a2 + SmallTailInfo.EMOTION_SUFFIX);
+            }
+            si2.a aVar = this.i;
+            if (aVar != null) {
+                aVar.d(a2);
+            }
         }
     }
 }

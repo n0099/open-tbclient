@@ -1,52 +1,48 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.BawuTeamInfoActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.member.FrsMemberTeamViewHolder;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.BawuRoleInfoPub;
-import tbclient.MemberGroupInfo;
 /* loaded from: classes6.dex */
-public class ja6 extends fc6<ka6, FrsMemberTeamViewHolder> {
+public class ja6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener t;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ja6 a;
 
-        public a(ja6 ja6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ja6 ja6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ja6Var};
+                Object[] objArr = {ja6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,45 +51,26 @@ public class ja6 extends fc6<ka6, FrsMemberTeamViewHolder> {
             this.a = ja6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            ka6 ka6Var;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = "";
-                if (view2.getTag() instanceof BawuRoleInfoPub) {
-                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
-                    this.a.k.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092044) {
-                    Object tag = view2.getTag();
-                    if (tag instanceof Integer) {
-                        Integer num = (Integer) tag;
-                        if (this.a.y(num.intValue()) instanceof ka6) {
-                            ka6Var = (ka6) this.a.y(num.intValue());
-                            if (ka6Var != null || ka6Var.b() == null) {
-                            }
-                            String[] split = StringUtils.isNull(ka6Var.b().member_group_type) ? null : ka6Var.b().member_group_type.split("_");
-                            if (split != null && split.length == 2) {
-                                str = split[0];
-                            }
-                            if (StringUtils.isNull(str) || !str.equalsIgnoreCase("1")) {
-                                return;
-                            }
-                            this.a.k.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.a.a, ng.g(ka6Var.a(), 0L))));
-                            return;
-                        }
-                    }
-                    ka6Var = null;
-                    if (ka6Var != null) {
-                    }
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
+                return;
+            }
+            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.a.b;
+            if (this.a.c != null) {
+                this.a.c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ja6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(int i, String str, boolean z);
+    }
+
+    public ja6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,64 +80,45 @@ public class ja6 extends fc6<ka6, FrsMemberTeamViewHolder> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = new a(this);
+        a aVar = new a(this, CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        this.a.registerListener(this.d);
+        c();
     }
 
-    @Override // com.repackage.fc6, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        q0(i, view2, viewGroup, (ka6) obj, (FrsMemberTeamViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: p0 */
-    public FrsMemberTeamViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsMemberTeamViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02b3, (ViewGroup) null), this.t) : (FrsMemberTeamViewHolder) invokeL.objValue;
-    }
-
-    public View q0(int i, View view2, ViewGroup viewGroup, ka6 ka6Var, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
-        InterceptResult invokeCommon;
-        MemberGroupInfo b;
-        List<BawuRoleInfoPub> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ka6Var, frsMemberTeamViewHolder})) == null) {
-            super.S(i, view2, viewGroup, ka6Var, frsMemberTeamViewHolder);
-            if (ka6Var != null && ka6Var.b() != null && (list = (b = ka6Var.b()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(b.member_group_type)) {
-                frsMemberTeamViewHolder.a.setTag(Integer.valueOf(i));
-                String[] split = !StringUtils.isNull(b.member_group_type) ? b.member_group_type.split("_") : null;
-                String str = (split == null || split.length != 2) ? "" : split[1];
-                TextView textView = frsMemberTeamViewHolder.a;
-                textView.setText(str + "(" + b.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
-                int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : b.member_group_list) {
-                    if (i2 > 3) {
-                        break;
-                    } else if (bawuRoleInfoPub != null) {
-                        frsMemberTeamViewHolder.c(bawuRoleInfoPub, i2);
-                        i2++;
-                    }
-                }
-                frsMemberTeamViewHolder.d(this.n);
-                SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.a, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.k, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.l, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(frsMemberTeamViewHolder.m, R.color.CAM_X0106, 1);
-                frsMemberTeamViewHolder.a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.REMOVE_MULTI_FANS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
+        }
     }
 }

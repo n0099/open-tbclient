@@ -1,54 +1,48 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.Proxy;
-import java.net.ProxySelector;
-import java.net.SocketAddress;
-import java.net.URI;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class g50 extends ProxySelector {
+public abstract class g50 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public g50() {
+    public g50(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr2 = {str, objArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = Util.format(str, objArr);
     }
 
-    @Override // java.net.ProxySelector
-    public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-        }
-    }
+    public abstract void a();
 
-    @Override // java.net.ProxySelector
-    public List<Proxy> select(URI uri) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (uri != null) {
-                return Collections.singletonList(Proxy.NO_PROXY);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String name = Thread.currentThread().getName();
+            Thread.currentThread().setName(this.a);
+            try {
+                a();
+            } finally {
+                Thread.currentThread().setName(name);
             }
-            throw new IllegalArgumentException("uri must not be null");
         }
-        return (List) invokeL.objValue;
     }
 }

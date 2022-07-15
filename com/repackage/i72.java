@@ -1,9 +1,42 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface i72 {
-    String a();
+public class i72 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Uri a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    a72 b(String str, x72 x72Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                hx1.d("SwanLaunchBehaviorTable", "createTable", e);
+            }
+        }
+    }
+
+    @NonNull
+    public static synchronized Uri b() {
+        InterceptResult invokeV;
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (i72.class) {
+                if (a == null) {
+                    a = g72.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
+            }
+            return uri;
+        }
+        return (Uri) invokeV.objValue;
+    }
 }

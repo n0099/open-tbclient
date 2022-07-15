@@ -1,110 +1,89 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
+import android.util.Base64OutputStream;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public final class c39 {
+public class c39 extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final c39 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
+    public boolean a;
     public boolean b;
+    public long c;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Activity activity);
-
-        void b();
-
-        void c();
-
-        void onActivityDestroyed(Activity activity);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755847992, "Lcom/repackage/c39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755847992, "Lcom/repackage/c39;");
-                return;
-            }
-        }
-        c = new c39();
-    }
-
-    public c39() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c39(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashSet();
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
     }
 
-    public static c39 a() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (c39) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
     }
 
-    public final Set<a> b() {
-        InterceptResult invokeV;
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Set) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = ContentUtil.GZIP_HEAD_2;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = ContentUtil.GZIP_HEAD_1;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = ContentUtil.GZIP_HEAD_1;
+                this.a = true;
+                bArr[i + 1] = ContentUtil.GZIP_HEAD_2;
+                this.b = true;
+            }
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
+        }
     }
 
-    public final void c() {
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                this.a.clear();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
             }
         }
-    }
-
-    public final void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this.a) {
-                this.a.add(aVar);
-            }
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.b || Build.VERSION.SDK_INT < 14) {
-            return;
-        }
-        try {
-            ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new j39(this));
-        } catch (Exception unused) {
-            x39.b("registerActivityLifecycleCallbacks encounter exception");
-        }
-        this.b = true;
     }
 }

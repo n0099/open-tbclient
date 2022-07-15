@@ -18,10 +18,10 @@ public class bq {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f939a;
+    public long f1666a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f940a;
+    public XMPushService f1667a;
     public int b;
     public int c;
 
@@ -57,9 +57,9 @@ public class bq {
         }
         this.b = 0;
         this.c = 0;
-        this.f940a = xMPushService;
+        this.f1667a = xMPushService;
         this.a = 500;
-        this.f939a = 0L;
+        this.f1666a = 0L;
     }
 
     private int a() {
@@ -77,10 +77,10 @@ public class bq {
             if (i > 1) {
                 return (int) (random * 10000.0d);
             }
-            if (this.f939a == 0) {
+            if (this.f1666a == 0) {
                 return 0;
             }
-            if (System.currentTimeMillis() - this.f939a >= 310000) {
+            if (System.currentTimeMillis() - this.f1666a >= 310000) {
                 this.a = 1000;
                 this.c = 0;
                 return 0;
@@ -102,11 +102,11 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m642a() {
+    public void m1585a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f939a = System.currentTimeMillis();
-            this.f940a.a(1);
+            this.f1666a = System.currentTimeMillis();
+            this.f1667a.a(1);
             this.b = 0;
         }
     }
@@ -114,25 +114,25 @@ public class bq {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!this.f940a.m587a()) {
+            if (!this.f1667a.m1530a()) {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
-                if (!this.f940a.m588a(1)) {
+                if (!this.f1667a.m1531a(1)) {
                     this.b++;
                 }
-                this.f940a.a(1);
-                XMPushService xMPushService = this.f940a;
+                this.f1667a.a(1);
+                XMPushService xMPushService = this.f1667a;
                 xMPushService.getClass();
                 xMPushService.a(new XMPushService.e(xMPushService));
-            } else if (this.f940a.m588a(1)) {
+            } else if (this.f1667a.m1531a(1)) {
             } else {
                 int a = a();
                 this.b++;
-                com.xiaomi.channel.commonutils.logger.b.m84a("schedule reconnect in " + a + "ms");
-                XMPushService xMPushService2 = this.f940a;
+                com.xiaomi.channel.commonutils.logger.b.m1027a("schedule reconnect in " + a + "ms");
+                XMPushService xMPushService2 = this.f1667a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.e(xMPushService2), (long) a);
-                if (this.b == 2 && fh.m323a().m328a()) {
+                if (this.b == 2 && fh.m1266a().m1271a()) {
                     ap.b();
                 }
                 if (this.b == 3) {

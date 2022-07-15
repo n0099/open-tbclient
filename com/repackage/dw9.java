@@ -1,287 +1,51 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av9;
-import com.repackage.xu9;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.exceptions.MissingBackpressureException;
-import rx.internal.operators.NotificationLite;
 /* loaded from: classes5.dex */
-public final class dw9<T> implements xu9.b<T, T> {
+public final class dw9 extends cw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final dw9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final av9 a;
-    public final boolean b;
-    public final int c;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> extends dv9<T> implements kv9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final dv9<? super T> e;
-        public final av9.a f;
-        public final boolean g;
-        public final Queue<Object> h;
-        public final int i;
-        public volatile boolean j;
-        public final AtomicLong k;
-        public final AtomicLong l;
-        public Throwable m;
-        public long n;
-
-        /* renamed from: com.repackage.dw9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0417a implements zu9 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0417a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.repackage.zu9
-            public void request(long j) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || j <= 0) {
-                    return;
-                }
-                sv9.b(this.a.k, j);
-                this.a.i();
-            }
-        }
-
-        public a(av9 av9Var, dv9<? super T> dv9Var, boolean z, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755752853, "Lcom/repackage/dw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av9Var, dv9Var, Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.k = new AtomicLong();
-            this.l = new AtomicLong();
-            this.e = dv9Var;
-            this.f = av9Var.createWorker();
-            this.g = z;
-            i = i <= 0 ? gx9.c : i;
-            this.i = i - (i >> 2);
-            if (uy9.b()) {
-                this.h = new gy9(i);
-            } else {
-                this.h = new lx9(i);
-            }
-            e(i);
-        }
-
-        @Override // com.repackage.kv9
-        public void call() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j = this.n;
-                Queue<Object> queue = this.h;
-                dv9<? super T> dv9Var = this.e;
-                long j2 = 1;
-                do {
-                    long j3 = this.k.get();
-                    while (true) {
-                        i = (j3 > j ? 1 : (j3 == j ? 0 : -1));
-                        if (i == 0) {
-                            break;
-                        }
-                        boolean z = this.j;
-                        Object poll = queue.poll();
-                        boolean z2 = poll == null;
-                        if (g(z, z2, dv9Var, queue)) {
-                            return;
-                        }
-                        if (z2) {
-                            break;
-                        }
-                        dv9Var.onNext((Object) NotificationLite.e(poll));
-                        j++;
-                        if (j == this.i) {
-                            j3 = sv9.g(this.k, j);
-                            e(j);
-                            j = 0;
-                        }
-                    }
-                    if (i == 0 && g(this.j, queue.isEmpty(), dv9Var, queue)) {
-                        return;
-                    }
-                    this.n = j;
-                    j2 = this.l.addAndGet(-j2);
-                } while (j2 != 0);
-            }
-        }
-
-        public boolean g(boolean z, boolean z2, dv9<? super T> dv9Var, Queue<Object> queue) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), dv9Var, queue})) == null) {
-                if (dv9Var.isUnsubscribed()) {
-                    queue.clear();
-                    return true;
-                } else if (z) {
-                    if (this.g) {
-                        if (z2) {
-                            Throwable th = this.m;
-                            try {
-                                if (th != null) {
-                                    dv9Var.onError(th);
-                                } else {
-                                    dv9Var.onCompleted();
-                                }
-                                return false;
-                            } finally {
-                            }
-                        }
-                        return false;
-                    }
-                    Throwable th2 = this.m;
-                    if (th2 != null) {
-                        queue.clear();
-                        try {
-                            dv9Var.onError(th2);
-                            return true;
-                        } finally {
-                        }
-                    } else if (z2) {
-                        try {
-                            dv9Var.onCompleted();
-                            return true;
-                        } finally {
-                        }
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        public void h() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                dv9<? super T> dv9Var = this.e;
-                dv9Var.f(new C0417a(this));
-                dv9Var.b(this.f);
-                dv9Var.b(this);
-            }
-        }
-
-        public void i() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.l.getAndIncrement() == 0) {
-                this.f.b(this);
-            }
-        }
-
-        @Override // com.repackage.yu9
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isUnsubscribed() || this.j) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755752853, "Lcom/repackage/dw9;");
                 return;
             }
-            this.j = true;
-            i();
         }
-
-        @Override // com.repackage.yu9
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                if (!isUnsubscribed() && !this.j) {
-                    this.m = th;
-                    this.j = true;
-                    i();
-                    return;
-                }
-                ez9.j(th);
-            }
-        }
-
-        @Override // com.repackage.yu9
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, t) == null) || isUnsubscribed() || this.j) {
-                return;
-            }
-            if (!this.h.offer(NotificationLite.h(t))) {
-                onError(new MissingBackpressureException());
-            } else {
-                i();
-            }
-        }
+        a = new dw9();
     }
 
-    public dw9(av9 av9Var, boolean z, int i) {
+    public dw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {av9Var, Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = av9Var;
-        this.b = z;
-        this.c = i <= 0 ? gx9.c : i;
     }
 
-    @Override // com.repackage.xu9.b, com.repackage.pv9
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((dv9) ((dv9) obj));
-    }
-
-    public dv9<? super T> call(dv9<? super T> dv9Var) {
-        InterceptResult invokeL;
+    public static cw9 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dv9Var)) == null) {
-            av9 av9Var = this.a;
-            if ((av9Var instanceof vw9) || (av9Var instanceof ax9)) {
-                return dv9Var;
-            }
-            a aVar = new a(av9Var, dv9Var, this.b, this.c);
-            aVar.h();
-            return aVar;
-        }
-        return (dv9) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (cw9) invokeV.objValue;
     }
 }

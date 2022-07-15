@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.GetBgList.DataReq;
 import tbclient.GetBgList.GetBgListReqIdl;
 /* loaded from: classes4.dex */
@@ -47,7 +47,7 @@ public class BackgroundListRequestMessage extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             GetBgListReqIdl.Builder builder2 = new GetBgListReqIdl.Builder();
             builder2.data = builder.build(false);

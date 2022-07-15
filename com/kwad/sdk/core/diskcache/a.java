@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
 import com.ksad.download.f;
-import com.kwad.sdk.core.i.b;
-import com.kwad.sdk.utils.aq;
+import com.kwad.sdk.core.threads.b;
+import com.kwad.sdk.utils.ap;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,9 +25,10 @@ public class a {
     public PackageManager d;
     public final f e;
     public volatile boolean f;
-    public final ExecutorService c = b.k();
+    public final ExecutorService c = b.j();
     public final Callable<PackageInfo> h = new Callable<PackageInfo>() { // from class: com.kwad.sdk.core.diskcache.a.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: private */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public PackageInfo call() {
@@ -49,12 +50,14 @@ public class a {
 
     public a(@NonNull Context context) {
         this.f = false;
-        this.e = new com.kwad.sdk.core.download.b.a(context);
+        this.e = new com.kwad.sdk.core.download.a.a(context);
         try {
-            this.b = aq.c(context);
+            File c = ap.c(context);
+            this.b = c;
+            c.mkdirs();
             this.d = context.getPackageManager();
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.a(th);
+            com.kwad.sdk.core.d.b.a(th);
         }
         this.f = true;
     }
@@ -71,7 +74,7 @@ public class a {
                     return packageArchiveInfo;
                 }
             } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                com.kwad.sdk.core.d.b.a(e);
             }
         }
         return null;
@@ -90,14 +93,17 @@ public class a {
 
     private void a(List<File> list) {
         Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.a.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(File file, File file2) {
+            public static int a(File file, File file2) {
                 if (file.lastModified() >= file2.lastModified()) {
                     return file.lastModified() == file2.lastModified() ? 0 : 1;
                 }
                 return -1;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            @Override // java.util.Comparator
+            public final /* synthetic */ int compare(File file, File file2) {
+                return a(file, file2);
             }
         });
     }
@@ -114,7 +120,7 @@ public class a {
         return arrayList;
     }
 
-    public void a() {
+    public final void a() {
         File file;
         if (this.f && (file = this.b) != null && file.exists()) {
             Future future = this.a;

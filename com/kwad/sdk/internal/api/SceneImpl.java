@@ -3,13 +3,19 @@ package com.kwad.sdk.internal.api;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.model.IKsAdLabel;
+import com.kwad.sdk.api.model.SplashAdExtraData;
 import com.kwad.sdk.core.scene.URLPackage;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.s;
 import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes5.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
@@ -17,6 +23,8 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     public int adNum;
     public int adStyle;
     public String backUrl;
+    public String bidResponse;
+    public String bidResponseV2;
     public long entryScene;
     public int height;
     public final EcAttribute mEcAttribute;
@@ -25,6 +33,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     public long posId;
     public Map<String, String> rewardCallbackExtraData;
     public int screenOrientation;
+    public b splashExtraData;
     public URLPackage urlPackage;
     public int width;
 
@@ -42,6 +51,9 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         this.mEcAttribute = new EcAttribute();
         this.posId = j;
         this.entryScene = j;
+        if (aw.c() != 0) {
+            this.posId = aw.c();
+        }
     }
 
     public SceneImpl(KsScene ksScene) {
@@ -61,6 +73,9 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         this.backUrl = getBackUrl(ksScene);
         this.mEcAttribute.setUserCommRateBuying(getUserCommRateBuying(ksScene));
         this.mEcAttribute.setUserCommRateSharing(getUserCommRateSharing(ksScene));
+        if (aw.c() != 0) {
+            this.posId = aw.c();
+        }
     }
 
     private String getComment(KsScene ksScene) {
@@ -95,26 +110,26 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         if (jSONObject == null) {
             return;
         }
-        this.rewardCallbackExtraData = t.b(jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
+        this.rewardCallbackExtraData = s.b(jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        t.a(jSONObject, PrefetchEvent.EVENT_DATA_EXTRA_DATA, t.a(this.rewardCallbackExtraData));
+        s.a(jSONObject, PrefetchEvent.EVENT_DATA_EXTRA_DATA, s.a(this.rewardCallbackExtraData));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m81clone() {
+    public SceneImpl m1024clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();
             sceneImpl.parseJson(new JSONObject(jSONObject));
             return sceneImpl;
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.b(e);
+            com.kwad.sdk.core.d.b.b(e);
             return null;
         }
     }
@@ -148,6 +163,16 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         } catch (Throwable unused) {
             return "";
         }
+    }
+
+    @Override // com.kwad.sdk.api.KsScene
+    public String getBidResponse() {
+        return this.bidResponse;
+    }
+
+    @Override // com.kwad.sdk.api.KsScene
+    public String getBidResponseV2() {
+        return this.bidResponseV2;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -255,6 +280,16 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
+    public void setBidResponse(String str) {
+        this.bidResponse = str;
+    }
+
+    @Override // com.kwad.sdk.api.KsScene
+    public void setBidResponseV2(String str) {
+        this.bidResponseV2 = str;
+    }
+
+    @Override // com.kwad.sdk.api.KsScene
     public void setComment(String str) {
         this.mEcAttribute.setComment(str);
     }
@@ -265,20 +300,20 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setKsAdLabel(com.kwad.sdk.api.model.a aVar) {
-        if (aVar == null) {
+    public void setKsAdLabel(IKsAdLabel iKsAdLabel) {
+        if (iKsAdLabel == null) {
             return;
         }
-        a aVar2 = new a();
-        this.mKsAdLabel = aVar2;
-        aVar2.a = aVar.a();
-        this.mKsAdLabel.b = aVar.b();
-        this.mKsAdLabel.c = aVar.c();
-        this.mKsAdLabel.d = aVar.d();
-        this.mKsAdLabel.e = aVar.e();
-        this.mKsAdLabel.f = aVar.f();
-        this.mKsAdLabel.g = aVar.g();
-        this.mKsAdLabel.h = aVar.h();
+        a aVar = new a();
+        this.mKsAdLabel = aVar;
+        aVar.a = iKsAdLabel.getThirdAge();
+        this.mKsAdLabel.b = iKsAdLabel.getThirdGender();
+        this.mKsAdLabel.c = iKsAdLabel.getThirdInterest();
+        this.mKsAdLabel.d = iKsAdLabel.getPrevTitle();
+        this.mKsAdLabel.e = iKsAdLabel.getPostTitle();
+        this.mKsAdLabel.f = iKsAdLabel.getHistoryTitle();
+        this.mKsAdLabel.g = iKsAdLabel.getChannel();
+        this.mKsAdLabel.h = iKsAdLabel.getCpmBidFloor();
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -300,6 +335,18 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     @Override // com.kwad.sdk.api.KsScene
     public void setScreenOrientation(int i) {
         this.screenOrientation = i;
+    }
+
+    @Override // com.kwad.sdk.api.KsScene
+    public void setSplashExtraData(SplashAdExtraData splashAdExtraData) {
+        if (splashAdExtraData == null) {
+            return;
+        }
+        b bVar = new b();
+        this.splashExtraData = bVar;
+        bVar.a = splashAdExtraData.getDisableShakeStatus();
+        this.splashExtraData.c = splashAdExtraData.getDisableSlideStatus();
+        this.splashExtraData.b = splashAdExtraData.getDisableRotateStatus();
     }
 
     public void setUrlPackage(URLPackage uRLPackage) {
@@ -324,27 +371,30 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "posId", this.posId);
-        t.a(jSONObject, "entryScene", this.entryScene);
-        t.a(jSONObject, "adNum", this.adNum);
-        t.a(jSONObject, "action", this.action);
-        t.a(jSONObject, "width", this.width);
-        t.a(jSONObject, "height", this.height);
+        s.a(jSONObject, "posId", this.posId);
+        s.a(jSONObject, "entryScene", this.entryScene);
+        s.a(jSONObject, "adNum", this.adNum);
+        s.a(jSONObject, "action", this.action);
+        s.a(jSONObject, "width", this.width);
+        s.a(jSONObject, "height", this.height);
         a aVar = this.mKsAdLabel;
         if (aVar != null) {
             long j = aVar.h;
             if (j != 0) {
-                t.a(jSONObject, "cpmBidFloor", j);
+                r.a(jSONObject, "cpmBidFloor", j);
             }
         }
-        t.a(jSONObject, "adStyle", this.adStyle);
-        t.a(jSONObject, "urlPackage", this.urlPackage);
-        t.a(jSONObject, "promoteId", this.mEcAttribute.getPromoteId());
-        t.a(jSONObject, "comment", this.mEcAttribute.getComment());
-        t.a(jSONObject, "backUrl", this.backUrl);
-        t.a(jSONObject, "userCommRateBuying", this.mEcAttribute.getUserCommRateBuying());
-        t.a(jSONObject, "userCommRateSharing", this.mEcAttribute.getUserCommRateSharing());
-        t.a(jSONObject, "screenOrientation", this.screenOrientation);
+        s.a(jSONObject, "adStyle", this.adStyle);
+        URLPackage uRLPackage = this.urlPackage;
+        if (uRLPackage != null) {
+            s.a(jSONObject, "urlPackage", uRLPackage.toJson());
+        }
+        s.a(jSONObject, "promoteId", this.mEcAttribute.getPromoteId());
+        s.a(jSONObject, "comment", this.mEcAttribute.getComment());
+        s.a(jSONObject, "backUrl", this.backUrl);
+        s.a(jSONObject, "userCommRateBuying", this.mEcAttribute.getUserCommRateBuying());
+        s.a(jSONObject, "userCommRateSharing", this.mEcAttribute.getUserCommRateSharing());
+        s.a(jSONObject, "screenOrientation", this.screenOrientation);
         return jSONObject;
     }
 }

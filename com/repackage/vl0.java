@@ -1,7 +1,41 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface vl0 extends ah0 {
-    void a(String str, String str2);
 
-    void c(String str, String str2, String str3);
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public interface vl0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "loadVideo");
+    public static final vl0 b = new a();
+
+    /* loaded from: classes7.dex */
+    public static class a implements vl0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.vl0
+        public void a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            }
+        }
+    }
+
+    void a(String str, int i);
 }

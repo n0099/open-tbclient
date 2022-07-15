@@ -51,6 +51,58 @@ public class a {
         this.j = bool;
     }
 
+    @NonNull
+    public static a a(int i) {
+        return a(i, (DownloadInfo) null);
+    }
+
+    public static a a(int i, DownloadInfo downloadInfo) {
+        a aVar;
+        a aVar2 = g;
+        if (aVar2 == null || aVar2.k != i) {
+            synchronized (a) {
+                aVar = a.get(Integer.valueOf(i));
+            }
+            if (aVar == null) {
+                aVar = downloadInfo == null ? c(i) : b(downloadInfo);
+                synchronized (a) {
+                    a.put(Integer.valueOf(i), aVar);
+                }
+            }
+            aVar.k = i;
+            g = aVar;
+            return aVar;
+        }
+        return aVar2;
+    }
+
+    @NonNull
+    public static a a(DownloadInfo downloadInfo) {
+        return downloadInfo == null ? b : a(downloadInfo.getId(), downloadInfo);
+    }
+
+    @NonNull
+    public static a a(JSONObject jSONObject) {
+        if (jSONObject == null || jSONObject == b() || f) {
+            return b;
+        }
+        a aVar = g;
+        if (aVar == null || aVar.h != jSONObject) {
+            synchronized (a) {
+                for (a aVar2 : a.values()) {
+                    if (aVar2.h == jSONObject) {
+                        g = aVar2;
+                        return aVar2;
+                    }
+                }
+                a aVar3 = new a(jSONObject);
+                g = aVar3;
+                return aVar3;
+            }
+        }
+        return aVar;
+    }
+
     public static void a() {
         JSONObject E = c.E();
         f = E.optInt("disable_task_setting", 0) == 1;
@@ -64,9 +116,117 @@ public class a {
         e = bool;
     }
 
+    public static void a(int i, JSONObject jSONObject) {
+        if (jSONObject == null || jSONObject == b() || f) {
+            return;
+        }
+        synchronized (a) {
+            a aVar = g;
+            if (aVar == null || aVar.h != jSONObject) {
+                aVar = null;
+                Iterator<a> it = a.values().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a next = it.next();
+                    if (next.h == jSONObject) {
+                        next.k = i;
+                        aVar = next;
+                        break;
+                    }
+                }
+                if (aVar == null) {
+                    aVar = new a(jSONObject);
+                    aVar.k = i;
+                }
+                g = aVar;
+            } else {
+                aVar.k = i;
+            }
+            a.put(Integer.valueOf(i), aVar);
+        }
+    }
+
+    public static void a(String str, boolean z) {
+        try {
+            if (d == null) {
+                d = new JSONObject();
+            }
+            d.put(str, z ? 1 : 0);
+        } catch (JSONException unused) {
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0000, code lost:
+        continue;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0026  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a1654612903251dc(String str) {
+        while (true) {
+            char c2 = 'I';
+            char c3 = '`';
+            while (true) {
+                switch (c2) {
+                    case 'H':
+                        c2 = 'J';
+                        c3 = '7';
+                    case 'I':
+                        switch (c3) {
+                            case '_':
+                            case '`':
+                                c2 = 'J';
+                                c3 = '7';
+                        }
+                        break;
+                    case 'J':
+                        break;
+                    default:
+                        c2 = 'H';
+                }
+                switch (c3) {
+                    case '7':
+                        char[] charArray = str.toCharArray();
+                        for (int i = 0; i < charArray.length; i++) {
+                            charArray[i] = (char) (charArray[i] ^ i);
+                        }
+                        return new String(charArray);
+                }
+            }
+        }
+    }
+
+    public static a b(DownloadInfo downloadInfo) {
+        if (f) {
+            return b;
+        }
+        try {
+            String downloadSettingString = downloadInfo.getDownloadSettingString();
+            if (!TextUtils.isEmpty(downloadSettingString)) {
+                return new a(new JSONObject(downloadSettingString));
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+        return b;
+    }
+
     @NonNull
     public static JSONObject b() {
         return c.E();
+    }
+
+    public static void b(int i) {
+        a aVar = g;
+        if (aVar != null && aVar.k == i) {
+            g = null;
+        }
+        synchronized (a) {
+            a.remove(Integer.valueOf(i));
+        }
     }
 
     @NonNull
@@ -74,25 +234,46 @@ public class a {
         return b;
     }
 
+    public static a c(int i) {
+        DownloadInfo downloadInfo;
+        if (f) {
+            return b;
+        }
+        Context N = c.N();
+        return (N == null || (downloadInfo = Downloader.getInstance(N).getDownloadInfo(i)) == null) ? b : b(downloadInfo);
+    }
+
     public static boolean f(String str) {
         JSONObject jSONObject = c;
         return jSONObject != null && jSONObject.optInt(str, 0) == 1;
     }
 
-    public JSONObject d(String str) {
+    public double a(String str, double d2) {
         JSONObject jSONObject = this.h;
-        if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.h.optJSONObject(str);
-        }
-        return b().optJSONObject(str);
+        return ((jSONObject == null || !jSONObject.has(str) || f(str)) ? b() : this.h).optDouble(str, d2);
     }
 
-    public JSONArray e(String str) {
+    public int a(String str, int i) {
         JSONObject jSONObject = this.h;
-        if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.h.optJSONArray(str);
-        }
-        return b().optJSONArray(str);
+        return ((jSONObject == null || !jSONObject.has(str) || f(str)) ? b() : this.h).optInt(str, i);
+    }
+
+    public long a(String str, long j) {
+        JSONObject jSONObject = this.h;
+        return ((jSONObject == null || !jSONObject.has(str) || f(str)) ? b() : this.h).optLong(str, j);
+    }
+
+    public String a(String str, String str2) {
+        JSONObject jSONObject = this.h;
+        return ((jSONObject == null || !jSONObject.has(str) || f(str)) ? b() : this.h).optString(str, str2);
+    }
+
+    public boolean a(String str) {
+        return b(str, false);
+    }
+
+    public int b(String str) {
+        return a(str, 0);
     }
 
     public boolean b(String str, boolean z) {
@@ -122,177 +303,13 @@ public class a {
         return a(str, "");
     }
 
-    public static a c(int i) {
-        DownloadInfo downloadInfo;
-        if (f) {
-            return b;
-        }
-        Context N = c.N();
-        if (N != null && (downloadInfo = Downloader.getInstance(N).getDownloadInfo(i)) != null) {
-            return b(downloadInfo);
-        }
-        return b;
-    }
-
-    public static void a(String str, boolean z) {
-        try {
-            if (d == null) {
-                d = new JSONObject();
-            }
-            d.put(str, z ? 1 : 0);
-        } catch (JSONException unused) {
-        }
-    }
-
-    @NonNull
-    public static a a(int i) {
-        return a(i, (DownloadInfo) null);
-    }
-
-    public int b(String str) {
-        return a(str, 0);
-    }
-
-    @NonNull
-    public static a a(DownloadInfo downloadInfo) {
-        if (downloadInfo == null) {
-            return b;
-        }
-        return a(downloadInfo.getId(), downloadInfo);
-    }
-
-    public static void b(int i) {
-        a aVar = g;
-        if (aVar != null && aVar.k == i) {
-            g = null;
-        }
-        synchronized (a) {
-            a.remove(Integer.valueOf(i));
-        }
-    }
-
-    public static a a(int i, DownloadInfo downloadInfo) {
-        a aVar;
-        a aVar2 = g;
-        if (aVar2 == null || aVar2.k != i) {
-            synchronized (a) {
-                aVar = a.get(Integer.valueOf(i));
-            }
-            if (aVar == null) {
-                aVar = downloadInfo == null ? c(i) : b(downloadInfo);
-                synchronized (a) {
-                    a.put(Integer.valueOf(i), aVar);
-                }
-            }
-            aVar.k = i;
-            g = aVar;
-            return aVar;
-        }
-        return aVar2;
-    }
-
-    public static a b(DownloadInfo downloadInfo) {
-        if (f) {
-            return b;
-        }
-        try {
-            String downloadSettingString = downloadInfo.getDownloadSettingString();
-            if (!TextUtils.isEmpty(downloadSettingString)) {
-                return new a(new JSONObject(downloadSettingString));
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-        return b;
-    }
-
-    public boolean a(String str) {
-        return b(str, false);
-    }
-
-    public int a(String str, int i) {
+    public JSONObject d(String str) {
         JSONObject jSONObject = this.h;
-        if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.h.optInt(str, i);
-        }
-        return b().optInt(str, i);
+        return ((jSONObject == null || !jSONObject.has(str) || f(str)) ? b() : this.h).optJSONObject(str);
     }
 
-    public long a(String str, long j) {
+    public JSONArray e(String str) {
         JSONObject jSONObject = this.h;
-        if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.h.optLong(str, j);
-        }
-        return b().optLong(str, j);
-    }
-
-    public double a(String str, double d2) {
-        JSONObject jSONObject = this.h;
-        if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.h.optDouble(str, d2);
-        }
-        return b().optDouble(str, d2);
-    }
-
-    public String a(String str, String str2) {
-        JSONObject jSONObject = this.h;
-        if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.h.optString(str, str2);
-        }
-        return b().optString(str, str2);
-    }
-
-    @NonNull
-    public static a a(JSONObject jSONObject) {
-        if (jSONObject != null && jSONObject != b() && !f) {
-            a aVar = g;
-            if (aVar == null || aVar.h != jSONObject) {
-                synchronized (a) {
-                    for (a aVar2 : a.values()) {
-                        if (aVar2.h == jSONObject) {
-                            g = aVar2;
-                            return aVar2;
-                        }
-                    }
-                    a aVar3 = new a(jSONObject);
-                    g = aVar3;
-                    return aVar3;
-                }
-            }
-            return aVar;
-        }
-        return b;
-    }
-
-    public static void a(int i, JSONObject jSONObject) {
-        if (jSONObject == null || jSONObject == b() || f) {
-            return;
-        }
-        synchronized (a) {
-            a aVar = g;
-            if (aVar != null && aVar.h == jSONObject) {
-                aVar.k = i;
-            } else {
-                aVar = null;
-                Iterator<a> it = a.values().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    a next = it.next();
-                    if (next.h == jSONObject) {
-                        next.k = i;
-                        aVar = next;
-                        break;
-                    }
-                }
-                if (aVar == null) {
-                    aVar = new a(jSONObject);
-                    aVar.k = i;
-                }
-                g = aVar;
-            }
-            a.put(Integer.valueOf(i), aVar);
-        }
+        return ((jSONObject == null || !jSONObject.has(str) || f(str)) ? b() : this.h).optJSONArray(str);
     }
 }

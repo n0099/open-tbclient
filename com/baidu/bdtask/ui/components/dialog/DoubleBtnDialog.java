@@ -36,7 +36,7 @@ public final class DoubleBtnDialog extends a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d072c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d074a : invokeV.intValue;
     }
 
     @Override // com.baidu.bdtask.ui.components.dialog.a
@@ -46,13 +46,13 @@ public final class DoubleBtnDialog extends a {
             super.f();
             TaskDialogViewData a = a();
             if (a != null) {
-                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f090786);
-                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090787);
+                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f09078d);
+                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f09078e);
                 Intrinsics.checkExpressionValueIsNotNull(btn, "btn");
                 Intrinsics.checkExpressionValueIsNotNull(btnImage, "btnImage");
                 b(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new DoubleBtnDialog$initExtraView$1(this, a));
-                TextView cancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f090784);
-                ImageView cancelBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090785);
+                TextView cancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f09078b);
+                ImageView cancelBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f09078c);
                 Intrinsics.checkExpressionValueIsNotNull(cancelBtn, "cancelBtn");
                 Intrinsics.checkExpressionValueIsNotNull(cancelBtnImage, "cancelBtnImage");
                 b(cancelBtn, cancelBtnImage, a.getCancelBtnTxt(), a.getCancelBtnTxtColor(), a.getCancelBtnBgUrl(), new DoubleBtnDialog$initExtraView$2(this, a));

@@ -1,42 +1,35 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import org.json.JSONException;
-import org.json.JSONObject;
-@SuppressLint({"SwanCommentWar"})
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class mm2 implements rp2 {
+public final class mm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public lm2 b;
-    public String c;
-    public String d;
-    public double e;
-    public double f;
-    public int g;
-    public int h;
-    public b i;
-    public c j;
-    public a k;
+    public final om2 a;
+    public final List<nm2> b;
+    public Boolean c;
+    public nm2 d;
 
-    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes6.dex */
-    public static class a implements rp2 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public double a;
-        public double b;
+        public om2 a;
+        public List<nm2> b;
+        public RuntimeException c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,278 +41,156 @@ public class mm2 implements rp2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = 0.5d;
-            this.b = 1.0d;
         }
 
-        @Override // com.repackage.rp2
-        public void a(JSONObject jSONObject) throws JSONException {
+        @SuppressLint({"BDThrowableCheck"})
+        public a a(@NonNull List<nm2> list) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                if (list.contains(null)) {
+                    this.c = new IllegalArgumentException("branches contains null value");
+                    if (!mm2.e) {
+                        this.b = null;
+                        return this;
+                    }
+                    throw this.c;
+                }
+                for (nm2 nm2Var : list) {
+                    if (nm2Var.c() + 0 > 100) {
+                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!mm2.e) {
+                            this.b = null;
+                            return this;
+                        }
+                        throw this.c;
+                    }
+                }
+                this.b = Collections.unmodifiableList(list);
+                return this;
             }
-            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
-            double d = 1.0d;
-            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d2 = this.a;
-            if (d2 < 0.0d) {
-                d2 = 0.0d;
-            } else if (d2 > 1.0d) {
-                d2 = 1.0d;
-            }
-            this.a = d2;
-            double d3 = this.b;
-            if (d3 < 0.0d) {
-                d = 0.0d;
-            } else if (d3 <= 1.0d) {
-                d = d3;
-            }
-            this.b = d;
+            return (a) invokeL.objValue;
         }
 
-        @Override // com.repackage.rp2
-        public boolean isValid() {
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public mm2 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class b extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public String g;
-        public int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(mm2 mm2Var) {
-            super(mm2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mm2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((mm2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = "BYCLICK";
-            this.h = -1;
-        }
-
-        @Override // com.repackage.mm2.d, com.repackage.rp2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
-            jSONObject.optDouble("borderWidth", 0.0d);
-            this.g = jSONObject.has(CriusAttrConstants.DISPLAY) ? jSONObject.optString(CriusAttrConstants.DISPLAY) : "BYCLICK";
-            this.h = fm2.a(jSONObject.optString("bgColor"), -1);
-            fm2.a(jSONObject.optString("borderColor"), this.h);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class c extends d implements rp2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public float g;
-        public float h;
-        public int i;
-        public float j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(mm2 mm2Var) {
-            super(mm2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mm2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((mm2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = 0.0f;
-            this.h = 0.0f;
-            this.i = 0;
-            this.j = 0.0f;
-        }
-
-        @Override // com.repackage.mm2.d, com.repackage.rp2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = fm2.b(jSONObject.optDouble("x", 0.0d));
-            float b = fm2.b(jSONObject.optDouble("y", 0.0d));
-            this.g = b;
-            if (this.f == 0.0f && b == 0.0f) {
-                this.f = fm2.b(jSONObject.optDouble("anchorX", 0.0d));
-                this.g = fm2.b(jSONObject.optDouble("anchorY", 0.0d));
-            }
-            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
-            this.i = fm2.a(jSONObject.optString("borderColor"), 0);
-            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes6.dex */
-    public static class d implements rp2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public float c;
-        public int d;
-        public float e;
-
-        public d(mm2 mm2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mm2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = -16777216;
-            this.c = fm2.b(10.0d);
-            this.d = 0;
-            this.e = 0.0f;
-        }
-
-        @Override // com.repackage.rp2
-        public void a(JSONObject jSONObject) throws JSONException {
-            float b;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("content")) {
-                this.a = jSONObject.optString("content");
-                this.b = fm2.a(jSONObject.optString("color"), -16777216);
-                if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
-                    b = Math.abs(fm2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
+                if (this.c != null) {
+                    if (mm2.e) {
+                        throw this.c;
+                    }
+                    return null;
+                } else if (this.a == null) {
+                    this.c = new IllegalStateException("testSwitch == null");
+                    if (mm2.e) {
+                        throw this.c;
+                    }
+                    return null;
                 } else {
-                    b = fm2.b(10.0d);
-                }
-                this.c = b;
-                this.d = fm2.a(jSONObject.optString("bgColor"), 0);
-                this.e = fm2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
-                if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
-                    jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+                    List<nm2> list = this.b;
+                    if (list == null) {
+                        this.c = new IllegalStateException("branches == null");
+                        if (mm2.e) {
+                            throw this.c;
+                        }
+                        return null;
+                    }
+                    for (nm2 nm2Var : list) {
+                        if (!om2.c(this.a.f(), nm2Var.e)) {
+                            this.c = new IllegalStateException("branch valueType error");
+                            if (mm2.e) {
+                                throw this.c;
+                            }
+                            return null;
+                        }
+                    }
+                    return new mm2(this);
                 }
             }
+            return (mm2) invokeV.objValue;
         }
 
-        @Override // com.repackage.rp2
-        public boolean isValid() {
-            InterceptResult invokeV;
+        public a c(@NonNull om2 om2Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, om2Var)) == null) {
+                this.a = om2Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
-    public mm2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755494561, "Lcom/repackage/mm2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755494561, "Lcom/repackage/mm2;");
+                return;
+            }
+        }
+        e = rg1.a;
+    }
+
+    public mm2(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = 0.0d;
-        this.f = 1.0d;
-        this.g = -1;
-        this.h = -1;
+        this.c = Boolean.FALSE;
+        this.a = aVar.a;
+        this.b = aVar.b;
     }
 
-    @Override // com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        lm2 lm2Var = new lm2();
-        this.b = lm2Var;
-        lm2Var.a(jSONObject);
-        if (this.b.isValid()) {
-            String optString = jSONObject.optString("markerId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
-            }
-            this.c = jSONObject.optString("title");
-            this.d = jSONObject.optString("iconPath");
-            this.e = jSONObject.optDouble(AnimationProperty.ROTATE, 0.0d);
-            this.f = Math.abs(jSONObject.optDouble(AnimationProperty.OPACITY, 1.0d));
-            this.g = jSONObject.has("width") ? Math.abs(jd3.g(jSONObject.optInt("width"))) : -1;
-            this.h = jSONObject.has("height") ? Math.abs(jd3.g(jSONObject.optInt("height"))) : -1;
-            jSONObject.optInt("zIndex", 0);
-            b bVar = new b(this);
-            this.i = bVar;
-            bVar.a(jSONObject.optJSONObject("callout"));
-            c cVar = new c(this);
-            this.j = cVar;
-            cVar.a(jSONObject.optJSONObject("label"));
-            a aVar = new a();
-            this.k = aVar;
-            aVar.a(jSONObject.optJSONObject("anchor"));
-        }
-    }
-
-    @Override // com.repackage.rp2
-    public boolean isValid() {
+    @Nullable
+    public synchronized nm2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            lm2 lm2Var = this.b;
-            return lm2Var != null && lm2Var.isValid();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c.booleanValue()) {
+                    return this.d;
+                }
+                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
+                this.c = Boolean.TRUE;
+                for (int i = 0; i < this.b.size(); i++) {
+                    nm2 nm2Var = this.b.get(i);
+                    currentTimeMillis -= nm2Var.c();
+                    if (currentTimeMillis < 0) {
+                        this.d = nm2Var;
+                        return nm2Var;
+                    }
+                }
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (nm2) invokeV.objValue;
+    }
+
+    @NonNull
+    public om2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (om2) invokeV.objValue;
     }
 }

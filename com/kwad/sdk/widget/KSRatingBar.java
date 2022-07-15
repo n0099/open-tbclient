@@ -28,7 +28,6 @@ public class KSRatingBar extends LinearLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(float f);
     }
 
     public KSRatingBar(Context context, AttributeSet attributeSet) {
@@ -36,9 +35,9 @@ public class KSRatingBar extends LinearLayout {
         this.l = 1;
         this.m = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca6));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c13));
         setShowDividers(2);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040350, R.attr.obfuscated_res_0x7f040364, R.attr.obfuscated_res_0x7f040377, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f04037c, R.attr.obfuscated_res_0x7f04037d, R.attr.obfuscated_res_0x7f040397});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040349, R.attr.obfuscated_res_0x7f040367, R.attr.obfuscated_res_0x7f04037e, R.attr.obfuscated_res_0x7f04037f, R.attr.obfuscated_res_0x7f040380, R.attr.obfuscated_res_0x7f040381, R.attr.obfuscated_res_0x7f040382, R.attr.obfuscated_res_0x7f040383, R.attr.obfuscated_res_0x7f040384, R.attr.obfuscated_res_0x7f04039e});
         this.k = obtainStyledAttributes.getDrawable(5);
         this.i = obtainStyledAttributes.getDrawable(3);
         this.j = obtainStyledAttributes.getDrawable(4);
@@ -53,38 +52,29 @@ public class KSRatingBar extends LinearLayout {
             ImageView a2 = a(context, this.m);
             a2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.KSRatingBar.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    KSRatingBar kSRatingBar;
-                    float indexOfChild;
-                    a aVar;
-                    float indexOfChild2;
+                public final void onClick(View view2) {
                     if (KSRatingBar.this.a) {
                         if (!KSRatingBar.this.b) {
-                            KSRatingBar kSRatingBar2 = KSRatingBar.this;
-                            kSRatingBar2.setStar(kSRatingBar2.indexOfChild(view2) + 1.0f);
+                            KSRatingBar kSRatingBar = KSRatingBar.this;
+                            kSRatingBar.setStar(kSRatingBar.indexOfChild(view2) + 1.0f);
                             if (KSRatingBar.this.e != null) {
-                                KSRatingBar.this.e.a(KSRatingBar.this.indexOfChild(view2) + 1.0f);
+                                a unused = KSRatingBar.this.e;
+                                KSRatingBar.this.indexOfChild(view2);
                                 return;
                             }
                             return;
                         }
                         if (KSRatingBar.this.l % 2 == 0) {
-                            kSRatingBar = KSRatingBar.this;
-                            indexOfChild = kSRatingBar.indexOfChild(view2) + 1.0f;
+                            KSRatingBar kSRatingBar2 = KSRatingBar.this;
+                            kSRatingBar2.setStar(kSRatingBar2.indexOfChild(view2) + 1.0f);
                         } else {
-                            kSRatingBar = KSRatingBar.this;
-                            indexOfChild = kSRatingBar.indexOfChild(view2) + 0.5f;
+                            KSRatingBar kSRatingBar3 = KSRatingBar.this;
+                            kSRatingBar3.setStar(kSRatingBar3.indexOfChild(view2) + 0.5f);
                         }
-                        kSRatingBar.setStar(indexOfChild);
                         if (KSRatingBar.this.e != null) {
-                            if (KSRatingBar.this.l % 2 == 0) {
-                                aVar = KSRatingBar.this.e;
-                                indexOfChild2 = KSRatingBar.this.indexOfChild(view2) + 1.0f;
-                            } else {
-                                aVar = KSRatingBar.this.e;
-                                indexOfChild2 = KSRatingBar.this.indexOfChild(view2) + 0.5f;
-                            }
-                            aVar.a(indexOfChild2);
+                            int i2 = KSRatingBar.this.l % 2;
+                            a unused2 = KSRatingBar.this.e;
+                            KSRatingBar.this.indexOfChild(view2);
                             KSRatingBar.e(KSRatingBar.this);
                         }
                     }

@@ -1,238 +1,128 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes6.dex */
-public class m24 implements jh1 {
+public class m24 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReentrantLock c;
+    public static volatile m24 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<re3> a;
-    public FrameLayout b;
-    public boolean c;
-    public boolean d;
+    public List<o24> a;
+    public p24 b;
 
-    public m24(@NonNull FrameLayout frameLayout) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755551198, "Lcom/repackage/m24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755551198, "Lcom/repackage/m24;");
+                return;
+            }
+        }
+        c = new ReentrantLock();
+    }
+
+    public m24() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frameLayout};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.d = false;
-        this.b = frameLayout;
+        this.a = new ArrayList(3);
     }
 
-    @Override // com.repackage.jh1
-    public boolean a(View view2, yp2 yp2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, yp2Var)) == null) {
-            if (d(view2)) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yp2Var.f(), yp2Var.c());
-                layoutParams.leftMargin = yp2Var.d();
-                layoutParams.topMargin = yp2Var.e();
-                this.b.updateViewLayout(view2, layoutParams);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.jh1
-    public boolean b() {
+    public static m24 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.jh1
-    public boolean c(View view2, yp2 yp2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, yp2Var)) == null) {
-            if (view2 == null || yp2Var == null) {
-                return false;
-            }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yp2Var.f(), yp2Var.c());
-            layoutParams.leftMargin = yp2Var.d();
-            layoutParams.topMargin = yp2Var.e();
-            this.b.addView(view2, layoutParams);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.jh1
-    public boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            ViewParent parent = view2.getParent();
-            FrameLayout frameLayout = this.b;
-            return parent == frameLayout && frameLayout.indexOfChild(view2) >= 0;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.jh1
-    public synchronized void e(re3 re3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, re3Var) == null) {
-            synchronized (this) {
-                if (re3Var == null) {
-                    return;
-                }
-                if (!this.a.contains(re3Var)) {
-                    this.a.add(re3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (m24.class) {
+                    if (d == null) {
+                        d = new m24();
+                    }
                 }
             }
+            return d;
+        }
+        return (m24) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.a.clear();
         }
     }
 
-    @Override // com.repackage.jh1
-    public synchronized void f(re3 re3Var) {
+    public final void c(o24 o24Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, re3Var) == null) {
-            synchronized (this) {
-                if (re3Var == null) {
-                    return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o24Var) == null) {
+            c.lock();
+            try {
+                if (this.b != null) {
+                    this.b.a(o24Var);
+                } else {
+                    this.a.add(o24Var);
                 }
-                this.a.remove(re3Var);
+            } finally {
+                c.unlock();
             }
         }
     }
 
-    @Override // com.repackage.jh1
-    public void g(boolean z) {
+    public void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            hx1.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
+            o24 o24Var = new o24(str);
+            o24Var.hasUpdate = z;
+            c(o24Var);
         }
     }
 
-    @Override // com.repackage.jh1
-    public Context getContext() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b.getContext() : (Context) invokeV.objValue;
-    }
-
-    @Override // com.repackage.jh1
-    public FrameLayout getRootView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.repackage.jh1
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final synchronized void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
-        }
-    }
-
-    public final synchronized re3[] j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                re3[] re3VarArr = new re3[this.a.size()];
-                this.a.toArray(re3VarArr);
-                return re3VarArr;
-            }
-        }
-        return (re3[]) invokeV.objValue;
-    }
-
-    public void k() {
-        re3[] j;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (j = j()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.isEmpty() || this.b == null) {
             return;
         }
-        for (re3 re3Var : j) {
-            re3Var.g();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            re3[] j = j();
-            if (j != null) {
-                for (re3 re3Var : j) {
-                    re3Var.b();
-                }
+        c.lock();
+        try {
+            for (o24 o24Var : this.a) {
+                this.b.a(o24Var);
             }
-            i();
+            this.a.clear();
+        } finally {
+            c.unlock();
         }
     }
 
-    public void m() {
-        re3[] j;
+    public void f(p24 p24Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (j = j()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p24Var) == null) {
+            this.b = p24Var;
+            e();
         }
-        for (re3 re3Var : j) {
-            re3Var.n();
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.repackage.jh1
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
-            if (d(view2)) {
-                this.b.removeView(view2);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

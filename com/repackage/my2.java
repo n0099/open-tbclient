@@ -1,48 +1,52 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.os.Bundle;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ny2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class my2 extends Handler {
+public final class my2 extends hw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView3d a;
 
-    public my2(WheelView3d wheelView3d) {
+    public my2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = wheelView3d;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    @Override // com.repackage.hw2
+    public void b(Bundle params) {
+        ny2.a b;
+        ny2.a b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i == 1000) {
-                this.a.invalidate();
-            } else if (i == 2000) {
-                this.a.r(WheelView3d.ACTION.FLING);
-            } else if (i != 3000) {
-            } else {
-                this.a.n();
+        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+            String string2 = params.getString("swanId");
+            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String string4 = params.getString("hostName");
+            if (ProcessUtils.isMainProcess()) {
+                if (string != null && (b2 = ny2.c.b()) != null) {
+                    b2.a(string, string3, string4);
+                }
+                if (string2 == null || (b = ny2.c.b()) == null) {
+                    return;
+                }
+                b.b(string2, string3, string4);
             }
         }
     }

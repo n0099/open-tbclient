@@ -1,35 +1,43 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.contentalliance.coupon.model.CouponStatus;
-import com.kwad.sdk.contentalliance.coupon.model.CouponStatusInfo;
-import com.kwad.sdk.core.response.model.SdkConfigData;
+import com.kwad.sdk.core.report.u;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class aq implements com.kwad.sdk.core.d<CouponStatus> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(CouponStatus couponStatus, JSONObject jSONObject) {
+public final class aq implements com.kwad.sdk.core.d<u.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(u.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        couponStatus.couponActiveConfig = new SdkConfigData.CouponActiveConfig();
-        couponStatus.couponActiveConfig.parseJson(jSONObject.optJSONObject("couponActiveConfig"));
-        couponStatus.couponStatusInfo = new CouponStatusInfo();
-        couponStatus.couponStatusInfo.parseJson(jSONObject.optJSONObject("couponStatusInfo"));
-        couponStatus.currentWatchVideoCount = jSONObject.optInt("currentWatchVideoCount");
-        couponStatus.winningTimes = jSONObject.optInt("winningTimes");
+        aVar.a = jSONObject.optString("template_id");
+        if (jSONObject.opt("template_id") == JSONObject.NULL) {
+            aVar.a = "";
+        }
+        aVar.c = jSONObject.optString("template_show_type");
+        if (jSONObject.opt("template_show_type") == JSONObject.NULL) {
+            aVar.c = "";
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(CouponStatus couponStatus, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(u.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "couponActiveConfig", couponStatus.couponActiveConfig);
-        com.kwad.sdk.utils.t.a(jSONObject, "couponStatusInfo", couponStatus.couponStatusInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "currentWatchVideoCount", couponStatus.currentWatchVideoCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "winningTimes", couponStatus.winningTimes);
+        com.kwad.sdk.utils.r.a(jSONObject, "template_id", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "template_show_type", aVar.c);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(u.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(u.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

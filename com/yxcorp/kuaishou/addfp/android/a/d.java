@@ -1,408 +1,357 @@
 package com.yxcorp.kuaishou.addfp.android.a;
 
 import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
 import android.provider.Settings;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
-import com.yxcorp.kuaishou.addfp.android.Orange;
-import com.yxcorp.kuaishou.addfp.android.b.f;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yxcorp.kuaishou.addfp.android.b.g;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.ListIterator;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class d {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b = "";
+public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile d d;
     public transient /* synthetic */ FieldHolder $fh;
+    public e a;
+    public ConcurrentHashMap b;
+    public Context c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-28101665, "Lcom/yxcorp/kuaishou/addfp/android/a/d;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-28101665, "Lcom/yxcorp/kuaishou/addfp/android/a/d;");
-        }
-    }
-
-    public static long a() {
-        InterceptResult invokeV;
+    public d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return statFs.getBlockCount() * statFs.getBlockSize();
-            } catch (Throwable unused) {
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.longValue;
+        this.a = null;
+        this.b = new ConcurrentHashMap(10);
+        try {
+            this.c = context;
+            this.a = new e(context);
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    public static String a(Context context) {
+    public static d a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{"android.permission.READ_PHONE_STATE"})) {
-                    String str = "";
-                    if (Build.VERSION.SDK_INT < 29) {
-                        try {
-                            str = f.a(context).a.b();
-                        } catch (Throwable unused) {
-                        }
-                        if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
-                            str = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-                        }
-                        return TextUtils.isEmpty(str) ? "KWE_N" : str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (d == null) {
+                synchronized (d.class) {
+                    if (d == null) {
+                        d = new d(context);
                     }
-                    String[] a2 = com.yxcorp.kuaishou.addfp.android.b.b.a(context);
-                    Arrays.sort(a2);
-                    for (int i = 0; i < 2; i++) {
-                        String str2 = a2[i];
-                        if (!TextUtils.isEmpty(str2) && !str2.startsWith("KWE")) {
-                            str = str2;
-                        }
-                    }
-                    return str;
                 }
-                return "KWE_PN";
-            } catch (Throwable unused2) {
-                return "KWE_PE";
             }
+            return d;
         }
-        return (String) invokeL.objValue;
+        return (d) invokeL.objValue;
     }
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
+    private String a(HashMap hashMap) {
+        ObjectOutputStream objectOutputStream;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            try {
-                return Settings.System.getString(context.getContentResolver(), str);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
-            try {
-                return Settings.System.putString(context.getContentResolver(), str, str2);
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Throwable th;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65541, null)) != null) {
-            return invokeV.longValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, this, hashMap)) != null) {
+            return (String) invokeL.objValue;
         }
         try {
-            bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
             try {
-                long parseLong = Long.parseLong(bufferedReader.readLine().split("\\s+")[1]) << 10;
+                objectOutputStream.writeObject(hashMap);
+                String str = new String(Base64.encode(com.yxcorp.kuaishou.addfp.android.b.b.c(byteArrayOutputStream.toByteArray(), "20212102sjcudiab".getBytes()), 0));
                 try {
-                    bufferedReader.close();
+                    objectOutputStream.close();
                 } catch (IOException unused) {
                 }
-                return parseLong;
-            } catch (Throwable th2) {
-                th = th2;
+                return str;
+            } catch (Throwable th) {
+                th = th;
                 try {
                     th.printStackTrace();
-                    if (bufferedReader != null) {
+                    if (objectOutputStream != null) {
                         try {
-                            bufferedReader.close();
-                            return 0L;
+                            objectOutputStream.close();
+                            return "";
                         } catch (IOException unused2) {
-                            return 0L;
+                            return "";
                         }
                     }
-                    return 0L;
-                } catch (Throwable th3) {
-                    if (bufferedReader != null) {
+                    return "";
+                } catch (Throwable th2) {
+                    if (objectOutputStream != null) {
                         try {
-                            bufferedReader.close();
+                            objectOutputStream.close();
                         } catch (IOException unused3) {
                         }
                     }
-                    throw th3;
+                    throw th2;
                 }
             }
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = null;
+        } catch (Throwable th3) {
+            th = th3;
+            objectOutputStream = null;
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        String str;
-        TelephonyManager telephonyManager;
+    public static void a(Context context, String str) {
+        Throwable th;
+        FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             try {
-                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{"android.permission.READ_PHONE_STATE"}) || Build.VERSION.SDK_INT >= 29) {
-                    return "";
+                if (TextUtils.isEmpty(str)) {
+                    return;
                 }
                 try {
-                    str = f.a(context).a.a();
-                } catch (Throwable unused) {
-                    str = "";
+                    File file = new File(com.yxcorp.kuaishou.addfp.android.b.b.a(context, false), new String(Base64.decode("Lm91a2R0ZnQ=", 0)));
+                    new File(file.getParent()).mkdirs();
+                    fileWriter = new FileWriter(file, false);
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileWriter = null;
                 }
-                if ((TextUtils.isEmpty(str) || str.startsWith("KWE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
-                    String deviceId = telephonyManager.getDeviceId();
-                    return TextUtils.isEmpty(deviceId) ? "" : deviceId;
+                try {
+                    fileWriter.write(str);
+                    fileWriter.flush();
+                    fileWriter.close();
+                    fileWriter.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                    try {
+                        th.printStackTrace();
+                        if (fileWriter != null) {
+                            fileWriter.close();
+                        }
+                    } catch (Throwable th4) {
+                        if (fileWriter != null) {
+                            try {
+                                fileWriter.close();
+                            } catch (IOException unused) {
+                            }
+                        }
+                        throw th4;
+                    }
                 }
-                return str;
-            } catch (Throwable th) {
-                th.printStackTrace();
+            } catch (IOException unused2) {
+            }
+        }
+    }
+
+    public synchronized Pair a() {
+        InterceptResult invokeV;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    StringBuilder sb = new StringBuilder();
+                    if (!TextUtils.isEmpty((String) this.b.get("cache_e"))) {
+                        return Pair.create(Pair.create(Boolean.TRUE, sb.toString()), this.b);
+                    }
+                }
+                this.b.clear();
+                String b = this.a.b();
+                if (!TextUtils.isEmpty(b)) {
+                    try {
+                        bArr = Base64.decode(b, 0);
+                    } catch (Throwable unused) {
+                        bArr = null;
+                    }
+                    if (bArr == null) {
+                        try {
+                            bArr = Base64.decode(b, 8);
+                        } catch (Throwable unused2) {
+                        }
+                    }
+                    JSONObject jSONObject = new JSONObject(new String(com.yxcorp.kuaishou.addfp.android.b.b.b(bArr, "20212102sjcudiab".getBytes())));
+                    this.b.put("cache_e", jSONObject.optString("cache_e", ""));
+                    this.b.put("cache_m", jSONObject.optString("cache_m", ""));
+                    this.b.put("c_time", Long.toString(jSONObject.optLong("c_time", 0L)));
+                }
+                ConcurrentHashMap concurrentHashMap = this.b;
+                if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
+                    StringBuilder sb2 = new StringBuilder();
+                    if (!TextUtils.isEmpty((String) this.b.get("cache_e"))) {
+                        return Pair.create(Pair.create(Boolean.TRUE, sb2.toString()), this.b);
+                    }
+                }
+                return Pair.create(Pair.create(Boolean.TRUE, "8"), null);
+            }
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        try {
+            File file = new File(com.yxcorp.kuaishou.addfp.android.b.b.a(this.c, false), new String(Base64.decode(str, 0)));
+            if (!file.exists()) {
                 return "";
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:22:0x0037
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    public static synchronized java.lang.String c() {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.yxcorp.kuaishou.addfp.android.a.d.$ic
-            if (r0 != 0) goto L3a
-        L4:
-            java.lang.Class<com.yxcorp.kuaishou.addfp.android.a.d> r0 = com.yxcorp.kuaishou.addfp.android.a.d.class
-            monitor-enter(r0)
-            java.lang.String r1 = com.yxcorp.kuaishou.addfp.android.a.d.a     // Catch: java.lang.Throwable -> L33
-            boolean r1 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L33
-            if (r1 != 0) goto L13
-            java.lang.String r1 = com.yxcorp.kuaishou.addfp.android.a.d.a     // Catch: java.lang.Throwable -> L33
-            monitor-exit(r0)
-            return r1
-        L13:
-            com.yxcorp.kuaishou.addfp.android.Orange r1 = com.yxcorp.kuaishou.addfp.android.Orange.getInstance()     // Catch: java.lang.Throwable -> L33
-            java.lang.String r1 = r1.gMas()     // Catch: java.lang.Throwable -> L33
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L33
-            java.lang.String r3 = "nammm :"
-            r2.<init>(r3)     // Catch: java.lang.Throwable -> L33
-            r2.append(r1)     // Catch: java.lang.Throwable -> L33
-            boolean r2 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L33
-            if (r2 != 0) goto L2f
-            com.yxcorp.kuaishou.addfp.android.a.d.a = r1     // Catch: java.lang.Throwable -> L33
-            monitor-exit(r0)
-            return r1
-        L2f:
-            java.lang.String r1 = "KWE_OTHER"
-            monitor-exit(r0)
-            return r1
-        L33:
-            java.lang.String r1 = "KWE_PE"
-            monitor-exit(r0)
-            return r1
-        L37:
-            r1 = move-exception
-            monitor-exit(r0)
-            throw r1
-        L3a:
-            r1 = r0
-            r2 = 65543(0x10007, float:9.1845E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeV(r2, r3)
-            if (r0 == 0) goto L4
-            java.lang.Object r1 = r0.objValue
-            java.lang.String r1 = (java.lang.String) r1
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.yxcorp.kuaishou.addfp.android.a.d.c():java.lang.String");
-    }
-
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            try {
-                return context.getPackageName().replace("=", "").replace("&", "");
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "KWE_PE";
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    bufferedReader.close();
+                    return sb.toString().trim();
+                }
+                sb.append(readLine);
             }
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return "";
         }
-        return (String) invokeL.objValue;
     }
 
-    public static synchronized String d() {
-        InterceptResult invokeV;
+    public synchronized void a(String str, String str2) {
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (d.class) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            synchronized (this) {
+                LinkedHashMap linkedHashMap = null;
                 try {
-                    if (TextUtils.isEmpty(b)) {
-                        String gMas = Orange.getInstance().gMas();
-                        new StringBuilder("user dis :").append(gMas);
-                        if (!TextUtils.isEmpty(gMas)) {
-                            byte[] bytes = gMas.getBytes();
-                            for (int i = 0; i < bytes.length; i++) {
-                                bytes[i] = (byte) (bytes[i] ^ 165);
-                            }
-                            b = "fuels:" + Base64.encodeToString(bytes, 0).replace("\n", "").replace("\r", "");
-                        }
-                        if (TextUtils.isEmpty(b)) {
-                            b = "KWE_N";
-                            return "KWE_N";
-                        }
-                        return b;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.b.put("c_time", Long.toString(currentTimeMillis));
+                    this.b.put("cache_e", str);
+                    this.b.put("cache_m", str2);
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("c_time", currentTimeMillis);
+                    jSONObject.put("cache_e", str);
+                    jSONObject.put("cache_m", str2);
+                    byte[] c = com.yxcorp.kuaishou.addfp.android.b.b.c(jSONObject.toString().getBytes(), "20212102sjcudiab".getBytes());
+                    try {
+                        bArr = Base64.encode(c, 0);
+                    } catch (Throwable unused) {
+                        bArr = null;
                     }
-                    return b;
+                    if (bArr == null) {
+                        try {
+                            bArr = Base64.encode(c, 8);
+                        } catch (Throwable unused2) {
+                        }
+                    }
+                    if (bArr != null) {
+                        this.a.a(new String(bArr));
+                    }
+                } catch (Throwable unused3) {
+                }
+                try {
+                    String a = com.yxcorp.kuaishou.addfp.c.a.a.a(this.c, "k_w_o_d_out_dtt");
+                    if (TextUtils.isEmpty(a) && g.a(this.c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        a = a("Lm91a2R0ZnQ=");
+                    }
+                    if (!TextUtils.isEmpty(a) && (linkedHashMap = b(a)) != null) {
+                        c cVar = b.a;
+                        String a2 = cVar.a();
+                        if (!TextUtils.isEmpty(a2)) {
+                            if (linkedHashMap.containsKey(a2)) {
+                                linkedHashMap.remove(a2);
+                            }
+                            linkedHashMap.put(cVar.a(), str);
+                        }
+                    }
+                    if (linkedHashMap == null || linkedHashMap.size() == 0) {
+                        linkedHashMap = new LinkedHashMap();
+                        linkedHashMap.put(b.a.a(), str);
+                    }
+                    String a3 = a(linkedHashMap);
+                    if (!TextUtils.isEmpty(a3)) {
+                        try {
+                            Settings.System.putString(this.c.getContentResolver(), "k_w_o_d_out_dtt", a3);
+                        } catch (Throwable unused4) {
+                        }
+                        if (g.a(this.c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                            a(this.c, a3);
+                        }
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
                 }
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String d(Context context) {
+    public LinkedHashMap b(String str) {
         InterceptResult invokeL;
+        Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            try {
-                String eGidLocal = KWEGIDDFP.instance().getEGidLocal(context, b.a.b(), false);
-                return !TextUtils.isEmpty(eGidLocal) ? eGidLocal : "KWE_N";
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "KWE_PE";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ObjectInputStream objectInputStream = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00b0 A[Catch: all -> 0x009e, TRY_LEAVE, TryCatch #1 {all -> 0x009e, blocks: (B:37:0x00a8, B:39:0x00b0), top: B:56:0x00a8 }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c6 A[Catch: all -> 0x00cd, TRY_LEAVE, TryCatch #0 {all -> 0x00cd, blocks: (B:5:0x0008, B:8:0x001a, B:10:0x0027, B:12:0x0035, B:20:0x005b, B:22:0x0061, B:24:0x0067, B:26:0x0071, B:30:0x0081, B:32:0x0087, B:33:0x009e, B:41:0x00c0, B:43:0x00c6, B:28:0x0077, B:14:0x003c, B:16:0x0049, B:18:0x0057), top: B:54:0x0008 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        String str;
-        LinkedHashMap a2;
-        int i;
-        ListIterator listIterator;
-        JSONObject jSONObject;
-        Map.Entry entry;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             try {
-                String a3 = a(context, "k_w_o_d_out_dtt");
-                String str2 = "";
-                if (TextUtils.isEmpty(a3)) {
-                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"});
-                    com.yxcorp.kuaishou.addfp.android.b.b.a();
-                    if (!b2) {
-                        str = "KWE_PN";
-                        if (TextUtils.isEmpty(a3) || !TextUtils.isEmpty(str2)) {
-                            a2 = c.a(context).a(a3);
-                            if (a2 != null || a2.size() == 0) {
-                                a2 = c.a(context).a(str2);
-                            }
-                            if (a2 != null && a2.size() > 0) {
-                                i = 0;
-                                listIterator = new ArrayList(a2.entrySet()).listIterator(a2.size());
-                                jSONObject = new JSONObject();
-                                while (listIterator.hasPrevious() && i < 10) {
-                                    try {
-                                        entry = (Map.Entry) listIterator.previous();
-                                        if (entry != null) {
-                                            jSONObject.put((String) entry.getKey(), entry.getValue());
-                                        }
-                                        i++;
-                                    } catch (Throwable unused) {
-                                    }
-                                }
-                                if (jSONObject.length() > 0) {
-                                    return jSONObject.toString();
+                if (!TextUtils.isEmpty(str)) {
+                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new ByteArrayInputStream(com.yxcorp.kuaishou.addfp.android.b.b.b(Base64.decode(str.getBytes(), 0), "20212102sjcudiab".getBytes())));
+                    try {
+                        LinkedHashMap linkedHashMap = (LinkedHashMap) objectInputStream2.readObject();
+                        try {
+                            objectInputStream2.close();
+                        } catch (IOException unused) {
+                        }
+                        return linkedHashMap;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        objectInputStream = objectInputStream2;
+                        try {
+                            th.printStackTrace();
+                            if (objectInputStream != null) {
+                                try {
+                                    objectInputStream.close();
+                                } catch (IOException unused2) {
                                 }
                             }
-                            return str;
-                        }
-                        return "KWE_N";
-                    }
-                    str2 = c.a(context).b("Lm91a2R0ZnQ=");
-                    if (!TextUtils.isEmpty(str2)) {
-                        a(context, "k_w_o_d_out_dtt", str2);
-                    }
-                } else {
-                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"});
-                    com.yxcorp.kuaishou.addfp.android.b.b.a();
-                    if (b3) {
-                        str2 = c.a(context).b("Lm91a2R0ZnQ=");
-                        if (TextUtils.isEmpty(str2)) {
-                            c.a(context, a3);
+                            return new LinkedHashMap();
+                        } catch (Throwable th3) {
+                            if (objectInputStream != null) {
+                                try {
+                                    objectInputStream.close();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            throw th3;
                         }
                     }
                 }
-                str = "KWE_N";
-                if (TextUtils.isEmpty(a3)) {
-                }
-                a2 = c.a(context).a(a3);
-                if (a2 != null) {
-                }
-                a2 = c.a(context).a(str2);
-                if (a2 != null) {
-                    i = 0;
-                    listIterator = new ArrayList(a2.entrySet()).listIterator(a2.size());
-                    jSONObject = new JSONObject();
-                    while (listIterator.hasPrevious()) {
-                        entry = (Map.Entry) listIterator.previous();
-                        if (entry != null) {
-                        }
-                        i++;
-                    }
-                    if (jSONObject.length() > 0) {
-                    }
-                }
-                return str;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "KWE_PE";
+            } catch (Throwable th4) {
+                th = th4;
             }
+            return new LinkedHashMap();
         }
-        return (String) invokeL.objValue;
+        return (LinkedHashMap) invokeL.objValue;
     }
 }

@@ -73,7 +73,7 @@ public class VerticalScrollNumberView extends LinearLayout {
             this.b = pi.f(context, R.dimen.obfuscated_res_0x7f070201);
             this.c = pi.f(this.a, R.dimen.obfuscated_res_0x7f070225);
             this.d = pi.f(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = pi.f(this.a, R.dimen.obfuscated_res_0x7f070305);
+            this.e = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
         }
     }
 

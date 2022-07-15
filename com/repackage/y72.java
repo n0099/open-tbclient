@@ -1,42 +1,17 @@
 package com.repackage;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y72 implements i72 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface y72 {
+    void a(p72 p72Var);
 
-    public y72() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(p72 p72Var);
 
-    @Override // com.repackage.i72
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? rb3.a() : (String) invokeV.objValue;
-    }
+    void c(p72 p72Var);
 
-    @Override // com.repackage.i72
-    public a72 b(String str, x72 x72Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, x72Var, v8ThreadDelegatePolicy)) == null) ? new e72(str, x72Var, v8ThreadDelegatePolicy) : (a72) invokeLLL.objValue;
-    }
+    void d(p72 p72Var);
+
+    void e(p72 p72Var);
+
+    void f(p72 p72Var);
+
+    void g(p72 p72Var);
 }

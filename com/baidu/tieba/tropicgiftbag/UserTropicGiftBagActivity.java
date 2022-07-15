@@ -99,17 +99,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092132);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921d5);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(pi.f(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092133);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923b7);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091220);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091221);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c86);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c87);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092134);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090625);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d6);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09245f);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912c1);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912c2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2b);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0921d7);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090627);
         }
     }
 
@@ -125,7 +125,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f120a));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f1203));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -153,18 +153,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080aa6);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080aaf);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080aa7);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080ab0);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080aa8);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080ab1);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808c7);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808d0);
             this.i.setSkinType(i);
         }
     }

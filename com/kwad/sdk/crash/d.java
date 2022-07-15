@@ -13,7 +13,7 @@ public final class d {
 
     /* loaded from: classes5.dex */
     public static class a {
-        public static final d a = new d();
+        public static final d a = new d((byte) 0);
     }
 
     public d() {
@@ -21,52 +21,60 @@ public final class d {
         this.b = new b.a().a();
     }
 
+    public /* synthetic */ d(byte b) {
+        this();
+    }
+
     public static d a() {
         return a.a;
     }
 
-    public void a(int i, ExceptionMessage exceptionMessage) {
+    public final void a(int i, ExceptionMessage exceptionMessage) {
         e a2 = this.b.a();
         if (a2 != null) {
             a2.a(i, exceptionMessage);
         }
     }
 
-    public void a(@NonNull b bVar) {
+    public final void a(@NonNull b bVar) {
         this.b = bVar;
         this.c = SystemClock.elapsedRealtime();
         this.a.a(bVar.d, bVar.e);
     }
 
-    public String[] b() {
+    public final String[] b() {
         return this.a.a();
     }
 
-    public String[] c() {
+    public final String[] c() {
         return this.a.b();
     }
 
-    public String d() {
+    public final String d() {
         return this.b.a.a;
     }
 
-    public String e() {
+    public final String e() {
         return this.b.a.b;
     }
 
-    public Context f() {
-        return this.b.g;
+    public final int f() {
+        return this.b.a.f;
     }
 
-    public f g() {
+    public final Context g() {
+        return this.b.j;
+    }
+
+    public final g h() {
         return this.b.c;
     }
 
-    public long h() {
+    public final long i() {
         return SystemClock.elapsedRealtime() - this.c;
     }
 
-    public boolean i() {
+    public final boolean j() {
         return this.b.b();
     }
 }

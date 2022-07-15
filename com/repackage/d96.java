@@ -1,81 +1,92 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.y15;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d96 extends an<e96, ForumEmotionEmptyViewHolder> {
+public class d96 extends y15 {
     public static /* synthetic */ Interceptable $ic;
+    public static d96 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public a96 j;
-    public f96 k;
+    public LinkedList<b25> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d96(TbPageContext<?> tbPageContext, f96 f96Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public d96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, f96Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.k = f96Var;
+        this.a = new LinkedList<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public ForumEmotionEmptyViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static d96 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.i);
-            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
-            return new ForumEmotionEmptyViewHolder(this.i, forumEmotionEmptyView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (d96.class) {
+                    if (b == null) {
+                        b = new d96();
+                    }
+                }
+            }
+            return b;
         }
-        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
+        return (d96) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, e96 e96Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.y15
+    public void b(y15.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e96Var, forumEmotionEmptyViewHolder})) == null) {
-            forumEmotionEmptyViewHolder.d(e96Var, i, this.k, this.j);
-            return forumEmotionEmptyViewHolder.b();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
+            List<MyEmotionGroupData> h = q86.c().h(TbadkCoreApplication.getCurrentAccount());
+            this.a.clear();
+            for (MyEmotionGroupData myEmotionGroupData : h) {
+                EmotionGroupData n = y86.o().n(myEmotionGroupData.getGroupId());
+                if (n != null) {
+                    s86 s86Var = new s86(n);
+                    if (s86Var.d() != null) {
+                        this.a.add(s86Var);
+                        if (aVar != null) {
+                            aVar.a(s86Var);
+                        }
+                    }
+                }
+            }
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void b0(a96 a96Var) {
+    @Override // com.repackage.y15
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, a96Var) == null) {
-            this.j = a96Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.y15
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

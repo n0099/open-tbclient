@@ -1,118 +1,34 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
 /* loaded from: classes7.dex */
-public class xy5 {
+public class xy5 extends vy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public nq4 b;
-    public nq4 c;
-    public nq4 d;
-    public int e;
-    public View.OnClickListener f;
+    public String N0;
+    public List<String> O0;
+    public String P0;
+    public String Q0;
+    public long R0;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xy5 a;
-
-        public a(xy5 xy5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xy5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xy5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f0918f6 || id == R.id.obfuscated_res_0x7f092478) {
-                    if (this.a.b != null && this.a.b.isShowing()) {
-                        this.a.b.dismiss();
-                        SmartLaunchStats.onConfirmPrivacy();
-                        fe8.a("1", "1");
-                        tr4.l("logoController", false);
-                    }
-                    if (this.a.c != null && this.a.c.isShowing()) {
-                        this.a.c.dismiss();
-                        fe8.a("2", "1");
-                        tr4.l("logoController", false);
-                    }
-                    if (this.a.d != null && this.a.d.isShowing()) {
-                        this.a.d.dismiss();
-                        fe8.a("3", "1");
-                        tr4.l("logoController", false);
-                    }
-                    ht4.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
-                    PermissionUtil.setIsAgreePrivacyPolicy(true);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921639, 2));
-                } else if (id == R.id.obfuscated_res_0x7f0918f1) {
-                    if (this.a.b.isShowing()) {
-                        this.a.b.dismiss();
-                        fe8.a("1", "2");
-                    }
-                    if (this.a.c == null) {
-                        xy5 xy5Var = this.a;
-                        xy5Var.c = oi5.a(xy5Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0eed, R.string.obfuscated_res_0x7f0f10f0);
-                    }
-                    this.a.c.show();
-                    fe8.b("2");
-                } else if (id == R.id.obfuscated_res_0x7f0903e8) {
-                    xy5.h(this.a);
-                    if (this.a.c.isShowing()) {
-                        this.a.c.dismiss();
-                        fe8.a("2", "2");
-                        if (this.a.d == null) {
-                            xy5 xy5Var2 = this.a;
-                            xy5Var2.d = oi5.a(xy5Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0eee, R.string.obfuscated_res_0x7f0f10e5);
-                            this.a.d.show();
-                            fe8.b("3");
-                        }
-                    }
-                    if (this.a.d.isShowing() && this.a.e == 2) {
-                        this.a.d.dismiss();
-                        fe8.a("3", "2");
-                        this.a.a.finish();
-                    }
-                }
-            }
-        }
-    }
-
-    public xy5(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    public xy5(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -122,44 +38,83 @@ public class xy5 {
                 return;
             }
         }
-        this.e = 0;
-        this.f = new a(this);
-        this.a = baseFragmentActivity;
-    }
-
-    public static /* synthetic */ int h(xy5 xy5Var) {
-        int i = xy5Var.e;
-        xy5Var.e = i + 1;
-        return i;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nq4 nq4Var = this.b;
-            if (nq4Var != null) {
-                nq4Var.dismiss();
-            }
-            nq4 nq4Var2 = this.c;
-            if (nq4Var2 != null) {
-                nq4Var2.dismiss();
-            }
-            nq4 nq4Var3 = this.d;
-            if (nq4Var3 != null) {
-                nq4Var3.dismiss();
-            }
+        if (threadData == null) {
+            return;
+        }
+        this.a = threadData;
+        String str = threadData.tid;
+        threadData.getTitle();
+        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
+        if (voiceRoomData != null) {
+            this.N0 = voiceRoomData.room_name;
+            this.O0 = e0(voiceRoomData);
+            this.P0 = String.valueOf(voiceRoomData.talker_num);
+            this.Q0 = String.valueOf(voiceRoomData.joined_num);
+            this.R0 = voiceRoomData.room_id.longValue();
         }
     }
 
-    public void j() {
+    public static boolean W(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            nq4 b = oi5.b(this.a.getPageContext(), this.f);
-            this.b = b;
-            b.show();
-            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
-            SmartLaunchStats.onPrivacyDialogShow();
-            fe8.b("1");
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) ? (threadData == null || threadData.getVoiceRoomData() == null || threadData.getVoiceRoomData().room_id.longValue() <= 0 || StringUtils.isNull(threadData.getVoiceRoomData().room_name)) ? false : true : invokeL.booleanValue;
+    }
+
+    public String Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Q0 : (String) invokeV.objValue;
+    }
+
+    public List<String> a0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.O0 : (List) invokeV.objValue;
+    }
+
+    public long b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.R0 : invokeV.longValue;
+    }
+
+    public String c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.N0 : (String) invokeV.objValue;
+    }
+
+    public String d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.P0 : (String) invokeV.objValue;
+    }
+
+    public final List<String> e0(VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (User user : voiceRoom.talker) {
+                if (user != null) {
+                    arrayList.add(user.portrait);
+                }
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.repackage.vy5, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.B) {
+                return vy5.F0;
+            }
+            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

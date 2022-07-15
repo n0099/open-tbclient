@@ -32,41 +32,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.gw8;
-import com.repackage.h05;
-import com.repackage.ht4;
-import com.repackage.nq4;
+import com.repackage.cr4;
+import com.repackage.ix8;
+import com.repackage.j15;
 import com.repackage.pi;
-import com.repackage.u05;
+import com.repackage.ur4;
+import com.repackage.uu4;
+import com.repackage.v15;
 import com.repackage.xt4;
-import com.repackage.y15;
+import com.repackage.z25;
 /* loaded from: classes4.dex */
-public class EditorInfoContainer extends LinearLayout implements u05 {
+public class EditorInfoContainer extends LinearLayout implements v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocationInfoView a;
     public TBSpecificationBtn b;
     public TBSpecificationBtn c;
-    public EditorTools d;
-    public int e;
-    public boolean f;
-    public String g;
+    public TBSpecificationBtn d;
+    public EditorTools e;
+    public int f;
+    public boolean g;
     public String h;
     public String i;
-    public CommunityConventionView j;
-    public LinearLayout k;
+    public String j;
+    public CommunityConventionView k;
     public LinearLayout l;
-    public HorizontalScrollView m;
-    public View n;
+    public LinearLayout m;
+    public HorizontalScrollView n;
+    public View o;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements ix8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
 
         public a(EditorInfoContainer editorInfoContainer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorInfoContainer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = editorInfoContainer;
+        }
+
+        @Override // com.repackage.ix8.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.A(i);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorInfoContainer a;
+
+        public b(EditorInfoContainer editorInfoContainer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,19 +131,19 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h a;
-        public final /* synthetic */ nq4 b;
+        public final /* synthetic */ i a;
+        public final /* synthetic */ cr4 b;
         public final /* synthetic */ EditorInfoContainer c;
 
-        public b(EditorInfoContainer editorInfoContainer, h hVar, nq4 nq4Var) {
+        public c(EditorInfoContainer editorInfoContainer, i iVar, cr4 cr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer, hVar, nq4Var};
+                Object[] objArr = {editorInfoContainer, iVar, cr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -120,8 +154,8 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
                 }
             }
             this.c = editorInfoContainer;
-            this.a = hVar;
-            this.b = nq4Var;
+            this.a = iVar;
+            this.b = cr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -138,19 +172,19 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements View.OnClickListener {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h a;
-        public final /* synthetic */ nq4 b;
+        public final /* synthetic */ i a;
+        public final /* synthetic */ cr4 b;
         public final /* synthetic */ EditorInfoContainer c;
 
-        public c(EditorInfoContainer editorInfoContainer, h hVar, nq4 nq4Var) {
+        public d(EditorInfoContainer editorInfoContainer, i iVar, cr4 cr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer, hVar, nq4Var};
+                Object[] objArr = {editorInfoContainer, iVar, cr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -161,8 +195,8 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
                 }
             }
             this.c = editorInfoContainer;
-            this.a = hVar;
-            this.b = nq4Var;
+            this.a = iVar;
+            this.b = cr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -179,41 +213,7 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements LocationInfoView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorInfoContainer a;
-
-        public d(EditorInfoContainer editorInfoContainer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editorInfoContainer;
-        }
-
-        @Override // com.baidu.tbadk.editortools.editorinfotool.LocationInfoView.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 3));
-                this.a.L(new h05(18, -1, null));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements View.OnClickListener {
+    public class e implements LocationInfoView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -236,11 +236,12 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
             this.a = editorInfoContainer;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tbadk.editortools.editorinfotool.LocationInfoView.a
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L(new h05(43, -1, null));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 3));
+                this.a.L(new j15(18, -1, null));
             }
         }
     }
@@ -249,21 +250,54 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorInfoContainer a;
+
+        public f(EditorInfoContainer editorInfoContainer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorInfoContainer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = editorInfoContainer;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.L(new j15(43, -1, null));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
         public final /* synthetic */ EditorInfoContainer b;
 
         /* loaded from: classes4.dex */
-        public class a implements h {
+        public class a implements i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ f a;
+            public final /* synthetic */ g a;
 
-            public a(f fVar) {
+            public a(g gVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {fVar};
+                    Object[] objArr = {gVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -273,16 +307,16 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
                         return;
                     }
                 }
-                this.a = fVar;
+                this.a = gVar;
             }
 
-            @Override // com.baidu.tieba.write.editor.EditorInfoContainer.h
+            @Override // com.baidu.tieba.write.editor.EditorInfoContainer.i
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    if ("from_share_write".equals(this.a.b.h)) {
-                        if (!"1".equals(this.a.b.g)) {
-                            if ("2".equals(this.a.b.g)) {
+                    if ("from_share_write".equals(this.a.b.i)) {
+                        if (!"1".equals(this.a.b.h)) {
+                            if ("2".equals(this.a.b.h)) {
                                 TiebaStatic.log(new StatisticItem("c12608").param("obj_locate", 5));
                             }
                         } else {
@@ -291,16 +325,16 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
                     }
                     if (z) {
                         int i = ((Integer) this.a.b.b.a).intValue() == 0 ? 1 : 0;
-                        this.a.b.u(i);
-                        if ("2".equals(this.a.b.g)) {
-                            gw8.b(this.a.b.i, i);
+                        this.a.b.A(i);
+                        if ("2".equals(this.a.b.h)) {
+                            ix8.b(this.a.b.j, i);
                         }
                     }
                 }
             }
         }
 
-        public f(EditorInfoContainer editorInfoContainer, Context context) {
+        public g(EditorInfoContainer editorInfoContainer, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -325,18 +359,18 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", ((Integer) this.b.b.a).intValue() == 0 ? 11 : 12));
                 EditorInfoContainer editorInfoContainer = this.b;
-                editorInfoContainer.t(this.a, ((Integer) editorInfoContainer.b.a).intValue(), new a(this));
+                editorInfoContainer.z(this.a, ((Integer) editorInfoContainer.b.a).intValue(), new a(this));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class g implements gw8.c {
+    public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
 
-        public g(EditorInfoContainer editorInfoContainer) {
+        public h(EditorInfoContainer editorInfoContainer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -354,17 +388,19 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.repackage.gw8.c
-        public void a(int i) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.u(i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                boolean z = !((Boolean) this.a.d.a).booleanValue();
+                this.a.B(z);
+                xt4.k().u("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), z);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public interface h {
+    public interface i {
         void a(boolean z);
     }
 
@@ -377,9 +413,9 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (AttributeSet) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -389,203 +425,193 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
         }
     }
 
-    @Override // com.repackage.i05
-    public void C(h05 h05Var) {
+    public final void A(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) || h05Var == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f1b));
+            this.b.getStyleConfig().i(i2 == 0 ? R.drawable.obfuscated_res_0x7f080977 : R.drawable.obfuscated_res_0x7f080976, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.b.getStyleConfig().h(i2 == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
+            this.b.a = Integer.valueOf(i2);
+        }
+    }
+
+    public final void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f118f));
+            this.d.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080977 : R.drawable.obfuscated_res_0x7f080976, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.d.getStyleConfig().h(z ? R.color.CAM_X0302 : R.color.CAM_X0110);
+            this.d.a = Boolean.valueOf(z);
+        }
+    }
+
+    @Override // com.repackage.k15
+    public void C(j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j15Var) == null) || j15Var == null) {
             return;
         }
-        int i = h05Var.a;
-        if (i == 19) {
+        int i2 = j15Var.a;
+        if (i2 == 19) {
             LocationInfoView locationInfoView = this.a;
             if (locationInfoView == null) {
                 return;
             }
-            Object obj = h05Var.c;
-            if (obj instanceof y15) {
-                y15 y15Var = (y15) obj;
-                locationInfoView.setState(y15Var.a, y15Var.b);
+            Object obj = j15Var.c;
+            if (obj instanceof z25) {
+                z25 z25Var = (z25) obj;
+                locationInfoView.setState(z25Var.a, z25Var.b);
                 return;
             }
             locationInfoView.setState(0, null);
-        } else if (i == 20) {
+        } else if (i2 == 20) {
             LocationInfoView locationInfoView2 = this.a;
             if (locationInfoView2 == null) {
                 return;
             }
             locationInfoView2.setState(0, null);
-        } else if (i == 54) {
-            L(new h05(55, -1, Boolean.valueOf(q())));
-        } else if (i != 57) {
+        } else if (i2 == 54) {
+            L(new j15(55, -1, Boolean.valueOf(w())));
+        } else if (i2 == 57) {
+            L(new j15(58, -1, Boolean.FALSE));
+        } else if (i2 != 65) {
         } else {
-            L(new h05(58, -1, Boolean.FALSE));
+            L(new j15(66, -1, Boolean.valueOf(x())));
         }
     }
 
-    @Override // com.repackage.u05
-    public void L(h05 h05Var) {
+    @Override // com.repackage.v15
+    public void L(j15 j15Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var) == null) || (editorTools = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, j15Var) == null) || (editorTools = this.e) == null) {
             return;
         }
-        editorTools.A(h05Var);
+        editorTools.A(j15Var);
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
+            i();
             setVisibility(8);
         }
     }
 
-    public final void i(Context context) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.n = new View(getContext());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds1), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds26);
-            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds12);
-            layoutParams.gravity = 16;
-            addView(this.n, layoutParams);
-            CommunityConventionView communityConventionView = new CommunityConventionView(context);
-            this.j = communityConventionView;
-            communityConventionView.setOnClickListener(new a(this));
-            this.j.setId(R.id.obfuscated_res_0x7f090834);
-            addView(this.j, new LinearLayout.LayoutParams(-2, -2));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    public final void j(Context context) {
+    public void j() {
+        LocationInfoView locationInfoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.weight = 1.0f;
-            LinearLayout linearLayout = new LinearLayout(context);
-            this.k = linearLayout;
-            linearLayout.setGravity(3);
-            addView(this.k, layoutParams);
-            HorizontalScrollView horizontalScrollView = new HorizontalScrollView(context);
-            this.m = horizontalScrollView;
-            horizontalScrollView.setHorizontalFadingEdgeEnabled(true);
-            this.m.setHorizontalScrollBarEnabled(false);
-            this.k.addView(this.m);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -1);
-            LinearLayout linearLayout2 = new LinearLayout(context);
-            this.l = linearLayout2;
-            this.m.addView(linearLayout2, layoutParams2);
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (locationInfoView = this.a) == null) {
+            return;
+        }
+        locationInfoView.setVisibility(8);
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    public final void k(Context context) {
+    public void l() {
+        TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.tbds62));
-            layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-            xt4 xt4Var = new xt4();
-            xt4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            xt4Var.h(R.color.CAM_X0110);
-            xt4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            xt4Var.m(pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_W_X004));
-            xt4Var.n(pi.f(getContext(), R.dimen.M_H_X002));
-            xt4Var.i(R.drawable.obfuscated_res_0x7f0805fc, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            xt4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            this.c = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(xt4Var);
-            this.c.setTextSize(R.dimen.T_X09);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0522));
-            this.c.setOnClickListener(new e(this));
-            this.l.addView(this.c, layoutParams);
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (tBSpecificationBtn = this.d) == null) {
+            return;
         }
-    }
-
-    public final void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            LocationInfoView locationInfoView = new LocationInfoView(context);
-            this.a = locationInfoView;
-            locationInfoView.setId(R.id.obfuscated_res_0x7f090835);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-            this.a.setLocationClickListener(new d(this));
-            this.l.addView(this.a, layoutParams);
-        }
+        tBSpecificationBtn.setVisibility(8);
     }
 
     public final void m(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
+            this.o = new View(getContext());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds1), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
+            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds26);
+            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds12);
+            layoutParams.gravity = 16;
+            addView(this.o, layoutParams);
+            CommunityConventionView communityConventionView = new CommunityConventionView(context);
+            this.k = communityConventionView;
+            communityConventionView.setOnClickListener(new b(this));
+            this.k.setId(R.id.obfuscated_res_0x7f09083b);
+            addView(this.k, new LinearLayout.LayoutParams(-2, -2));
+        }
+    }
+
+    public final void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams.weight = 1.0f;
+            LinearLayout linearLayout = new LinearLayout(context);
+            this.l = linearLayout;
+            linearLayout.setGravity(3);
+            addView(this.l, layoutParams);
+            HorizontalScrollView horizontalScrollView = new HorizontalScrollView(context);
+            this.n = horizontalScrollView;
+            horizontalScrollView.setHorizontalFadingEdgeEnabled(true);
+            this.n.setHorizontalScrollBarEnabled(false);
+            this.l.addView(this.n);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -1);
+            LinearLayout linearLayout2 = new LinearLayout(context);
+            this.m = linearLayout2;
+            this.n.addView(linearLayout2, layoutParams2);
+        }
+    }
+
+    public final void o(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.tbds62));
-            xt4 xt4Var = new xt4();
-            xt4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            xt4Var.h(R.color.CAM_X0302);
-            xt4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            xt4Var.m(pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_W_X004));
-            xt4Var.n(pi.f(getContext(), R.dimen.M_H_X002));
-            xt4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+            uu4 uu4Var = new uu4();
+            uu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            uu4Var.h(R.color.CAM_X0110);
+            uu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            uu4Var.m(pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_W_X004));
+            uu4Var.n(pi.f(getContext(), R.dimen.M_H_X002));
+            uu4Var.i(R.drawable.obfuscated_res_0x7f0805fc, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            uu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            this.b = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(xt4Var);
-            this.b.setTextSize(R.dimen.T_X09);
-            u(0);
-            this.b.setLayoutParams(layoutParams);
-            this.b.setOnClickListener(new f(this, context));
-            this.l.addView(this.b);
+            this.c = tBSpecificationBtn;
+            tBSpecificationBtn.setConfig(uu4Var);
+            this.c.setTextSize(R.dimen.T_X09);
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f052c));
+            this.c.setOnClickListener(new f(this));
+            this.m.addView(this.c, layoutParams);
         }
     }
 
-    public void n(String str, int i) {
+    @Override // com.repackage.v15
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) && "2".equals(this.g)) {
-            this.i = str;
-            gw8.a(str, i, new g(this));
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && "2".equals(this.g)) {
-            u(i);
-        }
-    }
-
-    @Override // com.repackage.u05
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            fr4.d(this.n).f(R.color.CAM_X0401);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            ur4.d(this.o).f(R.color.CAM_X0401);
             LocationInfoView locationInfoView = this.a;
             if (locationInfoView != null) {
-                locationInfoView.b(i);
+                locationInfoView.b(i2);
             }
             TBSpecificationBtn tBSpecificationBtn = this.b;
             if (tBSpecificationBtn != null) {
@@ -595,120 +621,205 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
             if (tBSpecificationBtn2 != null) {
                 tBSpecificationBtn2.k();
             }
-            CommunityConventionView communityConventionView = this.j;
+            CommunityConventionView communityConventionView = this.k;
             if (communityConventionView != null) {
-                communityConventionView.onChangeSkinType(i);
+                communityConventionView.onChangeSkinType(i2);
+            }
+            TBSpecificationBtn tBSpecificationBtn3 = this.d;
+            if (tBSpecificationBtn3 != null) {
+                tBSpecificationBtn3.k();
             }
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            super.onMeasure(i, i2);
+        if (interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
         }
     }
 
-    public void p(boolean z) {
+    public final void p(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, context) == null) {
+            LocationInfoView locationInfoView = new LocationInfoView(context);
+            this.a = locationInfoView;
+            locationInfoView.setId(R.id.obfuscated_res_0x7f09083c);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+            this.a.setLocationClickListener(new e(this));
+            this.m.addView(this.a, layoutParams);
         }
     }
 
-    public boolean q() {
-        InterceptResult invokeV;
-        TBSpecificationBtn tBSpecificationBtn;
+    public final void q(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            TBSpecificationBtn tBSpecificationBtn2 = this.b;
-            return (tBSpecificationBtn2 == null || ((Integer) tBSpecificationBtn2.a).intValue() != 0) && (tBSpecificationBtn = this.b) != null && ((Integer) tBSpecificationBtn.a).intValue() == 1;
+        if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.tbds62));
+            layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+            uu4 uu4Var = new uu4();
+            uu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            uu4Var.h(R.color.CAM_X0302);
+            uu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            uu4Var.m(pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_W_X004));
+            uu4Var.n(pi.f(getContext(), R.dimen.M_H_X002));
+            uu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
+            this.b = tBSpecificationBtn;
+            tBSpecificationBtn.setConfig(uu4Var);
+            this.b.setTextSize(R.dimen.T_X09);
+            A(0);
+            this.b.setLayoutParams(layoutParams);
+            this.b.setOnClickListener(new g(this, context));
+            this.m.addView(this.b);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (this.f) {
-                this.f = false;
-                L(new h05(18, -1, Config.TRACE_VISIT_FIRST));
+            if (this.g) {
+                this.g = false;
+                L(new j15(18, -1, Config.TRACE_VISIT_FIRST));
             }
             setVisibility(0);
         }
     }
 
-    public void s(boolean z) {
-        TBSpecificationBtn tBSpecificationBtn;
+    public void s(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (tBSpecificationBtn = this.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(1048595, this, str, i2) == null) && "2".equals(this.h)) {
+            this.j = str;
+            ix8.a(str, i2, new a(this));
         }
-        tBSpecificationBtn.setVisibility(z ? 0 : 8);
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, editorTools) == null) {
-            this.d = editorTools;
+            this.e = editorTools;
         }
     }
 
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.h = str;
+            this.i = str;
         }
     }
 
-    @Override // com.repackage.u05
-    public void setToolId(int i) {
+    @Override // com.repackage.v15
+    public void setToolId(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            this.f = i2;
         }
     }
 
-    public final void t(Context context, int i, h hVar) {
+    public void t(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048599, this, context, i, hVar) == null) {
-            boolean h2 = ht4.k().h("show_privacy_dialog", false);
-            if (i == 1 || h2) {
-                if (hVar != null) {
-                    hVar.a(true);
+        if ((interceptable == null || interceptable.invokeI(1048599, this, i2) == null) && "2".equals(this.h)) {
+            A(i2);
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        }
+    }
+
+    public final void v(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, context) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.tbds62));
+            uu4 uu4Var = new uu4();
+            uu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            uu4Var.h(R.color.CAM_X0302);
+            uu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            uu4Var.m(pi.f(getContext(), R.dimen.M_W_X004), pi.f(getContext(), R.dimen.M_W_X004));
+            uu4Var.n(pi.f(getContext(), R.dimen.M_H_X002));
+            uu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setConfig(uu4Var);
+            this.d.setTextSize(R.dimen.T_X09);
+            this.d.setLayoutParams(layoutParams);
+            this.d.setOnClickListener(new h(this));
+            this.m.addView(this.d);
+            xt4 k = xt4.k();
+            B(k.h("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), true));
+        }
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        TBSpecificationBtn tBSpecificationBtn;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            TBSpecificationBtn tBSpecificationBtn2 = this.b;
+            return (tBSpecificationBtn2 == null || ((Integer) tBSpecificationBtn2.a).intValue() != 0) && (tBSpecificationBtn = this.b) != null && ((Integer) tBSpecificationBtn.a).intValue() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                Object obj = tBSpecificationBtn.a;
+                if (obj instanceof Boolean) {
+                    return ((Boolean) obj).booleanValue();
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void y(boolean z) {
+        TBSpecificationBtn tBSpecificationBtn;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || (tBSpecificationBtn = this.c) == null) {
+            return;
+        }
+        tBSpecificationBtn.setVisibility(z ? 0 : 8);
+    }
+
+    public final void z(Context context, int i2, i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048605, this, context, i2, iVar) == null) {
+            boolean h2 = xt4.k().h("show_privacy_dialog", false);
+            if (i2 == 1 || h2) {
+                if (iVar != null) {
+                    iVar.a(true);
                     return;
                 }
                 return;
             }
-            ht4.k().u("show_privacy_dialog", true);
+            xt4.k().u("show_privacy_dialog", true);
             BaseActivity baseActivity = (BaseActivity) context;
-            nq4 nq4Var = new nq4(baseActivity);
-            nq4Var.setCancelable(false);
-            nq4Var.setPositiveButton((String) null, (nq4.e) null);
-            nq4Var.setNegativeButton((String) null, (nq4.e) null);
-            nq4Var.setContentViewSize(6);
+            cr4 cr4Var = new cr4(baseActivity);
+            cr4Var.setCancelable(false);
+            cr4Var.setPositiveButton((String) null, (cr4.e) null);
+            cr4Var.setNegativeButton((String) null, (cr4.e) null);
+            cr4Var.setContentViewSize(6);
             CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15db));
+            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15df));
             customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15d9));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15da));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new b(this, hVar, nq4Var));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new c(this, hVar, nq4Var));
-            nq4Var.setContentView(customPrivacyDialogView);
-            nq4Var.create(baseActivity.getPageContext()).show();
+            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15dd));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15de));
+            customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new c(this, iVar, cr4Var));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new d(this, iVar, cr4Var));
+            cr4Var.setContentView(customPrivacyDialogView);
+            cr4Var.create(baseActivity.getPageContext()).show();
             TiebaStatic.log(new StatisticItem("c13804"));
-        }
-    }
-
-    public final void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f20));
-            this.b.getStyleConfig().i(i == 0 ? R.drawable.obfuscated_res_0x7f08096e : R.drawable.obfuscated_res_0x7f08096d, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.b.getStyleConfig().h(i == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
-            this.b.a = Integer.valueOf(i);
         }
     }
 
@@ -721,9 +832,9 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -731,16 +842,17 @@ public class EditorInfoContainer extends LinearLayout implements u05 {
                 return;
             }
         }
-        this.f = true;
-        this.g = str;
+        this.g = true;
+        this.h = str;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setPadding(0, (int) context.getResources().getDimension(R.dimen.M_H_X004), 0, (int) context.getResources().getDimension(R.dimen.M_H_X003));
         setGravity(16);
         setOrientation(0);
-        j(context);
-        i(context);
-        l(context);
-        k(context);
+        n(context);
         m(context);
+        p(context);
+        o(context);
+        q(context);
+        v(context);
     }
 }

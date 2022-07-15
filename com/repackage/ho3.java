@@ -1,20 +1,17 @@
 package com.repackage;
 
-import android.view.View;
-import org.json.JSONObject;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes6.dex */
 public interface ho3 {
-    void a(String str, JSONObject jSONObject);
+    void a(int i);
 
-    boolean b();
+    void b();
 
-    boolean c(View view2);
+    void c(DownloadState downloadState, int i);
 
-    boolean d(View view2, bn3 bn3Var);
+    void d(String str);
 
-    void e();
+    String e();
 
-    boolean f(View view2, bn3 bn3Var);
-
-    boolean removeView(View view2);
+    void f(boolean z);
 }

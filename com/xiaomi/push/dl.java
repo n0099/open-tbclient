@@ -17,7 +17,7 @@ public class dl implements Application.ActivityLifecycleCallbacks {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f220a;
+    public String f947a;
     public String b;
 
     public dl(Context context, String str) {
@@ -35,9 +35,9 @@ public class dl implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f220a = "";
+        this.f947a = "";
         this.a = context;
-        this.f220a = str;
+        this.f947a = str;
     }
 
     private void a(String str) {
@@ -70,16 +70,16 @@ public class dl implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             String localClassName = activity.getLocalClassName();
-            if (TextUtils.isEmpty(this.f220a) || TextUtils.isEmpty(localClassName)) {
+            if (TextUtils.isEmpty(this.f947a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
             this.b = "";
             if (!TextUtils.isEmpty("") && !TextUtils.equals(this.b, localClassName)) {
-                this.f220a = "";
+                this.f947a = "";
                 return;
             }
-            a(this.a.getPackageName() + "|" + localClassName + ":" + this.f220a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-            this.f220a = "";
+            a(this.a.getPackageName() + "|" + localClassName + ":" + this.f947a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+            this.f947a = "";
             this.b = "";
         }
     }
@@ -91,7 +91,7 @@ public class dl implements Application.ActivityLifecycleCallbacks {
             if (TextUtils.isEmpty(this.b)) {
                 this.b = activity.getLocalClassName();
             }
-            this.f220a = String.valueOf(System.currentTimeMillis() / 1000);
+            this.f947a = String.valueOf(System.currentTimeMillis() / 1000);
         }
     }
 

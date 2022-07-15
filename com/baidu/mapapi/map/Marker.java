@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -144,14 +143,14 @@ public final class Marker extends Overlay {
             bundle.putInt("perspective", this.e ? 1 : 0);
             bundle.putFloat("anchor_x", this.c);
             bundle.putFloat("anchor_y", this.d);
-            bundle.putFloat(AnimationProperty.ROTATE, this.g);
+            bundle.putFloat("rotate", this.g);
             bundle.putInt("y_offset", this.i);
             bundle.putInt("isflat", this.j ? 1 : 0);
             bundle.putInt("istop", this.k ? 1 : 0);
             bundle.putInt("period", this.p);
-            bundle.putFloat(AnimationProperty.OPACITY, this.l);
-            bundle.putFloat(AnimationProperty.SCALE_X, this.r);
-            bundle.putFloat(AnimationProperty.SCALE_Y, this.s);
+            bundle.putFloat("alpha", this.l);
+            bundle.putFloat("scaleX", this.r);
+            bundle.putFloat("scaleY", this.s);
             Point point = this.u;
             if (point != null) {
                 bundle.putInt("fix_x", point.x);

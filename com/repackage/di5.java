@@ -1,536 +1,206 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class di5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final di5 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext b;
-    public SparseArray<String> c;
-    public SparseArray<String> d;
-    public String[] e;
-    public LinearLayout f;
-    public CompoundButton.OnCheckedChangeListener g;
-    public CompoundButton.OnCheckedChangeListener h;
-    public HashMap<NEGFeedBackReasonCheckBox, Boolean> i;
+    public AtomicBoolean a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
     public int j;
-    public boolean k;
-    public boolean l;
-    public int m;
+    public int k;
 
-    /* loaded from: classes5.dex */
-    public class a implements CompoundButton.OnCheckedChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ di5 a;
-
-        public a(di5 di5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755766431, "Lcom/repackage/di5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {di5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = di5Var;
-        }
-
-        @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            Map.Entry entry;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) || compoundButton == null || this.a.i == null || this.a.i.isEmpty()) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755766431, "Lcom/repackage/di5;");
                 return;
             }
-            boolean z2 = false;
-            if (z && this.a.k) {
-                for (Map.Entry entry2 : this.a.i.entrySet()) {
-                    if (entry2 != null) {
-                        if (entry2.getKey() == compoundButton) {
-                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(true);
-                            entry2.setValue(Boolean.TRUE);
-                        } else {
-                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(false);
-                            entry2.setValue(Boolean.FALSE);
-                        }
-                    }
-                }
-            }
-            if (this.a.k && !z && !this.a.l) {
-                Iterator it = this.a.i.entrySet().iterator();
-                while (it.hasNext() && ((entry = (Map.Entry) it.next()) == null || entry.getKey() == null || !(z2 = ((NEGFeedBackReasonCheckBox) entry.getKey()).isChecked()))) {
-                }
-                if (!z2) {
-                    for (Map.Entry entry3 : this.a.i.entrySet()) {
-                        if (entry3 != null && entry3.getKey() == compoundButton) {
-                            ((NEGFeedBackReasonCheckBox) entry3.getKey()).setChecked(true);
-                            entry3.setValue(Boolean.TRUE);
-                            return;
-                        }
-                    }
-                }
-            }
-            if (this.a.g != null) {
-                this.a.g.onCheckedChanged(compoundButton, z);
-            }
         }
+        l = new di5();
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-
-        public b(di5 di5Var, int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {di5Var, Integer.valueOf(i), Integer.valueOf(i2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i2;
-            if (str != null && str.contains("%")) {
-                String[] split = str.split("%");
-                this.c = split[0];
-                if (split.length > 1) {
-                    this.d = split[1];
-                }
-            } else {
-                this.c = str;
-            }
-            this.a = i;
-        }
-    }
-
-    public di5(TbPageContext tbPageContext) {
+    public di5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = null;
-        this.d = null;
-        this.k = false;
-        this.l = true;
-        this.m = -1;
-        this.b = tbPageContext;
-        this.j = pi.f(tbPageContext.getPageActivity(), R.dimen.M_H_X003);
-        this.h = new a(this);
+        this.a = new AtomicBoolean(false);
     }
 
-    public final View e(List<b> list, boolean z, View view2) {
-        InterceptResult invokeCommon;
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            if (view2 instanceof LinearLayout) {
-                linearLayout = (LinearLayout) view2;
-            } else {
-                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d6, (ViewGroup) this.f, false);
-            }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911df);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9c);
-            nEGFeedBackReasonCheckBox.a();
-            nEGFeedBackReasonCheckBox2.a();
-            nEGFeedBackReasonCheckBox.setChecked(false);
-            nEGFeedBackReasonCheckBox2.setChecked(false);
-            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
-            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-            b bVar = list.get(0);
-            if (bVar != null) {
-                nEGFeedBackReasonCheckBox.setText(bVar.c);
-                nEGFeedBackReasonCheckBox.setTag(bVar);
-                if (bVar.a == this.m) {
-                    nEGFeedBackReasonCheckBox.setEnabled(false);
-                }
-            }
-            if (list.size() > 1 && list.get(1) != null) {
-                b bVar2 = list.get(1);
-                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
-                nEGFeedBackReasonCheckBox2.setVisibility(0);
-                nEGFeedBackReasonCheckBox2.setTag(bVar2);
-                if (bVar2.a == this.m) {
-                    nEGFeedBackReasonCheckBox2.setEnabled(false);
-                }
-            } else {
-                nEGFeedBackReasonCheckBox2.setVisibility(4);
-            }
-            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
-            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
-            int i = z ? 0 : this.j;
-            if (linearLayout.getLayoutParams() != null) {
-                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
-            }
-            return linearLayout;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final View f(List<b> list, boolean z, View view2) {
-        InterceptResult invokeCommon;
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            if (view2 instanceof LinearLayout) {
-                linearLayout = (LinearLayout) view2;
-            } else {
-                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d6, (ViewGroup) this.f, false);
-            }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911df);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9c);
-            nEGFeedBackReasonCheckBox.a();
-            nEGFeedBackReasonCheckBox2.a();
-            nEGFeedBackReasonCheckBox.setChecked(false);
-            nEGFeedBackReasonCheckBox2.setChecked(false);
-            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
-            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
-            b bVar = list.get(0);
-            if (bVar != null) {
-                nEGFeedBackReasonCheckBox.setText(bVar.c);
-                nEGFeedBackReasonCheckBox.setTag(bVar);
-            }
-            if (list.size() > 1 && list.get(1) != null) {
-                b bVar2 = list.get(1);
-                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
-                nEGFeedBackReasonCheckBox2.setVisibility(0);
-                nEGFeedBackReasonCheckBox2.setTag(bVar2);
-            } else {
-                nEGFeedBackReasonCheckBox2.setVisibility(8);
-            }
-            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
-            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
-            int i = z ? 0 : this.j;
-            if (linearLayout.getLayoutParams() != null) {
-                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
-            }
-            return linearLayout;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View g() {
+    public static di5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setOrientation(1);
-            }
-            List<List<b>> p = p();
-            if (ListUtils.isEmpty(p)) {
-                return null;
-            }
-            int size = p.size();
-            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
-            if (hashMap == null) {
-                this.i = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            int i = 0;
-            while (i < size) {
-                View e = e(p.get(i), i == size + (-1), this.f.getChildAt(i));
-                if (e != null && e.getParent() == null) {
-                    this.f.addView(e);
-                }
-                i++;
-            }
-            if (this.f.getChildCount() > size) {
-                LinearLayout linearLayout2 = this.f;
-                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
-            }
-            return this.f;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? l : (di5) invokeV.objValue;
     }
 
-    public View h() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setOrientation(1);
-            }
-            List<List<b>> s = s();
-            if (ListUtils.isEmpty(s)) {
-                return null;
-            }
-            int size = s.size();
-            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
-            if (hashMap == null) {
-                this.i = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            int i = 0;
-            while (i < size) {
-                View f = f(s.get(i), i == size + (-1), this.f.getChildAt(i));
-                if (f != null && f.getParent() == null) {
-                    this.f.addView(f);
-                }
-                i++;
-            }
-            if (this.f.getChildCount() > size) {
-                LinearLayout linearLayout2 = this.f;
-                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
-            }
-            return this.f;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void j(vo4 vo4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, vo4Var) == null) || vo4Var == null) {
-            return;
-        }
-        this.c = vo4Var.b();
-        this.d = vo4Var.g;
-    }
-
-    public void k(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
-            this.e = strArr;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onCheckedChangeListener) == null) {
-            this.g = onCheckedChangeListener;
-        }
-    }
-
-    public final List<List<b>> p() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            SparseArray<String> sparseArray = this.c;
-            if (sparseArray != null && sparseArray.size() != 0) {
-                int size = this.c.size();
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                while (i < size) {
-                    int i2 = i + 1;
-                    int i3 = i + 2;
-                    ArrayList arrayList2 = new ArrayList();
-                    b bVar = new b(this, i, this.c.keyAt(i), this.c.valueAt(i));
-                    SparseArray<String> sparseArray2 = this.d;
-                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i)))) {
-                        bVar.d = this.d.get(this.c.keyAt(i));
-                    }
-                    arrayList2.add(bVar);
-                    if (i2 > i && i2 < size) {
-                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
-                        SparseArray<String> sparseArray3 = this.d;
-                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i)))) {
-                            bVar2.d = this.d.get(this.c.keyAt(i2));
-                        }
-                        arrayList2.add(bVar2);
-                    }
-                    arrayList.add(arrayList2);
-                    i = i3;
-                }
-                return arrayList;
-            }
-            return q();
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3) : invokeV.intValue;
     }
 
-    public final List<List<b>> q() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            String[] strArr = this.e;
-            if (strArr == null || strArr.length <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.e.length; i += 2) {
-                ArrayList arrayList2 = new ArrayList();
-                if (!StringUtils.isNull(this.e[i])) {
-                    arrayList2.add(new b(this, i, i + 1, this.e[i]));
-                }
-                int i2 = i + 1;
-                String[] strArr2 = this.e;
-                if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
-                    arrayList2.add(new b(this, i2, i + 2, this.e[i2]));
-                }
-                if (arrayList2.size() > 0) {
-                    arrayList.add(arrayList2);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", -1) : invokeV.intValue;
     }
 
-    public final List<List<b>> r() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String[] strArr = this.e;
-            if (strArr == null || strArr.length <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.e.length; i += 2) {
-                ArrayList arrayList2 = new ArrayList();
-                if (!StringUtils.isNull(this.e[i])) {
-                    arrayList2.add(new b(this, i, 0, this.e[i]));
-                }
-                int i2 = i + 1;
-                String[] strArr2 = this.e;
-                if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
-                    arrayList2.add(new b(this, i2, 0, this.e[i2]));
-                }
-                if (arrayList2.size() > 0) {
-                    arrayList.add(arrayList2);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", -1) : invokeV.intValue;
     }
 
-    public final List<List<b>> s() {
+    public boolean f() {
         InterceptResult invokeV;
-        int i;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            SparseArray<String> sparseArray = this.c;
-            if (sparseArray != null && sparseArray.size() != 0) {
-                int size = this.c.size();
-                int i3 = 0;
-                int i4 = -1;
-                int i5 = this.a ? 0 : -1;
-                int i6 = this.a ? size - 1 : size;
-                if (i6 > 1 && i6 % 2 == 1) {
-                    i4 = i5 + 1;
-                }
-                ArrayList arrayList = new ArrayList();
-                while (i3 < size) {
-                    if (i3 == i5 || i3 == i4) {
-                        i = i3 + 1;
-                        i2 = i3;
-                    } else {
-                        i2 = i3 + 1;
-                        i = i3 + 2;
-                    }
-                    ArrayList arrayList2 = new ArrayList();
-                    b bVar = new b(this, i3, this.c.keyAt(i3), this.c.valueAt(i3));
-                    SparseArray<String> sparseArray2 = this.d;
-                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i3)))) {
-                        bVar.d = this.d.get(this.c.keyAt(i3));
-                    }
-                    arrayList2.add(bVar);
-                    if (i2 > i3 && i2 < size) {
-                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
-                        SparseArray<String> sparseArray3 = this.d;
-                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i3)))) {
-                            bVar2.d = this.d.get(this.c.keyAt(i2));
-                        }
-                        arrayList2.add(bVar2);
-                    }
-                    arrayList.add(arrayList2);
-                    i3 = i;
-                }
-                return arrayList;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g == 1 : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) == 1 : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b == 1 : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k == 1 : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h == 1 : invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i == 1 : invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d == 1 : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j == 1 : invokeV.booleanValue;
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            boolean z = this.a.get();
+            if (jSONObject == null || z) {
+                return;
             }
-            return r();
+            this.a.set(true);
+            this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
+            this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
+            jSONObject.optInt("tieba_max_fake_progress", 50);
+            jSONObject.optInt("tieba_max_fake_time", 60);
+            jSONObject.optLong("tieba_max_fake_speed", 768000L);
+            SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 2));
+            edit.putInt("pic_page_request_num", jSONObject.optInt("pic_page_request_num", 5));
+            edit.putInt("pic_page_cache_time", jSONObject.optInt("pic_page_cache_time", 20));
+            edit.putInt("pic_page_first_floor", jSONObject.optInt("pic_page_first_floor", 2));
+            edit.putInt("pic_page_floor_interval", jSONObject.optInt("pic_page_floor_interval", 5));
+            edit.putInt("pic_page_pre_load_num", jSONObject.optInt("pic_page_pre_load_num", 5));
+            edit.putInt("pic_page_max_ad_num", jSONObject.optInt("pic_page_max_ad_num", 5));
+            edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
+            edit.commit();
+            this.k = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
+            this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
+            jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+            this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+            jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+            jSONObject.optInt("tieba_follow_up_expire_time", 7);
+            jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
+            jSONObject.optInt("tieba_follow_up_gap_time", 5);
+            this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
+            this.i = jSONObject.optInt("tieba_video_load_optimize_switch", 0);
+            this.j = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
+            SharedPreferences.Editor edit2 = sharedPreferences.edit();
+            edit2.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", -1));
+            edit2.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", -1));
+            int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
+            if (optInt != -1) {
+                edit2.putInt("ad_photo_browser_insert_mode", optInt);
+            }
+            int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
+            if (optInt2 != -1) {
+                edit2.putInt("tieba_pic_ad_req_num", optInt2);
+            }
+            edit2.commit();
         }
-        return (List) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.e == 1 : invokeV.booleanValue;
     }
 }

@@ -1,25 +1,60 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.editortools.BLauncher;
-import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Lbs;
 /* loaded from: classes6.dex */
 public class n05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static o05 a(Context context, t05 t05Var, int i) {
-        InterceptResult invokeLLI;
+    public n05() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, t05Var, i)) == null) {
-            if (i != 1) {
-                return new DLauncher(context, t05Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new BLauncher(context, t05Var);
         }
-        return (o05) invokeLLI.objValue;
+        this.a = null;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void c(Lbs lbs) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) == null) || lbs == null) {
+            return;
+        }
+        try {
+            this.a = lbs.name;
+            String str = lbs.lat;
+            String str2 = lbs.lng;
+            this.b = lbs.distance;
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

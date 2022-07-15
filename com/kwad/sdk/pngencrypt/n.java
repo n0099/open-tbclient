@@ -1,5 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -8,17 +9,16 @@ public final class n {
     public static Charset a = Charset.forName("ISO-8859-1");
     public static Charset b = Charset.forName("UTF-8");
     public static ThreadLocal<Boolean> c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.ThreadLocal
-        /* renamed from: a */
-        public Boolean initialValue() {
+        public static Boolean a() {
             return Boolean.FALSE;
         }
-    };
 
-    public static double a(int i) {
-        return i / 100000.0d;
-    }
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // java.lang.ThreadLocal
+        public final /* synthetic */ Boolean initialValue() {
+            return a();
+        }
+    };
 
     public static final int a(int i, int i2, int i3) {
         int i4 = (i + i2) - i3;
@@ -32,7 +32,7 @@ public final class n {
         try {
             return inputStream.read();
         } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
             return -1;
         }
     }
@@ -42,7 +42,7 @@ public final class n {
     }
 
     public static byte[] a() {
-        return new byte[]{-119, 80, 78, 71, 13, 10, 26, 10};
+        return new byte[]{-119, 80, 78, 71, StrictLineReader.CR, 10, 26, 10};
     }
 
     public static int b(InputStream inputStream) {
@@ -56,7 +56,7 @@ public final class n {
             }
             return (read << 24) | (read2 << 16) | ((read3 << 8) + read4);
         } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
             return -1;
         }
     }

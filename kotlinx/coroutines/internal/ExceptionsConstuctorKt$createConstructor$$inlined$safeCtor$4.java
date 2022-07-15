@@ -21,23 +21,23 @@ public final class ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$4 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
     public final Throwable invoke(Throwable th) {
-        Object m693constructorimpl;
+        Object m1636constructorimpl;
         Object newInstance;
         try {
             Result.Companion companion = Result.Companion;
             newInstance = this.$constructor$inlined.newInstance(new Object[0]);
         } catch (Throwable th2) {
             Result.Companion companion2 = Result.Companion;
-            m693constructorimpl = Result.m693constructorimpl(ResultKt.createFailure(th2));
+            m1636constructorimpl = Result.m1636constructorimpl(ResultKt.createFailure(th2));
         }
         if (newInstance != null) {
             Throwable th3 = (Throwable) newInstance;
             th3.initCause(th);
-            m693constructorimpl = Result.m693constructorimpl(th3);
-            if (Result.m699isFailureimpl(m693constructorimpl)) {
-                m693constructorimpl = null;
+            m1636constructorimpl = Result.m1636constructorimpl(th3);
+            if (Result.m1642isFailureimpl(m1636constructorimpl)) {
+                m1636constructorimpl = null;
             }
-            return (Throwable) m693constructorimpl;
+            return (Throwable) m1636constructorimpl;
         }
         throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
     }

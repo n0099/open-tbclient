@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
 import com.repackage.ni;
 import com.repackage.pi;
+import com.repackage.ur4;
 /* loaded from: classes4.dex */
 public class VideoChannelHeaderLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -273,9 +273,9 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091abf);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f091e25);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0875, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b5e);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f091ec9);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
@@ -290,24 +290,24 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.b.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(pi.f(context, R.dimen.tbds166), -1));
             this.b.G();
             this.b.setOnTabItemClickListener(new b(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c5);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c7);
             this.c = textView;
-            fr4 d2 = fr4.d(textView);
+            ur4 d2 = ur4.d(textView);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X10);
             d2.A(R.string.F_X01);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0301);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091959);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091a02);
             this.d = textView2;
-            fr4 d3 = fr4.d(textView2);
+            ur4 d3 = ur4.d(textView2);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X07);
             d3.A(R.string.F_X02);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091957);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091a00);
             this.e = findViewById;
             ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -pi.f(context, R.dimen.tbds20), 0, 0);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091958);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091a01);
             this.f = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             if (this.f.isAnimating()) {
@@ -368,7 +368,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!ni.z()) {
-                    pi.L(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0c37));
+                    pi.L(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0c2b));
                     return;
                 }
                 d dVar = this.i;

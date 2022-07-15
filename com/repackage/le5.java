@@ -1,15 +1,74 @@
 package com.repackage;
 
 import android.content.Context;
+import android.graphics.Rect;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface le5 {
-    void a();
+public class le5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, int i2, int i3, int i4);
+    public static boolean a(Context context, String str, nn4 nn4Var) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, nn4Var)) == null) {
+            if (context == null || nn4Var == null) {
+                return false;
+            }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else {
+                i = "frs".equals(str) ? 3 : -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(nn4Var.getThreadData().originalThreadData, context, i, (Rect) null, nn4Var.getThreadData().getForum_name());
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
 
-    Context getContext();
+    public static boolean b(Context context, String str, nn4 nn4Var) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, nn4Var)) == null) {
+            if (context == null || nn4Var == null) {
+                return false;
+            }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else {
+                i = "frs".equals(str) ? 3 : -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(nn4Var, context, i, false);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
 
-    boolean post(Runnable runnable);
-
-    boolean removeCallbacks(Runnable runnable);
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb() : invokeV.booleanValue;
+    }
 }

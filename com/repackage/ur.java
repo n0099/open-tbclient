@@ -25,13 +25,13 @@ public class ur {
 
         /* renamed from: com.repackage.ur$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0539a implements Runnable {
+        public class RunnableC0743a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0539a(a aVar, byte[] bArr) {
+            public RunnableC0743a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class ur {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0539a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0743a(this, bArr), "HandshakeRequest");
             }
         }
 
@@ -169,7 +169,7 @@ public class ur {
             hashMap.put("Bdtls", "Bdtls");
             hashMap.put("Bdtls-Content-Type", "json");
             CookieManager cookieManager = CookieManager.WEBKIT_COOKIES;
-            HttpManager.getDefault(ar.c.h().getAppContext()).postByteRequest().url(ar.c.h().b().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+            HttpManager.getDefault(ar.c.h().getAppContext()).postByteRequest().url(ar.c.h().getEnv().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

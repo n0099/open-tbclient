@@ -107,6 +107,7 @@ public abstract class BaseProxyActivity extends Activity {
         super.onDestroy();
         this.mDelegate.onDestroy();
         ComponentDestroyer.destroyActivity(this);
+        Wrapper.onDestroy(this);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

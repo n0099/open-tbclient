@@ -151,13 +151,13 @@ public class VideoGestureView extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0631, this);
-            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0922f9);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f8);
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0922f7);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0922f6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f4);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f5);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d064d, this);
+            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0923a1);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923a0);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09239f);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09239e);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09239c);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09239d);
             this.a.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
             AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
             this.g = audioManager;

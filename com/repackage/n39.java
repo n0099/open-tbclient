@@ -1,50 +1,162 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f39;
-import java.util.LinkedHashMap;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class n39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
+    public Context a;
+    public String b;
+    public String c;
+    public boolean d;
+    public JSONArray e;
+    public Map<String, com.baidu.ubs.analytics.a.g> f;
 
     /* loaded from: classes6.dex */
-    public class a extends r39 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final n39 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
 
-        public a(n39 n39Var, com.baidu.ubs.analytics.a.l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n39Var, lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-205545664, "Lcom/repackage/n39$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-205545664, "Lcom/repackage/n39$a;");
                     return;
                 }
             }
-            this.a = lVar;
+            a = new n39((byte) 0);
         }
+    }
 
-        @Override // com.repackage.r39
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new x29().c(this.a);
+    public /* synthetic */ n39(byte b) {
+        this();
+    }
+
+    public static n39 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (n39) invokeV.objValue;
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            synchronized (this) {
+                this.f = new HashMap();
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        this.f.put(list.get(i).getId(), list.get(i));
+                    }
+                }
             }
         }
+    }
+
+    public final synchronized void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            synchronized (this) {
+                this.d = z;
+            }
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final SampleResult f(String str) {
+        InterceptResult invokeL;
+        Map<String, com.baidu.ubs.analytics.a.g> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.e == null) {
+                if (str != null && (map = this.f) != null) {
+                    if (map.containsKey(str)) {
+                        return v49.a(this.f.get(str).getGroup());
+                    }
+                    return SampleResult.OTHERE;
+                }
+                return SampleResult.OTHERE;
+            }
+            for (int i = 0; i < this.e.length(); i++) {
+                JSONObject optJSONObject = this.e.optJSONObject(i);
+                if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
+                    return v49.a(optJSONObject.optString("group"));
+                }
+            }
+            return SampleResult.OTHERE;
+        }
+        return (SampleResult) invokeL.objValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Context) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public final Map<String, com.baidu.ubs.analytics.a.g> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (Map) invokeV.objValue;
     }
 
     public n39() {
@@ -60,44 +172,6 @@ public final class n39 {
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
-    }
-
-    public final void a(String str) {
-        f39 f39Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-        synchronized (this.a) {
-            Long remove = this.a.remove(str);
-            if (remove == null) {
-                return;
-            }
-            try {
-                lVar.setStartTime(String.valueOf(remove));
-                lVar.t(str);
-                lVar.z(String.valueOf(System.currentTimeMillis()));
-                f39Var = f39.a.a;
-                lVar.setPath(f39Var.b());
-                lVar.x(o39.f().I());
-            } catch (Exception e) {
-                x39.a(e.toString());
-                p39.b(e.toString());
-            }
-            q39.c(new a(this, lVar));
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this.a) {
-            this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-            String.valueOf(System.currentTimeMillis());
-        }
+        this.d = true;
     }
 }

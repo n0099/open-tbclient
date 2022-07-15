@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yunjiasu.ping.Ping;
 import com.baidu.yunjiasu.ping.PingStatistics;
-import com.repackage.za9;
+import com.repackage.yb9;
 import java.net.InetAddress;
 import kotlin.Metadata;
 import kotlin.concurrent.ThreadsKt;
@@ -46,7 +46,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(za9.a);
+        pingHandler = new Handler(yb9.a);
     }
 
     public Pinger() {

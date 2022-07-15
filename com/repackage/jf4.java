@@ -1,23 +1,33 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.telephony.TelephonyManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.view.WindowManager;
+import android.util.Base64InputStream;
+import android.util.Base64OutputStream;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.Iterator;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,99 +35,25 @@ import org.json.JSONObject;
 public class jf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public b b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public Context a;
+    public hf4 b;
+    public if4 c;
+    public List<pf4> d;
+    public long e;
+    public long f;
+    public long g;
+    public int h;
+    public SparseArray<ArrayList> i;
+    public HashMap<String, Long> j;
+    public tf4 k;
+    public kf4 l;
 
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public int e;
-        public String f;
-        public String g;
-        public int h;
-
-        public a(jf4 jf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "Android";
-            this.b = Build.VERSION.RELEASE;
-            this.c = Build.MANUFACTURER;
-            this.e = Build.VERSION.SDK_INT;
-            this.f = Build.MODEL;
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
-            this.h = appContext.getResources().getDisplayMetrics().densityDpi;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b(jf4 jf4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = we4.g().v(AppRuntime.getAppContext());
-        }
-    }
-
-    public jf4(String str) {
+    public jf4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,166 +63,603 @@ public class jf4 {
                 return;
             }
         }
-        this.a = new a(this);
-        this.b = new b(this);
-        this.i = nf4.c();
-        this.o = "";
-        Context appContext = AppRuntime.getAppContext();
-        try {
-            PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-            this.c = packageInfo.versionName;
-            this.e = packageInfo.packageName;
-        } catch (PackageManager.NameNotFoundException unused) {
-        }
-        TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
-        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0)) {
-            this.j = telephonyManager.getSimOperator();
-        }
-        this.f = we4.g().getDeviceId(appContext);
-        this.g = we4.g().p(appContext);
-        this.h = we4.g().a();
-        this.n = we4.g().b();
-        this.q = we4.g().t();
-        this.r = str;
+        this.a = context;
+        this.b = new hf4(context);
+        this.c = new if4(context);
+        this.k = lf4.g().l();
+        this.d = new ArrayList(20);
+        ag4 f = ag4.f();
+        this.e = f.getLong("ubc_last_upload_all_time", 0L);
+        this.f = f.getLong("ubc_last_upload_non_real", 0L);
+        this.g = f.getLong("ubc_reset_real_time_count_time", 0L);
+        this.h = f.getInt("ubc_real_time_count", 0);
+        kf4 g = kf4.g();
+        this.l = g;
+        g.k(this, context);
     }
 
-    public static void a(JSONObject jSONObject) {
+    public final boolean A(pf4 pf4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) {
-            JSONObject e = new jf4(jSONObject.optString("bizId")).e();
-            Iterator<String> keys = e.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!jSONObject.has(next)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pf4Var)) == null) {
+            if (g(this.a) && c()) {
+                j();
+                bg4 bg4Var = new bg4();
+                bg4Var.g = true;
+                JSONObject jSONObject = pf4Var.e;
+                try {
+                    if (jSONObject != null && jSONObject.has("bizId")) {
+                        yf4.a(jSONObject);
+                        bg4Var.a(jSONObject);
+                        long j = pf4Var.f;
+                        bg4Var.g(j, j);
+                        JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                        JSONObject jSONObject3 = jSONObject.getJSONObject(DI.APP_INFO_NAME);
+                        if (jSONObject2 != null && jSONObject3 != null) {
+                            jSONObject2.put(DI.APP_INFO_NAME, jSONObject3);
+                            jSONObject.remove(DI.APP_INFO_NAME);
+                        }
+                    } else {
+                        JSONObject e = new yf4(pf4Var.a()).e();
+                        e.put("bizId", pf4Var.a);
+                        e.put("timestamp", Long.toString(pf4Var.f));
+                        if (pf4Var.e != null) {
+                            e.put("content", pf4Var.e);
+                        } else {
+                            e.put("content", pf4Var.d);
+                        }
+                        e.put("eventType", "0");
+                        if (!TextUtils.isEmpty(pf4Var.h)) {
+                            e.put("abtest", pf4Var.h);
+                            bg4Var.f = "1";
+                        }
+                        if (!TextUtils.isEmpty(pf4Var.i)) {
+                            e.put("c", pf4Var.i);
+                        }
+                        if (pf4Var.j) {
+                            e.put("of", "1");
+                        }
+                        e.put(Constant.ID_TYPE, this.l.j(pf4Var.a));
+                        bg4Var.a(e);
+                        bg4Var.g(pf4Var.f, pf4Var.f);
+                    }
+                } catch (JSONException unused) {
+                }
+                if (this.i == null) {
+                    f();
+                }
+                if (this.i.size() > 0) {
+                    this.b.m(this.i.valueAt(0), bg4Var);
+                }
+                q(bg4Var);
+                i();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g(this.a) && c()) {
+            bg4 bg4Var = new bg4();
+            bg4Var.g = true;
+            if (this.i == null) {
+                f();
+            }
+            if (this.i.size() > 0) {
+                if (lf4.g().r()) {
+                    this.b.l(bg4Var);
+                } else {
+                    this.b.m(this.i.valueAt(0), bg4Var);
+                }
+            }
+            q(bg4Var);
+            i();
+        }
+    }
+
+    public void a(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            j();
+            this.b.d(str, i);
+            if (Math.abs(System.currentTimeMillis() - this.f) >= kf4.g().h()) {
+                z();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            n(true);
+            n(false);
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (lf4.g().r()) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (Math.abs(currentTimeMillis - this.g) > 86400000) {
+                this.h = 0;
+                this.g = currentTimeMillis;
+                ag4.f().putLong("ubc_reset_real_time_count_time", this.g);
+                ag4.f().putInt("ubc_real_time_count", this.h);
+            }
+            int i = this.h;
+            if (i >= 1000) {
+                if (i == 1000) {
+                    this.h = i + 1;
+                    lf4.h("23", "realLimit");
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(String str, int i, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            j();
+            this.b.j(str, i, j, jSONArray);
+            if (this.l.b(str)) {
+                B();
+            }
+            if (Math.abs(System.currentTimeMillis() - this.f) >= kf4.g().h()) {
+                z();
+            }
+        }
+    }
+
+    public hf4 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (hf4) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.i == null) {
+            SparseArray<ArrayList> sparseArray = new SparseArray<>();
+            this.i = sparseArray;
+            this.b.v(sparseArray);
+            this.j = new HashMap<>();
+            int i = 0;
+            for (int i2 = 0; i2 < this.i.size(); i2++) {
+                int keyAt = this.i.keyAt(i2);
+                if (keyAt != 0 && i == 0) {
+                    i = keyAt;
+                }
+                HashMap<String, Long> hashMap = this.j;
+                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            }
+            this.l.p(i);
+        }
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public final boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return false;
+            }
+            NetworkInfo networkInfo = null;
+            try {
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception unused) {
+            }
+            return networkInfo != null && networkInfo.isAvailable();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && g(this.a)) {
+            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data");
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                if (listFiles.length > 50) {
+                    JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt(next, e.opt(next));
-                    } catch (JSONException unused) {
+                        jSONObject.put("type", "del_file");
+                        jSONObject.put("del_file_size", listFiles.length);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    lf4.h("23", jSONObject.toString());
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
+                    this.b.h();
+                }
+                for (int i = 0; i < listFiles.length; i++) {
+                    qf4 u = this.b.u(listFiles[i].getName());
+                    if (u != null && TextUtils.equals("0", u.a())) {
+                        zf4.a("processFailedData file, no need to send");
+                    } else if (u != null && TextUtils.equals("1", u.a())) {
+                        zf4.a("processFailedData file, send");
+                        this.b.G(listFiles[i].getName(), "0");
+                        v(listFiles[i].getName());
+                    } else {
+                        zf4.a("processFailedData file, data in db, delete file");
+                        listFiles[i].delete();
                     }
                 }
             }
         }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (we4.g() == null) {
-                return str;
-            }
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(str);
-                }
-                return c(jSONObject);
-            } catch (JSONException unused) {
-                return str;
-            }
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.h++;
+            ag4.f().putInt("ubc_real_time_count", this.h);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void j() {
+        List<pf4> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            df4 g = we4.g();
-            String str = "";
-            if (jSONObject == null || g == null) {
-                return "";
-            }
-            try {
-                if (g.l() == 0) {
-                    str = "swan";
-                } else if (g.l() == 1) {
-                    str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("smartAppId", g.getAppId());
-                jSONObject2.putOpt("smartAppVersion", g.getAppVersion());
-                jSONObject2.putOpt("swanCoreVersion", g.n());
-                jSONObject2.putOpt("swanNativeVersion", g.b());
-                jSONObject2.putOpt("swanType", str);
-                jSONObject.putOpt(DI.APP_INFO_NAME, jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("source", g.k());
-                jSONObject.put("propagation", jSONObject3);
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return jSONObject.toString();
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) || jSONArray == null || jSONArray.length() < 1) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (list = this.d) == null || list.size() == 0) {
             return;
         }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
-                JSONObject jSONObject3 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
-                Iterator<String> keys = jSONObject3.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject.putOpt(next, jSONObject3.optString(next));
+        this.b.z(this.d);
+        this.d.clear();
+    }
+
+    public void k(pf4 pf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, pf4Var) == null) {
+            boolean z = TextUtils.equals(pf4Var.a, pf4Var.b) && this.l.b(pf4Var.a) && (pf4Var.g & 64) == 0;
+            if (z && !A(pf4Var)) {
+                this.b.y(pf4Var);
+            } else if (Math.abs(System.currentTimeMillis() - this.f) >= kf4.g().h()) {
+                if (!z) {
+                    this.d.add(pf4Var);
                 }
-                jSONObject2.remove(DI.APP_INFO_NAME);
-            } catch (JSONException unused) {
+                z();
+            } else if ((1 & pf4Var.g) != 0) {
+                if (z) {
+                    return;
+                }
+                this.b.y(pf4Var);
+            } else {
+                if (!z) {
+                    this.d.add(pf4Var);
+                }
+                if (this.d.size() >= 20) {
+                    j();
+                }
             }
         }
     }
 
-    public JSONObject e() {
-        InterceptResult invokeV;
+    public void l(pf4 pf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("os", this.a.a);
-                jSONObject2.putOpt("osversion", this.a.b);
-                jSONObject2.putOpt("model", this.a.f);
-                jSONObject2.putOpt("deviceType", this.a.d);
-                jSONObject2.putOpt("sdk", this.a.e + "");
-                jSONObject2.putOpt(Constants.PHONE_BRAND, this.a.c);
-                jSONObject2.putOpt("screen", this.a.g);
-                jSONObject2.putOpt("density", this.a.h + "");
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("passId", this.b.a);
-                jSONObject.putOpt("userInfo", jSONObject3);
-                jSONObject.putOpt("system", jSONObject2);
-                jSONObject.putOpt("appVersion", this.c);
-                jSONObject.putOpt("appBranch", this.d);
-                jSONObject.putOpt("appPackageName", this.e);
-                jSONObject.putOpt("cuid", this.f);
-                jSONObject.putOpt("uuid", this.g);
-                jSONObject.putOpt("hostName", this.h);
-                jSONObject.putOpt("net", this.i);
-                jSONObject.putOpt("operator", this.j);
-                jSONObject.putOpt("smartAppId", this.k);
-                jSONObject.putOpt("smartAppVersion", this.l);
-                jSONObject.putOpt("swanCoreVersion", this.m);
-                jSONObject.putOpt("swanNativeVersion", this.n);
-                jSONObject.putOpt("swanType", this.o);
-                jSONObject.putOpt("swanId", this.p);
-                jSONObject.putOpt("bizId", this.r);
-                jSONObject.putOpt("eventType", this.s);
-                jSONObject.putOpt("eventName", this.t);
-                jSONObject.putOpt("content", this.u);
-                if (!TextUtils.isEmpty(this.q)) {
-                    jSONObject.putOpt("appClientId", this.q);
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(1048589, this, pf4Var) == null) {
+            this.c.d(pf4Var, this.l.b(pf4Var.a));
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void m(String str, String str2) {
+        OutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            String str3 = this.a.getFilesDir() + File.separator + "statistics_data";
+            File file = new File(str3);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            File file2 = new File(str3, str2);
+            if (file2.exists()) {
+                return;
+            }
+            OutputStream outputStream = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file2);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                outputStream = new Base64OutputStream(fileOutputStream, 0);
+                outputStream.write(str.getBytes());
+                outputStream.flush();
+                zf4.a("save to file suc");
+            } catch (Exception e2) {
+                e = e2;
+                outputStream = fileOutputStream;
+                e.printStackTrace();
+                jg4.d(outputStream);
+            } catch (Throwable th2) {
+                th = th2;
+                outputStream = fileOutputStream;
+                jg4.d(outputStream);
+                throw th;
+            }
+            jg4.d(outputStream);
+        }
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            bg4 bg4Var = new bg4();
+            bg4Var.g = z;
+            if (this.c.c(bg4Var, z)) {
+                JSONArray jSONArray = bg4Var.a;
+                this.c.b(z);
+                uf4.f().s(jSONArray);
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.b.C();
+        }
+    }
+
+    public void p(rf4 rf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, rf4Var) == null) {
+            this.b.B(rf4Var);
+        }
+    }
+
+    public final void q(bg4 bg4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, bg4Var) == null) || bg4Var.d()) {
+            return;
+        }
+        JSONArray jSONArray = bg4Var.a;
+        String d = lg4.d(jSONArray.toString().getBytes(), true);
+        m(jSONArray.toString(), d);
+        this.b.A(d, bg4Var.g);
+        if (!this.b.g(bg4Var.b, bg4Var.c, bg4Var.g, d)) {
+            bg4Var.c();
+            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", d);
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "db fail deleteUploadFile file suc");
+            }
+            this.b.i(d);
+            return;
+        }
+        uf4.f().r(jSONArray, d);
+        bg4Var.c();
+    }
+
+    public void r(xf4 xf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, xf4Var) == null) {
+            this.l.q(xf4Var.a());
+            this.l.n(xf4Var.d() * 86400000);
+            this.l.o(xf4Var.c());
+            ag4.f().putString("ubc_version_md5", xf4Var.b());
+            this.b.D(xf4Var.a());
+            xf4Var.a().clear();
+            if (this.i == null) {
+                this.i = new SparseArray<>();
+            }
+            this.i.clear();
+            if (this.j == null) {
+                this.j = new HashMap<>();
+            }
+            this.j.clear();
+            this.b.v(this.i);
+            int i = 0;
+            for (int i2 = 0; i2 < this.i.size(); i2++) {
+                int keyAt = this.i.keyAt(i2);
+                if (keyAt != 0 && i == 0) {
+                    i = keyAt;
+                }
+                HashMap<String, Long> hashMap = this.j;
+                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            }
+            this.l.p(i);
+        }
+    }
+
+    public void s(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i, str2) == null) {
+            this.b.E(str, i, str2);
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g(this.a) && Math.abs(System.currentTimeMillis() - this.e) >= 3600000) {
+            this.b.f();
+            bg4 bg4Var = new bg4();
+            if (this.b.l(bg4Var) == 0) {
+                return;
+            }
+            bg4 bg4Var2 = new bg4();
+            bg4Var2.g(bg4Var.d, bg4Var.e);
+            bg4Var2.f = bg4Var.f;
+            bg4Var2.g = true;
+            bg4 bg4Var3 = new bg4();
+            bg4Var3.g(bg4Var.d, bg4Var.e);
+            bg4Var3.f = bg4Var.f;
+            bg4Var3.g = false;
+            SparseIntArray sparseIntArray = bg4Var.b;
+            int size = sparseIntArray.size();
+            for (int i = 0; i < size; i++) {
+                if (this.l.b(String.valueOf(sparseIntArray.valueAt(i)))) {
+                    bg4Var2.f(sparseIntArray.keyAt(i), sparseIntArray.valueAt(i));
+                } else {
+                    bg4Var3.f(sparseIntArray.keyAt(i), sparseIntArray.valueAt(i));
+                }
+            }
+            ArrayList<String> arrayList = bg4Var.c;
+            int size2 = arrayList.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                String str = arrayList.get(i2);
+                if (this.l.b(str)) {
+                    bg4Var2.e(str);
+                } else {
+                    bg4Var3.e(str);
+                }
+            }
+            JSONArray jSONArray = bg4Var.a;
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                if (optJSONObject.has("bizId")) {
+                    String str2 = null;
+                    try {
+                        str2 = optJSONObject.getString("bizId");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (this.l.b(str2)) {
+                            bg4Var2.a(optJSONObject);
+                        } else {
+                            bg4Var3.a(optJSONObject);
+                        }
+                    }
+                }
+            }
+            if (bg4Var2.a.length() > 0) {
+                q(bg4Var2);
+            }
+            if (bg4Var3.a.length() > 0) {
+                q(bg4Var3);
+            }
+            this.e = System.currentTimeMillis();
+            ag4.f().putLong("ubc_last_upload_all_time", this.e);
+            this.f = this.e;
+            ag4.f().putLong("ubc_last_upload_non_real", this.f);
+        }
+    }
+
+    public final void u(JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, jSONArray, str) == null) {
+            uf4.f().t(str, this.k.a(jSONArray));
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048599, this, str) != null) {
+            return;
+        }
+        File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", str);
+        InputStream inputStream = null;
+        try {
+            InputStream fileInputStream = new FileInputStream(file);
+            try {
+                if (fileInputStream.available() > 0) {
+                    inputStream = new Base64InputStream(fileInputStream, 0);
+                    uf4.f().r(new JSONArray(ng4.c(inputStream)), str);
+                    fileInputStream = inputStream;
+                }
+                jg4.d(fileInputStream);
+            } catch (Exception unused) {
+                inputStream = fileInputStream;
+                jg4.d(inputStream);
+            } catch (Throwable th) {
+                th = th;
+                inputStream = fileInputStream;
+                jg4.d(inputStream);
+                throw th;
+            }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public void w(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, jSONArray) == null) || this.k.a(jSONArray)) {
+            return;
+        }
+        lf4.h("23", "sendFail");
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            zf4.a("upload file fail");
+            this.b.F(str);
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", str);
+            zf4.a("delete file");
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "deleteUploadFile file suc");
+                zf4.a("delete file suc");
+            }
+            this.b.i(str);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && g(this.a)) {
+            this.f = System.currentTimeMillis();
+            ag4.f().putLong("ubc_last_upload_non_real", this.f);
+            b();
+            j();
+            this.b.f();
+            HashSet hashSet = new HashSet();
+            if (this.i == null) {
+                f();
+            }
+            bg4 bg4Var = new bg4();
+            bg4Var.g = false;
+            int i = 0;
+            for (int i2 = 0; i2 < this.i.size(); i2++) {
+                int keyAt = this.i.keyAt(i2);
+                if (keyAt != 0) {
+                    HashMap<String, Long> hashMap = this.j;
+                    long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.l.h()) {
+                        i |= this.b.m(this.i.valueAt(i2), bg4Var);
+                        HashMap<String, Long> hashMap2 = this.j;
+                        hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                        hashSet.add(Integer.valueOf(keyAt));
+                    }
+                }
+            }
+            if (i == 0) {
+                return;
+            }
+            for (int i3 = 0; i3 < this.i.size(); i3++) {
+                int keyAt2 = this.i.keyAt(i3);
+                if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
+                    if (bg4Var.b(51200)) {
+                        break;
+                    }
+                    this.b.m(this.i.valueAt(i3), bg4Var);
+                }
+            }
+            q(bg4Var);
+        }
     }
 }

@@ -1,7 +1,5 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface ks1 {
-    void a();
-
-    void cancel();
+    void a(String str, String str2, String str3);
 }

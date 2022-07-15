@@ -1,106 +1,243 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r91;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s91 {
     public static /* synthetic */ Interceptable $ic;
-    public static Toast a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static View a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0497, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091884)).setText(str);
-            return inflate;
-        }
-        return (View) invokeLL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a extends q71<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r91 a;
 
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            a = toast;
-            toast.setGravity(17, 0, 0);
-            a.setDuration(0);
-        }
-    }
-
-    public static View c(Context context, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091883);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091884);
-            if (-1 == i) {
-                imageView.setVisibility(8);
-            } else {
-                imageView.setVisibility(0);
-                imageView.setImageResource(i);
-                if (z) {
-                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010092));
+        public a(r91 r91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            textView.setText(str);
-            return inflate;
+            this.a = r91Var;
         }
-        return (View) invokeCommon.objValue;
+
+        @Override // com.repackage.q71
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                r91.a aVar = new r91.a();
+                aVar.a = 2;
+                aVar.b = m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f035b);
+                this.a.a(aVar);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.q71
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                r91.a aVar = new r91.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = r91.a.C0720a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f035b);
+                }
+                this.a.a(aVar);
+            }
+        }
     }
 
-    public static void d(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, null, context, i, str) == null) || context == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static class b extends q71<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r91 a;
+
+        public b(r91 r91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r91Var;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+
+        @Override // com.repackage.q71
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                r91.a aVar = new r91.a();
+                aVar.a = 2;
+                aVar.b = m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f035b);
+                this.a.a(aVar);
+            }
         }
-        b(context);
-        a.setView(c(context, i, str, false));
-        a.show();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.q71
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                r91.a aVar = new r91.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.e = optJSONObject.optLong("reduceAmount");
+                        aVar.g = optJSONObject.optInt("overdueStatus");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = r91.a.C0720a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = m91.a().getResources().getString(R.string.obfuscated_res_0x7f0f035b);
+                }
+                this.a.a(aVar);
+            }
+        }
     }
 
-    public static void e(Context context, int i, String str) {
+    public static void a(Bundle bundle, r91 r91Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) == null) || context == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, bundle, r91Var) == null) {
+            s71 s71Var = new s71();
+            z71.d(s71Var);
+            String string = bundle.getString("bduss");
+            bundle.remove("bduss");
+            c(string, s71Var);
+            String string2 = bundle.getString("openBduss");
+            bundle.remove("openBduss");
+            e(string2, s71Var);
+            String string3 = bundle.getString("clientId");
+            bundle.remove("clientId");
+            d(string3, s71Var);
+            r71 r71Var = new r71();
+            r71Var.d("appKey", bundle.get("appKey").toString());
+            r71Var.d("totalAmount", bundle.get("totalAmount").toString());
+            r71Var.d("hostMarketingDetail", bundle.get("hostMarketingDetail").toString());
+            new w71().a(a81.b(), s71Var, r71Var, new b(r91Var));
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(c(context, i, str, true));
-        a.show();
     }
 
-    public static void f(Context context, String str) {
+    public static void b(String str, String str2, String str3, List<String> list, r91 r91Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) || context == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, list, r91Var) == null) {
+            s71 s71Var = new s71();
+            z71.d(s71Var);
+            if (!TextUtils.isEmpty(str)) {
+                s71Var.d("Cookie", "BDUSS=" + str);
+            }
+            r71 r71Var = new r71();
+            r71Var.d("appKey", str2);
+            r71Var.d("totalAmount", str3);
+            if (list != null && list.size() > 0) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str4 : list) {
+                    if (!TextUtils.isEmpty(str4)) {
+                        try {
+                            jSONArray.put(new JSONObject(str4));
+                        } catch (Exception unused) {
+                        }
+                    }
+                }
+                r71Var.d("hostMarketingDetail", jSONArray.toString());
+            }
+            new w71().a(a81.b(), s71Var, r71Var, new a(r91Var));
+        }
+    }
+
+    public static void c(String str, s71 s71Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, s71Var) == null) || str == null || TextUtils.isEmpty(str)) {
             return;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+        String a2 = s71Var.a("Cookie");
+        String str2 = "BDUSS=" + str;
+        if (a2 == null) {
+            s71Var.d("Cookie", str2);
+            return;
         }
-        b(context);
-        a.setView(a(context, str));
-        a.show();
+        s71Var.d("Cookie", a2 + "; " + str2);
+    }
+
+    public static void d(String str, s71 s71Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, s71Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = s71Var.a("Cookie");
+        String str2 = "CLIENTID=" + str;
+        if (a2 == null) {
+            s71Var.d("Cookie", str2);
+            return;
+        }
+        s71Var.d("Cookie", a2 + "; " + str2);
+    }
+
+    public static void e(String str, s71 s71Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, s71Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = s71Var.a("Cookie");
+        String str2 = "OPENBDUSS=" + str;
+        if (a2 == null) {
+            s71Var.d("Cookie", str2);
+            return;
+        }
+        s71Var.d("Cookie", a2 + "; " + str2);
     }
 }

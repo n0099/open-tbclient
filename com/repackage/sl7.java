@@ -1,19 +1,21 @@
 package com.repackage;
 
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sl7 {
+public abstract class sl7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<oz4> a;
+    public ArrayList<UserData> a;
     public boolean b;
+    public boolean c;
 
     public sl7() {
         Interceptable interceptable = $ic;
@@ -25,24 +27,47 @@ public class sl7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = false;
+        this.c = false;
+    }
+
+    public abstract void a(vp4 vp4Var);
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = false;
+            ArrayList<UserData> arrayList = this.a;
+            if (arrayList == null || arrayList.size() != 0) {
+                return;
+            }
+            this.b = true;
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public abstract boolean d(long j);
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.clear();
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                oz4 oz4Var = new oz4();
-                oz4Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(oz4Var);
-            }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
         }
-        this.b = jSONObject.optInt("has_more", 0) == 1;
     }
 }

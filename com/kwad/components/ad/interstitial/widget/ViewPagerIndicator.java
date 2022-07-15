@@ -1,0 +1,411 @@
+package com.kwad.components.ad.interstitial.widget;
+
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.util.AttributeSet;
+import android.view.View;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class ViewPagerIndicator extends View {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public final Context c;
+    public int d;
+    public int e;
+    public float f;
+    public float g;
+    public Paint h;
+    public float i;
+    public float j;
+    public float k;
+    public int l;
+    public Paint m;
+    public float n;
+    public boolean o;
+    public a p;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ViewPagerIndicator(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ViewPagerIndicator(Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ViewPagerIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.c = context;
+        setWillNotDraw(false);
+        a(context, attributeSet, i);
+        a();
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            Paint paint = new Paint(1);
+            this.h = paint;
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.h.setStrokeWidth(1.0f);
+            this.h.setColor(this.b);
+            Paint paint2 = new Paint(1);
+            this.m = paint2;
+            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.m.setStrokeWidth(1.0f);
+            this.m.setColor(this.a);
+        }
+    }
+
+    @SuppressLint({"CustomViewStyleable"})
+    private void a(Context context, AttributeSet attributeSet, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, this, context, attributeSet, i) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040354, R.attr.obfuscated_res_0x7f040355, R.attr.obfuscated_res_0x7f040356, R.attr.obfuscated_res_0x7f04035b, R.attr.obfuscated_res_0x7f04035d, R.attr.obfuscated_res_0x7f040368}, i, 0);
+            this.g = obtainStyledAttributes.getDimension(1, com.kwad.sdk.b.kwai.a.a(this.c, 5.0f));
+            this.i = obtainStyledAttributes.getDimension(2, com.kwad.sdk.b.kwai.a.a(this.c, 6.0f));
+            this.j = obtainStyledAttributes.getDimension(3, com.kwad.sdk.b.kwai.a.a(this.c, 50.0f));
+            this.k = obtainStyledAttributes.getDimension(4, com.kwad.sdk.b.kwai.a.a(this.c, 6.0f));
+            this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06074b));
+            this.a = obtainStyledAttributes.getColor(5, getResources().getColor(R.color.obfuscated_res_0x7f060766));
+            obtainStyledAttributes.recycle();
+        }
+    }
+
+    private void a(Canvas canvas) {
+        float f;
+        float f2;
+        Paint paint;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, canvas) == null) {
+            RectF rectF = new RectF();
+            for (int i2 = 0; i2 < this.d; i2++) {
+                int i3 = this.e;
+                if (i2 < i3) {
+                    float f3 = this.g;
+                    f = this.k;
+                    f2 = i2 * (f3 + f);
+                } else {
+                    if (i2 == i3) {
+                        float f4 = this.g;
+                        float f5 = this.k;
+                        float f6 = i2 * (f4 + f5);
+                        rectF.left = f6;
+                        rectF.right = f6 + f5 + ((this.j - f5) * (1.0f - this.f));
+                        if (this.o) {
+                            this.h.setColor(this.a);
+                            paint = this.h;
+                            i = (int) (((1.0f - this.f) * 127.0f) + 127.0f);
+                            paint.setAlpha(i);
+                        }
+                        this.h.setColor(this.b);
+                    } else if (i2 == i3 + 1) {
+                        float f7 = this.g;
+                        float f8 = this.k;
+                        float f9 = this.j;
+                        float f10 = this.f;
+                        float f11 = ((i2 - 1) * (f7 + f8)) + f8 + ((f9 - f8) * (1.0f - f10)) + f7;
+                        rectF.left = f11;
+                        rectF.right = f11 + (f10 * (f9 - f8)) + f8;
+                        if (this.o) {
+                            this.h.setColor(this.a);
+                            paint = this.h;
+                            i = (int) (255.0f - ((1.0f - this.f) * 127.0f));
+                            paint.setAlpha(i);
+                        }
+                        this.h.setColor(this.b);
+                    } else {
+                        float f12 = this.g;
+                        f = this.k;
+                        f2 = ((i2 - 1) * (f12 + f)) + f12 + this.j;
+                    }
+                    rectF.top = 0.0f;
+                    float f13 = this.i;
+                    rectF.bottom = 0.0f + f13;
+                    canvas.drawRoundRect(rectF, f13 / 2.0f, f13 / 2.0f, this.h);
+                }
+                rectF.left = f2;
+                rectF.right = f2 + f;
+                this.h.setColor(this.b);
+                rectF.top = 0.0f;
+                float f132 = this.i;
+                rectF.bottom = 0.0f + f132;
+                canvas.drawRoundRect(rectF, f132 / 2.0f, f132 / 2.0f, this.h);
+            }
+        }
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            if (this.l <= 0) {
+                setVisibility(8);
+                return;
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.k, this.j);
+            ofFloat.setDuration(this.l * 1000);
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.interstitial.widget.ViewPagerIndicator.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ViewPagerIndicator a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                        this.a.n = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                        this.a.invalidate();
+                    }
+                }
+            });
+            ofFloat.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.interstitial.widget.ViewPagerIndicator.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ViewPagerIndicator a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public final void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        this.a.o = true;
+                        if (this.a.p != null) {
+                            this.a.p.a();
+                        }
+                    }
+                }
+            });
+            ofFloat.start();
+        }
+    }
+
+    private void b(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, this, canvas) == null) && !this.o && this.e == 0) {
+            RectF rectF = new RectF(0.0f, 0.0f, this.n, this.i);
+            float f = this.i;
+            canvas.drawRoundRect(rectF, f / 2.0f, f / 2.0f, this.m);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.onDraw(canvas);
+            a(canvas);
+            b(canvas);
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            if (mode2 != 1073741824) {
+                size2 = mode2 == Integer.MIN_VALUE ? (int) this.i : 0;
+            }
+            if (mode != 1073741824) {
+                if (mode == Integer.MIN_VALUE) {
+                    int i3 = this.d;
+                    size = i3 > 1 ? (int) (this.j + ((i3 - 1) * (this.g + this.k))) : (int) this.j;
+                } else {
+                    size = 0;
+                }
+            }
+            setMeasuredDimension(size, size2);
+        }
+    }
+
+    public void setFirstAdShowTime(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void setPlayProgressListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.p = aVar;
+        }
+    }
+
+    public void setViewPager(ViewPager viewPager) {
+        PagerAdapter adapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, viewPager) == null) || (adapter = viewPager.getAdapter()) == null) {
+            return;
+        }
+        int count = adapter.getCount();
+        this.d = count;
+        if (count <= 1) {
+            return;
+        }
+        this.o = false;
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(this) { // from class: com.kwad.components.ad.interstitial.widget.ViewPagerIndicator.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ViewPagerIndicator a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = this;
+            }
+
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public final void onPageScrollStateChanged(int i) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                }
+            }
+
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public final void onPageScrolled(int i, float f, int i2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+                    this.a.e = i;
+                    this.a.f = f;
+                    this.a.invalidate();
+                }
+            }
+
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public final void onPageSelected(int i) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                    this.a.e = i;
+                    this.a.f = 0.0f;
+                    this.a.invalidate();
+                }
+            }
+        });
+        b();
+    }
+}

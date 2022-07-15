@@ -1,76 +1,53 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class c30 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 5;
-    public static int c = 40;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.helios.common.cc.a a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755848271, "Lcom/repackage/c30;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755848271, "Lcom/repackage/c30;");
-        }
-    }
+    public f30[] a;
 
     public c30() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(c);
-        this.a = aVar;
-        aVar.a(0, c, true);
+        this.a = new f30[]{new g30(8, 0), new h30(0, 1), new h30(1, 1), new g30(7, 1)};
     }
 
-    public void a(com.baidu.helios.common.cc.a aVar, int i, int i2, int i3) {
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i, i2, i3) == null) {
-            com.baidu.helios.common.cc.a d = this.a.d(i, i + i2);
-            if (i3 == 0) {
-                d.b(aVar);
-            } else if (i3 == 2) {
-                d.e(aVar);
-            } else if (i3 != 3) {
-                d.d(aVar);
-            } else {
-                d.c(aVar);
-            }
-            for (int i4 = 0; i4 < i2; i4++) {
-                this.a.a(i + i4, d.d(i4));
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-    }
-
-    public byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
+        e30 e30Var = new e30();
+        byte[] b = d30.b(bArr, bArr.length + ((this.a.length + 1) * e30.b));
+        d30.a(b, e30Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            f30[] f30VarArr = this.a;
+            if (i >= f30VarArr.length) {
+                return Arrays.copyOf(e30Var.b(), e30.b);
+            }
+            f30 f30Var = f30VarArr[i];
+            i++;
+            int length = bArr.length + (e30.b * i);
+            e30Var.a(f30Var.b(b, 0, length), f30Var.a(), f30Var.c(), f30Var.d());
+            d30.a(b, e30Var.b(), length);
+        }
     }
 }

@@ -189,7 +189,7 @@ public class FlowLayout extends ViewGroup {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e4, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f04049b, R.attr.obfuscated_res_0x7f0406c8});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e4, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f04049f, R.attr.obfuscated_res_0x7f0406c9});
             try {
                 this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0);
                 this.b = obtainStyledAttributes.getDimensionPixelSize(5, 0);
@@ -383,7 +383,7 @@ public class FlowLayout extends ViewGroup {
         public final void g(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403ce, R.attr.obfuscated_res_0x7f0403d2, R.attr.obfuscated_res_0x7f0403d6});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403d6, R.attr.obfuscated_res_0x7f0403da, R.attr.obfuscated_res_0x7f0403de});
                 try {
                     this.c = obtainStyledAttributes.getDimensionPixelSize(0, f);
                     this.d = obtainStyledAttributes.getDimensionPixelSize(2, f);

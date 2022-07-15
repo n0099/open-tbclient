@@ -1,206 +1,45 @@
 package com.repackage;
 
-import android.app.Application;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m55 implements l55 {
+public class m55 implements g55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public k55 b;
-    public Application c;
-    public String d;
-    public final r55 e;
-    public final s55 f;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m55 this$0;
-
-        public b(m55 m55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = m55Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            i55 a;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
-                return;
-            }
-            if (!n55.i()) {
-                String c = n55.c();
-                n55.m(c + " Process Not In WhiteList，No Receive");
-            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a = this.this$0.e.a(intent)) != null) {
-                int myPid = Process.myPid();
-                int pid = a.getPid();
-                if (a == null || a.getType() != 1) {
-                    if (a.getType() == 2) {
-                        if (myPid != pid) {
-                            return;
-                        }
-                    } else if (a.getType() == 3 && !n55.l()) {
-                        return;
-                    }
-                } else if (myPid == pid) {
-                    return;
-                }
-                if (this.this$0.b != null) {
-                    this.this$0.b.a(a);
-                }
-            }
-        }
-
-        public /* synthetic */ b(m55 m55Var, a aVar) {
-            this(m55Var);
-        }
-    }
-
-    public m55(Application application) {
+    public m55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = null;
-        this.e = new r55();
-        this.f = new s55();
-        this.c = application;
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            try {
-                unregisterReceiver();
-                this.a = new b(this, null);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.setPriority(1000);
-                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                this.c.registerReceiver(this.a, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
 
-    private void unregisterReceiver() {
+    @Override // com.repackage.g55
+    public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                if (this.a == null || this.c == null) {
-                    return;
-                }
-                this.c.unregisterReceiver(this.a);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            FrameLayout frameLayout = (FrameLayout) view2;
+            if (z) {
+                frameLayout.addView(view3, 0);
+            } else {
+                frameLayout.addView(view3);
             }
-        }
-    }
-
-    @Override // com.repackage.l55
-    public void a(i55 i55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i55Var) == null) {
-            f(i55Var);
-        }
-    }
-
-    @Override // com.repackage.l55
-    public void b(k55 k55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k55Var) == null) {
-            this.b = k55Var;
-        }
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Application application;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null && (application = this.c) != null) {
-                this.d = application.getPackageName();
-            }
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void f(i55 i55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, i55Var) == null) {
-            if (i55Var != null) {
-                try {
-                    Intent intent = new Intent();
-                    intent.setPackage(e());
-                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                    this.f.a(intent, i55Var);
-                    this.c.sendBroadcast(intent);
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            throw new NullPointerException("send multi-process message is null");
-        }
-    }
-
-    @Override // com.repackage.l55
-    public void startService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerReceiver();
-        }
-    }
-
-    public void stopService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            unregisterReceiver();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.width = -2;
+            layoutParams.height = -2;
+            layoutParams.gravity = 17;
+            view3.setLayoutParams(layoutParams);
         }
     }
 }

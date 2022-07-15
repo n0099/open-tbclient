@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi2;
+import com.repackage.dj2;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uv3 extends p13 {
+public class uv3 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements oi2.c {
+    public class a implements dj2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,45 +43,44 @@ public class uv3 extends p13 {
             }
         }
 
-        @Override // com.repackage.oi2.c
+        @Override // com.repackage.dj2.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.oi2.c
+        @Override // com.repackage.dj2.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0129, 1).show();
+                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0130, 1).show();
             }
         }
 
-        @Override // com.repackage.oi2.c
+        @Override // com.repackage.dj2.c
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File c = vv3.c();
                 File b = vv3.b();
-                if (c.exists() && uf4.U(c.getPath(), b.getPath())) {
-                    rv2.L(true);
-                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012a, 1).show();
-                    return;
+                if (c.exists() && jg4.U(c.getPath(), b.getPath())) {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0131, 1).show();
+                } else {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0130, 1).show();
                 }
-                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0129, 1).show();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uv3(p03 p03Var) {
-        super(p03Var, "/swanAPI/debugGameCore");
+    public uv3(e13 e13Var) {
+        super(e13Var, "/swanAPI/debugGameExtensionCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,24 +94,24 @@ public class uv3 extends p13 {
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                JSONObject a2 = p13.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (e23.b) {
+                JSONObject a2 = e23.a(unitedSchemeEntity, "params");
                 if (a2 == null) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012c, 1).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012e, 1).show();
                     return false;
                 }
                 String optString = a2.optString("downloadurl");
                 if (TextUtils.isEmpty(optString)) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012d, 1).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012f, 1).show();
                     return false;
                 }
-                hw3.g(optString, new a(this));
-                return true;
+                ww3.f(optString, new a(this));
+                return false;
             }
             return false;
         }

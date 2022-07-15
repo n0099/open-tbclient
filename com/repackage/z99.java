@@ -1,8 +1,7 @@
 package com.repackage;
 
-import android.os.IBinder;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.config.AppConfig;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.IVoyagerService;
 /* loaded from: classes7.dex */
 public class z99 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile IVoyagerService b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDFactory";
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public da9 a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,37 +30,44 @@ public class z99 {
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        c = w99.e();
     }
 
-    public z99() {
+    public z99(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        int a = x99.a();
+        if (c) {
+            String str = b;
+            Log.e(str, "UnionIDFactory manufacturer:" + a);
+        }
+        if (a == 10001) {
+            this.a = new fa9(context);
+        } else if (a != 10002) {
+            this.a = new ga9(context);
+        } else {
+            if (c) {
+                Log.e(b, "UnionIDFactory XMUnionID");
+            }
+            this.a = new ha9(context);
         }
     }
 
-    public static IVoyagerService b() {
+    public da9 a() {
         InterceptResult invokeV;
-        IBinder f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (z99.class) {
-                    if (b == null && (f = IPCServiceManager.f("remote_voyager_service", true)) != null) {
-                        b = IVoyagerService.Stub.asInterface(f);
-                    }
-                }
-            }
-            return b;
-        }
-        return (IVoyagerService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (da9) invokeV.objValue;
     }
 }

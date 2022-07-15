@@ -3,9 +3,9 @@ package com.baidu.searchbox.crius.data;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.crius.CriusNode;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.parser.GradientAttrs;
+import com.baidu.searchbox.crius.parser.PraiseAttrs;
 import com.baidu.searchbox.crius.parser.PrefixLabelAttrs;
 import com.baidu.searchbox.crius.parser.ScaleFocusPoint;
 import com.baidu.searchbox.crius.parser.SyncInfo;
@@ -53,6 +53,7 @@ public class RenderData {
     public String placeHolderImageNight;
     public int placeHolderScaleType;
     public String poster;
+    public PraiseAttrs praiseAttrs;
     public float prefixLabelWidth;
     public int progressColor;
     public int progressNightColor;
@@ -351,7 +352,6 @@ public class RenderData {
         InterceptResult invokeCommon;
         CriusData criusData2;
         CriusData dataById;
-        CriusNode criusNode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{criusData, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (criusData == null) {
@@ -406,12 +406,13 @@ public class RenderData {
             if (prefixLabelAttrs != null) {
                 boolean z3 = prefixLabelAttrs.hasPrefix;
                 renderData.hasPrefix = z3;
-                if (z3 && !TextUtils.isEmpty(prefixLabelAttrs.bindingId) && (criusData2 = criusData.parent) != null && (dataById = criusData2.getDataById(criusData.preLabelAttrs.bindingId)) != null && (criusNode = dataById.criusNode) != null) {
-                    renderData.prefixLabelWidth = criusNode.getLayoutWidth() + criusData.convertFloatValue(criusData.preLabelAttrs.prefixTitleMargin);
+                if (z3 && !TextUtils.isEmpty(prefixLabelAttrs.bindingId) && (criusData2 = criusData.parent) != null && (dataById = criusData2.getDataById(criusData.preLabelAttrs.bindingId)) != null && dataById.criusNode != null) {
+                    renderData.prefixLabelWidth = criusData.getLabelTextWidth(criusData);
                 }
             }
             renderData.gradientBgColor = criusData.gradientAttrs;
             renderData.ignoreTextPadding = criusData.ignoreTextPadding;
+            renderData.praiseAttrs = criusData.praiseAttrs;
             return renderData;
         }
         return (RenderData) invokeCommon.objValue;

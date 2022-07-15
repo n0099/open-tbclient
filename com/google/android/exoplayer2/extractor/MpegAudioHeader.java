@@ -15,7 +15,6 @@ import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes4.dex */
 public final class MpegAudioHeader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,7 +91,7 @@ public final class MpegAudioHeader {
             }
             int i8 = (i >>> 9) & 1;
             if (i3 == 3) {
-                return ((((i2 == 3 ? BITRATE_V1_L1[i4 - 1] : BITRATE_V2_L1[i4 - 1]) * w0.X3) / i7) + i8) * 4;
+                return ((((i2 == 3 ? BITRATE_V1_L1[i4 - 1] : BITRATE_V2_L1[i4 - 1]) * 12000) / i7) + i8) * 4;
             }
             if (i2 == 3) {
                 i6 = i3 == 2 ? BITRATE_V1_L2[i4 - 1] : BITRATE_V1_L3[i4 - 1];
@@ -132,7 +131,7 @@ public final class MpegAudioHeader {
             int i12 = MP3TrackImpl.SAMPLES_PER_FRAME;
             if (i3 == 3) {
                 i6 = i2 == 3 ? BITRATE_V1_L1[i4 - 1] : BITRATE_V2_L1[i4 - 1];
-                i7 = (((i6 * w0.X3) / i10) + i11) * 4;
+                i7 = (((i6 * 12000) / i10) + i11) * 4;
                 i8 = 384;
             } else {
                 if (i2 == 3) {

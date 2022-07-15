@@ -1,78 +1,89 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jb8 extends af {
+public class jb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final Context b;
+    public final ViewGroup c;
 
-    public jb8() {
+    public jb8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = context;
+        this.c = viewGroup;
     }
 
-    @Override // com.repackage.af
-    public void changeSettingByType(int i) {
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if ("apk_download".equals(str)) {
+                return "apk_download".equals(str2);
+            }
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
+                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.af
-    public String[] getCrashKeys() {
-        InterceptResult invokeV;
+    public kb8 b(va8 va8Var, kb8 kb8Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.af
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, va8Var, kb8Var)) == null) {
+            if (va8Var == null || (str = va8Var.a) == null) {
+                return kb8Var;
+            }
+            if (kb8Var == null || !a(str, kb8Var.a)) {
+                ViewGroup viewGroup = this.c;
+                if (viewGroup == null) {
+                    return null;
+                }
+                viewGroup.removeAllViews();
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(va8Var.a)) {
+                    if (this.a == 2) {
+                        return new ib8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d087a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                    }
+                    return new gb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d080a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                } else if ("apk_download".equals(va8Var.a)) {
+                    if (this.a == 2) {
+                        return new hb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0879, this.c, true), "apk_download");
+                    }
+                    return new fb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0809, this.c, true), "apk_download");
+                } else {
+                    return null;
+                }
+            }
+            return kb8Var;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.af
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.af
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "reply_private_setting_switch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.af
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (kb8) invokeLL.objValue;
     }
 }

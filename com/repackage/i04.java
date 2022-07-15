@@ -1,23 +1,46 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Comparator;
 /* loaded from: classes6.dex */
 public class i04 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i04 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public volatile ArrayList<h04> b;
+    public long a;
+    public long b;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Comparator<i04> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(i04 i04Var, i04 i04Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, i04Var, i04Var2)) == null) ? (int) (i04Var.a - i04Var2.a) : invokeLL.intValue;
+        }
+    }
 
     public i04() {
         Interceptable interceptable = $ic;
@@ -29,79 +52,39 @@ public class i04 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList<>(20);
-    }
-
-    public static i04 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (i04.class) {
-                    if (c == null) {
-                        c = new i04();
-                    }
-                }
-            }
-            return c;
-        }
-        return (i04) invokeV.objValue;
-    }
-
-    public synchronized void a(h04 h04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h04Var) == null) {
-            synchronized (this) {
-                if (h04Var == null) {
-                    return;
-                }
-                if (this.b.size() < 20) {
-                    this.b.add(h04Var);
-                } else {
-                    this.a++;
-                }
             }
         }
     }
 
-    public synchronized void b() {
+    public static long[] a(i04 i04Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b.clear();
-                this.a = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, i04Var)) == null) {
+            if (i04Var == null) {
+                return null;
             }
+            return new long[]{i04Var.a, i04Var.b};
         }
+        return (long[]) invokeL.objValue;
     }
 
-    public synchronized JSONObject d() {
-        InterceptResult invokeV;
+    public boolean b(i04 i04Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                int size = this.b.size();
-                if (size == 0) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i04Var)) == null) {
+            long j = this.a;
+            if (j <= i04Var.b) {
+                long j2 = this.b;
+                long j3 = i04Var.a;
+                if (j2 < j3) {
+                    return false;
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("dropcnt", this.a);
-                    jSONObject.put("errorcnt", size);
-                    JSONArray jSONArray = new JSONArray();
-                    jSONObject.put("errors", jSONArray);
-                    Iterator<h04> it = this.b.iterator();
-                    while (it.hasNext()) {
-                        jSONArray.put(it.next().a());
-                    }
-                } catch (JSONException unused) {
-                }
-                this.b.clear();
-                return jSONObject;
+                this.a = Math.min(j, j3);
+                this.b = Math.max(this.b, i04Var.b);
+                return true;
             }
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

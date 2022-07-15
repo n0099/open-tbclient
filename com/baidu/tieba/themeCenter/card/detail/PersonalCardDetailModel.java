@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
-import com.repackage.om8;
+import com.repackage.kn8;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes4.dex */
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public om8 a;
+    public kn8 a;
     public b b;
     public za c;
 
@@ -72,7 +72,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, om8 om8Var);
+        void a(int i, String str, kn8 kn8Var);
     }
 
     public PersonalCardDetailModel() {
@@ -89,12 +89,12 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        bh8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        bh8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        wh8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        wh8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 
-    public void C(long j) {
+    public void D(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
@@ -103,7 +103,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
         }
     }
 
-    public void D(b bVar) {
+    public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.MainThread;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
-import com.ss.android.download.api.config.u;
+import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -93,7 +93,7 @@ public class g {
 
     @MainThread
     public void a(final Context context, final int i, final DownloadStatusChangeListener downloadStatusChangeListener, final DownloadModel downloadModel) {
-        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.3
+        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.4
             @Override // java.lang.Runnable
             public void run() {
                 g.this.h().a(context, i, downloadStatusChangeListener, downloadModel);
@@ -102,18 +102,18 @@ public class g {
     }
 
     @MainThread
-    public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final u uVar, final IDownloadButtonClickListener iDownloadButtonClickListener) {
-        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.4
+    public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final OnItemClickListener onItemClickListener, final IDownloadButtonClickListener iDownloadButtonClickListener) {
+        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.5
             @Override // java.lang.Runnable
             public void run() {
-                g.this.h().a(str, j, i, downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener);
+                g.this.h().a(str, j, i, downloadEventConfig, downloadController, onItemClickListener, iDownloadButtonClickListener);
             }
         });
     }
 
     @MainThread
     public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController) {
-        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.5
+        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.6
             @Override // java.lang.Runnable
             public void run() {
                 g.this.h().a(str, j, i, downloadEventConfig, downloadController);
@@ -122,11 +122,11 @@ public class g {
     }
 
     @MainThread
-    public void a(final String str, final int i) {
-        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.6
+    public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final IDownloadButtonClickListener iDownloadButtonClickListener) {
+        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.7
             @Override // java.lang.Runnable
             public void run() {
-                g.this.h().a(str, i);
+                g.this.h().a(str, j, i, downloadEventConfig, downloadController, iDownloadButtonClickListener);
             }
         });
     }
@@ -136,8 +136,18 @@ public class g {
     }
 
     @MainThread
-    public void a(final String str, final boolean z) {
+    public void a(final String str, final int i) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.2
+            @Override // java.lang.Runnable
+            public void run() {
+                g.this.h().a(str, i);
+            }
+        });
+    }
+
+    @MainThread
+    public void a(final String str, final boolean z) {
+        com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.3
             @Override // java.lang.Runnable
             public void run() {
                 g.this.h().a(str, z);

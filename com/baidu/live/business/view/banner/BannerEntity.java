@@ -32,7 +32,7 @@ public class BannerEntity implements Parcelable {
     public int mSelected;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<BannerEntity> {
+    public static class a implements Parcelable.Creator<BannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

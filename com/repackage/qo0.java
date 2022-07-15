@@ -1,81 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes7.dex */
-public abstract class qo0 extends po0 {
+public final class qo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qo0(@NonNull hs0 hs0Var, @Nullable Context context) {
-        super(hs0Var, context);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hs0Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hs0) objArr2[0], (Context) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? (TextUtils.equals(str, "GET") || TextUtils.equals(str, "HEAD")) ? false : true : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.oo0
-    @NonNull
-    public is0 E() {
-        InterceptResult invokeV;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.v == null) {
-                this.v = this.y.a();
-            }
-            return this.v;
-        }
-        return (is0) invokeV.objValue;
-    }
-
-    @Override // com.repackage.oo0
-    public void F0(@Nullable cu0 cu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu0Var) == null) {
-            super.F0(E().b(this, cu0Var));
-        }
-    }
-
-    @Override // com.repackage.po0
-    @CallSuper
-    public void F1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            E().c(this, z);
-            ir0 w = wq0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
-            w.n(9, Boolean.valueOf(z));
-            q0(w);
-        }
-    }
-
-    @Override // com.repackage.oo0
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E().a(this);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.equals(str, "POST") || TextUtils.equals(str, "PATCH") || TextUtils.equals(str, HttpPut.METHOD_NAME) || TextUtils.equals(str, "PROPPATCH") || TextUtils.equals(str, "REPORT") : invokeL.booleanValue;
     }
 }

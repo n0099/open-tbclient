@@ -1,19 +1,22 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class m84 {
+public class m84 extends f84<h94> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
 
     public m84() {
         Interceptable interceptable = $ic;
@@ -25,13 +28,79 @@ public abstract class m84 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0;
+    }
+
+    public static int f(@NonNull Cursor cursor, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) ? cursor.getColumnIndex(str) : invokeLL.intValue;
+    }
+
+    @Override // com.repackage.f84
+    public List<h94> e(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
+            }
+            do {
+                arrayList.add(i(cursor));
+            } while (cursor.moveToNext());
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.f84
+    /* renamed from: g */
+    public ContentValues c(h94 h94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, h94Var)) == null) {
+            ContentValues a = super.a(h94Var);
+            a.put("max_age", Long.valueOf(h94Var.o));
+            a.put(PackageTable.ABI, h94Var.q.id);
+            a.put("lib_name", h94Var.p);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.f84
+    /* renamed from: h */
+    public h94 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
+            }
+            return i(cursor);
+        }
+        return (h94) invokeL.objValue;
+    }
+
+    public final h94 i(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                h94 h94Var = new h94();
+                if (b(cursor, h94Var)) {
+                    h94Var.o = cursor.getLong(f(cursor, "max_age"));
+                    h94Var.q = AbiType.findById(cursor.getString(f(cursor, PackageTable.ABI)), null);
+                    h94Var.p = cursor.getString(f(cursor, "lib_name"));
+                    return h94Var;
+                }
+            }
+            return null;
+        }
+        return (h94) invokeL.objValue;
     }
 }

@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.ARType;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
@@ -324,7 +325,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
             l r = r();
             if (this.rV && !this.rX) {
                 this.rX = true;
-                b(7001, (HashMap<String, Object>) null);
+                b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, (HashMap<String, Object>) null);
                 if (r != null) {
                     this.rY = r.isDriverdByARPVersion();
                 }

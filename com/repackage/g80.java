@@ -1,58 +1,43 @@
 package com.repackage;
 
-import com.baidu.live.business.model.data.LiveBannerEntity;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g80 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveBannerEntity> a;
 
-    public g80() {
+    public static String a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if ((a & 1) != 0) {
+                str = "banner,";
+            } else {
+                str = "";
             }
+            if ((a & 2) != 0) {
+                str = str + "follow,";
+            }
+            if ((a & 4) != 0) {
+                str = str + "tab,";
+            }
+            if ((a & 8) != 0) {
+                str = str + "feed,";
+            }
+            return TextUtils.isEmpty(str) ? "" : str.substring(0, str.length() - 1);
         }
+        return (String) invokeV.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optInt("inner_errno");
-        jSONObject.optString("inner_msg");
-        jSONObject.optInt("count");
-        jSONObject.optInt("position");
-        JSONArray optJSONArray = jSONObject.optJSONArray("items");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.a = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
-                liveBannerEntity.parserJson(optJSONObject);
-                if (liveBannerEntity.isValid()) {
-                    liveBannerEntity.position = this.a.size();
-                    this.a.add(liveBannerEntity);
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            a = i;
         }
     }
 }

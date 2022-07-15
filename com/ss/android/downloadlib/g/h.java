@@ -154,6 +154,10 @@ public class h {
                 } else if (!(context instanceof Activity)) {
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
+                if (com.ss.android.socialbase.downloader.g.a.c().b("test_jump_market_failed") == 1) {
+                    com.ss.android.downloadlib.e.c.a().a(false, "jump market error");
+                    return new com.ss.android.downloadlib.addownload.b.g(6, 25);
+                }
                 intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
                 context.startActivity(intent);
                 return new com.ss.android.downloadlib.addownload.b.g(5);
@@ -266,6 +270,13 @@ public class h {
         return new com.ss.android.downloadlib.addownload.b.g(6, 11);
     }
 
+    public static void b(com.ss.android.downloadlib.addownload.b.e eVar, JSONObject jSONObject, int i, int i2) {
+        l.a(jSONObject, "error_code", Integer.valueOf(i));
+        l.a(jSONObject, "ttdownloader_type", Integer.valueOf(i2));
+        l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i(), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
+        com.ss.android.downloadlib.d.a.a().b("am_result", jSONObject, eVar);
+    }
+
     public static com.ss.android.downloadlib.addownload.b.g a(Context context, com.ss.android.downloadlib.addownload.b.e eVar, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
             if (com.ss.android.socialbase.appdownloader.f.d.f() && l.d(context, "com.sec.android.app.samsungapps")) {
@@ -293,13 +304,6 @@ public class h {
             return a(context, Uri.parse(BaseConstants.MARKET_PREFIX + str));
         }
         return new com.ss.android.downloadlib.addownload.b.g(6, 11);
-    }
-
-    public static void b(com.ss.android.downloadlib.addownload.b.e eVar, JSONObject jSONObject, int i, int i2) {
-        l.a(jSONObject, "error_code", Integer.valueOf(i));
-        l.a(jSONObject, "ttdownloader_type", Integer.valueOf(i2));
-        l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i(), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
-        com.ss.android.downloadlib.d.a.a().b("am_result", jSONObject, eVar);
     }
 
     public static com.ss.android.downloadlib.addownload.b.g b(Context context, String str) {

@@ -252,10 +252,10 @@ public abstract class Visibility extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            transitionValues.values.put(PROPNAME_VISIBILITY, Integer.valueOf(transitionValues.f1020view.getVisibility()));
-            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1020view.getParent());
+            transitionValues.values.put(PROPNAME_VISIBILITY, Integer.valueOf(transitionValues.f1747view.getVisibility()));
+            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1747view.getParent());
             int[] iArr = new int[2];
-            transitionValues.f1020view.getLocationOnScreen(iArr);
+            transitionValues.f1747view.getLocationOnScreen(iArr);
             transitionValues.values.put(PROPNAME_SCREEN_LOCATION, iArr);
         }
     }
@@ -414,12 +414,12 @@ public abstract class Visibility extends Transition {
                 return null;
             }
             if (transitionValues == null) {
-                View view2 = (View) transitionValues2.f1020view.getParent();
+                View view2 = (View) transitionValues2.f1747view.getParent();
                 if (getVisibilityChangeInfo(getMatchedTransitionValues(view2, false), getTransitionValues(view2, false)).mVisibilityChange) {
                     return null;
                 }
             }
-            return onAppear(viewGroup, transitionValues2.f1020view, transitionValues, transitionValues2);
+            return onAppear(viewGroup, transitionValues2.f1747view, transitionValues, transitionValues2);
         }
         return (Animator) invokeCommon.objValue;
     }
@@ -449,8 +449,8 @@ public abstract class Visibility extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i), transitionValues2, Integer.valueOf(i2)})) == null) {
             if ((this.mMode & 2) == 2 && transitionValues != null) {
-                View view4 = transitionValues.f1020view;
-                View view5 = transitionValues2 != null ? transitionValues2.f1020view : null;
+                View view4 = transitionValues.f1747view;
+                View view5 = transitionValues2 != null ? transitionValues2.f1747view : null;
                 View view6 = (View) view4.getTag(R$id.save_overlay_view);
                 if (view6 != null) {
                     view3 = null;

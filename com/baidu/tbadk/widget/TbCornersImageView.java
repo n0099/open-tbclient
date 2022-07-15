@@ -398,7 +398,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
         this.d = -1;
         this.f = -1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f040197, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f040306, R.attr.obfuscated_res_0x7f040313, R.attr.obfuscated_res_0x7f040314, R.attr.obfuscated_res_0x7f040446}, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f040197, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f040303, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f040311, R.attr.obfuscated_res_0x7f040312, R.attr.obfuscated_res_0x7f04044a}, 0, 0);
         for (int i4 = 0; i4 < obtainStyledAttributes.getIndexCount(); i4++) {
             int index = obtainStyledAttributes.getIndex(i4);
             if (index == 10) {

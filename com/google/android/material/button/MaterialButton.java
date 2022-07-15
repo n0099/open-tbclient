@@ -999,7 +999,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04044d);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040451);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1041,7 +1041,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         this.checked = false;
         this.broadcasting = false;
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040191, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f2, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f0402f4, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405d6}, i, obfuscated_res_0x7f100347, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040191, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f1, R.attr.obfuscated_res_0x7f0402f2, R.attr.obfuscated_res_0x7f0402f4, R.attr.obfuscated_res_0x7f0402f5, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0405d7}, i, obfuscated_res_0x7f100347, new int[0]);
         this.iconPadding = obtainStyledAttributes.getDimensionPixelSize(12, 0);
         this.iconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(15, -1), PorterDuff.Mode.SRC_IN);
         this.iconTint = MaterialResources.getColorStateList(getContext(), obtainStyledAttributes, 14);

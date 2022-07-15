@@ -22,6 +22,7 @@ import com.baidu.sapi2.result.SetPopularPortraitResult;
 import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -432,7 +433,7 @@ public class PortraitService extends AbstractService implements NoProguard {
             if (i >= 0 && i <= 10) {
                 GetHistoryPortraitsResult getHistoryPortraitsResult = new GetHistoryPortraitsResult();
                 HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-                httpHashMapWrap.put("length", String.valueOf(getHistoryPortraitsDTO.maxNum));
+                httpHashMapWrap.put(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(getHistoryPortraitsDTO.maxNum));
                 httpHashMapWrap.put("bduss", getHistoryPortraitsDTO.bduss);
                 new HttpClientWrap().post(a(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new c(this, Looper.getMainLooper(), getHistoryPortraitsResult, getHistoryPortraitsCallback));
                 return;

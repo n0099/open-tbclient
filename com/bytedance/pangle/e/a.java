@@ -53,16 +53,16 @@ public class a extends c.a {
     }
 
     @Override // com.bytedance.pangle.c
-    public final boolean c(String str) {
-        InterceptResult invokeL;
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? PluginManager.getInstance().syncInstall(new File(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? PluginManager.getInstance().syncInstall(str, new File(str2)) : invokeLL.booleanValue;
     }
 
     @Override // com.bytedance.pangle.c
     public final int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? PluginManager.getInstance().getPlugin(str).getVersion() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? PluginManager.getInstance().getPlugin(str).getVersion() : invokeL.intValue;
     }
 }

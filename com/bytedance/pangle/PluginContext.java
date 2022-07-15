@@ -2,6 +2,7 @@ package com.bytedance.pangle;
 
 import android.content.ComponentCallbacks;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
@@ -149,44 +150,55 @@ public class PluginContext extends e {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPlugin.mResources.getAssets() : (AssetManager) invokeV.objValue;
     }
 
+    @Override // android.content.ContextWrapper
+    public Context getBaseContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Context baseContext = super.getBaseContext();
+            return baseContext instanceof ContextWrapper ? ((ContextWrapper) baseContext).getBaseContext() : baseContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPlugin.mClassLoader : (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPlugin.mClassLoader : (ClassLoader) invokeV.objValue;
     }
 
     public Configuration getOverrideConfiguration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOverrideConfiguration : (Configuration) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mOverrideConfiguration : (Configuration) invokeV.objValue;
     }
 
     public String getPluginPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPlugin.mPkgName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPlugin.mPkgName : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.pangle.e
     public String getPluginPkg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPlugin.mPkgName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPlugin.mPkgName : (String) invokeV.objValue;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPlugin.mResources : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPlugin.mResources : (Resources) invokeV.objValue;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Object getSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             if ("layout_inflater".equals(str)) {
                 if (this.mInflater == null) {
                     LayoutInflater cloneInContext = LayoutInflater.from(getBaseContext()).cloneInContext(this);
@@ -207,7 +219,7 @@ public class PluginContext extends e {
     @Override // android.content.Context
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, componentCallbacks) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, componentCallbacks) == null) {
             if (this.mIsHostApplicationContext) {
                 this.mOriginContext.registerComponentCallbacks(componentCallbacks);
             } else {
@@ -219,7 +231,7 @@ public class PluginContext extends e {
     @Override // android.content.Context
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, componentCallbacks) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, componentCallbacks) == null) {
             if (this.mIsHostApplicationContext) {
                 this.mOriginContext.unregisterComponentCallbacks(componentCallbacks);
             } else {

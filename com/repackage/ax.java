@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ax extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ym4 h;
+    public nn4 h;
     public ForumEnterLayout i;
     public final View.OnClickListener j;
 
@@ -50,10 +50,10 @@ public class ax extends xw {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e() == null) {
                 return;
             }
-            this.a.d().a(view2, this.a.h);
+            this.a.e().a(view2, this.a.h);
         }
     }
 
@@ -78,8 +78,8 @@ public class ax extends xw {
         this.j = new a(this);
         int f = pi.f(context, R.dimen.M_H_X003);
         int f2 = pi.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-        r(f);
-        q(f2);
+        s(f);
+        r(f2);
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
             this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
         } else {
@@ -89,13 +89,13 @@ public class ax extends xw {
     }
 
     @Override // com.repackage.qw
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -103,36 +103,36 @@ public class ax extends xw {
         }
     }
 
-    public void t() {
+    public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (UbsABTestHelper.showNewUI()) {
                 int f = pi.f(this.b, R.dimen.M_H_X003);
                 int f2 = pi.f(this.b, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-                r(f);
-                q(f2);
+                s(f);
+                r(f2);
                 return;
             }
             int f3 = pi.f(this.b, R.dimen.tbds10);
-            r(f3);
-            q(0);
-            v(this.i, f3, 0);
+            s(f3);
+            r(0);
+            w(this.i, f3, 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: u */
-    public void a(ym4 ym4Var) {
+    @Override // com.repackage.gx
+    /* renamed from: v */
+    public void a(nn4 nn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ym4Var) == null) {
-            this.h = ym4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
+            this.h = nn4Var;
             this.i.setSourceForPb(this.a.i());
-            this.i.setData(ym4Var);
+            this.i.setData(nn4Var);
         }
     }
 
-    public void v(View view2, int i, int i2) {
+    public void w(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();

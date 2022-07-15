@@ -1,13 +1,9 @@
 package com.repackage;
 
-import android.database.DataSetObserver;
-import android.view.View;
+import android.app.Activity;
+import android.content.Context;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ListAdapter;
-import android.widget.WrapperListAdapter;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.GuardedBy;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,19 +12,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huewu.pla.lib.internal.PLA_ListView;
+import com.fun.ad.sdk.CacheStatistic;
+import com.fun.ad.sdk.FunAdFactory;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class ui9 implements WrapperListAdapter, Filterable {
+public final class ui9 implements FunAdFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<PLA_ListView.a> f;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ListAdapter a;
-    public ArrayList<PLA_ListView.a> b;
-    public ArrayList<PLA_ListView.a> c;
-    public boolean d;
-    public final boolean e;
+    public final Map<String, LinkedHashMap<kd9, FunAdLoader>> a;
+    public final Object b;
+    @GuardedBy("mInitializeLock")
+    public final LinkedList<a> c;
+    @GuardedBy("mInitializeLock")
+    public int d;
+    @GuardedBy("mInitializeLock")
+    public vc9 e;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Context a;
+        public final FunAdSlot b;
+        public final FunAdLoadListener c;
+
+        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, funAdSlot, funAdLoadListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,15 +86,13 @@ public class ui9 implements WrapperListAdapter, Filterable {
                 return;
             }
         }
-        f = new ArrayList<>();
+        f = !ui9.class.desiredAssertionStatus();
     }
 
-    public ui9(ArrayList<PLA_ListView.a> arrayList, ArrayList<PLA_ListView.a> arrayList2, ListAdapter listAdapter) {
+    public ui9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, arrayList2, listAdapter};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,292 +102,210 @@ public class ui9 implements WrapperListAdapter, Filterable {
                 return;
             }
         }
-        this.a = listAdapter;
-        this.e = listAdapter instanceof Filterable;
-        if (arrayList == null) {
-            this.b = f;
-        } else {
-            this.b = arrayList;
-        }
-        if (arrayList2 == null) {
-            this.c = f;
-        } else {
-            this.c = arrayList2;
-        }
-        this.d = a(this.b) && a(this.c);
+        this.a = new HashMap();
+        this.b = new Object();
+        this.c = new LinkedList<>();
+        this.d = 0;
     }
 
-    public final boolean a(ArrayList<PLA_ListView.a> arrayList) {
+    public final List<FunAdLoader> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<PLA_ListView.a> it = arrayList.iterator();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                kd9 b = bd9.b(str);
+                if (b == null) {
+                    return null;
+                }
+                LinkedHashMap<kd9, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    linkedHashMap = new LinkedHashMap<>();
+                    this.a.put(str, linkedHashMap);
+                }
+                if (linkedHashMap.get(b) == null) {
+                    linkedHashMap.put(b, b.a.a(this.e));
+                }
+                ArrayList arrayList = new ArrayList(linkedHashMap.values());
+                Collections.reverse(arrayList);
+                return arrayList;
+            }
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void destroyAd(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this.b) {
+                this.c.clear();
+            }
+            synchronized (this.a) {
+                kd9 b = bd9.b(str);
+                if (b == null) {
+                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
+                    return;
+                }
+                LinkedHashMap<kd9, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+                    return;
+                }
+                HashSet hashSet = new HashSet();
+                for (Map.Entry<kd9, FunAdLoader> entry : linkedHashMap.entrySet()) {
+                    kd9 key = entry.getKey();
+                    entry.getValue().destroy();
+                    if (!b.equals(key)) {
+                        LogPrinter.d("Remove redundant loader for sid:%s", str);
+                        hashSet.add(key);
+                    }
+                }
+                Iterator it = hashSet.iterator();
                 while (it.hasNext()) {
-                    if (!it.next().c) {
-                        return false;
-                    }
+                    linkedHashMap.remove((kd9) it.next());
                 }
-                return true;
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return this.d && listAdapter.areAllItemsEnabled();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.size() : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    public boolean d(View view2) {
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public List<CacheStatistic> getCacheStatistics(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).a == view2) {
-                    this.c.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                for (FunAdLoader funAdLoader : a2) {
+                    List<CacheStatistic> cacheStatistics = funAdLoader.getCacheStatistics(str);
+                    if (!cacheStatistics.isEmpty()) {
+                        return cacheStatistics;
                     }
-                    this.d = z;
-                    return true;
                 }
             }
-            return false;
+            return new ArrayList();
         }
-        return invokeL.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    public boolean e(View view2) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunNativeAd2 getNativeAd2(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.b.size(); i++) {
-                if (this.b.get(i).a == view2) {
-                    this.b.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
-                    }
-                    this.d = z;
-                    return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
+                if (nativeAd2 != null) {
+                    return nativeAd2;
                 }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        int c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a != null) {
-                b = b() + c();
-                c = this.a.getCount();
-            } else {
-                b = b();
-                c = c();
-            }
-            return b + c;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Filterable
-    public Filter getFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.e) {
-                return ((Filterable) this.a).getFilter();
             }
             return null;
         }
-        return (Filter) invokeV.objValue;
+        return (FunNativeAd2) invokeLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public boolean isAdReady(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return false;
             }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getItem(i2);
-            }
-            return this.c.get(i2 - i3).b;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null || i < c || (i2 = i - c) >= listAdapter.getCount()) {
-                return -1L;
-            }
-            return this.a.getItemId(i2);
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null || i < c || (i2 = i - c) >= listAdapter.getCount()) {
-                return -2;
-            }
-            return this.a.getItemViewType(i2);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).a;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getView(i2, view2, viewGroup);
-            }
-            return this.c.get(i2 - i3).a;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.getViewTypeCount();
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.WrapperListAdapter
-    public ListAdapter getWrappedAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (ListAdapter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.hasStableIds();
+            for (FunAdLoader funAdLoader : a2) {
+                if (funAdLoader.isReady()) {
+                    return true;
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            return listAdapter == null || listAdapter.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).c;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.b) {
+                i = this.d;
             }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.isEnabled(i2);
+            if (i == -1) {
+                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
+                funAdLoadListener.onError(funAdSlot.getSid());
+            } else if (i == 0) {
+                synchronized (this.b) {
+                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
+                }
+            } else if (i != 1) {
+                throw new RuntimeException("Unknown st:" + i);
+            } else {
+                List<FunAdLoader> a2 = a(funAdSlot.getSid());
+                if (a2 == null) {
+                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
+                    funAdLoadListener.onError(funAdSlot.getSid());
+                    return;
+                }
+                Iterator<FunAdLoader> it = a2.iterator();
+                FunAdLoader next = it.next();
+                while (it.hasNext()) {
+                    it.next().recycleListener();
+                }
+                next.load(context, funAdSlot, funAdLoadListener);
             }
-            return this.c.get(i2 - i3).c;
         }
-        return invokeI.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) || (listAdapter = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, funAdInteractionListener) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return;
+            }
+            Iterator<FunAdLoader> it = a2.iterator();
+            while (it.hasNext()) {
+                FunAdLoader next = it.next();
+                if (!it.hasNext()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                } else if (next.isReady()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                }
+            }
         }
-        listAdapter.registerDataSetObserver(dataSetObserver);
     }
 
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) || (listAdapter = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
+                if (showSplash != null) {
+                    return showSplash;
+                }
+            }
+            return null;
         }
-        listAdapter.unregisterDataSetObserver(dataSetObserver);
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

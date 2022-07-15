@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes2.dex */
 public final class LocationClientOption {
     public static /* synthetic */ Interceptable $ic = null;
@@ -167,7 +166,7 @@ public final class LocationClientOption {
         this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
-        this.timeOut = w0.X3;
+        this.timeOut = 12000;
         this.prodName = "SDK6.0";
         this.priority = 1;
         this.location_change_notify = false;
@@ -209,7 +208,7 @@ public final class LocationClientOption {
         this.addrType = "detail";
         this.openGps = false;
         this.scanSpan = 0;
-        this.timeOut = w0.X3;
+        this.timeOut = 12000;
         this.prodName = "SDK6.0";
         this.priority = 1;
         this.location_change_notify = false;

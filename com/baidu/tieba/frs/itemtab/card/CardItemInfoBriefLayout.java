@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.gx;
+import com.repackage.hx;
 import com.repackage.pi;
+import com.repackage.ur4;
 import tbclient.ItemInfo;
 /* loaded from: classes3.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements gx {
+public class CardItemInfoBriefLayout extends FrameLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -92,11 +92,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gx {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05c2);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05cc);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f0628);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f0632);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -133,8 +133,8 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gx {
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05c2))));
-            fr4 d = fr4.d(this.a);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05cc))));
+            ur4 d = ur4.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, pi.f(getContext(), R.dimen.M_H_X005));
@@ -142,8 +142,8 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gx {
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05c2);
-            fr4.d(this.a).z(R.dimen.T_X07);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05cc);
+            ur4.d(this.a).z(R.dimen.T_X07);
             this.b.setPadding(pi.f(getContext(), R.dimen.M_W_X005), pi.f(getContext(), R.dimen.M_H_X005), 0, pi.f(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -153,16 +153,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gx {
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            fr4 d = fr4.d(this);
+            ur4 d = ur4.d(this);
             d.m(2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            fr4.d(this.a).v(R.color.CAM_X0105);
-            fr4.d(this.b).v(R.color.CAM_X0304);
+            ur4.d(this.a).v(R.color.CAM_X0105);
+            ur4.d(this.b).v(R.color.CAM_X0304);
         }
     }
 

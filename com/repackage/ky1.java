@@ -1,9 +1,14 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.InspectorNativeChannel;
+import com.baidu.searchbox.v8engine.InspectorNativeClient;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,140 +16,261 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.google.zxing.common.StringUtils;
+import com.repackage.iy1;
+import com.repackage.my1;
+import com.repackage.oy1;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.StringTokenizer;
+import java.util.concurrent.LinkedBlockingQueue;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ky1 {
+public class ky1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
+    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
+    public InputStream a;
+    public OutputStream b;
+    public oy1 c;
+    public LinkedBlockingQueue<String> d;
+    public InspectorNativeClient e;
+    public p72 f;
+    public iy1.b g;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements oy1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public long c;
+        public final /* synthetic */ ky1 a;
 
-        public a() {
+        /* renamed from: com.repackage.ky1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0669a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0669a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    String str = (String) this.a.a.d.poll();
+                    while (str != null) {
+                        this.a.a.e.dispatchProtocolMessage(str);
+                        this.a.d(str);
+                        str = (String) this.a.a.d.poll();
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.g.onConnected();
+                    this.a.a.g = null;
+                    int unused = ky1.i = 2;
+                }
+            }
+        }
+
+        public a(ky1 ky1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ky1Var;
+        }
+
+        @Override // com.repackage.oy1.a
+        public void a(WebSocketFrame webSocketFrame) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
+                this.a.d.offer(webSocketFrame.g());
+                this.a.f.postOnJSThread(new RunnableC0669a(this));
+            }
+        }
+
+        @Override // com.repackage.oy1.a
+        public void b(IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
+                hx1.d("ClientHandler", "V8 inspector exception", iOException);
+                this.a.l();
+            }
+        }
+
+        public final void d(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || this.a.g == null || ky1.i == 2) {
+                return;
+            }
+            try {
+                if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
+                    g03 K = g03.K();
+                    SwanAppActivity w = g03.K().w();
+                    if (K.E() && w != null) {
+                        w.runOnUiThread(new b(this));
+                    }
+                }
+            } catch (JSONException e) {
+                if (ky1.h) {
+                    Log.e("ClientHandler", "message is not a Json object", e);
+                }
+            }
+        }
+
+        @Override // com.repackage.oy1.a
+        public void onClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                hx1.i("ClientHandler", "V8 inspector closed");
+                this.a.l();
+            }
+        }
+
+        @Override // com.repackage.oy1.a
+        public void onOpen() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                hx1.i("ClientHandler", "V8 inspector opened");
+                d22 W = b72.U().W();
+                if (W instanceof h22) {
+                    this.a.f = (p72) W.g();
+                }
+                if (this.a.f != null) {
+                    if (this.a.e != null) {
+                        this.a.e.destroy();
+                    }
+                    ky1 ky1Var = this.a;
+                    ky1Var.e = ky1Var.f.s0(new b(this.a));
+                    int unused = ky1.i = 1;
+                    return;
+                }
+                hx1.i("ClientHandler", "inner error, V8 mEngine is null");
+                this.a.l();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class b extends InspectorNativeChannel {
         public static /* synthetic */ Interceptable $ic;
-        public static final boolean a;
-        public static int b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky1 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-227024944, "Lcom/repackage/ky1$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-227024944, "Lcom/repackage/ky1$b;");
+        public b(ky1 ky1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = cg1.a;
-            b = -1;
+            this.a = ky1Var;
         }
 
-        public static boolean a() {
+        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
+        public String awaitMessage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (h() & 255) == 1 : invokeV.booleanValue;
-        }
-
-        public static int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                int h = h();
-                return h == 0 ? h : (h >> 16) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                int h = h();
-                return h == 0 ? h : (h >> 8) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                a aVar = new a();
-                aVar.a = f();
-                aVar.b = g();
-                aVar.c = e();
-                if (a) {
-                    Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + aVar.a + " ,sizeLimit: " + aVar.b + " ,diskSizeThreshold: " + aVar.c);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (ky1.h) {
+                    Log.d("ClientHandler", "getInspectorMessage");
                 }
-                return aVar;
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public static long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-                return 31457280L;
-            }
-            return invokeV.longValue;
-        }
-
-        public static int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-                return 20;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                return 102400;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                if (b == -1) {
-                    zi2.g0().getSwitch("swan_custom_code_cache", 0);
-                    b = 0;
+                try {
+                    return (String) this.a.d.take();
+                } catch (InterruptedException e) {
+                    if (ky1.h) {
+                        Log.e("ClientHandler", "awaitMessage on Debugger", e);
+                        return "";
+                    }
+                    return "";
                 }
-                return b;
             }
-            return invokeV.intValue;
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
+        public void sendMessage(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                try {
+                    this.a.c.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
+                } catch (Exception unused) {
+                    if (ky1.h) {
+                        Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
+                    }
+                }
+            }
         }
     }
 
@@ -161,50 +287,156 @@ public final class ky1 {
                 return;
             }
         }
-        a = cg1.a;
+        h = rg1.a;
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public ky1(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                a d = b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, outputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a) {
-                Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        this.d = new LinkedBlockingQueue<>();
+        this.a = inputStream;
+        this.b = outputStream;
     }
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static String n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            try {
+                return URLDecoder.decode(str, StringUtils.UTF8);
+            } catch (UnsupportedEncodingException unused) {
+                if (h) {
+                    Log.d("ClientHandler", "Encoding not supported, ignored");
+                }
+                return null;
             }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
         }
-        return invokeCommon.intValue;
+        return (String) invokeL.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinkedBlockingQueue<String> linkedBlockingQueue = this.d;
+            if (linkedBlockingQueue != null) {
+                linkedBlockingQueue.clear();
+                this.d = null;
+            }
+            InspectorNativeClient inspectorNativeClient = this.e;
+            if (inspectorNativeClient != null) {
+                inspectorNativeClient.destroy();
+                this.e = null;
+            }
+            InputStream inputStream = this.a;
+            if (inputStream != null) {
+                jg4.d(inputStream);
+                this.a = null;
+            }
+            OutputStream outputStream = this.b;
+            if (outputStream != null) {
+                jg4.d(outputStream);
+                this.b = null;
+            }
+            this.c = null;
+            this.f = null;
+            i = 3;
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void m(BufferedReader bufferedReader, my1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferedReader, aVar) == null) {
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    return;
+                }
+                StringTokenizer stringTokenizer = new StringTokenizer(readLine);
+                if (stringTokenizer.hasMoreTokens()) {
+                    aVar.b = stringTokenizer.nextToken();
+                    if (stringTokenizer.hasMoreTokens()) {
+                        aVar.c = n(stringTokenizer.nextToken());
+                        if (stringTokenizer.hasMoreTokens()) {
+                            aVar.d = stringTokenizer.nextToken();
+                        } else {
+                            aVar.d = "HTTP/1.1";
+                            if (h) {
+                                Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
+                            }
+                        }
+                        String readLine2 = bufferedReader.readLine();
+                        while (readLine2 != null && !readLine2.trim().isEmpty()) {
+                            if (h) {
+                                Log.d("ClientHandler", "Http header :" + readLine2);
+                            }
+                            int indexOf = readLine2.indexOf(58);
+                            if (indexOf >= 0) {
+                                aVar.a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
+                            }
+                            readLine2 = bufferedReader.readLine();
+                        }
+                        return;
+                    }
+                    throw new RuntimeException("BAD REQUEST: Missing URI. Usage: GET /example/file.html");
+                }
+                throw new RuntimeException("BAD REQUEST: Syntax error. Usage: GET /example/file.html");
+            } catch (IOException e) {
+                if (h) {
+                    Log.e("ClientHandler", "Decode header exception", e);
+                }
+            }
+        }
+    }
+
+    public void o(iy1.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && i == 0) {
+            this.g = bVar;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.a));
+                    my1.a aVar = new my1.a();
+                    m(bufferedReader, aVar);
+                    ny1.a(aVar).e(this.b);
+                    if (aVar.e) {
+                        if (i != 0 && i != 3) {
+                            zz2.f(oj2.c(), R.string.obfuscated_res_0x7f0f0135).G();
+                            return;
+                        }
+                        oy1 oy1Var = new oy1();
+                        this.c = oy1Var;
+                        oy1Var.k(new a(this));
+                        this.c.h(this.a, this.b);
+                    }
+                } catch (RuntimeException e) {
+                    if (h) {
+                        Log.e("ClientHandler", "Request parse fail", e);
+                    }
+                }
+            } finally {
+                jg4.d(this.a);
+                jg4.d(this.b);
+            }
+        }
     }
 }

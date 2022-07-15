@@ -1,70 +1,169 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.menu.BaseMenuView;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class u54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public View c;
+    public boolean d;
+    public b e;
 
-    public static long a(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) ? baseMenuView.a() ? 240L : 200L : invokeL.longValue;
+    /* loaded from: classes7.dex */
+    public class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ u54 c;
+
+        public a(u54 u54Var, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u54Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = u54Var;
+            this.a = z;
+            this.b = i;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                animator.removeAllListeners();
+                if (!this.a) {
+                    this.c.c(this.b);
+                }
+                if (this.c.e != null) {
+                    this.c.e.a(this.a);
+                }
+            }
+        }
     }
 
-    public static ObjectAnimator b(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, AnimationProperty.TRANSLATE_Y, 0.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new v54(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(boolean z);
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 0.0f);
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755309987, "Lcom/repackage/u54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755309987, "Lcom/repackage/u54;");
+                return;
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
+        f = yd3.g(58.0f);
     }
 
-    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
-        InterceptResult invokeLL;
+    public u54(View view2, FrameLayout frameLayout, View view3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, frameLayout, view3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (ObjectAnimator) invokeLL.objValue;
+        this.a = view2;
+        this.b = frameLayout;
+        this.c = view3;
     }
 
-    public static ObjectAnimator e(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, AnimationProperty.TRANSLATE_Y, baseMenuView.getHeight());
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new v54(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            layoutParams.height = this.a.getHeight() - (i * 2);
+            this.a.setLayoutParams(layoutParams);
         }
-        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.b(z);
+            }
+            this.d = z;
+            int i = f;
+            if (z) {
+                i = -i;
+            }
+            float[] fArr = new float[2];
+            if (z) {
+                fArr[0] = 0.0f;
+                fArr[1] = i;
+            } else {
+                fArr[0] = -i;
+                fArr[1] = 0.0f;
+            }
+            float[] fArr2 = new float[2];
+            if (z) {
+                fArr2[0] = 0.0f;
+                fArr2[1] = i * 2;
+            } else {
+                fArr2[0] = (-i) * 2;
+                fArr2[1] = 0.0f;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, "translationY", fArr), ObjectAnimator.ofFloat(this.a, "translationY", fArr2), ObjectAnimator.ofFloat(this.c, "translationY", fArr2));
+            animatorSet.setDuration(200L);
+            animatorSet.start();
+            animatorSet.addListener(new a(this, z, i));
+            if (z) {
+                c(i);
+            }
+        }
     }
 }

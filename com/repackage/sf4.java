@@ -1,30 +1,57 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import android.content.Context;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public interface sf4 extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public interface sf4 {
+    String a();
 
-    boolean b();
+    String b();
 
-    long c();
+    boolean c(String str);
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
+    ExecutorService d();
 
-    @NonNull
-    File getFile();
+    void e(String str, int i, JSONArray jSONArray);
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    void f(String str, int i);
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    void g(String str, String str2, int i, String str3, int i2);
+
+    String getAppId();
+
+    String getAppVersion();
+
+    String getDeviceId(Context context);
+
+    String getScene();
+
+    String h();
+
+    void i(String str, int i, String str2);
+
+    boolean j();
+
+    int k();
+
+    tf4 l();
+
+    String m();
+
+    void n(String str, String str2, int i, String str3, long j, int i2);
+
+    String o(Context context);
+
+    boolean p();
+
+    boolean q();
+
+    boolean r();
+
+    String s();
+
+    String t();
+
+    String u(Context context);
 }

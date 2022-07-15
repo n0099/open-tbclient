@@ -14,7 +14,7 @@ public class vv3 {
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             File b = b();
             if (b.exists()) {
-                uf4.j(b);
+                jg4.j(b);
             }
         }
     }
@@ -22,7 +22,7 @@ public class vv3 {
     public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? hw3.e("aigames_debug_game_core") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ww3.e("aigames_debug_extension_core") : (File) invokeV.objValue;
     }
 
     public static File c() {
@@ -33,7 +33,7 @@ public class vv3 {
             if (!b.exists()) {
                 b.mkdirs();
             }
-            return new File(b, "debugGameCore.zip");
+            return new File(b, "debugExtensionCore.zip");
         }
         return (File) invokeV.objValue;
     }

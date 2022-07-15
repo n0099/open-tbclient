@@ -2,17 +2,20 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.android.util.io.JSONUtils;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hd3 {
+public final class hd3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,132 +33,105 @@ public class hd3 {
                 return;
             }
         }
-        a = cg1.a;
+        a = rg1.a;
     }
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b(str) > b(str2) : invokeLL.booleanValue;
-    }
-
-    public static long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String[] g = g(str);
-            if (g == null) {
-                return 0L;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            long j = 0;
-            for (int i = 0; i < g.length; i++) {
-                try {
-                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
-                } catch (NumberFormatException e) {
-                    sw1.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
-                    return 0L;
-                }
-            }
-            sw1.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
-            return j;
-        }
-        return invokeL.longValue;
-    }
-
-    public static long c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String[] g = g(str);
-            if (g == null) {
-                return 0L;
-            }
-            int i = 0;
-            long j = 0;
-            while (i < 3) {
-                try {
-                    j = (j << 16) | (i < g.length ? Integer.parseInt(g[i]) : 0L);
-                    i++;
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        throw e;
+            T t = (T) jSONObject.opt(str);
+            if (cls.isInstance(t)) {
+                if (a) {
+                    String obj = t.toString();
+                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
+                        obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
                     }
-                    return 0L;
+                    if (a) {
+                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
+                    }
                 }
+                return t;
             }
             if (a) {
-                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j);
-            }
-            return j;
-        }
-        return invokeL.longValue;
-    }
-
-    public static String d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
-            if (j < 0) {
-                sw1.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
-                return "0";
-            }
-            StringBuilder sb = new StringBuilder();
-            long j2 = j;
-            for (int i = 2; i >= 0; i--) {
-                if (i > 0) {
-                    long pow = (long) Math.pow(1000.0d, i);
-                    sb.append(j2 / pow);
-                    sb.append(".");
-                    j2 %= pow;
+                if (t == null) {
+                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
                 } else {
-                    sb.append(j2);
+                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
                 }
             }
-            String sb2 = sb.toString();
-            sw1.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
-            return sb2;
+            return null;
         }
-        return (String) invokeJ.objValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public static boolean e(String str) {
+    public static float b(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
+    }
+
+    public static JSONArray c(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) ? (JSONArray) a(jSONObject, str, JSONArray.class) : (JSONArray) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject d(String str) {
         InterceptResult invokeL;
-        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONArray e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return false;
+                return new JSONArray();
             }
-            File file = new File(str);
-            return file.isDirectory() && (list = file.list()) != null && list.length > 0;
+            try {
+                return new JSONArray(str);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
+                }
+                return new JSONArray();
+            }
         }
-        return invokeL.booleanValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            long b = b(str);
-            SwanCoreVersion d0 = m62.U().d0();
-            return (d0 != null ? b(d0.swanCoreVersionName) : 0L) < b;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            if (split.length != 3) {
-                return null;
+            try {
+                jSONObject.put(str, obj);
+            } catch (JSONException unused) {
             }
-            return split;
+            return jSONObject;
         }
-        return (String[]) invokeL.objValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
 /* loaded from: classes6.dex */
 public class i1<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -83,7 +82,7 @@ public class i1<T> {
                 return;
             }
         }
-        this.a = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+        this.a = str.replace('\\', WebvttCueParser.CHAR_SLASH);
         this.b = cls;
         this.c = k1Var;
     }
@@ -103,7 +102,7 @@ public class i1<T> {
                 return;
             }
         }
-        this.a = j3Var.j().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+        this.a = j3Var.j().replace('\\', WebvttCueParser.CHAR_SLASH);
         this.d = j3Var;
         this.b = cls;
         this.c = k1Var;

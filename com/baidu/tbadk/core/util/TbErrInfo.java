@@ -108,69 +108,69 @@ public class TbErrInfo {
                 if (i != -84) {
                     if (i != -52) {
                         if (i == -51) {
-                            return resources.getString(R.string.obfuscated_res_0x7f0f13a4);
+                            return resources.getString(R.string.obfuscated_res_0x7f0f139d);
                         }
                         if (i != -7) {
                             if (i == -3) {
-                                return resources.getString(R.string.obfuscated_res_0x7f0f1392);
+                                return resources.getString(R.string.obfuscated_res_0x7f0f138b);
                             }
                             if (i != -2 && i != -1) {
                                 if (i != 0) {
                                     switch (i) {
                                         case ERR_LIVE_PLAY_NO_STREAM /* -1129 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f139a);
-                                        case ERR_LIVE_PLAY_INVALID_CODEC /* -1128 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f1398);
-                                        case ERR_LIVE_PLAY_NETWORK /* -1127 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f1399);
-                                        case ERR_LIVE_PLAY_FILE /* -1126 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f1397);
-                                        case ERR_LIVE_REMOTE_EXCEPTION /* -1125 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f139b);
-                                        case ERR_LIVE_TOKEN_EXPIRED /* -1124 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f13a2);
-                                        case ERR_LIVE_CONNECTION_KICKED /* -1123 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f1390);
-                                        case ERR_LIVE_MM_MODULE_FAILED /* -1122 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f1395);
-                                        case ERR_LIVE_SDK_PUB_FAILED /* -1121 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f139d);
-                                        case ERR_LIVE_SDK_INIT_FAILED /* -1120 */:
-                                            return resources.getString(R.string.obfuscated_res_0x7f0f139c);
-                                        case ERR_LIVE_LIB_LOAD /* -1119 */:
                                             return resources.getString(R.string.obfuscated_res_0x7f0f1393);
-                                        case ERR_LIVE_NOT_SUPPORT /* -1118 */:
+                                        case ERR_LIVE_PLAY_INVALID_CODEC /* -1128 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f1391);
+                                        case ERR_LIVE_PLAY_NETWORK /* -1127 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f1392);
+                                        case ERR_LIVE_PLAY_FILE /* -1126 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f1390);
+                                        case ERR_LIVE_REMOTE_EXCEPTION /* -1125 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f1394);
+                                        case ERR_LIVE_TOKEN_EXPIRED /* -1124 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f139b);
+                                        case ERR_LIVE_CONNECTION_KICKED /* -1123 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f1389);
+                                        case ERR_LIVE_MM_MODULE_FAILED /* -1122 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f138e);
+                                        case ERR_LIVE_SDK_PUB_FAILED /* -1121 */:
                                             return resources.getString(R.string.obfuscated_res_0x7f0f1396);
+                                        case ERR_LIVE_SDK_INIT_FAILED /* -1120 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f1395);
+                                        case ERR_LIVE_LIB_LOAD /* -1119 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f138c);
+                                        case ERR_LIVE_NOT_SUPPORT /* -1118 */:
+                                            return resources.getString(R.string.obfuscated_res_0x7f0f138f);
                                         default:
                                             switch (i) {
                                                 case ERR_UOP_CREATE_GROUP_FAIL /* -48 */:
-                                                    return resources.getString(R.string.obfuscated_res_0x7f0f1391);
+                                                    return resources.getString(R.string.obfuscated_res_0x7f0f138a);
                                                 case ERR_UOP_SENDTEXT_INVALID /* -47 */:
-                                                    return resources.getString(R.string.obfuscated_res_0x7f0f139e);
+                                                    return resources.getString(R.string.obfuscated_res_0x7f0f1397);
                                                 case ERR_UOP_SENDTEXT_TOO_SHORT /* -46 */:
-                                                    return resources.getString(R.string.obfuscated_res_0x7f0f13a1);
+                                                    return resources.getString(R.string.obfuscated_res_0x7f0f139a);
                                                 case ERR_UOP_SENDTEXT_TOO_LONG /* -45 */:
-                                                    return resources.getString(R.string.obfuscated_res_0x7f0f139f);
+                                                    return resources.getString(R.string.obfuscated_res_0x7f0f1398);
                                                 default:
                                                     switch (i) {
                                                         case ERR_UOP_SENDMSG_TOO_MORE /* -42 */:
-                                                            return resources.getString(R.string.obfuscated_res_0x7f0f13a0);
+                                                            return resources.getString(R.string.obfuscated_res_0x7f0f1399);
                                                         case ERR_UOP_VOICE_TOO_SHORT /* -41 */:
-                                                            return resources.getString(R.string.obfuscated_res_0x7f0f13a6);
+                                                            return resources.getString(R.string.obfuscated_res_0x7f0f139f);
                                                         case ERR_USER_OPERATE /* -40 */:
-                                                            return resources.getString(R.string.obfuscated_res_0x7f0f13a5);
+                                                            return resources.getString(R.string.obfuscated_res_0x7f0f139e);
                                                         default:
                                                             switch (i) {
                                                                 case ERR_FILE_SD_FULL /* -26 */:
-                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f059b);
+                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f05a5);
                                                                 case ERR_FILE_IO_SD /* -25 */:
-                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f059a);
+                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f05a4);
                                                                 case ERR_FILE_SHARED_SD /* -24 */:
-                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f059c);
+                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f05a6);
                                                                 case -23:
-                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f0597);
+                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f05a1);
                                                                 default:
-                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f13a3);
+                                                                    return resources.getString(R.string.obfuscated_res_0x7f0f139c);
                                                             }
                                                     }
                                             }
@@ -180,11 +180,11 @@ public class TbErrInfo {
                             }
                         }
                     }
-                    return resources.getString(R.string.obfuscated_res_0x7f0f0c37);
+                    return resources.getString(R.string.obfuscated_res_0x7f0f0c2b);
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f156c);
+                return resources.getString(R.string.obfuscated_res_0x7f0f156e);
             }
-            return resources.getString(R.string.obfuscated_res_0x7f0f1394);
+            return resources.getString(R.string.obfuscated_res_0x7f0f138d);
         }
         return (String) invokeI.objValue;
     }

@@ -7,8 +7,7 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.x;
-import com.tachikoma.core.component.button.StyleHelper;
+import com.kuaishou.weapon.p0.C0400;
 /* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +16,7 @@ public final class a {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(x.y, 4).getString("s_e", "default") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(C0400.f426, 4).getString("s_e", "default") : (String) invokeL.objValue;
     }
 
     public static short a() {
@@ -32,8 +31,8 @@ public final class a {
     public static void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(x.y, 4);
-            String str = z ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE;
+            SharedPreferences sharedPreferences = context.getSharedPreferences(C0400.f426, 4);
+            String str = z ? SapiOptions.KEY_CACHE_ENABLED : "disabled";
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putString("s_e", str);
             edit.commit();

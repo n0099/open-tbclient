@@ -10,6 +10,15 @@ import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 /* loaded from: classes5.dex */
 public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
 
+    /* loaded from: classes5.dex */
+    public static class ChannelDetailActivity extends BaseFragmentActivity {
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            return (IFragmentActivityProxy) Loader.get().newComponentProxy(context, ChannelDetailActivity.class, this);
+        }
+    }
+
     @Keep
     /* loaded from: classes5.dex */
     public static class DeveloperConfigActivity extends BaseFragmentActivity {

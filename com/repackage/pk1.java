@@ -1,19 +1,12 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.content.Context;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public interface pk1 {
-    void a(String str);
+    long a(Context context);
 
-    void b();
+    void b(Context context, String str, af3<String> af3Var);
 
-    void c(String str);
-
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable pk2 pk2Var);
-
-    void e(String str);
-
-    void f(String str);
+    void c(Context context, JSONArray jSONArray, af3<String> af3Var);
 }

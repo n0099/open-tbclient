@@ -1,28 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z04 extends au3 {
+public class z04 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile y04 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public Object data;
 
-    public z04() {
+    public static synchronized y04 a() {
+        InterceptResult invokeV;
+        y04 y04Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (z04.class) {
+                if (a == null) {
+                    a = new y04();
+                }
+                y04Var = a;
             }
+            return y04Var;
         }
+        return (y04) invokeV.objValue;
     }
 }

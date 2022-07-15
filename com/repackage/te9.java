@@ -1,81 +1,135 @@
 package com.repackage;
 
-import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.PidLoaderSession;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.qe9;
 /* loaded from: classes7.dex */
-public class te9 {
+public class te9 implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ ue9 c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ qe9.b f;
+    public final /* synthetic */ TTNativeExpressAd g;
+    public final /* synthetic */ qe9 h;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static ve9 a(Context context, Ssp.Pid pid) {
-        InterceptResult invokeLL;
-        char c;
+    public te9(qe9 qe9Var, ue9 ue9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, qe9.b bVar, TTNativeExpressAd tTNativeExpressAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1900686778:
-                    if (str.equals(FunAdType.JY_NATIVE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1743934314:
-                    if (str.equals(FunAdType.JY_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1659486968:
-                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -39027267:
-                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1872382491:
-                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qe9Var, ue9Var, expressAdListenerWrapper, str, bVar, tTNativeExpressAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                return null;
-                            }
-                            return new cf9(context.getApplicationContext(), pid.pid);
-                        }
-                        return new ef9(context.getApplicationContext(), pid.pid);
-                    }
-                    return new bf9(context.getApplicationContext(), pid.pid);
-                }
-                return new ff9(context.getApplicationContext(), pid.pid);
-            }
-            return new df9(context.getApplicationContext(), pid.pid);
         }
-        return (ve9) invokeLL.objValue;
+        this.h = qe9Var;
+        this.c = ue9Var;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
+        this.f = bVar;
+        this.g = tTNativeExpressAd;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.d();
+            qe9.b bVar = this.f;
+            ue9 ue9Var = this.c;
+            if (bVar.d) {
+                return;
+            }
+            int i2 = bVar.a + 1;
+            bVar.a = i2;
+            if (i2 == bVar.b) {
+                bVar.e.onAdError(ue9Var, i, str);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        boolean z;
+        PidLoaderSession<ue9> session;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.g.setCanInterruptVideoPlay(true);
+            this.h.f.put(this.c, this.d);
+            qe9.b bVar = this.f;
+            ue9 ue9Var = this.c;
+            if (!bVar.d) {
+                bVar.e.onAdLoaded((qe9) ue9Var);
+                bVar.d = true;
+                session = bVar.e.getSession(ue9Var);
+                bVar.c = session;
+                return;
+            }
+            PidLoaderSession<ue9> pidLoaderSession = bVar.c;
+            if (pidLoaderSession != null) {
+                z = bVar.e.isSupportCaching;
+                pidLoaderSession.cacheOrDestroy(ue9Var, z);
+            }
+        }
     }
 }

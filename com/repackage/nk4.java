@@ -1,7 +1,9 @@
 package com.repackage;
+
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface nk4 {
-    void a(pk4 pk4Var);
+    String a();
 
-    void onPreLoad();
+    void b(HashMap<String, String> hashMap, ok4 ok4Var);
 }

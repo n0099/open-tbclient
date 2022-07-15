@@ -6,27 +6,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ev9;
-import com.repackage.ez9;
-import com.repackage.nv9;
-import com.repackage.wu9;
+import com.repackage.bs9;
+import com.repackage.bw9;
+import com.repackage.ks9;
+import com.repackage.tr9;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes8.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements ev9 {
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements bs9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5539301318568668881L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wu9 actual;
+    public final tr9 actual;
     public final SequentialSubscription resource;
 
-    public CompletableFromEmitter$FromEmitter(wu9 wu9Var) {
+    public CompletableFromEmitter$FromEmitter(tr9 tr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wu9Var};
+            Object[] objArr = {tr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,11 +36,11 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 return;
             }
         }
-        this.actual = wu9Var;
+        this.actual = tr9Var;
         this.resource = new SequentialSubscription();
     }
 
-    @Override // com.repackage.ev9
+    @Override // com.repackage.bs9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,25 +69,25 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                     this.resource.unsubscribe();
                 }
             }
-            ez9.j(th);
+            bw9.j(th);
         }
     }
 
-    public void setCancellation(nv9 nv9Var) {
+    public void setCancellation(ks9 ks9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nv9Var) == null) {
-            setSubscription(new CancellableSubscription(nv9Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, ks9Var) == null) {
+            setSubscription(new CancellableSubscription(ks9Var));
         }
     }
 
-    public void setSubscription(ev9 ev9Var) {
+    public void setSubscription(bs9 bs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ev9Var) == null) {
-            this.resource.update(ev9Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bs9Var) == null) {
+            this.resource.update(bs9Var);
         }
     }
 
-    @Override // com.repackage.ev9
+    @Override // com.repackage.bs9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && compareAndSet(false, true)) {

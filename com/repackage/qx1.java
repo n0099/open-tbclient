@@ -1,135 +1,334 @@
 package com.repackage;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qx1 extends p13 {
+public abstract class qx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile qx1 b;
+    public static n63 c;
+    public static Timer d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ox1 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qx1(p03 p03Var) {
-        super(p03Var, "/swanAPI/perfCat");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qx1 a;
+
+        public a(qx1 qx1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qx1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qx1Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (qx1.a) {
+                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
+                }
+                this.a.c();
+                this.a.h();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends qx1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.qx1
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (qx1.a) {
+                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 50335962) {
+                if (hashCode != 1109597094) {
+                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
+                        c = 1;
+                    }
+                } else if (str.equals("downloadfail")) {
+                    c = 2;
+                }
+            } else if (str.equals("downloadstart")) {
+                c = 0;
+            }
+            if (c == 0) {
+                i();
+                o63.d(qx1.c, str, d());
+            } else if (c == 1) {
+                if (qx1.c != null) {
+                    o63.d(qx1.c, "downloadsuccess", d());
+                }
+                c();
+                h();
+            } else if (c != 2) {
+                if (qx1.c != null) {
+                    o63.d(qx1.c, str, d());
+                }
+            } else {
+                if (qx1.c != null) {
+                    o63.d(qx1.c, "downloadfail", d());
+                }
+                c();
+                h();
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends qx1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.qx1
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || sx1.k().m()) {
+                return;
+            }
+            if (qx1.a) {
+                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 900970612) {
+                if (hashCode == 1415552890 && str.equals("unzipstart")) {
+                    c = 0;
+                }
+            } else if (str.equals("pageready")) {
+                c = 1;
+            }
+            if (c == 0) {
+                i();
+                o63.d(qx1.c, str, d());
+            } else if (c != 1) {
+                if (qx1.c != null) {
+                    o63.d(qx1.c, str, d());
+                }
+            } else if (qx1.c != null) {
+                o63.d(qx1.c, str, d());
+                c();
+                h();
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755364857, "Lcom/repackage/qx1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755364857, "Lcom/repackage/qx1;");
                 return;
             }
         }
+        a = rg1.a;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+    public /* synthetic */ qx1(a aVar) {
+        this();
     }
 
-    @Override // com.repackage.p13
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
-        InterceptResult invokeLLLLL;
+    public static qx1 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
-            }
-            if (!p13.b) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -322942229) {
-                if (hashCode != 227833272) {
-                    if (hashCode == 977180790 && str.equals("/swanAPI/perfCat/on")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/perfCat/off")) {
-                    c = 1;
-                }
-            } else if (str.equals("/swanAPI/perfCat/duration")) {
-                c = 2;
-            }
-            if (c == 0) {
-                if (this.c == null) {
-                    this.c = new ox1();
-                }
-                this.c.h();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                sw1.i("SwanAppPropertyLogAction", " Start property log：");
-                return true;
-            } else if (c != 1) {
-                if (c != 2) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
-                    return false;
-                }
-                if (optParamsAsJo == null) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
-                } else {
-                    if (this.c != null) {
-                        this.c.g(optParamsAsJo.optInt("duration"));
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                }
-                return true;
-            } else {
-                JSONObject jSONObject = new JSONObject();
-                ox1 ox1Var = this.c;
-                if (ox1Var == null) {
-                    sw1.c("SwanAppPropertyLogAction", "Property log never start");
-                } else {
-                    String i = ox1Var.i();
-                    this.c = null;
-                    fl2.U().C();
-                    try {
-                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, fl2.U().C());
-                        jSONObject.put("path", i);
-                    } catch (JSONException e) {
-                        if (p13.b) {
-                            e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (b == null) {
+                synchronized (ul2.class) {
+                    if (b == null) {
+                        if (sb1.g()) {
+                            b = new b(null);
+                        } else {
+                            b = new c(null);
                         }
                     }
-                    if (p13.b) {
-                        Log.d("SwanAppPropertyLogAction", "Video dispatch Params : " + jSONObject.toString());
-                    }
-                    sw1.i("SwanAppPropertyLogAction", "Stop property log");
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
+            }
+            return b;
+        }
+        return (qx1) invokeV.objValue;
+    }
+
+    public static void g(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
+            return;
+        }
+        JSONObject optJSONObject = jSONArray.optJSONObject(0);
+        String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
+        if (TextUtils.isEmpty(optString) || b == null) {
+            return;
+        }
+        b.f(optString);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            h03 b0 = h03.b0();
+            jSONObject2.putOpt("appid", b0 == null ? "" : b0.getAppId());
+            jSONObject2.putOpt("from", "local-debug");
+            z63.a(jSONObject2);
+            jSONObject.putOpt("from", "swan");
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException unused) {
+            if (a) {
+                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
             }
         }
-        return invokeLLLLL.booleanValue;
+        o63.f(c, jSONObject.toString());
+        o63.c(c);
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("LocalDebugStatistic", "add event content fail", e);
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public abstract void f(String str);
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Timer timer = d;
+            if (timer != null) {
+                timer.cancel();
+                d = null;
+            }
+            b = null;
+            c = null;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c == null) {
+            c = a73.c("1153");
+            a aVar = new a(this);
+            Timer timer = new Timer();
+            d = timer;
+            try {
+                timer.schedule(aVar, 40000L);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public qx1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 }

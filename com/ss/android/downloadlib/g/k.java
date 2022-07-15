@@ -27,4 +27,8 @@ public class k {
     public static void a(String str, String str2) {
         c(str, str2, null);
     }
+
+    public static void a(String str) {
+        c(null, str, null);
+    }
 }

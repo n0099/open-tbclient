@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.ui.indicator.CriusUIIndicatorView;
+import com.baidu.searchbox.crius.ui.recycler.CriusUIRecyclerView;
 import com.baidu.searchbox.crius.ui.swiper.CriusUISwiperView;
 import com.baidu.searchbox.crius.ui.view.CriusUILayout;
 import com.baidu.searchbox.crius.ui.view.CriusUIRelativeLayout;
@@ -91,6 +92,12 @@ public class CriusUIFactory {
                         break;
                     }
                     break;
+                case 1198389557:
+                    if (str.equals(NativeConstants.TYPE_HSCROLL)) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
             }
             switch (c) {
                 case 0:
@@ -109,6 +116,8 @@ public class CriusUIFactory {
                     return new CriusUIIndicatorView(context, criusData);
                 case 7:
                     return new CriusUIGifImage(context, criusData);
+                case '\b':
+                    return new CriusUIRecyclerView(context, criusData);
                 default:
                     return new CriusUIRelativeLayout(context, criusData);
             }

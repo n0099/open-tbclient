@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ez6;
-import com.repackage.fr4;
-import com.repackage.gx;
+import com.repackage.hx;
 import com.repackage.qg;
+import com.repackage.ur4;
+import com.repackage.uz6;
 /* loaded from: classes3.dex */
-public class PostAnimateFloatView extends FrameLayout implements gx {
+public class PostAnimateFloatView extends FrameLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements gx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ez6.f();
+                uz6.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -363,12 +363,12 @@ public class PostAnimateFloatView extends FrameLayout implements gx {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0498, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091abd);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918ac);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b1, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b5c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091955);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09196c);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ecc));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ec6));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -412,13 +412,13 @@ public class PostAnimateFloatView extends FrameLayout implements gx {
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08092e, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements gx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                fr4 d2 = fr4.d(linearLayout);
+                ur4 d2 = ur4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

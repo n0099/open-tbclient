@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.xt4;
-import com.repackage.yt4;
+import com.repackage.uu4;
+import com.repackage.vu4;
 /* loaded from: classes3.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f085a));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0865));
         }
     }
 
@@ -65,19 +65,19 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                yt4 yt4Var = new yt4();
-                yt4Var.p(R.color.CAM_X0101);
-                yt4Var.v(R.dimen.tbds6);
-                yt4Var.u(R.string.A_X01);
-                yt4Var.i(R.drawable.obfuscated_res_0x7f080924, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                yt4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                setConfig(yt4Var);
+                vu4 vu4Var = new vu4();
+                vu4Var.p(R.color.CAM_X0101);
+                vu4Var.v(R.dimen.tbds6);
+                vu4Var.u(R.string.A_X01);
+                vu4Var.i(R.drawable.obfuscated_res_0x7f08092d, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                vu4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                setConfig(vu4Var);
             } else {
-                xt4 xt4Var = new xt4();
-                xt4Var.i(R.drawable.obfuscated_res_0x7f080924, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                xt4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                xt4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(xt4Var);
+                uu4 uu4Var = new uu4();
+                uu4Var.i(R.drawable.obfuscated_res_0x7f08092d, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                uu4Var.g(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                uu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(uu4Var);
             }
             k();
         }

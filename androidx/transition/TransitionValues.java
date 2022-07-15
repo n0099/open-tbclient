@@ -19,7 +19,7 @@ public class TransitionValues {
     public final Map<String, Object> values;
 
     /* renamed from: view  reason: collision with root package name */
-    public View f1020view;
+    public View f1747view;
 
     @Deprecated
     public TransitionValues() {
@@ -45,7 +45,7 @@ public class TransitionValues {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof TransitionValues) {
                 TransitionValues transitionValues = (TransitionValues) obj;
-                return this.f1020view == transitionValues.f1020view && this.values.equals(transitionValues.values);
+                return this.f1747view == transitionValues.f1747view && this.values.equals(transitionValues.values);
             }
             return false;
         }
@@ -55,14 +55,14 @@ public class TransitionValues {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f1020view.hashCode() * 31) + this.values.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f1747view.hashCode() * 31) + this.values.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f1020view + "\n") + "    values:";
+            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f1747view + "\n") + "    values:";
             for (String str2 : this.values.keySet()) {
                 str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
             }
@@ -88,6 +88,6 @@ public class TransitionValues {
         }
         this.values = new HashMap();
         this.mTargetedTransitions = new ArrayList<>();
-        this.f1020view = view2;
+        this.f1747view = view2;
     }
 }

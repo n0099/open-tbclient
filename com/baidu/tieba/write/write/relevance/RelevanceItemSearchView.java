@@ -34,13 +34,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f95;
+import com.repackage.ia5;
 import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements ia5, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -281,8 +281,8 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
         i();
     }
 
-    @Override // com.repackage.f95
-    public boolean H0() {
+    @Override // com.repackage.ia5
+    public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -298,7 +298,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.f95
+    @Override // com.repackage.ia5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -325,7 +325,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
                 c cVar = new c(this);
                 RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
                 cVar.a = relevanceItemListFragment;
-                relevanceItemListFragment.x1(str);
+                relevanceItemListFragment.y1(str);
                 cVar.b = str;
                 this.k.add(cVar);
             }
@@ -343,7 +343,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fa5));
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fa0));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = pi.f(this.b.getContext(), R.dimen.tbds60);
             layoutParams.topMargin = pi.f(this.b.getContext(), R.dimen.tbds15);
@@ -353,9 +353,9 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c06);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c18);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c2e);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091ca5);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091cb7);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091ccf);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -364,7 +364,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e3a);
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ede);
             this.e = tbTabLayout;
             tbTabLayout.setTabTextSize(pi.f(this.d, R.dimen.tbds46));
             this.e.setSelectedTabTextSize(pi.f(this.d, R.dimen.tbds52));
@@ -372,7 +372,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.f95
+    @Override // com.repackage.ia5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -395,7 +395,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0716, (ViewGroup) this.b, true);
+            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0733, (ViewGroup) this.b, true);
             this.d.showLoadingView(this.b);
             l();
             k();
@@ -435,7 +435,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
@@ -445,7 +445,7 @@ public class RelevanceItemSearchView implements f95, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.f95
+    @Override // com.repackage.ia5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

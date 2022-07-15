@@ -1,88 +1,184 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-@Service
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class nm3 implements ql1 {
+public class nm3 extends mm3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Comparator<c> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(c cVar, c cVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) ? Long.compare(cVar2.b, cVar.b) : invokeLL.intValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+
+        public c(nm3 nm3Var, String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nm3Var, str, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = j;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755464739, "Lcom/repackage/nm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755464739, "Lcom/repackage/nm3;");
+                return;
+            }
+        }
+        a = new String[]{"_id", "app_id", GameGuideConfigInfo.KEY_APP_KEY, "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+    }
 
     public nm3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.ql1
-    public pc4 a() {
-        InterceptResult invokeV;
+    public final void a(MatrixCursor matrixCursor, int i, c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? mm3.b().a() : (pc4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ql1
-    public void b(w52 w52Var, u52 u52Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w52Var, u52Var) == null) || u52Var == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i, cVar, pMSAppInfo) == null) || matrixCursor == null || i < 0 || cVar == null || pMSAppInfo == null) {
             return;
         }
-        if (w52Var != null && !TextUtils.isEmpty(w52Var.a)) {
-            String str = w52Var.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 1195918653) {
-                if (hashCode == 1825003424 && str.equals("by_click")) {
-                    c = 0;
-                }
-            } else if (str.equals("by_silent")) {
-                c = 1;
+        matrixCursor.newRow().add("_id", Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add(GameGuideConfigInfo.KEY_APP_KEY, pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.b));
+    }
+
+    public final List<c> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(null, null, null, null);
+            ArrayList arrayList = new ArrayList();
+            if (l != null && l.moveToFirst()) {
+                int columnIndex = l.getColumnIndex("app_id");
+                int columnIndex2 = l.getColumnIndex("favorite_time");
+                do {
+                    arrayList.add(new c(this, l.getString(columnIndex), l.getLong(columnIndex2)));
+                } while (l.moveToNext());
+                jg4.d(l);
+                return arrayList;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    u52Var.onFail();
-                    return;
-                } else {
-                    mm3.b().b(true, u52Var);
-                    return;
-                }
-            } else if (w52Var.b) {
-                mm3.b().b(false, u52Var);
-                return;
-            } else {
-                mm3.b().b(true, u52Var);
-                return;
-            }
+            jg4.d(l);
+            return arrayList;
         }
-        u52Var.onFail();
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.ql1
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.mm3
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || h92.d.w() || (h92.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && m62.U().s0()) : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ql1
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !mm3.b().c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
+            List<c> b2 = b();
+            if (b2.isEmpty()) {
+                return null;
+            }
+            HashMap<String, PMSAppInfo> a2 = qm3.a();
+            if (a2.isEmpty()) {
+                return null;
+            }
+            Collections.sort(b2, new b(null));
+            MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
+            int i = 0;
+            for (c cVar : b2) {
+                PMSAppInfo pMSAppInfo = a2.get(cVar.a);
+                if (pMSAppInfo != null) {
+                    a(matrixCursor, i, cVar, pMSAppInfo);
+                    i++;
+                }
+            }
+            return matrixCursor;
+        }
+        return (Cursor) invokeLLLLL.objValue;
     }
 }

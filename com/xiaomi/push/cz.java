@@ -148,11 +148,11 @@ public abstract class cz {
                 try {
                     ArrayList<String> arrayList = new ArrayList<>();
                     if (z) {
-                        cr m247a = cv.a().m247a(str);
-                        if (m247a != null) {
-                            arrayList = m247a.a(str);
+                        cr m1190a = cv.a().m1190a(str);
+                        if (m1190a != null) {
+                            arrayList = m1190a.a(str);
                         }
-                        crVar = m247a;
+                        crVar = m1190a;
                     } else {
                         crVar = null;
                     }
@@ -170,7 +170,7 @@ public abstract class cz {
                             iOException = e;
                             str2 = str4;
                         }
-                        if (!cyVar.m256a(context, next, (List<bi>) arrayList2)) {
+                        if (!cyVar.m1199a(context, next, (List<bi>) arrayList2)) {
                             return str4;
                         }
                         String a2 = cyVar.a(context, next, (List<bi>) arrayList2);

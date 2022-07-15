@@ -5,6 +5,7 @@ import com.kwad.sdk.core.imageloader.cache.disc.DiskCache;
 import com.kwad.sdk.core.imageloader.cache.disc.naming.FileNameGenerator;
 import com.kwad.sdk.core.imageloader.core.DefaultConfigurationFactory;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
+import com.kwad.sdk.crash.utils.b;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -92,7 +93,7 @@ public abstract class BaseDiskCache implements DiskCache {
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
         try {
             boolean compress = bitmap.compress(this.compressFormat, this.compressQuality, bufferedOutputStream);
-            IoUtils.closeSilently(bufferedOutputStream);
+            b.a(bufferedOutputStream);
             if (compress && !file2.renameTo(file)) {
                 compress = false;
             }
@@ -102,7 +103,7 @@ public abstract class BaseDiskCache implements DiskCache {
             bitmap.recycle();
             return compress;
         } catch (Throwable th) {
-            IoUtils.closeSilently(bufferedOutputStream);
+            b.a(bufferedOutputStream);
             file2.delete();
             throw th;
         }
@@ -118,7 +119,7 @@ public abstract class BaseDiskCache implements DiskCache {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
             z = IoUtils.copyStream(inputStream, bufferedOutputStream, copyListener, this.bufferSize);
             try {
-                IoUtils.closeSilently(bufferedOutputStream);
+                b.a(bufferedOutputStream);
                 if (!z || file2.renameTo(file)) {
                     z2 = z;
                 }

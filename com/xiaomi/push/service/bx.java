@@ -17,19 +17,19 @@ public final class bx implements ar {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f948a;
+    public long f1675a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f949a;
+    public Context f1676a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f950a;
+    public SharedPreferences f1677a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ConcurrentHashMap<String, a> f951a;
+    public ConcurrentHashMap<String, a> f1678a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f952a;
+    public volatile boolean f1679a;
 
     /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
@@ -38,7 +38,7 @@ public final class bx implements ar {
         public long a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f953a;
+        public String f1680a;
 
         public a(String str, long j) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class bx implements ar {
                     return;
                 }
             }
-            this.f953a = str;
+            this.f1680a = str;
             this.a = j;
         }
 
@@ -67,13 +67,13 @@ public final class bx implements ar {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bx.a == null) {
                 return;
             }
-            Context context = bx.a.f949a;
+            Context context = bx.a.f1676a;
             if (com.xiaomi.push.bj.d(context)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                SharedPreferences sharedPreferences = bx.a.f950a;
-                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f953a, 0L) > this.a || com.xiaomi.push.ai.a(context)) {
-                    SharedPreferences.Editor edit = bx.a.f950a.edit();
-                    com.xiaomi.push.t.a(edit.putLong(":ts-" + this.f953a, System.currentTimeMillis()));
+                SharedPreferences sharedPreferences = bx.a.f1677a;
+                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f1680a, 0L) > this.a || com.xiaomi.push.ai.a(context)) {
+                    SharedPreferences.Editor edit = bx.a.f1677a.edit();
+                    com.xiaomi.push.t.a(edit.putLong(":ts-" + this.f1680a, System.currentTimeMillis()));
                     a(bx.a);
                 }
             }
@@ -95,10 +95,10 @@ public final class bx implements ar {
                 return;
             }
         }
-        this.f952a = false;
-        this.f951a = new ConcurrentHashMap<>();
-        this.f949a = context.getApplicationContext();
-        this.f950a = context.getSharedPreferences(NativeConstants.COMPONENT_SYNC_TEXT_VIEW, 0);
+        this.f1679a = false;
+        this.f1678a = new ConcurrentHashMap<>();
+        this.f1676a = context.getApplicationContext();
+        this.f1677a = context.getSharedPreferences(NativeConstants.COMPONENT_SYNC_TEXT_VIEW, 0);
     }
 
     public static bx a(Context context) {
@@ -121,7 +121,7 @@ public final class bx implements ar {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.f950a;
+            SharedPreferences sharedPreferences = this.f1677a;
             return sharedPreferences.getString(str + ":" + str2, "");
         }
         return (String) invokeLL.objValue;
@@ -129,31 +129,31 @@ public final class bx implements ar {
 
     @Override // com.xiaomi.push.service.ar
     /* renamed from: a  reason: collision with other method in class */
-    public void mo650a() {
+    public void mo1593a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f952a) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f1679a) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f948a < 3600000) {
+        if (currentTimeMillis - this.f1675a < 3600000) {
             return;
         }
-        this.f948a = currentTimeMillis;
-        this.f952a = true;
-        com.xiaomi.push.al.a(this.f949a).a(new by(this), (int) (Math.random() * 10.0d));
+        this.f1675a = currentTimeMillis;
+        this.f1679a = true;
+        com.xiaomi.push.al.a(this.f1676a).a(new by(this), (int) (Math.random() * 10.0d));
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && this.f951a.putIfAbsent(aVar.f953a, aVar) == null) {
-            com.xiaomi.push.al.a(this.f949a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && this.f1678a.putIfAbsent(aVar.f1680a, aVar) == null) {
+            com.xiaomi.push.al.a(this.f1676a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
         }
     }
 
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = a.f950a.edit();
+            SharedPreferences.Editor edit = a.f1677a.edit();
             com.xiaomi.push.t.a(edit.putString(str + ":" + str2, str3));
         }
     }

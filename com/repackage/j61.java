@@ -1,234 +1,140 @@
 package com.repackage;
 
-import android.content.pm.Signature;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import dalvik.system.BaseDexClassLoader;
+import dalvik.system.PathClassLoader;
+import java.io.File;
 import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.security.cert.Certificate;
+import java.net.URL;
 import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 /* loaded from: classes6.dex */
-public class j61 {
+public class j61 extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static WeakReference<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ClassLoader a;
+    public ClassLoader b;
+    public Context c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755636820, "Lcom/repackage/j61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755636820, "Lcom/repackage/j61;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j61(String str, String str2, String str3, Context context) {
+        super(str, new File(str2), str3, ClassLoader.getSystemClassLoader());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (File) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
+        this.c = context;
+        this.a = context.getClass().getClassLoader();
+        this.b = ClassLoader.getSystemClassLoader();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0085, code lost:
-        r11 = com.repackage.j61.a;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0087, code lost:
-        monitor-enter(r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0088, code lost:
-        com.repackage.j61.b = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x008a, code lost:
-        monitor-exit(r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x008b, code lost:
-        if (r4 == null) goto L90;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x008e, code lost:
-        if (r4.length <= 0) goto L90;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0090, code lost:
-        r11 = r4.length;
-        r1 = new android.content.pm.Signature[r4.length];
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x0094, code lost:
-        if (r6 >= r11) goto L85;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0096, code lost:
-        r1[r6] = new android.content.pm.Signature(r4[r6].getEncoded());
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
-        r6 = r6 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a6, code lost:
-        r0.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00aa, code lost:
-        r0.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Signature[] a(String str) {
+    public final Class<?> a(String str) throws ClassNotFoundException {
+        Class<?> cls;
         InterceptResult invokeL;
-        JarFile jarFile;
-        byte[] bArr;
-        JarFile jarFile2;
-        Signature[] signatureArr;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
-            return (Signature[]) invokeL.objValue;
-        }
-        synchronized (a) {
-            WeakReference<byte[]> weakReference = b;
-            jarFile = null;
-            if (weakReference != null) {
-                b = null;
-                bArr = weakReference.get();
-            } else {
-                bArr = null;
-            }
-            if (bArr == null) {
-                bArr = new byte[8192];
-                weakReference = new WeakReference<>(bArr);
-            }
-        }
-        try {
-            jarFile2 = new JarFile(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                Enumeration<JarEntry> entries = jarFile2.entries();
-                Certificate[] certificateArr = null;
-                while (true) {
-                    int i = 0;
-                    if (!entries.hasMoreElements()) {
-                        break;
-                    }
-                    JarEntry nextElement = entries.nextElement();
-                    if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                        Certificate[] b2 = b(jarFile2, nextElement, bArr);
-                        if (b2 == null) {
-                            try {
-                                jarFile2.close();
-                            } catch (IOException unused) {
-                            }
-                            return null;
-                        } else if (certificateArr == null) {
-                            certificateArr = b2;
-                        } else {
-                            for (int i2 = 0; i2 < certificateArr.length; i2++) {
-                                int i3 = 0;
-                                while (true) {
-                                    if (i3 >= b2.length) {
-                                        z = false;
-                                        break;
-                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(b2[i3])) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i3++;
-                                    }
-                                }
-                                if (!z || certificateArr.length != b2.length) {
-                                    try {
-                                        jarFile2.close();
-                                    } catch (IOException unused2) {
-                                    }
-                                    return null;
-                                }
-                            }
-                            continue;
-                        }
-                    }
-                }
-            } catch (Exception unused3) {
-                if (jarFile2 != null) {
-                    try {
-                        jarFile2.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                jarFile = jarFile2;
-                if (jarFile != null) {
-                    try {
-                        jarFile.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                throw th;
+                cls = this.b.loadClass(str);
+            } catch (ClassNotFoundException unused) {
+                cls = null;
             }
-        } catch (Exception unused6) {
-            jarFile2 = null;
-        } catch (Throwable th2) {
-            th = th2;
+            if (cls != null) {
+                return cls;
+            }
+            try {
+                cls = super.findClass(str);
+            } catch (ClassNotFoundException unused2) {
+            }
+            if (cls != null) {
+                return cls;
+            }
+            throw new ClassNotFoundException("Didn't find class: " + str + " in own classloader.");
         }
-        return signatureArr;
-        return null;
+        return (Class) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0033, code lost:
-        r1.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0038, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x003b, code lost:
-        return null;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
-        InterceptResult invokeLLL;
-        BufferedInputStream bufferedInputStream;
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public String findLibrary(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, jarFile, jarEntry, bArr)) != null) {
-            return (Certificate[]) invokeLLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String findLibrary = super.findLibrary(str);
+            return findLibrary != null ? findLibrary : ((PathClassLoader) this.a).findLibrary(str);
         }
-        BufferedInputStream bufferedInputStream2 = null;
-        try {
-            bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-            while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
-                try {
-                } catch (IOException unused) {
-                } catch (RuntimeException unused2) {
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedInputStream2 = bufferedInputStream;
-                    if (bufferedInputStream2 != null) {
-                        try {
-                            bufferedInputStream2.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    throw th;
-                }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public URL findResource(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            URL findResource = super.findResource(str);
+            return findResource != null ? findResource : this.a.getResource(str);
+        }
+        return (URL) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Enumeration<URL> findResources(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Enumeration<URL> findResources = super.findResources(str);
+            if (findResources != null) {
+                return findResources;
             }
-            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
             try {
-                bufferedInputStream.close();
-            } catch (IOException unused4) {
+                return this.a.getResources(str);
+            } catch (IOException unused) {
+                return findResources;
             }
-            return certificates;
-        } catch (IOException unused5) {
-            bufferedInputStream = null;
-        } catch (RuntimeException unused6) {
-            bufferedInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (Enumeration) invokeL.objValue;
+    }
+
+    @Override // java.lang.ClassLoader
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            Class<?> findLoadedClass = findLoadedClass(str);
+            if (findLoadedClass != null) {
+                return findLoadedClass;
+            }
+            try {
+                findLoadedClass = a(str);
+            } catch (ClassNotFoundException unused) {
+            }
+            if (findLoadedClass != null) {
+                return findLoadedClass;
+            }
+            try {
+                findLoadedClass = this.a.loadClass(str);
+            } catch (ClassNotFoundException unused2) {
+            }
+            if (findLoadedClass != null) {
+                return findLoadedClass;
+            }
+            throw new ClassNotFoundException("Didn't find class \"" + str + "\"");
+        }
+        return (Class) invokeLZ.objValue;
     }
 }

@@ -1,106 +1,95 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Environment;
 import android.text.TextUtils;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.core.config.b;
-import com.kwad.sdk.core.config.item.p;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ap {
-    public static volatile ap a;
-    public boolean b = false;
-    public p.a c;
-
-    public static ap a() {
-        if (a == null) {
-            synchronized (ap.class) {
-                if (a == null) {
-                    a = new ap();
-                }
+public final class ap {
+    @NonNull
+    public static String a(Context context) {
+        File file;
+        String str = "";
+        try {
+            str = Environment.getExternalStorageState();
+        } catch (IncompatibleClassChangeError | NullPointerException unused) {
+        }
+        String str2 = null;
+        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
+            try {
+                file = context.getExternalFilesDir(null);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.b.a(e);
+                file = null;
+            }
+            if (file != null) {
+                str2 = file.getPath();
             }
         }
-        return a;
-    }
-
-    private boolean a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+        if (TextUtils.isEmpty(str2)) {
+            str2 = context.getFilesDir().getPath();
         }
-        return Class.forName(str) != null;
+        return str2 + File.separator + "ksadsdk";
     }
 
-    private boolean a(List<String> list) {
-        if (list != null && list.size() >= 1) {
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                String className = stackTraceElement.getClassName();
-                if (className != null) {
-                    for (String str : list) {
-                        if (className.contains(str)) {
-                            return true;
-                        }
-                    }
-                    continue;
-                }
+    public static String a(Context context, String str) {
+        if (context == null) {
+            return "";
+        }
+        String f = f(context);
+        return f + File.separator + "ksad/download/js/" + str;
+    }
+
+    public static File b(Context context) {
+        File file;
+        String str = "";
+        try {
+            str = Environment.getExternalStorageState();
+        } catch (IncompatibleClassChangeError | NullPointerException unused) {
+        }
+        String str2 = null;
+        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
+            try {
+                file = context.getExternalCacheDir();
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.b.a(e);
+                file = null;
+            }
+            if (file != null) {
+                str2 = file.getPath();
             }
         }
-        return false;
+        if (TextUtils.isEmpty(str2)) {
+            str2 = context.getCacheDir().getPath();
+        }
+        return new File(str2 + File.separator + "ksadsdk");
     }
 
-    private void c() {
-        p.a aVar = this.c;
-        if (aVar == null) {
-            return;
-        }
-        if (!this.b && aVar.c.size() > 0) {
-            for (String str : this.c.c) {
-                boolean a2 = a(str);
-                this.b = a2;
-                if (a2) {
-                    break;
-                }
-            }
-        }
-        if (this.b) {
-            ArrayList arrayList = new ArrayList();
-            if (this.c.a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.c.a.entrySet()) {
-                    if (a(entry.getValue())) {
-                        arrayList.add(entry.getKey());
-                    }
-                }
-            }
-            com.kwad.sdk.core.report.d.a(a(this.c.b), arrayList);
-        }
+    public static File c(Context context) {
+        String a = a(context);
+        return new File(a + File.separator + "Download");
     }
 
-    public void a(Context context) {
-        if (context != null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
-            if (sharedPreferences != null) {
-                b.a.aX.a(sharedPreferences);
-                this.c = b.a.aX.a();
-            }
-            if (this.c != null) {
-                c();
-            }
+    public static File d(Context context) {
+        String str;
+        if (com.kwad.b.kwai.a.b.booleanValue()) {
+            str = a(context);
+        } else {
+            str = context.getFilesDir().getAbsolutePath() + File.separator + "ksadsdk";
         }
+        return new File(str + File.separator + "ksadlog");
     }
 
-    public boolean a(KsScene ksScene, String str) {
-        boolean a2 = this.b ? a(this.c.b) : false;
-        com.kwad.sdk.core.report.d.a(ksScene, a2, str);
-        return a2;
+    public static String e(Context context) {
+        return b(context).getPath() + "/cookie";
     }
 
-    public int b() {
-        p.a aVar = this.c;
-        if (aVar != null) {
-            return aVar.d;
+    public static String f(Context context) {
+        if (context == null) {
+            return "";
         }
-        return 0;
+        String path = context.getFilesDir().getPath();
+        return path + File.separator + "ksadsdk";
     }
 }

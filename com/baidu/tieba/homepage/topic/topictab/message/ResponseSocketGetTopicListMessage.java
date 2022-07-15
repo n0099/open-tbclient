@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f17;
-import com.repackage.h17;
 import com.repackage.nn;
+import com.repackage.v17;
+import com.repackage.x17;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,19 +62,19 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                     if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                        f17 f17Var = new f17();
-                        f17Var.R = i2;
-                        f17Var.O(newTopicList);
-                        this.mTopicDataList.add(f17Var);
-                        h17 h17Var = new h17();
-                        h17Var.a = R.dimen.tbds1;
-                        h17Var.b = R.color.CAM_X0203;
-                        this.mTopicDataList.add(h17Var);
+                        v17 v17Var = new v17();
+                        v17Var.R = i2;
+                        v17Var.O(newTopicList);
+                        this.mTopicDataList.add(v17Var);
+                        x17 x17Var = new x17();
+                        x17Var.a = R.dimen.tbds1;
+                        x17Var.b = R.color.CAM_X0203;
+                        this.mTopicDataList.add(x17Var);
                         i2++;
                     }
                 }
                 List<nn> list = this.mTopicDataList;
-                ((h17) ListUtils.getItem(list, list.size() - 1)).a = 0;
+                ((x17) ListUtils.getItem(list, list.size() - 1)).a = 0;
             }
             return newTopicListResIdl;
         }

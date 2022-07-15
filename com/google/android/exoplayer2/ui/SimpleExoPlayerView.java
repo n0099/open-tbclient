@@ -181,7 +181,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, resources, imageView) == null) {
             imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804dd));
-            imageView.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060716));
+            imageView.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060717));
         }
     }
 
@@ -190,7 +190,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, resources, imageView) == null) {
             imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0804dd, null));
-            imageView.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060716, null));
+            imageView.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060717, null));
         }
     }
 
@@ -744,7 +744,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         int i8 = R.layout.obfuscated_res_0x7f0d0275;
         int i9 = 5000;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400a5, R.attr.obfuscated_res_0x7f04018a, R.attr.obfuscated_res_0x7f0401e8, R.attr.obfuscated_res_0x7f04028a, R.attr.obfuscated_res_0x7f0402cb, R.attr.obfuscated_res_0x7f0404dd, R.attr.obfuscated_res_0x7f04053a, R.attr.obfuscated_res_0x7f04053d, R.attr.obfuscated_res_0x7f04059e, R.attr.obfuscated_res_0x7f0405a1, R.attr.obfuscated_res_0x7f0405e2, R.attr.obfuscated_res_0x7f0406b8, R.attr.obfuscated_res_0x7f0406b9}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400a5, R.attr.obfuscated_res_0x7f04018a, R.attr.obfuscated_res_0x7f0401e8, R.attr.obfuscated_res_0x7f04028a, R.attr.obfuscated_res_0x7f0402c9, R.attr.obfuscated_res_0x7f0404e1, R.attr.obfuscated_res_0x7f04053b, R.attr.obfuscated_res_0x7f04053e, R.attr.obfuscated_res_0x7f04059f, R.attr.obfuscated_res_0x7f0405a2, R.attr.obfuscated_res_0x7f0405e3, R.attr.obfuscated_res_0x7f0406b9, R.attr.obfuscated_res_0x7f0406ba}, 0, 0);
             try {
                 z3 = obtainStyledAttributes.hasValue(9);
                 i3 = obtainStyledAttributes.getColor(9, 0);
@@ -777,12 +777,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
         LayoutInflater.from(context).inflate(i8, this);
         this.componentListener = new ComponentListener(this, null);
         setDescendantFocusability(262144);
-        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908f1);
+        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908f8);
         this.contentFrame = aspectRatioFrameLayout;
         if (aspectRatioFrameLayout != null) {
             setResizeModeRaw(aspectRatioFrameLayout, i2);
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090900);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090907);
         this.shutterView = findViewById;
         if (findViewById != null && z3) {
             findViewById.setBackgroundColor(i3);
@@ -796,21 +796,21 @@ public final class SimpleExoPlayerView extends FrameLayout {
         } else {
             this.surfaceView = null;
         }
-        this.overlayFrameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908f7);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908f0);
+        this.overlayFrameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908fe);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908f7);
         this.artworkView = imageView2;
         this.useArtwork = z4 && imageView2 != null;
         if (i4 != 0) {
             this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
         }
-        SubtitleView subtitleView = (SubtitleView) findViewById(R.id.obfuscated_res_0x7f090901);
+        SubtitleView subtitleView = (SubtitleView) findViewById(R.id.obfuscated_res_0x7f090908);
         this.subtitleView = subtitleView;
         if (subtitleView != null) {
             subtitleView.setUserDefaultStyle();
             this.subtitleView.setUserDefaultTextSize();
         }
-        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(R.id.obfuscated_res_0x7f0908f2);
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0908f3);
+        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(R.id.obfuscated_res_0x7f0908f9);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0908fa);
         if (playbackControlView != null) {
             this.controller = playbackControlView;
         } else if (findViewById2 != null) {

@@ -18,7 +18,6 @@ import com.googlecode.mp4parser.authoring.SampleImpl;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.util.CastUtils;
-import com.kwad.yoga.YogaNodeJNIBase;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -58,7 +57,7 @@ public class SilenceTrackImpl implements Track {
                 if (l2i <= 0) {
                     return;
                 }
-                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{33, YogaNodeJNIBase.HAS_NEW_LAYOUT, 4, 96, -116, 28}).rewind()));
+                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{33, 16, 4, 96, -116, 28}).rewind()));
                 l2i = i3;
             }
         } else {

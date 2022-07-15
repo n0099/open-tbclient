@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String HOME_OPERATE_JUMP_URL = "home_operate_jump_url";
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";
     public static final String LOGIN_DIALOG_DATA_TYPE = "login_dialog_data_type";
     public static final String LOGIN_DIALOG_DATA_URL = "login_dialog_data_url";
@@ -92,6 +93,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
         getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, loginDialogData.getLocate());
         getIntent().putExtra(MINE_PAGE_LOGIN_DIALOG_DATA_KEY, loginDialogData.getMinePageKey());
         getIntent().putExtra(MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE, loginDialogData.getMinePageLocate());
+        getIntent().putExtra(HOME_OPERATE_JUMP_URL, loginDialogData.getJumpUrl());
         if (loginDialogData.getLoginListener() != null) {
             getIntent().putExtra("login_dialog_login_listener", loginDialogData.getLoginListener());
         }
@@ -125,6 +127,12 @@ public class LoginDialogActivityConfig extends IntentConfig {
             case -72485631:
                 if (locate.equals(LoginDialogData.PB_BOTTOM_REPLY_RESULT_PAGE)) {
                     c = 3;
+                    break;
+                }
+                break;
+            case 602354627:
+                if (locate.equals(LoginDialogData.HOME_OPERATE_DIALOG)) {
+                    c = 7;
                     break;
                 }
                 break;
@@ -167,6 +175,10 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 return;
             case 6:
                 setRequestCode(25059);
+                setIntentAction(IntentAction.ActivityForResult);
+                return;
+            case 7:
+                setRequestCode(25071);
                 setIntentAction(IntentAction.ActivityForResult);
                 return;
             default:

@@ -11,16 +11,16 @@ public final class UByteArrayKt {
     public static final byte[] UByteArray(int i, Function1<? super Integer, UByte> function1) {
         byte[] bArr = new byte[i];
         for (int i2 = 0; i2 < i; i2++) {
-            bArr[i2] = function1.invoke(Integer.valueOf(i2)).m760unboximpl();
+            bArr[i2] = function1.invoke(Integer.valueOf(i2)).m1703unboximpl();
         }
-        return UByteArray.m763constructorimpl(bArr);
+        return UByteArray.m1706constructorimpl(bArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ubyteArrayOf-GBYM_sE  reason: not valid java name */
-    public static final byte[] m779ubyteArrayOfGBYM_sE(byte... bArr) {
+    public static final byte[] m1722ubyteArrayOfGBYM_sE(byte... bArr) {
         return bArr;
     }
 }

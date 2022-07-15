@@ -627,7 +627,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04048f);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040493);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -672,7 +672,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.tmpLocation = new int[2];
         Context context2 = getContext();
         this.menu = new NavigationMenu(context2);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f0402bc, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f04031f, R.attr.obfuscated_res_0x7f040320, R.attr.obfuscated_res_0x7f040323, R.attr.obfuscated_res_0x7f040324, R.attr.obfuscated_res_0x7f040325, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f040329, R.attr.obfuscated_res_0x7f04032d, R.attr.obfuscated_res_0x7f040330, R.attr.obfuscated_res_0x7f04046c}, i, obfuscated_res_0x7f100329, new int[0]);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f0402ba, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f040321, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040323, R.attr.obfuscated_res_0x7f040324, R.attr.obfuscated_res_0x7f040325, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f04032b, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f040470}, i, obfuscated_res_0x7f100329, new int[0]);
         if (obtainTintedStyledAttributes.hasValue(0)) {
             ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(0));
         }

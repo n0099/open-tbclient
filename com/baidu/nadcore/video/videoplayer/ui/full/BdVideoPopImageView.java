@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.q11;
 /* loaded from: classes2.dex */
 public class BdVideoPopImageView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -54,12 +54,12 @@ public class BdVideoPopImageView extends View {
                 return;
             }
         }
-        l = c11.a(12.0f);
-        m = c11.d(30.0f);
-        n = c11.a(16.0f);
-        o = c11.a(9.0f) + n;
-        p = c11.b(90.0f);
-        q = c11.b(90.0f);
+        l = q11.a(12.0f);
+        m = q11.d(30.0f);
+        n = q11.a(16.0f);
+        o = q11.a(9.0f) + n;
+        p = q11.b(90.0f);
+        q = q11.b(90.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,7 +100,7 @@ public class BdVideoPopImageView extends View {
             this.f.setColor(-1);
             this.f.setTextAlign(Paint.Align.CENTER);
             this.h = new Rect();
-            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e29);
+            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da9);
         }
     }
 

@@ -1,8 +1,7 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface zj1 {
-    void a(Activity activity, Bundle bundle, on2 on2Var);
+    ac3 a(Context context, String str, String str2, String str3, String str4, String str5);
 }

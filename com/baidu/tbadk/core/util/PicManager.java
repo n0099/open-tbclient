@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j35;
+import com.repackage.l45;
 import com.repackage.pi;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
@@ -71,10 +71,11 @@ public class PicManager {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 try {
                     this.this$0.saveImageToCacheDisk(this.imageUrl, this.localFileFullPath, this.put2MemoryCache, this.isNeedRound, this.isNeedReSize);
-                } finally {
+                    return null;
+                } catch (Throwable th) {
+                    th.printStackTrace();
                     return null;
                 }
-                return null;
             }
             return (String) invokeL.objValue;
         }
@@ -113,7 +114,7 @@ public class PicManager {
     public static void addPicMemoryCache(String str, ym ymVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, ymVar) == null) {
-            j35.k().d(str, ymVar);
+            l45.k().d(str, ymVar);
         }
     }
 
@@ -262,7 +263,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    j35.k().i(imageSize);
+                    l45.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }
@@ -288,7 +289,7 @@ public class PicManager {
                 }
                 addPicMemoryCache(str, new ym(fixBitmap, z2));
             } catch (Exception e) {
-                TiebaStatic.imgError(-1006, "addPicMemoryCache error: " + e.toString(), str);
+                e.printStackTrace();
             }
         }
     }
@@ -306,7 +307,7 @@ public class PicManager {
                 }
                 Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i, i2);
                 return resizedBitmap != null ? resizedBitmap : bitmap;
-            } catch (Exception e) {
+            } catch (Exception unused) {
                 FieldBuilder fieldBuilder = new FieldBuilder();
                 if (bitmap == null) {
                     fieldBuilder.append("bitmap", StringUtil.NULL_STRING);
@@ -314,7 +315,6 @@ public class PicManager {
                     fieldBuilder.append("bitW", Integer.valueOf(bitmap.getWidth()));
                     fieldBuilder.append("bitH", Integer.valueOf(bitmap.getHeight()));
                 }
-                TiebaStatic.imgError(-1005, "getResizedBitmap error: " + e.toString(), fieldBuilder.toString());
                 return bitmap;
             }
         }

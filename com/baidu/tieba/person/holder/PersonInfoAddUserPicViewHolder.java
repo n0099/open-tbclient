@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.nn;
-import com.repackage.xz7;
+import com.repackage.s08;
 /* loaded from: classes3.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -45,19 +45,19 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.d = 3;
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f090116);
-        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09010f);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200a);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f090117);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090110);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920af);
     }
 
     public void c(nn nnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nnVar) == null) && (nnVar instanceof xz7)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, nnVar) == null) && (nnVar instanceof s08)) {
             this.e = nnVar;
-            xz7 xz7Var = (xz7) nnVar;
+            s08 s08Var = (s08) nnVar;
             SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-            if (xz7Var.a() > 0) {
-                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f081f), Integer.valueOf(xz7Var.a())));
+            if (s08Var.a() > 0) {
+                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f082a), Integer.valueOf(s08Var.a())));
             }
             b().setOnClickListener(this.f);
             e(TbadkCoreApplication.getInst().getSkinType());

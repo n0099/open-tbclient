@@ -52,7 +52,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -699,14 +699,14 @@ public final class MaterialContainerTransform extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view2, i, shapeAppearanceModel) == null) {
             if (i != -1) {
-                transitionValues.f1020view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1020view, i);
+                transitionValues.f1747view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1747view, i);
             } else if (view2 != null) {
-                transitionValues.f1020view = view2;
-            } else if (transitionValues.f1020view.getTag(R.id.obfuscated_res_0x7f091432) instanceof View) {
-                transitionValues.f1020view.setTag(R.id.obfuscated_res_0x7f091432, null);
-                transitionValues.f1020view = (View) transitionValues.f1020view.getTag(R.id.obfuscated_res_0x7f091432);
+                transitionValues.f1747view = view2;
+            } else if (transitionValues.f1747view.getTag(R.id.obfuscated_res_0x7f0914da) instanceof View) {
+                transitionValues.f1747view.setTag(R.id.obfuscated_res_0x7f0914da, null);
+                transitionValues.f1747view = (View) transitionValues.f1747view.getTag(R.id.obfuscated_res_0x7f0914da);
             }
-            View view3 = transitionValues.f1020view;
+            View view3 = transitionValues.f1747view;
             if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
                 return;
             }
@@ -729,8 +729,8 @@ public final class MaterialContainerTransform extends Transition {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091432) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091432);
+            if (view2.getTag(R.id.obfuscated_res_0x7f0914da) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f0914da);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -762,7 +762,7 @@ public final class MaterialContainerTransform extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406af});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406b0});
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;
@@ -819,8 +819,8 @@ public final class MaterialContainerTransform extends Transition {
                     RectF rectF2 = (RectF) transitionValues2.values.get("materialContainerTransition:bounds");
                     ShapeAppearanceModel shapeAppearanceModel2 = (ShapeAppearanceModel) transitionValues2.values.get("materialContainerTransition:shapeAppearance");
                     if (rectF2 != null && shapeAppearanceModel2 != null) {
-                        View view2 = transitionValues.f1020view;
-                        View view3 = transitionValues2.f1020view;
+                        View view2 = transitionValues.f1747view;
+                        View view3 = transitionValues2.f1747view;
                         View view4 = view3.getParent() != null ? view3 : view2;
                         if (this.drawingViewId == view4.getId()) {
                             findAncestorById = (View) view4.getParent();

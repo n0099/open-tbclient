@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ld8;
+import com.repackage.ge8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetForumResponsed extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ld8 listData;
+    public ge8 listData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForumResponsed(int i) {
@@ -38,10 +38,10 @@ public class GetForumResponsed extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && getError() == 0 && jSONObject != null) {
-            ld8 ld8Var = new ld8();
-            this.listData = ld8Var;
+            ge8 ge8Var = new ge8();
+            this.listData = ge8Var;
             try {
-                ld8Var.F(jSONObject);
+                ge8Var.F(jSONObject);
             } catch (Exception e) {
                 this.listData = null;
                 BdLog.e(e.getMessage());

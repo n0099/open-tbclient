@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
-import com.repackage.kh9;
+import com.repackage.yi9;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.Locale;
@@ -33,7 +33,7 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER;
     public static String sBlockTimeStamp;
     public transient /* synthetic */ FieldHolder $fh;
-    public kh9 mBlockWatchDog;
+    public yi9 mBlockWatchDog;
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.block.impl.BlockMonitor$1  reason: invalid class name */
@@ -44,7 +44,7 @@ public class BlockMonitor implements IBlockMonitor {
     }
 
     /* loaded from: classes2.dex */
-    public static class BlockListenerImpl implements kh9.f {
+    public static class BlockListenerImpl implements yi9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +62,7 @@ public class BlockMonitor implements IBlockMonitor {
             }
         }
 
-        @Override // com.repackage.kh9.f
+        @Override // com.repackage.yi9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -177,9 +177,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        kh9 kh9Var = new kh9(i);
-        this.mBlockWatchDog = kh9Var;
-        kh9Var.e();
+        yi9 yi9Var = new yi9(i);
+        this.mBlockWatchDog = yi9Var;
+        yi9Var.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl(null));
         if (AppConfig.isDebug()) {
@@ -190,10 +190,10 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        kh9 kh9Var;
+        yi9 yi9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (kh9Var = this.mBlockWatchDog) != null) {
-            kh9Var.interrupt();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (yi9Var = this.mBlockWatchDog) != null) {
+            yi9Var.interrupt();
             this.mMonitorStarted = false;
         }
     }

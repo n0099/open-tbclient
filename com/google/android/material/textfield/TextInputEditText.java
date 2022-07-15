@@ -226,7 +226,7 @@ public class TextInputEditText extends AppCompatEditText {
             boolean requestRectangleOnScreen = super.requestRectangleOnScreen(rect);
             TextInputLayout textInputLayout = getTextInputLayout();
             if (textInputLayout != null && this.textInputLayoutFocusedRectEnabled) {
-                this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070438), textInputLayout.getWidth(), textInputLayout.getHeight());
+                this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070487), textInputLayout.getWidth(), textInputLayout.getHeight());
                 textInputLayout.requestRectangleOnScreen(this.parentRect, true);
             }
             return requestRectangleOnScreen;
@@ -282,7 +282,7 @@ public class TextInputEditText extends AppCompatEditText {
             }
         }
         this.parentRect = new Rect();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04065f}, i, R.style.obfuscated_res_0x7f100331, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040660}, i, R.style.obfuscated_res_0x7f100331, new int[0]);
         setTextInputLayoutFocusedRectEnabled(obtainStyledAttributes.getBoolean(0, false));
         obtainStyledAttributes.recycle();
     }

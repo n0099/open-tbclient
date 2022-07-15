@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o37;
+import com.repackage.e47;
 /* loaded from: classes3.dex */
-public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<o37> {
+public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<e47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<o37> {
+    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<e47> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgIceBreakViewHolder(View view2, o37 o37Var) {
-            super(view2, o37Var);
+        public MsgIceBreakViewHolder(View view2, e47 e47Var) {
+            super(view2, e47Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, o37Var};
+                Object[] objArr = {view2, e47Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,12 +76,12 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<o37> {
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<o37> msgViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<e47> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            o37 c = msgViewHolder.c();
+            e47 c = msgViewHolder.c();
             c.n(this.j);
             c.o(chatMessage);
             c.m(TbadkCoreApplication.getInst().getSkinType());
@@ -93,12 +93,12 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<o37> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<o37> M(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<e47> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            o37 o37Var = new o37(this.i);
-            return new MsgIceBreakViewHolder(o37Var.h(), o37Var);
+            e47 e47Var = new e47(this.i);
+            return new MsgIceBreakViewHolder(e47Var.h(), e47Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

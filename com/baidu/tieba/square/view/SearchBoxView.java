@@ -91,7 +91,7 @@ public class SearchBoxView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091c02) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091ca1) {
                 TiebaStatic.eventStat(this.a.a, this.a.b, "click", 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.a.a)));
             }
@@ -129,11 +129,11 @@ public class SearchBoxView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = (Activity) context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b4, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c02);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c01);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d4, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca1);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ca0);
             this.c.setOnClickListener(this.g);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c12);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb1);
             this.e = textView;
             textView.setOnClickListener(this.f);
         }

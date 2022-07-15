@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b64;
+import com.repackage.q64;
 /* loaded from: classes2.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e = new b64(context).e(R.drawable.obfuscated_res_0x7f080d75, R.drawable.obfuscated_res_0x7f080d76);
+            PointPageIndicator e = new q64(context).e(R.drawable.obfuscated_res_0x7f080cf2, R.drawable.obfuscated_res_0x7f080cf3);
             e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ca));
             this.h = e;
             this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700df);

@@ -48,7 +48,7 @@ public final class CalendarStyle {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f040457, MaterialCalendar.class.getCanonicalName()), new int[]{16843277, R.attr.obfuscated_res_0x7f0401e0, R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0401e2, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f040526, R.attr.obfuscated_res_0x7f0406e4, R.attr.obfuscated_res_0x7f0406e5, R.attr.obfuscated_res_0x7f0406e6});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f04045b, MaterialCalendar.class.getCanonicalName()), new int[]{16843277, R.attr.obfuscated_res_0x7f0401e0, R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0401e2, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f04052a, R.attr.obfuscated_res_0x7f0406e5, R.attr.obfuscated_res_0x7f0406e6, R.attr.obfuscated_res_0x7f0406e7});
         this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(3, 0));
         this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(1, 0));
         this.selectedDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(2, 0));

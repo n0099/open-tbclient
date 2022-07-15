@@ -1,102 +1,101 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class k84 {
+public class k84 extends f84<f94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public k84(int i, String str) {
-        this(i, str, "");
+    public k84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public k84 a(String str) {
+    @Override // com.repackage.f84
+    public List<f94> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (k84) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.b + "', httpCode=" + this.f + ", tipMsg='" + this.e + "', errorDetail='" + this.d + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public k84(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
             }
+            do {
+                arrayList.add(h(cursor));
+            } while (cursor.moveToNext());
+            return arrayList;
         }
-        this.d = "";
-        this.a = i;
-        this.b = str;
-        this.e = str2;
+        return (List) invokeL.objValue;
     }
 
-    public k84(int i, String str, String str2, String str3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.f84
+    /* renamed from: f */
+    public ContentValues c(f94 f94Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, f94Var)) == null) {
+            ContentValues a = super.a(f94Var);
+            a.put("independent", Integer.valueOf(f94Var.r ? 1 : 0));
+            a.put("sub_pkg_name", f94Var.p);
+            a.put("app_id", f94Var.o);
+            return a;
         }
-        this.d = "";
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-        this.c = str3;
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.f84
+    /* renamed from: g */
+    public f94 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
+            }
+            return h(cursor);
+        }
+        return (f94) invokeL.objValue;
+    }
+
+    public final f94 h(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("independent");
+                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
+                int columnIndex3 = cursor.getColumnIndex("app_id");
+                f94 f94Var = new f94();
+                if (b(cursor, f94Var)) {
+                    f94Var.r = cursor.getInt(columnIndex) == 1;
+                    f94Var.p = cursor.getString(columnIndex2);
+                    f94Var.o = cursor.getString(columnIndex3);
+                    return f94Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (f94) invokeL.objValue;
     }
 }

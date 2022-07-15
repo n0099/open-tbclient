@@ -1,84 +1,97 @@
 package com.kwad.sdk.core.report;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.kwad.sdk.core.config.b;
-import java.util.List;
+import com.kwad.sdk.core.report.u;
+import com.kwad.sdk.utils.y;
 /* loaded from: classes5.dex */
-public class f extends b<ReportAction, e> {
-    public static volatile boolean a;
-    public static f b = new f();
+public final class f {
+    public u.b a = new u.b();
 
-    public static void a(@NonNull ReportAction reportAction) {
-        if (reportAction == null) {
-            return;
-        }
-        if (com.kwad.sdk.b.c.booleanValue()) {
-            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.i);
-        }
-        if (b(reportAction.i)) {
-            b(reportAction);
-        } else {
-            c(reportAction);
-        }
+    public final f a(double d) {
+        this.a.H = d;
+        return this;
     }
 
-    public static void b(final ReportAction reportAction) {
-        if (reportAction == null) {
-            return;
-        }
-        b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.report.g
-            /* renamed from: b */
-            public ReportAction a() {
-                return ReportAction.this.b();
-            }
-        });
+    public final f a(int i) {
+        this.a.c = i;
+        return this;
     }
 
-    public static boolean b(long j) {
-        return b.a.aU.a(j);
+    public final f a(long j) {
+        this.a.D = j;
+        return this;
     }
 
-    public static f c() {
-        return b;
+    public final f a(u.a aVar) {
+        this.a.B = aVar;
+        return this;
     }
 
-    public static void c(final ReportAction reportAction) {
-        if (reportAction == null) {
-            return;
-        }
-        b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.report.g
-            /* renamed from: b */
-            public ReportAction a() {
-                return ReportAction.this.b();
-            }
-        });
+    public final f a(y.a aVar) {
+        this.a.i = aVar;
+        return this;
     }
 
-    @Override // com.kwad.sdk.core.report.b
-    public void a(Context context) {
-        if (a) {
-            return;
-        }
-        super.a(context);
-        n.a(context);
-        n.a();
-        int a2 = com.kwad.sdk.core.config.item.c.a(context);
-        com.kwad.sdk.core.d.a.a("BatchReporter", "cache type = " + a2);
-        if (a2 == 2) {
-            a(l.a(context));
-        }
-        a = true;
+    public final f a(String str) {
+        this.a.j = str;
+        return this;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.report.b
-    /* renamed from: b */
-    public e a(List<ReportAction> list, boolean z) {
-        return z ? new com.kwad.sdk.core.report.a.a(list) : new e(list);
+    public final u.b a() {
+        return this.a;
+    }
+
+    public final f b(int i) {
+        this.a.d = 1;
+        return this;
+    }
+
+    public final f b(String str) {
+        this.a.J = str;
+        return this;
+    }
+
+    public final f c(int i) {
+        this.a.e = i;
+        return this;
+    }
+
+    public final f d(int i) {
+        this.a.q = i;
+        return this;
+    }
+
+    public final f e(int i) {
+        this.a.h = i;
+        return this;
+    }
+
+    public final f f(int i) {
+        this.a.E = i;
+        return this;
+    }
+
+    public final f g(int i) {
+        this.a.F = i;
+        return this;
+    }
+
+    public final f h(int i) {
+        this.a.L = i;
+        return this;
+    }
+
+    public final f i(int i) {
+        this.a.a(i);
+        return this;
+    }
+
+    public final f j(int i) {
+        this.a.O = i;
+        return this;
+    }
+
+    public final f k(int i) {
+        this.a.P = i;
+        return this;
     }
 }

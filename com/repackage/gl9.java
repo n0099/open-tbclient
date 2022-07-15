@@ -1,82 +1,59 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Looper;
-import android.os.Process;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.google.android.gms.common.zzq;
 /* loaded from: classes6.dex */
-public class gl9 implements Runnable {
+public final class gl9 implements Parcelable.Creator<zzq> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
 
-    public gl9(jl9 jl9Var, Context context) {
+    public gl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jl9Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String userAgentString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.a;
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    try {
-                        Process.myPid();
-                        if (context != null) {
-                            try {
-                                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                                    if (runningAppProcessInfo.pid == Process.myPid()) {
-                                        str = runningAppProcessInfo.processName;
-                                        break;
-                                    }
-                                }
-                            } catch (Exception unused) {
-                            }
-                        }
-                        str = null;
-                        if (!TextUtils.equals(context.getPackageName(), str)) {
-                            WebView.setDataDirectorySuffix(str);
-                        }
-                    } catch (Exception unused2) {
-                    }
-                }
-                zn9.a = System.getProperty("http.agent");
-                if (Build.VERSION.SDK_INT >= 17) {
-                    userAgentString = WebSettings.getDefaultUserAgent(context);
-                } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                    sn9.a.post(new vn9(context));
-                    return;
-                } else {
-                    userAgentString = new WebView(context).getSettings().getUserAgentString();
-                }
-                zn9.a = userAgentString;
-            } catch (Exception unused3) {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ zzq createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        boolean z = false;
+        String str = null;
+        int i = 0;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            int h = SafeParcelReader.h(k);
+            if (h == 1) {
+                z = SafeParcelReader.i(parcel, k);
+            } else if (h == 2) {
+                str = SafeParcelReader.d(parcel, k);
+            } else if (h != 3) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                i = SafeParcelReader.m(parcel, k);
             }
         }
+        SafeParcelReader.g(parcel, q);
+        return new zzq(z, str, i);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ zzq[] newArray(int i) {
+        return new zzq[i];
     }
 }

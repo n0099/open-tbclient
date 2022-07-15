@@ -1,52 +1,35 @@
 package com.kwad.sdk.core.a;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import androidx.annotation.NonNull;
+import com.kwad.sdk.utils.n;
+import java.util.Base64;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public final class f {
-    public static String a(String str) {
-        String doSign;
-        Context context = KsAdSDKImpl.get().getContext();
-        return (context == null || (doSign = KWEGIDDFP.doSign(context, str)) == null) ? "" : doSign;
-    }
-
-    public static List<String> a(Map<String, String> map) {
-        ArrayList arrayList = new ArrayList(map.size());
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            String key = entry.getKey();
-            if (!b(key)) {
-                arrayList.add(key + "=" + c(entry.getValue()));
-            }
-        }
+public final class f implements h {
+    @Override // com.kwad.sdk.core.a.h
+    public final String a(String str) {
         try {
-            Collections.sort(arrayList);
+            return new String(Base64.getEncoder().encode(g.a(str.getBytes(), n.a(1))), "UTF-8");
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
+            return str;
         }
-        return arrayList;
     }
 
-    public static void a(String str, Map<String, String> map, String str2) {
-        map.put("Ks-Sig1", a(b(str, new HashMap(), str2)));
+    @Override // com.kwad.sdk.core.a.h
+    public final void a(String str, Map<String, String> map, String str2) {
     }
 
-    public static String b(String str, Map<String, String> map, String str2) {
-        List<String> a = a(map);
-        return str + "&" + TextUtils.join("&", a) + "&" + str2;
+    @Override // com.kwad.sdk.core.a.h
+    public final void a(@NonNull Map<String, String> map) {
     }
 
-    public static boolean b(String str) {
-        return TextUtils.isEmpty(str) || str.startsWith("__");
-    }
-
-    public static String c(String str) {
-        return str == null ? "" : str;
+    @Override // com.kwad.sdk.core.a.h
+    public final String b(String str) {
+        try {
+            return g.b(Base64.getDecoder().decode(str.getBytes()), n.a(2));
+        } catch (Exception unused) {
+            return str;
+        }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.la9;
+import com.repackage.kb9;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -198,7 +198,7 @@ public class ContentUtils {
                     stringBuffer.append((String) entry.getValue());
                 }
                 stringBuffer.append(str);
-                return la9.c(stringBuffer.toString().getBytes(), false);
+                return kb9.c(stringBuffer.toString().getBytes(), false);
             }
             return "";
         }

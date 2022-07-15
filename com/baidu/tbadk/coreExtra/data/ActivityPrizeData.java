@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,7 +96,7 @@ public class ActivityPrizeData {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        setSwitchTurn(jSONObject.optInt("switch") == 1);
+        setSwitchTurn(jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1);
         this.feedText = jSONObject.optString("feed_text");
         this.enterForumText = jSONObject.optString("enter_forum_text");
         this.myTabText = jSONObject.optString("my_tab_text");

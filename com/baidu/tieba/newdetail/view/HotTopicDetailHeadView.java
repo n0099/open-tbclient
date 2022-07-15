@@ -31,12 +31,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d37;
 import com.repackage.d9;
-import com.repackage.fr4;
 import com.repackage.h9;
-import com.repackage.i27;
-import com.repackage.n27;
 import com.repackage.pi;
+import com.repackage.ur4;
+import com.repackage.y27;
 /* loaded from: classes3.dex */
 public class HotTopicDetailHeadView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public i27 q;
+    public y27 q;
     public ValueAnimator r;
 
     /* loaded from: classes3.dex */
@@ -186,23 +186,23 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        i27 i27Var;
+        y27 y27Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (i27Var = this.q) == null || i27Var.b == 1) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (y27Var = this.q) == null || y27Var.b == 1) {
             return;
         }
         this.o.playAnimation();
         i();
-        i27 i27Var2 = this.q;
-        i27Var2.b = 1;
-        i27Var2.d = j2;
+        y27 y27Var2 = this.q;
+        y27Var2.b = 1;
+        y27Var2.d = j2;
     }
 
     @StringRes
     public final int e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f086d : i == 2 ? R.string.obfuscated_res_0x7f0f086c : R.string.obfuscated_res_0x7f0f086b : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f0878 : i == 2 ? R.string.obfuscated_res_0x7f0f0877 : R.string.obfuscated_res_0x7f0f0876 : invokeI.intValue;
     }
 
     public final void f(int i) {
@@ -216,7 +216,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                     SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110064);
                 } else if (i == 2) {
                     this.o.setImageAssetsFolder("lottie_candle/");
-                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110025);
+                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110026);
                 } else {
                     this.o.setImageAssetsFolder("lottie_bless/");
                     SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110023);
@@ -226,7 +226,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110065);
             } else if (i == 2) {
                 this.o.setImageAssetsFolder("lottie_candle_1/");
-                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110026);
+                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110027);
             } else {
                 this.o.setImageAssetsFolder("lottie_bless_1/");
                 SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110024);
@@ -241,21 +241,21 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             if (a2 instanceof TbPageContext) {
                 this.b = (TbPageContext) a2;
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039a, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09035c);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09035a);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09035f);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090ceb);
-            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090db7);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09201e);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09201c);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09201a);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091e40);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090750);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090751);
-            this.n = findViewById(R.id.obfuscated_res_0x7f09074f);
-            this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090389);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09038a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039d, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09035e);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09035c);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090361);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090cf8);
+            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090dc5);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c3);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c1);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bf);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee4);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090757);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090758);
+            this.n = findViewById(R.id.obfuscated_res_0x7f090756);
+            this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09038b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09038c);
             this.p = textView;
             textView.setAlpha(0.66f);
             this.e.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -273,7 +273,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.a == i) {
             return;
         }
-        fr4 d = fr4.d(this.f);
+        ur4 d = ur4.d(this.f);
         d.m(1);
         d.n(R.string.J_X14);
         d.f(R.color.CAM_X0201);
@@ -285,9 +285,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-        i27 i27Var = this.q;
-        if (i27Var != null) {
-            f(i27Var.e);
+        y27 y27Var = this.q;
+        if (y27Var != null) {
+            f(y27Var.e);
         }
         this.a = i;
     }
@@ -323,11 +323,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         view2.setBackgroundColor(i);
     }
 
-    public void setBlessInfo(i27 i27Var) {
+    public void setBlessInfo(y27 y27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, i27Var) == null) {
-            this.q = i27Var;
-            if (i27Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, y27Var) == null) {
+            this.q = y27Var;
+            if (y27Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -338,15 +338,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(i27Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(i27Var.a)));
-            if (i27Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(y27Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(y27Var.a)));
+            if (y27Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(i27Var.e);
+                f(y27Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -358,24 +358,24 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(n27 n27Var) {
+    public void setTopicInfo(d37 d37Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, n27Var) == null) || n27Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d37Var) == null) || d37Var == null) {
             return;
         }
-        this.e.setVisibility(TextUtils.isEmpty(n27Var.f) ? 0 : 8);
-        this.g.J(n27Var.e, 10, false);
-        this.c.J(n27Var.f, 39, false);
-        this.h.setText(n27Var.b);
-        if (n27Var.i > 0) {
+        this.e.setVisibility(TextUtils.isEmpty(d37Var.f) ? 0 : 8);
+        this.g.J(d37Var.e, 10, false);
+        this.c.J(d37Var.f, 39, false);
+        this.h.setText(d37Var.b);
+        if (d37Var.i > 0) {
             TextView textView = this.l;
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0884);
-            textView.setText(String.format(string, "" + n27Var.i));
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f088f);
+            textView.setText(String.format(string, "" + d37Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0882), StringHelper.numberUniformFormatExtraWithRoundInt(n27Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088d), StringHelper.numberUniformFormatExtraWithRoundInt(d37Var.d)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -1,326 +1,285 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class r93 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile r93 m;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public SensorManager b;
-    public SensorEventListener c;
-    public SensorEventListener d;
-    public Sensor e;
-    public Sensor f;
-    public float[] g;
-    public float[] h;
-    public int i;
-    public c j;
-    public boolean k;
-    public long l;
 
     /* loaded from: classes7.dex */
-    public class a implements SensorEventListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r93 a;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ int b;
 
-        public a(r93 r93Var) {
+        public a(long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r93Var};
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = r93Var;
+            this.a = j;
+            this.b = i;
         }
 
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            Sensor sensor;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-                    this.a.g = sensorEvent.values;
-                    this.a.i = sensorEvent.accuracy;
-                    sw1.b("SwanAppCompassManager", "accelerometer changed accuracy: " + this.a.i);
-                    this.a.k();
-                    return;
-                }
-                sw1.o("compass", "illegal accelerometer event");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements SensorEventListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r93 a;
-
-        public b(r93 r93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r93Var;
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            Sensor sensor;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
-                    this.a.h = sensorEvent.values;
-                    this.a.i = sensorEvent.accuracy;
-                    sw1.b("SwanAppCompassManager", "magneticFiled changed accuracy: " + this.a.i);
-                    this.a.k();
-                    return;
-                }
-                sw1.o("compass", "illegal magnetic filed event");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(float f, int i);
-    }
-
-    public r93() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = new float[3];
-        this.h = new float[3];
-        this.i = -100;
-        this.k = false;
-        this.l = 0L;
-    }
-
-    public static String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? i != -1 ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? "unknow" : "high" : "medium" : Config.EXCEPTION_MEMORY_LOW : "unreliable" : "no-contact" : (String) invokeI.objValue;
-    }
-
-    public static r93 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (m == null) {
-                synchronized (r93.class) {
-                    if (m == null) {
-                        m = new r93();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    l93.c().a(this.a, this.b);
+                } catch (Exception e) {
+                    if (r93.a) {
+                        e.printStackTrace();
                     }
                 }
             }
-            return m;
-        }
-        return (r93) invokeV.objValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || m == null) {
-            return;
-        }
-        m.m();
-    }
-
-    public final float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float[] fArr = new float[3];
-            float[] fArr2 = new float[9];
-            SensorManager.getRotationMatrix(fArr2, null, this.g, this.h);
-            SensorManager.getOrientation(fArr2, fArr);
-            return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final SensorEventListener g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            sw1.i("compass", "get Accelerometer listener");
-            SensorEventListener sensorEventListener = this.c;
-            if (sensorEventListener != null) {
-                return sensorEventListener;
-            }
-            a aVar = new a(this);
-            this.c = aVar;
-            return aVar;
-        }
-        return (SensorEventListener) invokeV.objValue;
-    }
-
-    public final SensorEventListener j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            sw1.i("compass", "get MagneticFiled listener");
-            SensorEventListener sensorEventListener = this.d;
-            if (sensorEventListener != null) {
-                return sensorEventListener;
-            }
-            b bVar = new b(this);
-            this.d = bVar;
-            return bVar;
-        }
-        return (SensorEventListener) invokeV.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.j == null || System.currentTimeMillis() - this.l <= 200) {
-            return;
-        }
-        float f = f();
-        sw1.b("SwanAppCompassManager", "orientation changed, orientation : " + f);
-        this.j.a(f, this.i);
-        this.l = System.currentTimeMillis();
-    }
-
-    public void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.a = context;
         }
     }
 
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sw1.i("compass", "release");
-            if (this.k) {
-                q();
-            }
-            this.b = null;
-            this.f = null;
-            this.e = null;
-            this.c = null;
-            this.d = null;
-            this.j = null;
-            this.a = null;
-            m = null;
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
 
-    public void o(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.j = cVar;
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Context context = this.a;
-            if (context == null) {
-                sw1.c("compass", "start error, none context");
-            } else if (this.k) {
-                sw1.o("compass", "has already start");
-            } else {
-                SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-                this.b = sensorManager;
-                if (sensorManager != null) {
-                    this.e = sensorManager.getDefaultSensor(1);
-                    this.f = this.b.getDefaultSensor(2);
-                    this.b.registerListener(g(), this.e, 1);
-                    this.b.registerListener(j(), this.f, 1);
-                    this.k = true;
-                    sw1.i("compass", "start listen");
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                sw1.c("compass", "none sensorManager");
             }
+            this.a = 0;
+        }
+
+        public static b a(int i, String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+                b bVar = new b();
+                bVar.a = i;
+                bVar.b = str;
+                return bVar;
+            }
+            return (b) invokeIL.objValue;
+        }
+
+        public static b b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(1, str) : (b) invokeL.objValue;
+        }
+
+        public static b d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(0, "") : (b) invokeV.objValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 0 : invokeV.booleanValue;
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "RemoteCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public void q() {
-        SensorManager sensorManager;
-        SensorManager sensorManager2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.k) {
-                sw1.o("compass", "has already stop");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755395547, "Lcom/repackage/r93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755395547, "Lcom/repackage/r93;");
                 return;
             }
-            sw1.i("compass", "stop listen");
-            SensorEventListener sensorEventListener = this.c;
-            if (sensorEventListener != null && (sensorManager2 = this.b) != null) {
-                sensorManager2.unregisterListener(sensorEventListener);
-                this.c = null;
+        }
+        a = rg1.a;
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            l("0", 0L, i);
+        }
+    }
+
+    public static b c(c94 c94Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, c94Var, i)) == null) {
+            hx1.k("RemoteSwanCoreControl", "doRemoteUpdate start. framework: " + c94Var);
+            if (c94Var == null) {
+                return b.b("framework is null.");
             }
-            SensorEventListener sensorEventListener2 = this.d;
-            if (sensorEventListener2 != null && (sensorManager = this.b) != null) {
-                sensorManager.unregisterListener(sensorEventListener2);
-                this.d = null;
+            long j = c94Var.i;
+            if (j == 0) {
+                return b.b("invalid version code : " + c94Var.j);
+            } else if (!ud3.a(new File(c94Var.a), c94Var.m)) {
+                return b.b("sign failed.");
+            } else {
+                String path = h(j, i).getPath();
+                if (!jg4.U(c94Var.a, path)) {
+                    return b.b("unzip bundle failed.");
+                }
+                if (i == 0) {
+                    boolean B = jg4.B(c94Var.a, path);
+                    if (a) {
+                        Log.d("RemoteSwanCoreControl", "isZipFileMatchUnzipResult:" + B + ",path:" + path);
+                    }
+                    if (!B) {
+                        m93.m(1, i, j);
+                        jg4.M(path);
+                        if (!jg4.U(c94Var.a, path)) {
+                            return b.b("unzip bundle failed.");
+                        }
+                    }
+                }
+                if (a) {
+                    String b2 = lg4.b(new File(c94Var.a), false);
+                    if (!TextUtils.isEmpty(b2)) {
+                        v83.a().putString(l93.d(i), b2);
+                    }
+                }
+                if (ProcessUtils.isMainProcess()) {
+                    m93.b(g(i), k(e(i), j));
+                }
+                l(c94Var.j, c94Var.i, i);
+                hx1.k("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j);
+                return b.d();
             }
-            this.b = null;
-            this.f = null;
-            this.e = null;
-            this.k = false;
+        }
+        return (b) invokeLI.objValue;
+    }
+
+    public static SwanCoreVersion d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
+            swanCoreVersion.swanCoreType = 1;
+            swanCoreVersion.swanCoreVersionCode = e(i);
+            swanCoreVersion.swanCoreVersionName = f(i);
+            swanCoreVersion.swanCorePath = h(swanCoreVersion.swanCoreVersionCode, i).getPath();
+            return swanCoreVersion;
+        }
+        return (SwanCoreVersion) invokeI.objValue;
+    }
+
+    public static long e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? v83.a().getLong(i(i), 0L) : invokeI.longValue;
+    }
+
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? v83.a().getString(j(i), "") : (String) invokeI.objValue;
+    }
+
+    public static File g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? new File(m93.d(i), "remote") : (File) invokeI.objValue;
+    }
+
+    public static File h(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? new File(g(i), String.valueOf(j)) : (File) invokeCommon.objValue;
+    }
+
+    public static String i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key" : (String) invokeI.objValue;
+    }
+
+    public static String j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_name_key" : "aiapps_cur_remote_ver_name_key" : (String) invokeI.objValue;
+    }
+
+    public static ArrayList<Long> k(long j, long j2) {
+        InterceptResult invokeCommon;
+        SwanCoreVersion swanCoreVersion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            ArrayList<Long> arrayList = new ArrayList<>();
+            if (j != 0) {
+                arrayList.add(Long.valueOf(j));
+            }
+            arrayList.add(Long.valueOf(j2));
+            for (gx2 gx2Var : ix2.k().q()) {
+                SwanAppCores m = gx2Var.m();
+                if (gx2Var.T() && m != null && (swanCoreVersion = m.getSwanCoreVersion()) != null && !arrayList.contains(Long.valueOf(swanCoreVersion.swanCoreVersionCode))) {
+                    arrayList.add(Long.valueOf(swanCoreVersion.swanCoreVersionCode));
+                }
+            }
+            if (a) {
+                Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public static void l(String str, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            v83.a().putString(j(i), str);
+            v83.a().putLong(i(i), j);
+            bd3.k(new a(j, i), "cacheSwanCoreInfo");
         }
     }
 }

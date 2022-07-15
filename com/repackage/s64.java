@@ -1,48 +1,67 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y64;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class s64 extends y64.a {
+public class s64<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<T> a;
+    public final int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s64(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    public s64(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y64.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: a */
-    public y64 build() {
+    public synchronized T a() {
         InterceptResult invokeV;
+        T remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i64.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+            synchronized (this) {
+                do {
+                    if (this.a.size() <= 0) {
+                        return null;
+                    }
+                    remove = this.a.remove(this.a.size() - 1);
+                } while (remove == null);
+                return remove;
+            }
         }
-        return (y64) invokeV.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public synchronized void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            synchronized (this) {
+                if (t != null) {
+                    if (this.a.size() >= this.b) {
+                        this.a.remove(this.a.size() - 1);
+                    }
+                    this.a.add(t);
+                }
+            }
+        }
     }
 }

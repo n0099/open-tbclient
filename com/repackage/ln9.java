@@ -1,78 +1,46 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ln9 {
+public final class ln9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final float a;
+    public final float b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755523174, "Lcom/repackage/ln9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755523174, "Lcom/repackage/ln9;");
+    public ln9(float f, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ThreadPoolExecutor(1, 5, 1L, TimeUnit.MINUTES, new LinkedBlockingQueue(30));
+        this.a = f;
+        this.b = f2;
     }
 
-    public static String a(Context context, String str, String str2, List list, en9 en9Var) {
-        InterceptResult invokeLLLLL;
+    public final float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, list, en9Var)) == null) {
-            AtomicInteger atomicInteger = new AtomicInteger(0);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str3 = (String) it.next();
-                File file = new File(str2, String.valueOf(str3.hashCode()));
-                if (file.exists()) {
-                    if (file.length() == ym9.b(context).a(str3)) {
-                        str = str.replace(str3, "file://" + file.getAbsolutePath());
-                        atomicInteger.addAndGet(1);
-                    }
-                }
-            }
-            if (en9Var != null) {
-                if (atomicInteger.get() <= 0) {
-                    en9Var.a(0);
-                } else if (atomicInteger.get() == list.size()) {
-                    en9Var.a(2);
-                } else {
-                    en9Var.a(1);
-                }
-            }
-            return str;
-        }
-        return (String) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
     }
 
-    public static void b(Context context, String str, List list, bn9 bn9Var) {
+    public final float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, list, bn9Var) == null) {
-            try {
-                a.execute(new vm9(context, str, list, bn9Var));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.floatValue;
     }
 }

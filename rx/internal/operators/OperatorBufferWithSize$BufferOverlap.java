@@ -4,25 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv9;
-import com.repackage.sv9;
-import com.repackage.zu9;
+import com.repackage.as9;
+import com.repackage.ps9;
+import com.repackage.wr9;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OperatorBufferWithSize$BufferOverlap<T> extends dv9<T> {
+public final class OperatorBufferWithSize$BufferOverlap<T> extends as9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dv9<? super List<T>> e;
+    public final as9<? super List<T>> e;
     public final int f;
     public final int g;
     public final ArrayDeque<List<T>> h;
     public final AtomicLong i;
 
     /* loaded from: classes8.dex */
-    public final class BufferOverlapProducer extends AtomicBoolean implements zu9 {
+    public final class BufferOverlapProducer extends AtomicBoolean implements wr9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4015894850868853147L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,18 +46,18 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends dv9<T> {
             this.this$0 = operatorBufferWithSize$BufferOverlap;
         }
 
-        @Override // com.repackage.zu9
+        @Override // com.repackage.wr9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!sv9.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.h, operatorBufferWithSize$BufferOverlap.e) || j == 0) {
+                if (!ps9.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.h, operatorBufferWithSize$BufferOverlap.e) || j == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.e(sv9.c(operatorBufferWithSize$BufferOverlap.g, j));
+                    operatorBufferWithSize$BufferOverlap.e(ps9.c(operatorBufferWithSize$BufferOverlap.g, j));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.e(sv9.a(sv9.c(operatorBufferWithSize$BufferOverlap.g, j - 1), operatorBufferWithSize$BufferOverlap.f));
+                    operatorBufferWithSize$BufferOverlap.e(ps9.a(ps9.c(operatorBufferWithSize$BufferOverlap.g, j - 1), operatorBufferWithSize$BufferOverlap.f));
                 }
             }
         }

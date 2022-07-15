@@ -1,32 +1,24 @@
 package com.repackage;
 
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
-import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ij6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
     public int b;
-    public List<ThreadData> c;
-    public ScoreCardInfo d;
-    public List<FeatureCardHot> e;
-    public List<FeatureCardTopic> f;
-    public List<jj6> g;
-    public List<FeatureCardCompetition> h;
-    public List<FeatureCardGod> i;
-    public List<FeatureCardGame> j;
+    public int c;
+    public List<nn> d;
+    public boolean e;
+    public int f;
 
     public ij6() {
         Interceptable interceptable = $ic;
@@ -38,15 +30,53 @@ public class ij6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList();
-        this.e = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new ArrayList();
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = new ArrayList();
+    }
+
+    public int a(List<nn> list) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return 0;
+            }
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                nn nnVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= this.d.size()) {
+                        z = false;
+                        break;
+                    }
+                    nn nnVar2 = this.d.get(i2);
+                    if (nnVar != null && (nnVar instanceof hj6) && nnVar2 != null && (nnVar2 instanceof hj6)) {
+                        ThreadData threadData = ((hj6) nnVar).getThreadData();
+                        ThreadData threadData2 = ((hj6) nnVar2).getThreadData();
+                        if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                            z = true;
+                            break;
+                        }
+                    }
+                    i2++;
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, nnVar);
+                }
+            }
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
+        }
+        return invokeL.intValue;
     }
 }

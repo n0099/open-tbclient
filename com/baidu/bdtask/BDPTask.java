@@ -560,7 +560,7 @@ public final class BDPTask {
                             WeakReference<Context> o = zoVar.o();
                             Context context2 = o != null ? o.get() : null;
                             if ((context2 instanceof Activity) && !xs.a((Activity) context2) && (w = w()) != null && (h = w.h()) != null) {
-                                h.c((Activity) context2);
+                                h.b((Activity) context2);
                             }
                         }
                         application.registerActivityLifecycleCallbacks(o());
@@ -704,7 +704,7 @@ public final class BDPTask {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || (v = m.v()) == null || (h2 = v.h()) == null) {
             return;
         }
-        h2.c(activity);
+        h2.b(activity);
     }
 
     public boolean B(String str, String str2) {

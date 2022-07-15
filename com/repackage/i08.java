@@ -1,64 +1,87 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.StateInfo;
+import tbclient.VirtualImageInfo;
 /* loaded from: classes6.dex */
-public class i08 extends an<u08, CardViewHolder<h18>> {
+public class i08 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile i08 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public int a;
+    public y05 b;
+    public List<y05> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i08(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public i08() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public CardViewHolder<h18> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static i08 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new h18(this.i)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, u08 u08Var, CardViewHolder<h18> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u08Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(u08Var);
-            return cardViewHolder.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (i08.class) {
+                    d = new i08();
+                }
+            }
+            return d;
         }
-        return (View) invokeCommon.objValue;
+        return (i08) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(VirtualImageInfo virtualImageInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, virtualImageInfo) == null) || virtualImageInfo == null) {
+            return;
+        }
+        this.a = virtualImageInfo.isset_virtual_image.intValue();
+        String str = virtualImageInfo.virtual_image_url;
+        virtualImageInfo.image_agree_count.intValue();
+        virtualImageInfo.is_allow_agree.intValue();
+        virtualImageInfo.virtual_background_type.intValue();
+        String str2 = virtualImageInfo.virtual_background;
+        virtualImageInfo.recent_incr_agree.intValue();
+        virtualImageInfo.snapshoot_id.intValue();
+        if (virtualImageInfo.personal_state != null) {
+            y05 y05Var = new y05();
+            this.b = y05Var;
+            y05Var.d(virtualImageInfo.personal_state);
+        }
+        if (virtualImageInfo.state_list != null) {
+            this.c = new ArrayList();
+            for (int i = 0; i < virtualImageInfo.state_list.size(); i++) {
+                StateInfo stateInfo = virtualImageInfo.state_list.get(i);
+                if (stateInfo != null) {
+                    y05 y05Var2 = new y05();
+                    y05Var2.d(stateInfo);
+                    this.c.add(y05Var2);
+                }
+            }
+        }
+        virtualImageInfo.allow_customize.intValue();
     }
 }

@@ -8,39 +8,43 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 /* loaded from: classes5.dex */
 public abstract class a<R extends g> {
-    public static final ExecutorService a = com.kwad.sdk.core.i.b.h();
-    public Future<?> b;
-
-    public abstract void a(R r, c cVar);
-
-    @NonNull
-    public abstract R b();
-
-    public void d() {
-        try {
-            this.b = a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    try {
-                        a.this.f();
-                    } catch (Exception e) {
-                        com.kwad.sdk.core.d.a.b(e);
-                    }
-                }
-            });
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.a(th);
-        }
-    }
+    public static final ExecutorService sExecutors = com.kwad.sdk.core.threads.b.g();
+    public Future<?> mTask;
 
     @CallSuper
-    public void e() {
-        Future<?> future = this.b;
+    public void cancel() {
+        Future<?> future = this.mTask;
         if (future != null) {
             future.cancel(true);
         }
     }
 
+    @NonNull
+    public abstract R createRequest();
+
+    public void fetch() {
+        try {
+            this.mTask = getExecutor().submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+                @Override // java.lang.Runnable
+                public final void run() {
+                    try {
+                        a.this.fetchImpl();
+                    } catch (Exception e) {
+                        com.kwad.sdk.core.d.b.b(e);
+                    }
+                }
+            });
+        } catch (Throwable th) {
+            com.kwad.sdk.core.d.b.a(th);
+        }
+    }
+
     @WorkerThread
-    public abstract void f();
+    public abstract void fetchImpl();
+
+    public ExecutorService getExecutor() {
+        return sExecutors;
+    }
+
+    public abstract void onResponse(R r, c cVar);
 }

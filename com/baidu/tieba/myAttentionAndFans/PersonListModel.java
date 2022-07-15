@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.gp4;
-import com.repackage.vx4;
+import com.repackage.ty4;
+import com.repackage.vp4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
@@ -52,7 +52,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public vx4 g;
+    public ty4 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -95,7 +95,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode == 200 && error == 0) {
-                    this.a.N();
+                    this.a.O();
                     return;
                 }
                 BdLog.e("follow switch request fail");
@@ -147,7 +147,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (statusCode != 200 || error != 0) {
                     if (this.a.d != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c37);
+                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
@@ -156,7 +156,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     }
                     return;
                 }
-                gp4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                vp4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -204,7 +204,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
-                gp4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+                vp4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
                     if (this.a.d != null) {
                         this.a.d.b("", true);
@@ -227,7 +227,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes3.dex */
     public interface d {
-        gp4 a(gp4 gp4Var, boolean z);
+        vp4 a(vp4 vp4Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -316,42 +316,42 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        vx4 vx4Var = new vx4(personListActivity.getPageContext());
-        this.g = vx4Var;
-        vx4Var.j(this.mLoadDataCallBack);
+        ty4 ty4Var = new ty4(personListActivity.getPageContext());
+        this.g = ty4Var;
+        ty4Var.j(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;
     }
 
-    public boolean F() {
+    public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public int G() {
+    public int H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public int H() {
+    public int I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public void I(int i) {
+    public void J(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.h = i;
             this.e = 0;
-            N();
+            O();
         }
     }
 
-    public void J() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -362,7 +362,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void K() {
+    public void L() {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -379,7 +379,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void L() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.customListener);
@@ -388,7 +388,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void M(int i) {
+    public void N(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.k = i;
@@ -398,7 +398,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void N() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
@@ -428,28 +428,28 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void O(String str) {
+    public void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void P(boolean z) {
+    public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.a = z;
         }
     }
 
-    public void Q(int i) {
+    public void R(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.e = i;
         }
     }
 
-    public void R(String str) {
+    public void S(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             new e(str).execute(new Void[0]);

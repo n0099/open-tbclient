@@ -1,23 +1,61 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xe8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<xe8> e;
+    public re8 a;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xe8 a;
+
+        public a(xe8 xe8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xe8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xe8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
 
     public xe8() {
         Interceptable interceptable = $ic;
@@ -33,25 +71,71 @@ public class xe8 {
         }
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    @NonNull
+    public static xe8 g(@NonNull re8 re8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            this.d = optString != null ? this.d + "?v=2" : null;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<xe8> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    xe8 xe8Var = new xe8();
-                    xe8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(xe8Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, re8Var)) == null) {
+            xe8 xe8Var = new xe8();
+            xe8Var.a = re8Var;
+            return xe8Var;
+        }
+        return (xe8) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            vk8.a(MainTabScheduleStrategy.FLUSHING);
+            qg.a().post(new a(this));
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.getActivity();
+            if (this.a.h() == 1) {
+                if (this.a.i()) {
+                    e();
+                } else {
+                    SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY);
+                    d();
                 }
-                this.e = arrayList;
             }
+            if (this.a.h() == 2) {
+                f();
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY);
+                MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW = false;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921636, ""));
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 3).param(TiebaStatic.Params.OBJ_PARAM2, -1));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921639, 2));
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.getActivity().finish();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f091de9);
+            if (viewGroup != null) {
+                viewGroup.setVisibility(8);
+                viewGroup.removeAllViews();
+            }
+            this.a.getActivity().getWindow().clearFlags(1024);
         }
     }
 }

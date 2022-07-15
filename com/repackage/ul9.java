@@ -1,86 +1,108 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes7.dex */
-public class ul9 implements ServiceConnection {
+public final class ul9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public boolean b;
-    public final BlockingQueue c;
 
-    public ul9(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755256977, "Lcom/repackage/ul9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755256977, "Lcom/repackage/ul9;");
+                return;
+            }
+        }
+        ul9.class.getClassLoader();
+    }
+
+    public ul9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
+            if (parcel.readInt() == 0) {
+                return null;
+            }
+            return creator.createFromParcel(parcel);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static void b(Parcel parcel, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, parcel, z) == null) {
+            parcel.writeInt(z ? 1 : 0);
+        }
+    }
+
+    public static void c(Parcel parcel, Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
+            if (parcelable == null) {
+                parcel.writeInt(0);
                 return;
             }
+            parcel.writeInt(1);
+            parcelable.writeToParcel(parcel, 0);
         }
-        this.b = false;
-        this.c = new LinkedBlockingQueue();
-        this.a = context;
     }
 
-    public IBinder a() {
-        InterceptResult invokeV;
+    public static void d(Parcel parcel, Parcelable parcelable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b) {
-                throw new IllegalStateException("Binder already consumed");
+        if (interceptable == null || interceptable.invokeLL(65541, null, parcel, parcelable) == null) {
+            if (parcelable == null) {
+                parcel.writeInt(0);
+                return;
             }
-            IBinder iBinder = (IBinder) this.c.take();
-            if (iBinder != null) {
-                this.b = true;
-            }
-            return iBinder;
+            parcel.writeInt(1);
+            parcelable.writeToParcel(parcel, 1);
         }
-        return (IBinder) invokeV.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    public static void e(Parcel parcel, IInterface iInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
-            try {
-                this.c.put(iBinder);
-                String a = ((com.win.opensdk.a) com.win.opensdk.b.a(iBinder)).a();
-                if (TextUtils.isEmpty(a)) {
-                    return;
-                }
-                in9.x(this.a, a);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(65542, null, parcel, iInterface) == null) {
+            if (iInterface == null) {
+                parcel.writeStrongBinder(null);
+            } else {
+                parcel.writeStrongBinder(iInterface.asBinder());
             }
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    public static boolean f(Parcel parcel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parcel)) == null) ? parcel.readInt() != 0 : invokeL.booleanValue;
     }
 }

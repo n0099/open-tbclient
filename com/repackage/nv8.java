@@ -1,26 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jv8;
-import com.repackage.pv8;
 /* loaded from: classes6.dex */
-public class nv8 extends pv8 {
+public class nv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jv8.b h;
-    public Animation i;
-    public Animation j;
+    public String a;
+    public String b;
+    public float c;
+    public long d;
+    public Bitmap e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public lv8 j;
 
     /* loaded from: classes6.dex */
-    public class a implements Animation.AnimationListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nv8 a;
@@ -43,176 +44,39 @@ public class nv8 extends pv8 {
             this.a = nv8Var;
         }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap bitmap;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.m();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nv8 a;
-
-        public b(nv8 nv8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nv8 nv8Var = this.a;
+                if (nv8Var.j == null || (bitmap = nv8Var.e) == null || bitmap.isRecycled()) {
                     return;
                 }
-            }
-            this.a = nv8Var;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.l();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                nv8 nv8Var2 = this.a;
+                nv8Var2.j.a(nv8Var2.f, nv8Var2.e);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nv8(Context context, jv8.b bVar) {
-        super(context, bVar);
+    public nv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (jv8) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.h = bVar;
-        this.i = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01013a);
-        this.j = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01013b);
-        this.i.setAnimationListener(new a(this));
-        this.j.setAnimationListener(new b(this));
     }
 
-    @Override // com.repackage.pv8
-    public void c() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-        }
-    }
-
-    @Override // com.repackage.pv8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            k();
-        }
-    }
-
-    @Override // com.repackage.pv8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.e == 4) {
-            this.e = 1;
-            pv8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(1);
-            }
-            k();
-            this.h.f.startAnimation(this.i);
-        }
-    }
-
-    @Override // com.repackage.pv8
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e == 2) {
-            this.e = 3;
-            pv8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(3);
-            }
-            k();
-            this.h.f.startAnimation(this.j);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i.cancel();
-            this.j.cancel();
-            this.h.f.clearAnimation();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h.e.setClickable(false);
-            this.e = 4;
-            pv8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(4);
-            }
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h.e.setClickable(true);
-            this.e = 2;
-            pv8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(2);
-            }
+            o99.a().post(new a(this));
         }
     }
 }

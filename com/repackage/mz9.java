@@ -1,165 +1,55 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xu9;
-import java.util.ArrayList;
-import rx.internal.operators.NotificationLite;
-import rx.subjects.SubjectSubscriptionManager;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public final class mz9<T> extends pz9<T, T> {
+public class mz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SubjectSubscriptionManager<T> b;
 
-    /* loaded from: classes6.dex */
-    public static class a implements lv9<SubjectSubscriptionManager.c<T>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SubjectSubscriptionManager a;
-
-        public a(SubjectSubscriptionManager subjectSubscriptionManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {subjectSubscriptionManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = subjectSubscriptionManager;
-        }
-
-        @Override // com.repackage.lv9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((SubjectSubscriptionManager.c) ((SubjectSubscriptionManager.c) obj));
-        }
-
-        public void call(SubjectSubscriptionManager.c<T> cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                cVar.b(this.a.getLatest());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755481851, "Lcom/repackage/mz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755481851, "Lcom/repackage/mz9;");
-                return;
-            }
-        }
-        c = new Object[0];
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mz9(xu9.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
-        super(aVar);
+    public static String a(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, subjectSubscriptionManager};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xu9.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == ((double) j)) {
+                return String.valueOf(j);
             }
+            return new DecimalFormat("#.##").format(d);
         }
-        this.b = subjectSubscriptionManager;
+        return (String) invokeCommon.objValue;
     }
 
-    public static <T> mz9<T> D() {
-        InterceptResult invokeV;
+    public static String b(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? E(null, false) : (mz9) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == ((double) j)) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.#").format(d);
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    public static <T> mz9<T> E(T t, boolean z) {
-        InterceptResult invokeLZ;
+    public static double c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, t, z)) == null) {
-            SubjectSubscriptionManager subjectSubscriptionManager = new SubjectSubscriptionManager();
-            if (z) {
-                subjectSubscriptionManager.setLatest(NotificationLite.h(t));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0.0d;
             }
-            a aVar = new a(subjectSubscriptionManager);
-            subjectSubscriptionManager.onAdded = aVar;
-            subjectSubscriptionManager.onTerminated = aVar;
-            return new mz9<>(subjectSubscriptionManager, subjectSubscriptionManager);
-        }
-        return (mz9) invokeLZ.objValue;
-    }
-
-    @Override // com.repackage.yu9
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.b.getLatest() == null || this.b.active) {
-                Object b = NotificationLite.b();
-                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(b)) {
-                    cVar.d(b);
-                }
+            try {
+                return Double.valueOf(str).doubleValue();
+            } catch (Throwable unused) {
+                RLog.error("StringUtils", "safeParseDouble " + str, new Object[0]);
+                return 0.0d;
             }
         }
-    }
-
-    @Override // com.repackage.yu9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            if (this.b.getLatest() == null || this.b.active) {
-                Object c2 = NotificationLite.c(th);
-                ArrayList arrayList = null;
-                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(c2)) {
-                    try {
-                        cVar.d(c2);
-                    } catch (Throwable th2) {
-                        if (arrayList == null) {
-                            arrayList = new ArrayList();
-                        }
-                        arrayList.add(th2);
-                    }
-                }
-                jv9.d(arrayList);
-            }
-        }
-    }
-
-    @Override // com.repackage.yu9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            if (this.b.getLatest() == null || this.b.active) {
-                Object h = NotificationLite.h(t);
-                for (SubjectSubscriptionManager.c<T> cVar : this.b.next(h)) {
-                    cVar.d(h);
-                }
-            }
-        }
+        return invokeL.doubleValue;
     }
 }

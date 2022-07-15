@@ -1,53 +1,13 @@
 package com.repackage;
 
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes6.dex */
-public class fc7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fc7 {
+    void a(ICardInfo iCardInfo);
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return R.drawable.icon_hand_normal_card_recommend;
-                case 2:
-                    return R.drawable.icon_comment_n;
-                case 3:
-                    return R.drawable.icon_home_yule;
-                case 4:
-                    return R.drawable.icon_see_n;
-                case 5:
-                    return R.drawable.icon_frs_ba_ticket;
-                case 6:
-                    return R.drawable.icon_frs_game;
-                case 7:
-                    return R.drawable.icon_frs_news;
-                case 8:
-                    return R.drawable.icon_new_live;
-                case 9:
-                    return R.drawable.icon_hottopic_new;
-                case 10:
-                    return R.drawable.icon_hottopic_hot;
-                case 11:
-                    return R.drawable.icon_hottopic_tuijian;
-                case 12:
-                    return R.drawable.icon_people_num;
-                case 13:
-                    return R.drawable.icon_time_start;
-                case 14:
-                    return R.drawable.lego_interview_notice_button_before_selector;
-                case 15:
-                    return R.drawable.lego_interview_notice_button_after_selector;
-                default:
-                    return 0;
-            }
-        }
-        return invokeI.intValue;
-    }
+    fc7 b(String str, int i);
+
+    fc7 c(String str, long j);
+
+    fc7 d(String str, String str2);
 }

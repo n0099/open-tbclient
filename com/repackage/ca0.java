@@ -1,25 +1,16 @@
 package com.repackage;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class ca0 {
     public static /* synthetic */ Interceptable $ic;
-    public static INetWork a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static INetWork a() {
-        InterceptResult invokeV;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (INetWork) invokeV.objValue;
-    }
-
-    public static void b(INetWork iNetWork) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
-            a = iNetWork;
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
     }
 }

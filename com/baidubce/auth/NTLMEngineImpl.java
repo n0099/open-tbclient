@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.RC4;
-import com.kuaishou.weapon.un.w0;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -595,7 +594,7 @@ public final class NTLMEngineImpl {
                 addULong(i5);
                 int i6 = this.type2Flags;
                 addULong((i6 & 4) | (i6 & 128) | (i6 & 512) | (524288 & i6) | 33554432 | (32768 & i6) | (i6 & 32) | (i6 & 16) | (536870912 & i6) | (Integer.MIN_VALUE & i6) | (1073741824 & i6) | (8388608 & i6) | (i6 & 1));
-                addUShort(w0.F);
+                addUShort(261);
                 addULong(2600);
                 addUShort(3840);
                 addBytes(this.lmResp);
@@ -1276,7 +1275,7 @@ public final class NTLMEngineImpl {
                 addUShort(0);
                 addUShort(0);
                 addULong(40);
-                addUShort(w0.F);
+                addUShort(261);
                 addULong(2600);
                 addUShort(3840);
                 byte[] bArr = this.hostBytes;

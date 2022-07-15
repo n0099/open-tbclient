@@ -1,157 +1,34 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.ad.FrsAdCommentScrollView;
-import com.baidu.tieba.frs.view.RoundAdapterLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.nr4;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class ef6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public dg8 b;
-    public ForumData c;
-    public RoundAdapterLinearLayout d;
-    public TextView e;
-    public TbImageView f;
-    public TextView g;
-    public FrsAdCommentScrollView h;
-    public TextView i;
-    public cf6 j;
+    public lr4 a;
+    public nr4 b;
+    public String c;
+    public String[] d;
+    public String e;
+    public nr4.e f;
+    public d9 g;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ef6 a;
-
-        public a(ef6 ef6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ef6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null || StringUtils.isNull(this.a.b.o())) {
-                return;
-            }
-            if (!ff5.a(this.a.a, this.a.b.h())) {
-                vo6.b((TbPageContext) h9.a(this.a.a), this.a.b.j(), this.a.b.o(), this.a.b.i());
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-            httpMessage.addParam("id", this.a.b.c());
-            MessageManager.getInstance().sendMessage(httpMessage);
-            StatisticItem statisticItem = new StatisticItem("common_click");
-            statisticItem.param("page_type", "a006");
-            statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
-            int i = 6;
-            if (this.a.b.getType() != 1) {
-                if (this.a.b.getType() == 2) {
-                    i = 7;
-                } else if (this.a.b.getType() == 3) {
-                    i = 8;
-                } else if (this.a.b.getType() == 4) {
-                    i = 21;
-                }
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i);
-            statisticItem.param("obj_id", this.a.b.c());
-            statisticItem.param("obj_locate", 3);
-            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
-            if (this.a.c != null) {
-                statisticItem.param("fid", this.a.c.getId());
-                statisticItem.param("fname", this.a.c.getName());
-                statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.a.c.getFirst_class());
-                statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.a.c.getSecond_class());
-            }
-            if (this.a.b.getType() == 1) {
-                statisticItem.param("tid", this.a.b.l());
-                statisticItem.param("thread_type", this.a.b.m());
-            }
-            if (StringUtils.isNull(this.a.b.p())) {
-                statisticItem.param("obj_type", 1);
-            } else {
-                statisticItem.param("obj_type", 2);
-            }
-            TiebaStatic.log(statisticItem);
-            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(this.a.b.k(), 1));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ef6 a;
-
-        public b(ef6 ef6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ef6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j.u();
-            }
-        }
-    }
-
-    public ef6(Context context) {
+    public ef6(d9 d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -161,114 +38,95 @@ public class ef6 {
                 return;
             }
         }
-        this.a = context;
-        g(context);
+        this.g = d9Var;
     }
 
-    public void e(ForumData forumData, dg8 dg8Var, boolean z) {
+    public static ef6 c(d9 d9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, forumData, dg8Var, z) == null) || dg8Var == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d9Var)) == null) ? new ef6(d9Var) : (ef6) invokeL.objValue;
+    }
+
+    public final List<jr4> a(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < strArr.length; i++) {
+                String str = strArr[i];
+                jr4 jr4Var = new jr4(i, str, this.b);
+                if (!StringUtils.isNull(this.e) && this.e.equals(str)) {
+                    jr4Var.q(R.color.CAM_X0304);
+                    jr4Var.p();
+                }
+                arrayList.add(jr4Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void b() {
+        lr4 lr4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lr4Var = this.a) == null) {
             return;
         }
-        this.c = forumData;
-        this.b = dg8Var;
-        this.e.setText(dg8Var.n());
-        if (dg8Var.getType() == 3) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0741, Integer.valueOf(this.b.g())));
-        } else if (dg8Var.getType() == 1) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0743, Integer.valueOf(this.b.g())));
-        } else if (dg8Var.getType() == 2) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f073f, Integer.valueOf(this.b.g())));
-        } else if (dg8Var.getType() == 4) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0740, Integer.valueOf(this.b.g())));
-        }
-        this.f.J(this.b.d(), 10, false);
-        dg8 dg8Var2 = this.b;
-        if (dg8Var2 != null && dg8Var2.f()) {
-            this.i.setVisibility(0);
-        } else {
-            this.i.setVisibility(8);
-        }
-        FrsAdCommentScrollView frsAdCommentScrollView = this.h;
-        if (frsAdCommentScrollView != null) {
-            frsAdCommentScrollView.m(this.b.a());
-        }
-        if (!z && forumData != null && to6.j(this.b, forumData.getId())) {
-            this.j.s(this.b, forumData, Long.parseLong(forumData.getId()));
-            this.h.post(new b(this));
-        }
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(this.b.k(), 0));
+        lr4Var.dismiss();
     }
 
-    public View f() {
-        InterceptResult invokeV;
+    public ef6 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (View) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (ef6) invokeL.objValue;
     }
 
-    public final void g(Context context) {
+    public ef6 e(nr4.e eVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0346, (ViewGroup) null);
-            this.d = roundAdapterLinearLayout;
-            roundAdapterLinearLayout.setRadius(this.a.getResources().getDimension(R.dimen.tbds20));
-            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bb7);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bbc);
-            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090bb5);
-            this.f = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.white_alpha100);
-            this.h = (FrsAdCommentScrollView) this.d.findViewById(R.id.obfuscated_res_0x7f090093);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bb6);
-            this.i = textView;
-            fr4 d = fr4.d(textView);
-            d.n(R.string.J_X01);
-            d.f(R.color.CAM_X0602);
-            fr4.d(this.i).v(R.color.CAM_X0617);
-            this.j = new cf6(context, this.d, this.f);
-            this.d.setOnClickListener(new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
+            this.f = eVar;
+            return this;
         }
+        return (ef6) invokeL.objValue;
     }
 
-    public void h(int i) {
+    public ef6 f(String[] strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f.invalidate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            this.d = strArr;
+            return this;
         }
+        return (ef6) invokeL.objValue;
     }
 
-    public void i() {
-        FrsAdCommentScrollView frsAdCommentScrollView;
+    public ef6 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (frsAdCommentScrollView = this.h) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.c = str;
+            return this;
         }
-        frsAdCommentScrollView.o();
+        return (ef6) invokeL.objValue;
     }
 
-    public void j() {
-        cf6 cf6Var;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (cf6Var = this.j) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            nr4 nr4Var = new nr4(this.g.getPageActivity());
+            this.b = nr4Var;
+            nr4Var.q(this.c);
+            this.b.n(this.f);
+            this.b.j(a(this.d));
+            this.b.l(pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07076a));
+            lr4 lr4Var = new lr4(this.g, this.b);
+            this.a = lr4Var;
+            lr4Var.m();
         }
-        cf6Var.q();
-    }
-
-    public void k(boolean z) {
-        FrsAdCommentScrollView frsAdCommentScrollView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (frsAdCommentScrollView = this.h) == null) {
-            return;
-        }
-        frsAdCommentScrollView.p(z);
-    }
-
-    public void l() {
-        cf6 cf6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (cf6Var = this.j) == null) {
-            return;
-        }
-        cf6Var.r();
     }
 }

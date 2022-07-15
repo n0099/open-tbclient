@@ -1,7 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface fm1 {
-    em1 a();
+    ed4 a();
 
-    dm1 b();
+    void b(l62 l62Var, j62 j62Var);
+
+    boolean c();
+
+    boolean d();
 }

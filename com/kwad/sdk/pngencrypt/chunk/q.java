@@ -1,141 +1,23 @@
 package com.kwad.sdk.pngencrypt.chunk;
-
-import com.kwad.sdk.pngencrypt.PngjException;
-import java.io.ByteArrayInputStream;
 /* loaded from: classes5.dex */
-public class q extends aa {
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-
+public final class q extends t {
     public q(com.kwad.sdk.pngencrypt.k kVar) {
-        super("IHDR", kVar);
-        if (kVar != null) {
-            a(kVar);
-        }
+        super("tEXt", kVar);
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
-    public void a(d dVar) {
-        if (dVar.a != 13) {
-            throw new PngjException("Bad IDHR len " + dVar.a);
-        }
-        ByteArrayInputStream b = dVar.b();
-        this.h = com.kwad.sdk.pngencrypt.n.b(b);
-        this.i = com.kwad.sdk.pngencrypt.n.b(b);
-        this.j = com.kwad.sdk.pngencrypt.n.a(b);
-        this.k = com.kwad.sdk.pngencrypt.n.a(b);
-        this.l = com.kwad.sdk.pngencrypt.n.a(b);
-        this.m = com.kwad.sdk.pngencrypt.n.a(b);
-        this.n = com.kwad.sdk.pngencrypt.n.a(b);
-    }
-
-    public void a(com.kwad.sdk.pngencrypt.k kVar) {
-        b(this.e.a);
-        c(this.e.b);
-        d(this.e.c);
-        int i = this.e.e ? 4 : 0;
-        if (this.e.g) {
+    public final void a(d dVar) {
+        int i = 0;
+        while (true) {
+            byte[] bArr = dVar.d;
+            if (i >= bArr.length || bArr[i] == 0) {
+                break;
+            }
             i++;
         }
-        if (!this.e.f) {
-            i += 2;
-        }
-        e(i);
-        f(0);
-        g(0);
-        h(0);
-    }
-
-    public void b(int i) {
-        this.h = i;
-    }
-
-    public int c() {
-        return this.h;
-    }
-
-    public void c(int i) {
-        this.i = i;
-    }
-
-    public int d() {
-        return this.i;
-    }
-
-    public void d(int i) {
-        this.j = i;
-    }
-
-    public int e() {
-        return this.j;
-    }
-
-    public void e(int i) {
-        this.k = i;
-    }
-
-    public int f() {
-        return this.k;
-    }
-
-    public void f(int i) {
-        this.l = i;
-    }
-
-    public int g() {
-        return this.n;
-    }
-
-    public void g(int i) {
-        this.m = i;
-    }
-
-    public void h(int i) {
-        this.n = i;
-    }
-
-    public boolean h() {
-        return g() == 1;
-    }
-
-    public com.kwad.sdk.pngencrypt.k i() {
-        j();
-        return new com.kwad.sdk.pngencrypt.k(c(), d(), e(), (f() & 4) != 0, f() == 0 || f() == 4, (f() & 1) != 0);
-    }
-
-    public void j() {
-        if (this.h < 1 || this.i < 1 || this.l != 0 || this.m != 0) {
-            throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
-        }
-        int i = this.j;
-        if (i != 1 && i != 2 && i != 4 && i != 8 && i != 16) {
-            throw new PngjException("bad IHDR: bitdepth invalid");
-        }
-        int i2 = this.n;
-        if (i2 < 0 || i2 > 1) {
-            throw new PngjException("bad IHDR: interlace invalid");
-        }
-        int i3 = this.k;
-        if (i3 != 0) {
-            if (i3 != 6 && i3 != 2) {
-                if (i3 == 3) {
-                    if (this.j == 16) {
-                        throw new PngjException("bad IHDR: bitdepth invalid");
-                    }
-                    return;
-                } else if (i3 != 4) {
-                    throw new PngjException("bad IHDR: invalid colormodel");
-                }
-            }
-            int i4 = this.j;
-            if (i4 != 8 && i4 != 16) {
-                throw new PngjException("bad IHDR: bitdepth invalid");
-            }
-        }
+        ((t) this).h = b.a(dVar.d, 0, i);
+        int i2 = i + 1;
+        byte[] bArr2 = dVar.d;
+        this.i = i2 < bArr2.length ? b.a(bArr2, i2, bArr2.length - i2) : "";
     }
 }

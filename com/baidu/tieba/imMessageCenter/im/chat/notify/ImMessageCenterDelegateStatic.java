@@ -24,21 +24,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n45;
-import com.repackage.o45;
-import com.repackage.p45;
-import com.repackage.q45;
-import com.repackage.t45;
+import com.repackage.p55;
+import com.repackage.q55;
+import com.repackage.r55;
+import com.repackage.s55;
+import com.repackage.v55;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes3.dex */
-public class ImMessageCenterDelegateStatic extends n45 {
+public class ImMessageCenterDelegateStatic extends p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
     public CustomMessageListener d;
 
     /* loaded from: classes3.dex */
-    public class a implements q45.a {
+    public class a implements s55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -61,7 +61,7 @@ public class ImMessageCenterDelegateStatic extends n45 {
             this.a = context;
         }
 
-        @Override // com.repackage.q45.a
+        @Override // com.repackage.s55.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class ImMessageCenterDelegateStatic extends n45 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((p45) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+            ((r55) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
         }
     }
 
@@ -186,29 +186,29 @@ public class ImMessageCenterDelegateStatic extends n45 {
         }
     }
 
-    @Override // com.repackage.n45
-    public o45 a() {
+    @Override // com.repackage.p55
+    public q55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o45 o45Var = new o45();
-            o45Var.a = new MessageCenterFragment();
-            o45Var.e = 3;
-            o45Var.b = R.string.obfuscated_res_0x7f0f0b50;
-            o45Var.f = R.raw.lottie_tab_msg;
-            o45Var.i = o45.l;
-            o45Var.h = t45.d().c("message");
-            return o45Var;
+            q55 q55Var = new q55();
+            q55Var.a = new MessageCenterFragment();
+            q55Var.e = 3;
+            q55Var.b = R.string.obfuscated_res_0x7f0f0b3f;
+            q55Var.f = R.raw.lottie_tab_msg;
+            q55Var.i = q55.l;
+            q55Var.h = v55.d().c("message");
+            return q55Var;
         }
-        return (o45) invokeV.objValue;
+        return (q55) invokeV.objValue;
     }
 
-    @Override // com.repackage.n45
+    @Override // com.repackage.p55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) q45.e().d(1004, new a(this, context));
+            this.b = (MaintabBottomIndicator) s55.e().d(1004, new a(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
@@ -225,14 +225,14 @@ public class ImMessageCenterDelegateStatic extends n45 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.n45
+    @Override // com.repackage.p55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.IMMESSAGE_CENTER_DELEGATE_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.n45
+    @Override // com.repackage.p55
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -241,7 +241,7 @@ public class ImMessageCenterDelegateStatic extends n45 {
         }
     }
 
-    @Override // com.repackage.n45
+    @Override // com.repackage.p55
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

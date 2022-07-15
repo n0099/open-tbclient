@@ -4,7 +4,7 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
 /* loaded from: classes5.dex */
 public interface t {
-    void a(a.b bVar, a.d dVar);
+    void a(a.InterfaceC0555a interfaceC0555a, a.c cVar);
 
     void a(MessageSnapshot messageSnapshot);
 

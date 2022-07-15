@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.g47;
+import com.repackage.m57;
 import com.repackage.ng;
 import com.repackage.nn;
-import com.repackage.q37;
-import com.repackage.w47;
 import com.repackage.w9;
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -44,6 +44,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
     public static final BdUniqueId TYPE_MSG_RIGHT;
     public static final BdUniqueId TYPE_MSG_RIGHT_FORUM;
     public static final BdUniqueId TYPE_MSG_RIGHT_IMAGE_THREAD;
+    public static final BdUniqueId TYPE_MSG_STRANGER_TIP;
     public static final BdUniqueId TYPE_MSG_TOPIC;
     public transient /* synthetic */ FieldHolder $fh;
     public transient MsgCacheData cacheData;
@@ -55,10 +56,10 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<w47> iceBreakEmotions;
+    public List<m57> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<q37> itemViewWeakReference;
+    public WeakReference<g47> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -107,6 +108,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
         TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
         TYPE_MSG_ICE_BREAK = BdUniqueId.gen();
+        TYPE_MSG_STRANGER_TIP = BdUniqueId.gen();
         TYPE_MSG_LEFT_FORUM = BdUniqueId.gen();
         TYPE_MSG_RIGHT_FORUM = BdUniqueId.gen();
         TYPE_MSG_LEFT_IMAGE_THREAD = BdUniqueId.gen();
@@ -251,7 +253,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.height : invokeV.intValue;
     }
 
-    public List<w47> getIceBreakEmotions() {
+    public List<m57> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.iceBreakEmotions : (List) invokeV.objValue;
@@ -270,17 +272,17 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
     }
 
     @Nullable
-    public q37 getItemView() {
+    public g47 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<q37> weakReference = this.itemViewWeakReference;
+            WeakReference<g47> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (q37) invokeV.objValue;
+        return (g47) invokeV.objValue;
     }
 
     public String getLink() {
@@ -461,6 +463,9 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
             if (i == 25) {
                 return TYPE_MSG_PHOTOLIVE;
             }
+            if (i == 8001) {
+                return TYPE_MSG_STRANGER_TIP;
+            }
             if (this.iceBreakEmotions != null) {
                 return TYPE_MSG_ICE_BREAK;
             }
@@ -595,7 +600,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         }
     }
 
-    public void setIceBreakEmotions(List<w47> list) {
+    public void setIceBreakEmotions(List<m57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;
@@ -623,24 +628,24 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         }
     }
 
-    public void setItemView(@Nullable q37 q37Var) {
-        WeakReference<q37> weakReference;
+    public void setItemView(@Nullable g47 g47Var) {
+        WeakReference<g47> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, q37Var) == null) {
-            if (q37Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, g47Var) == null) {
+            if (g47Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<q37> weakReference2 = this.itemViewWeakReference;
+            WeakReference<g47> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == q37Var) {
+                if (weakReference2.get() == g47Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(q37Var);
+            this.itemViewWeakReference = new WeakReference<>(g47Var);
         }
     }
 

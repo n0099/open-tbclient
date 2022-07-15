@@ -1,115 +1,140 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class g62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public boolean j;
-    public String k;
-    public boolean l;
-    public String m;
+    public c62 a;
+    public HashMap<String, d62> b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final g62 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-403387664, "Lcom/repackage/g62$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-403387664, "Lcom/repackage/g62$b;");
+                    return;
+                }
+            }
+            a = new g62(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755726162, "Lcom/repackage/g62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755726162, "Lcom/repackage/g62;");
+                return;
+            }
+        }
+        c = rg1.a;
+    }
+
+    public /* synthetic */ g62(a aVar) {
+        this();
+    }
+
+    public static g62 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (g62) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false) : invokeV.booleanValue;
+    }
+
+    public final c62 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c && d()) {
+                return new f62();
+            }
+            return new b62();
+        }
+        return (c62) invokeV.objValue;
+    }
+
+    @Nullable
+    public d62 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, d62> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(str);
+            }
+            return null;
+        }
+        return (d62) invokeL.objValue;
+    }
+
+    public void e(d62 d62Var, e62 e62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, d62Var, e62Var) == null) {
+            this.a.k(d62Var, e62Var);
+        }
+    }
 
     public g62() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static Map<String, String> a(g62 g62Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g62Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            if (g62Var == null) {
-                return treeMap;
-            }
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, g62Var.a);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, g62Var.b);
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, g62Var.c);
-            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, g62Var.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, g62Var.f);
-            treeMap.put("root", g62Var.g);
-            if (!TextUtils.isEmpty(g62Var.e)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, g62Var.e);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(g62Var.h));
-            treeMap.put("pageType", g62Var.i);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(g62Var.j));
-            if (!TextUtils.isEmpty(g62Var.k)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, g62Var.k);
-            }
-            qv2.a(treeMap, "app ready event");
-            k33.a(g62Var.d, treeMap);
-            if (wy1.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (q53.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (q53.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            treeMap.put("slaveReady", String.valueOf(g62Var.l));
-            if (!TextUtils.isEmpty(g62Var.m)) {
-                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, g62Var.m);
-            }
-            return treeMap;
+        long currentTimeMillis = System.currentTimeMillis();
+        c62 a2 = a();
+        this.a = a2;
+        this.b = a2.h();
+        if (c) {
+            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static t92 b(g62 g62Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g62Var)) == null) {
-            Map<String, String> a = a(g62Var);
-            t92 t92Var = new t92("AppReady", a);
-            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
-            if (createFromAppReadyEvent == null) {
-                return t92Var;
-            }
-            i62 i62Var = new i62();
-            i62Var.t(createFromAppReadyEvent);
-            i62Var.t(t92Var);
-            return i62Var;
-        }
-        return (t92) invokeL.objValue;
-    }
-
-    public static String c(sz2 sz2Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, sz2Var, str)) == null) {
-            String c0 = sz2Var != null ? sz2Var.c0(kd3.f(str)) : null;
-            return c0 == null ? "" : c0;
-        }
-        return (String) invokeLL.objValue;
     }
 }

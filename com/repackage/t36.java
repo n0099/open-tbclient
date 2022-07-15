@@ -1,53 +1,55 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class t36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
+    public BdTypeRecyclerView b;
+    public ItemCardViewWrapperAdapter c;
+    public List<an> d;
+    public int e;
+    public int f;
 
-    public static void a(View view2, ym4 ym4Var, String str) {
+    public t36(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, view2, ym4Var, str) == null) || ym4Var == null || ym4Var.getThreadData() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        ThreadData threadData = ym4Var.getThreadData();
-        if (threadData.isVideoThreadType()) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
-            return;
-        }
-        int id = view2.getId();
-        if (view2.getId() == R.id.obfuscated_res_0x7f091f85 || id == R.id.obfuscated_res_0x7f091f99) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092266) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092285) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f090a38) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f091f99) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (view2 instanceof TbImageView) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
-        }
+        this.d = new ArrayList();
+        this.a = baseFragment;
+        this.b = bdTypeRecyclerView;
+        this.e = i;
+        this.f = i2;
+        a();
     }
 
-    public static void b(ym4 ym4Var, String str) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, ym4Var, str) == null) || ym4Var == null || ym4Var.getThreadData() == null) {
-            return;
-        }
-        if (ym4Var.getThreadData().isVideoThreadType()) {
-            fx5.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(ym4Var.getThreadData(), str));
-        } else {
-            fx5.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(ym4Var.getThreadData(), str));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), j36.e, this.e, this.b, this.f);
+            this.c = itemCardViewWrapperAdapter;
+            this.d.add(itemCardViewWrapperAdapter);
+            this.b.a(this.d);
         }
     }
 }

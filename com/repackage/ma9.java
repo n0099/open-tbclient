@@ -1,43 +1,37 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yalog.LoggerManager;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class ma9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile LoggerManager.c a;
-    public static na9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755505876, "Lcom/repackage/ma9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(File file, Object obj) {
+        InterceptResult invokeLL;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
+            synchronized (obj) {
+                b = na9.b(file);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755505876, "Lcom/repackage/ma9;");
-                return;
-            }
+            return b;
         }
-        b = new na9();
+        return (String) invokeLL.objValue;
     }
 
-    public static LoggerManager.c a() {
-        InterceptResult invokeV;
+    public static boolean b(String str, File file, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = b.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
+            synchronized (obj) {
+                e = na9.e(str, file, z);
             }
-            return a;
+            return e;
         }
-        return (LoggerManager.c) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 }

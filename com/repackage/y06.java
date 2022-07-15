@@ -1,83 +1,52 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.List;
-import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
-import kotlin.jvm.functions.Function1;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class y06 {
+public final class y06 implements Comparator<o0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    public y06() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues <= 0) {
-                    return i2 - 1;
-                } else {
-                    size = i2;
-                }
-            }
-            return i;
         }
-        return invokeLLL.intValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(o0 entity1, o0 entity2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            b16 b = z16.b(entity2);
+            p06 a = b == null ? null : b.a();
+            if (a == null) {
+                return 0;
             }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues <= 0) {
-                    return i2 - 1;
-                } else {
-                    size = i2;
-                }
+            b16 b2 = z16.b(entity1);
+            p06 a2 = b2 != null ? b2.a() : null;
+            if (a2 == null) {
+                return 0;
             }
-            return size;
+            return a2.compareTo(a);
         }
-        return invokeLLL.intValue;
-    }
-
-    public static final <T extends Comparable<? super T>> qz5<T> c(Collection<? extends T> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
-            Intrinsics.checkNotNullParameter(collection, "<this>");
-            return new qz5<>(collection);
-        }
-        return (qz5) invokeL.objValue;
+        return invokeLL.intValue;
     }
 }

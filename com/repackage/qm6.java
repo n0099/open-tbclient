@@ -1,83 +1,48 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: HeaderViewLogic.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class qm6 {
+public class qm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final id6 a;
+    public final FrsFragment b;
+    public final gq6 c;
+    public final aq6 d;
+    public final FrsModelController e;
+    public final ne6 f;
+    public final jm6 g;
 
-    @NonNull
-    public static rm6 a() {
-        InterceptResult invokeV;
+    public qm6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (UbsABTestHelper.isFrsModifyABTestA()) {
-                return new tm6();
-            }
-            return new sm6();
-        }
-        return (rm6) invokeV.objValue;
-    }
-
-    public static View b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (c()) {
-                return view2.findViewById(R.id.obfuscated_res_0x7f090b04);
-            }
-            return view2.findViewById(R.id.obfuscated_res_0x7f090b0d);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isFrsModifyABTestA() : invokeV.booleanValue;
-    }
-
-    @NonNull
-    public static TextView d(@NonNull View view2, boolean z) {
-        InterceptResult invokeLZ;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, view2, z)) == null) {
-            if (c()) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909ee);
-            } else {
-                if (z) {
-                    textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc4);
-                } else {
-                    textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc5);
-                }
-                textView.bringToFront();
-            }
-            fr4.d(textView).v(R.color.CAM_X0619);
-            return textView;
-        }
-        return (TextView) invokeLZ.objValue;
-    }
-
-    public static void e(@NonNull View view2, @NonNull View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, view3) == null) {
-            if (c()) {
-                fr4.d(view3).o(new int[]{R.color.black_alpha0, R.color.black_alpha30});
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            fr4 d = fr4.d(view2);
-            d.n(R.string.J_X11);
-            d.s(R.array.Mask_X005);
         }
+        if (frsFragment != null) {
+            this.b = frsFragment;
+            this.d = frsFragment.p0();
+            this.a = this.b.l1();
+            this.c = this.b.D3();
+            this.e = this.b.L0();
+            this.f = this.b.A3();
+            this.g = this.b.b1();
+            return;
+        }
+        throw new NullPointerException("FrsActivity is NullPointerException");
     }
 }

@@ -129,6 +129,8 @@ public class MethodUtils {
             sb.append(cls.toString());
             sb.append("#");
             sb.append(str);
+            sb.append("#");
+            sb.append(cls.getClassLoader() != null ? Integer.valueOf(cls.getClassLoader().hashCode()) : "");
             if (clsArr != null && clsArr.length > 0) {
                 for (Class<?> cls2 : clsArr) {
                     sb.append(cls2.toString());
@@ -159,42 +161,35 @@ public class MethodUtils {
         return (Constructor) invokeLL.objValue;
     }
 
-    public static <T> T invokeConstructor(Class<T> cls, Object... objArr) {
-        InterceptResult invokeLL;
+    public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, objArr)) == null) ? (T) invokeConstructor(cls, objArr, toClass(objArr)) : (T) invokeLL.objValue;
-    }
-
-    public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, obj, str, objArr, clsArr)) == null) {
-            Method accessibleMethod = getAccessibleMethod(obj.getClass(), str, clsArr);
-            if (accessibleMethod != null) {
-                return accessibleMethod.invoke(obj, objArr);
-            }
-            throw new NoSuchMethodException(str);
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, cls, str, objArr, clsArr)) == null) {
-            Method accessibleMethod = getAccessibleMethod(cls, str, clsArr);
-            if (accessibleMethod != null) {
-                return accessibleMethod.invoke(null, objArr);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, objArr, clsArr)) == null) {
+            Constructor matchingAccessibleConstructor = getMatchingAccessibleConstructor(cls, clsArr);
+            if (matchingAccessibleConstructor != null) {
+                return (T) matchingAccessibleConstructor.newInstance(objArr);
             }
             return null;
         }
-        return invokeLLLL.objValue;
+        return (T) invokeLLL.objValue;
+    }
+
+    public static Object invokeMethod(Object obj, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, obj, str, objArr)) == null) ? invokeMethod(obj, str, objArr, toClass(objArr)) : invokeLLL.objValue;
+    }
+
+    public static Object invokeStaticMethod(Class cls, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, cls, str, objArr)) == null) ? invokeStaticMethod(cls, str, objArr, toClass(objArr)) : invokeLLL.objValue;
     }
 
     public static boolean isAssignableFrom(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, cls, cls2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, cls, cls2)) == null) {
             if (cls2 == null) {
                 return false;
             }
@@ -215,7 +210,7 @@ public class MethodUtils {
     public static Class<?>[] toClass(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, objArr)) == null) {
             if (objArr != null && objArr.length != 0) {
                 Class<?>[] clsArr = new Class[objArr.length];
                 for (int i = 0; i < objArr.length; i++) {
@@ -228,28 +223,29 @@ public class MethodUtils {
         return (Class[]) invokeL.objValue;
     }
 
-    public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) {
-        InterceptResult invokeLLL;
+    public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, objArr, clsArr)) == null) {
-            Constructor matchingAccessibleConstructor = getMatchingAccessibleConstructor(cls, clsArr);
-            if (matchingAccessibleConstructor != null) {
-                return (T) matchingAccessibleConstructor.newInstance(objArr);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, obj, str, objArr, clsArr)) == null) {
+            Method accessibleMethod = getAccessibleMethod(obj.getClass(), str, clsArr);
+            if (accessibleMethod != null) {
+                return accessibleMethod.invoke(obj, objArr);
+            }
+            throw new NoSuchMethodException(str);
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, cls, str, objArr, clsArr)) == null) {
+            Method accessibleMethod = getAccessibleMethod(cls, str, clsArr);
+            if (accessibleMethod != null) {
+                return accessibleMethod.invoke(null, objArr);
             }
             return null;
         }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static Object invokeStaticMethod(Class cls, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, objArr)) == null) ? invokeStaticMethod(cls, str, objArr, toClass(objArr)) : invokeLLL.objValue;
-    }
-
-    public static Object invokeMethod(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, obj, str, objArr)) == null) ? invokeMethod(obj, str, objArr, toClass(objArr)) : invokeLLL.objValue;
+        return invokeLLLL.objValue;
     }
 }

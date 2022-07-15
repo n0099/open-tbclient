@@ -1,277 +1,29 @@
 package com.repackage;
 
 import android.content.Context;
-import cn.com.chinatelecom.gateway.lib.CtAuth;
-import cn.com.chinatelecom.gateway.lib.PreCodeListener;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
-import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.UUID;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class he1 extends be1 {
+public class he1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile he1 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean s;
+    public String a;
+    public final SharedPreferences b;
+    public SharedPreferences.Editor c;
+    public Context d;
 
-    /* loaded from: classes6.dex */
-    public class a extends ie1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ he1 e;
-
-        public a(he1 he1Var, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {he1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = he1Var;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-        }
-
-        @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
-        public void onResult(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                long currentTimeMillis = System.currentTimeMillis() - a();
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("result", -1);
-                    String optString = jSONObject.optString("reqId", "");
-                    if (!this.e.L(optInt, this.b) || this.c != 0) {
-                        this.e.C(str, this.b, 1);
-                    } else {
-                        this.e.x(this.b, this.d, this.c + 1);
-                    }
-                    te1.c(this.e.a, this.e.c, optInt, currentTimeMillis, this.d, optString);
-                } catch (Throwable th) {
-                    df1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements PreCodeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ he1 b;
-
-        public b(he1 he1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {he1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = he1Var;
-            this.a = i;
-        }
-
-        @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
-        public void onResult(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.C(str, this.a, 3);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends ye1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ he1 e;
-
-        public c(he1 he1Var, String str, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {he1Var, str, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = he1Var;
-            this.b = str;
-            this.c = i;
-            this.d = i2;
-        }
-
-        @Override // com.repackage.ye1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.b);
-                    if (jSONObject.optInt("result", -1) == 0) {
-                        this.e.K(jSONObject, this.c, this.d);
-                    } else {
-                        this.e.D(jSONObject, this.c, this.d);
-                    }
-                } catch (Throwable th) {
-                    df1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends ye1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ he1 e;
-
-        public d(he1 he1Var, JSONObject jSONObject, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {he1Var, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = he1Var;
-            this.b = jSONObject;
-            this.c = i;
-            this.d = i2;
-        }
-
-        @Override // com.repackage.ye1
-        public void b() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject optJSONObject = this.b.optJSONObject("data");
-                    if (this.c == 1) {
-                        this.e.e = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
-                        this.e.g = optJSONObject.optString("number", "");
-                        this.e.f = System.currentTimeMillis() + (optJSONObject.optInt("expiredTime", 0) * 1000);
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.e.a(this.e.g));
-                        str = jSONObject.toString();
-                    } else {
-                        this.e.h = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
-                        this.e.i = System.currentTimeMillis() + (optJSONObject.optInt("expiredTime", 0) * 1000);
-                        str = "preVerify success";
-                    }
-                    this.e.e(this.d, 0, 0, this.e.c, str, this.c);
-                } catch (Throwable unused) {
-                    he1 he1Var = this.e;
-                    he1Var.e(this.d, 3, 2009, he1Var.c, "ct on handle pre login or verify unknown error.", this.c);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends ye1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ he1 e;
-
-        public e(he1 he1Var, JSONObject jSONObject, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {he1Var, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = he1Var;
-            this.b = jSONObject;
-            this.c = i;
-            this.d = i2;
-        }
-
-        @Override // com.repackage.ye1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    int optInt = this.b.optInt("result", -1);
-                    String optString = this.b.optString("msg", "");
-                    if (this.e.c != this.e.d && (optInt == -10009 || optInt == -10008)) {
-                        this.e.e(this.c, 3, 2002, this.e.c, "pre login error, wrong sim operator", this.d);
-                    } else {
-                        he1 he1Var = this.e;
-                        int i = this.c;
-                        int i2 = this.e.c;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("ct pre login error.");
-                        sb.append(optString);
-                        sb.append(", status ");
-                        sb.append(optInt);
-                        he1Var.e(i, 2, optInt, i2, sb.toString(), this.d);
-                    }
-                } catch (Throwable unused) {
-                    he1 he1Var2 = this.e;
-                    he1Var2.e(this.c, 3, 2009, he1Var2.c, "ct on handle pre login or verify unknown error.", this.d);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public he1(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -281,101 +33,526 @@ public class he1 extends be1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = false;
-        this.c = 3;
+        this.b = context.getSharedPreferences("once_login_config", 0);
+        context.getSharedPreferences("leroadcfg", 0);
+        this.c = this.b.edit();
+        this.d = context;
     }
 
-    public final void C(String str, int i, int i2) {
+    public static he1 f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, str, i, i2) == null) {
-            af1.c().b(new c(this, str, i, i2));
-        }
-    }
-
-    public final void D(JSONObject jSONObject, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i, i2) == null) {
-            af1.c().b(new e(this, jSONObject, i, i2));
-        }
-    }
-
-    public final void K(JSONObject jSONObject, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i, i2) == null) {
-            af1.c().b(new d(this, jSONObject, i2, i));
-        }
-    }
-
-    public final boolean L(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            return sd1.f(this.a).b() && sd1.f(this.a).m("k_retry_code_ct", i) && wd1.c().h(i2);
-        }
-        return invokeII.booleanValue;
-    }
-
-    @Override // com.repackage.ae1
-    public void h(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
-            super.h(context, i);
-            if (!sd1.f(this.a).c()) {
-                e(i, 3, 997, this.c, "pre verify error. sdk stop run.", 3);
-            } else if (!r()) {
-                e(i, 3, 2006, this.c, "pre verify error. ct has not valid config.", 3);
-            } else if (sd1.f(this.a).q0()) {
-                if (!this.s) {
-                    CtAuth.init(0, 0, 8000, null);
-                    this.s = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (e == null) {
+                synchronized (he1.class) {
+                    if (e == null) {
+                        e = new he1(context);
+                    }
                 }
-                CtAuth.requestPreAuthCode(context, ae1.m, ae1.n, new b(this, i));
-            } else {
-                e(i, 3, 996, this.c, "pre verify error. ct sdk stop run.", 3);
             }
+            return e;
+        }
+        return (he1) invokeL.objValue;
+    }
+
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            R("last_al_rp_d", str);
         }
     }
 
-    @Override // com.repackage.ae1
-    public void i(Context context, int i, int i2) {
+    public final void B(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, context, i, i2) == null) {
-            super.i(context, i, i2);
-            if (!sd1.f(this.a).c()) {
-                e(i2, 3, 997, this.c, "pre login error. sdk stop run.", 1);
-            } else if (!r()) {
-                e(i2, 3, 2006, this.c, "pre login error. ct has not valid config.", 1);
-            } else if (sd1.f(this.a).q0()) {
-                if (!this.s) {
-                    System.currentTimeMillis();
-                    CtAuth.init(0, 0, 8000, null);
-                    this.s = true;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            this.c.putInt(str, i);
+            this.c.commit();
+        }
+    }
+
+    public void C(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || str2 == null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            str2 = Base64.encodeToString(str2.getBytes(), 0);
+        }
+        R(str, str2);
+    }
+
+    public void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            v("k_sdk_cu_s", z);
+        }
+    }
+
+    public long E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e("ky_cfo_t", sf1.f) : invokeV.longValue;
+    }
+
+    public void F(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            t("rp_last_off_ti", j);
+        }
+    }
+
+    public void G(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            R("last_Rp_d", str);
+        }
+    }
+
+    public void H(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+            R("k_sdk_a_s", str + "_" + str2);
+        }
+    }
+
+    public void I(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            v("k_is_ig_env", z);
+        }
+    }
+
+    public String J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
+            }
+            String K = K("xyus", "");
+            this.a = K;
+            if (TextUtils.isEmpty(K)) {
+                String b = wf1.b(UUID.randomUUID().toString());
+                this.a = b;
+                R("xyus", b);
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String K(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.b.getString(str, str2) : (String) invokeLL.objValue;
+    }
+
+    public void L(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            t("ky_lvt", j);
+        }
+    }
+
+    public void M(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            u("ky_ltc", str);
+        }
+    }
+
+    public void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            v("k_retry_switch", z);
+        }
+    }
+
+    public String O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? g("ky_dxc", "") : (String) invokeV.objValue;
+    }
+
+    public void P(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            t("ky_cfs_t", j);
+        }
+    }
+
+    public void Q(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        R("k_sdk_ra_k", str);
+    }
+
+    public final void R(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
+            this.c.putString(str, str2);
+            this.c.commit();
+        }
+    }
+
+    public void S(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            v("k_sdk_s", z);
+        }
+    }
+
+    public long T() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? e("k_last_a_ts", 0L) : invokeV.longValue;
+    }
+
+    public void U(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            t("t_con_3g", j);
+        }
+    }
+
+    public void V(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            R("ky_sg", str);
+        }
+    }
+
+    public void W(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            v("k_u_a_pr", z);
+        }
+    }
+
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? K("last_al_rp_d", "") : (String) invokeV.objValue;
+    }
+
+    public void Y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            u("ky_ydc", str);
+        }
+    }
+
+    public int Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? o("ky_lls", -1) : invokeV.intValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? n("k_sdk_cu_s", true) : invokeV.booleanValue;
+    }
+
+    public long a0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? e("ky_llt", 0L) : invokeV.longValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? n("k_retry_switch", false) : invokeV.booleanValue;
+    }
+
+    public String b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? K("last_Rp_d", "") : (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? n("k_sdk_s", true) : invokeV.booleanValue;
+    }
+
+    public long c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? e("rp_last_off_ti", 0L) : invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? n("k_u_a_pr", false) : invokeV.booleanValue;
+    }
+
+    public int d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? o("ky_lvs", -1) : invokeV.intValue;
+    }
+
+    public final long e(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048610, this, str, j)) == null) ? this.b.getLong(str, j) : invokeLJ.longValue;
+    }
+
+    public long e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? e("ky_lvt", 0L) : invokeV.longValue;
+    }
+
+    public String f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? g("ky_ltc", "") : (String) invokeV.objValue;
+    }
+
+    public String g(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, str, str2)) == null) {
+            String string = this.b.getString(str, str2);
+            return !TextUtils.isEmpty(string) ? uf1.a(this.d, string) : "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public int g0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            int o = o("k_mask_num", 4);
+            if (o <= 4) {
+                return 4;
+            }
+            if (o >= 8) {
+                return 8;
+            }
+            return o;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            R("k_sdk_a_s", "");
+        }
+    }
+
+    public int h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? o("one_d_3g_con", 50) : invokeV.intValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            B("ky_lls", i);
+        }
+    }
+
+    public long i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? e("ky_cfs_t", 0L) : invokeV.longValue;
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
+            t("ky_cfo_t", j);
+        }
+    }
+
+    public int j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? o("rp_off_gap", 3) : invokeV.intValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            R("ky_aid", str);
+        }
+    }
+
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? K("k_sdk_ra_k", "") : (String) invokeV.objValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            v("k_sdk_cm_s", z);
+        }
+    }
+
+    public String l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? K("k_sdk_a_s", "") : (String) invokeV.objValue;
+    }
+
+    public boolean m(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, str, i)) == null) {
+            String K = K(str, "");
+            if (!TextUtils.isEmpty(K)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(new String(Base64.decode(K, 0)));
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        if (jSONArray.getString(i2).equals(String.valueOf(i))) {
+                            return true;
+                        }
+                    }
+                } catch (Throwable th) {
+                    sf1.d(th);
                 }
-                x(i2, i, 0);
-            } else {
-                e(i2, 3, 996, this.c, "pre login error. ct sdk stop run.", 1);
             }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public String m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? K("ky_sg", "") : (String) invokeV.objValue;
+    }
+
+    public final boolean n(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048627, this, str, z)) == null) ? this.b.getBoolean(str, z) : invokeLZ.booleanValue;
+    }
+
+    public long n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? e("t_con_3g", 0L) : invokeV.longValue;
+    }
+
+    public final int o(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048629, this, str, i)) == null) ? this.b.getInt(str, i) : invokeLI.intValue;
+    }
+
+    public String o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? g("ky_ydc", "") : (String) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? K("ky_aid", "") : (String) invokeV.objValue;
+    }
+
+    public boolean p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? n("k_sdk_cm_s", true) : invokeV.booleanValue;
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
+            B("ky_lvs", i);
         }
     }
 
-    @Override // com.repackage.be1, com.repackage.ae1
-    public void p(Context context, int i, long j) {
+    public boolean q0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.p(context, i, j);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? n("k_sdk_ct_s", true) : invokeV.booleanValue;
+    }
+
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
+            t("k_last_a_ts", j);
         }
     }
 
-    public final void x(int i, int i2, int i3) {
+    public void s(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) {
-            CtAuth.requestPreAuthCode(this.a, ae1.m, ae1.n, new a(this, i, i3, i2));
+        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
+            u("ky_dxc", str);
+        }
+    }
+
+    public final void t(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048637, this, str, j) == null) {
+            this.c.putLong(str, j);
+            this.c.commit();
+        }
+    }
+
+    public void u(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048638, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        this.c.putString(str, uf1.b(this.d, str2.getBytes()));
+        this.c.commit();
+    }
+
+    public final void v(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048639, this, str, z) == null) {
+            this.c.putBoolean(str, z);
+            this.c.commit();
+        }
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+            v("k_sdk_ct_s", z);
+        }
+    }
+
+    public long x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? e("k_a_itl", rf1.b * 24) : invokeV.longValue;
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048642, this, i) == null) || i <= 4) {
+            return;
+        }
+        B("k_mask_num", i);
+    }
+
+    public void z(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
+            t("ky_llt", j);
         }
     }
 }

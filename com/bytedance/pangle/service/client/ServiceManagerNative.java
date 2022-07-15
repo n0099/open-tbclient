@@ -150,7 +150,11 @@ public class ServiceManagerNative {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, str)) == null) {
             Zeus.loadPlugin(str);
-            return PluginManager.getInstance().getPlugin(str).pluginServices.get(intent.getComponent().getClassName());
+            ComponentName component = intent.getComponent();
+            if (component == null) {
+                return null;
+            }
+            return PluginManager.getInstance().getPlugin(str).pluginServices.get(component.getClassName());
         }
         return (ServiceInfo) invokeLL.objValue;
     }

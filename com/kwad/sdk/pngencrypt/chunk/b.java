@@ -7,10 +7,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterInputStream;
 /* loaded from: classes5.dex */
-public class b {
+public final class b {
     public static final byte[] a = a("IHDR");
     public static final byte[] b = a("PLTE");
     public static final byte[] c = a("IDAT");
@@ -23,7 +22,7 @@ public class b {
     }
 
     public static String a(byte[] bArr, int i) {
-        return (bArr == null || bArr.length < i + 4) ? "?" : a(bArr, i, 4);
+        return (bArr == null || bArr.length < 8) ? "?" : a(bArr, 4, 4);
     }
 
     public static String a(byte[] bArr, int i, int i2) {
@@ -56,20 +55,80 @@ public class b {
     }
 
     public static byte[] a(byte[] bArr, int i, int i2, boolean z) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
+        ByteArrayInputStream byteArrayInputStream;
+        InflaterInputStream inflaterInputStream;
+        InflaterInputStream inflaterInputStream2 = null;
         try {
-            InputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-            if (!z) {
-                byteArrayInputStream = new InflaterInputStream(byteArrayInputStream);
+            byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+            try {
+                inflaterInputStream = new InflaterInputStream(byteArrayInputStream);
+                try {
+                    byteArrayOutputStream2 = new ByteArrayOutputStream();
+                } catch (Exception e2) {
+                    e = e2;
+                    byteArrayOutputStream2 = null;
+                } catch (Throwable th) {
+                    th = th;
+                    byteArrayOutputStream2 = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream = null;
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream = null;
+                byteArrayOutputStream2 = null;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            OutputStream deflaterOutputStream = z ? new DeflaterOutputStream(byteArrayOutputStream) : byteArrayOutputStream;
-            a(byteArrayInputStream, deflaterOutputStream);
-            byteArrayInputStream.close();
-            deflaterOutputStream.close();
-            return byteArrayOutputStream.toByteArray();
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            return new byte[0];
+        } catch (Exception e4) {
+            e = e4;
+            byteArrayOutputStream = null;
+            byteArrayOutputStream2 = null;
+            byteArrayInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            byteArrayOutputStream = null;
+            byteArrayOutputStream2 = null;
+            byteArrayInputStream = null;
+        }
+        try {
+            a(inflaterInputStream, byteArrayOutputStream2);
+            byte[] byteArray = byteArrayOutputStream2.toByteArray();
+            com.kwad.sdk.crash.utils.b.a(inflaterInputStream);
+            com.kwad.sdk.crash.utils.b.a(byteArrayInputStream);
+            com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+            com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+            return byteArray;
+        } catch (Exception e5) {
+            e = e5;
+            inflaterInputStream2 = inflaterInputStream;
+            byteArrayOutputStream = byteArrayOutputStream2;
+            try {
+                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.crash.utils.b.a(inflaterInputStream2);
+                com.kwad.sdk.crash.utils.b.a(byteArrayInputStream);
+                com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+                com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream);
+                return new byte[0];
+            } catch (Throwable th4) {
+                th = th4;
+                com.kwad.sdk.crash.utils.b.a(inflaterInputStream2);
+                com.kwad.sdk.crash.utils.b.a(byteArrayInputStream);
+                com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+                com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream);
+                throw th;
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            inflaterInputStream2 = inflaterInputStream;
+            byteArrayOutputStream = byteArrayOutputStream2;
+            com.kwad.sdk.crash.utils.b.a(inflaterInputStream2);
+            com.kwad.sdk.crash.utils.b.a(byteArrayInputStream);
+            com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream2);
+            com.kwad.sdk.crash.utils.b.a(byteArrayOutputStream);
+            throw th;
         }
     }
 
@@ -83,15 +142,6 @@ public class b {
 
     public static boolean b(String str) {
         return Character.isUpperCase(str.charAt(0));
-    }
-
-    public static int c(byte[] bArr) {
-        for (int i = 0; i < bArr.length; i++) {
-            if (bArr[i] == 0) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     public static boolean c(String str) {

@@ -1,28 +1,34 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s03;
+import java.util.ArrayList;
+import java.util.List;
+import okhttp3.Interceptor;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class bk2 {
+public class bk2 implements w64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ak2 a;
-    public ak2 b;
-    public SwanAppUtilsJavaScriptInterface c;
-    public qn1 d;
 
     public bk2() {
         Interceptable interceptable = $ic;
@@ -38,83 +44,129 @@ public class bk2 {
         }
     }
 
-    public void a(Activity activity) {
+    public final s03.a a() {
+        InterceptResult invokeV;
+        s03.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            ak2 ak2Var = this.a;
-            if (ak2Var != null) {
-                ak2Var.setActivityRef(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            h03 b0 = h03.b0();
+            if (b0 == null) {
+                if (rg1.a) {
+                    Log.e("SwanNetworkImpl", "swanapp is null");
+                }
+                return null;
             }
-            ak2 ak2Var2 = this.b;
-            if (ak2Var2 != null) {
-                ak2Var2.setActivityRef(activity);
+            SwanAppConfigData Q = b0.Q();
+            if (Q == null || (aVar = Q.h) == null) {
+                if (rg1.a) {
+                    Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
+                }
+                return null;
             }
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.c;
-            if (swanAppUtilsJavaScriptInterface != null) {
-                swanAppUtilsJavaScriptInterface.setActivity(activity);
+            return aVar;
+        }
+        return (s03.a) invokeV.objValue;
+    }
+
+    @Override // com.repackage.w64
+    public CookieManager f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? oj2.q().a() : (CookieManager) invokeV.objValue;
+    }
+
+    @Override // com.repackage.w64
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? s03.a.c(a()) : invokeV.intValue;
+    }
+
+    @Override // com.repackage.w64
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.repackage.w64
+    public int getReadTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? s03.a.c(a()) : invokeV.intValue;
+    }
+
+    @Override // com.repackage.w64
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String g = SwanAppNetworkUtils.g();
+            return (TextUtils.isEmpty(g) && j74.g().c()) ? gc3.a() : g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.w64
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            oj2.g0().getSwitch("bbasm_framework_request_with_ua", true);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.w64
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName()) && iu2.c() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.w64
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? rg1.a : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.w64
+    public void j(String str, HttpRequestBuilder httpRequestBuilder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, httpRequestBuilder) == null) && dx1.u(str)) {
+            httpRequestBuilder.setHeader("x-u-id", rg4.b(AppRuntime.getAppContext()).a());
+            try {
+                httpRequestBuilder.setHeader("x-c2-id", oj2.h0().i(AppRuntime.getAppContext()));
+            } catch (IllegalArgumentException unused) {
             }
-            qn1 qn1Var = this.d;
-            if (qn1Var != null) {
-                qn1Var.g(activity);
-            }
         }
     }
 
-    public final void b(qy1 qy1Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, @NonNull qn1 qn1Var) {
+    @Override // com.repackage.w64
+    public int k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qy1Var, context, callbackHandler, unitedSchemeMainDispatcher, qn1Var) == null) {
-            SwanAppGlobalJsBridge swanAppGlobalJsBridge = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, qy1Var);
-            this.a = swanAppGlobalJsBridge;
-            qy1Var.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
-            SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, qy1Var);
-            this.b = swanAppJsBridge;
-            qy1Var.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
-            qy1Var.addJavascriptInterface(new SwanAppPreloadJsBridge(qy1Var), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
-            qn1Var.b(qy1Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? fu2.a() == 2 ? 128 : 0 : invokeV.intValue;
     }
 
-    public final void c(@NonNull qy1 qy1Var, Context context, @NonNull qn1 qn1Var) {
+    @Override // com.repackage.w64
+    public List<Interceptor> l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, qy1Var, context, qn1Var) == null) {
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, qy1Var);
-            this.c = swanAppUtilsJavaScriptInterface;
-            swanAppUtilsJavaScriptInterface.setSource("swan_");
-            qy1Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-            qn1Var.a(qy1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new zr2());
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void d(qy1 qy1Var) {
+    @Override // com.repackage.w64
+    public int m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qy1Var) == null) {
-            qy1Var.addJavascriptInterface(new SwanAppNativeSwanJsBridge(qy1Var), SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        }
-    }
-
-    public void e(qy1 qy1Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048580, this, qy1Var, context, callbackHandler, unitedSchemeMainDispatcher) == null) || qy1Var == null || context == null || callbackHandler == null || unitedSchemeMainDispatcher == null) {
-            return;
-        }
-        qn1 qn1Var = new qn1(context, callbackHandler, qy1Var);
-        this.d = qn1Var;
-        b(qy1Var, context, callbackHandler, unitedSchemeMainDispatcher, qn1Var);
-        if (qy1Var instanceof c72) {
-            c(qy1Var, context, this.d);
-        } else {
-            d(qy1Var);
-        }
-    }
-
-    public void f(Context context, qy1 qy1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, qy1Var) == null) {
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, qy1Var);
-            this.c = swanAppUtilsJavaScriptInterface;
-            swanAppUtilsJavaScriptInterface.setSource("swan_");
-            qy1Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-            this.c.setForceShareLight(true);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? s03.a.c(a()) : invokeV.intValue;
     }
 }

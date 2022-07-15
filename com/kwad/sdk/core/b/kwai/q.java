@@ -1,56 +1,54 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdProductInfo;
-import com.kwad.sdk.core.response.model.CouponInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class q implements com.kwad.sdk.core.d<AdProductInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdProductInfo adProductInfo, JSONObject jSONObject) {
+public final class q implements com.kwad.sdk.core.d<AdInfo.AdInsertScreenInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdInsertScreenInfo adInsertScreenInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        adProductInfo.icon = jSONObject.optString("icon");
-        if (jSONObject.opt("icon") == JSONObject.NULL) {
-            adProductInfo.icon = "";
+        adInsertScreenInfo.cycleAggregateSwitch = jSONObject.optBoolean("cycleAggregateSwitch");
+        adInsertScreenInfo.cycleAggregateDailyShowCount = jSONObject.optInt("cycleAggregateDailyShowCount", new Integer("10").intValue());
+        adInsertScreenInfo.cycleAggregateStyle = jSONObject.optInt("cycleAggregateStyle");
+        adInsertScreenInfo.cycleAggregateInterval = jSONObject.optInt("cycleAggregateInterval", new Integer("10").intValue());
+        adInsertScreenInfo.autoCloseTime = jSONObject.optInt("autoCloseTime");
+        adInsertScreenInfo.retainWindowStyle = jSONObject.optInt("retainWindowStyle");
+        adInsertScreenInfo.retainWindowText = jSONObject.optString("retainWindowText");
+        if (jSONObject.opt("retainWindowText") == JSONObject.NULL) {
+            adInsertScreenInfo.retainWindowText = "";
         }
-        adProductInfo.name = jSONObject.optString("name");
-        if (jSONObject.opt("name") == JSONObject.NULL) {
-            adProductInfo.name = "";
-        }
-        adProductInfo.price = jSONObject.optString("price");
-        if (jSONObject.opt("price") == JSONObject.NULL) {
-            adProductInfo.price = "";
-        }
-        adProductInfo.originPrice = jSONObject.optString("originPrice");
-        if (jSONObject.opt("originPrice") == JSONObject.NULL) {
-            adProductInfo.originPrice = "";
-        }
-        adProductInfo.couponList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("couponList");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                CouponInfo couponInfo = new CouponInfo();
-                couponInfo.parseJson(optJSONArray.optJSONObject(i));
-                adProductInfo.couponList.add(couponInfo);
-            }
-        }
+        adInsertScreenInfo.retainWindowBasedAdShowCount = jSONObject.optInt("retainWindowBasedAdShowCount");
+        adInsertScreenInfo.retainWindowDailyShowCount = jSONObject.optInt("retainWindowDailyShowCount");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdProductInfo adProductInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdInsertScreenInfo adInsertScreenInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "icon", adProductInfo.icon);
-        com.kwad.sdk.utils.t.a(jSONObject, "name", adProductInfo.name);
-        com.kwad.sdk.utils.t.a(jSONObject, "price", adProductInfo.price);
-        com.kwad.sdk.utils.t.a(jSONObject, "originPrice", adProductInfo.originPrice);
-        com.kwad.sdk.utils.t.a(jSONObject, "couponList", adProductInfo.couponList);
+        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateSwitch", adInsertScreenInfo.cycleAggregateSwitch);
+        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateDailyShowCount", adInsertScreenInfo.cycleAggregateDailyShowCount);
+        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateStyle", adInsertScreenInfo.cycleAggregateStyle);
+        com.kwad.sdk.utils.r.a(jSONObject, "cycleAggregateInterval", adInsertScreenInfo.cycleAggregateInterval);
+        com.kwad.sdk.utils.r.a(jSONObject, "autoCloseTime", adInsertScreenInfo.autoCloseTime);
+        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowStyle", adInsertScreenInfo.retainWindowStyle);
+        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowText", adInsertScreenInfo.retainWindowText);
+        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowBasedAdShowCount", adInsertScreenInfo.retainWindowBasedAdShowCount);
+        com.kwad.sdk.utils.r.a(jSONObject, "retainWindowDailyShowCount", adInsertScreenInfo.retainWindowDailyShowCount);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdInsertScreenInfo adInsertScreenInfo, JSONObject jSONObject) {
+        a2(adInsertScreenInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdInsertScreenInfo adInsertScreenInfo, JSONObject jSONObject) {
+        return b2(adInsertScreenInfo, jSONObject);
     }
 }

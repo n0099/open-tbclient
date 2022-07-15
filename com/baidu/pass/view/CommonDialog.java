@@ -62,14 +62,14 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d063a, (ViewGroup) null);
-                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003c4);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091618);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091615);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091616);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914fe);
-                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918a0);
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091619);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0656, (ViewGroup) null);
+                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003c7);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916c1);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916be);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0916bf);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915a7);
+                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091949);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0916c2);
                 textView.setText(this.c);
                 textView2.setText(TextUtils.isEmpty(this.b) ? "" : this.b);
                 textView2.setMovementMethod(LinkMovementMethod.getInstance());
@@ -94,13 +94,13 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 attributes.height = -2;
                 window.setAttributes(attributes);
                 if (this.d) {
-                    inflate.findViewById(R.id.obfuscated_res_0x7f091617).setBackgroundResource(R.drawable.obfuscated_res_0x7f080e7e);
-                    textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060894));
-                    textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088d));
-                    findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060893));
-                    textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088f));
-                    textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060891));
-                    findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060893));
+                    inflate.findViewById(R.id.obfuscated_res_0x7f0916c0).setBackgroundResource(R.drawable.obfuscated_res_0x7f080dfd);
+                    textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088c));
+                    textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060885));
+                    findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088b));
+                    textView3.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060887));
+                    textView4.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060889));
+                    findViewById2.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06088b));
                 }
                 Context context = this.a;
                 if (context instanceof Activity) {

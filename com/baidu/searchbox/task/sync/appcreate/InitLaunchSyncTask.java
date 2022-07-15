@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.ed5;
-import com.repackage.jm4;
+import com.repackage.de5;
+import com.repackage.he5;
+import com.repackage.ym4;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitLaunchSyncTask extends LaunchTask {
@@ -43,7 +43,7 @@ public class InitLaunchSyncTask extends LaunchTask {
     private void cleanDirectoryNewStatIfNeed() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            ed5.b(new ad5<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+            he5.b(new de5<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchSyncTask this$0;
@@ -66,7 +66,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.ad5
+                @Override // com.repackage.de5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -138,9 +138,9 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            jm4 jm4Var = new jm4();
-            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(jm4Var);
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(jm4Var);
+            ym4 ym4Var = new ym4();
+            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(ym4Var);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(ym4Var);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }

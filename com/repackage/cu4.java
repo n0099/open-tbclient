@@ -1,125 +1,41 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cu4 implements View.OnClickListener {
+public class cu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public LikeModel b;
-    public bu4 c;
-    public du4 d;
-    public View.OnClickListener e;
-    public CustomMessageListener f;
-    public CustomMessageListener g;
-    public c9 h;
+    public long a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public Toast f;
+    public Handler g;
+    public Runnable h;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cu4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cu4 cu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sj8)) {
-                sj8 sj8Var = (sj8) customResponsedMessage.getData();
-                String l = Long.toString(sj8Var.a);
-                if (this.a.d != null && l.equals(this.a.d.d()) && sj8Var.b) {
-                    this.a.d.setIsLike(true);
-                    this.a.d.e(true);
-                    this.a.c.c(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cu4 cu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sj8)) {
-                sj8 sj8Var = (sj8) customResponsedMessage.getData();
-                String l = Long.toString(sj8Var.a);
-                if (this.a.d != null && l.equals(this.a.d.d()) && sj8Var.b) {
-                    this.a.d.setIsLike(false);
-                    this.a.d.e(false);
-                    this.a.c.c(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cu4 a;
-
-        public c(cu4 cu4Var) {
+        public a(cu4 cu4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,25 +53,20 @@ public class cu4 implements View.OnClickListener {
             this.a = cu4Var;
         }
 
-        @Override // com.repackage.c9
-        public void c(Object obj) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof tg8) && ((tg8) obj).d() != 0) {
-                if (AntiHelper.m(this.a.b.getErrorCode(), this.a.b.getErrorString())) {
-                    AntiHelper.u(this.a.a.getPageActivity(), this.a.b.getErrorString());
-                } else {
-                    this.a.a.showToast(this.a.b.getErrorString());
-                }
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f == null) {
+                return;
             }
+            this.a.f.cancel();
         }
     }
 
-    public cu4(TbPageContext tbPageContext, bu4 bu4Var) {
+    public cu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bu4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,66 +76,58 @@ public class cu4 implements View.OnClickListener {
                 return;
             }
         }
-        this.f = new a(this, 2001437);
-        this.g = new b(this, 2001438);
-        this.h = new c(this);
-        this.a = tbPageContext;
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.b = likeModel;
-        likeModel.setLoadDataCallBack(this.h);
-        this.c = bu4Var;
-        bu4Var.b(this);
-        tbPageContext.registerListener(this.f);
-        tbPageContext.registerListener(this.g);
+        this.a = 3000L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.h = new a(this);
+        this.b = TbadkCoreApplication.getInst().getContext();
+        this.g = new Handler();
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    public void b(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.e = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03bf, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b3);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a8);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080a83);
+            d(this.c);
         }
     }
 
-    public void f(du4 du4Var) {
+    public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, du4Var) == null) || du4Var == null) {
-            return;
-        }
-        this.d = du4Var;
-        this.c.c(du4Var.getIsLike());
-    }
-
-    public void g(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f.setTag(bdUniqueId);
-            this.g.setTag(bdUniqueId);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03bf, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b3);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a8);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080a84);
+            d(this.c);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void d(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            bu4 bu4Var = this.c;
-            if (bu4Var != null) {
-                bu4Var.a(view2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.g.removeCallbacks(this.h);
+            if (this.f == null) {
+                this.f = new Toast(this.b);
             }
-            if (!ni.z()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
-                return;
-            }
-            if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                du4 du4Var = this.d;
-                if (du4Var == null) {
-                    return;
-                }
-                this.b.Q(du4Var.c(), this.d.d());
-            }
-            View.OnClickListener onClickListener = this.e;
-            if (onClickListener != null) {
-                onClickListener.onClick(view2);
-            }
+            this.g.postDelayed(this.h, this.a);
+            this.f.setView(view2);
+            this.f.setDuration(1);
+            this.f.setGravity(17, 0, 0);
+            this.f.show();
         }
     }
 }

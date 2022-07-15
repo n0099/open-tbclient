@@ -1,49 +1,153 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sofire.rp.service.Service;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.repackage.qt3;
+import com.repackage.ut3;
+import org.json.JSONException;
 /* loaded from: classes7.dex */
 public class tt3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static volatile tt3 f;
+    public static volatile tt3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ArrayList<b>> a;
-    public final ExecutorService b;
-    public String c;
-    public Object d;
+    public HandlerThread a;
+    public e b;
+    public rt3 c;
+    public long d;
+    public int e;
+    public long f;
+    public st3 g;
+    public ut3.d h;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements qt3.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsArrayBuffer a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ tt3 c;
+        public final /* synthetic */ tt3 a;
 
-        public a(tt3 tt3Var, JsArrayBuffer jsArrayBuffer, b bVar) {
+        public a(tt3 tt3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tt3Var, jsArrayBuffer, bVar};
+                Object[] objArr = {tt3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tt3Var;
+        }
+
+        @Override // com.repackage.qt3.d
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && rg1.a) {
+                Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
+            }
+        }
+
+        @Override // com.repackage.qt3.d
+        public void onSuccess() {
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (activity = this.a.getActivity()) == null) {
+                return;
+            }
+            zz2.f(activity, R.string.obfuscated_res_0x7f0f0105).G();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements qt3.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ qt3.d b;
+        public final /* synthetic */ tt3 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements ut3.d {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.ut3.d
+            public void onFail(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                    this.a.b.onFail(str);
+                }
+            }
+
+            @Override // com.repackage.ut3.d
+            public void onSuccess(Object obj) {
+                Activity activity;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                    vt3 vt3Var = (vt3) obj;
+                    if (rg1.a) {
+                        Log.d("AntiAddictionManager", vt3Var.toString());
+                    }
+                    int i = vt3Var.a;
+                    if (i == 0) {
+                        this.a.b.onSuccess();
+                    } else if (1 == i) {
+                        this.a.b.onFail(vt3Var.b);
+                    } else {
+                        this.a.b.onFail(vt3Var.b);
+                        if (TextUtils.isEmpty(vt3Var.b) || (activity = this.a.c.getActivity()) == null) {
+                            return;
+                        }
+                        this.a.c.g.f(activity, vt3Var.b, activity.getString(R.string.obfuscated_res_0x7f0f0104), true, null);
+                    }
+                }
+            }
+        }
+
+        public b(tt3 tt3Var, String str, qt3.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tt3Var, str, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,216 +158,399 @@ public class tt3 {
                 }
             }
             this.c = tt3Var;
-            this.a = jsArrayBuffer;
-            this.b = bVar;
+            this.a = str;
+            this.b = dVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.qt3.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String g = this.c.g(this.a.buffer());
-                File file = new File(g);
-                if (!file.exists()) {
-                    if (this.c.e(g, this.b)) {
-                        return;
-                    }
-                    this.c.i(g, this.a.buffer());
-                } else if (!file.isDirectory()) {
-                    this.b.a(g);
-                } else {
-                    this.b.b();
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b.onFail(str);
+            }
+        }
+
+        @Override // com.repackage.qt3.d
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                ut3.h(this.a, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tt3 a;
+
+        public c(tt3 tt3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tt3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tt3Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.q();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements ut3.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tt3 a;
+
+        public d(tt3 tt3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tt3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tt3Var;
+        }
+
+        @Override // com.repackage.ut3.d
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && rg1.a) {
+                Log.e("AntiAddictionManager", str);
+            }
+        }
+
+        @Override // com.repackage.ut3.d
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                wt3 wt3Var = (wt3) obj;
+                if (rg1.a) {
+                    Log.d("AntiAddictionManager", wt3Var.toString());
+                }
+                this.a.d = System.currentTimeMillis();
+                if (this.a.s(wt3Var.c)) {
+                    this.a.r(wt3Var.d * 1000);
+                    this.a.p(wt3Var.a, wt3Var.b);
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tt3 a;
 
-        void b();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755279266, "Lcom/repackage/tt3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(tt3 tt3Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tt3Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755279266, "Lcom/repackage/tt3;");
-                return;
+            this.a = tt3Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                removeCallbacksAndMessages(null);
             }
         }
-        e = cg1.a;
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hasMessages(1) : invokeV.booleanValue;
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || 1 == this.a.e) {
+                return;
+            }
+            sendEmptyMessageDelayed(1, this.a.f);
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && message.what == 1) {
+                this.a.y(false);
+                c();
+            }
+        }
     }
 
     public tt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = Executors.newCachedThreadPool();
-        this.d = new Object();
-        this.c = nt3.g() + nt3.f();
+        this.e = 0;
+        this.f = 300000L;
+        this.h = new d(this);
+        k();
     }
 
-    public static tt3 f() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            h03 b0 = h03.b0();
+            if (b0 == null || b0.w() == null) {
+                return null;
+            }
+            return b0.w();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public static tt3 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (i == null) {
                 synchronized (tt3.class) {
-                    if (f == null) {
-                        f = new tt3();
+                    if (i == null) {
+                        i = new tt3();
                     }
                 }
             }
-            return f;
+            return i;
         }
         return (tt3) invokeV.objValue;
     }
 
-    public final void d(String str) {
+    public static synchronized void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                if (arrayList == null) {
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            synchronized (tt3.class) {
+                if (i != null) {
+                    i.m();
+                    i = null;
+                }
+            }
+        }
+    }
+
+    public void j(String str, qt3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
+            if (TextUtils.isEmpty(str)) {
+                dVar.onFail("orderInfo is null");
+            } else if (!t()) {
+                dVar.onSuccess();
+            } else {
+                qt3.b(new b(this, str, dVar));
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            l();
+            y(true);
+            x();
+            this.g = new st3();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
+            HandlerThread handlerThread = new HandlerThread("anti_addiction_monitor");
+            this.a = handlerThread;
+            handlerThread.start();
+            this.b = new e(this, this.a.getLooper());
+        }
+    }
+
+    public final synchronized void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.b.a();
+                if (this.a != null) {
+                    this.a.quitSafely();
+                    this.a = null;
+                }
+                if (this.g != null) {
+                    this.g.e();
+                    this.g = null;
+                }
+            }
+        }
+    }
+
+    public synchronized void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (t()) {
+                    y(false);
+                }
+                this.b.a();
+            }
+        }
+    }
+
+    public final void p(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+            if (i2 < 0) {
+                if (rg1.a) {
+                    Log.e("AntiAddictionManager", "server AntiAddiction state error = " + i2 + " msg = " + str);
+                }
+            } else if (i2 != 0) {
+                if (i2 != 1) {
+                    u(i2, str);
                     return;
                 }
-                boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<b> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    b next = it.next();
-                    if (!isEmpty) {
-                        if (e) {
-                            Log.e("AudioBufferManager", "save success path: " + str);
-                        }
-                        next.a(str);
-                    } else {
-                        next.b();
-                    }
+                Activity activity = getActivity();
+                if (activity == null) {
+                    return;
                 }
-                this.a.remove(str);
+                this.g.f(activity, activity.getString(R.string.obfuscated_res_0x7f0f0103), activity.getString(R.string.obfuscated_res_0x7f0f0102), true, new c(this));
             }
         }
     }
 
-    public final boolean e(String str, b bVar) {
-        InterceptResult invokeLL;
-        boolean z;
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                z = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(str, arrayList);
-                    z = false;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            qt3.c(new a(this));
+        }
+    }
+
+    public final void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (300000 < j) {
+                this.f = j;
+            } else {
+                this.f = 300000L;
+            }
+        }
+    }
+
+    public final boolean s(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            this.e = i2;
+            if (1 == i2) {
+                n();
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e == 0 : invokeV.booleanValue;
+    }
+
+    public final void u(int i2, String str) {
+        rt3 rt3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) || (rt3Var = this.c) == null) {
+            return;
+        }
+        try {
+            rt3Var.y(i2, str);
+        } catch (JSONException e2) {
+            if (rg1.a) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void w(rt3 rt3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, rt3Var) == null) {
+            this.c = rt3Var;
+        }
+    }
+
+    public synchronized void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (t() && !this.b.b()) {
+                    this.d = System.currentTimeMillis();
+                    this.b.c();
                 }
-                arrayList.add(bVar);
             }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            String h = nt3.h(bArr);
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.c);
-            sb.append(bArr.length);
-            if (TextUtils.isEmpty(h)) {
-                h = "";
-            }
-            sb.append(h);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.b.execute(new a(this, jsArrayBuffer, bVar));
         }
     }
 
-    public final void i(String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
+    public final void y(boolean z) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(str + ".bdsave");
-            Closeable closeable = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        fileOutputStream.write(bArr);
-                        fileOutputStream.flush();
-                        File file3 = new File(str);
-                        if (file3.exists() && !file3.isDirectory()) {
-                            file3.delete();
-                        }
-                        if (file2.renameTo(file3)) {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
-                            }
-                            d(str);
-                        } else {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
-                            }
-                            file2.delete();
-                            d(null);
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (e) {
-                            e.printStackTrace();
-                        }
-                        if (file2.exists()) {
-                            file2.delete();
-                        }
-                        d(null);
-                        uf4.d(fileOutputStream);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable = ".bdsave";
-                    uf4.d(closeable);
-                    throw th;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (z) {
+                j = 0;
+            } else {
+                j = System.currentTimeMillis() - this.d;
+                if (Service.TRIGGER_INTERVAL > j) {
+                    return;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                uf4.d(closeable);
-                throw th;
             }
-            uf4.d(fileOutputStream);
+            if (rg1.a) {
+                Log.d("AntiAddictionManager", "Request upUseTime");
+            }
+            ut3.i(j, this.h);
         }
     }
 }

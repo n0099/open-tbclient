@@ -1,12 +1,15 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.os.SystemClock;
+import android.location.Location;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ecs.system.DataSystem;
-import com.baidu.tieba.danmu.ecs.system.RenderSystem;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,273 +17,238 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.TuplesKt;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.repackage.sz5;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class xz5 extends t0 {
+public class xz5 implements sz5.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a m;
+    public static xz5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wz5 j;
-    public final u16 k;
-    public long l;
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public static /* synthetic */ xz5 c(a aVar, n16 n16Var, f16 f16Var, int i, Object obj) {
-            if ((i & 2) != 0) {
-                f16Var = aVar.a();
-            }
-            return aVar.b(n16Var, f16Var);
-        }
-
-        public final j16 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new j16(new g16(), TuplesKt.to(5, new h16()), TuplesKt.to(1, new i16()), TuplesKt.to(4, new e16())) : (j16) invokeV.objValue;
-        }
-
-        public final xz5 b(n16 renderer, f16 layouter) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, renderer, layouter)) == null) {
-                Intrinsics.checkNotNullParameter(renderer, "renderer");
-                Intrinsics.checkNotNullParameter(layouter, "layouter");
-                return new xz5(renderer, layouter);
-            }
-            return (xz5) invokeLL.objValue;
-        }
-    }
+    public sz5 a;
+    public sz5 b;
+    public ArrayList<TransmitForumData> c;
+    public ArrayList<TransmitForumData> d;
+    public boolean e;
+    public ArrayList<TransmitForumData> f;
+    public boolean g;
+    public int h;
+    public boolean i;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755154274, "Lcom/repackage/xz5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755154274, "Lcom/repackage/xz5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755154274, "Lcom/repackage/xz5;")) == null) {
+            return;
         }
-        m = new a(null);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755154274, "Lcom/repackage/xz5;");
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xz5(n16 renderer, f16 layouter) {
-        super(200, 1000, 200, 1500);
+    public xz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {renderer, layouter};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(renderer, "renderer");
-        Intrinsics.checkNotNullParameter(layouter, "layouter");
-        wz5 wz5Var = new wz5(renderer);
-        this.j = wz5Var;
-        this.k = wz5Var.f();
-        v06 v06Var = new v06(this.j);
-        v06Var.a = 1;
-        Unit unit = Unit.INSTANCE;
-        g(v06Var);
-        DataSystem dataSystem = new DataSystem(this.j);
-        dataSystem.a = 2;
-        Unit unit2 = Unit.INSTANCE;
-        g(dataSystem);
-        x06 x06Var = new x06(this.j);
-        x06Var.a = 3;
-        Unit unit3 = Unit.INSTANCE;
-        g(x06Var);
-        t06 t06Var = new t06(this.j);
-        t06Var.a = 4;
-        Unit unit4 = Unit.INSTANCE;
-        g(t06Var);
-        RenderSystem renderSystem = new RenderSystem(this.j);
-        renderSystem.a = 5;
-        Unit unit5 = Unit.INSTANCE;
-        g(renderSystem);
-        x06 x06Var2 = (x06) k(x06.class);
-        if (x06Var2 == null) {
-            return;
-        }
-        x06Var2.p(layouter);
+        this.c = new ArrayList<>();
+        this.e = false;
+        this.g = false;
+        this.i = false;
+        e();
     }
 
-    public static /* synthetic */ void E(xz5 xz5Var, Float f, int i, Object obj) {
-        if ((i & 1) != 0) {
-            f = null;
-        }
-        xz5Var.D(f);
-    }
-
-    public final void A() {
+    public static Location b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k.d(true);
-            y0<q0> systems = l();
-            Intrinsics.checkNotNullExpressionValue(systems, "systems");
-            for (q0 q0Var : systems) {
-                p(q0Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return null;
+        }
+        return (Location) invokeV.objValue;
+    }
+
+    public static xz5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (j == null) {
+                synchronized (xz5.class) {
+                    if (j == null) {
+                        j = new xz5();
+                    }
+                }
             }
+            return j;
         }
+        return (xz5) invokeV.objValue;
     }
 
-    public final void B(long j) {
+    @Override // com.repackage.sz5.a
+    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            u16.f(this.k, j, 0.0f, 2, null);
-            this.j.c().J();
-            this.j.c().I();
-            this.j.c().F();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i == 1) {
+                if (z) {
+                    this.f = arrayList;
+                }
+                this.g = true;
+            } else if (i == 2) {
+                if (z) {
+                    this.d = arrayList;
+                    this.h = i2;
+                }
+                this.e = true;
+            }
+            j();
         }
     }
 
-    public final void C() {
+    public final Location d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() : (Location) invokeV.objValue;
+    }
+
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            u16.f(this.k, 0L, 0.0f, 3, null);
-            this.k.d(false);
+            g();
+            f();
+            this.i = false;
         }
     }
 
-    public final void D(Float f) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f) == null) {
-            c16.b("Engine_step");
-            this.k.g(f);
-            c16.a();
-        }
-    }
-
-    public final void F(lz5 danmakuConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
-            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
-            v06 v06Var = (v06) k(v06.class);
-            if (v06Var == null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), sz5.class);
+            if (runTask != null) {
+                this.b = (sz5) runTask.getData();
             }
-            v06Var.m(danmakuConfig);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c16.b("act");
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            u16 u16Var = this.k;
-            long a2 = u16Var.a() - this.l;
-            update(u16Var.b());
-            long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
-            if (elapsedRealtime2 >= 20) {
-                BdLog.w("DanmakuEngine [Engine][ACT] overload act: interval: " + a2 + ", cost: " + elapsedRealtime2);
+            sz5 sz5Var = this.b;
+            if (sz5Var != null) {
+                sz5Var.a(this);
             }
-            this.l = u16Var.a();
-            c16.a();
         }
     }
 
-    public final void s(Canvas canvas, Function0<Unit> onRenderReady) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, canvas, onRenderReady) == null) {
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(onRenderReady, "onRenderReady");
-            RenderSystem renderSystem = (RenderSystem) k(RenderSystem.class);
-            if (renderSystem == null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), sz5.class);
+            if (runTask != null) {
+                this.a = (sz5) runTask.getData();
             }
-            renderSystem.k(canvas, onRenderReady);
-        }
-    }
-
-    public final lz5 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            v06 v06Var = (v06) k(v06.class);
-            if (v06Var == null) {
-                return null;
+            sz5 sz5Var = this.a;
+            if (sz5Var != null) {
+                sz5Var.a(this);
             }
-            return v06Var.k();
-        }
-        return (lz5) invokeV.objValue;
-    }
-
-    public final wz5 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (wz5) invokeV.objValue;
-    }
-
-    public final long v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k.a() : invokeV.longValue;
-    }
-
-    public final u16 w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (u16) invokeV.objValue;
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k.c() : invokeV.booleanValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.k.d(true);
         }
     }
 
-    public final void z() {
-        DataSystem dataSystem;
+    public final boolean h(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (dataSystem = (DataSystem) k(DataSystem.class)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            ArrayList<TransmitForumData> arrayList = this.c;
+            if (arrayList == null) {
+                return false;
+            }
+            Iterator<TransmitForumData> it = arrayList.iterator();
+            while (it.hasNext()) {
+                TransmitForumData next = it.next();
+                if (next != null && next.forumId == j2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.i = true;
+            sz5 sz5Var = this.a;
+            if (sz5Var != null) {
+                sz5Var.b();
+            }
+            sz5 sz5Var2 = this.b;
+            if (sz5Var2 != null) {
+                sz5Var2.b();
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null || this.e) {
+                if (this.b == null || this.g) {
+                    this.e = false;
+                    this.g = false;
+                    this.i = false;
+                    this.c.clear();
+                    if (!ListUtils.isEmpty(this.d)) {
+                        Iterator<TransmitForumData> it = this.d.iterator();
+                        while (it.hasNext()) {
+                            TransmitForumData next = it.next();
+                            if (!h(next.forumId)) {
+                                this.c.add(next);
+                            }
+                        }
+                    }
+                    if (!ListUtils.isEmpty(this.f)) {
+                        Iterator<TransmitForumData> it2 = this.f.iterator();
+                        while (it2.hasNext()) {
+                            TransmitForumData next2 = it2.next();
+                            if (!h(next2.forumId)) {
+                                this.c.add(next2);
+                            }
+                        }
+                    }
+                    this.d = null;
+                    this.f = null;
+                    k();
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.c));
+        }
+    }
+
+    public void l(ShareDialogConfig shareDialogConfig) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || gd5.a()) {
             return;
         }
-        dataSystem.D();
+        if (shareDialogConfig.showLocation) {
+            shareDialogConfig.shareItem.E = d();
+        }
+        if (pi.D() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.i && !shareDialogConfig.shareItem.f()) {
+            i();
+        }
+        shareDialogConfig.setIsShowTransmitShare(true);
+        shareDialogConfig.setTransmitForumList(this.c);
+        shareDialogConfig.setPrivateThread(this.h);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

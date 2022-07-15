@@ -1,265 +1,139 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.plugin.Plugin;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class av2 extends vn1 {
+public class av2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static List<Pair<String, Pair<String, String>>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements e12<dv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av2 a;
-
-        public a(av2 av2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755843404, "Lcom/repackage/av2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = av2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.e12
-        /* renamed from: b */
-        public void a(dv2 dv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dv2Var) == null) {
-                this.a.C(dv2Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements e12<dv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av2 a;
-
-        public b(av2 av2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.e12
-        /* renamed from: b */
-        public void a(dv2 dv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dv2Var) == null) {
-                this.a.C(dv2Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements e12<dv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av2 a;
-
-        public c(av2 av2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.e12
-        /* renamed from: b */
-        public void a(dv2 dv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dv2Var) == null) {
-                this.a.C(dv2Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av2(@NonNull tn1 tn1Var) {
-        super(tn1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tn1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((tn1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755843404, "Lcom/repackage/av2;");
                 return;
             }
         }
-    }
-
-    public sr1 A(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#invokePluginPayment", false);
-            cv2 B = B(str);
-            if (B.b()) {
-                kv2.b(B.toString());
-                return B.i;
-            }
-            return new iv2().l(B, new c(this));
+        boolean z = rg1.a;
+        a = z;
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            b = arrayList;
+            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
-        return (sr1) invokeL.objValue;
     }
 
-    public final cv2 B(String str) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            cv2 cv2Var = new cv2();
-            Pair<sr1, JSONObject> s = s(str);
-            cv2Var.i = (sr1) s.first;
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return cv2Var;
-            }
-            String optString = jSONObject.optString("pluginProvider");
-            if (TextUtils.isEmpty(optString)) {
-                cv2Var.i = new sr1(201, "pluginProvider is empty");
-                return cv2Var;
-            }
-            r84 g = qv2.g(optString);
-            if (g != null) {
-                String str2 = g.r;
-                if (!TextUtils.isEmpty(str2)) {
-                    String optString2 = jSONObject.optString("providerRootPath");
-                    if (TextUtils.isEmpty(optString2)) {
-                        cv2Var.i = new sr1(201, "providerRootPath is empty");
-                        return cv2Var;
-                    }
-                    String optString3 = jSONObject.optString("slaveId");
-                    if (TextUtils.isEmpty(optString3)) {
-                        cv2Var.i = new sr1(201, "slaveId is empty");
-                        return cv2Var;
-                    }
-                    String optString4 = jSONObject.optString("componentId");
-                    if (TextUtils.isEmpty(optString4)) {
-                        cv2Var.i = new sr1(201, "componentId is empty");
-                        return cv2Var;
-                    }
-                    String optString5 = jSONObject.optString("pluginVersion", "release");
-                    String str3 = TextUtils.isEmpty(optString5) ? "release" : optString5;
-                    JSONObject optJSONObject = jSONObject.optJSONObject("args");
-                    String optString6 = jSONObject.optString("cb");
-                    cv2Var.a = str2;
-                    cv2Var.b = optString;
-                    cv2Var.c = optString2;
-                    cv2Var.d = str3;
-                    cv2Var.e = optString3;
-                    cv2Var.f = optString4;
-                    cv2Var.g = optJSONObject;
-                    cv2Var.h = optString6;
-                    return cv2Var;
-                }
-            }
-            cv2Var.i = new sr1(201, "pluginProvider exchange for truth app key，but empty");
-            return cv2Var;
-        }
-        return (cv2) invokeL.objValue;
-    }
-
-    public final void C(dv2 dv2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dv2Var) == null) || dv2Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) || TextUtils.isEmpty(str) || list == null || list.size() <= 0) {
             return;
         }
-        dv2Var.b();
-    }
-
-    @Override // com.repackage.vn1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Plugin.TAG : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vn1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanInvokeFunPageApi" : (String) invokeV.objValue;
-    }
-
-    public sr1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#invokePluginChooseAddress", false);
-            cv2 B = B(str);
-            if (B.b()) {
-                kv2.b(B.toString());
-                return B.i;
+        n63 c = a73.c("770");
+        for (UbcFlowEvent ubcFlowEvent : list) {
+            if (ubcFlowEvent != null) {
+                o63.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
             }
-            return new hv2().l(B, new b(this));
         }
-        return (sr1) invokeL.objValue;
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject.put("from", "swan");
+            jSONObject.put("type", str2);
+            jSONObject2.put("appid", str);
+            jSONObject2.put("mobile", xc3.c());
+            jSONObject2.put("net", SwanAppNetworkUtils.f().type);
+            if (TextUtils.isEmpty(str3)) {
+                str3 = "0";
+            }
+            jSONObject2.put("scene", str3);
+            z63.a(jSONObject2);
+            jSONObject.put("ext", jSONObject2.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        o63.f(c, jSONObject.toString());
+        o63.c(c);
+        b(str, list, b);
     }
 
-    public sr1 z(String str) {
-        InterceptResult invokeL;
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            cv2 B = B(str);
-            if (B.b()) {
-                kv2.b(B.toString());
-                return B.i;
-            }
-            return new jv2().l(B, new a(this));
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) || !a || list == null || list2 == null) {
+            return;
         }
-        return (sr1) invokeL.objValue;
+        HashMap hashMap = new HashMap();
+        StringBuilder sb = new StringBuilder();
+        sb.append("小程序PMS下载耗时Log：");
+        sb.append("\n");
+        sb.append("小程序ID：");
+        sb.append(str);
+        sb.append("\n");
+        sb.append("小程序ID：");
+        sb.append(str);
+        for (UbcFlowEvent ubcFlowEvent : list) {
+            if (ubcFlowEvent != null) {
+                sb.append("\n");
+                sb.append(ubcFlowEvent.g());
+                sb.append(ZeusCrashHandler.NAME_SEPERATOR);
+                sb.append(ubcFlowEvent.a);
+                hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
+            }
+        }
+        sb.append("\n");
+        sb.append("耗时计算开始：>>>>>>>>>>>>");
+        for (Pair<String, Pair<String, String>> pair : list2) {
+            if (pair != null) {
+                String str2 = (String) pair.first;
+                Object obj = pair.second;
+                String str3 = (String) ((Pair) obj).first;
+                String str4 = (String) ((Pair) obj).second;
+                if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
+                    long longValue = ((Long) hashMap.get(str3)).longValue();
+                    String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
+                    sb.append("\n");
+                    sb.append("耗时：");
+                    sb.append(format);
+                    sb.append(" >>> ");
+                    sb.append(str2);
+                    sb.append("，计算方式：");
+                    sb.append(str4);
+                    sb.append(" - ");
+                    sb.append(str3);
+                }
+            }
+        }
+        Log.i("SwanAppPMS", sb.toString());
     }
 }

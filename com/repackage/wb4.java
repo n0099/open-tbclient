@@ -1,54 +1,49 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wb4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b = "0";
-    public static long c;
+public class wb4 extends ob4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755207160, "Lcom/repackage/wb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public wb4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755207160, "Lcom/repackage/wb4;");
-                return;
-            }
-        }
-        z64 b2 = b74.b();
-        if (b2 != null) {
-            b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
     }
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.ob4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            z64 b2 = b74.b();
-            return b2 != null ? b2.i().getInt("key_h2_heart_beat_timespan", i) : i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            vb4 c = vb4.c();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", c.a());
+                jSONObject.put("ceres_info", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("version", c.b());
+                jSONObject.put("global_info", jSONObject3);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            z64 b2 = b74.b();
-            return b2 != null ? b2.i().getInt("key_h2_heart_beat_timeout", i) : i;
-        }
-        return invokeI.longValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

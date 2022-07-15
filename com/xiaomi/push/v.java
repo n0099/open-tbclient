@@ -16,7 +16,7 @@ public class v {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f1005a;
+    public static String f1732a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m682a() {
+    public static Context m1625a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
@@ -75,7 +75,7 @@ public class v {
             try {
                 return Class.forName(str);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m1027a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", th);
             }
         }
@@ -83,13 +83,13 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m683a() {
+    public static synchronized String m1626a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (v.class) {
-                if (f1005a != null) {
-                    return f1005a;
+                if (f1732a != null) {
+                    return f1732a;
                 }
                 String str = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -105,7 +105,7 @@ public class v {
                     }
                     str = b;
                 }
-                f1005a = str;
+                f1732a = str;
                 return str;
             }
         }
@@ -120,14 +120,14 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m684a() {
+    public static boolean m1627a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? TextUtils.equals((String) bk.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m685a(Context context) {
+    public static boolean m1628a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -146,14 +146,14 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String a2 = u.a("ro.build.version.emui", "");
-            f1005a = a2;
+            f1732a = a2;
             return a2;
         }
         return (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m686b() {
+    public static boolean m1629b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
@@ -176,9 +176,9 @@ public class v {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String a2 = u.a("ro.build.version.opporom", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-                f1005a = "ColorOS_" + a2;
+                f1732a = "ColorOS_" + a2;
             }
-            return f1005a;
+            return f1732a;
         }
         return (String) invokeV.objValue;
     }
@@ -189,9 +189,9 @@ public class v {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String a2 = u.a("ro.vivo.os.version", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-                f1005a = "FuntouchOS_" + a2;
+                f1732a = "FuntouchOS_" + a2;
             }
-            return f1005a;
+            return f1732a;
         }
         return (String) invokeV.objValue;
     }

@@ -4,7 +4,6 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.yoga.YogaNodeJNIBase;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -20,7 +19,7 @@ public final class f {
             int length = bArr.length;
             char[] cArr = new char[length];
             for (int i = 0; i < length; i++) {
-                cArr[i] = (char) (bArr[i] ^ YogaNodeJNIBase.HAS_NEW_LAYOUT);
+                cArr[i] = (char) (bArr[i] ^ 16);
             }
             return new String(cArr);
         }

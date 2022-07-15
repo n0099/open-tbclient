@@ -1,42 +1,63 @@
 package com.repackage;
 
-import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
-import com.baidu.tbadk.core.view.ThreadViewAndCommentInfoLayout;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.data.UserVipInfoData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.personCenter.view.PersonHeadPendantView;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class h28 extends an<CardPersonDynamicThreadData, CardViewHolder<dx5>> {
+public class h28 extends jx5<s18> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public boolean j;
-    public eg<ConstrainImageLayout> k;
-    public eg<TbImageView> l;
+    public int i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public RelativeLayout n;
+    public PersonHeadPendantView o;
+    public RelativeLayout p;
+    public TbImageView q;
+    public TextView r;
+    public TextView s;
+    public ImageView t;
+    public UserData u;
+    public int v;
+    public int w;
 
     /* loaded from: classes6.dex */
-    public class a extends mx5<CardPersonDynamicThreadData> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h28 b;
+        public final /* synthetic */ h28 a;
 
         public a(h28 h28Var) {
             Interceptable interceptable = $ic;
@@ -53,22 +74,28 @@ public class h28 extends an<CardPersonDynamicThreadData, CardViewHolder<dx5>> {
                     return;
                 }
             }
-            this.b = h28Var;
+            this.a = h28Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mx5
-        /* renamed from: d */
-        public void a(View view2, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, cardPersonDynamicThreadData) == null) {
-                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.b.j ? 1 : 2));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.u.getNewGodData() != null && this.a.u.getNewGodData().hasNewGodInvited()) {
+                TiebaStatic.log(new StatisticItem("c13690").param("uid", this.a.u.getUserId()).param("obj_locate", "1"));
+                HashMap hashMap = new HashMap();
+                hashMap.put("from", "6");
+                hashMap.put("field_id", this.a.u.getNewGodData().getFieldId());
+                hashMap.put("animated", Boolean.FALSE);
+                hashMap.put("transparent", Boolean.TRUE);
+                hashMap.put("swipeback", Boolean.FALSE);
+                hashMap.put("present", Boolean.TRUE);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.b.getPageActivity(), "GodInvitePage", hashMap)));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements fg<ConstrainImageLayout> {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h28 a;
@@ -91,146 +118,25 @@ public class h28 extends an<CardPersonDynamicThreadData, CardViewHolder<dx5>> {
             this.a = h28Var;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            e(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            h(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        public ConstrainImageLayout e(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: f */
-        public void b(ConstrainImageLayout constrainImageLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, constrainImageLayout) == null) {
-                constrainImageLayout.removeAllViews();
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.r.getWidth() <= 0) {
+                return;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: g */
-        public ConstrainImageLayout d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.a.i.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
-        }
-
-        public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements fg<TbImageView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h28 a;
-
-        public c(h28 h28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            int x = (((((int) this.a.r.getX()) + this.a.r.getWidth()) + (this.a.u.isNickNameInVerifying ? this.a.v + this.a.s.getWidth() : 0)) + this.a.w) - this.a.p.getWidth();
+            if (x > 0) {
+                int width = this.a.r.getWidth() - x;
+                ViewGroup.LayoutParams layoutParams = this.a.r.getLayoutParams();
+                layoutParams.width = width;
+                this.a.r.setLayoutParams(layoutParams);
             }
-            this.a = h28Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            e(tbImageView2);
-            return tbImageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            h(tbImageView2);
-            return tbImageView2;
-        }
-
-        public TbImageView e(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbImageView)) == null) ? tbImageView : (TbImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: f */
-        public void b(TbImageView tbImageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, tbImageView) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: g */
-        public TbImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.a.i.getPageActivity());
-                tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-                return tbImageView;
-            }
-            return (TbImageView) invokeV.objValue;
-        }
-
-        public TbImageView h(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tbImageView)) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h28(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.I);
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -240,66 +146,167 @@ public class h28 extends an<CardPersonDynamicThreadData, CardViewHolder<dx5>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new eg<>(new b(this), 6, 0);
-        this.l = new eg<>(new c(this), 12, 0);
-        this.i = tbPageContext;
+        this.i = 3;
+        View h = h();
+        PersonHeadPendantView personHeadPendantView = (PersonHeadPendantView) h.findViewById(R.id.obfuscated_res_0x7f09185c);
+        this.o = personHeadPendantView;
+        personHeadPendantView.setHasPendantStyle();
+        this.o.getHeadView().setIsRound(true);
+        this.o.getHeadView().setGodIconWidth(R.dimen.tbds40);
+        this.o.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.o.getHeadView().setPlaceHolder(2);
+        this.n = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091865);
+        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0918a5);
+        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091443);
+        this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091899);
+        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0915ed);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090953);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090956);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090682);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090683);
+        this.t = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0902a4);
+        h.setOnClickListener(this);
+        this.q.setOnClickListener(this);
+        this.v = pi.f(getContext(), R.dimen.M_W_X002);
+        this.w = pi.f(getContext(), R.dimen.tbds62);
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            UserData userData = this.u;
+            this.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getMaskDrawable((userData == null || userData.getSex() != 2) ? R.drawable.icon_mask_boy16_svg : R.drawable.icon_mask_girl16_svg, null), (Drawable) null);
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            UserData userData = this.u;
+            if (userData != null && (userData.getIsMem() > 0 || this.u.isBigV())) {
+                SkinManager.setViewTextColor(this.r, R.color.CAM_X0301, 1);
+            } else {
+                SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1);
+            }
+            ur4 d = ur4.d(this.s);
+            d.v(R.color.CAM_X0108);
+            d.n(R.string.J_X04);
+            d.f(R.color.CAM_X0203);
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            UserData userData = this.u;
+            if (userData == null) {
+                this.q.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_crown_super_non));
+                return;
+            }
+            UserVipInfoData userVipInfo = userData.getUserVipInfo();
+            if (this.u.getIsMem() > 0 && userVipInfo != null && !TextUtils.isEmpty(userVipInfo.getVipIconUrl())) {
+                this.q.J(userVipInfo.getVipIconUrl(), 10, false);
+            } else {
+                this.q.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_crown_super_non));
+            }
+        }
+    }
+
+    @Override // com.repackage.jx5
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b1 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) || this.i == i) {
+            return;
+        }
+        SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.t, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        x();
+        this.i = i;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2 == null) {
+            return;
+        }
+        if (view2 == this.q) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 2));
+            if (ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+                UrlManager.getInstance().dealOneLink(this.b, new String[]{TbConfig.URL_MEMBER_BUY});
+                return;
+            }
+            return;
+        }
+        TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 1));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(ng.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            C();
+            B();
+            A();
+        }
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.t : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public CardViewHolder<dx5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.jx5
+    /* renamed from: z */
+    public void i(s18 s18Var) {
+        UserData userData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            dx5 dx5Var = new dx5(this.i);
-            dx5Var.Q(this.k);
-            dx5Var.P(this.l);
-            dx5Var.h = 4;
-            ThreadViewAndCommentInfoLayout threadViewAndCommentInfoLayout = dx5Var.j;
-            if (threadViewAndCommentInfoLayout != null) {
-                threadViewAndCommentInfoLayout.i = 4;
-            }
-            ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = dx5Var.Q;
-            if (threadCardBottomOpSegmentLayout != null) {
-                threadCardBottomOpSegmentLayout.Q = 4;
-            }
-            OriginalThreadCardView originalThreadCardView = dx5Var.N;
-            if (originalThreadCardView != null) {
-                originalThreadCardView.setUsePlaceHolder(false);
-                dx5Var.N.m = 4;
-            }
-            dx5Var.n(new a(this));
-            return new CardViewHolder<>(dx5Var);
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, s18Var) == null) || s18Var == null || (userData = s18Var.a) == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<dx5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cardPersonDynamicThreadData, cardViewHolder})) == null) {
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().i(cardPersonDynamicThreadData);
-            return cardViewHolder.b();
+        this.u = userData;
+        this.j.setText(Integer.toString(userData.getFansNum()));
+        this.l.setText(Integer.toString(s18Var.a.getConcernNum()));
+        this.o.n(this.u);
+        this.o.j(this.u, 3);
+        if (this.u.getNewGodData() != null && this.u.getNewGodData().hasNewGodInvited()) {
+            TiebaStatic.log(new StatisticItem("c13690").param("uid", this.u.getUserId()).param("obj_locate", "0"));
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.o.getBigVIconView(), R.drawable.icon_mask_shen_hui20_svg, SvgManager.SvgResourceStateType.NORMAL);
+            this.o.setBigVDimenSize(R.dimen.tbds57);
+            this.o.h(true);
+        } else if (this.u.getNewGodData() != null && this.u.getNewGodData().isNewGod()) {
+            this.o.setBigVDimenSize(R.dimen.tbds57);
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void d0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.j = z;
+        this.o.getBigVIconView().setOnClickListener(new a(this));
+        UserData userData2 = this.u;
+        if (userData2.isNickNameInVerifying) {
+            this.r.setText(userData2.nickNameInVerifying);
+            this.s.setVisibility(0);
+        } else {
+            this.r.setText(userData2.getName_show());
+            this.s.setVisibility(4);
         }
+        this.r.post(new b(this));
+        x();
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 }

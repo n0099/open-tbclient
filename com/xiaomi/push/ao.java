@@ -16,16 +16,16 @@ public class ao {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f94a;
+    public Handler f821a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f95a;
+    public a f822a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile b f96a;
+    public volatile b f823a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f97a;
+    public volatile boolean f824a;
     public final boolean b;
 
     /* loaded from: classes8.dex */
@@ -35,7 +35,7 @@ public class ao {
         public final /* synthetic */ ao a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final LinkedBlockingQueue<b> f98a;
+        public final LinkedBlockingQueue<b> f825a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ao aoVar) {
@@ -56,14 +56,14 @@ public class ao {
                 }
             }
             this.a = aoVar;
-            this.f98a = new LinkedBlockingQueue<>();
+            this.f825a = new LinkedBlockingQueue<>();
         }
 
         private void a(int i, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(65537, this, i, bVar) == null) {
                 try {
-                    this.a.f94a.sendMessage(this.a.f94a.obtainMessage(i, bVar));
+                    this.a.f821a.sendMessage(this.a.f821a.obtainMessage(i, bVar));
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
@@ -74,7 +74,7 @@ public class ao {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 try {
-                    this.f98a.add(bVar);
+                    this.f825a.add(bVar);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -86,10 +86,10 @@ public class ao {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 long j = this.a.a > 0 ? this.a.a : Long.MAX_VALUE;
-                while (!this.a.f97a) {
+                while (!this.a.f824a) {
                     try {
-                        b poll = this.f98a.poll(j, TimeUnit.SECONDS);
-                        this.a.f96a = poll;
+                        b poll = this.f825a.poll(j, TimeUnit.SECONDS);
+                        this.a.f823a = poll;
                         if (poll != null) {
                             a(0, poll);
                             poll.b();
@@ -133,7 +133,7 @@ public class ao {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo260c() {
+        public void mo1203c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
@@ -194,10 +194,10 @@ public class ao {
                 return;
             }
         }
-        this.f94a = null;
-        this.f97a = false;
+        this.f821a = null;
+        this.f824a = false;
         this.a = 0;
-        this.f94a = new ap(this, Looper.getMainLooper());
+        this.f821a = new ap(this, Looper.getMainLooper());
         this.b = z;
         this.a = i;
     }
@@ -207,8 +207,8 @@ public class ao {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             synchronized (this) {
-                this.f95a = null;
-                this.f97a = true;
+                this.f822a = null;
+                this.f824a = true;
             }
         }
     }
@@ -217,14 +217,14 @@ public class ao {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
-                if (this.f95a == null) {
+                if (this.f822a == null) {
                     a aVar = new a(this);
-                    this.f95a = aVar;
+                    this.f822a = aVar;
                     aVar.setDaemon(this.b);
-                    this.f97a = false;
-                    this.f95a.start();
+                    this.f824a = false;
+                    this.f822a.start();
                 }
-                this.f95a.a(bVar);
+                this.f822a.a(bVar);
             }
         }
     }
@@ -232,7 +232,7 @@ public class ao {
     public void a(b bVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, j) == null) {
-            this.f94a.postDelayed(new aq(this, bVar), j);
+            this.f821a.postDelayed(new aq(this, bVar), j);
         }
     }
 }

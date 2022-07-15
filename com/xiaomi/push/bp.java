@@ -41,7 +41,7 @@ public class bp {
             }
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(m200a(str));
+                messageDigest.update(m1143a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;
@@ -186,7 +186,7 @@ public class bp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m199a(String str) {
+    public static boolean m1142a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -205,7 +205,7 @@ public class bp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m200a(String str) {
+    public static byte[] m1143a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -225,7 +225,7 @@ public class bp {
             if (str != null) {
                 try {
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                    messageDigest.update(m200a(str));
+                    messageDigest.update(m1143a(str));
                     return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
                 } catch (NoSuchAlgorithmException unused) {
                     return str;
@@ -253,7 +253,7 @@ public class bp {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m201b(String str) {
+    public static boolean m1144b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {

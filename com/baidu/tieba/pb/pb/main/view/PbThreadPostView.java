@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rq7;
+import com.repackage.jr7;
 /* loaded from: classes3.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -50,9 +50,9 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f0916f8);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916f9);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0916f7);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0917a1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a0);
         }
     }
 
@@ -64,7 +64,7 @@ public class PbThreadPostView extends LinearLayout {
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0684, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a0, (ViewGroup) this, true);
             a();
         }
     }
@@ -86,9 +86,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(rq7 rq7Var) {
+    public void setData(jr7 jr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rq7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, jr7Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

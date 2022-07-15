@@ -10,6 +10,7 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,7 +111,7 @@ public class a {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            if (!g.a(context, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
+            if (!g.a(context, PermissionChecker.READ_PHONE_STATE) || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
                 return -1;
             }
             if (m.d()) {

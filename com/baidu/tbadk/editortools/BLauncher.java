@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h05;
-import com.repackage.o05;
-import com.repackage.t05;
+import com.repackage.j15;
+import com.repackage.q15;
+import com.repackage.u15;
 /* loaded from: classes3.dex */
-public class BLauncher extends ImageView implements o05 {
+public class BLauncher extends ImageView implements q15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public t05 d;
+    public u15 d;
     public Drawable e;
     public boolean f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, t05 t05Var) {
+    public BLauncher(Context context, u15 u15Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, t05Var};
+            Object[] objArr = {context, u15Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,19 +53,19 @@ public class BLauncher extends ImageView implements o05 {
         }
         this.c = 0;
         this.f = false;
-        if (t05Var == null) {
+        if (u15Var == null) {
             return;
         }
-        this.d = t05Var;
+        this.d = u15Var;
         setIcon();
-        setToolId(t05Var.c);
+        setToolId(u15Var.c);
     }
 
-    @Override // com.repackage.i05
-    public void C(h05 h05Var) {
+    @Override // com.repackage.k15
+    public void C(j15 j15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) && h05Var != null && h05Var.a == 2) {
-            Object obj = h05Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) && j15Var != null && j15Var.a == 2) {
+            Object obj = j15Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -145,14 +145,14 @@ public class BLauncher extends ImageView implements o05 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (TextView) invokeV.objValue;
     }
 
-    @Override // com.repackage.o05
+    @Override // com.repackage.q15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.o05
+    @Override // com.repackage.q15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -161,7 +161,7 @@ public class BLauncher extends ImageView implements o05 {
         }
     }
 
-    @Override // com.repackage.o05
+    @Override // com.repackage.q15
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -170,7 +170,7 @@ public class BLauncher extends ImageView implements o05 {
         }
     }
 
-    @Override // com.repackage.o05
+    @Override // com.repackage.q15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -203,7 +203,7 @@ public class BLauncher extends ImageView implements o05 {
         }
     }
 
-    @Override // com.repackage.o05
+    @Override // com.repackage.q15
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -212,19 +212,19 @@ public class BLauncher extends ImageView implements o05 {
     }
 
     public void setIcon() {
-        t05 t05Var;
+        u15 u15Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (t05Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (u15Var = this.d) == null) {
             return;
         }
-        if (t05Var.i) {
+        if (u15Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            t05 t05Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(t05Var2.d, t05Var2.e, this.c));
-        } else if (t05Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(t05Var.d, t05Var.e, t05Var.f, t05Var.g, this.c));
+            u15 u15Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(u15Var2.d, u15Var2.e, this.c));
+        } else if (u15Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(u15Var.d, u15Var.e, u15Var.f, u15Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, t05Var.d, this.c);
+            SkinManager.setImageResource(this, u15Var.d, this.c);
         }
         if (this.d.c()) {
             return;
@@ -232,7 +232,6 @@ public class BLauncher extends ImageView implements o05 {
         setEnabled(false);
     }
 
-    @Override // com.repackage.o05
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {

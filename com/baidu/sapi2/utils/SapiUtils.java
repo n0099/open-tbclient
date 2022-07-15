@@ -50,6 +50,7 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,7 +61,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.un.w0;
+import com.kuaishou.weapon.p0.C0294;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -505,7 +506,7 @@ public class SapiUtils implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             try {
-                FileReader fileReader = new FileReader("/proc/cpuinfo");
+                FileReader fileReader = new FileReader(C0294.f19);
                 String readLine = new BufferedReader(fileReader).readLine();
                 fileReader.close();
                 if (!TextUtils.isEmpty(readLine)) {
@@ -906,7 +907,7 @@ public class SapiUtils implements NoProguard {
                         str2 = str;
                         i = 0;
                     }
-                    List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
+                    List<ScanResult> scanResults = checkRequestPermission(PermissionChecker.ACCESS_FINE_LOCATION, context) ? wifiManager.getScanResults() : null;
                     if (scanResults != null) {
                         for (ScanResult scanResult : scanResults) {
                             String str4 = scanResult.BSSID;
@@ -1012,7 +1013,7 @@ public class SapiUtils implements NoProguard {
         }
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+                if (checkRequestPermission(PermissionChecker.READ_PHONE_STATE, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {
@@ -1404,7 +1405,7 @@ public class SapiUtils implements NoProguard {
         String defaultSmsPackage;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65606, null, context, str, list) == null) {
-            String join = (list == null || list.isEmpty()) ? "" : TextUtils.join(w0.w1.equalsIgnoreCase(Build.MANUFACTURER) ? "," : ParamableElem.DIVIDE_PARAM, list);
+            String join = (list == null || list.isEmpty()) ? "" : TextUtils.join("Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? "," : ParamableElem.DIVIDE_PARAM, list);
             Uri parse = Uri.parse("smsto:" + join);
             Intent intent = new Intent();
             intent.setData(parse);

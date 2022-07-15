@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.InputType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -105,7 +104,7 @@ public class e extends com.baidu.platform.base.d {
                 if (optJSONObject != null) {
                     PoiInfo poiInfo = new PoiInfo();
                     poiInfo.setAddress(optJSONObject.optString(DuPaBInfoMsg.B_ADDR));
-                    poiInfo.setPhoneNum(optJSONObject.optString(InputType.TEL));
+                    poiInfo.setPhoneNum(optJSONObject.optString("tel"));
                     poiInfo.setUid(optJSONObject.optString("uid"));
                     poiInfo.setPostCode(optJSONObject.optString(StatConstants.VALUE_TYPE_ZIP));
                     poiInfo.setName(optJSONObject.optString("name"));

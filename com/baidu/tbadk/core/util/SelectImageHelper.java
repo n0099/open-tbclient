@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class SelectImageHelper {
@@ -146,11 +145,11 @@ public class SelectImageHelper {
                 if (CreateFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, w0.I5);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f059a));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a4));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f059a));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a4));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -181,16 +180,16 @@ public class SelectImageHelper {
                     if (z) {
                         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                         intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                        tbPageContext.getPageActivity().startActivityForResult(intent, w0.I5);
+                        tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                     }
                 }
                 if (z) {
                     return;
                 }
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f059a));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a4));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f059a));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a4));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

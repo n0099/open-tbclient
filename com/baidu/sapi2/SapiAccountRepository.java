@@ -9,7 +9,6 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.HttpHashMap;
@@ -87,8 +86,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.repackage.rd1;
-import com.tachikoma.core.component.input.InputType;
+import com.repackage.ge1;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
 import java.net.URL;
@@ -495,7 +493,7 @@ public final class SapiAccountRepository {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("username", str3);
             jSONObject.put("isphone", "1");
-            jSONObject.put(InputType.PASSWORD, str4);
+            jSONObject.put("password", str4);
             jSONObject.put(Constants.KEY_LOGIN_TYPE, "3");
             jSONObject.put("key", sapiDataEncryptor.getAESKey());
             jSONObject.put("sdk_version", "2");
@@ -842,7 +840,7 @@ public final class SapiAccountRepository {
         if (interceptable == null || interceptable.invokeLLI(1048580, this, oneKeyLoginCallback, str, i) == null) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             httpHashMapWrap.put("ability", "onekeylogin");
-            httpHashMapWrap.put("scene", RetrieveTaskManager.KEY);
+            httpHashMapWrap.put("scene", "api");
             httpHashMapWrap.put("clientfrom", "native");
             httpHashMapWrap.put("mobile", str);
             httpHashMapWrap.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
@@ -851,9 +849,9 @@ public final class SapiAccountRepository {
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.CheckAbility.statExtMap.put("phoneNum", str);
             OneKeyLoginStat.CheckAbility.statExtMap.put("connectTimeout", Integer.valueOf(i));
-            OneKeyLoginStat.CheckAbility.statExtMap.put("scene", RetrieveTaskManager.KEY);
+            OneKeyLoginStat.CheckAbility.statExtMap.put("scene", "api");
             OneKeyLoginStat.CheckAbility.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-            OneKeyLoginStat.CheckAbility.statExtMap.put("operator", rd1.c().b(this.configuration.context));
+            OneKeyLoginStat.CheckAbility.statExtMap.put("operator", ge1.c().b(this.configuration.context));
             new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, buildNaCookie, getUaInfo(), i, new HttpHandlerWrap(this, Looper.getMainLooper(), currentTimeMillis, str, oneKeyLoginCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2477,7 +2475,7 @@ public final class SapiAccountRepository {
                 jSONObject.put("clientfrom", "native");
                 jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
                 jSONObject.put("operator", operatorType);
-                jSONObject.put("scene", RetrieveTaskManager.KEY);
+                jSONObject.put("scene", "api");
                 jSONObject.put("sign", str2);
                 if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
                     jSONObject.put("CUVersion", "2");
@@ -2489,7 +2487,7 @@ public final class SapiAccountRepository {
             String str3 = OneKeyLoginResult.secondJsCode;
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.LoadLogin.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-            OneKeyLoginStat.LoadLogin.statExtMap.put("operator", rd1.c().b(this.configuration.context));
+            OneKeyLoginStat.LoadLogin.statExtMap.put("operator", ge1.c().b(this.configuration.context));
             SapiCoreUtil.executeJsCode(oneKeyLoginJsCode, str3, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback(this, currentTimeMillis, oneKeyLoginCallback, loadExternalWebViewActivityCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

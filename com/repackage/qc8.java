@@ -1,193 +1,140 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qc8 extends pc8 {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+/* loaded from: classes7.dex */
+public class qc8 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context R;
-    public kf8 S;
-    public RoundRelativeLayout T;
-    public TbImageView U;
-    public TextView V;
-    public TextView W;
-    public RoundRelativeLayout X;
-    public TbImageView Y;
-    public TextView Z;
-    public TextView g0;
-    public ImageView h0;
+    public boolean a;
+    public final String b;
+    public Process c;
+    public BufferedReader d;
+    public FileOutputStream e;
+    public a f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qc8(Context context, boolean z, int i, kf8 kf8Var) {
-        super(context, z, i);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+    }
+
+    public qc8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), kf8Var};
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.R = context;
-        this.S = kf8Var;
-        y0();
-        g0(2);
-    }
-
-    @Override // com.repackage.pc8
-    public View A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0794, (ViewGroup) null) : (View) invokeV.objValue;
-    }
-
-    public final void A0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int k = (pi.k(TbadkCoreApplication.getInst()) * 879) / 1076;
-            int i = (k * 1342) / 879;
-            ViewGroup.LayoutParams layoutParams = this.T.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = k;
-                layoutParams.height = i;
-            }
-            this.T.setLayoutParams(layoutParams);
-            int i2 = (k * 416) / 879;
-            ViewGroup.LayoutParams layoutParams2 = this.U.getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = i2;
-                layoutParams2.height = i2;
-            }
-            this.U.setLayoutParams(layoutParams2);
+        this.a = true;
+        this.d = null;
+        this.e = null;
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
+            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+        } catch (FileNotFoundException e) {
+            BdLog.e(Log.getStackTraceString(e));
         }
-    }
-
-    @Override // com.repackage.pc8
-    public ShareItem C(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ShareItem shareItem = this.B.get(1);
-            if (shareItem == null) {
-                shareItem = new ShareItem();
-            }
-            shareItem.n0 = false;
-            shareItem.m0 = false;
-            shareItem.v = "";
-            shareItem.g0 = 1;
-            shareItem.i(x0(this.T));
-            shareItem.g();
-            this.B.put(1, shareItem);
-            return super.C(i);
-        }
-        return (ShareItem) invokeI.objValue;
-    }
-
-    @Override // com.repackage.pc8
-    public void j0(Window window) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, window) == null) {
-            window.setLayout(-1, -1);
-        }
-    }
-
-    @Override // com.repackage.pc8
-    public void l0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
-            if (this.S != null) {
-                z0(this.U);
-                this.Y.setImageBitmap(this.S.a());
-                this.V.setText(this.S.d());
-            }
-            WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f080994, R.color.CAM_X0101, null);
-            fr4.d(this.Z).v(R.color.CAM_X0101);
-            fr4.d(this.g0).v(R.color.CAM_X0101);
-            fr4 d = fr4.d(this.V);
-            d.A(R.string.F_X02);
-            d.v(R.color.CAM_X0102);
-            fr4.d(this.W).v(R.color.CAM_X0103);
-            super.l0();
-        }
-    }
-
-    public final Bitmap x0(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_4444);
-            view2.draw(new Canvas(createBitmap));
-            return createBitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public final void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.T = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d7c);
-            this.U = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d7b);
-            this.X = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0911b3);
-            this.Y = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d7f);
-            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d7e);
-            this.W = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d7d);
-            this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ef);
-            this.g0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ee);
-            this.h0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e99);
-            A0();
-            this.T.setRoundLayoutRadius(dr4.y(R.string.J_X06));
-            this.X.setRoundLayoutRadius(dr4.y(R.string.J_X04));
-        }
-    }
-
-    public final void z0(TbImageView tbImageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, tbImageView) == null) || tbImageView == null) {
-            return;
-        }
-        if (this.S.b() == 1) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080a33);
-        } else if (this.S.b() == 2) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080ba6);
-        } else if (this.S.b() == 3) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080a34);
-        } else if (this.S.b() == 4) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080a37);
+        if (z) {
+            this.b = "logcat -v threadtime *:v -d";
         } else {
-            tbImageView.J(this.S.c(), 10, false);
+            this.b = "logcat -v threadtime *:v";
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Process process = this.c;
+            if (process != null) {
+                process.destroy();
+                this.c = null;
+            }
+            BufferedReader bufferedReader = this.d;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                    this.d = null;
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
+            }
+            FileOutputStream fileOutputStream = this.e;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                    BdLog.e(Log.getStackTraceString(e2));
+                }
+                this.e = null;
+            }
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = false;
+            a();
+            interrupt();
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String readLine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                try {
+                    this.c = Runtime.getRuntime().exec(this.b);
+                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
+                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
+                        if (readLine.length() != 0 && this.e != null) {
+                            FileOutputStream fileOutputStream = this.e;
+                            fileOutputStream.write((readLine + "\n").getBytes());
+                        }
+                    }
+                    BdLog.d("collector complete.");
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
+            } finally {
+                a();
+            }
         }
     }
 }

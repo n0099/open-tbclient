@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj7;
+import com.repackage.yj7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UpdateTail.UpdateTailResIdl;
 /* loaded from: classes3.dex */
-public class UpdateTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<gj7> {
+public class UpdateTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<yj7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gj7 resultData;
+    public yj7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UpdateTailSocketResponseMessage() {
@@ -38,7 +38,7 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
         }
     }
 
-    public static gj7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
+    public static yj7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, responsedMessage, i, bArr)) == null) {
@@ -54,11 +54,11 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
             if (updateTailResIdl.data == null) {
                 return null;
             }
-            gj7 gj7Var = new gj7();
-            gj7Var.b(updateTailResIdl.data);
-            return gj7Var;
+            yj7 yj7Var = new yj7();
+            yj7Var.b(updateTailResIdl.data);
+            return yj7Var;
         }
-        return (gj7) invokeLIL.objValue;
+        return (yj7) invokeLIL.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -67,7 +67,7 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            gj7 result = getResult(this, i, bArr);
+            yj7 result = getResult(this, i, bArr);
             this.resultData = result;
             return result;
         }
@@ -77,9 +77,9 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public gj7 getResultData() {
+    public yj7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (gj7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (yj7) invokeV.objValue;
     }
 }

@@ -1,76 +1,132 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ForumToolPerm;
 /* loaded from: classes5.dex */
 public class bd6 {
     public static /* synthetic */ Interceptable $ic;
-    public static bd6 b;
+    public static UserData a;
+    public static boolean b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755830787, "Lcom/repackage/bd6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755830787, "Lcom/repackage/bd6;");
-                return;
-            }
-        }
-        b = new bd6();
-    }
-
-    public bd6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new SparseArray<>();
-    }
-
-    public static bd6 a() {
+    public static UserData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (bd6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (UserData) invokeV.objValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
+    public static UserData b(FrsViewData frsViewData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return !TextUtils.isEmpty(this.a.get(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
+            UserData userData = frsViewData != null ? frsViewData.getUserData() : null;
+            a = userData;
+            return userData;
         }
-        return invokeI.booleanValue;
+        return (UserData) invokeL.objValue;
     }
 
-    public void c(int i) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (String) invokeV.objValue;
+    }
+
+    public static boolean d(UserData userData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
+            if (userData == null) {
+                return false;
+            }
+            int is_manager = userData.getIs_manager();
+            return is_manager == 1 || is_manager == 2 || is_manager == 3 || is_manager == 4;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            UserData a2 = a();
+            return a2 != null && a2.getIs_manager() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            UserData a2 = a();
+            return a2 != null && a2.getIs_manager() == 3;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        List<ForumToolPerm> forumToolAuth;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            UserData a2 = a();
+            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
+                for (int i = 0; i < forumToolAuth.size(); i++) {
+                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
+                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i(qw qwVar, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, qwVar, frsViewData) == null) || qwVar == null) {
+            return;
+        }
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && (d(b(frsViewData)) || h())) {
+            qwVar.c(4);
+        } else {
+            qwVar.d(4);
+        }
+    }
+
+    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) == null) || threadCommentAndPraiseInfoLayout == null) {
+            return;
+        }
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && d(b(frsViewData))) {
+            threadCommentAndPraiseInfoLayout.setManageVisible(true);
+        } else {
+            threadCommentAndPraiseInfoLayout.setManageVisible(false);
         }
     }
 }

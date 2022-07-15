@@ -23,21 +23,37 @@ public class a implements Closeable {
         this.g = true;
         this.h = 0L;
         this.b = inputStream;
-        this.c = new byte[i < 1 ? 16384 : i];
+        this.c = new byte[16384];
     }
 
-    public int a(f fVar) {
-        return a(fVar, Integer.MAX_VALUE);
+    private void a() {
+        if (this.d > 0 || this.f) {
+            return;
+        }
+        try {
+            this.e = 0;
+            int read = this.b.read(this.c);
+            this.d = read;
+            if (read == 0) {
+                com.kwad.sdk.core.d.b.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
+            } else if (read < 0) {
+                close();
+            } else {
+                this.h += read;
+            }
+        } catch (IOException e) {
+            com.kwad.sdk.core.d.b.a(new PngjException(e));
+        }
     }
 
-    public int a(f fVar, int i) {
+    private int b(f fVar, int i) {
         a();
         if (i <= 0 || i >= this.d) {
             i = this.d;
         }
         if (i <= 0) {
             if (!this.f) {
-                com.kwad.sdk.core.d.a.a(new PngjException("This should not happen"));
+                com.kwad.sdk.core.d.b.a(new PngjException("This should not happen"));
             }
             return fVar.b() ? -1 : 0;
         }
@@ -54,48 +70,32 @@ public class a implements Closeable {
             return a2;
         }
         if (!fVar.b()) {
-            com.kwad.sdk.core.d.a.a(new PngjException("This should not happen!"));
+            com.kwad.sdk.core.d.b.a(new PngjException("This should not happen!"));
         }
         return -1;
     }
 
-    public void a() {
-        if (this.d > 0 || this.f) {
-            return;
-        }
-        try {
-            this.e = 0;
-            int read = this.b.read(this.c);
-            this.d = read;
-            if (read == 0) {
-                com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
-            } else if (read < 0) {
-                close();
-            } else {
-                this.h += read;
-            }
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(new PngjException(e));
-        }
+    public final int a(f fVar) {
+        return b(fVar, Integer.MAX_VALUE);
     }
 
-    public void a(boolean z) {
-        this.g = z;
-    }
-
-    public int b(f fVar, int i) {
-        int i2 = i;
+    public final int a(f fVar, int i) {
+        int i2 = 36;
         while (i2 > 0) {
-            int a2 = a(fVar, i2);
-            if (a2 <= 0) {
-                return a2;
+            int b = b(fVar, i2);
+            if (b <= 0) {
+                return b;
             }
-            i2 -= a2;
+            i2 -= b;
         }
         if (a || i2 == 0) {
-            return i;
+            return 36;
         }
         throw new AssertionError();
+    }
+
+    public final void a(boolean z) {
+        this.g = z;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -106,10 +106,7 @@ public class a implements Closeable {
         this.e = 0;
         InputStream inputStream = this.b;
         if (inputStream != null && this.g) {
-            try {
-                inputStream.close();
-            } catch (Exception unused) {
-            }
+            com.kwad.sdk.crash.utils.b.a(inputStream);
         }
         this.b = null;
     }

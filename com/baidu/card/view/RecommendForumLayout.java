@@ -27,17 +27,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.gx;
-import com.repackage.l65;
-import com.repackage.nn4;
-import com.repackage.np4;
-import com.repackage.op4;
+import com.repackage.co4;
+import com.repackage.cq4;
+import com.repackage.dq4;
+import com.repackage.hx;
+import com.repackage.jm4;
+import com.repackage.n75;
 import com.repackage.pi;
-import com.repackage.ul4;
+import com.repackage.ur4;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class RecommendForumLayout extends LinearLayout implements gx {
+public class RecommendForumLayout extends LinearLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -78,14 +78,14 @@ public class RecommendForumLayout extends LinearLayout implements gx {
         }
     }
 
-    public void a(op4 op4Var) {
+    public void a(dq4 dq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, op4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
             this.g.setOnClickListener(this.o);
-            if (!TextUtils.isEmpty(op4Var.d) && op4Var.e != 0) {
-                this.f.setText(op4Var.d);
+            if (!TextUtils.isEmpty(dq4Var.d) && dq4Var.e != 0) {
+                this.f.setText(dq4Var.d);
             } else {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0f83);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0f7e);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
@@ -94,22 +94,22 @@ public class RecommendForumLayout extends LinearLayout implements gx {
             if (!this.j) {
                 this.g.setVisibility(8);
             }
-            if (op4Var != null && op4Var.h() != null && op4Var.h().size() > 0) {
-                ArrayList<? extends l65> arrayList = new ArrayList<>();
-                ArrayList<np4> h = op4Var.h();
+            if (dq4Var != null && dq4Var.g() != null && dq4Var.g().size() > 0) {
+                ArrayList<? extends n75> arrayList = new ArrayList<>();
+                ArrayList<cq4> g = dq4Var.g();
                 if (this.h) {
                     if (this.i) {
-                        arrayList.add(new nn4());
+                        arrayList.add(new co4());
                     }
-                    if (h != null) {
-                        arrayList.addAll(h);
+                    if (g != null) {
+                        arrayList.addAll(g);
                     }
                 } else {
-                    if (h != null) {
-                        arrayList.addAll(h);
+                    if (g != null) {
+                        arrayList.addAll(g);
                     }
                     if (this.i) {
-                        arrayList.add(new nn4());
+                        arrayList.add(new co4());
                     }
                 }
                 this.d.e(arrayList);
@@ -121,16 +121,16 @@ public class RecommendForumLayout extends LinearLayout implements gx {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0706, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0723, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092049);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920ee);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
             this.f = textView;
-            fr4.d(textView).z(R.dimen.T_X07);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e58);
-            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091a19);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091a12);
+            ur4.d(textView).z(R.dimen.T_X07);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e67);
+            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091ac1);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091aba);
             HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.a, this.l);
             this.d = horizontalRecommendForumAdapter;
             int i = this.l;
@@ -143,7 +143,7 @@ public class RecommendForumLayout extends LinearLayout implements gx {
             this.c.setAdapter(this.d);
             this.c.setClipChildren(false);
             this.d.notifyDataSetChanged();
-            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0f83));
+            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0f7e));
             RefreshView refreshView = new RefreshView(getContext());
             this.k = refreshView;
             this.b.setRefreshViewAndListener(refreshView);
@@ -154,17 +154,17 @@ public class RecommendForumLayout extends LinearLayout implements gx {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fr4 d = fr4.d(this);
+            ur4 d = ur4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            fr4.d(this.f).v(R.color.CAM_X0105);
+            ur4.d(this.f).v(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805e4, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.k.d();
             this.d.notifyDataSetChanged();
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
@@ -172,10 +172,10 @@ public class RecommendForumLayout extends LinearLayout implements gx {
         }
     }
 
-    public void setData(op4 op4Var) {
+    public void setData(dq4 dq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, op4Var) == null) {
-            a(op4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, dq4Var) == null) {
+            a(dq4Var);
         }
     }
 
@@ -207,10 +207,10 @@ public class RecommendForumLayout extends LinearLayout implements gx {
         }
     }
 
-    public void setOnItemCoverListener(ul4<np4> ul4Var) {
+    public void setOnItemCoverListener(jm4<cq4> jm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ul4Var) == null) {
-            this.d.g(ul4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, jm4Var) == null) {
+            this.d.g(jm4Var);
         }
     }
 

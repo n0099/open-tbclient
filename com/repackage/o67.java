@@ -1,72 +1,63 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class o67 extends xa {
+public class o67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o67() {
-        super(202009);
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ua
-    /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage instanceof PushResponseMessage) {
-                if (socketResponsedMessage.getError() == 110000) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-                }
-                PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
-                if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                    CustomMessage customMessage = new CustomMessage(2012100);
-                    customMessage.setData(pushResponseMessage.getNotificationData());
-                    MessageManager.getInstance().sendMessage(customMessage);
-                    return null;
-                }
-                List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
-                if (groupMsg != null && groupMsg.size() > 0) {
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.obfuscated_res_0x7f0f0abe;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b == 4) {
+                        i2 = R.string.obfuscated_res_0x7f0f0ac0;
+                    } else if (b != 5) {
+                        if (b == 6) {
+                            i2 = R.string.obfuscated_res_0x7f0f0abf;
                         }
+                        i2 = -1;
+                    } else {
+                        i2 = R.string.obfuscated_res_0x7f0f0ac1;
                     }
                 }
-                return socketResponsedMessage;
             }
-            return null;
+            return i2 != -1 ? TbadkCoreApplication.getInst().getResources().getString(i2) : str;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (String) invokeIL.objValue;
+    }
+
+    public static short b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
+            }
+        }
+        return invokeI.shortValue;
     }
 }

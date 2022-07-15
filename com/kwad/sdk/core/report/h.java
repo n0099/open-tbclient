@@ -1,13 +1,10 @@
 package com.kwad.sdk.core.report;
 
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface h<T> {
-    long a();
-
-    void a(T t);
-
-    void a(List<T> list);
-
-    List<T> b();
+public final class h implements n {
+    @Override // com.kwad.sdk.core.report.n
+    public final m a(JSONObject jSONObject) {
+        return new m(jSONObject);
+    }
 }

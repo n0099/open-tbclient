@@ -1,11 +1,9 @@
 package com.repackage;
 
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface xg1 {
-    List<p13> a(p03 p03Var);
+    void a(int i);
 
-    List<p13> b(p03 p03Var);
-
-    List<p13> c(p03 p03Var);
+    void b(JSONObject jSONObject);
 }

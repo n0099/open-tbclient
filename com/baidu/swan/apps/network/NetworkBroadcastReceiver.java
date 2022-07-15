@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
+import com.repackage.rg1;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
@@ -37,7 +37,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = cg1.a;
+        DEBUG = rg1.a;
     }
 
     public NetworkBroadcastReceiver(CallbackHandler callbackHandler, String str) {

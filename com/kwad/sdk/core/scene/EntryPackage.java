@@ -2,7 +2,7 @@ package com.kwad.sdk.core.scene;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class EntryPackage extends URLPackage {
@@ -32,8 +32,8 @@ public class EntryPackage extends URLPackage {
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        t.a(json, "entryPageSource", this.entryPageSource);
-        t.a(json, "entryId", this.entryId);
+        r.a(json, "entryPageSource", this.entryPageSource);
+        r.a(json, "entryId", this.entryId);
         return json;
     }
 }

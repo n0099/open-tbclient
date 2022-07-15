@@ -33,14 +33,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
-import com.repackage.ek4;
-import com.repackage.fk4;
-import com.repackage.gd5;
 import com.repackage.h9;
+import com.repackage.je5;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.xw5;
+import com.repackage.rl4;
+import com.repackage.tk4;
+import com.repackage.uk4;
+import com.repackage.ux5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class UserIconLayout extends LinearLayout {
@@ -91,7 +91,7 @@ public class UserIconLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null || this.a.g.getAuthor() == null) {
                 return;
             }
-            cl4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f4), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            rl4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ed), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.j == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -242,8 +242,8 @@ public class UserIconLayout extends LinearLayout {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new xw5.a(str, R.drawable.pic_smalldot_title));
-            return xw5.h(this.a, str2, arrayList, true);
+            arrayList.add(new ux5.a(str, R.drawable.pic_smalldot_title));
+            return ux5.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -262,15 +262,15 @@ public class UserIconLayout extends LinearLayout {
             this.d = new UserIconBox(this.a);
             this.e = new UserIconBox(this.a);
             this.b = new TextView(this.a);
-            View a2 = fk4.b().a(this.a, 1);
+            View a2 = uk4.b().a(this.a, 1);
             this.c = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
             }
-            layoutParams.setMargins(0, 0, pi.f(this.a, R.dimen.obfuscated_res_0x7f070234), pi.f(this.a, R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.setMargins(0, 0, pi.f(this.a, R.dimen.obfuscated_res_0x7f070232), pi.f(this.a, R.dimen.obfuscated_res_0x7f070224));
             layoutParams2.setMargins(pi.f(this.a, R.dimen.obfuscated_res_0x7f0701b2), -pi.f(this.a, R.dimen.obfuscated_res_0x7f070198), 0, 0);
             layoutParams3.setMargins(0, pi.f(this.a, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
-            layoutParams4.setMargins(pi.f(this.a, R.dimen.obfuscated_res_0x7f070305), pi.f(this.a, R.dimen.obfuscated_res_0x7f07029b), 0, 0);
+            layoutParams4.setMargins(pi.f(this.a, R.dimen.obfuscated_res_0x7f070304), pi.f(this.a, R.dimen.obfuscated_res_0x7f07029a), 0, 0);
             this.b.setTextSize(0, pi.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
             if (!this.i) {
                 this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
@@ -307,10 +307,10 @@ public class UserIconLayout extends LinearLayout {
         if (threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.c != null) {
-                ek4 ek4Var = new ek4();
-                ek4Var.a = alaUserData;
-                ek4Var.b = 1;
-                this.c.setTag(ek4Var);
+                tk4 tk4Var = new tk4();
+                tk4Var.a = alaUserData;
+                tk4Var.b = 1;
+                this.c.setTag(tk4Var);
             }
         }
         if (StringUtils.isNull(this.g.getAuthor().getName_show())) {
@@ -320,26 +320,26 @@ public class UserIconLayout extends LinearLayout {
             String name_show = this.g.getAuthor().getName_show();
             if (this.i) {
                 if (this.k) {
-                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), gd5.l(name_show, 20)));
+                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), je5.l(name_show, 20)));
                     int byteLength = oi.byteLength(name_show);
                     i = byteLength < 20 ? byteLength >= 16 ? 2 : 4 : 1;
                     ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
                     if (!this.f && ListUtils.getCount(iconInfo) != 0) {
                         this.e.setVisibility(0);
-                        this.e.h(iconInfo, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234), true);
+                        this.e.h(iconInfo, i, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), true);
                     } else {
                         this.e.setVisibility(8);
                     }
                     tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
                     if (ListUtils.getCount(tShowInfoNew) == 0) {
                         this.d.setVisibility(0);
-                        this.d.h(tShowInfoNew, 2, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070305), true);
+                        this.d.h(tShowInfoNew, 2, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304), true);
                     } else {
                         this.d.setVisibility(8);
                     }
                     setUserTextColor(threadData);
                 }
-                this.b.setText(gd5.l(name_show, 20));
+                this.b.setText(je5.l(name_show, 20));
             } else if (this.k) {
                 this.b.setText(e(this.g.getAuthor().getSealPrefix(), name_show));
             } else {

@@ -1,38 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.SdkConfigData;
+import com.kwad.components.ad.splashscreen.preload.SplashPreloadManager;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ef implements com.kwad.sdk.core.d<SdkConfigData.TemplateConfig> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(SdkConfigData.TemplateConfig templateConfig, JSONObject jSONObject) {
+public final class ef implements com.kwad.sdk.core.d<SplashPreloadManager.PreLoadPara> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        templateConfig.h5Url = jSONObject.optString("h5Url");
-        if (jSONObject.opt("h5Url") == JSONObject.NULL) {
-            templateConfig.h5Url = "";
-        }
-        templateConfig.h5Version = jSONObject.optString("h5Version");
-        if (jSONObject.opt("h5Version") == JSONObject.NULL) {
-            templateConfig.h5Version = "";
-        }
-        templateConfig.h5Checksum = jSONObject.optString("h5Checksum");
-        if (jSONObject.opt("h5Checksum") == JSONObject.NULL) {
-            templateConfig.h5Checksum = "";
-        }
+        preLoadPara.spreadTime = jSONObject.optLong("spreadTime");
+        preLoadPara.isValidReturned = jSONObject.optInt("isValidReturned");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(SdkConfigData.TemplateConfig templateConfig, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "h5Url", templateConfig.h5Url);
-        com.kwad.sdk.utils.t.a(jSONObject, "h5Version", templateConfig.h5Version);
-        com.kwad.sdk.utils.t.a(jSONObject, "h5Checksum", templateConfig.h5Checksum);
+        com.kwad.sdk.utils.r.a(jSONObject, "spreadTime", preLoadPara.spreadTime);
+        com.kwad.sdk.utils.r.a(jSONObject, "isValidReturned", preLoadPara.isValidReturned);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
+        a2(preLoadPara, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
+        return b2(preLoadPara, jSONObject);
     }
 }

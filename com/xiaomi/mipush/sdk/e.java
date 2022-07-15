@@ -14,14 +14,14 @@ public final class e {
     public static final e a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ e[] f69a;
+    public static final /* synthetic */ e[] f796a;
     public static final e b;
     public static final e c;
     public static final e d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f70a;
+    public int f797a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class e {
         c = new e("ASSEMBLE_PUSH_COS", 2, 3);
         e eVar = new e("ASSEMBLE_PUSH_FTOS", 3, 4);
         d = eVar;
-        f69a = new e[]{a, b, c, eVar};
+        f796a = new e[]{a, b, c, eVar};
     }
 
     public e(String str, int i, int i2) {
@@ -62,7 +62,7 @@ public final class e {
                 return;
             }
         }
-        this.f70a = i2;
+        this.f797a = i2;
     }
 
     public static e valueOf(String str) {
@@ -74,6 +74,6 @@ public final class e {
     public static e[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) f69a.clone() : (e[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) f796a.clone() : (e[]) invokeV.objValue;
     }
 }

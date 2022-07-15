@@ -23,7 +23,7 @@ import com.baidu.turbonet.base.annotations.UsedByReflection;
 import com.baidu.turbonet.net.TurbonetEngine;
 import com.baidu.turbonet.net.UrlRequest;
 import com.baidu.turbonet.net.proxy.ProxyConfig;
-import com.repackage.pz8;
+import com.repackage.o09;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -55,9 +55,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public ProxyConfig l;
     public TurbonetEngine.TCPNetworkQualityStatus m;
     @GuardedBy("mDataTrafficMonitorLock")
-    public final pz8<DataTrafficListener> n;
+    public final o09<DataTrafficListener> n;
     @GuardedBy("mNetworkQualityLock")
-    public final pz8<NetworkQualityListener> o;
+    public final o09<NetworkQualityListener> o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -349,8 +349,8 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         this.l = ProxyConfig.b;
         TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.UNKNOWN;
         this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-        this.n = new pz8<>();
-        this.o = new pz8<>();
+        this.n = new o09<>();
+        this.o = new o09<>();
         this.g = builder.f();
         try {
             this.e = (PowerManager) builder.getContext().getSystemService("power");

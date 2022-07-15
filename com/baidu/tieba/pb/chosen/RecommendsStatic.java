@@ -44,7 +44,7 @@ public class RecommendsStatic {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (strArr != null && strArr.length > 0) {
                     String str = strArr[0];
-                    if (str.startsWith("http://tieba.baidu.com/mo/q/recommendpb") && str.contains("ftid=")) {
+                    if (str.startsWith("https://tieba.baidu.com/mo/q/recommendpb") && str.contains("ftid=")) {
                         String substring = str.substring(str.lastIndexOf("ftid=") + 5);
                         if (tbPageContext != null) {
                             tbPageContext.sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(tbPageContext.getPageActivity(), ng.g(substring, 0L), null)));

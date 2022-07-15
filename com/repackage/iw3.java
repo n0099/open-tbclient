@@ -1,84 +1,535 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
+import com.baidu.searchbox.v8engine.JsCodeCacheResult;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uw3;
+import com.repackage.w72;
+import com.repackage.ww3;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public class iw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public p72 a;
+    public DuMixGameSurfaceView b;
+    public ns1 c;
+    public e d;
+    public String e;
+    public boolean f;
+    public boolean g;
 
-    @Inject(force = false)
-    public static yw3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? am5.a() : (yw3) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iw3 a;
+
+        public a(iw3 iw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.r();
+                this.a.s();
+                this.a.u();
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static dx3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new mw3() : (dx3) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ww3.c a;
+        public final /* synthetic */ Runnable b;
+        public final /* synthetic */ iw3 c;
+
+        public b(iw3 iw3Var, ww3.c cVar, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw3Var, cVar, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = iw3Var;
+            this.a = cVar;
+            this.b = runnable;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (iw3.h) {
+                    Log.d("SwanGameV8Master", "SwanGameCoreRuntime JSThread run event start");
+                }
+                a04 a04Var = this.a.c;
+                uw3 uw3Var = a04Var == null ? null : a04Var.f;
+                uw3.a f = uw3.f(uw3Var);
+                if (f.b()) {
+                    SwanInspectorEndpoint.v().r(uw3Var, this.c.a, f, this.b);
+                    return;
+                }
+                SwanInspectorEndpoint.v().w(f);
+                this.b.run();
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static cx3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new lw3() : (cx3) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class c implements V8ThreadDelegatePolicy {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public DuMixGameSurfaceView c;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ V8Engine a;
+
+            public a(c cVar, V8Engine v8Engine) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, v8Engine};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = v8Engine;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (iw3.h) {
+                        Log.d("SwanGameV8Master", "startEngineInternal");
+                    }
+                    this.a.startEngineInternal();
+                }
+            }
+        }
+
+        public c(iw3 iw3Var, DuMixGameSurfaceView duMixGameSurfaceView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw3Var, duMixGameSurfaceView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = duMixGameSurfaceView;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+        public void doDelegateRunnable(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                this.c.t(runnable);
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+        public void doDelegateRunnableDirectly(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+                this.c.w(runnable);
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+        public Thread getThread() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getThread() : (Thread) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+        public void shutdown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.c.l();
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+        public void startV8Engine(V8Engine v8Engine) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, v8Engine) == null) {
+                if (iw3.h) {
+                    Log.d("SwanGameV8Master", "startV8Engine");
+                }
+                this.c.w(new a(this, v8Engine));
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+        public void doDelegateRunnable(Runnable runnable, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
+                this.c.u(runnable, j);
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static zw3 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sp3.a() : (zw3) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class d extends l82 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ iw3 c;
+
+        /* loaded from: classes6.dex */
+        public class a implements JsCodeCacheCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // com.baidu.searchbox.v8engine.JsCodeCacheCallback
+            public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, jsCodeCacheResult) == null) {
+                    this.a.f(jsCodeCacheResult);
+                }
+            }
+        }
+
+        public d(@NonNull iw3 iw3Var, @NonNull String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw3Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = iw3Var;
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // com.repackage.m82
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.l82, com.repackage.m82
+        public V8EngineConfiguration.CodeCacheSetting b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? tu3.a("gameframe", getInitBasePath()) : (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+        }
+
+        @Override // com.repackage.l82, com.repackage.m82
+        public void c(p72 p72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p72Var) == null) {
+                mt2.p("preload").F(new UbcFlowEvent("na_load_swan_game_js_end"));
+                if (this.c.d != null) {
+                    this.c.d.a(p72Var);
+                }
+            }
+        }
+
+        @Override // com.repackage.l82, com.repackage.m82
+        public void d(p72 p72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, p72Var) == null) {
+                this.c.c.b(p72Var, oj2.c());
+                new mu3().a(p72Var, oj2.c());
+                p72Var.G0(new a(this));
+                mt2.p("preload").F(new UbcFlowEvent("na_load_swan_game_js_start"));
+            }
+        }
+
+        public final void f(JsCodeCacheResult jsCodeCacheResult) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, jsCodeCacheResult) == null) || jsCodeCacheResult == null) {
+                return;
+            }
+            if (iw3.h) {
+                Log.d("SwanGameV8Master", "jsCodeCacheResult isCacheUsed:" + jsCodeCacheResult.isCacheUsed + " ,jsPath: " + jsCodeCacheResult.jsPath);
+            }
+            if (!jsCodeCacheResult.isCacheUsed || TextUtils.isEmpty(jsCodeCacheResult.jsPath)) {
+                return;
+            }
+            File file = new File(jsCodeCacheResult.jsPath);
+            try {
+                if (TextUtils.isEmpty(getInitBasePath()) || !file.getCanonicalPath().startsWith(new File(getInitBasePath()).getCanonicalPath())) {
+                    if (!TextUtils.isEmpty(this.c.e) && file.getCanonicalPath().startsWith(new File(this.c.e).getCanonicalPath())) {
+                        this.c.g = true;
+                    }
+                } else {
+                    this.c.f = true;
+                }
+            } catch (IOException e) {
+                if (iw3.h) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override // com.repackage.m82
+        public String getInitBasePath() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
     }
 
-    @Inject(force = false)
-    public static bx3 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? xp3.a() : (bx3) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(p72 p72Var);
     }
 
-    @Inject(force = false)
-    public static ax3 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? up3.a() : (ax3) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755604084, "Lcom/repackage/iw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755604084, "Lcom/repackage/iw3;");
+                return;
+            }
+        }
+        h = rg1.a;
     }
 
-    @Inject(force = false)
-    public static ex3 g() {
-        InterceptResult invokeV;
+    public iw3(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new nw3() : (ex3) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = new ns1();
+        q(str, str2);
     }
 
-    @Inject(force = false)
-    public static fx3 h() {
-        InterceptResult invokeV;
+    public void k(Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new ow3() : (fx3) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c.a(activity);
+        }
     }
 
-    @Inject(force = false)
-    public static gx3 i() {
+    public final w72 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new pw3() : (gx3) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            w72.b bVar = new w72.b();
+            bVar.c(2);
+            bVar.b("master");
+            return bVar.a();
+        }
+        return (w72) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static hx3 j() {
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (h) {
+                Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish engine");
+            }
+            this.a.U();
+            if (this.b.isAttachedToWindow()) {
+                return;
+            }
+            if (h) {
+                Log.d("SwanGameV8Master", "SwanGameCoreRuntime finish surfaceView");
+            }
+            this.b.p();
+        }
+    }
+
+    public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new qw3() : (hx3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? tu3.b(this.f, this.g) : invokeV.intValue;
+    }
+
+    public p72 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (p72) invokeV.objValue;
+    }
+
+    public DuMixGameSurfaceView p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (DuMixGameSurfaceView) invokeV.objValue;
+    }
+
+    public final void q(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            DuMixGameSurfaceView a2 = ow3.b().a(AppRuntime.getAppContext());
+            this.b = a2;
+            a2.setRenderMode(1);
+            p72 b2 = v72.b(l(), new d(this, str, str2), new c(this, this.b));
+            this.a = b2;
+            b2.D0(oj2.c());
+            this.b.setV8Engine(this.a);
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.x();
+            this.a.F0(new i82());
+            this.a.I0();
+            this.a.E0();
+            this.a.C0(tu3.a("gamejs", this.e));
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && h && gw2.f() && new File(iv3.b(), iv3.d()).exists()) {
+            this.a.Z(iv3.b().getAbsolutePath(), iv3.d());
+        }
+    }
+
+    public void t(ww3.c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) || cVar == null || TextUtils.isEmpty(cVar.a)) {
+            return;
+        }
+        this.e = cVar.a;
+        a aVar = new a(this);
+        if (h) {
+            Log.d("SwanGameV8Master", "SwanGameCoreRuntime loadAppJs run event");
+        }
+        this.a.runOnJSThread(new b(this, cVar, aVar));
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (h) {
+                Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js start.");
+            }
+            HybridUbcFlow p = mt2.p("startup");
+            p.I(HybridUbcFlow.SubmitStrategy.NA_ONLY);
+            p.F(new UbcFlowEvent("na_load_index_js_start"));
+            this.a.dispatchEvent(new hy3());
+            this.a.Z(this.e, "index.js");
+            this.a.dispatchEvent(new iy3());
+            mt2.p("startup").F(new UbcFlowEvent("na_load_index_js_end"));
+            if (h) {
+                Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js end.");
+            }
+            this.a.z0();
+            this.b.o();
+        }
+    }
+
+    public void v(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
+            this.d = eVar;
+        }
     }
 }

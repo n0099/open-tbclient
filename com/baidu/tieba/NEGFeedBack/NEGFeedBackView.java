@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ei5;
 import com.repackage.h9;
+import com.repackage.hj5;
+import com.repackage.kp4;
 import com.repackage.pi;
-import com.repackage.vo4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends AppCompatImageView {
@@ -36,7 +36,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public ei5 h;
+    public hj5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, vo4 vo4Var);
+        void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var);
 
-        void b(vo4 vo4Var, CompoundButton compoundButton, boolean z);
+        void b(kp4 kp4Var, CompoundButton compoundButton, boolean z);
 
-        void c(vo4 vo4Var);
+        void c(kp4 kp4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f0808f0;
+        this.f = R.drawable.obfuscated_res_0x7f0808f9;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -168,7 +168,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new ei5(tbPageContext, this);
+            this.h = new hj5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -208,10 +208,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(vo4 vo4Var) {
+    public void setData(kp4 kp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vo4Var) == null) {
-            this.h.v(vo4Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, kp4Var) == null) {
+            this.h.v(kp4Var);
         }
     }
 

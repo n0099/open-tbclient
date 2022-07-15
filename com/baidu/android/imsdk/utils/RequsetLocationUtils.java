@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.utils;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +33,7 @@ public class RequsetLocationUtils extends BaseUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {
+            if (context.checkCallingOrSelfPermission(PermissionChecker.ACCESS_FINE_LOCATION) == 0) {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 List<String> providers = locationManager.getProviders(true);
                 String str = "gps";

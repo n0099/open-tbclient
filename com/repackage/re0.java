@@ -1,312 +1,270 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import android.opengl.GLES20;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.File;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class re0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "MediaTrackUtils";
-    public static String b = "FILTER_MATRIX";
-    public static String c = "FILTER_LUT";
-    public static String d = "FILTER_SUB_LUT";
-    public static String e = "FILTER_SUBTITLE";
-    public static String f = "FILTER_STICKER";
-    public static String g = "FILTER_GAUSSIAN_BLUR_H";
-    public static String h = "FILTER_GAUSSIAN_BLUR_V";
-    public static boolean i = false;
-    public static int j = 1;
+public class re0 extends pe0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755353356, "Lcom/repackage/re0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public re0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755353356, "Lcom/repackage/re0;");
-        }
-    }
-
-    public static void a(MediaTrack mediaTrack, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, mediaTrack, j2) == null) {
-            pe0.b(mediaTrack, j2);
-            n(mediaTrack);
-        }
-    }
-
-    public static void b(MediaTrack mediaTrack, Map<String, ShaderConfig> map, MediaTrack mediaTrack2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, mediaTrack, map, mediaTrack2) == null) {
-            pe0.f(mediaTrack, map, mediaTrack2);
-        }
-    }
-
-    public static void c(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, mediaTrack, mediaTrackConfig) == null) {
-            pe0.g(mediaTrack, mediaTrackConfig);
-        }
-    }
-
-    public static void d(MediaTrack mediaTrack, List<MediaSegment> list, MediaTrackConfig mediaTrackConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrack, list, mediaTrackConfig) == null) {
-            pe0.h(mediaTrack, list, mediaTrackConfig);
-        }
-    }
-
-    public static List<MediaTrack> e(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, Map<String, ShaderConfig> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, mediaTrack, mediaTrackConfig, map)) == null) {
-            List<MediaTrack> j2 = pe0.j(mediaTrack, mediaTrackConfig, map);
-            for (MediaTrack mediaTrack2 : j2) {
-                n(mediaTrack2);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return j2;
         }
-        return (List) invokeLLL.objValue;
     }
 
-    public static String f(Context context, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.oe0
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, str2, str3)) == null) ? pe0.o(context, str, str2, str3) : (String) invokeLLLL.objValue;
-    }
-
-    public static Bitmap g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            if (this.e) {
+                System.currentTimeMillis();
             }
-            if (!str.contains(File.separator)) {
-                return BitmapFactory.decodeResource(context.getResources(), h(str, context));
+            I();
+            if (i != this.f || i2 != this.g) {
+                this.f = i;
+                this.g = i2;
+                t(" w * h : " + i + " * " + i2);
+                s();
             }
-            return BitmapFactory.decodeFile(str);
+            if (i == 0 || i2 == 0) {
+                return;
+            }
+            q();
+            le0 le0Var = this.c;
+            if (le0Var != null) {
+                le0Var.g();
+            }
+            le0 le0Var2 = this.d;
+            if (le0Var2 != null) {
+                le0Var2.g();
+            }
         }
-        return (Bitmap) invokeLL.objValue;
     }
 
-    public static int h(String str, Context context) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.oe0
+    public int d(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        ke0 G;
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrack, i, map)) == null) {
             try {
-                ApplicationInfo applicationInfo = context.getApplicationInfo();
-                int identifier = context.getResources().getIdentifier(str, ResourceManager.DRAWABLE, applicationInfo.packageName);
-                return identifier == 0 ? context.getResources().getIdentifier(str, "mipmap", applicationInfo.packageName) : identifier;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return 0;
+                if (this.c != null && i != 0 && mediaTrack != null && this.m != null && this.l != null && (G = G(map, mediaTrack)) != null) {
+                    return this.c.e(i, G);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                u(e.toString(), e);
             }
+            return i;
         }
-        return invokeLL.intValue;
+        return invokeLIL.intValue;
     }
 
-    public static MediaAEffect i(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, String str, int i2, int i3, long j2) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0099 */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v1, resolved type: int */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v2, resolved type: float[] */
+    /* JADX DEBUG: Multi-variable search result rejected for r11v3, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.repackage.oe0
+    public int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
+        InterceptResult invokeCommon;
+        int i3;
+        int i4;
+        int z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) != null) {
+            return invokeCommon.intValue;
+        }
+        try {
+            try {
+                if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
+                    le0 le0Var = this.c;
+                    float f = mediaTrack.glClearColor[0];
+                    float f2 = mediaTrack.glClearColor[1];
+                    float f3 = mediaTrack.glClearColor[2];
+                    i3 = mediaTrack.glClearColor[3];
+                    le0Var.h(f, f2, f3, i3);
+                    ArrayList arrayList = new ArrayList();
+                    try {
+                        if (mediaTrack.mediaSegments == null || mediaTrack.mediaSegments.size() <= this.i) {
+                            i4 = i;
+                        } else {
+                            MediaSegment mediaSegment = mediaTrack.mediaSegments.get(this.i);
+                            i4 = i == 0 ? mediaSegment.textureId : i;
+                            if (i2 == 1) {
+                                z = z(mediaSegment, i4, map);
+                            } else if (i2 == 2) {
+                                z = y(mediaSegment, i4, map);
+                            } else if (i2 == 3) {
+                                z = A(mediaTrack, i4, map);
+                            } else if (i2 == 4) {
+                                C(map, arrayList, mediaTrack);
+                            } else if (i2 != 5) {
+                                z = B(mediaTrack, mediaSegment, i4, map, arrayList);
+                            } else {
+                                z = x(i4);
+                            }
+                            i4 = z;
+                        }
+                        if (i4 != 0 && arrayList.size() > 0) {
+                            i4 = this.c.f(i4, arrayList);
+                        }
+                        return i4;
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        u(e.toString(), e);
+                        le0 le0Var2 = this.c;
+                        if (le0Var2 != null) {
+                            le0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
+                        }
+                        return i3;
+                    }
+                }
+                le0 le0Var3 = this.c;
+                if (le0Var3 != null) {
+                    le0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
+                }
+                return i;
+            } catch (Exception e2) {
+                e = e2;
+                i3 = i;
+            }
+        } finally {
+            le0 le0Var4 = this.c;
+            if (le0Var4 != null) {
+                le0Var4.h(0.0f, 0.0f, 0.0f, 0.0f);
+            }
+        }
+    }
+
+    @Override // com.repackage.oe0
+    public int h(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaSegment, i, map)) == null) ? mediaSegment == null ? i : r(mediaSegment, i, map) : invokeLIL.intValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004e, code lost:
+        if (r8 != null) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:
+        r8.h(0.0f, 0.0f, 0.0f, 0.0f);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x006b, code lost:
+        if (r8 == null) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x006e, code lost:
+        return r9;
+     */
+    @Override // com.repackage.oe0
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int i(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        le0 le0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(1048580, this, mediaTrack, i, map)) != null) {
+            return invokeLIL.intValue;
+        }
+        try {
+            try {
+                if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
+                    this.c.h(mediaTrack.glClearColor[0], mediaTrack.glClearColor[1], mediaTrack.glClearColor[2], mediaTrack.glClearColor[3]);
+                    ArrayList arrayList = new ArrayList();
+                    i = D(map, arrayList, mediaTrack, i);
+                    if (i != 0 && arrayList.size() > 0) {
+                        return this.c.f(i, arrayList);
+                    }
+                    le0Var = this.c;
+                }
+                le0 le0Var2 = this.c;
+                if (le0Var2 != null) {
+                    le0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
+                }
+                return i;
+            } catch (Exception e) {
+                e.printStackTrace();
+                u(e.toString(), e);
+                le0Var = this.c;
+            }
+        } finally {
+            le0 le0Var3 = this.c;
+            if (le0Var3 != null) {
+                le0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
+            }
+        }
+    }
+
+    @Override // com.repackage.oe0
+    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{mediaTrack, mediaTrackConfig, str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) ? pe0.t(mediaTrack, mediaTrackConfig, str, i2, i3, j2) : (MediaAEffect) invokeCommon.objValue;
-    }
-
-    public static String j(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) ? pe0.v(context, str, str2) : (String) invokeLLL.objValue;
-    }
-
-    public static boolean k(List<MediaTrack> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, list, str)) == null) ? pe0.x(list, str) : invokeLL.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? i : invokeV.booleanValue;
-    }
-
-    public static boolean m(MediaTrack mediaTrack, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, mediaTrack, str)) == null) ? pe0.E(mediaTrack, str) : invokeLL.booleanValue;
-    }
-
-    public static void n(MediaTrack mediaTrack) {
-        String str;
-        String str2;
-        ShaderParams next;
-        Iterator<ShaderParams> it;
-        String str3;
-        MediaSegment mediaSegment;
-        String str4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65550, null, mediaTrack) == null) && i) {
-            Log.d(a, "---------------------start----------------------------");
-            List<MediaSegment> list = mediaTrack.mediaSegments;
-            String str5 = PreferencesUtil.LEFT_MOUNT;
-            String str6 = ": ";
-            if (list != null) {
-                int i2 = 0;
-                while (i2 < mediaTrack.mediaSegments.size()) {
-                    MediaSegment mediaSegment2 = mediaTrack.mediaSegments.get(i2);
-                    Log.d(a, " --> segment : " + i2 + str6 + mediaSegment2.type + "--->" + mediaSegment2.start + "----" + mediaSegment2.end + "---> scaleType --->" + mediaSegment2.scaleType + " shaderConfigKey --->" + mediaSegment2.shaderConfigKey + " effectConfigKey --->" + mediaSegment2.effectConfigKey);
-                    MediaAEffect mediaAEffect = mediaSegment2.mediaAEffect;
-                    if (mediaAEffect != null && mediaAEffect.mediaOneAEffects != null) {
-                        int i3 = 0;
-                        while (i3 < mediaSegment2.mediaAEffect.mediaOneAEffects.size()) {
-                            MediaOneAEffect mediaOneAEffect = mediaSegment2.mediaAEffect.mediaOneAEffects.get(i3);
-                            String str7 = a;
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("effect : ");
-                            sb.append(i2);
-                            sb.append("->");
-                            sb.append(i3);
-                            sb.append(str6);
-                            String str8 = str5;
-                            String str9 = str6;
-                            sb.append(mediaOneAEffect.start);
-                            sb.append("----");
-                            sb.append(mediaOneAEffect.end);
-                            sb.append(" shaderConfigKey --->");
-                            sb.append(mediaSegment2.mediaAEffect.shaderConfigKey);
-                            Log.d(str7, sb.toString());
-                            List<ShaderParams> list2 = mediaOneAEffect.aParams;
-                            if (list2 != null) {
-                                Iterator<ShaderParams> it2 = list2.iterator();
-                                while (it2.hasNext()) {
-                                    float[] fArr = it2.next().values;
-                                    if (fArr != null) {
-                                        int length = fArr.length;
-                                        it = it2;
-                                        str4 = str8;
-                                        int i4 = 0;
-                                        while (true) {
-                                            str3 = str8;
-                                            if (i4 >= length) {
-                                                break;
-                                            }
-                                            str4 = str4 + fArr[i4] + "---";
-                                            i4++;
-                                            str8 = str3;
-                                            mediaSegment2 = mediaSegment2;
-                                        }
-                                        mediaSegment = mediaSegment2;
-                                    } else {
-                                        it = it2;
-                                        str3 = str8;
-                                        mediaSegment = mediaSegment2;
-                                        str4 = str3;
-                                    }
-                                    Log.d(a, "ShaderParams ------> type: " + next.type + " name: " + next.name + " values: " + (str4 + PreferencesUtil.RIGHT_MOUNT));
-                                    it2 = it;
-                                    str8 = str3;
-                                    mediaSegment2 = mediaSegment;
-                                }
-                            }
-                            i3++;
-                            str6 = str9;
-                            str5 = str8;
-                            mediaSegment2 = mediaSegment2;
-                        }
-                    }
-                    i2++;
-                    str6 = str6;
-                    str5 = str5;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) {
+            if (i == 0 || this.m == null) {
+                return i;
             }
-            String str10 = str5;
-            String str11 = str6;
-            if (mediaTrack.mediaTransitions != null) {
-                for (int i5 = 0; i5 < mediaTrack.mediaTransitions.size(); i5++) {
-                    MediaTransition mediaTransition = mediaTrack.mediaTransitions.get(i5);
-                    Log.d(a, " --> transition : " + i5 + " ---> " + i5 + str11 + mediaTransition.start + "----" + mediaTransition.end + "---- duration : " + mediaTransition.duration);
+            Map<String, ShaderConfig> map = this.l;
+            if (map != null && !map.containsKey(we0.g)) {
+                this.l.put(we0.g, ShaderConfig.getGaussianBlurHShaderConfig(f));
+                this.l.put(we0.h, ShaderConfig.getGaussianBlurVShaderConfig(f));
+                Map<String, ke0> l = ue0.l(this.a, this.l);
+                for (Map.Entry<String, ke0> entry : l.entrySet()) {
+                    ke0 value = entry.getValue();
+                    value.l();
+                    value.v(i2, i3);
                 }
+                this.m.putAll(l);
             }
-            if (mediaTrack.superpositionHeader != null) {
-                Log.d(a, " --> superposition header : " + mediaTrack.superpositionHeader.start + "----" + mediaTrack.superpositionHeader.end + "----" + mediaTrack.superpositionHeader.superpositionType);
-                MediaAEffect mediaAEffect2 = mediaTrack.superpositionHeader.mediaAEffect;
-                if (mediaAEffect2 != null && mediaAEffect2.mediaOneAEffects != null) {
-                    for (int i6 = 0; i6 < mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.size(); i6++) {
-                        MediaOneAEffect mediaOneAEffect2 = mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.get(i6);
-                        Log.d(a, "superposition header effect : + ->" + i6 + str11 + mediaOneAEffect2.start + "----" + mediaOneAEffect2.end);
-                        List<ShaderParams> list3 = mediaOneAEffect2.aParams;
-                        if (list3 != null) {
-                            for (ShaderParams shaderParams : list3) {
-                                float[] fArr2 = shaderParams.values;
-                                if (fArr2 != null) {
-                                    str2 = str10;
-                                    for (float f2 : fArr2) {
-                                        str2 = str2 + f2 + "---";
-                                    }
-                                } else {
-                                    str2 = str10;
-                                }
-                                Log.d(a, "superposition header ShaderParams ------> type: " + shaderParams.type + " name: " + shaderParams.name + " values: " + (str2 + PreferencesUtil.RIGHT_MOUNT));
-                            }
-                        }
-                    }
+            if (this.d == null) {
+                this.d = new le0();
+            }
+            this.d.g();
+            this.d.c(i2, i3);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.m.get(we0.g));
+            arrayList.add(this.m.get(we0.h));
+            float[] fArr3 = fArr;
+            float[] fArr4 = fArr2;
+            int i4 = 0;
+            while (i4 < arrayList.size()) {
+                ke0 ke0Var = (ke0) arrayList.get(i4);
+                ke0Var.v(i2, i3);
+                if (i4 == 0) {
+                    ke0Var.e(GLES20.glGetUniformLocation(ke0Var.j(), "wRatio"), "wRatio", new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
+                } else {
+                    ke0Var.e(GLES20.glGetUniformLocation(ke0Var.j(), "hRatio"), "hRatio", new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
                 }
+                w(ke0Var, fArr3, fArr4, null);
+                i4++;
+                fArr3 = null;
+                fArr4 = null;
             }
-            if (mediaTrack.superpositionFooter != null) {
-                Log.d(a, " --> superposition footer : " + mediaTrack.superpositionFooter.start + "----" + mediaTrack.superpositionFooter.end + "----" + mediaTrack.superpositionFooter.superpositionType);
-                MediaAEffect mediaAEffect3 = mediaTrack.superpositionFooter.mediaAEffect;
-                if (mediaAEffect3 != null && mediaAEffect3.mediaOneAEffects != null) {
-                    for (int i7 = 0; i7 < mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.size(); i7++) {
-                        MediaOneAEffect mediaOneAEffect3 = mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.get(i7);
-                        Log.d(a, "superposition footer effect : + ->" + i7 + str11 + mediaOneAEffect3.start + "----" + mediaOneAEffect3.end);
-                        List<ShaderParams> list4 = mediaOneAEffect3.aParams;
-                        if (list4 != null) {
-                            for (ShaderParams shaderParams2 : list4) {
-                                float[] fArr3 = shaderParams2.values;
-                                if (fArr3 != null) {
-                                    str = str10;
-                                    for (float f3 : fArr3) {
-                                        str = str + f3 + "---";
-                                    }
-                                } else {
-                                    str = str10;
-                                }
-                                Log.d(a, "superposition footer ShaderParams ------> type: " + shaderParams2.type + " name: " + shaderParams2.name + " values: " + (str + PreferencesUtil.RIGHT_MOUNT));
-                            }
-                        }
-                    }
-                }
-            }
-            Log.d(a, "--------------------end-----------------------------");
+            return this.d.f(i, arrayList);
         }
+        return invokeCommon.intValue;
     }
 }

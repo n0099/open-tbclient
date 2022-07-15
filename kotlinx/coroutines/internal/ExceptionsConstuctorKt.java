@@ -69,20 +69,20 @@ public final class ExceptionsConstuctorKt {
     }
 
     public static final int fieldsCountOrDefault(Class<?> cls, int i) {
-        Integer m693constructorimpl;
+        Integer m1636constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
             Result.Companion companion = Result.Companion;
-            m693constructorimpl = Result.m693constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
+            m1636constructorimpl = Result.m1636constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m693constructorimpl = Result.m693constructorimpl(ResultKt.createFailure(th));
+            m1636constructorimpl = Result.m1636constructorimpl(ResultKt.createFailure(th));
         }
         Integer valueOf = Integer.valueOf(i);
-        if (Result.m699isFailureimpl(m693constructorimpl)) {
-            m693constructorimpl = valueOf;
+        if (Result.m1642isFailureimpl(m1636constructorimpl)) {
+            m1636constructorimpl = valueOf;
         }
-        return ((Number) m693constructorimpl).intValue();
+        return ((Number) m1636constructorimpl).intValue();
     }
 
     public static final Function1<Throwable, Throwable> safeCtor(Function1<? super Throwable, ? extends Throwable> function1) {
@@ -91,19 +91,19 @@ public final class ExceptionsConstuctorKt {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, ARITH, INVOKE] complete} */
     public static final <E extends Throwable> E tryCopyException(E e) {
-        Object m693constructorimpl;
+        Object m1636constructorimpl;
         ReentrantReadWriteLock.ReadLock readLock;
         int readHoldCount;
         ReentrantReadWriteLock.WriteLock writeLock;
         if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m693constructorimpl = Result.m693constructorimpl(((CopyableThrowable) e).createCopy());
+                m1636constructorimpl = Result.m1636constructorimpl(((CopyableThrowable) e).createCopy());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m693constructorimpl = Result.m693constructorimpl(ResultKt.createFailure(th));
+                m1636constructorimpl = Result.m1636constructorimpl(ResultKt.createFailure(th));
             }
-            return (E) (Result.m699isFailureimpl(m693constructorimpl) ? null : m693constructorimpl);
+            return (E) (Result.m1642isFailureimpl(m1636constructorimpl) ? null : m1636constructorimpl);
         }
         ReentrantReadWriteLock.ReadLock readLock2 = cacheLock.readLock();
         readLock2.lock();

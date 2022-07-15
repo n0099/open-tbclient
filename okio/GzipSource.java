@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
@@ -73,7 +72,7 @@ public final class GzipSource implements Source {
             if (z) {
                 updateCrc(this.source.buffer(), 0L, 10L);
             }
-            checkEqual("ID1ID2", w0.y5, this.source.readShort());
+            checkEqual("ID1ID2", 8075, this.source.readShort());
             this.source.skip(8L);
             if (((b >> 2) & 1) == 1) {
                 this.source.require(2L);

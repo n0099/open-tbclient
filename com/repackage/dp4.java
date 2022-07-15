@@ -1,9 +1,9 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
 /* loaded from: classes5.dex */
-public class dp4 extends PostData {
+public class dp4 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId P0;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String G0;
-    public String H0;
-    public String I0;
-    public String J0;
-    public String K0;
-    public String L0;
-    public List<String> M0;
-    public String N0;
-    public String O0;
+    public boolean a;
+    public String b;
+    public ICardInfo c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +33,7 @@ public class dp4 extends PostData {
                 return;
             }
         }
-        P0 = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public dp4() {
@@ -58,33 +50,38 @@ public class dp4 extends PostData {
         }
     }
 
-    public boolean N0() {
+    public ICardInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !StringUtils.isNull(this.J0) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ICardInfo) invokeV.objValue;
     }
 
-    public void O0(RecommendBook recommendBook) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendBook) == null) || recommendBook == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ICardInfo i = uc7.i(this.b);
+            this.c = i;
+            this.a = i != null;
         }
-        this.G0 = recommendBook.recommend_text;
-        this.H0 = recommendBook.suggest_text;
-        this.I0 = recommendBook.suggest_url;
-        this.J0 = recommendBook.book_id;
-        recommendBook.book_type.intValue();
-        this.K0 = recommendBook.book_cover;
-        this.L0 = recommendBook.book_title;
-        this.M0 = recommendBook.book_tips;
-        this.N0 = recommendBook.botton_text;
-        this.O0 = recommendBook.subscript_icon;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.nn
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? P0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

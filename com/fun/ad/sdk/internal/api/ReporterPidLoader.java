@@ -1,22 +1,23 @@
 package com.fun.ad.sdk.internal.api;
 
+import android.app.Activity;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.repackage.vg9;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
 /* loaded from: classes4.dex */
 public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AdReporter<A> mReporter;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ReporterPidLoader(FunAdType funAdType, Ssp.Pid pid) {
@@ -100,67 +101,95 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
                 return;
             }
         }
+        this.mReporter = createAdReporter();
     }
 
-    public void onAdClicked(boolean z, String... strArr) {
+    public static Activity checkOrLoadErr(ReporterPidLoader<?> reporterPidLoader, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, strArr) == null) {
-            super.onAdClicked(strArr);
-            this.mReporter.recordOnClicked(z, strArr);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reporterPidLoader, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
+            }
+            reporterPidLoader.onError("NoA");
+            return null;
+        }
+        return (Activity) invokeLL.objValue;
+    }
+
+    public AdReporter<A> createAdReporter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Ssp.Pid pid = this.mPid;
+            return new AdReporter<>(pid.pid, pid.type, pid.ssp.type);
+        }
+        return (AdReporter) invokeV.objValue;
+    }
+
+    public void onAdClicked(A a, boolean z, String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{a, Boolean.valueOf(z), strArr}) == null) {
+            super.onAdClicked(a, strArr);
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordOnClicked(a, z, getLid(session), getShowMeta(a, session), strArr);
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void onAdClose() {
+    public void onAdClose(A a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAdClose();
-            this.mReporter.recordOnClosed();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a) == null) {
+            super.onAdClose(a);
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordOnClosed(a, getLid(session), getShowMeta(a, session));
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void onAdError(int i, String str) {
+    public void onAdError(A a, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            super.onAdError(i, str);
-            this.mReporter.recordShowFailed(Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, a, i, str) == null) {
+            super.onAdError(a, i, str);
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordShowFailed(a, Integer.valueOf(i), getLid(session), getShowMeta(a, session));
         }
     }
 
-    public void onAdError(String str) {
+    public void onAdError(A a, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            super.onAdError(0, str);
-            this.mReporter.recordShowFailed(str);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, a, str) == null) {
+            super.onAdError(a, 0, str);
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordShowFailed(a, str, getLid(session), getShowMeta(a, session));
         }
     }
 
     public void onAdShow(A a, boolean z, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{a, Boolean.valueOf(z), strArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{a, Boolean.valueOf(z), strArr}) == null) {
             super.onAdShow(a, strArr);
-            this.mReporter.recordShowSucceed(z, strArr);
-            AdRipper adRipper = this.mAdRipper;
-            vg9 vg9Var = this.mReporter.mAdIdent;
-            adRipper.report(a, vg9Var.a, vg9Var.c);
+            PidLoaderSession<A> session = getSession(a);
+            SidSessionMeta showMeta = getShowMeta(a, session);
+            long lid = getLid(session);
+            this.mReporter.recordShowSucceed(a, z, lid, showMeta, strArr);
+            this.mAdRipper.report(a, showMeta.sid, lid);
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
             super.onError(i, str);
-            this.mReporter.recordLoadFailed(Integer.valueOf(i));
-        }
-    }
-
-    public void onError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            super.onError(0, str);
-            this.mReporter.recordLoadFailed(str);
+            PidLoaderSession<A> lastSession = getLastSession();
+            SidSessionMeta loadMeta = getLoadMeta(lastSession);
+            AdReporter<A> adReporter = this.mReporter;
+            Object obj = str;
+            if (i != -975312468) {
+                obj = Integer.valueOf(i);
+            }
+            adReporter.recordLoadFailed(obj, getLid(lastSession), loadMeta);
         }
     }
 
@@ -169,52 +198,65 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, funAdSlot) == null) {
             super.onLoadStart(funAdSlot);
-            this.mReporter.recordLoadStart(funAdSlot, this.mPid);
+            PidLoaderSession<A> lastSession = getLastSession();
+            this.mReporter.recordLoadStart(getLid(lastSession), getLoadMeta(lastSession));
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void onLoaded() {
+    public void onLoaded(A a, PidLoaderSession<A> pidLoaderSession) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            RCInterceptor shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(this.mPid.pid, getAdType());
-            if (shouldIntercept == null || !shouldIntercept.shouldInterceptShow(getRippedAd())) {
-                super.onLoaded();
-                this.mReporter.recordLoadSucceed();
-                return;
-            }
-            onError("abandon by client");
-            destroy(true);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a, pidLoaderSession) == null) {
+            super.onLoaded(a, pidLoaderSession);
+            this.mReporter.recordLoadSucceed(a, getLid(pidLoaderSession), getLoadMeta(pidLoaderSession));
+        }
+    }
+
+    public void onPaidEvent(A a, double d, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{a, Double.valueOf(d), str}) == null) {
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordOnPaidEvent(a, getLid(session), getShowMeta(a, session), d, str);
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void onRewardedVideo(boolean z, String... strArr) {
+    public void onRewardedVideo(A a, boolean z, int i, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048585, this, z, strArr) == null) {
-            super.onRewardedVideo(z, strArr);
-            this.mReporter.recordReward(z, strArr);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{a, Boolean.valueOf(z), Integer.valueOf(i), strArr}) == null) {
+            super.onRewardedVideo(a, z, i, strArr);
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordReward(a, z, getLid(session), getShowMeta(a, session), i, strArr);
         }
     }
 
-    public void onRewardedVideo(String... strArr) {
+    public void onRewardedVideo(A a, boolean z, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, strArr) == null) {
-            onRewardedVideo(true, strArr);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{a, Boolean.valueOf(z), strArr}) == null) {
+            onRewardedVideo(a, z, 0, strArr);
         }
     }
 
-    public void onShowStart() {
+    public void onRewardedVideo(A a, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.mReporter.recordShowStart();
+        if (interceptable == null || interceptable.invokeLL(1048588, this, a, strArr) == null) {
+            onRewardedVideo(a, true, strArr);
         }
     }
 
-    public void onShowStart(boolean z) {
+    public void onShowStart(A a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.mReporter.recordShowStart(z);
+        if (interceptable == null || interceptable.invokeL(1048589, this, a) == null) {
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordShowStart(a, getLid(session), getShowMeta(a, session));
+        }
+    }
+
+    public void onShowStart(A a, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048590, this, a, z) == null) {
+            PidLoaderSession<A> session = getSession(a);
+            this.mReporter.recordShowStart(a, z, getLid(session), getShowMeta(a, session));
         }
     }
 }

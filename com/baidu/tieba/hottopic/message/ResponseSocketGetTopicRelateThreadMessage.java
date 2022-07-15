@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l27;
+import com.repackage.b37;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
@@ -19,7 +19,7 @@ import tbclient.ThreadInfo;
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l27 hotThreadItemListData;
+    public b37 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -57,19 +57,19 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
                 DataRes dataRes = getTopicRelateThreadResIdl.data;
                 this.thread_list = dataRes.thread_list;
                 this.page = dataRes.page;
-                l27 l27Var = new l27();
-                this.hotThreadItemListData = l27Var;
-                l27Var.n(getTopicRelateThreadResIdl.data);
+                b37 b37Var = new b37();
+                this.hotThreadItemListData = b37Var;
+                b37Var.m(getTopicRelateThreadResIdl.data);
             }
             return getTopicRelateThreadResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public l27 getHotThreadItemListData() {
+    public b37 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hotThreadItemListData : (l27) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hotThreadItemListData : (b37) invokeV.objValue;
     }
 
     public Page getPage() {

@@ -1,5 +1,9 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface u09 {
-    boolean a();
+    void a(long j);
+
+    void b(Exception exc, long j);
+
+    void onComplete(long j);
 }

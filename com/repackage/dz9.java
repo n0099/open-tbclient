@@ -1,60 +1,48 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes5.dex */
-public abstract class dz9 {
+public class dz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dz9() {
+    public static void a(View view2, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) || view2 == null || imageView == null) {
+            return;
+        }
+        view2.setVisibility(8);
+        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
         }
     }
 
-    @Deprecated
-    public void a(Throwable th) {
+    public static void b(View view2, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) || view2 == null || imageView == null) {
+            return;
         }
-    }
-
-    public final String b(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            try {
-                return c(obj);
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
-                return obj.getClass().getName() + ".errorRendering";
-            } catch (Throwable th) {
-                jv9.e(th);
-                return obj.getClass().getName() + ".errorRendering";
-            }
+        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String c(Object obj) throws InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
+        view2.setVisibility(0);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
+        ofFloat.setDuration(1000L);
+        ofFloat.setInterpolator(new LinearInterpolator());
+        ofFloat.setRepeatCount(-1);
+        ofFloat.start();
+        imageView.setTag(ofFloat);
     }
 }

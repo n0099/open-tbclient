@@ -1,85 +1,76 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.view.View;
-import android.widget.AbsoluteLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xb3 {
+public class xb3 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755177400, "Lcom/repackage/xb3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755177400, "Lcom/repackage/xb3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xb3(e13 e13Var) {
+        super(e13Var, "/swanAPI/closeTextarea");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
     }
 
-    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
-        AbsoluteLayout webView;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = td4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f08112c);
-            Drawable d2 = td4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f08112b);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                webView = bdSailorWebView.getCurrentWebView();
-            } else {
-                webView = bdSailorWebView.getCurrentWebView().getWebView();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
-            if (Build.VERSION.SDK_INT >= 29) {
-                webView.setVerticalScrollbarThumbDrawable(d);
-                webView.setHorizontalScrollbarThumbDrawable(d2);
-                return;
+            hx1.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
+            tw1 tw1Var = new tw1();
+            try {
+                tw1Var.a(optParamsAsJo);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                hx1.d("CloseTextAreaAction", "model parse exception:", e);
             }
-            b(webView, d, d2);
-        }
-    }
-
-    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, drawable, drawable2) == null) || view2 == null) {
-            return;
-        }
-        try {
-            Field declaredField = View.class.getDeclaredField("mScrollCache");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(view2);
-            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
-            declaredField2.setAccessible(true);
-            Object obj2 = declaredField2.get(obj);
-            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(obj2, drawable);
-            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
-            declaredMethod2.setAccessible(true);
-            declaredMethod2.invoke(obj2, drawable2);
-        } catch (Throwable th) {
-            if (a) {
-                th.printStackTrace();
+            sw1 sw1Var = (sw1) uw1.a(tw1Var);
+            if (sw1Var == null) {
+                String str = "can't find textarea component:#" + tw1Var.b;
+                hx1.c("CloseTextAreaAction", str);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+                return false;
             }
+            yv1 B = sw1Var.B();
+            if (!B.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

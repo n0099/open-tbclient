@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bd3;
-import com.repackage.gr3;
-import com.repackage.md3;
-import com.repackage.qr3;
-import com.repackage.sc3;
-import com.repackage.sr3;
+import com.repackage.be3;
+import com.repackage.fs3;
+import com.repackage.hd3;
+import com.repackage.hs3;
+import com.repackage.qd3;
+import com.repackage.vr3;
 import com.sina.weibo.sdk.share.BaseActivity;
 import org.json.JSONObject;
 @SuppressLint({BaseActivity.TAG})
@@ -60,7 +60,7 @@ public class InstallAntiBlockingActivity extends Activity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sr3.a(this.a.a, TextUtils.equals(this.a.c, "authorize") ? "authorizeClick" : "continueClick", "success", null, new qr3(this.a.b));
+                hs3.a(this.a.a, TextUtils.equals(this.a.c, "authorize") ? "authorizeClick" : "continueClick", "success", null, new fs3(this.a.b));
                 this.a.finish();
             }
         }
@@ -84,46 +84,46 @@ public class InstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = md3.c0(this);
+            int c0 = be3.c0(this);
             super.onCreate(bundle);
-            md3.g(this, c0);
-            gr3.t();
+            be3.g(this, c0);
+            vr3.t();
             setContentView(R.layout.obfuscated_res_0x7f0d00ae);
             Intent intent = getIntent();
             if (intent != null) {
                 this.c = intent.getStringExtra("type");
                 this.a = intent.getStringExtra("packageName");
-                this.b = sc3.d(intent.getStringExtra("ubc_params"));
+                this.b = hd3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecb);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090ecd);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090edc);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090ede);
             if (TextUtils.equals(this.c, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014f));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090ecc).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f090edd).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                findViewById(R.id.obfuscated_res_0x7f090ec9).setBackgroundResource(R.color.obfuscated_res_0x7f0603b3);
-                gr3.o();
+                findViewById(R.id.obfuscated_res_0x7f090eda).setBackgroundResource(R.color.obfuscated_res_0x7f0603b6);
+                vr3.o();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014e));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090ecc).setVisibility(8);
-                if (bd3.m()) {
+                findViewById(R.id.obfuscated_res_0x7f090edd).setVisibility(8);
+                if (qd3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
-                } else if (bd3.n()) {
+                } else if (qd3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (bd3.r()) {
+                } else if (qd3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017a);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090ec9).setBackgroundResource(R.color.obfuscated_res_0x7f060382);
-                gr3.p();
+                findViewById(R.id.obfuscated_res_0x7f090eda).setBackgroundResource(R.color.obfuscated_res_0x7f060385);
+                vr3.p();
             }
             findViewById.setOnClickListener(new a(this));
-            sr3.a(this.a, this.c, "success", null, new qr3(this.b));
+            hs3.a(this.a, this.c, "success", null, new fs3(this.b));
             LogUtil.logActivity(this, "onCreate");
         }
     }

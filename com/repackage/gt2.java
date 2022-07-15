@@ -1,36 +1,27 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.TooltipCompatHandler;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gt2 implements wk2 {
+public class gt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long c;
-    public ConcurrentHashMap<String, JSONObject> d;
-    public ConcurrentHashMap<String, Integer> e;
-    public ou2 f;
+    public final Map<String, Map<String, HybridUbcFlow>> a;
+    public final Map<String, af3<HybridUbcFlow>> b;
+    public final af3<HybridUbcFlow> c;
 
     /* loaded from: classes6.dex */
-    public class a implements ou2 {
+    public class a implements af3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gt2 c;
+        public final /* synthetic */ gt2 a;
 
         public a(gt2 gt2Var) {
             Interceptable interceptable = $ic;
@@ -47,146 +38,17 @@ public class gt2 implements wk2 {
                     return;
                 }
             }
-            this.c = gt2Var;
+            this.a = gt2Var;
         }
 
-        @Override // com.repackage.ou2
-        public void a(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+                this.a.g(hybridUbcFlow.p);
             }
-        }
-
-        @Override // com.repackage.ou2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.g();
-            }
-        }
-
-        @Override // com.repackage.ou2
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.ou2
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c.g();
-            }
-        }
-
-        @Override // com.repackage.ou2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.c.c = System.currentTimeMillis();
-            }
-        }
-
-        @Override // com.repackage.ou2
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final gt2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-346129362, "Lcom/repackage/gt2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-346129362, "Lcom/repackage/gt2$b;");
-                    return;
-                }
-            }
-            a = new gt2(null);
-        }
-    }
-
-    public /* synthetic */ gt2(a aVar) {
-        this();
-    }
-
-    public static gt2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a : (gt2) invokeV.objValue;
-    }
-
-    public JSONObject d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && e()) {
-                JSONObject jSONObject = this.d.get(str);
-                if (wk2.a && jSONObject != null) {
-                    Integer num = this.e.get(str);
-                    if (num == null) {
-                        num = 0;
-                    }
-                    this.e.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-                return jSONObject;
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c != -1 && System.currentTimeMillis() - this.c <= TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS : invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mu2.g().i(this.f, 2500);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = -1L;
-            if (wk2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("adopt cache api = [ ");
-                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
-                    sb.append((Object) entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append(" ");
-                }
-                sb.append(PreferencesUtil.RIGHT_MOUNT);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            this.e.clear();
-            this.d.clear();
-        }
-    }
-
-    public void h(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && e()) {
-            this.d.put(str, jSONObject);
         }
     }
 
@@ -203,9 +65,122 @@ public class gt2 implements wk2 {
                 return;
             }
         }
-        this.c = -1L;
-        this.d = new ConcurrentHashMap<>(10);
-        this.e = new ConcurrentHashMap<>(10);
-        this.f = new a(this);
+        this.a = new HashMap();
+        this.b = new HashMap();
+        this.c = new a(this);
+    }
+
+    public final HybridUbcFlow a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
+            hybridUbcFlow.H("callback_on_submit", this.c);
+            af3<HybridUbcFlow> af3Var = this.b.get(str);
+            if (af3Var != null) {
+                af3Var.a(hybridUbcFlow);
+            }
+            return hybridUbcFlow;
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public HybridUbcFlow b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c(str, "default") : (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public HybridUbcFlow c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map == null) {
+                    return null;
+                }
+                return map.get(str2);
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
+    }
+
+    public gt2 d(String str, af3<HybridUbcFlow> af3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, af3Var)) == null) {
+            synchronized (this.b) {
+                this.b.put(str, af3Var);
+            }
+            return this;
+        }
+        return (gt2) invokeLL.objValue;
+    }
+
+    public synchronized HybridUbcFlow e(String str) {
+        InterceptResult invokeL;
+        HybridUbcFlow f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                f = f(str, "default");
+            }
+            return f;
+        }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public synchronized HybridUbcFlow f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            synchronized (this) {
+                synchronized (this.a) {
+                    Map<String, HybridUbcFlow> map = this.a.get(str);
+                    if (map == null) {
+                        HashMap hashMap = new HashMap();
+                        HybridUbcFlow a2 = a(str);
+                        hashMap.put(str2, a2);
+                        this.a.put(str, hashMap);
+                        return a2;
+                    }
+                    HybridUbcFlow hybridUbcFlow = map.get(str2);
+                    if (hybridUbcFlow == null) {
+                        hybridUbcFlow = a(str);
+                        map.put(str2, hybridUbcFlow);
+                    }
+                    return hybridUbcFlow;
+                }
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
+    }
+
+    public gt2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            synchronized (this.a) {
+                this.a.remove(str);
+            }
+            return this;
+        }
+        return (gt2) invokeL.objValue;
+    }
+
+    public gt2 h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map != null) {
+                    map.remove(str2);
+                }
+            }
+            return this;
+        }
+        return (gt2) invokeLL.objValue;
     }
 }

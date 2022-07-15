@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cx extends qw<ym4> {
+public class cx extends qw<nn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout f;
-    public ym4 g;
+    public nn4 g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -45,10 +45,10 @@ public class cx extends qw<ym4> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e() == null) {
                 return;
             }
-            this.a.d().a(view2, this.a.g);
+            this.a.e().a(view2, this.a.g);
         }
     }
 
@@ -79,13 +79,13 @@ public class cx extends qw<ym4> {
     }
 
     @Override // com.repackage.qw
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class cx extends qw<ym4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: p */
-    public void a(ym4 ym4Var) {
+    @Override // com.repackage.gx
+    /* renamed from: q */
+    public void a(nn4 nn4Var) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ym4Var) == null) || (cardForumHeadLayout = this.f) == null || ym4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) || (cardForumHeadLayout = this.f) == null || nn4Var == null) {
             return;
         }
-        this.g = ym4Var;
+        this.g = nn4Var;
         cardForumHeadLayout.setOnClickListener();
-        this.f.setData(ym4Var.getThreadData());
+        this.f.setData(nn4Var.getThreadData());
     }
 }

@@ -1,69 +1,27 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
-public class rl9 {
+public final class rl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755346350, "Lcom/repackage/rl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755346350, "Lcom/repackage/rl9;");
-                return;
-            }
-        }
-        Executors.newFixedThreadPool(1);
-        a = new HashMap();
-    }
-
-    public static synchronized void a(String str) {
+    public static Object[] a(Object[] objArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            synchronized (rl9.class) {
-                a.remove(str);
-            }
-        }
-    }
-
-    public static synchronized void b(String str, pl9 pl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, pl9Var) == null) {
-            synchronized (rl9.class) {
-                HashSet hashSet = (HashSet) a.get(str);
-                if (hashSet == null) {
-                    hashSet = new HashSet();
-                    a.put(str, hashSet);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, objArr, i)) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                if (objArr[i2] == null) {
+                    StringBuilder sb = new StringBuilder(20);
+                    sb.append("at index ");
+                    sb.append(i2);
+                    throw new NullPointerException(sb.toString());
                 }
-                hashSet.add(pl9Var);
             }
+            return objArr;
         }
-    }
-
-    public static void c(String str, String str2, Object obj) {
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) a.get(str)) == null || hashSet.size() <= 0) {
-            return;
-        }
-        Iterator it = hashSet.iterator();
-        while (it.hasNext()) {
-            ((pl9) it.next()).a(str, str2, obj);
-        }
+        return (Object[]) invokeLI.objValue;
     }
 }

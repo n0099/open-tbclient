@@ -1,40 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.home.download.HomeApkBannerData;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bt implements com.kwad.sdk.core.d<HomeApkBannerData> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(HomeApkBannerData homeApkBannerData, JSONObject jSONObject) {
+public final class bt implements com.kwad.sdk.core.d<AdMatrixInfo.EndCardInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        homeApkBannerData.appPackageName = jSONObject.optString("appPackageName");
-        if (jSONObject.opt("appPackageName") == JSONObject.NULL) {
-            homeApkBannerData.appPackageName = "";
-        }
-        homeApkBannerData.mAdTemplateUniqueId = jSONObject.optString("mAdTemplateUniqueId");
-        if (jSONObject.opt("mAdTemplateUniqueId") == JSONObject.NULL) {
-            homeApkBannerData.mAdTemplateUniqueId = "";
-        }
-        homeApkBannerData.mDownloadFilePath = jSONObject.optString("mDownloadFilePath");
-        if (jSONObject.opt("mDownloadFilePath") == JSONObject.NULL) {
-            homeApkBannerData.mDownloadFilePath = "";
-        }
-        homeApkBannerData.mTimeStamp = jSONObject.optLong("mTimeStamp");
+        endCardInfo.cardShowPlayCount = jSONObject.optInt("cardShowPlayCount");
+        endCardInfo.cardType = jSONObject.optInt("cardType");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(HomeApkBannerData homeApkBannerData, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "appPackageName", homeApkBannerData.appPackageName);
-        com.kwad.sdk.utils.t.a(jSONObject, "mAdTemplateUniqueId", homeApkBannerData.mAdTemplateUniqueId);
-        com.kwad.sdk.utils.t.a(jSONObject, "mDownloadFilePath", homeApkBannerData.mDownloadFilePath);
-        com.kwad.sdk.utils.t.a(jSONObject, "mTimeStamp", homeApkBannerData.mTimeStamp);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardShowPlayCount", endCardInfo.cardShowPlayCount);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardType", endCardInfo.cardType);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
+        a2(endCardInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.EndCardInfo endCardInfo, JSONObject jSONObject) {
+        return b2(endCardInfo, jSONObject);
     }
 }

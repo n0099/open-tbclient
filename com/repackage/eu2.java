@@ -1,148 +1,146 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class eu2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final File b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    public eu2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755725201, "Lcom/repackage/eu2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755725201, "Lcom/repackage/eu2;");
+                return;
             }
         }
+        a = rg1.a;
+        b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = true;
-        }
-    }
-
-    public final ViewGroup b() {
+    public static JSONObject a() {
         InterceptResult invokeV;
-        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (sz2.b0() == null || sz2.b0().x() == null || (viewGroup = (ViewGroup) sz2.b0().x().findViewById(16908290)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject D = oj2.g0().D();
+            String k = oj2.g0().k();
+            try {
+                jSONObject.put(SetImageWatermarkTypeReqMsg.SWITCH, D);
+                JSONArray jSONArray = null;
+                if (!TextUtils.isEmpty(k)) {
+                    jSONArray = new JSONArray();
+                    for (String str : k.split("-")) {
+                        jSONArray.put(str);
+                    }
+                }
+                jSONObject.put("sid", jSONArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d8a);
-            if (viewGroup2 != null) {
-                return viewGroup2;
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b + File.separator + "swan_perf";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (!ubcFlowEvent.b()) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("id", ubcFlowEvent.a);
+                        jSONObject3.put("time", ubcFlowEvent.g());
+                        jSONObject3.put("value", ubcFlowEvent.j());
+                        jSONArray.put(jSONObject3);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(sz2.b0().x()).inflate(R.layout.obfuscated_res_0x7f0d07af, viewGroup);
-            this.b = true;
-            return viewGroup3;
+            try {
+                jSONObject2.put("eventlist", jSONArray);
+                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject2;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public void c() {
+    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        h03 b0;
+        Map<String, String> t;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            d();
-        }
-    }
-
-    public final void d() {
-        sz2 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (b0 = sz2.b0()) == null || b0.x() == null) {
-            return;
-        }
-        ViewGroup viewGroup = (ViewGroup) b0.x().findViewById(R.id.obfuscated_res_0x7f091d8a);
-        if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
-        }
-        this.b = false;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            c();
-            k();
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090956, j, "#80ff0000", "FCP");
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
+            if (a) {
+                ef4.b().f();
+            }
+            if (gw2.E() && (b0 = h03.b0()) != null && (t = zd3.t(zd3.o(b0.W().W()))) != null && TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
+                ArrayList arrayList = new ArrayList(list);
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("670", c(arrayList, jSONObject));
+                    jSONObject2.put("ab", a());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                File file = new File(b, "swan_perf");
+                if (file.exists() || file.mkdirs()) {
+                    jg4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+                }
+            }
         }
     }
 
-    public void g(long j) {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090974, j, "#80ff0000", "FIP");
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            File file = new File(b, "swan_stability");
+            if (!jg4.m(file)) {
+                hx1.k("StartupPerf", "创建目录失败 path" + file);
+                return;
+            }
+            jg4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
         }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909bd, j, "#8000ff00", "FMP");
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090bc9, j, "#80ff0000", "FTP");
-        }
-    }
-
-    public final void j(int i, long j, String str, String str2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) || this.a || (b = b()) == null) {
-            return;
-        }
-        TextView textView = (TextView) b.findViewById(i);
-        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
-        textView.setBackgroundColor(Color.parseColor(str));
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b) {
-            return;
-        }
-        b();
-    }
-
-    public void l(long j, long j2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
-            return;
-        }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091dc0)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

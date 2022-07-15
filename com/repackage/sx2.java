@@ -1,176 +1,142 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.publisher.draft.DraftData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class sx2 {
+public final class sx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 8;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-            }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 3;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
-        }
-    }
-
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            int length = str.length();
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            int i = 0;
-            int i2 = 0;
-            while (matcher.find()) {
-                i += matcher.group().length();
-                i2++;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File file = new File(b(), "publisher_draft");
+            if (file.exists()) {
+                file.delete();
             }
-            return (length - i) + i2;
         }
-        return invokeL.intValue;
+    }
+
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            h03 M = h03.M();
+            String v = p73.v(M != null ? M.b : null);
+            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
+            return v;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final DraftData c() {
+        InterceptResult invokeV;
+        ObjectInputStream objectInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b(), "publisher_draft");
+            ObjectInputStream objectInputStream2 = null;
+            try {
+                try {
+                    if (file.exists()) {
+                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
+                        try {
+                            Object readObject = objectInputStream.readObject();
+                            if (readObject != null) {
+                                DraftData draftData = (DraftData) readObject;
+                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
+                                    objectInputStream.close();
+                                    return null;
+                                }
+                                objectInputStream.close();
+                                return draftData;
+                            }
+                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (objectInputStream != null) {
+                                objectInputStream.close();
+                            }
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    objectInputStream2 = "publisher_draft";
+                    if (objectInputStream2 != null) {
+                        objectInputStream2.close();
+                    }
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                objectInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (objectInputStream2 != null) {
+                }
+                throw th;
+            }
+            return null;
+        }
+        return (DraftData) invokeV.objValue;
+    }
+
+    public static final void d(DraftData draftData) {
+        ObjectOutputStream objectOutputStream;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, draftData) == null) || draftData == null) {
+            return;
+        }
+        File file = new File(b(), "publisher_draft");
+        try {
+            if (file.exists()) {
+                file.delete();
+                file.createNewFile();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ObjectOutputStream objectOutputStream2 = null;
+        try {
+            try {
+                objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            objectOutputStream.writeObject(draftData);
+            objectOutputStream.close();
+        } catch (Exception e3) {
+            e = e3;
+            objectOutputStream2 = objectOutputStream;
+            e.printStackTrace();
+            if (objectOutputStream2 != null) {
+                objectOutputStream2.close();
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            objectOutputStream2 = objectOutputStream;
+            if (objectOutputStream2 != null) {
+                objectOutputStream2.close();
+            }
+            throw th;
+        }
     }
 }

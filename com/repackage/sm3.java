@@ -1,27 +1,83 @@
 package com.repackage;
 
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
 public class sm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rm3 a;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized rm3 a() {
-        InterceptResult invokeV;
-        rm3 rm3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (sm3.class) {
-                if (a == null) {
-                    a = new rm3();
-                }
-                rm3Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755315784, "Lcom/repackage/sm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return rm3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755315784, "Lcom/repackage/sm3;");
+                return;
+            }
         }
-        return (rm3) invokeV.objValue;
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Signature b = b(str);
+            if (b == null) {
+                return null;
+            }
+            try {
+                return c(MessageDigest.getInstance("MD5").digest(b.toByteArray()));
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Signature b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Signature) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            char[] cArr = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                byte b = bArr[i];
+                int i2 = i * 2;
+                char[] cArr2 = a;
+                cArr[i2] = cArr2[(b >>> 4) & 15];
+                cArr[i2 + 1] = cArr2[b & 15];
+            }
+            return new String(cArr);
+        }
+        return (String) invokeL.objValue;
     }
 }

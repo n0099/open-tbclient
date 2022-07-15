@@ -6,6 +6,7 @@ import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kuaishou.weapon.p0.C0294;
 import java.io.BufferedReader;
 import java.io.FileReader;
 @TargetApi(21)
@@ -49,7 +50,7 @@ public class di {
                 return false;
             }
             try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(C0294.f19));
                 z = bufferedReader.readLine().contains("aarch64");
                 bufferedReader.close();
                 return z;

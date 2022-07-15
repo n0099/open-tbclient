@@ -1,115 +1,89 @@
 package com.repackage;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
+import java.util.Arrays;
+import java.util.Locale;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "BdPlayerUtils")
 /* loaded from: classes5.dex */
-public abstract class ax0 {
+public final class ax0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ax0() {
+    public static final int a(View view2, float f) {
+        InterceptResult invokeLF;
+        Context context;
+        Resources resources;
+        DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
+            return (int) ((f * ((view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null || (displayMetrics = resources.getDisplayMetrics()) == null) ? 1.0f : displayMetrics.density)) + 0.5f);
         }
+        return invokeLF.intValue;
     }
 
-    public void a(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+    public static final String b(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) && c(i, str)) {
-            if (TextUtils.isEmpty(str2)) {
-                if (th == null) {
-                    return;
-                }
-                str2 = b(th);
-            } else if (th != null) {
-                str2 = str2 + "\n" + b(th);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
             }
-            if (TextUtils.isEmpty(str)) {
-                d(i, null, str2);
-            } else if (str.length() > 23 && Build.VERSION.SDK_INT < 24) {
-                d(i, str.substring(0, 23), str2);
-            } else {
-                d(i, str, str2);
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
+                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
+                return format;
             }
+            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
+            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
+            return format2;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public final String b(@NonNull Throwable th) {
+    @JvmOverloads
+    public static final int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-            try {
-                StringWriter stringWriter = new StringWriter(256);
-                PrintWriter printWriter = new PrintWriter((Writer) stringWriter, false);
-                th.printStackTrace(printWriter);
-                printWriter.flush();
-                printWriter.close();
-                return stringWriter.toString();
-            } catch (Exception e) {
-                String message = e.getMessage();
-                return TextUtils.isEmpty(message) ? "unknown throwable by VideoLog.java" : message;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
     }
 
-    public abstract boolean c(int i, @Nullable String str);
-
-    public void d(int i, @Nullable String str, @NonNull String str2) {
-        int min;
+    @JvmOverloads
+    public static final int d(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-            if (str2.length() < 4096) {
-                if (i == 7) {
-                    Log.wtf(str, str2);
-                    return;
-                } else {
-                    Log.println(i, str, str2);
-                    return;
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (str == null || str.length() == 0) {
+                return i;
             }
-            int i2 = 0;
-            int length = str2.length();
-            while (i2 < length) {
-                int indexOf = str2.indexOf(10, i2);
-                if (indexOf == -1) {
-                    indexOf = length;
-                }
-                while (true) {
-                    min = Math.min(indexOf, i2 + 4096);
-                    String substring = str2.substring(i2, min);
-                    if (i == 7) {
-                        Log.wtf(str, substring);
-                    } else {
-                        Log.println(i, str, substring);
-                    }
-                    if (min >= indexOf) {
-                        break;
-                    }
-                    i2 = min;
-                }
-                i2 = min + 1;
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                ex0.f("parseInt catch exception:", e);
+                return i;
             }
         }
+        return invokeLI.intValue;
+    }
+
+    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
+        }
+        return d(str, i);
     }
 }

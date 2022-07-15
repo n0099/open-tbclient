@@ -41,12 +41,12 @@ public class VideoHolyCardModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.model.VideoHolyCardModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0212a implements Runnable {
+        public class RunnableC0214a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ HttpMessage a;
 
-            public RunnableC0212a(a aVar, HttpMessage httpMessage) {
+            public RunnableC0214a(a aVar, HttpMessage httpMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class VideoHolyCardModel extends BdBaseModel {
                 httpMessage.addParam("localip", VideoHolyCardModel.d);
                 httpMessage.addParam("network", VideoHolyCardModel.e);
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0212a(this, httpMessage));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0214a(this, httpMessage));
                 } else {
                     MessageManager.getInstance().sendMessage(httpMessage);
                 }
@@ -175,10 +175,10 @@ public class VideoHolyCardModel extends BdBaseModel {
             }
         }
         this.c = new b(this, CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
-        D();
+        E();
     }
 
-    public void C() {
+    public void D() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || System.currentTimeMillis() - this.b <= 200) {
             return;
@@ -201,7 +201,7 @@ public class VideoHolyCardModel extends BdBaseModel {
         this.b = System.currentTimeMillis();
     }
 
-    public final void D() {
+    public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_HOLY_CARD, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_HOLY_CARD);
@@ -211,7 +211,7 @@ public class VideoHolyCardModel extends BdBaseModel {
         }
     }
 
-    public void E(c cVar) {
+    public void F(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.a = cVar;

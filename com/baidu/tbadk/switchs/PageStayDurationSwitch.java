@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.af;
-import com.repackage.x75;
+import com.repackage.z85;
 /* loaded from: classes3.dex */
 public class PageStayDurationSwitch extends af {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class PageStayDurationSwitch extends af {
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            x75.b().i(1 == i);
+            z85.b().i(1 == i);
         }
     }
 

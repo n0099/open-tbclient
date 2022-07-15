@@ -1,42 +1,27 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class x25 implements z25 {
+public class x25 extends l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
+    public final p25 a;
 
-    public x25(Context context) {
+    public x25(p25 p25Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {p25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,44 +31,47 @@ public class x25 implements z25 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028d, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b2);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b4);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b0);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909b3);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06cb);
-        b();
+        this.a = p25Var;
     }
 
-    @Override // com.repackage.z25
-    public void b() {
+    @Override // com.repackage.l15
+    public n15 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarLauncherType(6);
+            editorTools.setBackgroundColorId(R.color.CAM_X0602);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
+            editorTools.D(false);
+            return new w25(editorTools);
         }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f22);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e4, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(com.kuaishou.weapon.un.w0.A).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        return (n15) invokeL.objValue;
     }
 
-    @Override // com.repackage.z25
-    public View getView() {
-        InterceptResult invokeV;
+    @Override // com.repackage.l15
+    public void c(n15 n15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028d, (ViewGroup) null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) {
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.z25
-    public void onClick() {
+    @Override // com.repackage.l15
+    public void d(n15 n15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n15Var) == null) {
+            EditorTools a = n15Var.a();
+            a.setHideBigEmotion(true);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            a.h(arrayList);
+            a.d(new y25(a.getContext(), this.a));
+            u15 n = a.n(5);
+            n.d = 0;
+            n.e(false);
+            a.setClearEbPadding(true);
+            a.f();
         }
     }
 }

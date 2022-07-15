@@ -89,6 +89,6 @@ public final class DebugTrace {
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ar.c.l() && ar.c.h().d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ar.c.l() && ar.c.h().c() : invokeV.booleanValue;
     }
 }

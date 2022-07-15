@@ -1,79 +1,58 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import java.util.ArrayList;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public interface dg2 extends eg2 {
+public class dg2 extends be2<sg2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
+    public dg2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void D(int i);
+    @Override // com.repackage.be2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCameraFace" : (String) invokeV.objValue;
+    }
 
-    void E();
-
-    void F(long j);
-
-    void I(int i);
-
-    void J(int i);
-
-    void K(int i);
-
-    void M(boolean z);
-
-    void S();
-
-    void V(int i);
-
-    void Y(int i);
-
-    void Z(@NonNull a aVar);
-
-    void a0();
-
-    void d();
-
-    void d0(boolean z);
-
-    void e(int i);
-
-    void e0(long j, boolean z);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList<hg2> h();
-
-    void i(boolean z);
-
-    void i0(String str);
-
-    void j(long j);
-
-    void l0(long j);
-
-    void m0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(gg2 gg2Var);
-
-    ArrayList<fg2> v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.be2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sg2 sg2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sg2Var) == null) {
+            String str = command.what;
+            d(sg2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "back")) {
+                    sg2Var.setCameraFace(false);
+                } else if (TextUtils.equals(str2, "front")) {
+                    sg2Var.setCameraFace(true);
+                }
+            }
+        }
+    }
 }

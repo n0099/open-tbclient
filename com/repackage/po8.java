@@ -1,44 +1,60 @@
 package com.repackage;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeRecommand;
 /* loaded from: classes6.dex */
 public class po8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public po8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return i;
         }
-        return invokeI.intValue;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) || layoutParams == null || window == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void d(ThemeRecommand themeRecommand) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, themeRecommand) == null) || themeRecommand == null) {
             return;
         }
-        try {
-            Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-            if (declaredField != null) {
-                declaredField.set(layoutParams, Integer.valueOf(i));
-                window.setAttributes(layoutParams);
-            }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e2) {
-            e2.printStackTrace();
-        }
+        this.a = themeRecommand.icon;
+        this.b = themeRecommand.tip_text;
+        this.c = themeRecommand.button_text;
+        String str = themeRecommand.button_url;
     }
 }

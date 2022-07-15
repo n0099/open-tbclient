@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ab implements w {
+public final class ab implements w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Handler> a;
@@ -31,22 +31,22 @@ public class ab implements w {
         this.a = new SparseArray<>();
     }
 
-    private void a(Handler handler) {
+    public static void a(Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, handler) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, handler) == null) {
             handler.sendEmptyMessage(2);
         }
     }
 
-    private void b(Handler handler) {
+    public static void b(Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, handler) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, handler) == null) {
             handler.sendEmptyMessage(3);
         }
     }
 
     @Override // com.kwai.filedownloader.w
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (int i = 0; i < this.a.size(); i++) {
@@ -56,7 +56,7 @@ public class ab implements w {
     }
 
     @Override // com.kwai.filedownloader.w
-    public void a(List<Integer> list) {
+    public final void a(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             for (Integer num : list) {
@@ -66,14 +66,14 @@ public class ab implements w {
     }
 
     @Override // com.kwai.filedownloader.w
-    public boolean a(int i) {
+    public final boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(i) != null : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.w
-    public int b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;

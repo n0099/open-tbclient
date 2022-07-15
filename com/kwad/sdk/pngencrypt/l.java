@@ -1,6 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 /* loaded from: classes5.dex */
-public class l {
+public final class l {
     public final k a;
     public final int[] b;
 
@@ -9,7 +9,7 @@ public class l {
         };
     }
 
-    public String toString() {
+    public final String toString() {
         return " cols=" + this.a.a + " bpc=" + this.a.c + " size=" + this.b.length;
     }
 }

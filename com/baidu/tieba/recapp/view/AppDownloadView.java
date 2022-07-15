@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m98;
+import com.repackage.ha8;
 /* loaded from: classes3.dex */
 public class AppDownloadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class AppDownloadView extends LinearLayout {
     public static int getStatus(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? m98.p(downloadData) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? ha8.p(downloadData) : invokeL.intValue;
     }
 
     public final void a(Context context) {
@@ -64,10 +64,10 @@ public class AppDownloadView extends LinearLayout {
             setOrientation(0);
             setGravity(16);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011c, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09028c);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090a9e);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a9c);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a9d);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09028d);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090aa6);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090aa4);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090aa5);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -91,7 +91,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
         }
-        int j = m98.n().j(downloadData.getId(), downloadData.getName());
+        int j = ha8.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

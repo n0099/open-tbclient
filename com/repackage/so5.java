@@ -1,127 +1,102 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.ala.AlaSharedPrefHelper;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class so5 extends an<wo5, LiveTabConcernNotificationViewHolder> {
+public class so5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public boolean j;
-    public mx5<wo5> k;
+    public d9 a;
+    public BdTypeListView b;
+    public final List<an> c;
+    public ro5 d;
+    public as5 e;
+    public bs5 f;
 
-    /* loaded from: classes7.dex */
-    public class a extends mx5<wo5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ so5 b;
-
-        public a(so5 so5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {so5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = so5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mx5
-        /* renamed from: d */
-        public void a(View view2, wo5 wo5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, wo5Var) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090deb) {
-                    if (this.b.j) {
-                        return;
-                    }
-                    this.b.j = true;
-                    AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090dec) {
-                    zo5.b(this.b.i);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public so5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), wo5.a);
+    public so5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = false;
-        this.k = new a(this);
-        this.i = tbPageContext;
+        this.c = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public LiveTabConcernNotificationViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            fp5 fp5Var = new fp5(this.i, viewGroup);
-            fp5Var.n(this.k);
-            return new LiveTabConcernNotificationViewHolder(fp5Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bs5 bs5Var = new bs5((TbPageContext) this.a);
+            this.f = bs5Var;
+            bs5Var.c0(1);
+            as5 as5Var = new as5((TbPageContext) this.a);
+            this.e = as5Var;
+            as5Var.c0(1);
+            this.d = new ro5((TbPageContext) this.a, uo5.f);
+            this.c.add(this.f);
+            this.c.add(this.e);
+            this.c.add(this.d);
+            this.b.a(this.c);
         }
-        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, wo5 wo5Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
-        InterceptResult invokeCommon;
-        fp5 fp5Var;
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wo5Var, liveTabConcernNotificationViewHolder})) == null) {
-            if (liveTabConcernNotificationViewHolder == null || (fp5Var = liveTabConcernNotificationViewHolder.a) == null) {
-                return null;
-            }
-            this.j = false;
-            fp5Var.i(wo5Var);
-            return liveTabConcernNotificationViewHolder.b();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(ls5 ls5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ls5Var) == null) {
+            this.f.e0(ls5Var);
+            this.e.e0(ls5Var);
+        }
+    }
+
+    public void d(List<nn> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.b) == null) {
+            return;
+        }
+        bdTypeListView.setData(list);
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f.d0(i);
+            this.e.d0(i);
+        }
+    }
+
+    public void f(IAlaSquareTabController iAlaSquareTabController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
+            this.d.e0(iAlaSquareTabController);
+        }
     }
 }

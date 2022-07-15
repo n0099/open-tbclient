@@ -1,13 +1,18 @@
 package com.repackage;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,29 +20,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s44;
-import com.repackage.sj2;
-import org.json.JSONObject;
+import com.repackage.hk2;
+import java.util.concurrent.TimeUnit;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class l44 extends d44<em2> {
+public class l44 implements hk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final long d;
+    public static final c e;
     public transient /* synthetic */ FieldHolder $fh;
+    public LocationClient a;
+    public LocationClientOption b;
 
     /* loaded from: classes6.dex */
-    public class a implements s44.c {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b54 b;
-        public final /* synthetic */ z34 c;
-        public final /* synthetic */ l44 d;
+        public final /* synthetic */ l44 a;
 
-        public a(l44 l44Var, Context context, b54 b54Var, z34 z34Var) {
+        public a(l44 l44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l44Var, context, b54Var, z34Var};
+                Object[] objArr = {l44Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,43 +55,71 @@ public class l44 extends d44<em2> {
                     return;
                 }
             }
-            this.d = l44Var;
-            this.a = context;
-            this.b = b54Var;
-            this.c = z34Var;
+            this.a = l44Var;
         }
 
-        @Override // com.repackage.s44.c
-        public void onFail() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sw1.o("map", "location permission fail");
-            }
-        }
-
-        @Override // com.repackage.s44.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                sw1.o("map", "location permission success");
-                this.d.e(this.a, this.b, this.c);
+                this.a.a.requestLocation();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements sj2.a {
+    public class b implements hk2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b54 a;
-        public final /* synthetic */ z34 b;
 
-        public b(l44 l44Var, b54 b54Var, z34 z34Var) {
+        public b(l44 l44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l44Var, b54Var, z34Var};
+                Object[] objArr = {l44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.hk2.a
+        public void a(g33 g33Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, g33Var) == null) && l44.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + g33Var);
+            }
+        }
+
+        @Override // com.repackage.hk2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && l44.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends BDAbstractLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LocationClient a;
+        public hk2.a b;
+        public String c;
+        public boolean d;
+
+        public d(LocationClient locationClient, hk2.a aVar, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locationClient, aVar, str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,29 +129,28 @@ public class l44 extends d44<em2> {
                     return;
                 }
             }
-            this.a = b54Var;
-            this.b = z34Var;
+            this.a = locationClient;
+            this.b = aVar;
+            this.c = str;
+            this.d = z;
         }
 
-        @Override // com.repackage.sj2.a
-        public void a(r23 r23Var) {
+        @Override // com.baidu.location.BDAbstractLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r23Var) == null) {
-                sw1.i("map", "get location " + r23Var.a().toString());
-                BaiduMap map = this.a.l.getMap();
-                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(r23Var.c, r23Var.b)));
-                map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                map.setMyLocationEnabled(true);
-                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) r23Var.e).latitude(r23Var.c).longitude(r23Var.b).build());
-                this.b.p(true);
-            }
-        }
-
-        @Override // com.repackage.sj2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                sw1.i("map", "get location error " + i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                this.a.unRegisterLocationListener(this);
+                int locType = bDLocation.getLocType();
+                if (l44.q(locType)) {
+                    l44.e.update(bDLocation);
+                    if (this.d) {
+                        return;
+                    }
+                    this.b.a(l44.o(bDLocation, this.c));
+                } else if (this.d) {
+                } else {
+                    this.b.onFailed(locType);
+                }
             }
         }
     }
@@ -133,7 +168,9 @@ public class l44 extends d44<em2> {
                 return;
             }
         }
-        boolean z = cg1.a;
+        c = rg1.a;
+        d = TimeUnit.MINUTES.toMillis(3L);
+        e = new c(null);
     }
 
     public l44() {
@@ -150,58 +187,238 @@ public class l44 extends d44<em2> {
         }
     }
 
-    public static l44 f() {
+    public static BDLocation m(double d2, double d3, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d3);
+            bDLocation.setLatitude(d2);
+            if (TextUtils.equals(str, "gcj02")) {
+                return bDLocation;
+            }
+            if (TextUtils.equals(str, BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, BDLocation.BDLOCATION_GCJ02_TO_BD09);
+            }
+            if (TextUtils.equals(str, "bd09ll")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            }
+            return TextUtils.equals(str, CoordinateType.WGS84) ? LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs") : bDLocation;
+        }
+        return (BDLocation) invokeCommon.objValue;
+    }
+
+    public static g33 o(BDLocation bDLocation, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bDLocation, str)) == null) {
+            double longitude = bDLocation.getLongitude();
+            double latitude = bDLocation.getLatitude();
+            if (!TextUtils.equals(str, bDLocation.getCoorType())) {
+                BDLocation m = m(latitude, longitude, str);
+                longitude = m.getLongitude();
+                latitude = m.getLatitude();
+            }
+            return new g33(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
+        }
+        return (g33) invokeLL.objValue;
+    }
+
+    public static boolean q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 65 || i == 61 || i == 161 || i == 66 || i == 68 : invokeI.booleanValue;
+    }
+
+    @Override // com.repackage.hk2
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.hk2
+    public void b(String str, boolean z, boolean z2, hk2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
+            BDLocation c2 = e.c(p());
+            boolean z3 = c2 != null;
+            if (z3) {
+                aVar.a(o(c2, str));
+            }
+            if (this.a == null) {
+                this.a = new LocationClient(AppRuntime.getAppContext());
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setCoorType("gcj02");
+                locationClientOption.setScanSpan(0);
+                locationClientOption.setIgnoreKillProcess(true);
+                locationClientOption.setIsNeedAddress(true);
+                this.a.setLocOption(locationClientOption);
+                this.b = locationClientOption;
+                this.a.start();
+            }
+            this.a.registerLocationListener(new d(this.a, aVar, str, z3));
+            this.b.setIsNeedAltitude(z2);
+            this.a.setLocOption(this.b);
+            be3.a0(new a(this));
+        }
+    }
+
+    @Override // com.repackage.hk2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.hk2
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long p = p();
+            if (e.b == null || (p > 0 && !e.d(p))) {
+                if (c) {
+                    Log.i("SwanAppLocationImpl", "onWarmUp");
+                }
+                b("gcj02", false, true, new b(this));
+            }
+        }
+    }
+
+    @Override // com.repackage.hk2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.hk2
+    public void f(hk2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        }
+    }
+
+    @Override // com.repackage.hk2
+    public double[] g(@NonNull g33 g33Var, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, g33Var, str)) == null) ? n(g33Var.b, g33Var.c, g33Var.a, str) : (double[]) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.hk2
+    public g33 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new l44() : (l44) invokeV.objValue;
-    }
-
-    @Override // com.repackage.d44
-    public boolean b(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, em2Var, bm2Var, sz2Var, jSONObject)) == null) ? g(context, em2Var, bm2Var, sz2Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final void e(Context context, b54 b54Var, z34 z34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, b54Var, z34Var) == null) {
-            zi2.I().b("gcj02", true, false, new b(this, b54Var, z34Var));
-        }
-    }
-
-    public final boolean g(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, em2Var, bm2Var, sz2Var)) == null) {
-            sw1.i("map", "MoveToLocationAction start");
-            am1 A = fl2.U().A(em2Var.c);
-            if (!(A instanceof yl1)) {
-                sw1.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BDLocation bDLocation = e.b;
+            if (bDLocation == null) {
+                return null;
             }
-            z34 c = a44.b().c((yl1) A);
-            b54 d = c.d(em2Var.b);
-            if (d == null) {
-                sw1.c("map", "can not find map by id " + em2Var.b);
-                return false;
-            } else if (!d.k) {
-                sw1.o("map", "can not move to location because showLocation is not set");
-                return false;
-            } else {
-                BDLocation e = c.e();
-                if (e != null && c.g()) {
-                    d.l.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(e.getLatitude(), e.getLongitude())));
-                    d.l.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                    d.l.getMap().setMyLocationEnabled(true);
-                    d.l.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(e.getRadius()).latitude(e.getLatitude()).longitude(e.getLongitude()).build());
-                    sw1.i("map", "MoveToLocationAction end");
-                    return true;
+            return o(bDLocation, bDLocation.getCoorType());
+        }
+        return (g33) invokeV.objValue;
+    }
+
+    public final double[] n(double d2, double d3, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str, str2})) == null) {
+            double[] dArr = new double[2];
+            if (TextUtils.equals(str2, "gcj02")) {
+                return dArr;
+            }
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d2);
+            bDLocation.setLatitude(d3);
+            if (TextUtils.equals(str2, BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, BDLocation.BDLOCATION_GCJ02_TO_BD09);
+            } else if (TextUtils.equals(str2, "bd09ll")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            } else if (TextUtils.equals(str2, CoordinateType.WGS84)) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            dArr[0] = bDLocation.getLongitude();
+            dArr[1] = bDLocation.getLatitude();
+            return dArr;
+        }
+        return (double[]) invokeCommon.objValue;
+    }
+
+    public final long p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? d : invokeV.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public BDLocation b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                s44.b(context, new a(this, context, d, c));
-                return true;
+            }
+            this.a = 0L;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized void update(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDLocation) == null) {
+                synchronized (this) {
+                    this.b = bDLocation;
+                    this.a = System.currentTimeMillis();
+                }
             }
         }
-        return invokeLLLL.booleanValue;
+
+        public synchronized BDLocation c(long j) {
+            InterceptResult invokeJ;
+            BDLocation bDLocation;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                synchronized (this) {
+                    bDLocation = d(j) ? this.b : null;
+                }
+                return bDLocation;
+            }
+            return (BDLocation) invokeJ.objValue;
+        }
+
+        public synchronized boolean d(long j) {
+            InterceptResult invokeJ;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                synchronized (this) {
+                    long currentTimeMillis = System.currentTimeMillis() - this.a;
+                    boolean z2 = this.b != null;
+                    boolean z3 = currentTimeMillis < j;
+                    z = z2 && z3;
+                    if (l44.c) {
+                        Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
+                    }
+                }
+                return z;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
     }
 }

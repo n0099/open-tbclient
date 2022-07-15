@@ -9,10 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
+import com.kwai.filedownloader.exception.FileDownloadNetworkPolicyException;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class e {
+public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -31,13 +33,6 @@ public class e {
     public final com.kwai.filedownloader.a.a n;
     public volatile long o;
     public volatile long p;
-
-    /* renamed from: com.kwai.filedownloader.download.e$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -66,7 +61,7 @@ public class e {
             }
         }
 
-        public a a(int i) {
+        public final a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -76,7 +71,7 @@ public class e {
             return (a) invokeI.objValue;
         }
 
-        public a a(com.kwai.filedownloader.download.a aVar) {
+        public final a a(com.kwai.filedownloader.download.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
@@ -86,7 +81,7 @@ public class e {
             return (a) invokeL.objValue;
         }
 
-        public a a(c cVar) {
+        public final a a(c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
@@ -96,7 +91,7 @@ public class e {
             return (a) invokeL.objValue;
         }
 
-        public a a(f fVar) {
+        public final a a(f fVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
@@ -106,7 +101,7 @@ public class e {
             return (a) invokeL.objValue;
         }
 
-        public a a(com.kwai.filedownloader.kwai.b bVar) {
+        public final a a(com.kwai.filedownloader.kwai.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
@@ -116,7 +111,7 @@ public class e {
             return (a) invokeL.objValue;
         }
 
-        public a a(String str) {
+        public final a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -126,7 +121,7 @@ public class e {
             return (a) invokeL.objValue;
         }
 
-        public a a(boolean z) {
+        public final a a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
@@ -136,7 +131,7 @@ public class e {
             return (a) invokeZ.objValue;
         }
 
-        public e a() {
+        public final e a() {
             InterceptResult invokeV;
             com.kwai.filedownloader.kwai.b bVar;
             com.kwai.filedownloader.download.a aVar;
@@ -146,12 +141,12 @@ public class e {
                 if (this.f == null || (bVar = this.b) == null || (aVar = this.c) == null || this.d == null || this.e == null || (num = this.h) == null || this.g == null) {
                     throw new IllegalArgumentException();
                 }
-                return new e(bVar, aVar, this.a, num.intValue(), this.g.intValue(), this.f.booleanValue(), this.d, this.e, null);
+                return new e(bVar, aVar, this.a, num.intValue(), this.g.intValue(), this.f.booleanValue(), this.d, this.e, (byte) 0);
             }
             return (e) invokeV.objValue;
         }
 
-        public a b(int i) {
+        public final a b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
@@ -193,7 +188,7 @@ public class e {
         this.j = aVar.d;
     }
 
-    public /* synthetic */ e(com.kwai.filedownloader.kwai.b bVar, com.kwai.filedownloader.download.a aVar, c cVar, int i, int i2, boolean z, f fVar, String str, AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ e(com.kwai.filedownloader.kwai.b bVar, com.kwai.filedownloader.download.a aVar, c cVar, int i, int i2, boolean z, f fVar, String str, byte b) {
         this(bVar, aVar, cVar, i, i2, z, fVar, str);
     }
 
@@ -236,44 +231,35 @@ public class e {
         }
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.m = true;
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x01eb, code lost:
-        throw new com.kwai.filedownloader.exception.FileDownloadNetworkPolicyException();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b() {
-        Throwable th;
+    public final void b() {
         com.kwai.filedownloader.d.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.m) {
             return;
         }
         long b = com.kwai.filedownloader.e.f.b(this.d, this.f);
+        int i = 0;
         if (b == 0) {
             throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.e.f.a("there isn't any content need to download on %d-%d with the content-length is 0", Integer.valueOf(this.c), Integer.valueOf(this.d)));
         }
         long j = this.j;
-        char c = 3;
         if (j > 0 && b != j) {
             throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.e.f.a("require %s with contentLength(%d), but the backend response contentLength is %d on downloadId[%d]-connectionIndex[%d], please ask your backend dev to fix such problem.", this.i == 0 ? com.kwai.filedownloader.e.f.a("range[%d-)", Long.valueOf(this.a)) : com.kwai.filedownloader.e.f.a("range[%d-%d)", Long.valueOf(this.a), Long.valueOf(this.i)), Long.valueOf(this.j), Long.valueOf(b), Integer.valueOf(this.c), Integer.valueOf(this.d)));
         }
         long j2 = this.a;
-        InputStream inputStream = null;
         try {
             boolean e = b.a().e();
             if (this.e != null && !e) {
                 throw new IllegalAccessException("can't using multi-download when the output stream can't support seek");
             }
-            aVar = com.kwai.filedownloader.e.f.l(this.k);
+            aVar = com.kwai.filedownloader.e.f.h(this.k);
             try {
                 this.l = aVar;
                 if (e) {
@@ -282,145 +268,51 @@ public class e {
                 if (com.kwai.filedownloader.e.d.a) {
                     com.kwai.filedownloader.e.d.c(this, "start fetch(%d): range [%d, %d), seek to[%d]", Integer.valueOf(this.d), Long.valueOf(this.h), Long.valueOf(this.i), Long.valueOf(this.a));
                 }
-                inputStream = this.f.a();
+                InputStream a2 = this.f.a();
                 byte[] bArr = new byte[4096];
                 if (this.m) {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    if (aVar != null) {
-                        try {
-                            d();
-                        } finally {
-                        }
-                    }
-                    if (aVar != null) {
-                        try {
-                            aVar.b();
-                            return;
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                            return;
-                        }
-                    }
+                    com.kwad.sdk.crash.utils.b.a(a2);
+                    com.kwad.sdk.crash.utils.b.a(aVar);
                     return;
                 }
                 while (true) {
-                    int read = inputStream.read(bArr);
+                    int read = a2.read(bArr);
                     if (read == -1) {
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
                         if (aVar != null) {
-                            try {
-                                d();
-                            } finally {
-                                if (aVar != null) {
-                                    try {
-                                        aVar.b();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                            }
+                            d();
                         }
-                        if (aVar != null) {
-                            try {
-                                aVar.b();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
+                        com.kwad.sdk.crash.utils.b.a(a2);
+                        com.kwad.sdk.crash.utils.b.a(aVar);
                         long j3 = this.a - j2;
-                        if (b == -1 || b == j3) {
-                            this.b.a(this.e, this.h, this.i);
-                            return;
+                        if (b != -1 && b != j3) {
+                            throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.e.f.a("fetched length[%d] != content length[%d], range[%d, %d) offset[%d] fetch begin offset", Long.valueOf(j3), Long.valueOf(b), Long.valueOf(this.h), Long.valueOf(this.i), Long.valueOf(this.a), Long.valueOf(j2)));
                         }
-                        Object[] objArr = new Object[6];
-                        objArr[0] = Long.valueOf(j3);
-                        objArr[1] = Long.valueOf(b);
-                        objArr[2] = Long.valueOf(this.h);
-                        objArr[c] = Long.valueOf(this.i);
-                        objArr[4] = Long.valueOf(this.a);
-                        objArr[5] = Long.valueOf(j2);
-                        throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.e.f.a("fetched length[%d] != content length[%d], range[%d, %d) offset[%d] fetch begin offset", objArr));
+                        this.b.a(this.e, this.h, this.i);
+                        return;
                     }
-                    aVar.a(bArr, 0, read);
+                    aVar.a(bArr, i, read);
                     long j4 = read;
                     this.a += j4;
                     this.b.a(j4);
                     c();
                     if (this.m) {
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        if (aVar != null) {
-                            try {
-                                d();
-                            } finally {
-                            }
-                        }
-                        if (aVar != null) {
-                            try {
-                                aVar.b();
-                                return;
-                            } catch (IOException e8) {
-                                e8.printStackTrace();
-                                return;
-                            }
-                        }
+                        com.kwad.sdk.crash.utils.b.a(a2);
+                        com.kwad.sdk.crash.utils.b.a(aVar);
                         return;
                     }
-                    if (this.g && com.kwai.filedownloader.e.f.d()) {
-                        break;
+                    if (this.g && com.kwai.filedownloader.e.f.a()) {
+                        throw new FileDownloadNetworkPolicyException();
                     }
-                    c = 3;
+                    i = 0;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e9) {
-                        e9.printStackTrace();
-                    }
-                }
-                if (aVar != null) {
-                    try {
-                        d();
-                    } finally {
-                        if (aVar != null) {
-                            try {
-                                aVar.b();
-                            } catch (IOException e10) {
-                                e10.printStackTrace();
-                            }
-                        }
-                    }
-                }
-                if (aVar != null) {
-                    try {
-                        aVar.b();
-                    } catch (IOException e11) {
-                        e11.printStackTrace();
-                    }
-                }
+            } catch (Throwable th) {
+                th = th;
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                com.kwad.sdk.crash.utils.b.a(aVar);
                 throw th;
             }
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             aVar = null;
         }
     }

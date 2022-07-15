@@ -60,14 +60,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.repackage.af5;
-import com.repackage.br5;
 import com.repackage.c9;
+import com.repackage.dg5;
 import com.repackage.ni;
+import com.repackage.oh8;
 import com.repackage.pi;
-import com.repackage.sq5;
-import com.repackage.tg8;
-import com.repackage.uq5;
+import com.repackage.pr5;
+import com.repackage.rr5;
+import com.repackage.yr5;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -118,9 +118,9 @@ public class SpecialLiveFragment extends BaseFragment {
     public ScrollHorizontalTabView s;
     public CustomViewPager t;
     public q u;
-    public br5 v;
-    public uq5 w;
-    public sq5 x;
+    public yr5 v;
+    public rr5 w;
+    public pr5 x;
     public List<TabData> y;
     public List<SpecialLiveTabInfo> z;
 
@@ -222,17 +222,17 @@ public class SpecialLiveFragment extends BaseFragment {
                 }
                 SpecialLiveFragment specialLiveFragment = this.a;
                 float f = abs;
-                specialLiveFragment.w2(f > specialLiveFragment.a / 2.0f);
+                specialLiveFragment.x2(f > specialLiveFragment.a / 2.0f);
                 float abs2 = Math.abs(f / this.a.a);
                 this.a.o.setAlpha(abs2);
                 this.a.q.setAlpha(abs2);
-                this.a.u2(abs, abs2);
+                this.a.v2(abs, abs2);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements af5 {
+    public class c implements dg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialLiveFragment a;
@@ -255,7 +255,7 @@ public class SpecialLiveFragment extends BaseFragment {
             this.a = specialLiveFragment;
         }
 
-        @Override // com.repackage.af5
+        @Override // com.repackage.dg5
         public void a(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -267,7 +267,7 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements uq5.b {
+    public class d implements rr5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialLiveFragment a;
@@ -290,21 +290,21 @@ public class SpecialLiveFragment extends BaseFragment {
             this.a = specialLiveFragment;
         }
 
-        @Override // com.repackage.uq5.b
+        @Override // com.repackage.rr5.b
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.a.d2(i, str);
+                this.a.e2(i, str);
             }
         }
 
-        @Override // com.repackage.uq5.b
-        public void b(sq5 sq5Var) {
+        @Override // com.repackage.rr5.b
+        public void b(pr5 pr5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sq5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pr5Var) == null) {
                 SpecialLiveFragment specialLiveFragment = this.a;
                 specialLiveFragment.hideLoadingView(specialLiveFragment.c);
-                this.a.g2(sq5Var);
+                this.a.h2(pr5Var);
             }
         }
     }
@@ -403,13 +403,13 @@ public class SpecialLiveFragment extends BaseFragment {
                         AntiHelper.u(this.a.b, signMessage.mSignErrorString);
                         return;
                     } else {
-                        pi.O(this.a.b, this.a.b.getString(R.string.obfuscated_res_0x7f0f11d7, Integer.valueOf(signData2.sign_bonus_point)));
+                        pi.O(this.a.b, this.a.b.getString(R.string.obfuscated_res_0x7f0f11d0, Integer.valueOf(signData2.sign_bonus_point)));
                         return;
                     }
                 }
                 if (signMessage.mSignErrorCode == 160002) {
                     this.a.K = 3;
-                    this.a.x2(false);
+                    this.a.y2(false);
                 }
                 pi.O(this.a.b, signMessage.mSignErrorString);
             }
@@ -446,21 +446,21 @@ public class SpecialLiveFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.l.setClickable(true);
                 if (this.a.A.getErrorCode() == 22) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f080e);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0819);
                 } else if (AntiHelper.m(this.a.A.getErrorCode(), this.a.A.getErrorString())) {
                     AntiHelper.u(this.a.b, this.a.A.getErrorString());
                 } else if (this.a.A.getErrorCode() != 0) {
                     pi.O(this.a.b, this.a.A.getErrorString());
                 } else {
-                    tg8 tg8Var = (tg8) obj;
-                    if (tg8Var != null) {
+                    oh8 oh8Var = (oh8) obj;
+                    if (oh8Var != null) {
                         TbadkCoreApplication.getInst().addLikeForum(this.a.H);
-                        tg8Var.y(1);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, tg8Var));
-                        pi.N(this.a.b, R.string.obfuscated_res_0x7f0f02b3);
+                        oh8Var.y(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, oh8Var));
+                        pi.N(this.a.b, R.string.obfuscated_res_0x7f0f02b6);
                         return;
                     }
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c37);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c2b);
                 }
             }
         }
@@ -577,7 +577,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 return;
             }
             if ("FrsLiveLive".equals(split[0])) {
-                this.a.s2(false);
+                this.a.t2(false);
             }
             SpecialForumTabBaseFragment b = this.a.u.b(this.a.t.getCurrentItem());
             if (b != null) {
@@ -620,7 +620,7 @@ public class SpecialLiveFragment extends BaseFragment {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.w == null || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 return;
             }
-            this.a.s2(false);
+            this.a.t2(false);
         }
     }
 
@@ -654,11 +654,11 @@ public class SpecialLiveFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            tg8 tg8Var;
+            oh8 oh8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof tg8) && (tg8Var = (tg8) customResponsedMessage.getData()) != null && this.a.G.equals(tg8Var.g())) {
-                if (tg8Var.n() == 1) {
-                    if (this.a.r2()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof oh8) && (oh8Var = (oh8) customResponsedMessage.getData()) != null && this.a.G.equals(oh8Var.g())) {
+                if (oh8Var.n() == 1) {
+                    if (this.a.s2()) {
                         this.a.K = 3;
                     } else {
                         this.a.K = 2;
@@ -666,7 +666,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 } else {
                     this.a.K = 1;
                 }
-                this.a.x2(false);
+                this.a.y2(false);
             }
         }
     }
@@ -705,8 +705,8 @@ public class SpecialLiveFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (signData = (SignData) customResponsedMessage.getData()) != null && this.a.G.equals(signData.forumId) && signData.is_signed == 1) {
                 this.a.K = 3;
-                this.a.x2(false);
-                pi.O(this.a.getPageContext().getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f11d7, Integer.valueOf(signData.sign_bonus_point)));
+                this.a.y2(false);
+                pi.O(this.a.getPageContext().getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f11d0, Integer.valueOf(signData.sign_bonus_point)));
             }
         }
     }
@@ -785,7 +785,7 @@ public class SpecialLiveFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!ni.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
                     return;
                 }
                 if (!TbadkCoreApplication.isLogin()) {
@@ -793,7 +793,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 }
                 if (this.a.K == 1) {
                     this.a.l.setClickable(false);
-                    this.a.A.Q(this.a.H, this.a.G);
+                    this.a.A.R(this.a.H, this.a.G);
                     StatisticItem statisticItem = new StatisticItem("c12890");
                     TiebaStaticHelper.addYYParam(statisticItem);
                     TiebaStatic.log(statisticItem);
@@ -878,7 +878,7 @@ public class SpecialLiveFragment extends BaseFragment {
             this.a = new ArrayList();
             SparseArray<SpecialForumTabBaseFragment> sparseArray = new SparseArray<>();
             this.b = sparseArray;
-            sparseArray.put(0, ConcernTabFragment.N1(0, specialLiveFragment.G, specialLiveFragment.H));
+            sparseArray.put(0, ConcernTabFragment.O1(0, specialLiveFragment.G, specialLiveFragment.H));
         }
 
         public SpecialForumTabBaseFragment b(int i) {
@@ -935,11 +935,11 @@ public class SpecialLiveFragment extends BaseFragment {
                 SpecialForumTabBaseFragment b = b(i);
                 if (b == null) {
                     if (i == 0) {
-                        b = ConcernTabFragment.N1(0, this.c.G, this.c.H);
+                        b = ConcernTabFragment.O1(0, this.c.G, this.c.H);
                     } else if (i == 1) {
-                        b = RecommendTabFragment.M1(1, this.c.G, this.c.H);
+                        b = RecommendTabFragment.N1(1, this.c.G, this.c.H);
                     } else {
-                        b = OtherSubTabFragment.O1(i, this.a.get(i), this.c.G, this.c.H);
+                        b = OtherSubTabFragment.P1(i, this.a.get(i), this.c.G, this.c.H);
                     }
                     this.b.put(i, b);
                 }
@@ -991,9 +991,9 @@ public class SpecialLiveFragment extends BaseFragment {
         this.T = new n(this, AlaCmdConfigCustom.CMD_ALA_SPECIAL_CONCERN_TAB_TAB_ICON);
     }
 
-    public static void a2(int i2) {
+    public static void b2(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65564, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65565, null, i2) == null) {
             if (V.containsKey(Integer.valueOf(i2))) {
                 V.put(Integer.valueOf(i2), Integer.valueOf(V.get(Integer.valueOf(i2)).intValue() + 1));
             } else {
@@ -1002,10 +1002,10 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public static int m2(int i2) {
+    public static int n2(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65565, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i2)) == null) {
             if (V.containsKey(Integer.valueOf(i2))) {
                 return V.get(Integer.valueOf(i2)).intValue();
             }
@@ -1015,10 +1015,10 @@ public class SpecialLiveFragment extends BaseFragment {
         return invokeI.intValue;
     }
 
-    public static SpecialLiveFragment t2(String str, String str2) {
+    public static SpecialLiveFragment u2(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, str, str2)) == null) {
             SpecialLiveFragment specialLiveFragment = new SpecialLiveFragment();
             Bundle bundle = new Bundle();
             bundle.putString("forum_id", str);
@@ -1029,10 +1029,10 @@ public class SpecialLiveFragment extends BaseFragment {
         return (SpecialLiveFragment) invokeLL.objValue;
     }
 
-    public final void b2() {
+    public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070309);
+            int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
             if (UtilHelper.canUseStyleImmersiveSticky() && this.f.getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -1051,15 +1051,15 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void c2() {
+    public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.y.clear();
             this.z.clear();
-            this.y.add(i2());
-            this.y.add(k2());
-            this.z.add(j2());
-            this.z.add(l2());
+            this.y.add(j2());
+            this.y.add(l2());
+            this.z.add(k2());
+            this.z.add(m2());
             if (ListUtils.isEmpty(this.x.b)) {
                 return;
             }
@@ -1077,24 +1077,24 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void d2(int i2, String str) {
+    public final void e2(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
             hideLoadingView(this.c);
             this.d.setVisibility(8);
             if (TextUtils.isEmpty(str)) {
-                showNetRefreshView(this.c, this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ee), true);
+                showNetRefreshView(this.c, this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11e7), true);
             } else {
                 showNetRefreshView(this.c, str, true);
             }
         }
     }
 
-    public final void e2() {
+    public final void f2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.x.c) {
-                if (r2()) {
+                if (s2()) {
                     this.K = 3;
                 } else {
                     this.K = 2;
@@ -1102,11 +1102,11 @@ public class SpecialLiveFragment extends BaseFragment {
             } else {
                 this.K = 1;
             }
-            x2(false);
+            y2(false);
         }
     }
 
-    public final void f2() {
+    public final void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             boolean c2 = this.v.c(this.x.a);
@@ -1122,17 +1122,17 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void g2(sq5 sq5Var) {
+    public final void h2(pr5 pr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sq5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, pr5Var) == null) {
             this.d.setVisibility(0);
-            this.x = sq5Var;
+            this.x = pr5Var;
+            g2();
             f2();
-            e2();
             if (this.L) {
                 return;
             }
-            h2();
+            i2();
             CustomViewPager customViewPager = this.t;
             if (customViewPager != null && customViewPager.getChildCount() > 1) {
                 this.t.setCurrentItem(1);
@@ -1144,64 +1144,64 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void h2() {
+    public final void i2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c2();
+            d2();
             this.s.setData(this.y);
             this.u.d(this.z);
         }
     }
 
-    public final TabData i2() {
+    public final TabData j2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             TabData tabData = new TabData();
             tabData.tabId = -901;
-            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11d1);
+            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ca);
             return tabData;
         }
         return (TabData) invokeV.objValue;
     }
 
-    public final SpecialLiveTabInfo j2() {
+    public final SpecialLiveTabInfo k2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
             specialLiveTabInfo.tabId = -901;
-            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11d1);
+            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ca);
             return specialLiveTabInfo;
         }
         return (SpecialLiveTabInfo) invokeV.objValue;
     }
 
-    public final TabData k2() {
+    public final TabData l2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             TabData tabData = new TabData();
             tabData.tabId = -903;
-            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11d6);
+            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11cf);
             return tabData;
         }
         return (TabData) invokeV.objValue;
     }
 
-    public final SpecialLiveTabInfo l2() {
+    public final SpecialLiveTabInfo m2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
             specialLiveTabInfo.tabId = -903;
-            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11d6);
+            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11cf);
             return specialLiveTabInfo;
         }
         return (SpecialLiveTabInfo) invokeV.objValue;
     }
 
-    public final void n2() {
+    public final void o2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             LikeModel likeModel = new LikeModel(getPageContext());
@@ -1210,19 +1210,10 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void o2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.C = new AlaLiveUserNotifyController(getPageContext());
-            this.D = new e(this);
-            AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.D);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onActivityCreated(bundle);
         }
     }
@@ -1230,11 +1221,11 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             super.onChangeSkinType(i2);
-            br5 br5Var = this.v;
-            if (br5Var != null) {
-                br5Var.f(i2);
+            yr5 yr5Var = this.v;
+            if (yr5Var != null) {
+                yr5Var.f(i2);
             }
             ScrollHorizontalTabView scrollHorizontalTabView = this.s;
             if (scrollHorizontalTabView != null) {
@@ -1245,7 +1236,7 @@ public class SpecialLiveFragment extends BaseFragment {
             if (qVar != null) {
                 qVar.c(i2);
             }
-            w2(false);
+            x2(false);
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
@@ -1262,7 +1253,7 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
             if (arguments == null) {
@@ -1271,19 +1262,19 @@ public class SpecialLiveFragment extends BaseFragment {
             this.b = getPageContext().getPageActivity();
             this.G = arguments.getString("forum_id");
             String string = arguments.getString("forum_name");
-            String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0646);
+            String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0650);
             if (!TextUtils.isEmpty(string)) {
                 this.H = string;
                 StringBuilder sb = new StringBuilder();
                 sb.append(UtilHelper.getFixedBarText(string, 5, true, true) + string2);
                 this.I = sb.toString();
             } else {
-                this.H = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0248);
+                this.H = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f024a);
                 this.I = this.H + string2;
             }
-            n2();
             o2();
             p2();
+            q2();
             MessageManager.getInstance().registerListener(this.B);
             MessageManager.getInstance().registerListener(this.R);
             MessageManager.getInstance().registerListener(this.S);
@@ -1298,47 +1289,47 @@ public class SpecialLiveFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0772, (ViewGroup) null);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) null);
             this.c = inflate;
-            this.d = (AppBarLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d37);
-            this.e = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d38);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f091d95);
-            this.h = (ObservedChangeFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09124f);
+            this.d = (AppBarLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ddb);
+            this.e = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091ddc);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f091e39);
+            this.h = (ObservedChangeFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0912f0);
             this.E = BdUniqueId.gen();
-            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bf5);
-            this.j = this.c.findViewById(R.id.obfuscated_res_0x7f090bf2);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bfc);
+            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bfe);
+            this.j = this.c.findViewById(R.id.obfuscated_res_0x7f090bfb);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090c05);
             this.k = textView;
             textView.setText(this.I);
-            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bf3);
+            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bfc);
             this.l = textView2;
             textView2.setOnClickListener(new o(this));
-            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090bf9);
-            this.n = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0914f2);
-            this.p = this.c.findViewById(R.id.obfuscated_res_0x7f0914f6);
-            this.o = this.c.findViewById(R.id.obfuscated_res_0x7f0914ee);
-            TextView textView3 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0914f5);
+            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090c02);
+            this.n = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09159b);
+            this.p = this.c.findViewById(R.id.obfuscated_res_0x7f09159f);
+            this.o = this.c.findViewById(R.id.obfuscated_res_0x7f091597);
+            TextView textView3 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09159e);
             this.q = textView3;
             textView3.setText(this.I);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0914e3);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09158c);
             this.r = imageView;
             imageView.setOnClickListener(new p(this));
-            this.s = (ScrollHorizontalTabView) this.c.findViewById(R.id.obfuscated_res_0x7f091bf1);
-            this.t = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f091d3a);
-            q2();
+            this.s = (ScrollHorizontalTabView) this.c.findViewById(R.id.obfuscated_res_0x7f091c90);
+            this.t = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f091dde);
+            r2();
             this.s.setViewPager(this.t);
             this.s.setScrollTabPageListener(new a(this));
             this.d.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new b(this));
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f091d68);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f091e0c);
             this.h.setOnSizeChangeListener(new c(this));
-            b2();
+            c2();
             this.y = new ArrayList();
             this.z = new ArrayList();
-            this.v = new br5(getPageContext());
-            this.w = new uq5(getPageContext(), new d(this));
-            x2(true);
-            s2(true);
+            this.v = new yr5(getPageContext());
+            this.w = new rr5(getPageContext(), new d(this));
+            y2(true);
+            t2(true);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return this.c;
         }
@@ -1348,11 +1339,11 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroy();
-            br5 br5Var = this.v;
-            if (br5Var != null) {
-                br5Var.g();
+            yr5 yr5Var = this.v;
+            if (yr5Var != null) {
+                yr5Var.g();
             }
             if (this.R != null) {
                 MessageManager.getInstance().unRegisterListener(this.R);
@@ -1372,9 +1363,9 @@ public class SpecialLiveFragment extends BaseFragment {
             if (this.Q != null) {
                 MessageManager.getInstance().unRegisterListener(this.Q);
             }
-            uq5 uq5Var = this.w;
-            if (uq5Var != null) {
-                uq5Var.f();
+            rr5 rr5Var = this.w;
+            if (rr5Var != null) {
+                rr5Var.f();
             }
             AlaLiveUserNotifyController alaLiveUserNotifyController = this.C;
             if (alaLiveUserNotifyController != null) {
@@ -1389,10 +1380,10 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onNetRefreshButtonClicked();
             hideNetRefreshView(this.c);
-            s2(true);
+            t2(true);
             AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
         }
     }
@@ -1400,11 +1391,11 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPause();
-            br5 br5Var = this.v;
-            if (br5Var != null) {
-                br5Var.d(true);
+            yr5 yr5Var = this.v;
+            if (yr5Var != null) {
+                yr5Var.d(true);
                 this.v.k();
             }
         }
@@ -1413,11 +1404,11 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPrimary();
             if (isAdded()) {
                 if (isPrimary()) {
-                    s2(false);
+                    t2(false);
                     AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
                 }
                 if (this.v != null) {
@@ -1435,12 +1426,21 @@ public class SpecialLiveFragment extends BaseFragment {
 
     public final void p2() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.C = new AlaLiveUserNotifyController(getPageContext());
+            this.D = new e(this);
+            AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.D);
+        }
+    }
+
+    public final void q2() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.B = new f(this, 2001425);
         }
     }
 
-    public final void q2() {
+    public final void r2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             q qVar = new q(this, getChildFragmentManager());
@@ -1449,13 +1449,13 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final boolean r2() {
+    public final boolean s2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.x.e.a : invokeV.booleanValue;
     }
 
-    public final void s2(boolean z) {
+    public final void t2(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || this.w.d()) {
             return;
@@ -1466,32 +1466,32 @@ public class SpecialLiveFragment extends BaseFragment {
         this.w.e();
     }
 
-    public final void u2(int i2, float f2) {
-        br5 br5Var;
+    public final void v2(int i2, float f2) {
+        yr5 yr5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (br5Var = this.v) == null || f2 == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (yr5Var = this.v) == null || f2 == 0.0f) {
             return;
         }
         if (this.F <= i2) {
             if (this.J && f2 >= 0.3f) {
-                br5Var.d(true);
+                yr5Var.d(true);
                 this.v.h();
                 this.J = false;
             }
         } else if (!this.J && f2 <= 0.3f) {
-            br5Var.d(false);
+            yr5Var.d(false);
             this.v.i();
             this.J = true;
         }
         this.F = i2;
     }
 
-    public final void v2() {
-        sq5 sq5Var;
+    public final void w2() {
+        pr5 pr5Var;
         AlaUserInfoData alaUserInfoData;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (sq5Var = this.x) == null || (alaUserInfoData = sq5Var.d) == null || this.K == 1) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (pr5Var = this.x) == null || (alaUserInfoData = pr5Var.d) == null || this.K == 1) {
             return;
         }
         int i2 = alaUserInfoData.level_id;
@@ -1506,7 +1506,7 @@ public class SpecialLiveFragment extends BaseFragment {
         this.m.setText("LV" + i2 + str);
     }
 
-    public final void w2(boolean z) {
+    public final void x2(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048603, this, z) == null) || (imageView = this.r) == null) {
@@ -1519,15 +1519,15 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void x2(boolean z) {
+    public final void y2(boolean z) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             TextView textView = this.l;
             int i2 = R.drawable.frs_attention_btn_bg_selector;
             SkinManager.setBackgroundResource(textView, R.drawable.frs_attention_btn_bg_selector);
-            int f2 = pi.f(this.b, R.dimen.obfuscated_res_0x7f070234);
-            String string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02a4);
+            int f2 = pi.f(this.b, R.dimen.obfuscated_res_0x7f070232);
+            String string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02a7);
             int i3 = this.K;
             int i4 = R.color.CAM_X0101;
             if (i3 == 1) {
@@ -1539,7 +1539,7 @@ public class SpecialLiveFragment extends BaseFragment {
                     TiebaStatic.log(statisticItem);
                 }
             } else if (i3 == 2) {
-                string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1198);
+                string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1191);
                 drawable = SkinManager.getDrawable(R.drawable.icon_public_sign_blue_s);
                 this.l.setClickable(true);
                 if (!z) {
@@ -1549,7 +1549,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 }
             } else {
                 if (i3 == 3) {
-                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b7);
+                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b0);
                     this.l.setClickable(false);
                     i2 = R.drawable.special_sign_btn_signed_bg;
                     i4 = R.color.CAM_X0109;
@@ -1561,7 +1561,7 @@ public class SpecialLiveFragment extends BaseFragment {
             this.l.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
             this.l.setCompoundDrawablePadding(f2);
             this.l.setText(string);
-            v2();
+            w2();
         }
     }
 }

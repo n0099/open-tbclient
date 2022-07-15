@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb1;
-import com.repackage.za1;
+import com.repackage.ob1;
+import com.repackage.qb1;
 /* loaded from: classes2.dex */
 public class ExceptionHandlerComponent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public bb1<IExceptionHandlerContext> exceptionHandlerContext;
+    public qb1<IExceptionHandlerContext> exceptionHandlerContext;
 
     public ExceptionHandlerComponent() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class ExceptionHandlerComponent {
     public void initexceptionHandlerContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            za1 b = za1.b();
+            ob1 b = ob1.b();
             this.exceptionHandlerContext = b;
             b.a(new IExceptionHandlerContext_ExceptionHandlerComponent_Provider());
         }

@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
-import com.repackage.ml5;
 import com.repackage.pi;
+import com.repackage.pm5;
+import com.repackage.rl4;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
@@ -70,14 +70,14 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f70);
+            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080ef0);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f70);
+                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080ef0);
             }
         }
     }
@@ -109,12 +109,12 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011d, (ViewGroup) this, true);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090294);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090296);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090293);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090295);
-            this.f = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090297);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090298);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090296);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090298);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090295);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090297);
+            this.f = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090299);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09029a);
             this.b.setIsRound(true);
             this.b.setIsPreDrawBorder(true);
             this.b.setDrawBorder(true);
@@ -156,11 +156,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || (smartApp = this.h) == null) {
             return;
         }
-        if (!ml5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!pm5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }
-            cl4.o(getContext(), this.h.h5_url);
+            rl4.o(getContext(), this.h.h5_url);
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.swan_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
     }
@@ -183,7 +183,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 this.d.setText(smartApp._abstract);
             }
             if (StringUtils.isNull(smartApp.pic, true)) {
-                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f70);
+                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080ef0);
                 return;
             }
             this.e.setEvent(new a(this));

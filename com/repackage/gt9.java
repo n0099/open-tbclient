@@ -1,127 +1,263 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.common.StringUtils;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CodingErrorAction;
-import org.apache.http.protocol.HTTP;
-import org.java_websocket.exceptions.InvalidDataException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ur9;
+import com.repackage.xr9;
+import java.util.concurrent.TimeoutException;
 /* loaded from: classes6.dex */
-public class gt9 {
+public class gt9<T> implements ur9.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
-    public static CodingErrorAction a;
-    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a<T> a;
+    public final b<T> b;
+    public final ur9<? extends T> c;
+    public final xr9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755666363, "Lcom/repackage/gt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public interface a<T> {
+        /* synthetic */ R call(T1 t1, T2 t2, T3 t3);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b<T> {
+        /* synthetic */ R call(T1 t1, T2 t2, T3 t3, T4 t4);
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c<T> extends as9<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final qw9 e;
+        public final xv9<T> f;
+        public final b<T> g;
+        public final ur9<? extends T> h;
+        public final xr9.a i;
+        public final nt9 j;
+        public boolean k;
+        public long l;
+
+        /* loaded from: classes6.dex */
+        public class a extends as9<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c e;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.e = cVar;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755666363, "Lcom/repackage/gt9;");
+
+            @Override // com.repackage.as9
+            public void f(wr9 wr9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, wr9Var) == null) {
+                    this.e.j.c(wr9Var);
+                }
+            }
+
+            @Override // com.repackage.vr9
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.e.f.onCompleted();
+                }
+            }
+
+            @Override // com.repackage.vr9
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                    this.e.f.onError(th);
+                }
+            }
+
+            @Override // com.repackage.vr9
+            public void onNext(T t) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                    this.e.f.onNext(t);
+                }
+            }
+        }
+
+        public c(xv9<T> xv9Var, b<T> bVar, qw9 qw9Var, ur9<? extends T> ur9Var, xr9.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xv9Var, bVar, qw9Var, ur9Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = xv9Var;
+            this.g = bVar;
+            this.e = qw9Var;
+            this.h = ur9Var;
+            this.i = aVar;
+            this.j = new nt9();
+        }
+
+        @Override // com.repackage.as9
+        public void f(wr9 wr9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr9Var) == null) {
+                this.j.c(wr9Var);
+            }
+        }
+
+        public void g(long j) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                synchronized (this) {
+                    z = true;
+                    if (j != this.l || this.k) {
+                        z = false;
+                    } else {
+                        this.k = true;
+                    }
+                }
+                if (z) {
+                    if (this.h == null) {
+                        this.f.onError(new TimeoutException());
+                        return;
+                    }
+                    a aVar = new a(this);
+                    this.h.B(aVar);
+                    this.e.a(aVar);
+                }
+            }
+        }
+
+        @Override // com.repackage.vr9
+        public void onCompleted() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                synchronized (this) {
+                    z = true;
+                    if (this.k) {
+                        z = false;
+                    } else {
+                        this.k = true;
+                    }
+                }
+                if (z) {
+                    this.e.unsubscribe();
+                    this.f.onCompleted();
+                }
+            }
+        }
+
+        @Override // com.repackage.vr9
+        public void onError(Throwable th) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                synchronized (this) {
+                    z = true;
+                    if (this.k) {
+                        z = false;
+                    } else {
+                        this.k = true;
+                    }
+                }
+                if (z) {
+                    this.e.unsubscribe();
+                    this.f.onError(th);
+                }
+            }
+        }
+
+        @Override // com.repackage.vr9
+        public void onNext(T t) {
+            long j;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                synchronized (this) {
+                    if (!this.k) {
+                        j = this.l + 1;
+                        this.l = j;
+                        z = true;
+                    } else {
+                        j = this.l;
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.f.onNext(t);
+                    this.e.a((bs9) this.g.call(this, Long.valueOf(j), t, this.i));
+                }
+            }
+        }
+    }
+
+    public gt9(a<T> aVar, b<T> bVar, ur9<? extends T> ur9Var, xr9 xr9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, bVar, ur9Var, xr9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = CodingErrorAction.REPORT;
-        b = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        this.a = aVar;
+        this.b = bVar;
+        this.c = ur9Var;
+        this.d = xr9Var;
     }
 
-    public static byte[] a(String str) {
+    @Override // com.repackage.ur9.b, com.repackage.ms9
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((as9) ((as9) obj));
+    }
+
+    public as9<? super T> call(as9<? super T> as9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return str.getBytes(HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, as9Var)) == null) {
+            xr9.a createWorker = this.d.createWorker();
+            as9Var.b(createWorker);
+            xv9 xv9Var = new xv9(as9Var);
+            qw9 qw9Var = new qw9();
+            xv9Var.b(qw9Var);
+            c cVar = new c(xv9Var, this.b, qw9Var, this.c, createWorker);
+            xv9Var.b(cVar);
+            xv9Var.f(cVar.j);
+            qw9Var.a((bs9) this.a.call(cVar, 0L, createWorker));
+            return cVar;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean b(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) ? c(byteBuffer, 0) : invokeL.booleanValue;
-    }
-
-    public static boolean c(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, byteBuffer, i)) == null) {
-            int remaining = byteBuffer.remaining();
-            if (remaining < i) {
-                return false;
-            }
-            int i2 = 0;
-            while (i < remaining) {
-                int[] iArr = b;
-                i2 = iArr[(i2 << 4) + 256 + iArr[byteBuffer.get(i) & 255]];
-                if (i2 == 1) {
-                    return false;
-                }
-                i++;
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static String d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            try {
-                return new String(bArr, i, i2, HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (String) invokeLII.objValue;
-    }
-
-    public static String e(ByteBuffer byteBuffer) throws InvalidDataException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
-            CharsetDecoder newDecoder = Charset.forName(StringUtils.UTF8).newDecoder();
-            newDecoder.onMalformedInput(a);
-            newDecoder.onUnmappableCharacter(a);
-            try {
-                byteBuffer.mark();
-                String charBuffer = newDecoder.decode(byteBuffer).toString();
-                byteBuffer.reset();
-                return charBuffer;
-            } catch (CharacterCodingException e) {
-                throw new InvalidDataException(1007, e);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return str.getBytes(StringUtils.UTF8);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (byte[]) invokeL.objValue;
+        return (as9) invokeL.objValue;
     }
 }

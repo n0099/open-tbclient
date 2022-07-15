@@ -1,85 +1,49 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y25 implements z25 {
+public class y25 extends u15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
+    public LocalInputContainer t;
 
-    public y25(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y25(Context context, p25 p25Var) {
+        super(context, (String) null, 36);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, p25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028f, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b2);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b4);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b0);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909b3);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06ce);
-        b();
+        g(context, p25Var);
+        this.m = this.t;
+        this.o = false;
+        this.n = 3;
+        this.p = new int[]{24, 3};
     }
 
-    @Override // com.repackage.z25
-    public void b() {
+    public final void g(Context context, p25 p25Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(com.kuaishou.weapon.un.w0.A).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807d6, WebPManager.ResourceStateType.NORMAL));
-    }
-
-    @Override // com.repackage.z25
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028d, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z25
-    public void onClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, p25Var) == null) {
+            LocalInputContainer localInputContainer = new LocalInputContainer(context);
+            this.t = localInputContainer;
+            localInputContainer.e(p25Var);
         }
     }
 }

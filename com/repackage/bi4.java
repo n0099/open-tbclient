@@ -1,94 +1,74 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.util.zip.GZIPInputStream;
 /* loaded from: classes5.dex */
-public abstract class bi4 {
+public class bi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vh4 a;
-    public volatile long b;
-    public volatile boolean c;
-    public int d;
 
-    public bi4(vh4 vh4Var) {
+    @NonNull
+    public static String a(@NonNull File file) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vh4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            String canonicalPath = file.getCanonicalPath();
+            if (canonicalPath.endsWith("/")) {
+                return canonicalPath;
             }
+            return canonicalPath + "/";
         }
-        this.b = 0L;
-        this.c = false;
-        this.d = 0;
-        this.a = vh4Var;
+        return (String) invokeL.objValue;
     }
 
-    public synchronized void a(int i) {
+    @Nullable
+    public static File b(@NonNull File file, @NonNull String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            synchronized (this) {
-                this.b += i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            String a = a(file);
+            String canonicalPath = new File(file, str).getCanonicalPath();
+            if (canonicalPath.startsWith(a)) {
+                return new File(canonicalPath);
             }
+            return null;
         }
+        return (File) invokeLL.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    @NonNull
+    public static String c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public vh4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (vh4) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public synchronized void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            synchronized (this) {
-                this.c = z;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
+            return guessContentTypeFromName == null ? "text/plain" : guessContentTypeFromName;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void g(long j) {
+    @NonNull
+    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.b = j;
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) ? str.endsWith(".svgz") ? new GZIPInputStream(inputStream) : inputStream : (InputStream) invokeLL.objValue;
     }
 
-    public void h(int i) {
+    @NonNull
+    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) ? d(file.getPath(), new FileInputStream(file)) : (InputStream) invokeL.objValue;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uu5;
+import com.repackage.rv5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uu5> list;
+    public List<rv5> list;
     public AlaUserInfoData user_info;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
-                        uu5 uu5Var = new uu5();
-                        uu5Var.c(optJSONObject3);
-                        this.list.add(uu5Var);
+                        rv5 rv5Var = new rv5();
+                        rv5Var.c(optJSONObject3);
+                        this.list.add(rv5Var);
                     }
                 }
             }
@@ -74,7 +74,7 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.user_info : (AlaUserInfoData) invokeV.objValue;
     }
 
-    public List<uu5> getList() {
+    public List<rv5> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

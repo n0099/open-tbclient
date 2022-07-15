@@ -1,23 +1,22 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv9;
-import com.repackage.xu9;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes6.dex */
-public final class pw9<T> implements xu9.a<T> {
+public final class pw9 implements bs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bv9.c<T> a;
+    public final SequentialSubscription a;
 
-    public pw9(bv9.c<T> cVar) {
+    public pw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,20 +26,32 @@ public final class pw9<T> implements xu9.a<T> {
                 return;
             }
         }
-        this.a = cVar;
+        this.a = new SequentialSubscription();
     }
 
-    @Override // com.repackage.xu9.a, com.repackage.lv9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dv9) ((dv9) obj));
-    }
-
-    public void call(dv9<? super T> dv9Var) {
+    public void a(bs9 bs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dv9Var) == null) {
-            nw9 nw9Var = new nw9(dv9Var);
-            dv9Var.b(nw9Var);
-            this.a.call(nw9Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bs9Var) == null) {
+            if (bs9Var != null) {
+                this.a.replace(bs9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
+        }
+    }
+
+    @Override // com.repackage.bs9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.bs9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

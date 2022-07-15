@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.LogTogether.AdReq;
@@ -54,7 +54,7 @@ public class DistributeRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
             builder.Ad = this.adReqList;
-            qc5.a(builder, false);
+            td5.a(builder, false);
             builder2.data = builder.build(false);
             return builder2.build(false);
         }

@@ -1,5 +1,6 @@
 package com.kwad.sdk.api;
 
+import android.app.Activity;
 import androidx.annotation.Keep;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
@@ -57,7 +58,8 @@ public interface KsLoadManager {
 
         @KsAdSdkApi
         @Keep
-        void onRequestResult(int i);
+        @MainThread
+        void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list);
     }
 
     @KsAdSdkApi
@@ -105,12 +107,13 @@ public interface KsLoadManager {
 
         @KsAdSdkApi
         @Keep
-        void onRequestResult(int i);
+        @MainThread
+        void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list);
 
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list);
+        void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list);
     }
 
     @KsAdSdkApi
@@ -131,6 +134,14 @@ public interface KsLoadManager {
         @MainThread
         void onSplashScreenAdLoad(@Nullable KsSplashScreenAd ksSplashScreenAd);
     }
+
+    @KsAdSdkApi
+    @Keep
+    String getBidRequestToken(KsScene ksScene);
+
+    @KsAdSdkApi
+    @Keep
+    String getBidRequestTokenV2(KsScene ksScene);
 
     @KsAdSdkApi
     @Keep
@@ -176,4 +187,6 @@ public interface KsLoadManager {
     @Keep
     @MainThread
     void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull SplashScreenAdListener splashScreenAdListener);
+
+    boolean showInstallDialog(Activity activity, KsExitInstallListener ksExitInstallListener);
 }

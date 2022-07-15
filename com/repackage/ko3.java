@@ -1,29 +1,22 @@
 package com.repackage;
+
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.repackage.bo3;
 /* loaded from: classes6.dex */
 public interface ko3 {
-    long a();
+    void a(DownloadInfo downloadInfo);
 
-    void b(boolean z);
+    void b(DownloadInfo downloadInfo);
 
-    boolean c();
+    void c(DownloadInfo downloadInfo);
 
-    boolean d();
+    void d(DownloadInfo downloadInfo);
 
-    String e();
+    void destroy();
 
-    long f();
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull bo3.d<Boolean> dVar);
 
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    DownloadInfo g(String str);
 }

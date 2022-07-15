@@ -6,24 +6,24 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
+public final class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
     public View a;
     public GestureDetector b;
     public MotionEvent c;
-    public d d;
+    public c d;
 
-    public f(Context context, @NonNull View view2, d dVar) {
+    public f(Context context, @NonNull View view2, c cVar) {
         this.a = view2;
         view2.setOnTouchListener(this);
         this.b = new GestureDetector(context, this);
-        this.d = dVar;
+        this.d = cVar;
     }
 
-    public f(@NonNull View view2, d dVar) {
+    public f(@NonNull View view2, c cVar) {
         this.a = view2;
         view2.setOnTouchListener(this);
         this.b = new GestureDetector(view2.getContext(), this);
-        this.d = dVar;
+        this.d = cVar;
     }
 
     public static boolean a(MotionEvent motionEvent, MotionEvent motionEvent2) {
@@ -38,9 +38,9 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
             if (action == 1) {
                 MotionEvent motionEvent3 = this.c;
                 if (motionEvent3 != null && a(motionEvent3, motionEvent)) {
-                    d dVar = this.d;
-                    if (dVar != null) {
-                        dVar.b(view2);
+                    c cVar = this.d;
+                    if (cVar != null) {
+                        cVar.b(view2);
                     }
                     z = true;
                 }
@@ -54,44 +54,45 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
+    public final boolean onDown(MotionEvent motionEvent) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onFling");
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
+    public final void onLongPress(MotionEvent motionEvent) {
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public final boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
+    public final void onShowPress(MotionEvent motionEvent) {
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onSingleTapUp");
-        d dVar = this.d;
-        if (dVar != null) {
-            dVar.a_(this.a);
+    public final boolean onSingleTapUp(MotionEvent motionEvent) {
+        c cVar = this.d;
+        if (cVar != null) {
+            cVar.a_(this.a);
             return true;
         }
         return false;
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public final boolean onTouch(View view2, MotionEvent motionEvent) {
         boolean onTouchEvent = this.b.onTouchEvent(motionEvent);
-        com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onTouch, " + motionEvent.getAction() + "， handled： " + onTouchEvent);
+        StringBuilder sb = new StringBuilder("onTouch, ");
+        sb.append(motionEvent.getAction());
+        sb.append("， handled： ");
+        sb.append(onTouchEvent);
         if (onTouchEvent) {
             return true;
         }

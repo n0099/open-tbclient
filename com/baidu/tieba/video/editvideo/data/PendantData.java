@@ -43,7 +43,7 @@ public class PendantData extends OrmObject {
         this.pendantType = 4;
     }
 
-    public void z() {
+    public void A() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.size)) {
             return;

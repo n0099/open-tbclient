@@ -7,7 +7,6 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.util.RomTypeUtil;
-import com.kuaishou.weapon.un.g;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -25,12 +24,143 @@ public class d {
         return a("EMUI");
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x005b, code lost:
+        if (com.ss.android.socialbase.appdownloader.g.a(com.ss.android.socialbase.appdownloader.f.d.b) > (-1)) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x005d, code lost:
+        r0 = com.ss.android.socialbase.appdownloader.f.d.b;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0060, code lost:
+        com.ss.android.socialbase.appdownloader.f.d.c = "com.heytap.market";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0137, code lost:
+        if (com.ss.android.socialbase.appdownloader.g.a(com.ss.android.socialbase.appdownloader.f.d.b) > (-1)) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(String str) {
+        String str2;
+        String str3;
+        o();
+        String str4 = e;
+        if (str4 != null) {
+            return str4.equals(str);
+        }
+        String d2 = d("ro.miui.ui.version.name");
+        f = d2;
+        if (TextUtils.isEmpty(d2)) {
+            String d3 = d("ro.build.version.emui");
+            f = d3;
+            if (TextUtils.isEmpty(d3)) {
+                String d4 = d(d);
+                f = d4;
+                if (TextUtils.isEmpty(d4)) {
+                    String d5 = d("ro.vivo.os.version");
+                    f = d5;
+                    if (TextUtils.isEmpty(d5)) {
+                        String d6 = d("ro.smartisan.version");
+                        f = d6;
+                        if (TextUtils.isEmpty(d6)) {
+                            String d7 = d(RomUtils.KEY_VERSION_GIONEE);
+                            f = d7;
+                            if (TextUtils.isEmpty(d7)) {
+                                String d8 = d("ro.lenovo.lvp.version");
+                                f = d8;
+                                if (!TextUtils.isEmpty(d8)) {
+                                    e = "LENOVO";
+                                    str3 = "com.lenovo.leos.appstore";
+                                } else if (j().toUpperCase().contains("SAMSUNG")) {
+                                    e = "SAMSUNG";
+                                    str3 = "com.sec.android.app.samsungapps";
+                                } else if (j().toUpperCase().contains("ZTE")) {
+                                    e = "ZTE";
+                                    str3 = "zte.com.market";
+                                } else if (j().toUpperCase().contains(RomUtils.ROM_NUBIA)) {
+                                    e = RomUtils.ROM_NUBIA;
+                                    str3 = "cn.nubia.neostore";
+                                } else {
+                                    if (k().toUpperCase().contains("FLYME")) {
+                                        e = "FLYME";
+                                        c = "com.meizu.mstore";
+                                        str2 = k();
+                                    } else if (j().toUpperCase().contains(RomTypeUtil.ROM_ONEPLUS)) {
+                                        e = RomTypeUtil.ROM_ONEPLUS;
+                                        f = d("ro.rom.version");
+                                    } else {
+                                        e = j().toUpperCase();
+                                        str2 = "";
+                                        c = "";
+                                    }
+                                    f = str2;
+                                }
+                            } else {
+                                e = "QIONEE";
+                                str3 = "com.gionee.aora.market";
+                            }
+                        } else {
+                            e = "SMARTISAN";
+                            str3 = "com.smartisanos.appstore";
+                        }
+                    } else {
+                        e = "VIVO";
+                        str3 = "com.bbk.appstore";
+                    }
+                } else {
+                    e = a;
+                }
+            } else {
+                e = "EMUI";
+                str3 = "com.huawei.appmarket";
+            }
+            c = str3;
+        } else {
+            e = "MIUI";
+            c = "com.xiaomi.market";
+            g = f;
+        }
+        return e.equals(str);
+    }
+
+    public static String b(String str) {
+        BufferedReader bufferedReader;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
+        } catch (Throwable unused) {
+            bufferedReader = null;
+        }
+        try {
+            String readLine = bufferedReader.readLine();
+            bufferedReader.close();
+            f.a(bufferedReader);
+            return readLine;
+        } catch (Throwable unused2) {
+            f.a(bufferedReader);
+            return null;
+        }
+    }
+
     public static boolean b() {
         return a("MIUI");
     }
 
+    public static String c(String str) throws Throwable {
+        return (String) Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
+    }
+
     public static boolean c() {
         return a("VIVO");
+    }
+
+    public static String d(String str) {
+        if (com.ss.android.socialbase.downloader.g.a.b().optBoolean("enable_reflect_system_properties", true)) {
+            try {
+                return c(str);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+        return b(str);
     }
 
     public static boolean d() {
@@ -38,12 +168,53 @@ public class d {
         return a(a);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0000, code lost:
+        continue;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0026  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d1654612903251dc(String str) {
+        while (true) {
+            char c2 = 'I';
+            char c3 = '`';
+            while (true) {
+                switch (c2) {
+                    case 'H':
+                        c2 = 'J';
+                        c3 = '7';
+                    case 'I':
+                        switch (c3) {
+                            case '_':
+                            case '`':
+                                c2 = 'J';
+                                c3 = '7';
+                        }
+                        break;
+                    case 'J':
+                        break;
+                    default:
+                        c2 = 'H';
+                }
+                switch (c3) {
+                    case '7':
+                        char[] charArray = str.toCharArray();
+                        for (int i = 0; i < charArray.length; i++) {
+                            charArray[i] = (char) (charArray[i] ^ i);
+                        }
+                        return new String(charArray);
+                }
+            }
+        }
+    }
+
     public static boolean e() {
         return a("FLYME");
     }
 
     public static boolean f() {
-        return a(g.j);
+        return a("SAMSUNG");
     }
 
     public static String g() {
@@ -116,126 +287,5 @@ public class d {
             }
             g = str;
         }
-    }
-
-    public static boolean a(String str) {
-        o();
-        String str2 = e;
-        if (str2 != null) {
-            return str2.equals(str);
-        }
-        String d2 = d("ro.miui.ui.version.name");
-        f = d2;
-        if (!TextUtils.isEmpty(d2)) {
-            e = "MIUI";
-            c = "com.xiaomi.market";
-            g = f;
-        } else {
-            String d3 = d("ro.build.version.emui");
-            f = d3;
-            if (!TextUtils.isEmpty(d3)) {
-                e = "EMUI";
-                c = "com.huawei.appmarket";
-            } else {
-                String d4 = d(d);
-                f = d4;
-                if (!TextUtils.isEmpty(d4)) {
-                    e = a;
-                    if (com.ss.android.socialbase.appdownloader.g.a(b) > -1) {
-                        c = b;
-                    } else {
-                        c = "com.heytap.market";
-                    }
-                } else {
-                    String d5 = d("ro.vivo.os.version");
-                    f = d5;
-                    if (!TextUtils.isEmpty(d5)) {
-                        e = "VIVO";
-                        c = "com.bbk.appstore";
-                    } else {
-                        String d6 = d("ro.smartisan.version");
-                        f = d6;
-                        if (!TextUtils.isEmpty(d6)) {
-                            e = "SMARTISAN";
-                            c = "com.smartisanos.appstore";
-                        } else {
-                            String d7 = d(RomUtils.KEY_VERSION_GIONEE);
-                            f = d7;
-                            if (!TextUtils.isEmpty(d7)) {
-                                e = "QIONEE";
-                                c = "com.gionee.aora.market";
-                            } else {
-                                String d8 = d("ro.lenovo.lvp.version");
-                                f = d8;
-                                if (!TextUtils.isEmpty(d8)) {
-                                    e = "LENOVO";
-                                    c = "com.lenovo.leos.appstore";
-                                } else if (j().toUpperCase().contains(g.j)) {
-                                    e = g.j;
-                                    c = "com.sec.android.app.samsungapps";
-                                } else if (j().toUpperCase().contains("ZTE")) {
-                                    e = "ZTE";
-                                    c = "zte.com.market";
-                                } else if (j().toUpperCase().contains(RomUtils.ROM_NUBIA)) {
-                                    e = RomUtils.ROM_NUBIA;
-                                    c = "cn.nubia.neostore";
-                                } else if (k().toUpperCase().contains("FLYME")) {
-                                    e = "FLYME";
-                                    c = "com.meizu.mstore";
-                                    f = k();
-                                } else if (j().toUpperCase().contains(RomTypeUtil.ROM_ONEPLUS)) {
-                                    e = RomTypeUtil.ROM_ONEPLUS;
-                                    f = d("ro.rom.version");
-                                    if (com.ss.android.socialbase.appdownloader.g.a(b) > -1) {
-                                        c = b;
-                                    } else {
-                                        c = "com.heytap.market";
-                                    }
-                                } else {
-                                    e = j().toUpperCase();
-                                    c = "";
-                                    f = "";
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return e.equals(str);
-    }
-
-    public static String b(String str) {
-        BufferedReader bufferedReader;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-        } catch (Throwable unused) {
-            bufferedReader = null;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            bufferedReader.close();
-            f.a(bufferedReader);
-            return readLine;
-        } catch (Throwable unused2) {
-            f.a(bufferedReader);
-            return null;
-        }
-    }
-
-    public static String c(String str) throws Throwable {
-        return (String) Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
-    }
-
-    public static String d(String str) {
-        if (com.ss.android.socialbase.downloader.g.a.b().optBoolean("enable_reflect_system_properties", true)) {
-            try {
-                return c(str);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return b(str);
-            }
-        }
-        return b(str);
     }
 }

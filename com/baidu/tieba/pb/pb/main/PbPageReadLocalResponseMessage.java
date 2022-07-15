@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rq7;
+import com.repackage.jr7;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes3.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public rq7 pbData;
+    public jr7 pbData;
     public String postId;
     public int updateType;
 
@@ -46,9 +46,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            rq7 rq7Var = new rq7();
-            this.pbData = rq7Var;
-            rq7Var.y0(1);
+            jr7 jr7Var = new jr7();
+            this.pbData = jr7Var;
+            jr7Var.y0(1);
             try {
                 this.pbData.x0(pbPageResIdl.data);
                 if (!this.pbData.q0()) {
@@ -62,10 +62,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public rq7 getPbData() {
+    public jr7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (rq7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (jr7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -87,10 +87,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(rq7 rq7Var) {
+    public void setPbData(jr7 jr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rq7Var) == null) {
-            this.pbData = rq7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jr7Var) == null) {
+            this.pbData = jr7Var;
         }
     }
 

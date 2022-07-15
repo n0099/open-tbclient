@@ -1,222 +1,398 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
+import android.content.ContentValues;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class py1 extends SwanAppWebViewManager implements xl1<NgWebView> {
+public class py1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context w;
-    public boolean x;
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public String E;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
+    public String y;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755393687, "Lcom/repackage/py1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755393687, "Lcom/repackage/py1;");
-                return;
-            }
-        }
-        y = cg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public py1(Context context) {
-        super(context);
+    public py1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.x = false;
-        this.w = context;
-        j1();
     }
 
-    public void G() {
+    public static py1 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sw1.n(false);
-            ViewParent parent = u().getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(u());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            py1 py1Var = new py1();
+            if (jSONObject != null) {
+                jSONObject.optString("photoFilePath");
+                py1Var.a = jSONObject.optString("nickName");
+                py1Var.b = jSONObject.optString("lastName");
+                py1Var.c = jSONObject.optString("middleName");
+                py1Var.d = jSONObject.optString("firstName");
+                py1Var.e = jSONObject.optString("remark");
+                py1Var.f = jSONObject.optString("mobilePhoneNumber");
+                py1Var.g = jSONObject.optString("weChatNumber");
+                py1Var.h = jSONObject.optString("addressCountry");
+                py1Var.i = jSONObject.optString("addressState");
+                py1Var.j = jSONObject.optString("addressCity");
+                py1Var.k = jSONObject.optString("addressStreet");
+                py1Var.l = jSONObject.optString("addressPostalCode");
+                py1Var.m = jSONObject.optString("organization");
+                py1Var.n = jSONObject.optString("title");
+                py1Var.o = jSONObject.optString("workFaxNumber");
+                py1Var.p = jSONObject.optString("workPhoneNumber");
+                py1Var.q = jSONObject.optString("hostNumber");
+                py1Var.r = jSONObject.optString("email");
+                py1Var.s = jSONObject.optString("url");
+                py1Var.t = jSONObject.optString("workAddressCountry");
+                py1Var.u = jSONObject.optString("workAddressState");
+                py1Var.v = jSONObject.optString("workAddressCity");
+                py1Var.w = jSONObject.optString("workAddressStreet");
+                py1Var.x = jSONObject.optString("workAddressPostalCode");
+                py1Var.y = jSONObject.optString("homeFaxNumber");
+                py1Var.z = jSONObject.optString("homePhoneNumber");
+                py1Var.A = jSONObject.optString("homeAddressCountry");
+                py1Var.B = jSONObject.optString("homeAddressState");
+                py1Var.C = jSONObject.optString("homeAddressCity");
+                py1Var.D = jSONObject.optString("homeAddressStreet");
+                py1Var.E = jSONObject.optString("homeAddressPostalCode");
             }
-            destroy();
+            return py1Var;
         }
+        return (py1) invokeL.objValue;
     }
 
-    @Override // com.repackage.xl1
-    public void H(ViewGroup viewGroup) {
+    public ContentValues b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
+            contentValues.put("data2", (Integer) 3);
+            contentValues.put("data1", c());
+            contentValues.put("data9", this.l);
+            return contentValues;
         }
-        l(viewGroup, u());
+        return (ContentValues) invokeV.objValue;
     }
 
-    public void I(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void O0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void S(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            u().setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public final void W() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (context = this.w) != null && (context instanceof Activity)) {
-            tc3.a(context, ((Activity) context).getWindow().getDecorView().getWindowToken());
-        }
-    }
-
-    @Override // com.repackage.xl1
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            S(u().getVisibility() != 0);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.am1
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "console" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.am1
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            W();
-            super.destroy();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.am1
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.h0();
-        }
-    }
-
-    public final void h1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            if (y) {
-                Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.h)) {
+                sb.append(this.h);
             }
-            if (!this.x || z) {
-                ta4 ta4Var = new ta4("sconsole-core", tw1.c(), tw1.b(), 2);
-                bh1 h = aj2.h();
-                a74.g(ta4Var, h != null ? h.d() : null);
-                this.x = true;
+            if (!TextUtils.isEmpty(this.i)) {
+                sb.append(this.i);
             }
+            if (!TextUtils.isEmpty(this.j)) {
+                sb.append(this.j);
+            }
+            if (!TextUtils.isEmpty(this.k)) {
+                sb.append(this.k);
+            }
+            if (!TextUtils.isEmpty(this.l)) {
+                sb.append(" ");
+                sb.append(this.l);
+            }
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public final boolean i1(ViewGroup viewGroup, View view2) {
-        InterceptResult invokeLL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, viewGroup, view2)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (viewGroup.getChildAt(i) == view2) {
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.b)) {
+                sb.append(this.b);
             }
-            return false;
+            if (!TextUtils.isEmpty(this.c)) {
+                sb.append(this.c);
+            }
+            if (!TextUtils.isEmpty(this.d)) {
+                sb.append(this.d);
+            }
+            return sb.toString();
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void j0(String str, String str2) {
+    public ContentValues e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (!TextUtils.isEmpty(str2)) {
-                jSONArray.put(str2);
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("logType", str);
-            hashMap.put("logs", jSONArray.toString());
-            fl2.U().m("console", new t92("searchboxSConsole", hashMap));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", f());
+            contentValues.put("data9", this.E);
+            return contentValues;
         }
+        return (ContentValues) invokeV.objValue;
     }
 
-    public void j1() {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            u().setVisibility(8);
-            u().setBackgroundColor(0);
-            File file = new File(tw1.a(), "index.html");
-            if (file.exists() && file.isFile()) {
-                loadUrl(Uri.fromFile(file).toString());
-                h1(false);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.A)) {
+                sb.append(this.A);
             }
-            loadUrl("file:///android_asset/aiapps/sConsole.html");
-            tw1.d();
-            h1(true);
+            if (!TextUtils.isEmpty(this.B)) {
+                sb.append(this.B);
+            }
+            if (!TextUtils.isEmpty(this.C)) {
+                sb.append(this.C);
+            }
+            if (!TextUtils.isEmpty(this.D)) {
+                sb.append(this.D);
+            }
+            if (!TextUtils.isEmpty(this.E)) {
+                sb.append(" ");
+                sb.append(this.E);
+            }
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void l(ViewGroup viewGroup, View view2) {
+    public ContentValues g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || i1(viewGroup, view2)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 5);
+            contentValues.put("data1", this.y);
+            return contentValues;
         }
-        viewGroup.addView(view2, new FrameLayout.LayoutParams(-1, -1));
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.z);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 10);
+            contentValues.put("data1", this.q);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 2);
+            contentValues.put("data1", this.f);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/nickname");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.a);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/organization");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.m);
+            contentValues.put("data4", this.n);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/note");
+            contentValues.put("data1", this.e);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/website");
+            contentValues.put("data2", (Integer) 1);
+            contentValues.put("data1", this.s);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/im");
+            contentValues.put("data5", (Integer) (-1));
+            contentValues.put("data6", AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0110));
+            contentValues.put("data1", this.g);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
+            contentValues.put("data2", (Integer) 2);
+            contentValues.put("data1", q());
+            contentValues.put("data9", this.x);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(this.t)) {
+                sb.append(this.t);
+            }
+            if (!TextUtils.isEmpty(this.u)) {
+                sb.append(this.u);
+            }
+            if (!TextUtils.isEmpty(this.v)) {
+                sb.append(this.v);
+            }
+            if (!TextUtils.isEmpty(this.w)) {
+                sb.append(this.w);
+            }
+            if (!TextUtils.isEmpty(this.x)) {
+                sb.append(" ");
+                sb.append(this.x);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ContentValues r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 4);
+            contentValues.put("data1", this.o);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public ContentValues s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
+            contentValues.put("data2", (Integer) 3);
+            contentValues.put("data1", this.p);
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? !TextUtils.isEmpty(this.d) : invokeV.booleanValue;
     }
 }

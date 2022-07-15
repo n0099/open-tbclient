@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MMSharedPreferences implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.SharedPreferences";
@@ -29,7 +29,7 @@ public class MMSharedPreferences implements SharedPreferences {
     public REditor editor;
     public final HashMap<String, Object> values;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class REditor implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

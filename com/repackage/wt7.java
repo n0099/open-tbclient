@@ -1,80 +1,91 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wt7 extends lt7<xt7, PbImageAlaRecommendVH> {
+public class wt7 extends ov7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId o;
-    public rq7 p;
+    public TextView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wt7(wx7 wx7Var, BdUniqueId bdUniqueId) {
-        super(wx7Var, xt7.q);
+    public wt7(BaseFragmentActivity baseFragmentActivity, View view2) {
+        super(baseFragmentActivity, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wx7Var, bdUniqueId};
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((wx7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = bdUniqueId;
+        this.c = null;
     }
 
-    @Override // com.repackage.lt7, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, (xt7) obj, (PbImageAlaRecommendVH) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public PbImageAlaRecommendVH M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ov7
+    public void c(vt7 vt7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbImageAlaRecommendVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0667, viewGroup, false), this.i.getPageContext(), this.o) : (PbImageAlaRecommendVH) invokeL.objValue;
-    }
-
-    public View c0(int i, View view2, ViewGroup viewGroup, xt7 xt7Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xt7Var, pbImageAlaRecommendVH})) == null) {
-            super.S(i, view2, viewGroup, xt7Var, pbImageAlaRecommendVH);
-            if (pbImageAlaRecommendVH != null) {
-                pbImageAlaRecommendVH.e(xt7Var);
-                pbImageAlaRecommendVH.j(this.p);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vt7Var) == null) {
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd1);
+            this.c = textView;
+            textView.setVisibility(8);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void d0(rq7 rq7Var) {
+    public TextView e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rq7Var) == null) {
-            this.p = rq7Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (TextView) invokeV.objValue;
+    }
+
+    public void f(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getPushStatusData() == null) {
+            return;
         }
+        int status = threadData.getPushStatusData().getStatus();
+        if (status == 1) {
+            g(true);
+        } else if (status == 2) {
+            g(false);
+        }
+    }
+
+    public void g(boolean z) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.c) == null) {
+            return;
+        }
+        if (z) {
+            textView.setText(R.string.obfuscated_res_0x7f0f0f2f);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080f3c);
+            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
+            this.c.setClickable(true);
+        } else {
+            textView.setText(R.string.obfuscated_res_0x7f0f0277);
+            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            this.c.setClickable(false);
+        }
+        this.c.setVisibility(0);
     }
 }

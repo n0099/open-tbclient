@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cc6;
-import com.repackage.jr4;
-import com.repackage.kr4;
+import com.repackage.yr4;
+import com.repackage.zc6;
+import com.repackage.zr4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CoverFlowLocalAdapter<T extends kr4> extends PagerAdapter {
+public class CoverFlowLocalAdapter<T extends zr4> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<ImageView> a;
@@ -90,10 +90,10 @@ public class CoverFlowLocalAdapter<T extends kr4> extends PagerAdapter {
         }
     }
 
-    public void e(List<T> list, jr4 jr4Var) {
+    public void e(List<T> list, yr4 yr4Var) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, jr4Var) == null) || list == null || list.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, yr4Var) == null) || list == null || list.isEmpty()) {
             return;
         }
         this.b.clear();
@@ -111,7 +111,7 @@ public class CoverFlowLocalAdapter<T extends kr4> extends PagerAdapter {
                 this.f.get(i);
             }
             if (this.b.get(i) != null && imageView != null) {
-                if (this.b.get(i) instanceof cc6) {
+                if (this.b.get(i) instanceof zc6) {
                     imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.b.get(i).a()).intValue()));
                 }
                 imageView.setOnClickListener(this.d);

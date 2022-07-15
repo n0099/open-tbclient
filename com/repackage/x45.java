@@ -1,32 +1,98 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface x45 {
-    @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final x45 b;
+public class x45 extends v45 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (x45) ServiceManager.getService(serviceReference);
+    public x45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    boolean a(@NonNull String str);
+    public static ImageOperation g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "resize";
+            imageOperation.actionParam = i + "," + i2;
+            return imageOperation;
+        }
+        return (ImageOperation) invokeII.objValue;
+    }
 
-    @NonNull
-    String b(@NonNull String str);
+    @Override // com.repackage.v45
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
+    }
 
-    @NonNull
-    String c();
+    @Override // com.repackage.v45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
 
-    @NonNull
-    String d(@NonNull String str, boolean z);
+    @Override // com.repackage.v45
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true) : (Bitmap) invokeL.objValue;
+    }
 
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
+    @Override // com.repackage.v45
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
+            return;
+        }
+        String[] split = str.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        this.a = ng.e(split[0], 0);
+        this.b = ng.e(split[1], 0);
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
+    }
 }

@@ -11,13 +11,13 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.message.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0365a extends MessageSnapshot implements a {
+    public static class C0562a extends MessageSnapshot implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MessageSnapshot b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0365a(MessageSnapshot messageSnapshot) {
+        public C0562a(MessageSnapshot messageSnapshot) {
             super(messageSnapshot.m());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -41,7 +41,7 @@ public interface a {
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public byte b() {
+        public final byte b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -51,12 +51,12 @@ public interface a {
         }
 
         @Override // com.kwai.filedownloader.message.a
-        public MessageSnapshot f_() {
+        public final MessageSnapshot o_() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (MessageSnapshot) invokeV.objValue;
         }
     }
 
-    MessageSnapshot f_();
+    MessageSnapshot o_();
 }

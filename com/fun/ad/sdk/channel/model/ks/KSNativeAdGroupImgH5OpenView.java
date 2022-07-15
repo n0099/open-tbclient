@@ -136,13 +136,13 @@ public class KSNativeAdGroupImgH5OpenView extends x {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ab);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a8);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900cf);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.i = (Button) findViewById(R.id.obfuscated_res_0x7f0900a2);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ac);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ab);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d0);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a2);
+            this.i = (Button) findViewById(R.id.obfuscated_res_0x7f0900a3);
         }
     }
 

@@ -1,48 +1,64 @@
 package com.repackage;
 
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.activity.LegoListFragment;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wc7 {
+public abstract class wc7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final SparseIntArray a;
+    public static final SparseArray<BdUniqueId> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static vc7 a(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof kb7)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755206106, "Lcom/repackage/wc7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return ((kb7) tbPageContext.getPageActivity()).t();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755206106, "Lcom/repackage/wc7;");
+                return;
+            }
         }
-        return (vc7) invokeL.objValue;
+        a = new SparseIntArray();
+        b = new SparseArray<>();
     }
 
-    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public wc7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof kb7)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return ((kb7) tbPageContext.getPageActivity()).w();
         }
-        return (LegoListFragment) invokeL.objValue;
+        c();
     }
 
-    public static ad7 c(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof kb7)) {
-                return null;
-            }
-            return ((kb7) tbPageContext.getPageActivity()).h0();
-        }
-        return (ad7) invokeL.objValue;
-    }
+    public abstract <T> pd7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
+
+    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
+
+    public abstract void c();
+
+    public abstract String d();
 }

@@ -1,76 +1,52 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ww3;
+import java.io.File;
+@Service
 /* loaded from: classes6.dex */
-public class kx3 {
+public class kx3 implements ph1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c72 a;
 
-    public kx3(c72 c72Var) {
+    public kx3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = c72Var;
-    }
-
-    public final void a(String str, String str2) {
-        c72 c72Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (c72Var = this.a) == null || c72Var.p() == null || !this.a.p().hasEventListener(str2)) {
-            return;
-        }
-        mx3 mx3Var = new mx3();
-        mx3Var.value = str;
-        JSEvent jSEvent = new JSEvent(str2);
-        jSEvent.data = mx3Var;
-        this.a.p().dispatchEvent(jSEvent);
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardcomplete");
         }
     }
 
-    public void c(String str) {
+    @Override // com.repackage.ph1
+    public File a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardconfirm");
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? ww3.d.h(str, str2) : (File) invokeLL.objValue;
     }
 
-    public void d(String str) {
+    @Override // com.repackage.ph1
+    public File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardinput");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ww3.d() : (File) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ph1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ww3.d.g().getPath() : (String) invokeV.objValue;
     }
 }

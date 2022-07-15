@@ -1,112 +1,117 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import com.opensource.svgaplayer.SVGAVideoEntity;
 /* loaded from: classes7.dex */
-public class ym9 {
+public final class ym9 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
-    public static final ym9 a;
-    public static ConcurrentHashMap b;
-    public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public ImageView.ScaleType c;
+    public final dn9 d;
+    public final SVGAVideoEntity e;
+    public final zm9 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755136852, "Lcom/repackage/ym9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755136852, "Lcom/repackage/ym9;");
-                return;
-            }
-        }
-        a = new ym9();
-        b = new ConcurrentHashMap();
-    }
-
-    public ym9() {
+    public ym9(SVGAVideoEntity sVGAVideoEntity, zm9 zm9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sVGAVideoEntity, zm9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = sVGAVideoEntity;
+        this.f = zm9Var;
+        this.a = true;
+        this.c = ImageView.ScaleType.MATRIX;
+        this.d = new dn9(sVGAVideoEntity, zm9Var);
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public final SVGAVideoEntity b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (SVGAVideoEntity) invokeV.objValue;
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.a == z) {
+            return;
+        }
+        this.a = z;
+        invalidateSelf();
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.b == i) {
+            return;
+        }
+        this.b = i;
+        invalidateSelf();
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.a || canvas == null) {
+            return;
+        }
+        this.d.a(canvas, this.b, this.c);
+    }
+
+    public final void e(ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
+            this.c = scaleType;
         }
     }
 
-    public static ym9 b(Context context) {
-        InterceptResult invokeL;
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c = context.getApplicationContext();
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return -2;
         }
-        return (ym9) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public long a(String str) {
-        InterceptResult invokeL;
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Long l = (Long) b.get(str);
-            if (l == null || l.longValue() <= 0) {
-                try {
-                    String C = in9.C(c);
-                    if (!TextUtils.isEmpty(C)) {
-                        JSONObject jSONObject = new JSONObject(C);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (TextUtils.equals(str, next)) {
-                                return jSONObject.optLong(next, 0L);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return 0L;
-            }
-            return l.longValue();
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
-        return invokeL.longValue;
     }
 
-    public void c(String str, long j) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            b.put(str, Long.valueOf(j));
-            try {
-                String C = in9.C(c);
-                JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
-                jSONObject.put(str, j);
-                Context context = c;
-                String jSONObject2 = jSONObject.toString();
-                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
-                edit.putString("key_local_res", jSONObject2);
-                edit.apply();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
         }
     }
 }

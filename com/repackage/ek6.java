@@ -1,199 +1,116 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
-import com.baidu.tieba.frs.itemtab.FrsItemTabHttpResponseMessage;
-import com.baidu.tieba.frs.itemtab.FrsItemTabNetModel;
-import com.baidu.tieba.frs.itemtab.FrsItemTabRequestData;
-import com.baidu.tieba.frs.itemtab.FrsItemTabSocketResponseMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes5.dex */
-public class ek6 implements NetModel.k {
+/* loaded from: classes6.dex */
+public class ek6 extends an<e36, CardViewHolder<px5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsItemTabFragment a;
-    public fk6 b;
-    public FrsItemTabNetModel c;
-    public int d;
-    public String e;
+    public TbPageContext<?> i;
+    public px5 j;
+    public String k;
 
-    public ek6(FrsItemTabFragment frsItemTabFragment, int i) {
+    /* loaded from: classes6.dex */
+    public class a extends jy5<e36> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ek6 b;
+
+        public a(ek6 ek6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ek6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ek6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.jy5
+        /* renamed from: d */
+        public void a(View view2, e36 e36Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, e36Var) == null) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.k));
+                UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(view2.getContext()), new String[]{e36Var.c().score_url}, true);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ek6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), e36.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsItemTabFragment, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (frsItemTabFragment == null) {
-            return;
-        }
-        this.a = frsItemTabFragment;
-        FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
-        frsItemTabRequestData.itemId = i;
-        FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
-        this.c = frsItemTabNetModel;
-        frsItemTabNetModel.b0(this);
-        this.c.setUniqueId(frsItemTabFragment.getUniqueId());
+        this.i = tbPageContext;
+        this.k = str;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            fk6 fk6Var = this.b;
-            return (fk6Var == null || fk6Var.a == null) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.d);
-            errorData.setError_msg(this.e);
-            if (this.d != 0) {
-                this.a.f(errorData);
-            }
-        }
-    }
-
-    public final boolean c(fk6 fk6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public CardViewHolder<px5> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fk6Var)) == null) {
-            if (fk6Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.j = new px5(this.i);
+            return new CardViewHolder<>(this.j);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: b0 */
+    public View S(int i, View view2, ViewGroup viewGroup, e36 e36Var, CardViewHolder<px5> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e36Var, cardViewHolder})) == null) {
+            if (cardViewHolder.c() == null) {
+                return null;
             }
-            this.b = fk6Var;
-            fk6Var.c = e(fk6Var.c);
-            this.a.u1(this.b);
-            return true;
+            cardViewHolder.c().i(e36Var);
+            cardViewHolder.c().n(new a(this));
+            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.c().h();
         }
-        return invokeL.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c.T()) {
-            return;
-        }
-        this.c.loadData();
-        pq6.a();
-    }
-
-    public final ArrayList<nn> e(ArrayList<nn> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, arrayList)) == null) {
-            ArrayList<nn> arrayList2 = new ArrayList<>();
-            Iterator<nn> it = arrayList.iterator();
-            int i = 0;
-            while (it.hasNext()) {
-                nn next = it.next();
-                if (next instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) next;
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
-                        bq4 bq4Var = new bq4();
-                        bq4Var.s = threadData;
-                        bq4Var.position = i;
-                        bq4Var.a = true;
-                        bq4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(bq4Var);
-                        bq4 bq4Var2 = new bq4();
-                        bq4Var2.s = threadData;
-                        bq4Var2.position = i;
-                        if (threadData.picCount() == 1) {
-                            bq4Var2.d = true;
-                            bq4Var2.t = imageWidthAndHeight[0];
-                            bq4Var2.u = imageWidthAndHeight[1];
-                        } else if (threadData.picCount() >= 2) {
-                            bq4Var2.e = true;
-                        } else {
-                            bq4Var2.b = true;
-                        }
-                        bq4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(bq4Var2);
-                        bq4 bq4Var3 = new bq4();
-                        bq4Var3.g = true;
-                        bq4Var3.s = threadData;
-                        bq4Var3.position = i;
-                        bq4Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(bq4Var3);
-                        i++;
-                    }
-                    threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                } else {
-                    if (next instanceof BaseCardInfo) {
-                        ((BaseCardInfo) next).position = i;
-                    }
-                    arrayList2.add(next);
-                    i++;
-                }
-            }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
-            return arrayList2;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        fk6 fk6Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof FrsItemTabSocketResponseMessage)) {
-            fk6Var = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (fk6Var == null || !c(fk6Var)) {
-            this.d = mvcSocketResponsedMessage.getError();
-            this.e = mvcSocketResponsedMessage.getErrorString();
-            b();
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
-            return;
-        }
-        fk6 fk6Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof FrsItemTabHttpResponseMessage)) {
-            fk6Var = (fk6) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (fk6Var == null || !c(fk6Var)) {
-            this.d = mvcHttpResponsedMessage.getError();
-            this.e = mvcHttpResponsedMessage.getErrorString();
-            b();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

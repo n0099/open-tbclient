@@ -96,7 +96,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 return;
             }
             if (!ListUtils.isEmpty(list)) {
-                this.a.K(list);
+                this.a.L(list);
                 this.a.d.addAll(list);
             }
             this.a.b = z;
@@ -140,13 +140,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.i);
     }
 
-    public boolean H() {
+    public boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public final void I(long j) {
+    public final void J(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.e, j, 10);
@@ -155,14 +155,14 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public void J() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            I(this.a);
+            J(this.a);
         }
     }
 
-    public final void K(List<ThreadData> list) {
+    public final void L(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.f == null || ListUtils.isEmpty(list)) {
             return;
@@ -180,34 +180,34 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public void L() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = 0L;
             this.d.clear();
-            I(this.a);
+            J(this.a);
         }
     }
 
-    public void M(MetaData metaData) {
+    public void N(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, metaData) == null) {
             this.g = metaData;
         }
     }
 
-    public void N(b bVar) {
+    public void O(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void O(User user) {
+    public void P(User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, user) == null) {
             this.f = user;
-            L();
+            M();
         }
     }
 

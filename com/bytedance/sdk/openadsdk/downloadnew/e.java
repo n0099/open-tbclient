@@ -8,7 +8,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ITTDownloadAdapter;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
-import com.ss.android.download.api.config.u;
+import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -35,6 +35,10 @@ public class e extends a {
             }
         }
         return a;
+    }
+
+    public static boolean a(IDownloadButtonClickListener iDownloadButtonClickListener) {
+        return iDownloadButtonClickListener != null;
     }
 
     private DownloadModel b(Object obj) {
@@ -65,9 +69,9 @@ public class e extends a {
         return null;
     }
 
-    private u f(Object obj) {
-        if (obj instanceof u) {
-            return (u) obj;
+    private OnItemClickListener f(Object obj) {
+        if (obj instanceof OnItemClickListener) {
+            return (OnItemClickListener) obj;
         }
         return null;
     }
@@ -130,14 +134,29 @@ public class e extends a {
             default:
                 return (T) super.callMethod(cls, i, map);
             case 12:
+                Uri uri = (Uri) map.get("uri");
                 DownloadModel b2 = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
                 DownloadEventConfig c = c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG));
                 DownloadController d = d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER));
-                return (T) Boolean.valueOf(d.a(this.b, (Uri) map.get("uri"), b2, c, d));
+                IDownloadButtonClickListener g = g(map.get(TTDownloadField.TT_DOWNLOAD_BUTTON_CLICK_LISTENER));
+                if (a(g)) {
+                    return (T) Boolean.valueOf(d.a(this.b, uri, b2, c, d, g));
+                }
+                return (T) Boolean.valueOf(d.a(this.b, uri, b2, c, d));
             case 13:
                 int intValue3 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
                 boolean booleanValue2 = ((Boolean) map.get(TTDownloadField.TT_IS_DISABLE_DIALOG)).booleanValue();
-                d.a().e().a(this.b, (String) map.get(TTDownloadField.TT_USERAGENT), booleanValue2, b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER)), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), intValue3);
+                String str = (String) map.get(TTDownloadField.TT_USERAGENT);
+                DownloadModel b3 = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
+                DownloadEventConfig c2 = c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG));
+                DownloadController d2 = d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER));
+                DownloadStatusChangeListener a2 = a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER));
+                IDownloadButtonClickListener g2 = g(map.get(TTDownloadField.TT_DOWNLOAD_BUTTON_CLICK_LISTENER));
+                if (a(g2)) {
+                    d.a().e().a(this.b, str, booleanValue2, b3, c2, d2, a2, intValue3, g2);
+                    return null;
+                }
+                d.a().e().a(this.b, str, booleanValue2, b3, c2, d2, a2, intValue3);
                 return null;
             case 14:
                 int intValue4 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
 import com.repackage.qn;
-import com.repackage.wg5;
+import com.repackage.zh5;
 /* loaded from: classes3.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +36,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public wg5 U;
+    public zh5 U;
     public boolean V;
     public boolean W;
     public boolean g0;
@@ -150,7 +150,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new wg5(this);
+        this.U = new zh5(this);
         H();
     }
 
@@ -353,7 +353,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new wg5(this);
+        this.U = new zh5(this);
         H();
     }
 
@@ -383,7 +383,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new wg5(this);
+        this.U = new zh5(this);
         H();
     }
 }

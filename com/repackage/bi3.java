@@ -1,46 +1,50 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.utils.ThirdPartyUtil;
+import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pk2;
-import java.io.File;
+import com.repackage.m53;
+import com.repackage.po1;
+import com.repackage.q53;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class bi3 implements cl1 {
+public class bi3 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public PaymentManager a;
 
     /* loaded from: classes5.dex */
-    public class a extends f81 {
+    public class a implements af3<k53<m53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ h03 e;
+        public final /* synthetic */ po1.d f;
+        public final /* synthetic */ Bundle g;
+        public final /* synthetic */ bi3 h;
 
-        public a(bi3 bi3Var, long j) {
+        public a(bi3 bi3Var, CallbackHandler callbackHandler, String str, Context context, String str2, h03 h03Var, po1.d dVar, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bi3Var, Long.valueOf(j)};
+                Object[] objArr = {bi3Var, callbackHandler, str, context, str2, h03Var, dVar, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,154 +54,277 @@ public class bi3 implements cl1 {
                     return;
                 }
             }
-            this.a = j;
+            this.h = bi3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = str2;
+            this.e = h03Var;
+            this.f = dVar;
+            this.g = bundle;
         }
 
-        @Override // com.repackage.f81
-        public void a(int i, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(k53<m53.e> k53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                if (bi3.b) {
-                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
+                if (f53.h(k53Var)) {
+                    if (this.h.o(this.c, this.d)) {
+                        this.h.m(this.e, (Activity) this.c, this.f, this.a, this.b, this.g);
+                        return;
+                    } else {
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
+                        return;
+                    }
                 }
-                uf4.j(bi3.e());
-                uf4.N(String.valueOf(this.a), bi3.e());
+                f53.q(k53Var, this.a, this.b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends f81 {
+    public class b implements af3<k53<q53.d>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ po1.d a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
 
-        public b(bi3 bi3Var) {
+        public b(bi3 bi3Var, po1.d dVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bi3Var};
+                Object[] objArr = {bi3Var, dVar, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = callbackHandler;
+            this.c = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(k53<q53.d> k53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
+                if (!k53Var.c()) {
+                    hx1.o("ThirdPartyLoginAction", k53Var.b() + " " + this.a.toString());
+                    String f = f53.f(k53Var.b());
+                    if (!TextUtils.isEmpty(f)) {
+                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(k53Var.b(), f).toString());
+                    } else {
+                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(k53Var.b()).toString());
+                    }
+                } else if (TextUtils.isEmpty(k53Var.a.a)) {
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                } else {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("code", k53Var.a.a);
+                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, k53Var.b()).toString());
+                    } catch (JSONException e) {
+                        if (e23.b) {
+                            e.printStackTrace();
+                        }
+                        this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
+                    }
                 }
             }
         }
-
-        @Override // com.repackage.f81
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && bi3.b) {
-                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
-            }
-        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755826075, "Lcom/repackage/bi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755826075, "Lcom/repackage/bi3;");
-                return;
-            }
-        }
-        b = cg1.a;
-    }
-
-    public bi3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi3(e13 e13Var) {
+        super(e13Var, "/swanAPI/thirdPartyLogin");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new PaymentManager();
     }
 
-    public static File e() {
-        InterceptResult invokeV;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp") : (File) invokeV.objValue;
-    }
-
-    @Override // com.repackage.cl1
-    public boolean a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        sz2 b0;
-        pk2.a W;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (!a43.l() || (b0 = sz2.b0()) == null || (W = b0.W()) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            f(str, we4.g().v(AppRuntime.getAppContext()), zi2.h0().i(zi2.c()), sf3.i(b0.getApplicationContext()), str2, str3, zi2.n().a(), W.T());
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("type", "");
+            int n = n(optString2);
+            po1.d dVar = new po1.d(optParamsAsJo);
+            Bundle bundle = new Bundle();
+            bundle.putInt("key_login_mode", n);
+            h03Var.e0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, h03Var, dVar, bundle));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.cl1
-    public void b() {
+    public final void m(h03 h03Var, Activity activity, po1.d dVar, CallbackHandler callbackHandler, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String E = uf4.E(e());
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (!TextUtils.isEmpty(E)) {
-                try {
-                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
-                        if (b) {
-                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
-                            return;
-                        }
-                        return;
-                    }
-                } catch (NumberFormatException e) {
-                    if (b) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
-                }
-            }
-            this.a.p(new a(this, currentTimeMillis));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{h03Var, activity, dVar, callbackHandler, str, bundle}) == null) {
+            h03Var.e0().r(activity, dVar, bundle, new b(this, dVar, callbackHandler, str), "SwanThirdPartLogin");
         }
     }
 
-    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final int n(String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("masterId", str);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("userPassId", str2);
-                }
-                jSONObject.put("cuid", str3);
-                jSONObject.put("bduss", str4);
-                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
-                jSONObject.put("businessId", str6);
-                jSONObject.put("naid", str7);
-                jSONObject.put("scene", str8);
-                this.a.o(jSONObject, new b(this));
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            switch (str.hashCode()) {
+                case -791575966:
+                    if (str.equals(ThirdPartyUtil.TYPE_WEIXIN)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -265713450:
+                    if (str.equals("username")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3616:
+                    if (str.equals(LoginConstants.QQ_LOGIN)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114009:
+                    if (str.equals(LoginConstants.SMS_LOGIN)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 113011944:
+                    if (str.equals("weibo")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        return 2;
+                    }
+                    if (c == 3) {
+                        return 3;
+                    }
+                    if (c == 4) {
+                        return 4;
+                    }
+                }
+                return 1;
+            }
+            return 0;
         }
+        return invokeL.intValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final boolean o(Context context, String str) {
+        InterceptResult invokeLL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+            switch (str.hashCode()) {
+                case -791575966:
+                    if (str.equals(ThirdPartyUtil.TYPE_WEIXIN)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -265713450:
+                    if (str.equals("username")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3616:
+                    if (str.equals(LoginConstants.QQ_LOGIN)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114009:
+                    if (str.equals(LoginConstants.SMS_LOGIN)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 113011944:
+                    if (str.equals("weibo")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return c == 3 || c == 4;
+                    }
+                    return be3.F(context, "com.sina.weibo");
+                }
+                return be3.F(context, "com.tencent.mobileqq");
+            }
+            return be3.F(context, "com.tencent.mm");
+        }
+        return invokeLL.booleanValue;
     }
 }

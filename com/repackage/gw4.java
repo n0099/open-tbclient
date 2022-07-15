@@ -1,58 +1,70 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class gw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public hw4 b;
 
-    public gw4() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (gw4.class) {
+                File file = new File(FileHelper.getCacheDir() + "voice");
+                if (file.exists() && file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles == null) {
+                        return;
+                    }
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
+                }
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true)) : invokeLL.booleanValue;
     }
 
-    public hw4 b() {
-        InterceptResult invokeV;
+    public static fw4 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (hw4) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            fw4 fw4Var = new fw4();
+            if (str == null) {
+                fw4Var.c = 6;
+                fw4Var.d = fw4.a(6);
+                return fw4Var;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                hw4 hw4Var = new hw4();
-                this.b = hw4Var;
-                hw4Var.f(optJSONObject2);
+            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
+                fw4Var.c = 7;
+                fw4Var.d = fw4.a(7);
+                return fw4Var;
             }
+            String b = vi.b(FileHelper.GetStreamFromTmpFile(str));
+            if (b == null) {
+                fw4Var.c = 5;
+                fw4Var.d = fw4.a(5);
+            } else {
+                String filePath = FileHelper.getFilePath(b, 1, true);
+                if (FileHelper.renameTo(str, filePath)) {
+                    fw4Var.b = filePath;
+                    fw4Var.a = b;
+                } else {
+                    fw4Var.c = 1;
+                    fw4Var.d = fw4.a(1);
+                }
+            }
+            return fw4Var;
         }
+        return (fw4) invokeL.objValue;
     }
 }

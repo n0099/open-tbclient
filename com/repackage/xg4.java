@@ -1,177 +1,188 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import com.repackage.pk2;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 /* loaded from: classes7.dex */
-public class xg4 extends vg4 {
+public class xg4 implements tg4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xg4(ZeusPluginFactory.Invoker invoker, String str) {
-        super(invoker, str);
+    public xg4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context.getApplicationContext();
     }
 
-    @Override // com.repackage.vg4, com.repackage.di2
-    public void C() {
+    public static byte[] g(byte[]... bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.vg4
-    public void C0(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
-            try {
-                JSONObject J0 = J0();
-                JSONObject K0 = K0();
-                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
-                K0.put("sub_errorNo", i2);
-                K0.put("errorInfo", str);
-                J0.put("ext", K0.toString());
-                we4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
-            } catch (Exception e) {
-                if (vg4.x) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            int i = 0;
+            for (byte[] bArr2 : bArr) {
+                i += bArr2.length;
             }
-        }
-    }
-
-    @Override // com.repackage.vg4
-    public void D0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                JSONObject J0 = J0();
-                J0.put("type", "first_frame");
-                J0.put("ext", K0().toString());
-                we4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
-            } catch (Exception e) {
-                if (vg4.x) {
-                    e.printStackTrace();
-                }
+            byte[] bArr3 = new byte[i];
+            int i2 = 0;
+            for (byte[] bArr4 : bArr) {
+                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
+                i2 += bArr4.length;
             }
+            return bArr3;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.repackage.vg4, com.repackage.di2
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @NonNull
-    public final JSONObject J0() {
+    @Override // com.repackage.tg4
+    public boolean a() {
         InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        byte[] g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
+            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
+            if (Build.VERSION.SDK_INT < 23) {
+                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
+            } else {
+                g = g(bytes2, bytes);
+            }
+            return ah4.b(g, true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.tg4
+    /* renamed from: c */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b() : (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"HardwareIds"})
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String a = ll3.b.a(this.a);
+            if (TextUtils.isEmpty(a)) {
+                a = e();
+            }
+            if (TextUtils.isEmpty(a)) {
+                a = UUID.randomUUID().toString();
+            }
+            return a == null ? "" : a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public final String e() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("from", "video");
-                jSONObject.put("network", SwanAppNetworkUtils.e());
-            } catch (Exception e) {
-                if (vg4.x) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @NonNull
-    public final JSONObject K0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext_from", "aiapp");
-                jSONObject.put("appid", sz2.g0());
-                jSONObject.put("url", this.b);
-                jSONObject.put(TiebaStatic.Params.VID, this.b);
-                jSONObject.put("isInline", true);
-                String str = "";
-                sz2 M = sz2.M();
-                if (M != null) {
-                    str = M.w0() ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
-                    pk2.a Y = M.Y();
-                    if (Y != null && Y.u1() > 0) {
-                        jSONObject.put("ext_start", Y.u1());
+                str = (String) Build.class.getField("SERIAL").get(null);
+                try {
+                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                        Method declaredMethod = Build.class.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_STRING, String.class);
+                        declaredMethod.setAccessible(true);
+                        str = (String) declaredMethod.invoke(null, "ro.serialno");
                     }
+                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                        str = f("ro.serialno");
+                    }
+                } catch (Exception unused) {
                 }
-                jSONObject.put("ext_page", str);
-            } catch (Exception e) {
-                if (vg4.x) {
-                    e.printStackTrace();
-                }
+            } catch (Exception unused2) {
+                str = null;
             }
-            return jSONObject;
+            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                return null;
+            }
+            return str;
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.di2
-    public void N(ZeusPluginFactory.Invoker invoker) {
+    public final String f(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                try {
+                    Runtime runtime = Runtime.getRuntime();
+                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException unused) {
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                zg4.a(bufferedReader);
+                return readLine == null ? "" : readLine;
+            } catch (IOException unused2) {
+                bufferedReader2 = bufferedReader;
+                zg4.a(bufferedReader2);
+                zg4.a(bufferedReader2);
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                zg4.a(bufferedReader2);
+                throw th;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.vg4, com.repackage.di2
-    public void U() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.tg4
+    /* renamed from: h */
+    public void put(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.di2
-    public ZeusPluginFactory.Invoker f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (ZeusPluginFactory.Invoker) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vg4, com.repackage.di2
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 }

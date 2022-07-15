@@ -126,15 +126,15 @@ public class MaterialCardViewHelper {
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         this.bgDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = this.bgDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, new int[]{16843071, 16843072, R.attr.cardBackgroundColor, R.attr.cardCornerRadius, R.attr.cardElevation, R.attr.cardMaxElevation, R.attr.cardPreventCornerOverlap, R.attr.cardUseCompatPadding, R.attr.contentPadding, R.attr.contentPaddingBottom, R.attr.contentPaddingLeft, R.attr.contentPaddingRight, R.attr.contentPaddingTop}, i, R.style.obfuscated_res_0x7f1000fa);
+        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, new int[]{16843071, 16843072, R.attr.cardBackgroundColor, R.attr.cardCornerRadius, R.attr.cardElevation, R.attr.cardMaxElevation, R.attr.cardPreventCornerOverlap, R.attr.cardUseCompatPadding, R.attr.contentPadding, R.attr.contentPaddingBottom, R.attr.contentPaddingLeft, R.attr.contentPaddingRight, R.attr.contentPaddingTop}, i, R.style.obfuscated_res_0x7f1000fb);
         if (obtainStyledAttributes.hasValue(3)) {
             builder.setAllCornerSizes(obtainStyledAttributes.getDimension(3, 0.0f));
         }
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070430);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070431);
+        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07047f);
+        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070480);
         obtainStyledAttributes.recycle();
     }
 
@@ -245,7 +245,7 @@ public class MaterialCardViewHelper {
             if (this.clickableForegroundDrawable == null) {
                 LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
                 this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.obfuscated_res_0x7f09142f);
+                layerDrawable.setId(2, R.id.obfuscated_res_0x7f0914d7);
             }
             return this.clickableForegroundDrawable;
         }
@@ -599,7 +599,7 @@ public class MaterialCardViewHelper {
                 DrawableCompat.setTintList(wrap, this.checkedIconTint);
             }
             if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f09142f, createCheckedIconLayer());
+                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f0914d7, createCheckedIconLayer());
             }
         }
     }

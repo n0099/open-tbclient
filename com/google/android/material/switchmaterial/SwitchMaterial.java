@@ -82,7 +82,7 @@ public class SwitchMaterial extends SwitchCompat {
             if (this.materialThemeColorsThumbTintList == null) {
                 int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171);
                 int color2 = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070472);
+                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d4);
                 if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                     dimension += ViewUtils.getParentAbsoluteElevation(this);
                 }
@@ -155,7 +155,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405ef);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405f0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +195,7 @@ public class SwitchMaterial extends SwitchCompat {
         }
         Context context2 = getContext();
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406b7}, i, obfuscated_res_0x7f10035c, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406b8}, i, obfuscated_res_0x7f10035c, new int[0]);
         this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
     }

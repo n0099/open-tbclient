@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
 import com.repackage.tg;
+import com.repackage.xt4;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class PullViewHelper {
@@ -84,7 +84,7 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(ht4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(xt4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private Drawable buildDrawable(File[] fileArr, String str) {
@@ -126,11 +126,11 @@ public class PullViewHelper {
     public void buildDrawables() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String q = ht4.k().q("pull_image_url", "");
+            String q = xt4.k().q("pull_image_url", "");
             boolean z = false;
-            int l = ht4.k().l("pull_image_num", 0);
-            this.pullview_backgroundColor_day = ht4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = ht4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            int l = xt4.k().l("pull_image_num", 0);
+            this.pullview_backgroundColor_day = xt4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = xt4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             if (!TextUtils.isEmpty(q)) {
                 if (l > 0 && isImagesExist(l)) {
                     this.drawables = new Drawable[l];
@@ -354,8 +354,8 @@ public class PullViewHelper {
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int l = ht4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int l2 = ht4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int l = xt4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int l2 = xt4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -365,17 +365,17 @@ public class PullViewHelper {
                 } catch (Exception unused2) {
                 }
                 if (l != i2 || i != l2) {
-                    ht4.k().w("pullview_background_color_day", i2);
-                    ht4.k().w("pullview_background_color_night", i);
+                    xt4.k().w("pullview_background_color_day", i2);
+                    xt4.k().w("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                ht4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                ht4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                xt4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                xt4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
-            ht4.k().u("pullview_should_show_3d_loading", true);
+            xt4.k().u("pullview_should_show_3d_loading", true);
             setShouldShowLoadingView(true);
             tg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
@@ -404,10 +404,10 @@ public class PullViewHelper {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ht4.k().D("pull_image_url");
-                        ht4.k().D("pull_image_num");
-                        ht4.k().D("pullview_background_color_day");
-                        ht4.k().D("pullview_background_color_night");
+                        xt4.k().D("pull_image_url");
+                        xt4.k().D("pull_image_num");
+                        xt4.k().D("pullview_background_color_day");
+                        xt4.k().D("pullview_background_color_night");
                         this.this$0.deletePullDir();
                         this.this$0.buildDrawables();
                     }

@@ -1,17 +1,20 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class y12 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,46 +30,41 @@ public class y12 {
                 return;
             }
         }
-        a = cg1.a;
-        b = new AtomicInteger(0);
+        a = rg1.a;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public y12(fz1 fz1Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str != null && str.startsWith("master") : invokeL.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (s32.h()) {
-                int andIncrement = b.getAndIncrement();
-                if (andIncrement >= 1) {
-                    str = "master" + andIncrement;
-                }
-                if (a) {
-                    Log.i("MasterIdGenerator", "next master id - " + str);
-                }
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fz1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return "master";
         }
-        return (String) invokeV.objValue;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public String setData(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
             }
-            return andSet;
+            int i = 0;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                i = 202;
+            } else {
+                ul2.U().y(new ka2(str, str2), false);
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
-        return invokeV.intValue;
+        return (String) invokeLL.objValue;
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ln8;
-import com.repackage.tn8;
+import com.repackage.ho8;
+import com.repackage.po8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +22,8 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<ln8> mCardCategoryList;
-    public tn8 mRecommand;
+    public List<ho8> mCardCategoryList;
+    public po8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategorySocktResponse() {
@@ -69,18 +69,18 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
                 this.hasMore = false;
             }
             if (getCardByCategoryResIdl.data.recommend != null) {
-                tn8 tn8Var = new tn8();
-                this.mRecommand = tn8Var;
-                tn8Var.d(getCardByCategoryResIdl.data.recommend);
+                po8 po8Var = new po8();
+                this.mRecommand = po8Var;
+                po8Var.d(getCardByCategoryResIdl.data.recommend);
             }
             List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
             if (list != null && list.size() > 0) {
                 this.mCardCategoryList = new ArrayList();
                 for (ThemeCardInMain themeCardInMain : list) {
                     if (themeCardInMain != null) {
-                        ln8 ln8Var = new ln8();
-                        ln8Var.c(themeCardInMain);
-                        this.mCardCategoryList.add(ln8Var);
+                        ho8 ho8Var = new ho8();
+                        ho8Var.c(themeCardInMain);
+                        this.mCardCategoryList.add(ho8Var);
                     }
                 }
             }
@@ -89,16 +89,16 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<ln8> getCardCategoryList() {
+    public List<ho8> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCardCategoryList : (List) invokeV.objValue;
     }
 
-    public tn8 getRecommand() {
+    public po8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (tn8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (po8) invokeV.objValue;
     }
 
     public boolean isHasMore() {

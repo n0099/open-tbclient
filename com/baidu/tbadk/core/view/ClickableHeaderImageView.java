@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hm4;
 import com.repackage.ng;
-import com.repackage.sl4;
 /* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData S0;
     public boolean T0;
     public View.OnClickListener U0;
-    public sl4 V0;
+    public hm4 V0;
     public View.OnClickListener W0;
 
     /* loaded from: classes3.dex */
@@ -57,8 +57,8 @@ public class ClickableHeaderImageView extends HeadImageView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sl4 sl4Var = this.a.V0;
-                if ((sl4Var == null || !sl4Var.a(view2)) && this.a.S0 != null) {
+                hm4 hm4Var = this.a.V0;
+                if ((hm4Var == null || !hm4Var.a(view2)) && this.a.S0 != null) {
                     MetaData s = this.a.T0 ? this.a.S0.getTopAgreePost().s() : this.a.S0.getAuthor();
                     if (s == null || StringUtils.isNull(s.getName_show()) || StringUtils.isNull(s.getUserId())) {
                         return;
@@ -118,7 +118,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         } else {
             author = threadData.getAuthor();
         }
-        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11c8));
+        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11c1));
         setUserId(author.getUserId());
         setUserName(author.getUserName());
         if (threadData.getThreadAlaInfo() != null && (this.S0.getThreadType() == 49 || this.S0.getThreadType() == 69)) {
@@ -135,10 +135,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         UtilHelper.showHeadImageViewBigV(this, author);
     }
 
-    public void setOnInterceptClickEventListener(sl4 sl4Var) {
+    public void setOnInterceptClickEventListener(hm4 hm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sl4Var) == null) {
-            this.V0 = sl4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hm4Var) == null) {
+            this.V0 = hm4Var;
         }
     }
 

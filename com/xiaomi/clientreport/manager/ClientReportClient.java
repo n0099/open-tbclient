@@ -50,9 +50,9 @@ public class ClientReportClient {
         if (interceptable == null || interceptable.invokeLLLL(65539, null, context, config, iEventProcessor, iPerfProcessor) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("init in  pid :" + Process.myPid() + " threadId: " + Thread.currentThread().getId());
             a.a(context).a(config, iEventProcessor, iPerfProcessor);
-            if (com.xiaomi.push.h.m380a(context)) {
+            if (com.xiaomi.push.h.m1323a(context)) {
                 com.xiaomi.channel.commonutils.logger.b.c("init in process\u3000start scheduleJob");
-                a.a(context).m90a();
+                a.a(context).m1033a();
             }
         }
     }

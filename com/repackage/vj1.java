@@ -1,22 +1,7 @@
 package com.repackage;
 
-import com.baidu.webkit.sdk.VideoPlayerFactory;
-import com.repackage.ty1;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface vj1 {
-    int a();
-
-    VideoPlayerFactory b();
-
-    int c();
-
-    void d(boolean z);
-
-    boolean e();
-
-    boolean f();
-
-    void g(int i);
-
-    void h(ty1.c cVar);
+    String a(Context context);
 }

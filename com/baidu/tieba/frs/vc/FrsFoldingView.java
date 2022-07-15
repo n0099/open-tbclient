@@ -11,16 +11,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.in6;
+import com.repackage.lq6;
 import com.repackage.pi;
-import com.repackage.zp6;
+import com.repackage.xn6;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrsFoldingView extends LinearLayout {
@@ -184,12 +183,12 @@ public class FrsFoldingView extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0292, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0293, (ViewGroup) this, true);
             this.h = inflate;
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909d3);
-            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091740);
-            this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09063a);
-            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f0909d1);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909da);
+            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0917ea);
+            this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09063c);
+            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f0909d8);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
@@ -198,16 +197,14 @@ public class FrsFoldingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            in6.d(this.h);
-            in6.c(this.d);
-            in6.b(this.g);
+            xn6.a(this.h);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.findViewById(R.id.obfuscated_res_0x7f0909d1).setOnClickListener(new a(this));
+            this.h.findViewById(R.id.obfuscated_res_0x7f0909d8).setOnClickListener(new a(this));
         }
     }
 
@@ -233,7 +230,7 @@ public class FrsFoldingView extends LinearLayout {
         }
     }
 
-    public void setViews(List<View> list, List<zp6> list2) {
+    public void setViews(List<View> list, List<lq6> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             this.e.removeAllViews();
@@ -242,7 +239,7 @@ public class FrsFoldingView extends LinearLayout {
                 this.g.setVisibility(0);
                 this.f.removeAllViews();
                 this.f.addView(list.get(1));
-                this.a = list2.get(1).getCount() * pi.f(getContext().getApplicationContext(), UbsABTestHelper.isFrsModifyABTestA() ? R.dimen.tbds85 : R.dimen.tbds93);
+                this.a = list2.get(1).getCount() * pi.f(getContext().getApplicationContext(), R.dimen.tbds93);
             } else {
                 this.g.setVisibility(8);
             }

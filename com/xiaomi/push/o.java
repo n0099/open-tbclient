@@ -21,7 +21,7 @@ public class o {
     public static volatile Handler a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f812a;
+    public static final Object f1539a;
     public static volatile Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public class o {
                 return;
             }
         }
-        f812a = new Object();
+        f1539a = new Object();
     }
 
     public o() {
@@ -78,7 +78,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (b == null) {
-                synchronized (f812a) {
+                synchronized (f1539a) {
                     if (b == null) {
                         HandlerThread handlerThread = new HandlerThread("receiver_task");
                         handlerThread.start();

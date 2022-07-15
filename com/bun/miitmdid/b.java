@@ -2,7 +2,6 @@ package com.bun.miitmdid;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +90,7 @@ public class b implements IIdConfig {
             if (jSONObject == null || bVar == null) {
                 return false;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
+            JSONObject optJSONObject = jSONObject.optJSONObject("vivo");
             v vVar = new v();
             if (optJSONObject != null) {
                 vVar.a = optJSONObject.optString("appid");

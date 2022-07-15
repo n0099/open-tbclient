@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.cz2;
+import com.repackage.rg1;
+import com.repackage.rz2;
 /* loaded from: classes2.dex */
-public class BdContextMenuView extends FrameLayout implements cz2.g {
+public class BdContextMenuView extends FrameLayout implements rz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -82,7 +82,7 @@ public class BdContextMenuView extends FrameLayout implements cz2.g {
                 return;
             }
         }
-        boolean z = cg1.a;
+        boolean z = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,7 +117,7 @@ public class BdContextMenuView extends FrameLayout implements cz2.g {
             ListView listView = new ListView(this.b);
             this.c = listView;
             listView.setCacheColorHint(0);
-            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060387));
+            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06038a));
             this.c.setDividerHeight(1);
             this.c.setSelector(new ColorDrawable(0));
             addView(this.c, new FrameLayout.LayoutParams(-1, -1));

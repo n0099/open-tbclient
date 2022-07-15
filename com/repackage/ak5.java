@@ -1,25 +1,25 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ak5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ak5 a;
+    public static volatile ak5 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<Integer> a;
+    public xj5 b;
+    public zj5 c;
+    public List<StatisticItem> d;
 
     public ak5() {
         Interceptable interceptable = $ic;
@@ -31,391 +31,134 @@ public class ak5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.a = arrayList;
+        arrayList.add(1);
+        this.a.add(2);
+        zj5 zj5Var = new zj5();
+        this.c = zj5Var;
+        this.b = new xj5(zj5Var, this.a);
+        g(xt4.k().l("key_abtest_channel", 0));
     }
 
-    public static synchronized ak5 f() {
+    public static ak5 c() {
         InterceptResult invokeV;
-        ak5 ak5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ak5.class) {
-                if (a == null) {
-                    a = new ak5();
+            if (e == null) {
+                synchronized (zj5.class) {
+                    if (e == null) {
+                        e = new ak5();
+                    }
                 }
-                ak5Var = a;
             }
-            return ak5Var;
+            return e;
         }
         return (ak5) invokeV.objValue;
     }
 
-    public final int a(x47 x47Var) {
-        InterceptResult invokeL;
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, x47Var)) != null) {
-            return invokeL.intValue;
-        }
-        SQLiteDatabase c = i57.c();
-        int i = 0;
-        if (c == null) {
-            return 0;
-        }
-        try {
-            if (o(c, x47Var.b())) {
-                ContentValues contentValues = new ContentValues();
-                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(x47Var.b());
-                contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
-                int update = j57.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(x47Var.b())});
-                try {
-                    x47Var.h(correctUserIdAfterOverflowCut);
-                    return update;
-                } catch (Exception e) {
-                    e = e;
-                    i = update;
-                    e.printStackTrace();
-                    return i;
-                }
-            }
-            return 0;
-        } catch (Exception e2) {
-            e = e2;
-        }
-    }
-
-    public boolean b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(i57.c(), j) : invokeJ.booleanValue;
-    }
-
-    public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
-            try {
-                return j57.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public final long d(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = i57.c();
-            }
-            if (sQLiteDatabase != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        try {
-                            cursor = j57.d().e("select * from tb_new_friends", new String[0]);
-                            if (cursor != null && cursor.moveToNext()) {
-                                return cursor.getLong(cursor.getColumnIndex("uid"));
-                            }
-                        } catch (SQLiteException e) {
-                            e.printStackTrace();
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    return 0L;
-                } finally {
-                    qi.a(cursor);
-                }
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized x47 e(long j) {
-        InterceptResult invokeJ;
-        x47 x47Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            synchronized (this) {
-                x47Var = new x47();
-                Cursor cursor = null;
-                try {
-                    cursor = j57.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
-                    if (cursor != null && cursor.moveToNext()) {
-                        x47Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                        x47Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                        x47Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                        x47Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                        x47Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                qi.a(cursor);
-            }
-            return x47Var;
-        }
-        return (x47) invokeJ.objValue;
-    }
-
-    public List<x47> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = j57.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            x47 x47Var = new x47();
-                            x47Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                            x47Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                            x47Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                            x47Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                            x47Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                            x47Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                            arrayList.add(x47Var);
-                        }
-                        p();
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return arrayList;
-            } finally {
-                qi.a(cursor);
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = j57.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
-                    if (cursor != null && cursor.moveToNext()) {
-                        return cursor.getInt(0);
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0;
-            } finally {
-                qi.a(cursor);
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public final int i(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = i57.c();
-            }
-            Cursor cursor = null;
-            try {
-                if (sQLiteDatabase == null) {
-                    return 0;
-                }
-                try {
-                    cursor = j57.d().e("select * from tb_new_friends", new String[0]);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        return cursor.getCount();
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0;
-            } finally {
-                qi.a(cursor);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public List<x47> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SQLiteDatabase c = i57.c();
-            ArrayList arrayList = new ArrayList();
-            if (c != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        try {
-                            cursor = j57.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
-                            if (cursor != null) {
-                                while (cursor.moveToNext()) {
-                                    x47 x47Var = new x47();
-                                    x47Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                                    if (x47Var.b() < 0) {
-                                        a(x47Var);
-                                    }
-                                    x47Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                                    x47Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                                    x47Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                                    x47Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                                    x47Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                                    arrayList.add(x47Var);
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } catch (SQLiteException e2) {
-                        e2.printStackTrace();
-                    }
-                } finally {
-                    qi.a(cursor);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase, x47 x47Var) throws Exception {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, x47Var) == null) || x47Var == null || x47Var.b() == 0 || TextUtils.isEmpty(x47Var.d())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
             return;
         }
-        if (sQLiteDatabase == null) {
-            sQLiteDatabase = i57.c();
+        if (this.d == null) {
+            this.d = new ArrayList();
         }
-        if (sQLiteDatabase != null) {
-            c(sQLiteDatabase, x47Var.b());
-            if (i(sQLiteDatabase) >= 200) {
-                b(d(sQLiteDatabase));
-            }
-            if (sQLiteDatabase != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("uid", Long.valueOf(x47Var.b()));
-                contentValues.put("uname", x47Var.d());
-                contentValues.put("uportrait", x47Var.e());
-                contentValues.put("ucontent", x47Var.a());
-                contentValues.put("ustatus", Integer.valueOf(x47Var.f()));
-                contentValues.put("isread", Integer.valueOf(x47Var.c()));
-                j57.d().insert("tb_new_friends", null, contentValues);
-            }
-        }
+        this.d.add(statisticItem);
     }
 
-    public void l(x47 x47Var) {
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, x47Var) == null) {
-            try {
-                k(i57.c(), x47Var);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            xj5 xj5Var = this.b;
+            if (xj5Var == null) {
+                return 0;
+            }
+            return xj5Var.a(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void d(String str) {
+        zj5 zj5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (oi.isEmpty(str) || (zj5Var = this.c) == null || !zj5Var.g()) {
+                l39.d(str);
             }
         }
     }
 
-    public void m(List<x47> list) {
+    public void e(String str) {
+        zj5 zj5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            try {
-                for (x47 x47Var : list) {
-                    k(i57.c(), x47Var);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (oi.isEmpty(str) || (zj5Var = this.c) == null || !zj5Var.g()) {
+                l39.e(str);
             }
         }
     }
 
-    public boolean n(long j) {
-        InterceptResult invokeJ;
+    public void f(String str) {
+        xj5 xj5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(i57.c(), j) : invokeJ.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (xj5Var = this.b) == null) {
+            return;
+        }
+        xj5Var.b(str);
     }
 
-    public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
-        InterceptResult invokeLJ;
+    public void g(int i) {
+        zj5 zj5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = i57.c();
-            }
-            boolean z = false;
-            if (sQLiteDatabase != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        cursor = j57.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
-                        if (cursor != null) {
-                            if (cursor.moveToFirst()) {
-                                z = true;
-                            }
-                        }
-                    } catch (SQLiteException e) {
-                        e.printStackTrace();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                } finally {
-                    qi.a(cursor);
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (zj5Var = this.c) == null) {
+            return;
+        }
+        zj5Var.k(i);
+    }
+
+    public void h(String str, String str2) {
+        zj5 zj5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.d) || (zj5Var = this.c) == null || !zj5Var.g()) {
+            return;
+        }
+        int i = -1;
+        for (StatisticItem statisticItem : this.d) {
+            if (statisticItem != null) {
+                if (statisticItem.getPosition() == 0) {
+                    i(str, str2, statisticItem);
+                } else if (i != statisticItem.getPosition()) {
+                    i = statisticItem.getPosition();
+                    i(str, str2, statisticItem);
                 }
             }
-            return z;
         }
-        return invokeLJ.booleanValue;
+        this.d.clear();
     }
 
-    public void p() {
+    public void i(String str, String str2, StatisticItem statisticItem) {
+        zj5 zj5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("isread", (Integer) 1);
-            j57.d().update("tb_new_friends", contentValues, null, null);
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (zj5Var = this.c) == null || !zj5Var.g()) {
+            return;
         }
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
-    public int q(x47 x47Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, x47Var)) == null) {
-            SQLiteDatabase c = i57.c();
-            int i = 0;
-            if (c != null) {
-                try {
-                    if (o(c, x47Var.b())) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("ustatus", Integer.valueOf(x47Var.f()));
-                        contentValues.put("isread", Integer.valueOf(x47Var.c()));
-                        i = j57.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(x47Var.b())});
-                    } else {
-                        k(c, x47Var);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        HashMap hashMap = new HashMap();
+        List<Object> params = statisticItem.getParams();
+        if (params != null) {
+            int size = params.size();
+            for (int i = 0; i < size; i += 2) {
+                Object obj = params.get(i);
+                String obj2 = obj != null ? obj.toString() : "";
+                Object obj3 = params.get(i + 1);
+                hashMap.put(obj2, obj3 != null ? obj3.toString() : "");
             }
-            return i;
         }
-        return invokeL.intValue;
+        l39.c(str2 + statisticItem.getKey(), str, "", hashMap);
     }
 }

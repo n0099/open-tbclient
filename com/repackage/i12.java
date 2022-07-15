@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i12 {
+public abstract class i12<T, R> implements m12<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,30 +26,35 @@ public class i12 {
                 return;
             }
         }
-        a = cg1.a;
-        b = new AtomicInteger(0);
+        a = h03.v;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public i12() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str != null && str.startsWith("localDebug") : invokeL.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int andIncrement = b.getAndIncrement();
-            String str = "localDebug";
-            if (andIncrement >= 1) {
-                str = "localDebug" + andIncrement;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (a) {
-                Log.i("DaemonIdGenerator", "next daemon id - " + str);
-            }
-            return str;
         }
-        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        pz1 o;
+        nm1 o3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qz1 V = ul2.U().V();
+            if (V == null || (o = V.o()) == null || (o3 = o.o3()) == null) {
+                return false;
+            }
+            return o3.k0();
+        }
+        return invokeV.booleanValue;
     }
 }

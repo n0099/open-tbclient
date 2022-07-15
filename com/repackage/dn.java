@@ -3,8 +3,6 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
@@ -149,7 +147,7 @@ public class dn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a3e));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a2b));
             int d = pi.d(context, 15.0f);
             textView.setPadding(d, d, d, d);
             textView.setHeight(0);
@@ -206,28 +204,10 @@ public class dn {
         return invokeL.intValue;
     }
 
-    @Nullable
-    public View g(@NonNull Object obj) {
-        InterceptResult invokeL;
-        View view2;
-        Object tag;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                c cVar = this.a.get(i);
-                if (cVar != null && (tag = (view2 = cVar.c.itemView).getTag(R.id.obfuscated_res_0x7f090f20)) != null && tag.equals(obj)) {
-                    return view2;
-                }
-            }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public c h(int i) {
+    public c g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             Iterator<c> it = this.a.iterator();
             while (it.hasNext()) {
                 c next = it.next();
@@ -240,23 +220,23 @@ public class dn {
         return (c) invokeI.objValue;
     }
 
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b.size() : invokeV.intValue;
+    }
+
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    public boolean k(View view2) {
+    public boolean j(View view2) {
         InterceptResult invokeL;
         TypeAdapter.ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
             if (view2 == null) {
                 return false;
             }
@@ -272,11 +252,11 @@ public class dn {
         return invokeL.booleanValue;
     }
 
-    public boolean l(View view2) {
+    public boolean k(View view2) {
         InterceptResult invokeL;
         TypeAdapter.ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
             if (view2 == null) {
                 return false;
             }
@@ -292,9 +272,9 @@ public class dn {
         return invokeL.booleanValue;
     }
 
-    public void m(a aVar) {
+    public void l(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             this.c = aVar;
         }
     }

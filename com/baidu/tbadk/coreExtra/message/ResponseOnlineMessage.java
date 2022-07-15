@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a45;
+import com.repackage.c55;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +55,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
             if (getError() != 0) {
-                a45.b(1001, 0, 2, 0, 0);
+                c55.b(1001, 0, 2, 0, 0);
                 return updateClientInfoResIdl;
             }
-            a45.b(1001, 0, 1, 0, 0);
+            c55.b(1001, 0, 1, 0, 0);
             this.groupInfos = new ArrayList();
             DataRes dataRes = updateClientInfoResIdl.data;
             if (dataRes != null) {

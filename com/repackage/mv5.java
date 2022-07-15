@@ -1,63 +1,52 @@
 package com.repackage;
 
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Search.DataRes;
 /* loaded from: classes6.dex */
 public class mv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public boolean k;
-    public long l;
+    public TbPageContext a;
 
-    public mv5() {
+    public mv5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public void a(DataRes dataRes) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
+            if (j2 <= 0) {
+                return;
+            }
+            if (j2 > 200000000) {
+                pi.O(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0249, 20L));
+                return;
+            }
+            if (j2 % 1000 != 0) {
+                j2 = ((j2 / 1000) + 1) * 1000;
+            }
+            CurrencyJumpHelper.gotoBuyTBeanPage(this.a.getPageActivity(), j2);
         }
-        Long l = dataRes.uid;
-        this.b = l == null ? 0L : l.longValue();
-        this.c = dataRes.portrait;
-        this.d = dataRes.name_show;
-        Long l2 = dataRes.apply_id;
-        this.e = l2 == null ? 0L : l2.longValue();
-        Integer num = dataRes.vote_num;
-        this.f = num == null ? 0 : num.intValue();
-        Integer num2 = dataRes.agree_num;
-        this.g = num2 == null ? 0 : num2.intValue();
-        Integer num3 = dataRes.thread_num;
-        this.h = num3 == null ? 0 : num3.intValue();
-        Integer num4 = dataRes.post_num;
-        this.i = num4 == null ? 0 : num4.intValue();
-        Boolean bool = dataRes.is_vote;
-        this.k = bool != null ? bool.booleanValue() : false;
-        Long l3 = dataRes.tid;
-        this.l = l3 != null ? l3.longValue() : 0L;
     }
 }

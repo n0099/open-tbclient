@@ -1,47 +1,30 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.ViewTreeObserver;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes6.dex */
-public class fl9 implements ViewTreeObserver.OnWindowAttachListener {
+public final class fl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fl9(tl9 tl9Var) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tl9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            int[] iArr = {1, 2, 3, 4, 5, 6};
+            for (int i2 = 0; i2 < 6; i2++) {
+                int i3 = iArr[i2];
+                int i4 = i3 - 1;
+                if (i3 == 0) {
+                    throw null;
+                }
+                if (i4 == i) {
+                    return i3;
+                }
             }
+            return 1;
         }
-    }
-
-    @Override // android.view.ViewTreeObserver.OnWindowAttachListener
-    public void onWindowAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onWindowAttached:");
-        }
-    }
-
-    @Override // android.view.ViewTreeObserver.OnWindowAttachListener
-    public void onWindowDetached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onWindowDetached:");
-        }
+        return invokeI.intValue;
     }
 }

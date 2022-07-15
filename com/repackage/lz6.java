@@ -1,196 +1,148 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by;
-import com.repackage.my;
 /* loaded from: classes6.dex */
-public class lz6 extends an<ThreadData, ThreadCardViewHolder<ThreadData>> {
+public class lz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public String j;
-    public TbPageContext<?> k;
-    public tn l;
-    public mx5<ThreadData> m;
 
-    /* loaded from: classes6.dex */
-    public class a extends mx5<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz6 b;
-
-        public a(lz6 lz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = lz6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mx5
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                fx5.b().d(true);
-                ez6.l(view2, threadData, this.b.j);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements xn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz6 a;
-
-        public b(lz6 lz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz6Var;
-        }
-
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                this.a.b0(view2, nnVar);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            StringBuilder sb = new StringBuilder();
+            sb.append("key_card_interest_close_click_num_");
+            sb.append(currentAccount);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", xt4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
         }
-        this.m = new a(this);
-        this.k = tbPageContext;
-        this.i = bdUniqueId2;
-        this.j = str;
     }
 
-    public final void b0(View view2, nn nnVar) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, nnVar) == null) && (nnVar instanceof tx5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-            tx5 tx5Var = (tx5) nnVar;
-            tx5Var.f = 1;
-            ThreadCardUtils.jumpToPB((ym4) tx5Var, view2.getContext(), 0, false);
-            ((ThreadCardViewHolder) view2.getTag()).c().o(new my.a(1));
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            StringBuilder sb = new StringBuilder();
+            sb.append("key_card_interest_close_click_num_");
+            sb.append(currentAccount);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", xt4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public ThreadCardViewHolder<ThreadData> M(ViewGroup viewGroup) {
+    public static boolean c(ox4 ox4Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ox4Var, str)) == null) {
+            long m = xt4.k().m("key_card_interest_close_click_time_" + str, 0L);
+            if (m != 0) {
+                return ox4Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= ox4Var.a();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(ox4 ox4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            by.b bVar = new by.b(this.k.getPageActivity());
-            tw twVar = new tw(this.k.getPageActivity());
-            twVar.t(this.i);
-            twVar.v(this.k);
-            bVar.o(twVar);
-            bVar.n(new rw(this.k.getPageActivity()));
-            bVar.h(new ax(this.k.getPageActivity()));
-            dy dyVar = new dy(this.k.getPageActivity());
-            en4 en4Var = new en4();
-            en4Var.b = 1;
-            en4Var.h = 1;
-            dyVar.v(en4Var);
-            dyVar.x(1);
-            dyVar.C(3);
-            dyVar.y(0);
-            dyVar.w(false);
-            bVar.m(dyVar);
-            by k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.l);
-            k.r(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
-            V(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ox4Var)) == null) ? ox4Var.c() == 1 : invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ThreadData threadData, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, threadCardViewHolder})) == null) {
-            if (threadData == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (UbsABTestHelper.isRecommendCardInterestABTestA() && h()) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                ox4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                if (homepageInterestConfig == null) {
+                    return false;
+                }
+                if (d(homepageInterestConfig)) {
+                    return true;
+                }
+                if (xt4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                    if (c(homepageInterestConfig, currentAccount)) {
+                        return true;
+                    }
+                } else if (g(homepageInterestConfig)) {
+                    return true;
+                }
+                return false;
             }
-            threadData.statFloor = B(i) + 1;
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(threadData);
-            threadCardViewHolder.c().p(this.m);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            ez6.r(threadData, this.j);
-            return threadCardViewHolder.b();
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void e0(tn tnVar) {
+    public static boolean f(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tnVar) == null) {
-            this.l = tnVar;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            if (h()) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                ox4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                if (homepageInterestConfig != null && i2 > 0) {
+                    if (d(homepageInterestConfig)) {
+                        return true;
+                    }
+                    if (xt4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                        if (c(homepageInterestConfig, currentAccount) && i == 0) {
+                            return true;
+                        }
+                    } else if (g(homepageInterestConfig) && i == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public static boolean g(ox4 ox4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ox4Var)) == null) ? ox4Var.d() == 1 : invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (TbadkCoreApplication.isLogin()) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                ox4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                if (homepageInterestConfig == null) {
+                    return false;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append("key_card_interest_close_click_num_");
+                sb.append(currentAccount);
+                return xt4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            xt4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
+            String str = "key_card_interest_close_click_num_" + currentAccount;
+            xt4.k().w(str, xt4.k().l(str, 0) + 1);
         }
     }
 }

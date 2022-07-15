@@ -5,54 +5,51 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.kwad.sdk.core.videocache.j;
-import com.kwad.sdk.core.videocache.n;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.kwad.sdk.core.videocache.m;
+import com.kwad.sdk.utils.aj;
 /* loaded from: classes5.dex */
-public class a extends SQLiteOpenHelper implements b {
-    public static final String[] a = {"_id", "url", "length", "mime"};
+public final class a extends SQLiteOpenHelper implements b {
+    public static final String[] a = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
 
     public a(Context context) {
         super(context, "AndroidVideoCache.db", (SQLiteDatabase.CursorFactory) null, 1);
-        j.a(context);
+        aj.a(context);
     }
 
-    private ContentValues a(n nVar) {
+    public static ContentValues a(m mVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.a);
-        contentValues.put("length", Long.valueOf(nVar.b));
-        contentValues.put("mime", nVar.c);
+        contentValues.put("url", mVar.a);
+        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(mVar.b));
+        contentValues.put("mime", mVar.c);
         return contentValues;
     }
 
-    private n a(Cursor cursor) {
-        return new n(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow("length")), cursor.getString(cursor.getColumnIndexOrThrow("mime")));
+    public static m a(Cursor cursor) {
+        return new m(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow(CloudStabilityUBCUtils.KEY_LENGTH)), cursor.getString(cursor.getColumnIndexOrThrow("mime")));
     }
 
     @Override // com.kwad.sdk.core.videocache.c.b
-    public n a(String str) {
+    public final m a(String str) {
         Throwable th;
         Cursor cursor;
-        j.a(str);
-        n nVar = null;
+        aj.a(str);
+        m mVar = null;
         try {
             cursor = getReadableDatabase().query("SourceInfo", a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {
-                        nVar = a(cursor);
+                        mVar = a(cursor);
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
+                    com.kwad.sdk.crash.utils.b.a(cursor);
                     throw th;
                 }
             }
-            if (cursor != null) {
-                cursor.close();
-            }
-            return nVar;
+            com.kwad.sdk.crash.utils.b.a(cursor);
+            return mVar;
         } catch (Throwable th3) {
             th = th3;
             cursor = null;
@@ -60,10 +57,10 @@ public class a extends SQLiteOpenHelper implements b {
     }
 
     @Override // com.kwad.sdk.core.videocache.c.b
-    public void a(String str, n nVar) {
-        j.a(str, nVar);
+    public final void a(String str, m mVar) {
+        aj.a(str, mVar);
         boolean z = a(str) != null;
-        ContentValues a2 = a(nVar);
+        ContentValues a2 = a(mVar);
         if (z) {
             getWritableDatabase().update("SourceInfo", a2, "url=?", new String[]{str});
         } else {
@@ -72,13 +69,13 @@ public class a extends SQLiteOpenHelper implements b {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        j.a(sQLiteDatabase);
+    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
+        aj.a(sQLiteDatabase);
         sQLiteDatabase.execSQL("CREATE TABLE SourceInfo (_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,url TEXT NOT NULL,mime TEXT,length INTEGER);");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         throw new IllegalStateException("Should not be called. There is no any migration");
     }
 }

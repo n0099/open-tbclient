@@ -1,13 +1,19 @@
 package com.repackage;
 
+import android.app.Application;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class mt0 implements pt0 {
+public class mt0 implements cl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,30 +31,20 @@ public class mt0 implements pt0 {
         }
     }
 
-    @Override // com.repackage.pt0
-    @NonNull
-    public it0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
+    @Override // com.repackage.cl0
+    public void a(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -812096555) {
-                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("CyberSysPlayer")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                return new st0();
-            }
-            return new kt0();
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            AppRuntimeInit.onApplicationattachBaseContext(application);
+            wb1.b(application);
         }
-        return (it0) invokeL.objValue;
+    }
+
+    @Override // com.repackage.cl0
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zw0.a();
+        }
     }
 }

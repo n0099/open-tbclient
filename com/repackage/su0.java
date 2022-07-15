@@ -1,326 +1,251 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
+import android.os.Message;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qq0;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class su0 extends qo0 {
+public abstract class su0<T extends ViewGroup, S extends qq0> extends iu0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu0 O;
-    public uu0 P;
-    public boolean Q;
-    public int R;
+    public T e;
+    public final ArrayList<S> f;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ su0 b;
-
-        public a(su0 su0Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su0Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = su0Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.a;
-                if (i == -2 || i == -1) {
-                    this.b.f0(2);
-                    this.b.a();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public su0(@NonNull hs0 hs0Var, @Nullable Context context) {
-        super(hs0Var, context);
+    public su0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hs0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hs0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.Q = false;
-        this.R = 22;
+        this.f = new ArrayList<>();
     }
 
-    @Override // com.repackage.oo0
-    @Nullable
-    public cu0 A() {
-        InterceptResult invokeV;
+    @Override // com.repackage.iu0
+    public void B() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.A() : (cu0) invokeV.objValue;
-    }
-
-    @Override // com.repackage.po0
-    public void A1(@NonNull BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdVideoSeries) == null) {
-            this.P.L(8);
-            J1();
-            this.O.M(true);
-            this.O.N(8);
-            super.B1(bdVideoSeries, true);
-        }
-    }
-
-    @Override // com.repackage.po0, com.repackage.oo0
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.R : invokeV.intValue;
-    }
-
-    @Override // com.repackage.bp0, com.repackage.oo0
-    public void G0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            tu0 tu0Var = new tu0();
-            this.O = tu0Var;
-            b(tu0Var);
-            uu0 uu0Var = new uu0();
-            this.P = uu0Var;
-            b(uu0Var);
-            b(new vu0());
-            v().setClickable(false);
-        }
-    }
-
-    @Override // com.repackage.po0, com.repackage.oo0
-    public void I0(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            d(ok0.b());
-            d(new qv0(context));
-        }
-    }
-
-    public final boolean I1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BdVideoSeries bdVideoSeries = this.I;
-            return (bdVideoSeries == null || TextUtils.isEmpty(bdVideoSeries.getVid()) || !this.I.getVid().contains(LaunchStatsUtils.AD)) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void J1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.u = 0;
-        }
-    }
-
-    @Override // com.repackage.po0, com.repackage.oo0
-    public void K0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            cu0 cu0Var = this.b;
-            if (cu0Var != null && cu0Var.getContentView() != null) {
-                this.b.getContentView().setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            P();
+            R();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                S next = it.next();
+                next.p(this);
+                next.i();
+                if (next.d()) {
+                    L(next);
+                }
             }
-            if (TextUtils.isEmpty(this.a.b)) {
-                return;
-            }
-            l();
+            Q(this.e);
         }
     }
 
-    @Override // com.repackage.po0, com.repackage.oo0
-    public void L0() {
+    @Override // com.repackage.iu0
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            w1();
-            if (this.b != null) {
-                R0().stop(w());
-                q().i();
-                H().j(w());
-                this.b.t0();
-                xr0.a(getActivity(), false);
-            }
-            pr0 pr0Var = this.A;
-            if (pr0Var != null) {
-                pr0Var.cancel();
-            }
-            tu0 tu0Var = this.O;
-            if (tu0Var != null) {
-                tu0Var.L();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.D();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().l();
             }
         }
     }
 
-    @Override // com.repackage.po0, com.repackage.bp0, com.repackage.oo0
-    public void P() {
+    public void J(@NonNull S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.P();
-        }
-    }
-
-    @Override // com.repackage.oo0
-    public boolean X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? uw0.c(m()) == 0 : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.oo0
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.a();
-        }
-    }
-
-    @Override // com.repackage.oo0
-    public void d0(int i) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (activity = getActivity()) == null || X()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s) == null) || this.f.contains(s)) {
             return;
         }
-        activity.runOnUiThread(new a(this, i));
+        xx0.b(this.f, s);
     }
 
-    @Override // com.repackage.po0, com.repackage.oo0
-    public void f0(int i) {
+    public void L(@NonNull S s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            w1();
-            tu0 tu0Var = this.O;
-            if (tu0Var != null) {
-                tu0Var.M(i == 1);
+        if (interceptable == null || interceptable.invokeL(1048579, this, s) == null) {
+            gx0.k(s.getContentView());
+            if (M(s.f())) {
+                this.e.addView(s.getContentView(), s.f());
+            } else {
+                this.e.addView(s.getContentView());
             }
-            if (I1()) {
-                if (W() || a0()) {
-                    return;
-                }
-                super.f0(i);
-                return;
+        }
+    }
+
+    public boolean M(@Nullable ViewGroup.LayoutParams layoutParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, layoutParams)) == null) {
+            if (getContentView() instanceof FrameLayout) {
+                return layoutParams instanceof FrameLayout.LayoutParams;
             }
-            super.f0(i);
+            if (getContentView() instanceof LinearLayout) {
+                return layoutParams instanceof LinearLayout.LayoutParams;
+            }
+            if (getContentView() instanceof RelativeLayout) {
+                return layoutParams instanceof RelativeLayout.LayoutParams;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.oo0
-    public void k0() {
+    public void N(@NonNull vr0 vr0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.k0();
+        if (interceptable == null || interceptable.invokeL(1048581, this, vr0Var) == null) {
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().k(vr0Var);
+            }
         }
     }
 
-    @Override // com.repackage.po0, com.repackage.oo0
-    public void l0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.l0();
-        }
-    }
-
-    @Override // com.repackage.po0
-    public int l1() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.vu0
+    @NonNull
+    /* renamed from: O */
+    public T getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.J : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (T) invokeV.objValue;
     }
 
-    @Override // com.repackage.po0, com.repackage.oo0, com.repackage.qt0
-    public void onCompletion() {
+    public abstract void P();
+
+    public void Q(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            z().g();
-            R0().end(w());
-            y().p(C(), p(), r());
-            pr0 pr0Var = this.A;
-            if (pr0Var != null) {
-                pr0Var.cancel();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+        }
+    }
+
+    public abstract void R();
+
+    @Override // com.repackage.iu0, com.repackage.ws0
+    public void d(@NonNull vr0 vr0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, vr0Var) == null) {
+            super.d(vr0Var);
+            N(vr0Var);
+        }
+    }
+
+    @Override // com.repackage.ws0
+    @Nullable
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new int[]{4, 5, 2, 3, 1} : (int[]) invokeV.objValue;
+    }
+
+    @Override // com.repackage.iu0, com.repackage.ws0
+    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, playerStatus, playerStatus2) == null) {
+            super.h(playerStatus, playerStatus2);
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().n(playerStatus, playerStatus2);
             }
         }
     }
 
-    @Override // com.repackage.po0, com.repackage.oo0, com.repackage.qt0
-    public boolean onError(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    @Override // com.repackage.iu0, com.repackage.ws0
+    public void j(@NonNull vr0 vr0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048594, this, i, i2, obj)) == null) {
-            super.onError(i, i2, obj);
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048590, this, vr0Var) == null) {
+            super.j(vr0Var);
+            N(vr0Var);
         }
-        return invokeIIL.booleanValue;
     }
 
-    @Override // com.repackage.oo0, com.repackage.qt0
-    public void onPrepared() {
+    @Override // com.repackage.iu0, com.repackage.ws0
+    public void k(@NonNull vr0 vr0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, vr0Var) == null) {
+            super.k(vr0Var);
+            N(vr0Var);
+        }
+    }
+
+    @Override // com.repackage.iu0, com.repackage.ws0
+    public void n(@NonNull vr0 vr0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, vr0Var) == null) {
+            super.n(vr0Var);
+            N(vr0Var);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
+        }
+    }
+
+    @Override // com.repackage.iu0, com.repackage.vu0
+    public void onContainerDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            super.onContainerDetach();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().j();
+            }
+        }
+    }
+
+    @Override // com.repackage.iu0, com.repackage.vu0
+    public void onLayerRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            super.onPrepared();
-            rw0.b("AdMiniVideoPlayer", "onPrepared position:" + this.a.d);
-        }
-    }
-
-    @Override // com.repackage.oo0
-    public int r() {
-        InterceptResult invokeV;
-        BdVideoSeries o1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            int r = super.r();
-            if (r != 0 || (o1 = o1()) == null) {
-                return r;
+            super.onLayerRelease();
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().m();
             }
-            String selectedVideoTotalLength = o1.getSelectedVideoTotalLength();
-            return !TextUtils.isEmpty(selectedVideoTotalLength) ? nw0.c(selectedVideoTotalLength) : r;
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.po0
-    public boolean s1() {
-        InterceptResult invokeV;
+    @Override // com.repackage.iu0, com.repackage.ws0
+    public void q(@NonNull vr0 vr0Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.Q : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048596, this, vr0Var) == null) {
+            super.q(vr0Var);
+            N(vr0Var);
+        }
+    }
+
+    @Override // com.repackage.iu0
+    public void z(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, message) == null) {
+            super.z(message);
+            Iterator<S> it = this.f.iterator();
+            while (it.hasNext()) {
+                it.next().h(message);
+            }
+        }
     }
 }

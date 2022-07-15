@@ -70,6 +70,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.FirstPraiseToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -122,57 +123,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a88;
-import com.repackage.az5;
-import com.repackage.c68;
+import com.repackage.ah5;
+import com.repackage.ai5;
 import com.repackage.c9;
-import com.repackage.cl4;
-import com.repackage.dr4;
-import com.repackage.er4;
-import com.repackage.fr4;
-import com.repackage.gc6;
+import com.repackage.cr4;
+import com.repackage.dd6;
+import com.repackage.dq8;
+import com.repackage.ei8;
+import com.repackage.f68;
+import com.repackage.h68;
 import com.repackage.h9;
-import com.repackage.hp8;
-import com.repackage.ht4;
-import com.repackage.jh8;
-import com.repackage.k58;
-import com.repackage.lr8;
-import com.repackage.ly4;
-import com.repackage.m58;
-import com.repackage.n75;
+import com.repackage.hs8;
+import com.repackage.jl4;
+import com.repackage.jr4;
+import com.repackage.jr7;
+import com.repackage.jz4;
+import com.repackage.ki8;
+import com.repackage.lr4;
+import com.repackage.lt8;
+import com.repackage.m68;
 import com.repackage.ng;
 import com.repackage.ni;
-import com.repackage.nq4;
+import com.repackage.nr4;
+import com.repackage.ns8;
+import com.repackage.o68;
 import com.repackage.oi;
-import com.repackage.ph8;
+import com.repackage.p85;
 import com.repackage.pi;
-import com.repackage.ps8;
 import com.repackage.qg;
-import com.repackage.r58;
-import com.repackage.rq7;
-import com.repackage.rr8;
-import com.repackage.s75;
-import com.repackage.t58;
-import com.repackage.uk4;
-import com.repackage.uq4;
-import com.repackage.ur8;
+import com.repackage.qs8;
+import com.repackage.qt8;
+import com.repackage.rl4;
+import com.repackage.rs8;
+import com.repackage.rt8;
+import com.repackage.s68;
+import com.repackage.sg8;
+import com.repackage.sr4;
+import com.repackage.tr4;
+import com.repackage.ts8;
+import com.repackage.tu4;
+import com.repackage.ty4;
+import com.repackage.u85;
+import com.repackage.uo8;
+import com.repackage.ur4;
 import com.repackage.us8;
-import com.repackage.vr8;
+import com.repackage.v88;
 import com.repackage.vs8;
-import com.repackage.vx4;
-import com.repackage.wc5;
-import com.repackage.wq4;
-import com.repackage.wt4;
-import com.repackage.x58;
-import com.repackage.xf5;
-import com.repackage.xf8;
-import com.repackage.xg5;
-import com.repackage.xr8;
-import com.repackage.yn8;
-import com.repackage.yq4;
-import com.repackage.yr8;
-import com.repackage.zr8;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.x68;
+import com.repackage.xt4;
+import com.repackage.xz5;
+import com.repackage.zd5;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -182,130 +182,131 @@ import tbclient.PbContent;
 import tbclient.TiebaPlusInfo;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnStatusChangedListener {
+public class VideoPlayFragment extends BaseFragment implements ai5.b, qt8, OnStatusChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView A;
     public boolean A0;
-    public final VideoDanmuController.b A1;
+    public final CustomMessageListener A1;
     public ImageView B;
     public int B0;
-    public View.OnTouchListener B1;
+    public final VideoDanmuController.b B1;
     public RelativeLayout C;
     public String C0;
-    public View.OnLongClickListener C1;
+    public View.OnTouchListener C1;
     public ImageView D;
     public String D0;
-    public k58.c D1;
+    public View.OnLongClickListener D1;
     public LinearLayout E;
     public String E0;
-    public TbImageView.g E1;
+    public f68.c E1;
     public TextView F;
-    public wq4 F0;
-    public SeekBar.OnSeekBarChangeListener F1;
+    public lr4 F0;
+    public TbImageView.g F1;
     public ImageView G;
-    public yq4 G0;
-    public View.OnClickListener G1;
+    public nr4 G0;
+    public SeekBar.OnSeekBarChangeListener G1;
     public LinearLayout H;
     public ForumManageModel H0;
     public View.OnClickListener H1;
     public BarImageView I;
-    public uk4 I0;
+    public jl4 I0;
     public View.OnClickListener I1;
     public ImageView J;
-    public vx4 J0;
+    public ty4 J0;
     public View.OnClickListener J1;
     public TextView K;
     public BdUniqueId K0;
     public View.OnClickListener K1;
     public ExpandableTextView L;
     public String L0;
-    public Animation.AnimationListener L1;
+    public View.OnClickListener L1;
     public TextView M;
-    public RelativeLayout.LayoutParams M0;
-    public Runnable M1;
+    public boolean M0;
+    public Animation.AnimationListener M1;
     public View N;
-    public OnStatusChangedListener.VideoStatus N0;
+    public RelativeLayout.LayoutParams N0;
     public Runnable N1;
     public View O;
-    public String O0;
-    public ur8.b O1;
+    public OnStatusChangedListener.VideoStatus O0;
+    public Runnable O1;
     public View P;
-    public boolean P0;
-    public GestureDetectorCompat P1;
+    public String P0;
+    public qs8.b P1;
     public EMTextView Q;
     public boolean Q0;
-    public VideoDanmuController.c Q1;
+    public GestureDetectorCompat Q1;
     public EMTextView R;
     public boolean R0;
-    public View.OnClickListener R1;
+    public VideoDanmuController.c R1;
     public EMTextView S;
-    public int S0;
+    public boolean S0;
     public View.OnClickListener S1;
     public EMTextView T;
     public int T0;
-    public yq4.d T1;
+    public View.OnClickListener T1;
     public EMTextView U;
-    public ps8 U0;
-    public yq4.d U1;
+    public int U0;
+    public nr4.d U1;
     public TBSpecificationBtn V;
-    public xr8 V0;
-    public yq4.d V1;
+    public lt8 V0;
+    public nr4.d V1;
     public TextView W;
-    public k58.c W0;
-    public yq4.d W1;
+    public ts8 W0;
+    public nr4.d W1;
     public View X;
-    public g1 X0;
-    public Runnable X1;
+    public f68.c X0;
+    public nr4.d X1;
     public LinearLayout Y;
-    public vs8 Y0;
-    public c68 Y1;
+    public g1 Y0;
+    public Runnable Y1;
     public LinearLayout Z;
-    public lr8 Z0;
-    public CustomMessageListener Z1;
+    public rt8 Z0;
+    public x68 Z1;
     public int a;
-    public AlertDialog a1;
+    public hs8 a1;
     public CustomMessageListener a2;
     public boolean b;
-    public RelativeLayout b1;
+    public AlertDialog b1;
+    public CustomMessageListener b2;
     public BdUniqueId c;
-    public boolean c1;
+    public RelativeLayout c1;
     public int d;
-    public TiePlusEventController d1;
+    public boolean d1;
     public int e;
-    public boolean e1;
+    public TiePlusEventController e1;
     public View f;
-    public xf5 f1;
+    public boolean f1;
     public View g;
     public LinearLayout g0;
-    public boolean g1;
+    public ah5 g1;
     public RelativeLayout h;
     public VideoItemData h0;
-    public View h1;
+    public boolean h1;
     public TbVideoViewContainer i;
     public VideoItemModel i0;
     public View i1;
     public VideoDanmuController j;
     public TextView j0;
-    public boolean j1;
-    public ur8 k;
+    public View j1;
+    public qs8 k;
     public VideoMiddleNiaiControllerView k0;
-    public ObjectAnimator k1;
+    public boolean k1;
     public TbImageView l;
     public boolean l0;
     public ObjectAnimator l1;
     public View m;
     public AlphaAnimation m0;
-    public yn8 m1;
+    public ObjectAnimator m1;
     public ImageView n;
     public Rect n0;
-    public final Runnable n1;
+    public uo8 n1;
     public ImageView o;
     public boolean o0;
-    public final TbVideoViewSet.b o1;
+    public final Runnable o1;
     public View p;
     public ImageView p0;
-    public final CustomMessageListener p1;
+    public final TbVideoViewSet.b p1;
     public HeadImageView q;
     public ImageView q0;
     public final CustomMessageListener q1;
@@ -332,11 +333,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public final CustomMessageListener x1;
     public LinearLayout y;
     public int y0;
-    @NonNull
-    public final BarManageResultListener y1;
+    public final CustomMessageListener y1;
     public ImageView z;
     public int z0;
-    public final CustomMessageListener z1;
+    @NonNull
+    public final BarManageResultListener z1;
 
     /* loaded from: classes4.dex */
     public static class GoPbCommentFloatListener extends SimpleMessageListener {
@@ -404,13 +405,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId tag;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.Q0 && customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && (tag = customResponsedMessage.getOrginalMessage().getTag()) != null && this.a.c.getId() == tag.getId() && customResponsedMessage.getCmd() == 2921598 && this.a.Q0) {
-                this.a.Q0 = false;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.R0 && customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && (tag = customResponsedMessage.getOrginalMessage().getTag()) != null && this.a.c.getId() == tag.getId() && customResponsedMessage.getCmd() == 2921598 && this.a.R0) {
+                this.a.R0 = false;
                 this.a.j.Z();
-                if (this.a.j != null && this.a.m4()) {
+                if (this.a.j != null && this.a.n4()) {
                     this.a.j.U();
                 }
-                this.a.Y0.X(true);
+                this.a.Z0.X(true);
             }
         }
     }
@@ -493,11 +494,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                if (this.a.l1 == null) {
+                if (this.a.m1 == null) {
                     VideoPlayFragment videoPlayFragment = this.a;
-                    videoPlayFragment.l1 = videoPlayFragment.P3(1.0f, 1.0f, 1.0f, 100L);
+                    videoPlayFragment.m1 = videoPlayFragment.Q3(1.0f, 1.0f, 1.0f, 100L);
                 }
-                this.a.l1.start();
+                this.a.m1.start();
             }
         }
 
@@ -552,8 +553,8 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                     super.onAnimationEnd(animator);
                     if (this.a.a.getActivity() != null) {
-                        this.a.a.E3();
-                        this.a.a.j1 = true;
+                        this.a.a.F3();
+                        this.a.a.k1 = true;
                         this.a.a.getActivity().finish();
                     }
                 }
@@ -564,11 +565,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921665, Boolean.FALSE));
-                    this.a.a.x4(1.0f);
-                    this.a.a.o4();
+                    this.a.a.y4(1.0f);
+                    this.a.a.p4();
                     this.a.a.f.setBackground(null);
-                    this.a.a.b1.setVisibility(0);
-                    this.a.a.b1.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
+                    this.a.a.c1.setVisibility(0);
+                    this.a.a.c1.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
                     super.onAnimationStart(animator);
                     if (this.a.a.v0 != null) {
                         this.a.a.v0.removeRule(14);
@@ -614,9 +615,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     if (this.a.a != 1) {
                         if (this.a.a == 7 && (videoItemData = (videoPlayFragment = this.a).h0) != null && videoItemData.thread_id != null && videoPlayFragment.getActivity() != null && (this.a.getActivity() instanceof FrsVideoTabPlayActivity)) {
                             VideoPlayFragment videoPlayFragment2 = this.a;
-                            if (oi.isEquals(videoPlayFragment2.h0.thread_id, ((FrsVideoTabPlayActivity) videoPlayFragment2.getActivity()).x0()) && ((FrsVideoTabPlayActivity) this.a.getActivity()).w0() != null) {
+                            if (oi.isEquals(videoPlayFragment2.h0.thread_id, ((FrsVideoTabPlayActivity) videoPlayFragment2.getActivity()).w0()) && ((FrsVideoTabPlayActivity) this.a.getActivity()).t0() != null) {
                                 VideoPlayFragment videoPlayFragment3 = this.a;
-                                videoPlayFragment3.n0 = ((FrsVideoTabPlayActivity) videoPlayFragment3.getActivity()).w0();
+                                videoPlayFragment3.n0 = ((FrsVideoTabPlayActivity) videoPlayFragment3.getActivity()).t0();
                             }
                         }
                     } else {
@@ -624,9 +625,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                         VideoItemData videoItemData2 = videoPlayFragment4.h0;
                         if (videoItemData2 != null && videoItemData2.thread_id != null && videoPlayFragment4.getActivity() != null && (this.a.getActivity() instanceof VideoPlayActivity)) {
                             VideoPlayFragment videoPlayFragment5 = this.a;
-                            if (oi.isEquals(videoPlayFragment5.h0.thread_id, ((VideoPlayActivity) videoPlayFragment5.getActivity()).s0()) && ((VideoPlayActivity) this.a.getActivity()).r0() != null) {
+                            if (oi.isEquals(videoPlayFragment5.h0.thread_id, ((VideoPlayActivity) videoPlayFragment5.getActivity()).p0()) && ((VideoPlayActivity) this.a.getActivity()).o0() != null) {
                                 VideoPlayFragment videoPlayFragment6 = this.a;
-                                videoPlayFragment6.n0 = ((VideoPlayActivity) videoPlayFragment6.getActivity()).r0();
+                                videoPlayFragment6.n0 = ((VideoPlayActivity) videoPlayFragment6.getActivity()).o0();
                             }
                         }
                     }
@@ -641,7 +642,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                         videoPlayFragment10.z0 = videoPlayFragment10.n0.top;
                         if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                             VideoPlayFragment videoPlayFragment11 = this.a;
-                            videoPlayFragment11.W3(videoPlayFragment11.i, this.a.l, this.a.b1, this.a.v0.leftMargin, this.a.y0, this.a.v0.topMargin, this.a.z0, this.a.v0.width, this.a.w0, this.a.v0.height, this.a.x0, i, this.a.x0, 0, this.a.z0, new a(this));
+                            videoPlayFragment11.X3(videoPlayFragment11.i, this.a.l, this.a.c1, this.a.v0.leftMargin, this.a.y0, this.a.v0.topMargin, this.a.z0, this.a.v0.width, this.a.w0, this.a.v0.height, this.a.x0, i, this.a.x0, 0, this.a.z0, new a(this));
                         }
                     } else if (this.a.getActivity() != null) {
                         this.a.getActivity().finish();
@@ -679,7 +680,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && this.a.H0.getLoadDataMode() == 0) {
-                if (this.a.Z3()) {
+                if (this.a.a4()) {
                     if ((obj instanceof ForumManageModel.b) && this.a.getPageContext() != null) {
                         ForumManageModel.b bVar = (ForumManageModel.b) obj;
                         VideoVerticalPageFragment.OnDeleteSelfPostListener.l(this.a.getPageContext(), Pair.create(Boolean.valueOf(bVar.a), bVar.b));
@@ -784,7 +785,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class c0 implements uk4.a {
+    public class c0 implements jl4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -807,7 +808,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.uk4.a
+        @Override // com.repackage.jl4.a
         public void a(boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
@@ -829,11 +830,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                         return;
                     }
                     VideoPlayFragment videoPlayFragment2 = this.a;
-                    videoPlayFragment2.showToast(videoPlayFragment2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0fb8));
+                    videoPlayFragment2.showToast(videoPlayFragment2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0fb3));
                     return;
                 }
                 VideoPlayFragment videoPlayFragment3 = this.a;
-                videoPlayFragment3.showToast(videoPlayFragment3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d9));
+                videoPlayFragment3.showToast(videoPlayFragment3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d3));
             }
         }
     }
@@ -869,8 +870,8 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jh8)) {
-                AgreeData agreeData = ((jh8) customResponsedMessage.getData()).b;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ei8)) {
+                AgreeData agreeData = ((ei8) customResponsedMessage.getData()).b;
                 if (this.a.h0 == null || agreeData == null) {
                     return;
                 }
@@ -882,7 +883,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     }
                     this.a.h0.agree_num = String.valueOf(agreeData.agreeNum);
                     this.a.h0.is_agreed = agreeData.hasAgree ? "1" : "0";
-                    this.a.w3();
+                    this.a.x3();
                     return;
                 }
                 String str2 = agreeData.threadId;
@@ -892,7 +893,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 }
                 this.a.h0.agree_num = String.valueOf(agreeData.agreeNum);
                 this.a.h0.is_agreed = agreeData.hasAgree ? "1" : "0";
-                this.a.w3();
+                this.a.x3();
             }
         }
     }
@@ -930,15 +931,15 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.l0 && (customResponsedMessage.getData() instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                boolean m = ((zr8) this.a.V0.a().n(28)).h().m();
+                boolean m = ((vs8) this.a.W0.a().n(28)).h().m();
                 if (booleanValue) {
-                    this.a.u3(false);
+                    this.a.v3(false);
                 } else if (m) {
-                    this.a.u3(true);
+                    this.a.v3(true);
                 } else {
-                    this.a.V3();
+                    this.a.W3();
                 }
-                ((zr8) this.a.V0.a().n(28)).h().setEmotionClick(false);
+                ((vs8) this.a.W0.a().n(28)).h().setEmotionClick(false);
             }
         }
     }
@@ -1011,7 +1012,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             int i;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !this.a.Q0 || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.a.c.getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float) || this.a.h0 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !this.a.R0 || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.a.c.getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float) || this.a.h0 == null) {
                 return;
             }
             float floatValue = ((Float) customResponsedMessage.getData()).floatValue();
@@ -1020,7 +1021,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 return;
             }
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds562);
-            int L3 = this.a.L3();
+            int M3 = this.a.M3();
             int e = ng.e(this.a.h0.video_height, 0);
             int e2 = ng.e(this.a.h0.video_width, 0);
             if (e != 0 && e2 != 0) {
@@ -1033,16 +1034,16 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             float f2 = k * f;
             int f3 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166);
             if (f > 1.0f) {
-                i = (int) (dimenPixelSize + ((L3 - dimenPixelSize) * floatValue));
+                i = (int) (dimenPixelSize + ((M3 - dimenPixelSize) * floatValue));
                 i2 = (int) (i / f);
                 float f4 = 1.0f - floatValue;
                 statusBarHeight = (int) (UtilHelper.getStatusBarHeight() * f4);
-                this.a.M0.topMargin = (int) (((L3 - f3) * 0.5f * floatValue) + (UtilHelper.getStatusBarHeight() * f4) + (f4 * (dimenPixelSize - f3) * 0.5f));
+                this.a.N0.topMargin = (int) (((M3 - f3) * 0.5f * floatValue) + (UtilHelper.getStatusBarHeight() * f4) + (f4 * (dimenPixelSize - f3) * 0.5f));
             } else {
                 float f5 = dimenPixelSize;
                 float f6 = 1.0f - floatValue;
-                statusBarHeight = (int) (((L3 - f2) * 0.5f * floatValue) + (UtilHelper.getStatusBarHeight() * f6));
-                this.a.M0.topMargin = (int) (((L3 - f3) * 0.5f * floatValue) + (UtilHelper.getStatusBarHeight() * f6) + (f6 * (dimenPixelSize - f3) * 0.5f));
+                statusBarHeight = (int) (((M3 - f2) * 0.5f * floatValue) + (UtilHelper.getStatusBarHeight() * f6));
+                this.a.N0.topMargin = (int) (((M3 - f3) * 0.5f * floatValue) + (UtilHelper.getStatusBarHeight() * f6) + (f6 * (dimenPixelSize - f3) * 0.5f));
                 i = (int) (f5 + ((f2 - f5) * floatValue));
                 i2 = k;
             }
@@ -1079,17 +1080,17 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.VideoDanmuController.b
-        public boolean a(@Nullable PostData postData, @Nullable rq7 rq7Var) {
+        public boolean a(@Nullable PostData postData, @Nullable jr7 jr7Var) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, postData, rq7Var)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, postData, jr7Var)) == null) {
                 if (this.a.j != null) {
                     this.a.j.O("c14478");
                 }
                 if (postData != null) {
-                    this.a.R3(postData.J(), true);
+                    this.a.S3(postData.J(), true);
                     MessageManager.getInstance().registerStickyMode(2921648);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921648, rq7Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921648, jr7Var));
                     return true;
                 }
                 return false;
@@ -1099,7 +1100,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class e0 implements yq4.c {
+    public class e0 implements nr4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -1122,11 +1123,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.yq4.c
+        @Override // com.repackage.nr4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.U3();
+                this.a.V3();
             }
         }
     }
@@ -1164,10 +1165,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean)) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
-                if (this.a.Q0) {
-                    if (bool.booleanValue() || !this.a.m4()) {
+                if (this.a.R0) {
+                    if (bool.booleanValue() || !this.a.n4()) {
                         this.a.startPlay();
-                        this.a.o4();
+                        this.a.p4();
                         return;
                     }
                     this.a.startPlay();
@@ -1204,7 +1205,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.a.P1.onTouchEvent(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.a.Q1.onTouchEvent(motionEvent) : invokeLL.booleanValue;
         }
     }
 
@@ -1274,16 +1275,16 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId tag;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.Q0 && customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && (tag = customResponsedMessage.getOrginalMessage().getTag()) != null && this.a.c.getId() == tag.getId() && customResponsedMessage.getCmd() == 2921596 && (customResponsedMessage.getData() instanceof Boolean)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.R0 && customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && (tag = customResponsedMessage.getOrginalMessage().getTag()) != null && this.a.c.getId() == tag.getId() && customResponsedMessage.getCmd() == 2921596 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    if (this.a.m4()) {
+                    if (this.a.n4()) {
                         this.a.startPlay();
                         return;
                     }
                     return;
                 }
-                this.a.Z4();
-                this.a.o4();
+                this.a.a5();
+                this.a.p4();
             }
         }
     }
@@ -1317,7 +1318,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                this.a.P4();
+                this.a.Q4();
                 this.a.f.getParent().requestDisallowInterceptTouchEvent(true);
                 return true;
             }
@@ -1359,7 +1360,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && this.a.isResumed() && this.a.l0) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 VideoPlayFragment videoPlayFragment = this.a;
-                videoPlayFragment.L4(videoPlayFragment.A0, booleanValue);
+                videoPlayFragment.M4(videoPlayFragment.A0, booleanValue);
             }
         }
     }
@@ -1372,7 +1373,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class h implements k58.c {
+    public class h implements f68.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -1395,15 +1396,15 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.k58.c
+        @Override // com.repackage.f68.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || this.a.W0 == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || this.a.X0 == null) {
                 return;
             }
-            this.a.W0.a(i, i2);
-            if (this.a.g1) {
-                this.a.q4(i2, i);
+            this.a.X0.a(i, i2);
+            if (this.a.h1) {
+                this.a.r4(i2, i);
             }
         }
     }
@@ -1436,7 +1437,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.U4(true);
+                this.a.V4(true);
             }
         }
     }
@@ -1483,7 +1484,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class i0 implements yq4.d {
+    public class i0 implements nr4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -1506,14 +1507,14 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.yq4.d
+        @Override // com.repackage.nr4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.F0 != null) {
                     this.a.F0.dismiss();
                 }
-                this.a.U4(false);
+                this.a.V4(false);
             }
         }
     }
@@ -1546,7 +1547,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                this.a.H3(true);
+                this.a.I3(true);
                 EMTextView eMTextView = this.a.T;
                 if (eMTextView != null) {
                     eMTextView.setText(StringHelper.stringForVideoTime(i));
@@ -1563,7 +1564,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
                 int i = 1;
-                this.a.P0 = true;
+                this.a.Q0 = true;
                 if (this.a.k0 != null) {
                     VideoMiddleNiaiControllerView videoMiddleNiaiControllerView = this.a.k0;
                     if (this.a.a != 4 && this.a.a != 3 && !TbSingleton.getInstance().isFromFeedVideoClick()) {
@@ -1571,7 +1572,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     }
                     videoMiddleNiaiControllerView.setBottomBarShow(false, i);
                 }
-                this.a.W4();
+                this.a.X4();
             }
         }
 
@@ -1582,27 +1583,27 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 if (this.a.isResumed() && this.a.l0) {
                     this.a.k0.setLoading(true);
                 }
-                this.a.P0 = false;
+                this.a.Q0 = false;
                 if (seekBar != null) {
                     seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
                     seekBar.setThumb(null);
-                    this.a.H3(false);
+                    this.a.I3(false);
                     if (!this.a.i.getControl().isPlaying()) {
                         this.a.i.getControl().start();
                         this.a.B.setVisibility(8);
                     }
-                    if (!this.a.Q0 && (!this.a.isResumed() || !this.a.l0)) {
-                        this.a.o4();
+                    if (!this.a.R0 && (!this.a.isResumed() || !this.a.l0)) {
+                        this.a.p4();
                     }
-                    qg.a().removeCallbacks(this.a.X1);
-                    qg.a().postDelayed(this.a.X1, 3000L);
+                    qg.a().removeCallbacks(this.a.Y1);
+                    qg.a().postDelayed(this.a.Y1, 3000L);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class j0 implements yq4.d {
+    public class j0 implements nr4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -1625,7 +1626,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.yq4.d
+        @Override // com.repackage.nr4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -1705,7 +1706,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class k0 implements yq4.d {
+    public class k0 implements nr4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -1728,21 +1729,21 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.yq4.d
+        @Override // com.repackage.nr4.d
         public void onClick() {
             CustomResponsedMessage runTask;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.F0.dismiss();
                 if (ViewHelper.checkUpIsLogin(this.a.getActivity()) && this.a.getPageContext() != null) {
-                    if (this.a.m1 == null && (runTask = MessageManager.getInstance().runTask(2921343, yn8.class, this.a.getContext())) != null) {
-                        this.a.m1 = (yn8) runTask.getData();
+                    if (this.a.n1 == null && (runTask = MessageManager.getInstance().runTask(2921343, uo8.class, this.a.getContext())) != null) {
+                        this.a.n1 = (uo8) runTask.getData();
                     }
-                    if (this.a.m1 != null) {
+                    if (this.a.n1 != null) {
                         VideoPlayFragment videoPlayFragment = this.a;
                         if (videoPlayFragment.h0 != null) {
-                            videoPlayFragment.m1.b(this.a.getUniqueId());
-                            this.a.m1.a(this.a.h0.post_id);
+                            videoPlayFragment.n1.b(this.a.getUniqueId());
+                            this.a.n1.a(this.a.h0.post_id);
                         }
                     }
                 }
@@ -1781,7 +1782,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             AlaInfoData alaInfoData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09189d && (videoItemData = this.a.h0) != null && (alaInfoData = videoItemData.mAlaInfoData) != null && alaInfoData.isLegalYYLiveData()) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091946 && (videoItemData = this.a.h0) != null && (alaInfoData = videoItemData.mAlaInfoData) != null && alaInfoData.isLegalYYLiveData()) {
                     VideoPlayFragment videoPlayFragment = this.a;
                     if (videoPlayFragment.h0.mAlaInfoData.live_status == 1) {
                         YYLiveUtil.jumpYYLiveRoom(videoPlayFragment.getPageContext(), this.a.h0.mAlaInfoData);
@@ -1812,30 +1813,30 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 statisticItem2.param("tid", this.a.h0.thread_id);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem2);
-                this.a.J3(5);
+                this.a.K3(5);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class l0 implements yq4.d {
+    public class l0 implements nr4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
 
         /* loaded from: classes4.dex */
-        public class a implements nq4.e {
+        public class a implements cr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nq4 a;
+            public final /* synthetic */ cr4 a;
             public final /* synthetic */ l0 b;
 
-            public a(l0 l0Var, nq4 nq4Var) {
+            public a(l0 l0Var, cr4 cr4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {l0Var, nq4Var};
+                    Object[] objArr = {l0Var, cr4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -1846,20 +1847,20 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     }
                 }
                 this.b = l0Var;
-                this.a = nq4Var;
+                this.a = cr4Var;
             }
 
-            @Override // com.repackage.nq4.e
-            public void onClick(nq4 nq4Var) {
+            @Override // com.repackage.cr4.e
+            public void onClick(cr4 cr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                     this.a.dismiss();
                     VideoPlayFragment videoPlayFragment = this.b.a;
                     if (videoPlayFragment.h0 != null) {
                         ForumManageModel forumManageModel = videoPlayFragment.H0;
                         VideoPlayFragment videoPlayFragment2 = this.b.a;
                         VideoItemData videoItemData = videoPlayFragment2.h0;
-                        forumManageModel.V(videoItemData.forum_id, videoItemData.forum_name, videoItemData.thread_id, videoItemData.post_id, 0, 0, videoPlayFragment2.A0, null, false);
+                        forumManageModel.W(videoItemData.forum_id, videoItemData.forum_name, videoItemData.thread_id, videoItemData.post_id, 0, 0, videoPlayFragment2.A0, null, false);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001376, Boolean.TRUE));
                     }
                 }
@@ -1867,17 +1868,17 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
 
         /* loaded from: classes4.dex */
-        public class b implements nq4.e {
+        public class b implements cr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nq4 a;
+            public final /* synthetic */ cr4 a;
 
-            public b(l0 l0Var, nq4 nq4Var) {
+            public b(l0 l0Var, cr4 cr4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {l0Var, nq4Var};
+                    Object[] objArr = {l0Var, cr4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -1887,13 +1888,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                         return;
                     }
                 }
-                this.a = nq4Var;
+                this.a = cr4Var;
             }
 
-            @Override // com.repackage.nq4.e
-            public void onClick(nq4 nq4Var) {
+            @Override // com.repackage.cr4.e
+            public void onClick(cr4 cr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -1917,24 +1918,24 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.yq4.d
+        @Override // com.repackage.nr4.d
         public void onClick() {
             WorksInfoData worksInfoData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.F0.dismiss();
-                nq4 nq4Var = new nq4(this.a.getActivity());
+                cr4 cr4Var = new cr4(this.a.getActivity());
                 VideoItemData videoItemData = this.a.h0;
                 if (videoItemData != null && (worksInfoData = videoItemData.mWorksInfoData) != null && worksInfoData.isWorks) {
-                    nq4Var.setMessageId(R.string.obfuscated_res_0x7f0f0495);
+                    cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f049e);
                 } else {
-                    nq4Var.setMessageId(R.string.obfuscated_res_0x7f0f0494);
+                    cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f049d);
                 }
-                nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04dc, new a(this, nq4Var));
-                nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04d7, new b(this, nq4Var));
-                nq4Var.setCancelable(true);
-                nq4Var.create(this.a.getPageContext());
-                nq4Var.show();
+                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, new a(this, cr4Var));
+                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, new b(this, cr4Var));
+                cr4Var.setCancelable(true);
+                cr4Var.create(this.a.getPageContext());
+                cr4Var.show();
             }
         }
     }
@@ -1968,7 +1969,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2.getId() == this.a.o.getId()) {
-                    this.a.P4();
+                    this.a.Q4();
                 } else if (view2.getId() == this.a.n.getId()) {
                     VideoItemData videoItemData = this.a.h0;
                     if (videoItemData != null && !StringUtils.isNull(videoItemData.thread_id)) {
@@ -1976,24 +1977,24 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     }
                     this.a.getActivity().finish();
                 } else if (view2.getId() == this.a.L.getId()) {
-                    this.a.Q3();
-                    this.a.J3(7);
+                    this.a.R3();
+                    this.a.K3(7);
                 } else if (view2.getId() == this.a.y.getId()) {
                     if (AntiHelper.c(this.a.getPageContext(), this.a.h0)) {
                         return;
                     }
-                    this.a.Q3();
+                    this.a.R3();
                     StatisticItem statisticItem = new StatisticItem("c12796");
                     statisticItem.param("tid", this.a.h0.thread_id);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     TiebaStatic.log(statisticItem);
-                    this.a.J3(2);
+                    this.a.K3(2);
                 } else if (view2.getId() != this.a.Z.getId()) {
                     if (view2.getId() != this.a.j0.getId()) {
                         if (view2.getId() == this.a.t0.getId()) {
                             VideoPlayFragment videoPlayFragment = this.a;
-                            if (videoPlayFragment.C3(videoPlayFragment.getPageContext(), 25066)) {
-                                this.a.S4();
+                            if (videoPlayFragment.D3(videoPlayFragment.getPageContext(), 25066)) {
+                                this.a.T4();
                                 if (this.a.h0 != null) {
                                     StatisticItem statisticItem2 = new StatisticItem("c13025");
                                     statisticItem2.param("tid", this.a.h0.thread_id);
@@ -2016,7 +2017,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                             return;
                         }
                     }
-                    String q = ht4.k().q("nani_key_download_link_url", null);
+                    String q = xt4.k().q("nani_key_download_link_url", null);
                     if (TextUtils.isEmpty(q)) {
                         return;
                     }
@@ -2027,7 +2028,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     if (videoItemData2 == null || videoItemData2.act_info == null) {
                         return;
                     }
-                    cl4.n(videoPlayFragment2.getActivity(), this.a.h0.act_info.link_url);
+                    rl4.n(videoPlayFragment2.getActivity(), this.a.h0.act_info.link_url);
                     StatisticItem statisticItem3 = new StatisticItem("c12799");
                     statisticItem3.param("tid", this.a.h0.thread_id);
                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -2099,7 +2100,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 VideoPlayFragment videoPlayFragment = this.a;
-                videoPlayFragment.G3(videoPlayFragment.d);
+                videoPlayFragment.H3(videoPlayFragment.d);
             }
         }
     }
@@ -2167,12 +2168,12 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.T4();
+                this.a.U4();
                 StatisticItem statisticItem = new StatisticItem("c12797");
                 statisticItem.param("tid", this.a.h0.thread_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
-                this.a.J3(3);
+                this.a.K3(3);
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
                 statisticItem2.param("tid", this.a.h0.thread_id);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -2194,7 +2195,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 statisticItem2.param("weight", this.a.h0.mRecomWeight);
                 statisticItem2.param("extra", this.a.h0.mRecomExtra);
                 statisticItem2.param(TiebaStatic.Params.OBJ_PAGE, "a023");
-                if (s75.j(this.a.getBaseFragmentActivity()) != null && s75.j(this.a.getBaseFragmentActivity()).b() != null && s75.j(this.a.getBaseFragmentActivity()).b().locatePage != null && "a002".equals(s75.j(this.a.getBaseFragmentActivity()).b().locatePage)) {
+                if (u85.j(this.a.getBaseFragmentActivity()) != null && u85.j(this.a.getBaseFragmentActivity()).b() != null && u85.j(this.a.getBaseFragmentActivity()).b().locatePage != null && "a002".equals(u85.j(this.a.getBaseFragmentActivity()).b().locatePage)) {
                     statisticItem2.param(TiebaStatic.Params.OBJ_CUR_PAGE, "a023");
                     statisticItem2.param(TiebaStatic.Params.OBJ_PRE_PAGE, "a002");
                 }
@@ -2230,12 +2231,12 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f1 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g1 == null) {
                 return;
             }
-            this.a.f1.q(TiePlusStat.StatType.CLICK);
-            this.a.d1.o(this.a.f1);
-            this.a.d1.m(this.a.f1);
+            this.a.g1.q(TiePlusStat.StatType.CLICK);
+            this.a.e1.o(this.a.g1);
+            this.a.e1.m(this.a.g1);
         }
     }
 
@@ -2270,25 +2271,25 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.getActivity())) {
                 if (this.a.V != null && (videoItemData = (videoPlayFragment = this.a).h0) != null && videoItemData.author_info != null && videoPlayFragment.s != null) {
-                    vx4 vx4Var = videoPlayFragment.J0;
+                    ty4 ty4Var = videoPlayFragment.J0;
                     VideoPlayFragment videoPlayFragment2 = this.a;
                     UserItemData userItemData = videoPlayFragment2.h0.author_info;
                     String str = userItemData.portrait;
                     String str2 = userItemData.user_id;
                     BdUniqueId bdUniqueId = videoPlayFragment2.K0;
                     VideoItemData videoItemData2 = this.a.h0;
-                    vx4Var.m(true, str, str2, false, "6", bdUniqueId, videoItemData2.forum_id, "0", videoItemData2.thread_id);
+                    ty4Var.m(true, str, str2, false, "6", bdUniqueId, videoItemData2.forum_id, "0", videoItemData2.thread_id);
                     VideoPlayFragment videoPlayFragment3 = this.a;
                     videoPlayFragment3.h0.author_info.is_follow = "1";
-                    videoPlayFragment3.x3();
+                    videoPlayFragment3.y3();
                     this.a.V.setVisibility(8);
-                    this.a.p4();
+                    this.a.q4();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ATTENTION_CLICK);
                 if (this.a.a != 3 && this.a.a != 4) {
                     statisticItem.param("obj_locate", 2);
                     if (this.a.a != 7) {
-                        statisticItem.param("obj_source", this.a.O3());
+                        statisticItem.param("obj_source", this.a.P3());
                     } else {
                         statisticItem.param("obj_source", 8);
                     }
@@ -2299,7 +2300,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 statisticItem.param("fid", this.a.h0.forum_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
-                this.a.J3(6);
+                this.a.K3(6);
             }
         }
     }
@@ -2353,22 +2354,22 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     if (!z || "0".equals(this.a.h0.author_info.is_follow)) {
                         return;
                     }
-                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f02ad);
+                    pi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f02b0);
                     VideoPlayFragment videoPlayFragment = this.a;
                     videoPlayFragment.h0.author_info.is_follow = "0";
-                    videoPlayFragment.x3();
+                    videoPlayFragment.y3();
                     return;
                 }
                 if (!updateAttentionMessage.isAttention()) {
                     VideoPlayFragment videoPlayFragment2 = this.a;
                     videoPlayFragment2.h0.author_info.is_follow = "0";
-                    videoPlayFragment2.x3();
+                    videoPlayFragment2.y3();
                 } else if (z) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921325, this.a.h0));
                 } else {
                     VideoPlayFragment videoPlayFragment3 = this.a;
                     videoPlayFragment3.h0.author_info.is_follow = "1";
-                    videoPlayFragment3.x3();
+                    videoPlayFragment3.y3();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_CONCERN_BTN_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -2456,10 +2457,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.P0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.Q0) {
                 return;
             }
-            this.a.z3(true);
+            this.a.A3(true);
         }
     }
 
@@ -2528,9 +2529,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RelativeLayout.LayoutParams M3 = this.a.M3();
+                RelativeLayout.LayoutParams N3 = this.a.N3();
                 VideoPlayFragment videoPlayFragment = this.a;
-                videoPlayFragment.V4(videoPlayFragment.i, this.a.l, this.a.y0, M3.leftMargin, this.a.z0, M3.topMargin, this.a.w0, M3.width, this.a.x0, M3.height, new a(this));
+                videoPlayFragment.W4(videoPlayFragment.i, this.a.l, this.a.y0, N3.leftMargin, this.a.z0, N3.topMargin, this.a.w0, N3.width, this.a.x0, N3.height, new a(this));
             }
         }
     }
@@ -2640,9 +2641,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 this.q.setLayoutParams(this.g);
                 this.q.setAlpha(f2);
                 if (z && f2 > 0.5f) {
-                    this.s.x4((f2 - 0.5f) * 2.0f);
+                    this.s.y4((f2 - 0.5f) * 2.0f);
                 } else if (!z && animatedFraction < 0.25f) {
-                    this.s.x4(1.0f - (animatedFraction * 4.0f));
+                    this.s.y4(1.0f - (animatedFraction * 4.0f));
                 }
                 this.r.setLayoutParams(this.s.v0);
                 this.r.requestLayout();
@@ -2687,13 +2688,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                     super.onAnimationEnd(animator);
                     this.a.a.f.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
-                    this.a.a.b1.setBackground(null);
-                    this.a.a.b1.setVisibility(8);
+                    this.a.a.c1.setBackground(null);
+                    this.a.a.c1.setVisibility(8);
                     this.a.a.o0 = true;
                     if (this.a.a.v0 != null) {
                         this.a.a.v0.addRule(14);
                     }
-                    this.a.a.y4(0);
+                    this.a.a.z4(0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921665, Boolean.TRUE));
                 }
             }
@@ -2704,11 +2705,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                     this.a.a.f.setBackground(null);
                     super.onAnimationStart(animator);
-                    this.a.a.b1.setVisibility(0);
+                    this.a.a.c1.setVisibility(0);
                     if (this.a.a.l != null) {
                         this.a.a.l.setVisibility(8);
                     }
-                    this.a.a.b1.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
+                    this.a.a.c1.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
                 }
             }
         }
@@ -2736,9 +2737,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int i = pi.i(this.a.f.getContext());
-                RelativeLayout.LayoutParams M3 = this.a.M3();
+                RelativeLayout.LayoutParams N3 = this.a.N3();
                 VideoPlayFragment videoPlayFragment = this.a;
-                videoPlayFragment.W3(videoPlayFragment.i, this.a.l, this.a.b1, this.a.y0, M3.leftMargin, this.a.z0, M3.topMargin, this.a.w0, M3.width, this.a.x0, M3.height, this.a.x0, i, this.a.z0, 0, new a(this));
+                videoPlayFragment.X3(videoPlayFragment.i, this.a.l, this.a.c1, this.a.y0, N3.leftMargin, this.a.z0, N3.topMargin, this.a.w0, N3.width, this.a.x0, N3.height, this.a.x0, i, this.a.z0, 0, new a(this));
             }
         }
     }
@@ -2816,7 +2817,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class t implements ur8.b {
+    public class t implements qs8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -2839,7 +2840,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.ur8.b
+        @Override // com.repackage.qs8.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.j == null || this.a.k == null) {
@@ -2889,11 +2890,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.h.removeView(this.a.i);
-                this.a.Y0.U();
+                this.a.Z0.U();
                 VideoPlayFragment videoPlayFragment = this.a;
                 VideoItemData videoItemData = videoPlayFragment.h0;
                 if (videoItemData != null) {
-                    videoPlayFragment.X4(videoItemData.thread_id, false);
+                    videoPlayFragment.Y4(videoItemData.thread_id, false);
                 }
             }
         }
@@ -2903,7 +2904,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public class u extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final wc5<String> a;
+        public final zd5<String> a;
         public final /* synthetic */ VideoPlayFragment b;
 
         public u(VideoPlayFragment videoPlayFragment) {
@@ -2922,7 +2923,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 }
             }
             this.b = videoPlayFragment;
-            this.a = new wc5<>(300, TimeUnit.MILLISECONDS);
+            this.a = new zd5<>(300, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -2933,7 +2934,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 if (!this.a.a("onTouchDownEvent")) {
                     return super.onDoubleTap(motionEvent);
                 }
-                this.b.k0(0.0f, 0.0f);
+                this.b.l0(0.0f, 0.0f);
                 return true;
             }
             return invokeL.booleanValue;
@@ -2944,7 +2945,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-                if (this.b.Y4()) {
+                if (this.b.Z4()) {
                     this.a.a("onTouchDownEvent");
                 }
                 return super.onDown(motionEvent);
@@ -2965,7 +2966,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.b.f.cancelLongPress();
                     return true;
                 } else if (motionEvent2.getX() - motionEvent.getX() > 50.0f) {
-                    this.b.n4();
+                    this.b.o4();
                     this.b.f.cancelLongPress();
                     return true;
                 } else {
@@ -2991,7 +2992,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     /* loaded from: classes4.dex */
-    public class u0 implements c68 {
+    public class u0 implements x68 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -3014,14 +3015,14 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3031,7 +3032,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3041,7 +3042,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             return (View) invokeV.objValue;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3051,7 +3052,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3061,7 +3062,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3071,7 +3072,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -3097,28 +3098,28 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a.i.getControl().m();
             this.a.i.getControl().seekTo(0);
             if (UbsABTestHelper.isAutoPlayNextVideo() && (this.a.a == 1 || this.a.a == 2)) {
-                if (this.a.X0 == null || this.a.Q0) {
+                if (this.a.Y0 == null || this.a.R0) {
                     this.a.i.getControl().start();
                 } else {
-                    this.a.X0.a();
+                    this.a.Y0.a();
                     this.a.l.setVisibility(8);
                     this.a.i.getControl().start();
                 }
             } else if (!UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 this.a.i.getControl().start();
             }
-            this.a.s4();
-            VideoPlayFragment.k3(this.a);
-            if (this.a.S0 == 3) {
-                this.a.A3();
+            this.a.t4();
+            VideoPlayFragment.l3(this.a);
+            if (this.a.T0 == 3) {
+                this.a.B3();
             }
-            if (this.a.Q0) {
+            if (this.a.R0) {
                 return;
             }
             if (this.a.isResumed() && this.a.l0) {
                 return;
             }
-            this.a.o4();
+            this.a.p4();
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -3140,10 +3141,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.a.l.clearAnimation();
                     this.a.l.startAnimation(this.a.m0);
                 }
-                if (i != 10012 || this.a.U0 == null) {
+                if (i != 10012 || this.a.V0 == null) {
                     return true;
                 }
-                this.a.U0.c();
+                this.a.V0.c();
                 return true;
             }
             return invokeIIL.booleanValue;
@@ -3166,7 +3167,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a.k0.setVisibility(8);
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -3187,7 +3188,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -3197,63 +3198,63 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.c68
-        public void setStatistic(x58 x58Var) {
+        @Override // com.repackage.x68
+        public void setStatistic(s68 s68Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, x58Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, s68Var) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.repackage.c68
+        @Override // com.repackage.x68
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -3313,9 +3314,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.a.h.addView(this.a.i, 0, this.a.v0);
                 }
             } else {
-                this.a.E4();
+                this.a.F4();
             }
-            this.a.F4();
+            this.a.G4();
         }
     }
 
@@ -3351,17 +3352,17 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.c.a1 != null) {
-                    this.c.a1.dismiss();
+                if (this.c.b1 != null) {
+                    this.c.b1.dismiss();
                 }
                 if (ni.A()) {
                     ForumManageModel forumManageModel = this.c.H0;
                     VideoItemData videoItemData = this.c.h0;
-                    forumManageModel.V(videoItemData.forum_id, videoItemData.forum_name, videoItemData.thread_id, videoItemData.post_id, 0, 0, this.a, null, this.b);
+                    forumManageModel.W(videoItemData.forum_id, videoItemData.forum_name, videoItemData.thread_id, videoItemData.post_id, 0, 0, this.a, null, this.b);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001376, Boolean.TRUE));
                     return;
                 }
-                pi.N(this.c.getContext(), R.string.obfuscated_res_0x7f0f0c37);
+                pi.N(this.c.getContext(), R.string.obfuscated_res_0x7f0f0c2b);
             }
         }
     }
@@ -3406,20 +3407,20 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.b.a.h0.reGenerateTitle();
                     VideoPlayFragment videoPlayFragment = this.b.a;
                     videoPlayFragment.h0.threadData = this.a;
-                    videoPlayFragment.D4();
-                    this.b.a.E4();
+                    videoPlayFragment.E4();
+                    this.b.a.F4();
                     VideoItemData videoItemData = this.b.a.h0;
                     if (videoItemData == null || StringUtils.isNull(videoItemData.video_url)) {
                         return;
                     }
                     VideoPlayFragment videoPlayFragment2 = this.b.a;
-                    videoPlayFragment2.G4(videoPlayFragment2.h0, videoPlayFragment2.Y0, this.b.a.j);
+                    videoPlayFragment2.H4(videoPlayFragment2.h0, videoPlayFragment2.Z0, this.b.a.j);
                     VideoPlayFragment videoPlayFragment3 = this.b.a;
-                    videoPlayFragment3.H4(videoPlayFragment3.h0.video_url);
+                    videoPlayFragment3.I4(videoPlayFragment3.h0.video_url);
                     if (this.b.a.h0.author_info != null && String.valueOf(TbadkCoreApplication.getCurrentAccountId()).equals(this.b.a.h0.author_info.user_id)) {
                         this.b.a.A0 = true;
                     }
-                    this.b.a.B3();
+                    this.b.a.C3();
                     VideoPlayFragment videoPlayFragment4 = this.b.a;
                     videoPlayFragment4.setUserVisibleHint(videoPlayFragment4.l0);
                 }
@@ -3483,27 +3484,27 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a1 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b1 == null) {
                 return;
             }
-            this.a.a1.dismiss();
+            this.a.b1.dismiss();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class x implements vs8.d {
+    public class x implements rt8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vs8 a;
+        public final /* synthetic */ rt8 a;
         public final /* synthetic */ VideoDanmuController b;
         public final /* synthetic */ VideoPlayFragment c;
 
-        public x(VideoPlayFragment videoPlayFragment, vs8 vs8Var, VideoDanmuController videoDanmuController) {
+        public x(VideoPlayFragment videoPlayFragment, rt8 rt8Var, VideoDanmuController videoDanmuController) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {videoPlayFragment, vs8Var, videoDanmuController};
+                Object[] objArr = {videoPlayFragment, rt8Var, videoDanmuController};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -3514,11 +3515,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 }
             }
             this.c = videoPlayFragment;
-            this.a = vs8Var;
+            this.a = rt8Var;
             this.b = videoDanmuController;
         }
 
-        @Override // com.repackage.vs8.d
+        @Override // com.repackage.rt8.d
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -3527,21 +3528,21 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.c.startPlay();
                     VideoDanmuController videoDanmuController = this.b;
                     if (videoDanmuController != null) {
-                        videoDanmuController.b0(this.a.E0());
+                        videoDanmuController.b0(this.a.D0());
                         return;
                     }
                     return;
                 }
-                vs8 vs8Var = this.a;
-                if (vs8Var != null) {
+                rt8 rt8Var = this.a;
+                if (rt8Var != null) {
                     VideoDanmuController videoDanmuController2 = this.b;
                     if (videoDanmuController2 != null) {
-                        vs8Var.J0(videoDanmuController2.F());
+                        rt8Var.I0(videoDanmuController2.F());
                     }
-                    if (UbsABTestHelper.isFeedVideoImmersionTransition() && !this.c.d4() && this.c.n0 != null && this.c.L0 != null) {
+                    if (UbsABTestHelper.isFeedVideoImmersionTransition() && !this.c.e4() && this.c.n0 != null && this.c.L0 != null) {
                         TbVideoViewSet.b().d(this.c.L0);
                     }
-                    this.c.o4();
+                    this.c.p4();
                     this.a.n0(true);
                     this.a.startPlay();
                     VideoDanmuController videoDanmuController3 = this.b;
@@ -3587,19 +3588,19 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             ThreadData threadData;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ph8)) {
-                ph8 ph8Var = (ph8) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ki8)) {
+                ki8 ki8Var = (ki8) customResponsedMessage.getData();
                 VideoItemData videoItemData = this.a.h0;
-                if (videoItemData == null || (threadData = videoItemData.threadData) == null || (str = threadData.tid) == null || !str.equals(ph8Var.a)) {
+                if (videoItemData == null || (threadData = videoItemData.threadData) == null || (str = threadData.tid) == null || !str.equals(ki8Var.a)) {
                     return;
                 }
-                this.a.h0.threadData.setIsMarked(ph8Var.b ? 1 : 0);
+                this.a.h0.threadData.setIsMarked(ki8Var.b ? 1 : 0);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class y implements yr8.b {
+    public class y implements us8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -3622,7 +3623,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.yr8.b
+        @Override // com.repackage.us8.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.j == null) {
@@ -3665,19 +3666,19 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && customResponsedMessage.getCmd() == 2000994 && !customResponsedMessage.hasError() && this.a.isResumed() && this.a.l0) {
                 if (ni.z()) {
-                    if (this.a.Q4()) {
+                    if (this.a.R4()) {
                         return;
                     }
                     this.a.startPlay();
                     return;
                 }
-                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c37);
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c2b);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class z implements xr8.d {
+    public class z implements ts8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayFragment a;
@@ -3700,7 +3701,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.a = videoPlayFragment;
         }
 
-        @Override // com.repackage.xr8.d
+        @Override // com.repackage.ts8.d
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -3710,22 +3711,22 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.a.t0.setVisibility(8);
                 }
                 if (z) {
-                    this.a.D3("");
+                    this.a.E3("");
                     if (this.a.j != null) {
                         this.a.j.O("c14476");
                     }
                 } else {
-                    this.a.D3(((zr8) this.a.V0.a().n(28)).g().getText().toString());
+                    this.a.E3(((vs8) this.a.W0.a().n(28)).g().getText().toString());
                 }
                 VideoItemData videoItemData = this.a.h0;
                 if (videoItemData != null && z) {
                     long g = ng.g(videoItemData.comment_num, 0L) + 1;
                     this.a.h0.comment_num = String.valueOf(g);
                     VideoPlayFragment videoPlayFragment = this.a;
-                    videoPlayFragment.B4(g, videoPlayFragment.Q);
+                    videoPlayFragment.C4(g, videoPlayFragment.Q);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921646, Boolean.FALSE));
-                this.a.v3();
+                this.a.w3();
             }
         }
     }
@@ -3761,13 +3762,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.isPrimary() && this.a.l0 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof t58)) {
-                t58 t58Var = (t58) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.isPrimary() && this.a.l0 && customResponsedMessage != null && (customResponsedMessage.getData() instanceof o68)) {
+                o68 o68Var = (o68) customResponsedMessage.getData();
                 SeekBar seekBar = this.a.k0.getSeekBar();
-                int i = t58Var.a;
+                int i = o68Var.a;
                 if (i == 1) {
-                    seekBar.setProgress(t58Var.b);
-                    this.a.k0.k(seekBar, t58Var.b, true);
+                    seekBar.setProgress(o68Var.b);
+                    this.a.k0.k(seekBar, o68Var.b, true);
                 } else if (i == 2) {
                     this.a.k0.l(seekBar);
                 } else if (i == 3) {
@@ -3798,66 +3799,84 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         this.I0 = null;
         this.J0 = null;
         this.K0 = BdUniqueId.gen();
-        this.N0 = OnStatusChangedListener.VideoStatus.INIT;
-        this.R0 = false;
-        this.S0 = 1;
-        this.T0 = -1;
-        this.e1 = false;
-        this.g1 = true;
-        this.j1 = false;
-        this.k1 = null;
+        this.M0 = false;
+        this.O0 = OnStatusChangedListener.VideoStatus.INIT;
+        this.S0 = false;
+        this.T0 = 1;
+        this.U0 = -1;
+        this.f1 = false;
+        this.h1 = true;
+        this.k1 = false;
         this.l1 = null;
-        this.n1 = new k(this);
-        this.o1 = new v(this);
-        this.p1 = new g0(this, 2921607);
-        this.q1 = new p0(this, 2001115);
-        this.r1 = new y0(this, 2000994);
-        this.s1 = new c1(this, 2016528);
-        this.t1 = new d1(this, 2921594);
-        this.u1 = new e1(this, 2001011);
-        this.v1 = new f1(this, 2921596);
-        this.w1 = new a(this, 2921598);
-        this.x1 = new b(this, 2921612);
-        this.y1 = new BarManageResultListener(new c(this));
-        this.z1 = new d(this, 2921645);
-        this.A1 = new e(this);
-        this.B1 = new f(this);
-        this.C1 = new g(this);
-        this.D1 = new h(this);
-        this.E1 = new i(this);
-        this.F1 = new j(this);
-        this.G1 = new l(this);
-        this.H1 = new m(this);
-        this.I1 = new n(this);
-        this.J1 = new o(this);
-        this.K1 = new p(this);
-        this.L1 = new q(this);
-        this.M1 = new r(this);
-        this.N1 = new s(this);
-        this.O1 = new t(this);
-        this.P1 = new GestureDetectorCompat(getContext(), new u(this));
-        this.Q1 = new w(this);
-        this.R1 = new a0(this);
-        this.S1 = new h0(this);
-        this.T1 = new i0(this);
-        this.U1 = new j0(this);
-        this.V1 = new k0(this);
-        this.W1 = new l0(this);
-        this.X1 = new q0(this);
-        this.Y1 = new u0(this);
-        this.Z1 = new x0(this, 2921603);
-        this.a2 = new z0(this, 2921635);
+        this.m1 = null;
+        this.o1 = new k(this);
+        this.p1 = new v(this);
+        this.q1 = new g0(this, 2921607);
+        this.r1 = new p0(this, 2001115);
+        this.s1 = new y0(this, 2000994);
+        this.t1 = new c1(this, 2016528);
+        this.u1 = new d1(this, 2921594);
+        this.v1 = new e1(this, 2001011);
+        this.w1 = new f1(this, 2921596);
+        this.x1 = new a(this, 2921598);
+        this.y1 = new b(this, 2921612);
+        this.z1 = new BarManageResultListener(new c(this));
+        this.A1 = new d(this, 2921645);
+        this.B1 = new e(this);
+        this.C1 = new f(this);
+        this.D1 = new g(this);
+        this.E1 = new h(this);
+        this.F1 = new i(this);
+        this.G1 = new j(this);
+        this.H1 = new l(this);
+        this.I1 = new m(this);
+        this.J1 = new n(this);
+        this.K1 = new o(this);
+        this.L1 = new p(this);
+        this.M1 = new q(this);
+        this.N1 = new r(this);
+        this.O1 = new s(this);
+        this.P1 = new t(this);
+        this.Q1 = new GestureDetectorCompat(getContext(), new u(this));
+        this.R1 = new w(this);
+        this.S1 = new a0(this);
+        this.T1 = new h0(this);
+        this.U1 = new i0(this);
+        this.V1 = new j0(this);
+        this.W1 = new k0(this);
+        this.X1 = new l0(this);
+        this.Y1 = new q0(this);
+        this.Z1 = new u0(this);
+        this.a2 = new x0(this, 2921603);
+        this.b2 = new z0(this, 2921635);
     }
 
-    public static /* synthetic */ int k3(VideoPlayFragment videoPlayFragment) {
-        int i2 = videoPlayFragment.S0;
-        videoPlayFragment.S0 = i2 + 1;
+    public static /* synthetic */ int l3(VideoPlayFragment videoPlayFragment) {
+        int i2 = videoPlayFragment.T0;
+        videoPlayFragment.T0 = i2 + 1;
         return i2;
     }
 
-    public final void A3() {
+    public final void A3(boolean z2) {
+        VideoMiddleNiaiControllerView videoMiddleNiaiControllerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || h4() || this.A == null || this.z == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z2) == null) || (videoMiddleNiaiControllerView = this.k0) == null) {
+            return;
+        }
+        int i2 = this.a;
+        videoMiddleNiaiControllerView.setBottomBarShow(z2, (i2 == 3 || i2 == 4 || TbSingleton.getInstance().isFromFeedVideoClick()) ? 1 : 0);
+    }
+
+    public void A4(f68.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.X0 = cVar;
+        }
+    }
+
+    public final void B3() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || i4() || this.A == null || this.z == null) {
             return;
         }
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 0.0f, 1, 0.5f, 1, 0.5f);
@@ -3872,23 +3891,23 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         this.z.startAnimation(scaleAnimation);
     }
 
-    public final void A4() {
+    public final void B4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.B.setVisibility(0);
-            if (this.k1 == null) {
-                this.k1 = P3(0.0f, 3.0f, 3.0f, 0L);
+            if (this.l1 == null) {
+                this.l1 = Q3(0.0f, 3.0f, 3.0f, 0L);
             }
-            this.k1.addListener(new a1(this));
-            this.k1.start();
+            this.l1.addListener(new a1(this));
+            this.l1.start();
         }
     }
 
-    public final void B3() {
+    public final void C3() {
         VideoItemData videoItemData;
         String forum_name;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoItemData = this.h0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoItemData = this.h0) == null) {
             return;
         }
         this.l.J(videoItemData.thumbnail_url, 10, false);
@@ -3937,7 +3956,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 } else {
                     sb.append("00");
                 }
-                fr4 d2 = fr4.d(this.M);
+                ur4 d2 = ur4.d(this.M);
                 d2.z(R.dimen.T_X08);
                 d2.v(R.color.CAM_X0618);
                 d2.A(R.string.F_X02);
@@ -3957,12 +3976,12 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             VideoItemData videoItemData2 = this.h0;
             expandableTextView.setData(title, videoItemData2.isTitleExpanded, videoItemData2.mWorksInfoData);
         }
-        B4(ng.g(this.h0.comment_num, 0L), this.Q);
-        B4(ng.g(this.h0.agree_num, 0L), this.R);
-        if (h4()) {
-            this.S.setText(R.string.obfuscated_res_0x7f0f0ae3);
+        C4(ng.g(this.h0.comment_num, 0L), this.Q);
+        C4(ng.g(this.h0.agree_num, 0L), this.R);
+        if (i4()) {
+            this.S.setText(R.string.obfuscated_res_0x7f0f0ad3);
         } else {
-            B4(ng.g(this.h0.share_num, 0L), this.S);
+            C4(ng.g(this.h0.share_num, 0L), this.S);
         }
         UserItemData userItemData = this.h0.author_info;
         if (userItemData != null) {
@@ -3971,7 +3990,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             } else {
                 this.q.J(this.h0.author_info.portrait, 12, false);
             }
-            if (j4() && !TextUtils.isEmpty(this.h0.author_info.auth)) {
+            if (k4() && !TextUtils.isEmpty(this.h0.author_info.auth)) {
                 this.q.setShowV(true);
                 this.q.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
             } else {
@@ -3987,8 +4006,8 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
         AlaInfoData alaInfoData = this.h0.mAlaInfoData;
         if (alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
-            T3(this.h0.mAlaInfoData.live_status == 1);
-            S3();
+            U3(this.h0.mAlaInfoData.live_status == 1);
+            T3();
         }
         if ("1".equals(this.h0.is_private) && this.j0.getVisibility() != 0) {
             this.g0.setVisibility(0);
@@ -3996,15 +4015,15 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.g0.setVisibility(8);
         }
         if ("1".equals(this.h0.is_agreed)) {
-            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080a, WebPManager.ResourceStateType.NORMAL));
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.p0, AnimationProperty.SCALE_X, 1.3f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.p0, AnimationProperty.SCALE_Y, 1.3f, 1.0f);
+            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080813, WebPManager.ResourceStateType.NORMAL));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.p0, "scaleX", 1.3f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.p0, "scaleY", 1.3f, 1.0f);
             ofFloat.setDuration(300L);
             ofFloat2.setDuration(300L);
             ofFloat.start();
             ofFloat2.start();
         } else {
-            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080808, WebPManager.ResourceStateType.NORMAL));
+            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080811, WebPManager.ResourceStateType.NORMAL));
         }
         ActivityItemData activityItemData = this.h0.act_info;
         if (activityItemData != null && !StringUtils.isNull(activityItemData.activity_name) && this.j0.getVisibility() != 0) {
@@ -4013,11 +4032,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         } else {
             this.Z.setVisibility(8);
         }
-        x3();
-        boolean Y3 = Y3();
+        y3();
+        boolean Z3 = Z3();
         if (this.a == 7) {
             this.E.setVisibility(8);
-        } else if (Y3) {
+        } else if (Z3) {
         } else {
             if (!TextUtils.isEmpty(this.h0.forum_name)) {
                 forum_name = this.h0.forum_name;
@@ -4029,25 +4048,25 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 return;
             }
             this.E.setVisibility(0);
-            WebPManager.setPureDrawable(this.J, R.drawable.obfuscated_res_0x7f0808e3, R.color.CAM_X0101, null);
+            WebPManager.setPureDrawable(this.J, R.drawable.obfuscated_res_0x7f0808ec, R.color.CAM_X0101, null);
             this.J.setVisibility(0);
             this.I.setVisibility(8);
-            String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(forum_name + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02d3), 12, "...吧");
+            String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(forum_name + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02d7), 12, "...吧");
             this.C0 = cutChineseAndEnglishWithEmoji;
             this.K.setText(cutChineseAndEnglishWithEmoji);
             ThreadData threadData2 = this.h0.threadData;
             if (threadData2 != null && !TextUtils.isEmpty(threadData2.getRecomReason())) {
                 TextView textView = this.K;
-                textView.setText(this.C0 + getActivity().getResources().getString(R.string.obfuscated_res_0x7f0f153c));
+                textView.setText(this.C0 + getActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1535));
             }
             this.E.setOnClickListener(new n0(this, forum_name));
         }
     }
 
-    public final void B4(long j2, TextView textView) {
+    public final void C4(long j2, TextView textView) {
         String string;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048579, this, j2, textView) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeJL(1048581, this, j2, textView) == null) || textView == null) {
             return;
         }
         String numberUniformFormatExtraWithRoundVote = StringHelper.numberUniformFormatExtraWithRoundVote(j2);
@@ -4055,20 +4074,20 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             textView.setText(numberUniformFormatExtraWithRoundVote);
             return;
         }
-        if (textView.getId() == R.id.obfuscated_res_0x7f090155) {
-            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f152d);
-        } else if (textView.getId() == R.id.obfuscated_res_0x7f090654) {
-            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f152e);
+        if (textView.getId() == R.id.obfuscated_res_0x7f090156) {
+            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1526);
+        } else if (textView.getId() == R.id.obfuscated_res_0x7f090659) {
+            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1527);
         } else {
-            string = textView.getId() == R.id.obfuscated_res_0x7f091cac ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1530) : "";
+            string = textView.getId() == R.id.obfuscated_res_0x7f091d50 ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1529) : "";
         }
         textView.setText(string);
     }
 
-    public final boolean C3(TbPageContext<?> tbPageContext, int i2) {
+    public final boolean D3(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, tbPageContext, i2)) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
                 TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i2)));
@@ -4079,9 +4098,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeLI.booleanValue;
     }
 
-    public final void C4() {
+    public final void D4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ViewGroup.LayoutParams layoutParams = this.p.getLayoutParams();
             ViewGroup.LayoutParams layoutParams2 = this.q.getLayoutParams();
             if (layoutParams != null) {
@@ -4093,30 +4112,30 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void D3(String str) {
+    public final void E3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.u0.setText(R.string.obfuscated_res_0x7f0f0fce);
+                this.u0.setText(R.string.obfuscated_res_0x7f0f0fc9);
                 DanmuPostDraftManager.b.a().c(this.h0.thread_id);
                 return;
             }
-            this.u0.setText(R.string.obfuscated_res_0x7f0f0505);
+            this.u0.setText(R.string.obfuscated_res_0x7f0f050f);
             DanmuPostDraftManager.b.a().d(this.h0.thread_id, str);
         }
     }
 
-    public void D4() {
+    public void E4() {
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (videoItemData = this.h0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (videoItemData = this.h0) == null) {
             return;
         }
         int e2 = ng.e(videoItemData.video_height, 0);
         int e3 = ng.e(this.h0.video_width, 0);
-        int L3 = L3();
+        int M3 = M3();
         int k2 = pi.k(this.f.getContext());
-        if (e2 <= 0 || e3 <= 0 || L3 <= 0 || k2 <= 0) {
+        if (e2 <= 0 || e3 <= 0 || M3 <= 0 || k2 <= 0) {
             this.i.getControl().setVideoScalingMode(2);
             this.l.setScaleType(ImageView.ScaleType.FIT_CENTER);
             return;
@@ -4124,16 +4143,16 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         float f2 = (e2 * 1.0f) / e3;
         if (f2 > 1.0f) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.B.getLayoutParams();
-            this.M0 = layoutParams;
+            this.N0 = layoutParams;
             layoutParams.removeRule(13);
-            this.M0.addRule(14);
-            this.M0.topMargin = (L3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
+            this.N0.addRule(14);
+            this.N0.topMargin = (M3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
         } else {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.B.getLayoutParams();
-            this.M0 = layoutParams2;
+            this.N0 = layoutParams2;
             layoutParams2.removeRule(13);
-            this.M0.addRule(14);
-            this.M0.topMargin = (L3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
+            this.N0.addRule(14);
+            this.N0.topMargin = (M3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
         }
         if (f2 > 1.34f) {
             this.i.getControl().setVideoScalingMode(0);
@@ -4144,38 +4163,38 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         this.l.setScaleType(ImageView.ScaleType.FIT_CENTER);
     }
 
-    @Override // com.repackage.us8
-    public VideoItemModel E0() {
+    @Override // com.repackage.qt8
+    public VideoItemModel F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i0 : (VideoItemModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i0 : (VideoItemModel) invokeV.objValue;
     }
 
-    public final void E3() {
+    public final void F3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if ((this.i.getControl() instanceof TbVideoView) && (this.i.getControl().getPlayer() instanceof r58)) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if ((this.i.getControl() instanceof TbVideoView) && (this.i.getControl().getPlayer() instanceof m68)) {
                 ((TbVideoView) this.i.getControl()).N();
-                ((r58) this.i.getControl().getPlayer()).detachKLayerToCache("video_reuse_player");
+                ((m68) this.i.getControl().getPlayer()).detachKLayerToCache("video_reuse_player");
             }
             TbSingleton.getInstance().setIsOutNeedReuseVideoPlayer(true);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921683, this.L0));
         }
     }
 
-    public void E4() {
+    public void F4() {
         TbVideoViewContainer tbVideoViewContainer;
         VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams;
         TbVideoViewContainer tbVideoViewContainer2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (tbVideoViewContainer = this.i) != null && tbVideoViewContainer.getParent() == null) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (tbVideoViewContainer = this.i) != null && tbVideoViewContainer.getParent() == null) {
             VideoItemData videoItemData = this.h0;
             if (videoItemData != null && TextUtils.isEmpty(videoItemData.video_height) && TextUtils.isEmpty(this.h0.video_width)) {
                 return;
             }
             if (this.h0 != null) {
                 this.v0 = new RelativeLayout.LayoutParams(-1, -1);
-                D4();
+                E4();
                 Rect rect = this.n0;
                 if (rect != null && !this.o0) {
                     int i2 = rect.right;
@@ -4191,7 +4210,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     layoutParams.leftMargin = i3;
                     layoutParams.rightMargin = i3;
                 } else {
-                    this.v0 = M3();
+                    this.v0 = N3();
                 }
                 int i6 = this.a;
                 if (i6 != 4 && i6 != 3) {
@@ -4201,28 +4220,28 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 }
                 this.l.setLayoutParams(this.v0);
                 if (this.h != null && (tbVideoViewContainer2 = this.i) != null) {
-                    tbVideoViewContainer2.setId(R.id.obfuscated_res_0x7f0922e5);
-                    if (c4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
+                    tbVideoViewContainer2.setId(R.id.obfuscated_res_0x7f09238d);
+                    if (d4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
                         this.v0.addRule(15);
                     }
                     this.h.addView(this.i, 0, this.v0);
                 }
                 boolean z2 = ng.e(this.h0.video_height, 0) <= ng.e(this.h0.video_width, 0);
                 if (this.h0.video_duration >= 60 && z2) {
-                    View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d085e, (ViewGroup) null);
+                    View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d087c, (ViewGroup) null);
                     this.g = inflate;
-                    EMTextView eMTextView = (EMTextView) this.g.findViewById(R.id.obfuscated_res_0x7f090bd5);
-                    WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090bd4), R.drawable.obfuscated_res_0x7f0809e7, R.color.CAM_X0101, null);
+                    EMTextView eMTextView = (EMTextView) this.g.findViewById(R.id.obfuscated_res_0x7f090bde);
+                    WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090bdd), R.drawable.obfuscated_res_0x7f0809f0, R.color.CAM_X0101, null);
                     eMTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0102));
-                    eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f1520));
+                    eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f1519));
                     eMTextView.setGravity(17);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0922e5);
+                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09238d);
                     layoutParams2.addRule(14, -1);
                     layoutParams2.topMargin = getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                     this.h.addView(this.g, layoutParams2);
-                    X4(this.h0.thread_id, true);
-                    if (UbsABTestHelper.isFeedVideoImmersionTransition() && !d4()) {
+                    Y4(this.h0.thread_id, true);
+                    if (UbsABTestHelper.isFeedVideoImmersionTransition() && !e4()) {
                         this.g.setVisibility(8);
                     } else {
                         this.g.setVisibility(0);
@@ -4231,102 +4250,102 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 }
             }
             if (this.h0 != null) {
-                x58 x58Var = new x58();
-                x58Var.e = TbadkCoreApplication.getCurrentAccount();
+                s68 s68Var = new s68();
+                s68Var.e = TbadkCoreApplication.getCurrentAccount();
                 VideoItemData videoItemData2 = this.h0;
-                x58Var.c = videoItemData2.thread_id;
-                x58Var.t = videoItemData2.nid;
-                x58Var.d = videoItemData2.forum_id;
-                x58Var.m = videoItemData2.mMd5;
-                x58Var.k = "";
-                x58Var.f = videoItemData2.mRecomSource;
-                x58Var.l = videoItemData2.mRecomAbTag;
-                x58Var.j = 1;
-                x58Var.x = videoItemData2.getChannelMidRequestNum();
-                x58Var.y = this.h0.getChannelMidRequestVideoNum();
+                s68Var.c = videoItemData2.thread_id;
+                s68Var.t = videoItemData2.nid;
+                s68Var.d = videoItemData2.forum_id;
+                s68Var.m = videoItemData2.mMd5;
+                s68Var.k = "";
+                s68Var.f = videoItemData2.mRecomSource;
+                s68Var.l = videoItemData2.mRecomAbTag;
+                s68Var.j = 1;
+                s68Var.x = videoItemData2.getChannelMidRequestNum();
+                s68Var.y = this.h0.getChannelMidRequestVideoNum();
                 BaijiahaoData baijiahaoData = this.h0.baijiahaoData;
                 if (baijiahaoData != null) {
                     int i7 = baijiahaoData.oriUgcType;
                     if (i7 == 2) {
-                        x58Var.j = 3;
+                        s68Var.j = 3;
                     } else if (i7 == 4) {
-                        x58Var.j = 2;
+                        s68Var.j = 2;
                     }
                 }
-                x58Var.h = this.h0.mRecomWeight;
+                s68Var.h = this.h0.mRecomWeight;
                 if (this.n0 != null) {
-                    x58Var.n = "1";
+                    s68Var.n = "1";
                 } else {
-                    x58Var.n = "2";
+                    s68Var.n = "2";
                 }
                 int i8 = this.a;
                 if (i8 == 1) {
-                    x58Var.p = "1";
-                    x58Var.a = "13";
-                    x58Var.i = this.D0;
-                    x58Var.k = this.O0;
-                    x58Var.g = this.h0.mRecomWeight;
+                    s68Var.p = "1";
+                    s68Var.a = "13";
+                    s68Var.i = this.D0;
+                    s68Var.k = this.P0;
+                    s68Var.g = this.h0.mRecomWeight;
                 } else if (i8 == 2) {
-                    x58Var.a = "24";
+                    s68Var.a = "24";
                 } else {
-                    x58Var.a = "13";
+                    s68Var.a = "13";
                 }
-                x58Var.p = "1";
+                s68Var.p = "1";
                 int i9 = this.a;
                 if (i9 == 3) {
-                    x58Var.a = "21";
+                    s68Var.a = "21";
                 } else if (i9 == 4) {
-                    x58Var.a = "22";
+                    s68Var.a = "22";
                 } else if (i9 == 7) {
-                    x58Var.a = "26";
-                } else if (b4()) {
-                    x58Var.a = "27";
+                    s68Var.a = "26";
+                } else if (c4()) {
+                    s68Var.a = "27";
                 }
                 String str = this.D0;
-                x58Var.i = str;
-                String str2 = this.O0;
-                x58Var.k = str2;
+                s68Var.i = str;
+                String str2 = this.P0;
+                s68Var.k = str2;
                 VideoItemData videoItemData3 = this.h0;
                 String str3 = videoItemData3.mRecomWeight;
-                x58Var.g = str3;
-                x58Var.w = videoItemData3.mExtra;
+                s68Var.g = str3;
+                s68Var.w = videoItemData3.mExtra;
                 if (this.a == 5) {
-                    x58Var.a = "23";
-                    x58Var.p = "1";
-                    x58Var.i = str;
-                    x58Var.k = str2;
-                    x58Var.g = str3;
+                    s68Var.a = "23";
+                    s68Var.p = "1";
+                    s68Var.i = str;
+                    s68Var.k = str2;
+                    s68Var.g = str3;
                 }
-                if (Z3() && (personalPageParams = VideoRecommentPlayActivityConfig.bigPersonalPageParams) != null) {
-                    x58Var.i = personalPageParams.getStatPageFromIdentifier();
+                if (a4() && (personalPageParams = VideoRecommentPlayActivityConfig.bigPersonalPageParams) != null) {
+                    s68Var.i = personalPageParams.getStatPageFromIdentifier();
                 }
-                this.i.getControl().setVideoStatData(x58Var);
+                this.i.getControl().setVideoStatData(s68Var);
                 this.i.getControl().setLocateSource("v_mid_page");
             }
             this.i.getControl().setContinuePlayEnable(true);
         }
     }
 
-    public void F3() {
+    public void G3() {
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (alertDialog = this.a1) != null && alertDialog.isShowing()) {
-            this.a1.dismiss();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (alertDialog = this.b1) != null && alertDialog.isShowing()) {
+            this.b1.dismiss();
         }
     }
 
-    public final void F4() {
+    public final void G4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.i.getControl().setVideoStatusChangeListener(this);
-            this.i.getControl().setOperableVideoContainer(this.Y1);
+            this.i.getControl().setOperableVideoContainer(this.Z1);
         }
     }
 
-    public final void G3(int i2) {
+    public final void H3(int i2) {
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i2) == null) && ViewHelper.checkUpIsLogin(getActivity()) && (videoItemData = this.h0) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && ViewHelper.checkUpIsLogin(getActivity()) && (videoItemData = this.h0) != null) {
             int i3 = 0;
             if (i2 == this.d) {
                 if ("1".equals(videoItemData.is_agreed)) {
@@ -4338,12 +4357,12 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     VideoItemData videoItemData3 = this.h0;
                     videoItemData3.agree_num = String.valueOf(ng.e(videoItemData3.agree_num, 0) + 1);
                     this.h0.is_agreed = "1";
-                    J3(1);
+                    K3(1);
                 }
             } else {
                 videoItemData.agree_num = String.valueOf(ng.e(videoItemData.agree_num, 0) + 1);
                 this.h0.is_agreed = "1";
-                J3(1);
+                K3(1);
             }
             StatisticItem statisticItem = new StatisticItem("c12795");
             statisticItem.param("tid", this.h0.thread_id);
@@ -4366,7 +4385,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 statisticItem2.param(TiebaStatic.Params.OBJ_CUR_PAGE, "a023");
                 statisticItem2.param(TiebaStatic.Params.OBJ_PRE_PAGE, "a002");
             }
-            n75 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(getContext());
+            p85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(getContext());
             if (currentVisiblePageExtra != null) {
                 statisticItem2.param(TiebaStatic.Params.OBJ_CUR_PAGE, currentVisiblePageExtra.a());
                 StatisticItem statisticItem3 = new StatisticItem(TbadkCoreStatisticKey.KEY_AGREE_SUCCESS_CLICK);
@@ -4380,7 +4399,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     statisticItem3.param("obj_locate", 2);
                 } else {
                     statisticItem3.param("obj_locate", 1);
-                    statisticItem3.param("obj_source", O3());
+                    statisticItem3.param("obj_source", P3());
                 }
                 statisticItem3.param("tid", this.h0.thread_id);
                 statisticItem3.param("fid", this.h0.forum_id);
@@ -4398,7 +4417,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 statisticItem2.param(TiebaStatic.Params.OBJ_PRE_PAGE, TbPageExtraHelper.getPrePageKey());
             }
             TiebaStatic.log(statisticItem2);
-            B3();
+            C3();
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("thread_id", this.h0.thread_id);
             httpMessage.addParam("op_type", i3);
@@ -4416,7 +4435,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 httpMessage.addParam("obj_source", currentVisiblePageExtra.a());
             }
             sendMessage(httpMessage);
-            jh8 jh8Var = new jh8();
+            ei8 ei8Var = new ei8();
             AgreeData agreeData = new AgreeData();
             String str = this.h0.thread_id;
             if (str != null) {
@@ -4425,53 +4444,57 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             agreeData.agreeNum = Long.valueOf(this.h0.agree_num).longValue();
             agreeData.agreeType = 2;
             agreeData.hasAgree = "1".equals(this.h0.is_agreed);
-            jh8Var.b = agreeData;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jh8Var));
+            ei8Var.b = agreeData;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, ei8Var));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921325, this.h0));
+            if (this.M0) {
+                return;
+            }
+            FirstPraiseToast.getInstance().show();
         }
     }
 
-    public final void G4(VideoItemData videoItemData, vs8 vs8Var, VideoDanmuController videoDanmuController) {
+    public final void H4(VideoItemData videoItemData, rt8 rt8Var, VideoDanmuController videoDanmuController) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, videoItemData, vs8Var, videoDanmuController) == null) || vs8Var == null || vs8Var.getMainView() == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048592, this, videoItemData, rt8Var, videoDanmuController) == null) || rt8Var == null || rt8Var.getMainView() == null) {
             return;
         }
-        vs8Var.H0(videoItemData);
+        rt8Var.G0(videoItemData);
         boolean z2 = false;
         boolean z3 = ng.e(videoItemData.video_height, 0) <= ng.e(videoItemData.video_width, 0);
         if (this.l0 && z3) {
             z2 = true;
         }
-        vs8Var.X(z2);
-        vs8Var.I0(new x(this, vs8Var, videoDanmuController));
-        vs8Var.getMainView().setVisibility(8);
+        rt8Var.X(z2);
+        rt8Var.H0(new x(this, rt8Var, videoDanmuController));
+        rt8Var.getMainView().setVisibility(8);
     }
 
-    public final void H3(boolean z2) {
+    public final void I3(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z2) == null) {
             if (z2) {
-                w4(8);
+                x4(8);
                 this.v.setVisibility(0);
                 return;
             }
-            w4(0);
+            x4(0);
             this.v.setVisibility(8);
         }
     }
 
-    public final void H4(String str) {
+    public final void I4(String str) {
         TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || (tbVideoViewContainer = this.i) == null || tbVideoViewContainer.getControl() == null || str == null || str.equals(this.L0)) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (tbVideoViewContainer = this.i) == null || tbVideoViewContainer.getControl() == null || str == null || str.equals(this.L0)) {
             return;
         }
         this.L0 = str;
     }
 
-    public final void I3() {
+    public final void J3() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.h0 == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.h0 == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12590");
@@ -4483,7 +4506,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
         statisticItem.param("obj_param1", oi.isEmpty(this.h0.mRecomWeight) ? "0" : this.h0.mRecomWeight);
         statisticItem.param("extra", oi.isEmpty(this.h0.mRecomExtra) ? "0" : this.h0.mRecomExtra);
-        statisticItem.param("obj_id", this.O0);
+        statisticItem.param("obj_id", this.P0);
         statisticItem.param("ab_tag", oi.isEmpty(this.h0.mRecomAbTag) ? "0" : this.h0.mRecomAbTag);
         statisticItem.param("obj_source", oi.isEmpty(this.h0.mRecomSource) ? "0" : this.h0.mRecomSource);
         statisticItem.param("obj_type", this.D0);
@@ -4514,18 +4537,18 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         TiebaStatic.log(statisticItem);
     }
 
-    public final void I4(int i2) {
+    public final void J4(int i2) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (relativeLayout = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (relativeLayout = this.h) == null) {
             return;
         }
         relativeLayout.setPadding(0, 0, 0, i2);
     }
 
-    public void J3(int i2) {
+    public void K3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_CLICK);
             statisticItem.param("tid", this.h0.thread_id);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -4548,36 +4571,36 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public void J4(ps8 ps8Var) {
+    public void K4(lt8 lt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ps8Var) == null) {
-            this.U0 = ps8Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, lt8Var) == null) {
+            this.V0 = lt8Var;
         }
     }
 
-    public String K3() {
+    public String L3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public void K4(g1 g1Var) {
+    public void L4(g1 g1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, g1Var) == null) {
-            this.X0 = g1Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, g1Var) == null) {
+            this.Y0 = g1Var;
         }
     }
 
-    public final int L3() {
+    public final int M3() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             int i3 = pi.i(this.f.getContext());
-            if (l4()) {
+            if (m4()) {
                 i2 = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
             } else {
                 i3 -= UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
@@ -4588,76 +4611,76 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeV.intValue;
     }
 
-    public void L4(boolean z2, boolean z3) {
+    public void M4(boolean z2, boolean z3) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            F3();
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            G3();
             if (TbadkCoreApplication.getInst().getCurrentActivity() == null) {
                 return;
             }
             if (z3) {
-                i2 = z2 ? R.string.obfuscated_res_0x7f0f0b2b : R.string.obfuscated_res_0x7f0f0b2d;
-                i3 = R.string.obfuscated_res_0x7f0f0b2c;
-                i4 = R.string.obfuscated_res_0x7f0f1192;
+                i2 = z2 ? R.string.obfuscated_res_0x7f0f0b1b : R.string.obfuscated_res_0x7f0f0b1d;
+                i3 = R.string.obfuscated_res_0x7f0f0b1c;
+                i4 = R.string.obfuscated_res_0x7f0f1189;
             } else {
-                i2 = R.string.obfuscated_res_0x7f0f048f;
-                i3 = R.string.obfuscated_res_0x7f0f0490;
-                i4 = R.string.obfuscated_res_0x7f0f0496;
+                i2 = R.string.obfuscated_res_0x7f0f0498;
+                i3 = R.string.obfuscated_res_0x7f0f0499;
+                i4 = R.string.obfuscated_res_0x7f0f049f;
             }
             TBAlertConfig.a aVar = new TBAlertConfig.a(i4, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0366, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f036a, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.p(i2);
-            tBAlertBuilder.j(i3);
-            tBAlertBuilder.l(true);
-            tBAlertBuilder.o(aVar2, aVar);
-            tBAlertBuilder.g(false);
-            this.a1 = tBAlertBuilder.s();
+            tBAlertBuilder.t(i2);
+            tBAlertBuilder.l(i3);
+            tBAlertBuilder.n(true);
+            tBAlertBuilder.r(aVar2, aVar);
+            tBAlertBuilder.i(false);
+            this.b1 = tBAlertBuilder.w();
             aVar.a(new v0(this, z2, z3));
             aVar2.a(new w0(this));
         }
     }
 
-    public final RelativeLayout.LayoutParams M3() {
+    public final RelativeLayout.LayoutParams N3() {
         InterceptResult invokeV;
         RelativeLayout.LayoutParams layoutParams;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            int L3 = L3();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            int M3 = M3();
             int k2 = pi.k(this.f.getContext());
             if (UtilHelper.getRealScreenOrientation(this.f.getContext()) == 2) {
-                layoutParams = new RelativeLayout.LayoutParams(L3, k2);
+                layoutParams = new RelativeLayout.LayoutParams(M3, k2);
             } else {
-                layoutParams = new RelativeLayout.LayoutParams(k2, L3);
+                layoutParams = new RelativeLayout.LayoutParams(k2, M3);
             }
             TbVideoViewContainer tbVideoViewContainer = this.i;
             if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null && (videoItemData = this.h0) != null) {
                 int e2 = ng.e(videoItemData.video_height, 0);
                 int e3 = ng.e(this.h0.video_width, 0);
-                if (e2 > 0 && e3 > 0 && L3 > 0 && k2 > 0) {
+                if (e2 > 0 && e3 > 0 && M3 > 0 && k2 > 0) {
                     float f2 = (e2 * 1.0f) / e3;
                     if (f2 > 1.0f) {
-                        layoutParams = new RelativeLayout.LayoutParams(k2, L3);
+                        layoutParams = new RelativeLayout.LayoutParams(k2, M3);
                         layoutParams.addRule(14);
                         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.B.getLayoutParams();
-                        this.M0 = layoutParams2;
+                        this.N0 = layoutParams2;
                         layoutParams2.removeRule(13);
-                        this.M0.addRule(14);
-                        this.M0.topMargin = (L3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
+                        this.N0.addRule(14);
+                        this.N0.topMargin = (M3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
                     } else {
                         float f3 = f2 * k2;
                         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(k2, (int) f3);
-                        layoutParams3.topMargin = ((int) (L3 - f3)) / 2;
+                        layoutParams3.topMargin = ((int) (M3 - f3)) / 2;
                         layoutParams3.addRule(14);
                         RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.B.getLayoutParams();
-                        this.M0 = layoutParams4;
+                        this.N0 = layoutParams4;
                         layoutParams4.removeRule(13);
-                        this.M0.addRule(14);
-                        this.M0.topMargin = (L3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
+                        this.N0.addRule(14);
+                        this.N0.topMargin = (M3 - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds166)) / 2;
                         layoutParams = layoutParams3;
                     }
                     this.B.requestLayout();
@@ -4668,27 +4691,27 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return (RelativeLayout.LayoutParams) invokeV.objValue;
     }
 
-    public void M4() {
+    public void N4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || this.F0 == null || getActivity() == null || getActivity().isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || this.F0 == null || getActivity() == null || getActivity().isFinishing()) {
             return;
         }
         this.F0.m();
     }
 
-    public List<String> N3() {
+    public List<String> O3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return null;
         }
         return (List) invokeV.objValue;
     }
 
-    public final void N4() {
+    public final void O4() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && ni.x()) {
-            hp8.c().f(getContext());
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && ni.x()) {
+            dq8.c().f(getContext());
         }
     }
 
@@ -4698,10 +4721,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final int O3() {
+    public final int P3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             char c2 = 0;
             if (TextUtils.isEmpty(this.D0)) {
                 return 0;
@@ -4730,10 +4753,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeV.intValue;
     }
 
-    public boolean O4() {
+    public boolean P4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             if (TiebaPlusConfigData.isHeatingSwitchOpen()) {
                 int i2 = this.a;
                 return i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4;
@@ -4743,11 +4766,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeV.booleanValue;
     }
 
-    public final ObjectAnimator P3(float f2, float f3, float f4, long j2) {
+    public final ObjectAnimator Q3(float f2, float f3, float f4, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Long.valueOf(j2)})) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.B, PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, f2), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, f3), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, f4));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Long.valueOf(j2)})) == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.B, PropertyValuesHolder.ofFloat("alpha", f2), PropertyValuesHolder.ofFloat("scaleX", f3), PropertyValuesHolder.ofFloat("scaleY", f4));
             ofPropertyValuesHolder.setDuration(j2);
             ofPropertyValuesHolder.setInterpolator(new LinearInterpolator());
             return ofPropertyValuesHolder;
@@ -4755,29 +4778,29 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return (ObjectAnimator) invokeCommon.objValue;
     }
 
-    public final void P4() {
+    public final void Q4() {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             if (this.F0 == null) {
-                this.G0 = new yq4(getActivity());
-                this.F0 = new wq4(getPageContext(), this.G0);
+                this.G0 = new nr4(getActivity());
+                this.F0 = new lr4(getPageContext(), this.G0);
                 ArrayList arrayList = new ArrayList();
-                uq4 uq4Var = new uq4(getString(R.string.obfuscated_res_0x7f0f0a92), this.G0);
+                jr4 jr4Var = new jr4(getString(R.string.obfuscated_res_0x7f0f0a80), this.G0);
                 boolean z2 = false;
                 VideoItemData videoItemData = this.h0;
                 if (videoItemData != null && (str = videoItemData.post_id) != null && str.equals(videoItemData.mark_id)) {
                     z2 = true;
                 }
                 if (z2) {
-                    uq4Var.n(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fb8));
+                    jr4Var.n(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fb3));
                 } else {
-                    uq4Var.n(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a92));
+                    jr4Var.n(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a80));
                 }
-                uq4Var.m(this.U1);
+                jr4Var.m(this.V1);
                 VideoItemData videoItemData2 = this.h0;
                 if (videoItemData2 != null && !videoItemData2.isBjhVideo) {
-                    arrayList.add(uq4Var);
+                    arrayList.add(jr4Var);
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ADD_COLLECTION_CLICK);
                     statisticItem.param("tid", this.h0.thread_id);
                     statisticItem.param("fid", this.h0.forum_id);
@@ -4796,50 +4819,50 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     } else if (i3 == 7) {
                         statisticItem.param("obj_param1", 3);
                     }
-                    statisticItem.param("obj_source", O3());
+                    statisticItem.param("obj_source", P3());
                     TiebaStatic.log(statisticItem);
                 }
-                if (k4()) {
-                    uq4 uq4Var2 = new uq4(getString(R.string.obfuscated_res_0x7f0f0c9a), this.G0);
-                    uq4Var2.m(this.T1);
-                    arrayList.add(uq4Var2);
+                if (l4()) {
+                    jr4 jr4Var2 = new jr4(getString(R.string.obfuscated_res_0x7f0f0c8e), this.G0);
+                    jr4Var2.m(this.U1);
+                    arrayList.add(jr4Var2);
                 }
-                if (!a4()) {
-                    uq4 uq4Var3 = new uq4(getString(R.string.obfuscated_res_0x7f0f0fdb), this.G0);
-                    uq4Var3.m(this.V1);
-                    arrayList.add(uq4Var3);
+                if (!b4()) {
+                    jr4 jr4Var3 = new jr4(getString(R.string.obfuscated_res_0x7f0f0fd6), this.G0);
+                    jr4Var3.m(this.W1);
+                    arrayList.add(jr4Var3);
                 }
                 if (this.A0) {
-                    uq4 uq4Var4 = new uq4(getString(R.string.obfuscated_res_0x7f0f0496), this.G0);
-                    uq4Var4.m(this.W1);
-                    arrayList.add(uq4Var4);
+                    jr4 jr4Var4 = new jr4(getString(R.string.obfuscated_res_0x7f0f049f), this.G0);
+                    jr4Var4.m(this.X1);
+                    arrayList.add(jr4Var4);
                 }
                 this.G0.m(new e0(this));
                 this.F0.setOnDismissListener(new f0(this));
                 this.G0.j(arrayList);
             }
-            M4();
+            N4();
         }
     }
 
-    public final void Q3() {
+    public final void R3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            R3(null, false);
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            S3(null, false);
         }
     }
 
-    public final boolean Q4() {
+    public final boolean R4() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            if (hp8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || !((i2 = this.a) == 3 || i2 == 4 || TbSingleton.getInstance().isFromFeedVideoClick() || !TbSingleton.getInstance().isTipsAutoPlayInVideoMiddle())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (dq8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || !((i2 = this.a) == 3 || i2 == 4 || TbSingleton.getInstance().isFromFeedVideoClick() || !TbSingleton.getInstance().isTipsAutoPlayInVideoMiddle())) {
                 return false;
             }
             int i3 = this.a;
             if (((i3 != 3 && i3 != 4) || !TbSingleton.getInstance().isTipsAutoPlayInVideoChannel()) && ni.x() && isResumed() && this.l0) {
-                pi.P(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1531), 3000);
+                pi.P(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f152a), 3000);
                 int i4 = this.a;
                 if (i4 != 3 && i4 != 4) {
                     TbSingleton.getInstance().setTipsAutoPlayInVideoMiddle(true);
@@ -4852,9 +4875,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeV.booleanValue;
     }
 
-    public final void R3(String str, boolean z2) {
+    public final void S3(String str, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048611, this, str, z2) == null) || this.h0 == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048613, this, str, z2) == null) || this.h0 == null) {
             return;
         }
         PbCommentFloatActivityConfig pbCommentFloatActivityConfig = new PbCommentFloatActivityConfig(getActivity());
@@ -4882,25 +4905,25 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 }
             }
             createNormalCfg.setNeedPreLoad(true);
-            gc6.update(this.h0.threadData);
+            dd6.update(this.h0.threadData);
         }
         GoPbCommentFloatListener.l();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalCfg));
-        this.Q0 = true;
+        this.R0 = true;
         VideoDanmuController videoDanmuController = this.j;
         if (videoDanmuController != null) {
             videoDanmuController.R();
             this.j.H();
         }
-        Z4();
-        this.Y0.X(!this.Q0);
-        R4();
+        a5();
+        this.Z0.X(!this.R0);
+        S4();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921665, Boolean.TRUE));
     }
 
-    public void R4() {
+    public void S4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_SHOW_PB_FLOAT_NUM);
             statisticItem.param("tid", this.h0.thread_id);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -4921,39 +4944,39 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void S3() {
+    public final void T3() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (tBLottieAnimationView = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048615, this) == null) || (tBLottieAnimationView = this.r) == null) {
             return;
         }
         SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
     }
 
-    public final void S4() {
+    public final void T4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || i4()) {
+        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || j4()) {
             return;
         }
-        xr8 xr8Var = this.V0;
-        if (xr8Var != null && xr8Var.a() != null) {
-            this.V0.a().j();
+        ts8 ts8Var = this.W0;
+        if (ts8Var != null && ts8Var.a() != null) {
+            this.W0.a().j();
             VideoItemData videoItemData = this.h0;
             if (videoItemData != null) {
-                this.V0.v(videoItemData);
+                this.W0.v(videoItemData);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921646, Boolean.TRUE));
         }
         int i2 = this.a;
         if (i2 == 4 || i2 == 3) {
-            I4(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            J4(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-        v3();
+        w3();
     }
 
-    public final void T3(boolean z2) {
+    public final void U3(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048617, this, z2) == null) {
             int f2 = pi.f(getContext(), R.dimen.tbds26);
             if (this.t != z2) {
                 if (this.r != null) {
@@ -4990,7 +5013,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void T4() {
+    public final void U4() {
         VideoItemData videoItemData;
         String str;
         String str2;
@@ -4998,7 +5021,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         VideoItemData videoItemData2;
         UserItemData userItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (videoItemData = this.h0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048618, this) == null) || (videoItemData = this.h0) == null) {
             return;
         }
         String str3 = videoItemData.forum_id;
@@ -5012,13 +5035,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             str = videoItemData.thread_id;
             str2 = "?share=9105&fr=sharewise";
         }
-        String str6 = "http://tieba.baidu.com/p/" + str + (str2 + "&share_from=post");
+        String str6 = "https://tieba.baidu.com/p/" + str + (str2 + "&share_from=post");
         String str7 = this.h0.thumbnail_url;
-        String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f114d);
-        String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0482);
+        String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1144);
+        String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048b);
         VideoItemData videoItemData3 = this.h0;
         if (videoItemData3.isBjhVideo && (userItemData = videoItemData3.author_info) != null) {
-            format = MessageFormat.format(string2, userItemData.name_show, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0483));
+            format = MessageFormat.format(string2, userItemData.name_show, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048c));
         } else {
             format = MessageFormat.format(string, str5, "");
         }
@@ -5092,7 +5115,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             shareItem.W.threadData.getAuthor().setPortrait(this.h0.author_info.portrait);
             shareItem.W.threadData.getAuthor().setUserId(this.h0.author_info.user_id);
         }
-        t3(shareItem);
+        u3(shareItem);
         TbadkCoreApplication.getInst().setShareItem(shareItem);
         Bundle bundle = new Bundle();
         bundle.putInt("obj_param1", shareItem.I);
@@ -5106,71 +5129,71 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
         ThreadData threadData2 = this.h0.threadData;
         if (threadData2 != null) {
-            int k2 = ly4.k(threadData2);
+            int k2 = jz4.k(threadData2);
             UserItemData userItemData3 = this.h0.author_info;
             String str8 = userItemData3 != null ? userItemData3.name_show : "";
-            shareItem.D0 = ly4.j(this.h0.threadData, k2);
+            shareItem.D0 = jz4.j(this.h0.threadData, k2);
             VideoItemData videoItemData7 = this.h0;
-            shareItem.E0 = ly4.i(videoItemData7.threadData, k2, videoItemData7.forum_name, shareItem.U, str8, "");
+            shareItem.E0 = jz4.i(videoItemData7.threadData, k2, videoItemData7.forum_name, shareItem.U, str8, "");
         }
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) getActivity(), shareItem, true, true);
-        shareDialogConfig.showDisLike = k4();
-        shareDialogConfig.disLikeListener = this.S1;
+        shareDialogConfig.showDisLike = l4();
+        shareDialogConfig.disLikeListener = this.T1;
         shareDialogConfig.setIsAlaLive(false);
         shareDialogConfig.setFrom(ShareDialogConfig.From.VideoMiddlePageVertical);
         shareDialogConfig.setPrePage(this.D0);
         shareDialogConfig.isFromImmersionVideo = true;
-        shareDialogConfig.isHost = a4();
+        shareDialogConfig.isHost = b4();
         VideoItemData videoItemData8 = this.h0;
         shareDialogConfig.isManager = videoItemData8.is_manager;
         shareDialogConfig.isOriginManager = videoItemData8.is_origin_manager;
-        shareDialogConfig.showHeating = O4();
+        shareDialogConfig.showHeating = P4();
         shareDialogConfig.isSelfHeating = this.A0;
-        shareDialogConfig.heatingListener = this.R1;
+        shareDialogConfig.heatingListener = this.S1;
         ThreadData threadData3 = this.h0.threadData;
         if (threadData3 != null) {
             shareDialogConfig.isCollected = threadData3.getIsMarked() == 1;
             shareDialogConfig.isMadeTop = this.h0.threadData.isMadeTop();
             shareDialogConfig.isAddedGood = this.h0.threadData.isAddedGood();
         }
-        az5.c().l(shareDialogConfig);
+        xz5.c().l(shareDialogConfig);
     }
 
-    public void U3() {
-        wq4 wq4Var;
+    public void V3() {
+        lr4 lr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048617, this) == null) && (wq4Var = this.F0) != null && wq4Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (lr4Var = this.F0) != null && lr4Var.isShowing()) {
             this.F0.dismiss();
         }
     }
 
-    public final void U4(boolean z2) {
-        lr8 lr8Var;
+    public final void V4(boolean z2) {
+        hs8 hs8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048618, this, z2) == null) || (lr8Var = this.Z0) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048620, this, z2) == null) || (hs8Var = this.a1) == null) {
             return;
         }
-        lr8Var.c(e4());
-        this.Z0.d(getPageContext(), this.h0, z2);
+        hs8Var.c(f4());
+        this.a1.d(getPageContext(), this.h0, z2);
     }
 
-    public final void V3() {
+    public final void W3() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && i4()) {
-            this.V0.a().o();
-            D3(((zr8) this.V0.a().n(28)).g().getText().toString());
+        if ((interceptable == null || interceptable.invokeV(1048621, this) == null) && j4()) {
+            this.W0.a().o();
+            E3(((vs8) this.W0.a().n(28)).g().getText().toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921646, Boolean.FALSE));
             int i2 = this.a;
             if (i2 == 4 || i2 == 3) {
-                I4(0);
+                J4(0);
             }
-            v3();
+            w3();
         }
     }
 
-    public final void V4(View view2, View view3, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, AnimatorListenerAdapter animatorListenerAdapter) {
+    public final void W4(View view2, View view3, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, AnimatorListenerAdapter animatorListenerAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{view2, view3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), animatorListenerAdapter}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{view2, view3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), animatorListenerAdapter}) == null) {
             int max = Math.max(i2, i3);
             int i10 = max - ((i2 + i3) - max);
             int max2 = Math.max(i4, i5);
@@ -5185,9 +5208,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void W3(View view2, View view3, View view4, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, AnimatorListenerAdapter animatorListenerAdapter) {
+    public final void X3(View view2, View view3, View view4, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, AnimatorListenerAdapter animatorListenerAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{view2, view3, view4, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), animatorListenerAdapter}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{view2, view3, view4, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), animatorListenerAdapter}) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             int max = Math.max(i2, i3);
             int i14 = max - ((i2 + i3) - max);
@@ -5206,9 +5229,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void W4() {
+    public final void X4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || this.h0 == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048624, this) == null) || this.h0 == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_PROGRESS_CLICK);
@@ -5221,7 +5244,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         } else {
             statisticItem.param("obj_type", 1);
         }
-        statisticItem.param("obj_type", O3());
+        statisticItem.param("obj_type", P3());
         int i3 = this.a;
         if (i3 == 3) {
             statisticItem.param("obj_source", 1);
@@ -5233,12 +5256,128 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         TiebaStatic.log(statisticItem);
     }
 
-    public void X0(int i2, int i3, Intent intent) {
+    public final void Y3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048623, this, i2, i3, intent) == null) {
-            xr8 xr8Var = this.V0;
-            if (xr8Var != null) {
-                xr8Var.m(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                ts8 ts8Var = (ts8) new us8().g(getActivity(), new y(this));
+                this.W0 = ts8Var;
+                if (ts8Var != null && this.h0 != null) {
+                    ts8Var.r(getPageContext());
+                    String b2 = TextUtils.isEmpty(this.h0.thread_id) ? "" : DanmuPostDraftManager.b.a().b(this.h0.thread_id);
+                    this.W0.s(this.h0.thread_id, this.h0.forum_id, this.h0.forum_name, b2);
+                    E3(b2);
+                    this.W0.t(new z(this));
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+                    layoutParams.addRule(12);
+                    ((RelativeLayout) this.f).addView(this.W0.a(), layoutParams);
+                }
+            } finally {
+                TTIStats.record("VideoPlayFragment.initEditor", System.currentTimeMillis() - currentTimeMillis);
+            }
+        }
+    }
+
+    public final void Y4(String str, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048626, this, str, z2) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_HORIZONTAL_PLAY);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("tid", str);
+            statisticItem.param("obj_type", z2 ? 1 : 2);
+            int i2 = this.a;
+            if (i2 != 3 && i2 != 4) {
+                statisticItem.param("obj_locate", 1);
+            } else {
+                statisticItem.param("obj_locate", 2);
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public boolean Z3() {
+        InterceptResult invokeV;
+        ThreadData threadData;
+        TiebaPlusInfo tiebaPlusInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            VideoItemData videoItemData = this.h0;
+            if (videoItemData == null || (threadData = videoItemData.threadData) == null) {
+                return false;
+            }
+            if (videoItemData.mRichAbstractList == null && threadData.getRichAbstractList() == null) {
+                return false;
+            }
+            this.F = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091b1c);
+            this.G = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09207d);
+            this.H = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09207b);
+            this.E = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091aa8);
+            ur4 d2 = ur4.d(this.H);
+            d2.e(R.string.A_X05);
+            d2.n(R.string.J_X04);
+            d2.f(R.color.CAM_X0106);
+            tr4 tr4Var = (tr4) this.H.getBackground();
+            tr4Var.B(SkinManager.getColor(0, (int) R.color.CAM_X0106));
+            this.H.setBackground(tr4Var);
+            ur4 d3 = ur4.d(this.F);
+            d3.v(R.color.CAM_X0101);
+            d3.z(R.dimen.T_X08);
+            d3.A(R.string.F_X01);
+            List<PbContent> q2 = TiePlusHelper.q(this.h0.mRichAbstractList) != null ? TiePlusHelper.q(this.h0.mRichAbstractList) : null;
+            if (TiePlusHelper.q(this.h0.threadData.getRichAbstractList()) != null) {
+                q2 = TiePlusHelper.q(this.h0.threadData.getRichAbstractList());
+            }
+            PbContent pbContent = (PbContent) ListUtils.getItem(q2, 0);
+            if (pbContent == null || (tiebaPlusInfo = pbContent.tiebaplus_info) == null) {
+                return false;
+            }
+            Integer num = pbContent.type;
+            Integer num2 = tiebaPlusInfo.jump_type;
+            ah5 c2 = ah5.c(num.intValue(), tiebaPlusInfo, this.h0.threadData);
+            this.g1 = c2;
+            c2.b(this.h0.threadData.statFloor);
+            if (num2.intValue() != 3 && num2.intValue() != 7) {
+                if (num2.intValue() == 2) {
+                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807c2));
+                } else if (num2.intValue() == 6) {
+                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807df));
+                } else if (num2.intValue() == 5) {
+                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807dd));
+                } else {
+                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807da));
+                }
+            } else {
+                this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08081d));
+            }
+            this.F.setText(tiebaPlusInfo.desc);
+            this.H.setVisibility(0);
+            this.E.setVisibility(8);
+            this.H.setOnClickListener(new o0(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean Z4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            if (j4()) {
+                W3();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a1(int i2, int i3, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048629, this, i2, i3, intent) == null) {
+            ts8 ts8Var = this.W0;
+            if (ts8Var != null) {
+                ts8Var.m(i2, i3, intent);
             }
             if (intent == null || i2 != 24007) {
                 return;
@@ -5246,7 +5385,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             int intExtra = intent.getIntExtra("extra_share_status", 2);
             int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
             if (intExtra == 1) {
-                a88.g().m(getPageContext());
+                v88.g().m(getPageContext());
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
                 if (shareItem != null) {
@@ -5272,170 +5411,42 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void X3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                xr8 xr8Var = (xr8) new yr8().g(getActivity(), new y(this));
-                this.V0 = xr8Var;
-                if (xr8Var != null && this.h0 != null) {
-                    xr8Var.r(getPageContext());
-                    String b2 = TextUtils.isEmpty(this.h0.thread_id) ? "" : DanmuPostDraftManager.b.a().b(this.h0.thread_id);
-                    this.V0.s(this.h0.thread_id, this.h0.forum_id, this.h0.forum_name, b2);
-                    D3(b2);
-                    this.V0.t(new z(this));
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-                    layoutParams.addRule(12);
-                    ((RelativeLayout) this.f).addView(this.V0.a(), layoutParams);
-                }
-            } finally {
-                TTIStats.record("VideoPlayFragment.initEditor", System.currentTimeMillis() - currentTimeMillis);
-            }
-        }
-    }
-
-    public final void X4(String str, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048625, this, str, z2) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_HORIZONTAL_PLAY);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("tid", str);
-            statisticItem.param("obj_type", z2 ? 1 : 2);
-            int i2 = this.a;
-            if (i2 != 3 && i2 != 4) {
-                statisticItem.param("obj_locate", 1);
-            } else {
-                statisticItem.param("obj_locate", 2);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public boolean Y3() {
-        InterceptResult invokeV;
-        ThreadData threadData;
-        TiebaPlusInfo tiebaPlusInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            VideoItemData videoItemData = this.h0;
-            if (videoItemData == null || (threadData = videoItemData.threadData) == null) {
-                return false;
-            }
-            if (videoItemData.mRichAbstractList == null && threadData.getRichAbstractList() == null) {
-                return false;
-            }
-            this.F = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091a7e);
-            this.G = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fd9);
-            this.H = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091fd7);
-            this.E = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091a00);
-            fr4 d2 = fr4.d(this.H);
-            d2.e(R.string.A_X05);
-            d2.n(R.string.J_X04);
-            d2.f(R.color.CAM_X0106);
-            er4 er4Var = (er4) this.H.getBackground();
-            er4Var.B(SkinManager.getColor(0, (int) R.color.CAM_X0106));
-            this.H.setBackground(er4Var);
-            fr4 d3 = fr4.d(this.F);
-            d3.v(R.color.CAM_X0101);
-            d3.z(R.dimen.T_X08);
-            d3.A(R.string.F_X01);
-            List<PbContent> q2 = TiePlusHelper.q(this.h0.mRichAbstractList) != null ? TiePlusHelper.q(this.h0.mRichAbstractList) : null;
-            if (TiePlusHelper.q(this.h0.threadData.getRichAbstractList()) != null) {
-                q2 = TiePlusHelper.q(this.h0.threadData.getRichAbstractList());
-            }
-            PbContent pbContent = (PbContent) ListUtils.getItem(q2, 0);
-            if (pbContent == null || (tiebaPlusInfo = pbContent.tiebaplus_info) == null) {
-                return false;
-            }
-            Integer num = pbContent.type;
-            Integer num2 = tiebaPlusInfo.jump_type;
-            xf5 c2 = xf5.c(num.intValue(), tiebaPlusInfo, this.h0.threadData);
-            this.f1 = c2;
-            c2.b(this.h0.threadData.statFloor);
-            if (num2.intValue() != 3 && num2.intValue() != 7) {
-                if (num2.intValue() == 2) {
-                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807c0));
-                } else if (num2.intValue() == 6) {
-                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807d9));
-                } else if (num2.intValue() == 5) {
-                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807d7));
-                } else {
-                    this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807d4));
-                }
-            } else {
-                this.G.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080814));
-            }
-            this.F.setText(tiebaPlusInfo.desc);
-            this.H.setVisibility(0);
-            this.E.setVisibility(8);
-            this.H.setOnClickListener(new o0(this));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean Y4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            if (i4()) {
-                V3();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean Z3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.a == 6 : invokeV.booleanValue;
-    }
-
-    public final void Z4() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            TbVideoViewContainer tbVideoViewContainer = this.i;
-            if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null) {
-                this.N0 = this.i.getControl().getVideoStatus();
-            } else {
-                this.N0 = OnStatusChangedListener.VideoStatus.INIT;
-            }
-        }
-    }
-
     public final boolean a4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.A0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.a == 6 : invokeV.booleanValue;
+    }
+
+    public final void a5() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            TbVideoViewContainer tbVideoViewContainer = this.i;
+            if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null) {
+                this.O0 = this.i.getControl().getVideoStatus();
+            } else {
+                this.O0 = OnStatusChangedListener.VideoStatus.INIT;
+            }
+        }
     }
 
     public final boolean b4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.a == 8 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.A0 : invokeV.booleanValue;
     }
 
     public final boolean c4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            int i2 = this.a;
-            return (i2 == 3 || i2 == 4) ? false : true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.a == 8 : invokeV.booleanValue;
     }
 
     public final boolean d4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            if (this.a == 1 && this.T0 == 0) {
-                return false;
-            }
-            return (this.a == 7 && getActivity() != null && (getActivity() instanceof FrsVideoTabPlayActivity) && this.T0 == ((FrsVideoTabPlayActivity) getActivity()).z0()) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            int i2 = this.a;
+            return (i2 == 3 || i2 == 4) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -5443,17 +5454,29 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public final boolean e4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+            if (this.a == 1 && this.U0 == 0) {
+                return false;
+            }
+            return (this.a == 7 && getActivity() != null && (getActivity() instanceof FrsVideoTabPlayActivity) && this.U0 == ((FrsVideoTabPlayActivity) getActivity()).y0()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
             int i2 = this.a;
             return i2 == 1 || i2 == 2 || TbSingleton.getInstance().isFromFeedVideoClick();
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean f4(int i2) {
+    public final boolean g4(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048637, this, i2)) == null) {
             if (i2 == 1) {
                 int i3 = this.a;
                 return i3 == 3 || i3 == 4;
@@ -5470,24 +5493,24 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeI.booleanValue;
     }
 
-    public final boolean g4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? Z3() && !this.b : invokeV.booleanValue;
-    }
-
     public final boolean h4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? g4() && a4() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? a4() && !this.b : invokeV.booleanValue;
     }
 
-    public boolean i1() {
+    public final boolean i4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
-            if (i4()) {
-                V3();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? h4() && b4() : invokeV.booleanValue;
+    }
+
+    public boolean j1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            if (j4()) {
+                W3();
                 return true;
             }
             return false;
@@ -5495,57 +5518,47 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         return invokeV.booleanValue;
     }
 
-    public final boolean i4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
-            xr8 xr8Var = this.V0;
-            return (xr8Var == null || xr8Var.a() == null || !this.V0.a().v()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final boolean j4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            if (UbsABTestHelper.isVideoTabAuthorABTest() && f4(1)) {
-                return true;
-            }
-            if (UbsABTestHelper.isVideoMiddleAuthorABTest() && f4(2)) {
-                return true;
-            }
-            return UbsABTestHelper.isVideoMiddleAndTabAuthorABTest() && f4(3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+            ts8 ts8Var = this.W0;
+            return (ts8Var == null || ts8Var.a() == null || !this.W0.a().v()) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xg5.b
-    public void k0(float f2, float f3) {
+    public final boolean k4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+            if (UbsABTestHelper.isVideoTabAuthorABTest() && g4(1)) {
+                return true;
+            }
+            if (UbsABTestHelper.isVideoMiddleAuthorABTest() && g4(2)) {
+                return true;
+            }
+            return UbsABTestHelper.isVideoMiddleAndTabAuthorABTest() && g4(3);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.ai5.b
+    public void l0(float f2, float f3) {
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) && ViewHelper.checkUpIsLogin(getActivity()) && (videoItemData = this.h0) != null && "0".equals(videoItemData.is_agreed)) {
-            G3(this.e);
+        if ((interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) && ViewHelper.checkUpIsLogin(getActivity()) && (videoItemData = this.h0) != null && "0".equals(videoItemData.is_agreed)) {
+            H3(this.e);
         }
     }
 
-    public boolean k4() {
+    public boolean l4() {
         InterceptResult invokeV;
         SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             VideoItemData videoItemData = this.h0;
             return (videoItemData == null || (sparseArray = videoItemData.feedBackReasonMap) == null || sparseArray.size() == 0 || this.a != 3) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
-            int i2 = this.a;
-            return i2 == 4 || i2 == 3;
         }
         return invokeV.booleanValue;
     }
@@ -5553,138 +5566,139 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public final boolean m4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            OnStatusChangedListener.VideoStatus videoStatus = this.N0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+            int i2 = this.a;
+            return i2 == 4 || i2 == 3;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean n4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+            OnStatusChangedListener.VideoStatus videoStatus = this.O0;
             return videoStatus == OnStatusChangedListener.VideoStatus.INIT || videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_PREPARED || videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_BUFFERING || videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_PLAYING;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.us8
-    public void n0(int i2) {
+    @Override // com.repackage.qt8
+    public void o0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
-            this.T0 = i2;
-        }
-    }
-
-    public final void n4() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048646, this) == null) && TbSingleton.getInstance().isFromFeedVideoClick()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
+        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
+            this.U0 = i2;
         }
     }
 
     public final void o4() {
-        TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048647, this) == null) || (tbVideoViewContainer = this.i) == null || tbVideoViewContainer.getControl() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048648, this) == null) && TbSingleton.getInstance().isFromFeedVideoClick()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
         }
-        this.i.getControl().q();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, bundle) == null) {
             super.onActivityCreated(bundle);
             ForumManageModel forumManageModel = new ForumManageModel(getPageContext());
             this.H0 = forumManageModel;
             forumManageModel.setLoadDataCallBack(new b0(this));
-            uk4 c2 = uk4.c(getBaseFragmentActivity());
+            jl4 c2 = jl4.c(getBaseFragmentActivity());
             this.I0 = c2;
             if (c2 != null) {
                 c2.j(new c0(this));
             }
-            this.J0 = new vx4(null);
-            registerListener(this.q1);
+            this.J0 = new ty4(null);
             registerListener(this.r1);
-            registerListener(this.t1);
+            registerListener(this.s1);
             registerListener(this.u1);
             registerListener(this.v1);
             registerListener(this.w1);
-            registerListener(this.p1);
             registerListener(this.x1);
-            registerListener(this.z1);
+            registerListener(this.q1);
+            registerListener(this.y1);
+            registerListener(this.A1);
             if (TbSingleton.getInstance().getIsNeedShowPbCommentFloat() || AbsVideoChannelFragment.J) {
-                R3(this.h0.highLightPostId, false);
+                S3(this.h0.highLightPostId, false);
                 TbSingleton.getInstance().setIsNeedShowPbCommentFloat(false);
                 AbsVideoChannelFragment.J = false;
             }
             if (Build.VERSION.SDK_INT < 24 || !getBaseFragmentActivity().isInMultiWindowMode()) {
                 return;
             }
-            this.R0 = true;
+            this.S0 = true;
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048649, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048650, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            X0(i2, i3, intent);
+            a1(i2, i3, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 super.onChangeSkinType(i2);
-                if (this.V0 != null && this.V0.a() != null) {
-                    this.V0.a().w(i2);
+                if (this.W0 != null && this.W0.a() != null) {
+                    this.W0.a().w(i2);
                 }
                 if (this.G0 != null) {
                     this.G0.i();
                 }
                 if (this.f != null) {
-                    this.q0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080f, WebPManager.ResourceStateType.NORMAL_PRESS));
-                    this.r0.setImageDrawable(WebPManager.getMaskDrawable(h4() ? R.drawable.obfuscated_res_0x7f08080e : R.drawable.obfuscated_res_0x7f080810, WebPManager.ResourceStateType.NORMAL_PRESS));
-                    this.A.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a39, WebPManager.ResourceStateType.NORMAL_PRESS));
-                    this.B.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809f7, WebPManager.ResourceStateType.NORMAL));
-                    this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080919, xf8.a(SkinManager.getColor(R.color.CAM_X0213), 0.2f), null));
-                    w3();
-                    fr4 d2 = fr4.d(this.t0);
+                    this.q0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080818, WebPManager.ResourceStateType.NORMAL_PRESS));
+                    this.r0.setImageDrawable(WebPManager.getMaskDrawable(i4() ? R.drawable.obfuscated_res_0x7f080817 : R.drawable.obfuscated_res_0x7f080819, WebPManager.ResourceStateType.NORMAL_PRESS));
+                    this.A.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a42, WebPManager.ResourceStateType.NORMAL_PRESS));
+                    this.B.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a00, WebPManager.ResourceStateType.NORMAL));
+                    this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080922, sg8.a(SkinManager.getColor(R.color.CAM_X0213), 0.2f), null));
+                    x3();
+                    ur4 d2 = ur4.d(this.t0);
                     d2.n(R.string.J_X05);
                     d2.f(R.color.CAM_X0613);
-                    fr4 d3 = fr4.d(this.T);
+                    ur4 d3 = ur4.d(this.T);
                     d3.A(R.string.F_X02);
                     d3.v(R.color.CAM_X0101);
-                    fr4.d(this.U).A(R.string.F_X02);
-                    fr4 d4 = fr4.d(this.S);
+                    ur4.d(this.U).A(R.string.F_X02);
+                    ur4 d4 = ur4.d(this.S);
                     d4.z(R.dimen.T_X09);
                     d4.A(R.string.F_X02);
                     d4.y(R.array.S_O_X001);
-                    fr4 d5 = fr4.d(this.R);
+                    ur4 d5 = ur4.d(this.R);
                     d5.z(R.dimen.T_X09);
                     d5.A(R.string.F_X02);
                     d5.y(R.array.S_O_X001);
-                    fr4 d6 = fr4.d(this.Q);
+                    ur4 d6 = ur4.d(this.Q);
                     d6.z(R.dimen.T_X09);
                     d6.A(R.string.F_X02);
                     d6.y(R.array.S_O_X001);
-                    fr4 d7 = fr4.d(this.s0);
+                    ur4 d7 = ur4.d(this.s0);
                     d7.z(R.dimen.T_X06);
                     d7.A(R.string.F_X02);
                     d7.y(R.array.S_O_X001);
-                    fr4 d8 = fr4.d(this.V);
+                    ur4 d8 = ur4.d(this.V);
                     d8.n(R.string.J_X01);
                     d8.z(R.dimen.T_X09);
                     d8.v(R.color.CAM_X0101);
                     d8.A(R.string.F_X02);
                     d8.f(R.color.CAM_X0302);
-                    this.U.setTextColor(xf8.a(SkinManager.getColor(R.color.CAM_X0101), dr4.a(R.string.A_X08)));
-                    this.R.setTextColor(xf8.a(SkinManager.getColor(R.color.CAM_X0101), dr4.a(R.string.A_X03)));
-                    this.S.setTextColor(xf8.a(SkinManager.getColor(R.color.CAM_X0101), dr4.a(R.string.A_X03)));
-                    this.Q.setTextColor(xf8.a(SkinManager.getColor(R.color.CAM_X0101), dr4.a(R.string.A_X03)));
+                    this.U.setTextColor(sg8.a(SkinManager.getColor(R.color.CAM_X0101), sr4.a(R.string.A_X08)));
+                    this.R.setTextColor(sg8.a(SkinManager.getColor(R.color.CAM_X0101), sr4.a(R.string.A_X03)));
+                    this.S.setTextColor(sg8.a(SkinManager.getColor(R.color.CAM_X0101), sr4.a(R.string.A_X03)));
+                    this.Q.setTextColor(sg8.a(SkinManager.getColor(R.color.CAM_X0101), sr4.a(R.string.A_X03)));
                 }
-                WebPManager.setPureDrawable(this.n, R.drawable.obfuscated_res_0x7f0809d6, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
-                WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f0809d2, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
-                S3();
+                WebPManager.setPureDrawable(this.n, R.drawable.obfuscated_res_0x7f0809df, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.o, R.drawable.obfuscated_res_0x7f0809db, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                T3();
             } finally {
                 TTIStats.record("VideoPlayFragment.onChangeSkinType", System.currentTimeMillis() - currentTimeMillis);
             }
@@ -5693,14 +5707,14 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view2) {
-        ur8 ur8Var;
+        qs8 qs8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048652, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() != R.id.obfuscated_res_0x7f092325 || (ur8Var = this.k) == null) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f0923cd || (qs8Var = this.k) == null) {
                 return;
             }
-            ur8Var.i();
+            qs8Var.i();
             VideoItemData videoItemData = this.h0;
             if (videoItemData != null) {
                 this.k.e(videoItemData.thread_id, this.a);
@@ -5712,19 +5726,19 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public void onConfigurationChanged(Configuration configuration) {
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             if (this.l0 && (videoItemData = this.h0) != null) {
                 boolean z2 = ng.e(videoItemData.video_height, 0) <= ng.e(this.h0.video_width, 0);
-                vs8 vs8Var = this.Y0;
-                if (vs8Var == null || !z2) {
+                rt8 rt8Var = this.Z0;
+                if (rt8Var == null || !z2) {
                     return;
                 }
-                if (!(vs8Var.isFullScreen() && configuration.orientation == 1) && (this.Y0.isFullScreen() || configuration.orientation != 2)) {
+                if (!(rt8Var.isFullScreen() && configuration.orientation == 1) && (this.Z0.isFullScreen() || configuration.orientation != 2)) {
                     return;
                 }
                 this.h.removeView(this.i);
-                this.Y0.V(false);
+                this.Z0.V(false);
             }
         }
     }
@@ -5732,15 +5746,15 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048653, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048654, this, bundle) == null) {
             super.onCreate(bundle);
-            registerListener(this.s1);
-            registerListener(this.Z1);
+            registerListener(this.t1);
             registerListener(this.a2);
-            this.Z0 = new lr8();
-            getLifecycle().addObserver(this.y1);
-            if (this.d1 == null) {
-                this.d1 = new TiePlusEventController(getActivity(), TiePlusStat.Locate.VIDEO_MOUNT, getUniqueId());
+            registerListener(this.b2);
+            this.a1 = new hs8();
+            getLifecycle().addObserver(this.z1);
+            if (this.e1 == null) {
+                this.e1 = new TiePlusEventController(getActivity(), TiePlusStat.Locate.VIDEO_MOUNT, getUniqueId());
             }
         }
     }
@@ -5751,7 +5765,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         TbVideoViewContainer tbVideoViewContainer;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048654, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048655, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
                 VideoItemModel videoItemModel = (VideoItemModel) arguments.get("video_data");
@@ -5762,7 +5776,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 arguments.getString("page_from");
                 this.D0 = arguments.getString("from");
                 this.E0 = arguments.getString("video_channel_tab");
-                this.O0 = arguments.getString("obj_id");
+                this.P0 = arguments.getString("obj_id");
                 this.c = (BdUniqueId) arguments.getSerializable(VideoPlayActivityConfig.ACTIVITY_PAGE_UNIQUEID);
                 this.a = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
                 this.b = arguments.getBoolean(VideoPlayActivityConfig.IS_SHARE_THREAD, false);
@@ -5771,70 +5785,70 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (videoItemData != null && videoItemData.author_info != null && String.valueOf(TbadkCoreApplication.getCurrentAccountId()).equals(this.h0.author_info.user_id)) {
                 this.A0 = true;
             }
-            if (c4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-                this.f = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0865, (ViewGroup) null);
+            if (d4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
+                this.f = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0883, (ViewGroup) null);
             } else {
-                this.f = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d086c, (ViewGroup) null);
+                this.f = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d088a, (ViewGroup) null);
             }
             if (UbsABTestHelper.isFeedVideoImmersionTransition() && ((i2 = this.a) == 1 || i2 == 7)) {
                 this.f.setBackground(null);
             } else {
                 this.f.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
             }
-            this.g1 = true;
+            this.h1 = true;
             VideoItemData videoItemData2 = this.h0;
             if (videoItemData2 != null && StringUtils.isNull(videoItemData2.video_url) && !StringUtils.isNull(this.h0.thread_id)) {
-                VideoDanmuController videoDanmuController = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f0922e8, this.h0, this.a);
+                VideoDanmuController videoDanmuController = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f092390, this.h0, this.a);
                 this.j = videoDanmuController;
-                videoDanmuController.X(this.Q1);
+                videoDanmuController.X(this.R1);
                 this.j.M();
             }
-            this.f.setOnTouchListener(this.B1);
-            this.f.setOnLongClickListener(this.C1);
+            this.f.setOnTouchListener(this.C1);
+            this.f.setOnLongClickListener(this.D1);
             TbVideoViewContainer tbVideoViewContainer2 = new TbVideoViewContainer(getContext());
             this.i = tbVideoViewContainer2;
             tbVideoViewContainer2.getControl().setStageType("2005");
-            this.i.getControl().getMediaProgressObserver().j(this.D1);
-            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0922e6);
+            this.i.getControl().getMediaProgressObserver().j(this.E1);
+            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09238e);
             this.l = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.B = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091854);
-            this.C = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09230d);
-            this.D = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09230c);
-            this.l.setEvent(this.E1);
-            this.h = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092329);
-            E4();
-            this.m = this.f.findViewById(R.id.obfuscated_res_0x7f092095);
+            this.B = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0918fd);
+            this.C = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0923b5);
+            this.D = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.l.setEvent(this.F1);
+            this.h = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0923d1);
+            F4();
+            this.m = this.f.findViewById(R.id.obfuscated_res_0x7f092138);
             int statusBarHeight = UtilHelper.getStatusBarHeight();
             if (this.m.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) this.m.getLayoutParams()).topMargin = statusBarHeight;
             }
-            ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0902f4);
+            ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0902f6);
             this.n = imageView;
             imageView.setVisibility(8);
-            ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0913ff);
+            ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0914a7);
             this.o = imageView2;
             imageView2.setVisibility(8);
-            this.p = this.f.findViewById(R.id.obfuscated_res_0x7f09189d);
-            LinearLayout linearLayout = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091a00);
+            this.p = this.f.findViewById(R.id.obfuscated_res_0x7f091946);
+            LinearLayout linearLayout = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091aa8);
             this.E = linearLayout;
-            fr4 d2 = fr4.d(linearLayout);
+            ur4 d2 = ur4.d(linearLayout);
             d2.e(R.string.A_X05);
             d2.n(R.string.J_X04);
             d2.f(R.color.CAM_X0106);
-            er4 er4Var = (er4) this.E.getBackground();
-            er4Var.B(SkinManager.getColor(0, (int) R.color.CAM_X0106));
-            this.E.setBackground(er4Var);
-            this.I = (BarImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0919ef);
-            this.J = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0919dc);
+            tr4 tr4Var = (tr4) this.E.getBackground();
+            tr4Var.B(SkinManager.getColor(0, (int) R.color.CAM_X0106));
+            this.E.setBackground(tr4Var);
+            this.I = (BarImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091a97);
+            this.J = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091a84);
             this.I.setShowOval(true);
-            TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0919fc);
+            TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091aa4);
             this.K = textView;
-            fr4 d3 = fr4.d(textView);
+            ur4 d3 = ur4.d(textView);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);
-            HeadImageView headImageView = (HeadImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0902d9);
+            HeadImageView headImageView = (HeadImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0902db);
             this.q = headImageView;
             headImageView.setDefaultResource(17170445);
             this.q.setPlaceHolder(2);
@@ -5843,48 +5857,48 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             this.q.setBorderColor(R.color.CAM_X0622);
             this.q.setDrawBorder(true);
             this.q.setUseNightOrDarkMask(false);
-            C4();
-            this.r = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f092283);
-            this.s = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f0902c1);
-            this.X = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0902d7);
-            this.u = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903bb);
-            this.V = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f09130f);
-            wt4 wt4Var = new wt4();
-            UtilHelper.addFollowUserIconStyle(wt4Var);
-            wt4Var.h(R.color.CAM_X0101);
-            wt4Var.m(0, 0);
-            wt4Var.n(0);
-            wt4Var.k(true);
-            wt4Var.j(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds145), pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60));
-            this.V.setConfig(wt4Var);
-            this.V.setText(getString(R.string.obfuscated_res_0x7f0f02a4));
-            this.p0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09014d);
-            this.L = (ExpandableTextView) this.f.findViewById(R.id.obfuscated_res_0x7f092355);
-            this.M = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09202c);
-            this.N = this.f.findViewById(R.id.obfuscated_res_0x7f09202b);
-            this.O = this.f.findViewById(R.id.obfuscated_res_0x7f09203c);
-            this.P = this.f.findViewById(R.id.obfuscated_res_0x7f092358);
-            this.k0 = (VideoMiddleNiaiControllerView) this.f.findViewById(R.id.obfuscated_res_0x7f091386);
-            this.W = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0922c9);
-            this.y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090648);
-            this.Q = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090654);
-            this.q0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090652);
-            this.x = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09014c);
-            this.v = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0912af);
-            this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091c95);
-            this.b1 = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0922dc);
-            this.h1 = this.f.findViewById(R.id.obfuscated_res_0x7f092359);
-            this.i1 = this.f.findViewById(R.id.obfuscated_res_0x7f0922de);
-            if (UbsABTestHelper.isFeedVideoImmersionTransition() && !d4() && this.n0 != null) {
-                y4(8);
+            D4();
+            this.r = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f09232b);
+            this.s = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f0902c3);
+            this.X = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0902d9);
+            this.u = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903bd);
+            this.V = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f0913b5);
+            tu4 tu4Var = new tu4();
+            UtilHelper.addFollowUserIconStyle(tu4Var);
+            tu4Var.h(R.color.CAM_X0101);
+            tu4Var.m(0, 0);
+            tu4Var.n(0);
+            tu4Var.k(true);
+            tu4Var.j(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds145), pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60));
+            this.V.setConfig(tu4Var);
+            this.V.setText(getString(R.string.obfuscated_res_0x7f0f02a7));
+            this.p0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09014e);
+            this.L = (ExpandableTextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.M = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0920d1);
+            this.N = this.f.findViewById(R.id.obfuscated_res_0x7f0920d0);
+            this.O = this.f.findViewById(R.id.obfuscated_res_0x7f0920e1);
+            this.P = this.f.findViewById(R.id.obfuscated_res_0x7f092400);
+            this.k0 = (VideoMiddleNiaiControllerView) this.f.findViewById(R.id.obfuscated_res_0x7f09142c);
+            this.W = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092371);
+            this.y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09064d);
+            this.Q = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090659);
+            this.q0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090657);
+            this.x = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09014d);
+            this.v = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091355);
+            this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091d39);
+            this.c1 = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092384);
+            this.i1 = this.f.findViewById(R.id.obfuscated_res_0x7f092401);
+            this.j1 = this.f.findViewById(R.id.obfuscated_res_0x7f092386);
+            if (UbsABTestHelper.isFeedVideoImmersionTransition() && !e4() && this.n0 != null) {
+                z4(8);
                 TbImageView tbImageView2 = this.l;
                 if (tbImageView2 != null) {
                     tbImageView2.setVisibility(8);
                 }
             } else {
-                y4(0);
+                z4(0);
             }
-            v3();
+            w3();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.v.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.u.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.w.getLayoutParams();
@@ -5892,7 +5906,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (i3 != 4 && i3 != 3 && !TbSingleton.getInstance().isFromFeedVideoClick()) {
                 this.k0.q(0);
                 layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds211);
-                if (c4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
+                if (d4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
                     layoutParams2.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds145);
                     layoutParams3.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
                 } else {
@@ -5905,55 +5919,55 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 layoutParams2.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X007);
                 layoutParams3.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X007);
             }
-            this.R = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090155);
-            this.r0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            this.S = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f091cac);
-            this.T = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090801);
-            this.U = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090803);
-            this.z = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            this.A = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091c9f);
-            t4();
-            this.Y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0922c8);
-            this.Z = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0922cb);
-            this.g0 = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.s0 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0922d9);
-            this.t0 = this.f.findViewById(R.id.obfuscated_res_0x7f091993);
+            this.R = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090156);
+            this.r0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d42);
+            this.S = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f091d50);
+            this.T = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090808);
+            this.U = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f09080a);
+            this.z = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d42);
+            this.A = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091d43);
+            u4();
+            this.Y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092370);
+            this.Z = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092373);
+            this.g0 = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0923d5);
+            this.s0 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092381);
+            this.t0 = this.f.findViewById(R.id.obfuscated_res_0x7f091a3b);
             if (UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
                 this.t0.setVisibility(0);
             } else {
                 this.t0.setVisibility(8);
             }
-            this.t0.setOnClickListener(this.H1);
+            this.t0.setOnClickListener(this.I1);
             if (this.h0 != null) {
                 this.k0.setVisibility(0);
             }
             this.k0.setPlayer(this.i.getControl());
-            this.k0.setOnSeekBarChangeListener(this.F1);
-            this.u0 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091994);
-            TextView textView2 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0907f4);
+            this.k0.setOnSeekBarChangeListener(this.G1);
+            this.u0 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091a3c);
+            TextView textView2 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.j0 = textView2;
             textView2.setVisibility(8);
-            String q2 = ht4.k().q("nani_key_download_txt", null);
+            String q2 = xt4.k().q("nani_key_download_txt", null);
             if (!TextUtils.isEmpty(q2)) {
                 this.j0.setText(q2);
             }
-            this.j0.setOnClickListener(this.H1);
-            B3();
-            this.p.setOnClickListener(this.G1);
-            this.s0.setOnClickListener(this.G1);
-            this.Z.setOnClickListener(this.H1);
+            this.j0.setOnClickListener(this.I1);
+            C3();
+            this.p.setOnClickListener(this.H1);
+            this.s0.setOnClickListener(this.H1);
+            this.Z.setOnClickListener(this.I1);
             this.L.setHasDown();
-            this.L.setOnClickListener(this.H1);
-            this.n.setOnClickListener(this.H1);
-            this.o.setOnClickListener(this.H1);
-            this.y.setOnClickListener(this.H1);
-            this.x.setOnClickListener(this.I1);
-            this.w.setOnClickListener(this.J1);
-            this.V.setOnClickListener(this.K1);
+            this.L.setOnClickListener(this.I1);
+            this.n.setOnClickListener(this.I1);
+            this.o.setOnClickListener(this.I1);
+            this.y.setOnClickListener(this.I1);
+            this.x.setOnClickListener(this.J1);
+            this.w.setOnClickListener(this.K1);
+            this.V.setOnClickListener(this.L1);
             AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
             this.m0 = alphaAnimation;
             alphaAnimation.setDuration(350L);
-            this.m0.setAnimationListener(this.L1);
+            this.m0.setAnimationListener(this.M1);
             this.C.setVisibility(0);
             if (this.l0) {
                 this.k0.setLoading(true);
@@ -5969,41 +5983,41 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 this.y0 = i5;
                 this.z0 = i7;
                 if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                    this.i.post(this.N1);
+                    this.i.post(this.O1);
                 } else {
-                    this.i.post(this.M1);
+                    this.i.post(this.N1);
                 }
             } else if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                RelativeLayout relativeLayout = this.b1;
+                RelativeLayout relativeLayout = this.c1;
                 if (relativeLayout != null) {
                     relativeLayout.setVisibility(0);
-                    this.b1.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
+                    this.c1.setBackground(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0611));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921665, Boolean.TRUE));
             }
-            X3();
+            Y3();
             if (this.l0) {
-                I3();
+                J3();
             }
             VideoItemData videoItemData3 = this.h0;
             if (videoItemData3 != null && (!StringUtils.isNull(videoItemData3.video_url) || !StringUtils.isNull(this.h0.thread_id))) {
-                H4(this.h0.video_url);
+                I4(this.h0.video_url);
                 if (UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-                    VideoDanmuController videoDanmuController2 = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f0922e8, this.h0, this.a);
+                    VideoDanmuController videoDanmuController2 = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f092390, this.h0, this.a);
                     this.j = videoDanmuController2;
-                    videoDanmuController2.P(this.A1);
+                    videoDanmuController2.P(this.B1);
                 }
             }
             if (UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-                ur8 ur8Var = new ur8(this.f, R.id.obfuscated_res_0x7f092325);
-                this.k = ur8Var;
-                ur8Var.g(this);
-                this.k.h(this.O1);
+                qs8 qs8Var = new qs8(this.f, R.id.obfuscated_res_0x7f0923cd);
+                this.k = qs8Var;
+                qs8Var.g(this);
+                this.k.h(this.P1);
             }
-            vs8 vs8Var = new vs8(getPageContext(), getUniqueId(), this.h, this.a);
-            this.Y0 = vs8Var;
-            vs8Var.setStageType("2005");
-            this.Y0.setUniqueId(getUniqueId());
+            rt8 rt8Var = new rt8(getPageContext(), getUniqueId(), this.h, this.a);
+            this.Z0 = rt8Var;
+            rt8Var.setStageType("2005");
+            this.Z0.setUniqueId(getUniqueId());
             VideoItemData videoItemData4 = this.h0;
             if (videoItemData4 != null && videoItemData4.threadData == null) {
                 videoItemData4.threadData = new ThreadData();
@@ -6024,13 +6038,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             }
             VideoItemData videoItemData7 = this.h0;
             if (videoItemData7 != null) {
-                G4(videoItemData7, this.Y0, this.j);
+                H4(videoItemData7, this.Z0, this.j);
             }
             if (TbSingleton.getInstance().isEnableVideoVerticalPreload()) {
                 if (UbsABTestHelper.isVideoSetUrlAgainABTest()) {
-                    qg.a().post(this.n1);
-                } else if (this.T0 != 0) {
-                    qg.a().post(this.n1);
+                    qg.a().post(this.o1);
+                } else if (this.U0 != 0) {
+                    qg.a().post(this.o1);
                 }
             }
             return this.f;
@@ -6042,50 +6056,50 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public void onDestroy() {
         TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
-            if (!this.j1) {
+        if (interceptable == null || interceptable.invokeV(1048656, this) == null) {
+            if (!this.k1) {
                 stopPlay();
             }
-            if (!getActivity().isFinishing() && (tbVideoViewContainer = this.i) != null && (tbVideoViewContainer.getControl() instanceof TbVideoView) && (this.i.getControl().getPlayer() instanceof r58)) {
-                ((r58) this.i.getControl().getPlayer()).release();
+            if (!getActivity().isFinishing() && (tbVideoViewContainer = this.i) != null && (tbVideoViewContainer.getControl() instanceof TbVideoView) && (this.i.getControl().getPlayer() instanceof m68)) {
+                ((m68) this.i.getControl().getPlayer()).release();
             }
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.s1);
-            MessageManager.getInstance().unRegisterListener(this.Z1);
+            MessageManager.getInstance().unRegisterListener(this.t1);
             MessageManager.getInstance().unRegisterListener(this.a2);
-            if (this.X1 != null) {
-                qg.a().removeCallbacks(this.X1);
-                this.X1 = null;
+            MessageManager.getInstance().unRegisterListener(this.b2);
+            if (this.Y1 != null) {
+                qg.a().removeCallbacks(this.Y1);
+                this.Y1 = null;
             }
-            lr8 lr8Var = this.Z0;
-            if (lr8Var != null) {
-                lr8Var.b();
+            hs8 hs8Var = this.a1;
+            if (hs8Var != null) {
+                hs8Var.b();
             }
-            qg.a().removeCallbacks(this.n1);
-            getLifecycle().removeObserver(this.y1);
+            qg.a().removeCallbacks(this.o1);
+            getLifecycle().removeObserver(this.z1);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048656, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
             super.onDestroyView();
             VideoDanmuController videoDanmuController = this.j;
             if (videoDanmuController != null) {
                 videoDanmuController.T();
             }
-            ur8 ur8Var = this.k;
-            if (ur8Var != null) {
-                ur8Var.f();
+            qs8 qs8Var = this.k;
+            if (qs8Var != null) {
+                qs8Var.f();
             }
-            vs8 vs8Var = this.Y0;
-            if (vs8Var != null) {
-                vs8Var.G0();
+            rt8 rt8Var = this.Z0;
+            if (rt8Var != null) {
+                rt8Var.F0();
             }
-            xr8 xr8Var = this.V0;
-            if (xr8Var != null) {
-                xr8Var.n();
+            ts8 ts8Var = this.W0;
+            if (ts8Var != null) {
+                ts8Var.n();
             }
             VideoMiddleNiaiControllerView videoMiddleNiaiControllerView = this.k0;
             if (videoMiddleNiaiControllerView != null) {
@@ -6135,24 +6149,24 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (view3 != null) {
                 view3.setOnClickListener(null);
             }
-            qg.a().removeCallbacks(this.n1);
+            qg.a().removeCallbacks(this.o1);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
             super.onPause();
-            if (!this.Q0) {
-                o4();
+            if (!this.R0) {
+                p4();
             }
-            if (UbsABTestHelper.isFeedVideoImmersionTransition() && !d4() && getActivity().isFinishing()) {
-                E3();
-                this.j1 = true;
+            if (UbsABTestHelper.isFeedVideoImmersionTransition() && !e4() && getActivity().isFinishing()) {
+                F3();
+                this.k1 = true;
             }
-            V3();
-            TiePlusEventController tiePlusEventController = this.d1;
+            W3();
+            TiePlusEventController tiePlusEventController = this.e1;
             if (tiePlusEventController != null) {
                 tiePlusEventController.onPause();
             }
@@ -6163,17 +6177,17 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public void onPrimary() {
         AlaInfoData alaInfoData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
             super.onPrimary();
             if (isResumed() && this.l0) {
                 VideoItemData videoItemData = this.h0;
                 if (videoItemData != null && !StringUtils.isNull(videoItemData.video_url)) {
                     if (this.l0) {
-                        s4();
-                        u4();
-                        r4(0);
+                        t4();
+                        v4();
+                        s4(0);
                     } else {
-                        o4();
+                        p4();
                     }
                 }
                 VideoItemData videoItemData2 = this.h0;
@@ -6190,26 +6204,28 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 TiebaStatic.log(statisticItem);
                 return;
             }
-            o4();
-            V3();
-            this.g1 = true;
+            p4();
+            W3();
+            this.h1 = true;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048660, this) == null) {
             super.onResume();
-            if (this.c1) {
-                this.c1 = false;
-                qg.a().removeCallbacks(this.n1);
-                r4(1);
+            if (this.d1) {
+                this.d1 = false;
+                qg.a().removeCallbacks(this.o1);
+                s4(1);
                 startPlay();
-                I3();
-                this.R0 = false;
+                if (this.n0 == null) {
+                    J3();
+                }
+                this.S0 = false;
             }
-            TiePlusEventController tiePlusEventController = this.d1;
+            TiePlusEventController tiePlusEventController = this.e1;
             if (tiePlusEventController != null) {
                 tiePlusEventController.onResume();
             }
@@ -6219,10 +6235,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048660, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
             super.onStart();
-            if (this.Q0) {
-                u4();
+            if (this.R0) {
+                v4();
             }
         }
     }
@@ -6231,9 +6247,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     public void onStatusChange(OnStatusChangedListener.VideoStatus videoStatus) {
         VideoMiddleNiaiControllerView videoMiddleNiaiControllerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, videoStatus) == null) {
+        if (interceptable == null || interceptable.invokeL(1048662, this, videoStatus) == null) {
             if (videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_PREPARED) {
-                D4();
+                E4();
             }
             if (videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_PLAYING) {
                 RelativeLayout relativeLayout = this.C;
@@ -6244,7 +6260,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 if (videoMiddleNiaiControllerView2 != null) {
                     videoMiddleNiaiControllerView2.setLoading(false);
                 }
-                g1 g1Var = this.X0;
+                g1 g1Var = this.Y0;
                 if (g1Var != null) {
                     g1Var.onStart();
                 }
@@ -6257,7 +6273,7 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.l.setVisibility(8);
                 }
                 if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                    y4(0);
+                    z4(0);
                 }
                 if (!TbSingleton.getInstance().isEnableVideoVerticalPreload()) {
                     TbSingleton.getInstance().setEnableVideoVerticalPreload(true);
@@ -6284,20 +6300,20 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
             super.onStop();
-            o4();
-            V3();
-            qg.a().removeCallbacks(this.n1);
+            p4();
+            W3();
+            qg.a().removeCallbacks(this.o1);
         }
     }
 
-    @Override // com.repackage.xg5.b
+    @Override // com.repackage.ai5.b
     public void onViewClick() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
-            if (i4()) {
-                V3();
+        if (interceptable == null || interceptable.invokeV(1048664, this) == null) {
+            if (j4()) {
+                W3();
                 return;
             }
             TbVideoViewContainer tbVideoViewContainer = this.i;
@@ -6305,50 +6321,50 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 return;
             }
             if (this.i.getControl().getVideoStatus() != OnStatusChangedListener.VideoStatus.VIDEO_BUFFERING && this.i.getControl().getVideoStatus() != OnStatusChangedListener.VideoStatus.VIDEO_PLAYING) {
-                if (this.i.getControl().getVideoStatus() != OnStatusChangedListener.VideoStatus.VIDEO_PAUSING || Q4()) {
+                if (this.i.getControl().getVideoStatus() != OnStatusChangedListener.VideoStatus.VIDEO_PAUSING || R4()) {
                     return;
                 }
                 this.i.getControl().start();
                 this.B.setVisibility(8);
-                z3(true);
+                A3(true);
                 this.k0.p();
                 if (isResumed() && this.l0) {
                     return;
                 }
-                o4();
+                p4();
                 return;
             }
             this.i.getControl().pause();
-            A4();
-            z3(false);
-            qg.a().removeCallbacks(this.X1);
-            J3(4);
+            B4();
+            A3(false);
+            qg.a().removeCallbacks(this.Y1);
+            K3(4);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048664, this, view2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048665, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            B3();
-            F4();
+            C3();
+            G4();
         }
     }
 
-    @Override // com.repackage.xg5.b
+    @Override // com.repackage.ai5.b
     public void onViewDragToRight() {
         VideoItemData videoItemData;
         UserItemData userItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048665, this) == null) || g4() || i4() || (videoItemData = this.h0) == null || (userItemData = videoItemData.author_info) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048666, this) == null) || h4() || j4() || (videoItemData = this.h0) == null || (userItemData = videoItemData.author_info) == null) {
             return;
         }
         long g2 = ng.g(userItemData.user_id, 0L);
         long g3 = ng.g(TbadkCoreApplication.getCurrentAccount(), 0L);
         int i2 = 1;
         boolean z2 = (g2 == 0 && g3 == 0) ? false : g2 == g3;
-        vr8.a();
+        rs8.a();
         String str = this.h0.author_info.portrait;
         PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
         int i3 = this.a;
@@ -6377,9 +6393,25 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
     }
 
     public final void p4() {
+        TbVideoViewContainer tbVideoViewContainer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048667, this) == null) || (tbVideoViewContainer = this.i) == null || tbVideoViewContainer.getControl() == null) {
+            return;
+        }
+        this.i.getControl().q();
+    }
+
+    @Override // com.repackage.qt8
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) ? this.U0 : invokeV.intValue;
+    }
+
+    public final void q4() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048666, this) == null) || (tBLottieAnimationView = this.s) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048669, this) == null) || (tBLottieAnimationView = this.s) == null) {
             return;
         }
         tBLottieAnimationView.setVisibility(0);
@@ -6391,19 +6423,12 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         this.s.playAnimation();
     }
 
-    @Override // com.repackage.us8
-    public int q() {
-        InterceptResult invokeV;
+    public final void r4(int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? this.T0 : invokeV.intValue;
-    }
-
-    public final void q4(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048668, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048670, this, i2, i3) == null) {
             VideoItemData videoItemData = this.h0;
             if (!(videoItemData == null && videoItemData.video_url == null) && i2 > this.h0.video_duration * 1000) {
-                this.g1 = false;
+                this.h1 = false;
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FROM_VIDEO_MIDDLE_PTS);
                 statisticItem.param("obj_id", this.h0.video_url);
                 TiebaStatic.log(statisticItem);
@@ -6411,9 +6436,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void r4(int i2) {
+    public final void s4(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048669, this, i2) == null) && this.h0 != null && this.n0 == null) {
+        if ((interceptable == null || interceptable.invokeI(1048671, this, i2) == null) && this.h0 != null && this.n0 == null) {
             StatisticItem statisticItem = new StatisticItem("c12794");
             statisticItem.param("tid", this.h0.thread_id);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -6430,76 +6455,33 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void s4() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048670, this) == null) || this.h0 == null) {
-            return;
-        }
-        x58 x58Var = new x58();
-        x58Var.a = "nani_midpage";
-        VideoItemData videoItemData = this.h0;
-        x58Var.c = videoItemData.thread_id;
-        x58Var.t = videoItemData.nid;
-        x58Var.d = this.h0.forum_id + "";
-        x58Var.e = TbadkCoreApplication.getCurrentAccount();
-        VideoItemData videoItemData2 = this.h0;
-        x58Var.f = videoItemData2.mRecomSource;
-        x58Var.g = videoItemData2.mRecomAbTag;
-        x58Var.h = videoItemData2.mRecomWeight;
-        x58Var.i = "";
-        x58Var.k = "";
-        x58Var.m = videoItemData2.mMd5;
-        x58Var.x = videoItemData2.getChannelMidRequestNum();
-        x58Var.y = this.h0.getChannelMidRequestVideoNum();
-        if (this.n0 != null) {
-            x58Var.n = "1";
-        } else {
-            x58Var.n = "2";
-        }
-        int i2 = this.a;
-        if (i2 == 1 || i2 == 2) {
-            x58Var.p = "1";
-            x58Var.a = "auto_midpage";
-            x58Var.i = "index";
-        }
-        m58.e(this.h0.mMd5, "", "1", x58Var, this.i.getControl().getPcdnState());
-        int i3 = this.a;
-        if (i3 == 1 || i3 == 3) {
-            rr8.c(this.h0.mMd5);
-        } else if (i3 == 2 || i3 == 4) {
-            rr8.a(this.h0.mMd5);
-        } else if (i3 == 7) {
-            rr8.b(this.h0.mMd5);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z2) {
-        xf5 xf5Var;
+        ah5 ah5Var;
         TbVideoViewContainer tbVideoViewContainer;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048671, this, z2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048672, this, z2) == null) {
             super.setUserVisibleHint(z2);
             this.l0 = z2;
-            if (this.Y0 != null && (videoItemData = this.h0) != null) {
-                this.Y0.X(this.l0 && (ng.e(videoItemData.video_height, 0) <= ng.e(this.h0.video_width, 0)));
+            if (this.Z0 != null && (videoItemData = this.h0) != null) {
+                this.Z0.X(this.l0 && (ng.e(videoItemData.video_height, 0) <= ng.e(this.h0.video_width, 0)));
             }
-            if (!isResumed() && this.l0 && m4()) {
-                this.c1 = true;
+            if (!isResumed() && this.l0 && n4()) {
+                this.d1 = true;
             }
-            if (isResumed() && this.l0 && (!this.R0 || Build.VERSION.SDK_INT < 24 || !getBaseFragmentActivity().isInMultiWindowMode())) {
-                r4(1);
+            if (isResumed() && this.l0 && (!this.S0 || Build.VERSION.SDK_INT < 24 || !getBaseFragmentActivity().isInMultiWindowMode())) {
+                s4(1);
                 startPlay();
                 if (this.n0 == null) {
-                    I3();
+                    J3();
                 }
-                this.R0 = false;
-            } else if (!this.Q0) {
-                t4();
-                this.S0 = 1;
-                o4();
-                Y4();
+                this.S0 = false;
+            } else if (!this.R0) {
+                u4();
+                this.T0 = 1;
+                p4();
+                Z4();
             }
             if (this.k0 != null) {
                 if (this.l0 && isResumed() && (tbVideoViewContainer = this.i) != null && tbVideoViewContainer.getControl() != null && this.i.getControl().getVideoStatus() != OnStatusChangedListener.VideoStatus.VIDEO_PLAYING) {
@@ -6508,29 +6490,29 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                     this.k0.setLoading(false);
                 }
             }
-            if (!this.l0 || this.e1 || (xf5Var = this.f1) == null || this.d1 == null) {
+            if (!this.l0 || this.f1 || (ah5Var = this.g1) == null || this.e1 == null) {
                 return;
             }
-            xf5Var.q(TiePlusStat.StatType.EXPOSE);
-            this.d1.o(this.f1);
-            this.e1 = true;
+            ah5Var.q(TiePlusStat.StatType.EXPOSE);
+            this.e1.o(this.g1);
+            this.f1 = true;
         }
     }
 
     public final void startPlay() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048672, this) == null) || Q4()) {
+        if (!(interceptable == null || interceptable.invokeV(1048673, this) == null) || R4()) {
             return;
         }
-        N4();
+        O4();
         ImageView imageView = this.B;
         if (imageView != null) {
             imageView.setVisibility(8);
         }
         TbVideoViewContainer tbVideoViewContainer = this.i;
         if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null && this.B != null && this.h0 != null && this.i.getParent() == null) {
-            E4();
             F4();
+            G4();
         }
         if (Build.VERSION.SDK_INT < 17 && this.l.getVisibility() == 0) {
             this.l.clearAnimation();
@@ -6544,42 +6526,85 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (!UbsABTestHelper.isVideoSetUrlAgainABTest()) {
                 this.i.getControl().setIsVolume0(false);
             }
-            this.i.getControl().p(this.o1);
+            this.i.getControl().p(this.p1);
             VideoDanmuController videoDanmuController = this.j;
             if (videoDanmuController != null) {
                 videoDanmuController.a0();
             }
             this.k0.p();
-            s4();
+            t4();
         }
-        if (this.Q0) {
+        if (this.R0) {
             return;
         }
-        if ((isResumed() && this.l0) || m4()) {
+        if ((isResumed() && this.l0) || n4()) {
             return;
         }
-        o4();
+        p4();
         VideoDanmuController videoDanmuController2 = this.j;
         if (videoDanmuController2 != null) {
             videoDanmuController2.R();
         }
         if (this.B != null) {
-            A4();
+            B4();
         }
     }
 
     public final void stopPlay() {
         TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048673, this) == null) || (tbVideoViewContainer = this.i) == null || tbVideoViewContainer.getControl() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048674, this) == null) || (tbVideoViewContainer = this.i) == null || tbVideoViewContainer.getControl() == null) {
             return;
         }
         this.i.getControl().stopPlayback();
     }
 
-    public final void t3(ShareItem shareItem) {
+    public final void t4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048674, this, shareItem) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048675, this) == null) || this.h0 == null) {
+            return;
+        }
+        s68 s68Var = new s68();
+        s68Var.a = "nani_midpage";
+        VideoItemData videoItemData = this.h0;
+        s68Var.c = videoItemData.thread_id;
+        s68Var.t = videoItemData.nid;
+        s68Var.d = this.h0.forum_id + "";
+        s68Var.e = TbadkCoreApplication.getCurrentAccount();
+        VideoItemData videoItemData2 = this.h0;
+        s68Var.f = videoItemData2.mRecomSource;
+        s68Var.g = videoItemData2.mRecomAbTag;
+        s68Var.h = videoItemData2.mRecomWeight;
+        s68Var.i = "";
+        s68Var.k = "";
+        s68Var.m = videoItemData2.mMd5;
+        s68Var.x = videoItemData2.getChannelMidRequestNum();
+        s68Var.y = this.h0.getChannelMidRequestVideoNum();
+        if (this.n0 != null) {
+            s68Var.n = "1";
+        } else {
+            s68Var.n = "2";
+        }
+        int i2 = this.a;
+        if (i2 == 1 || i2 == 2) {
+            s68Var.p = "1";
+            s68Var.a = "auto_midpage";
+            s68Var.i = "index";
+        }
+        h68.e(this.h0.mMd5, "", "1", s68Var, this.i.getControl().getPcdnState());
+        int i3 = this.a;
+        if (i3 == 1 || i3 == 3) {
+            ns8.c(this.h0.mMd5);
+        } else if (i3 == 2 || i3 == 4) {
+            ns8.a(this.h0.mMd5);
+        } else if (i3 == 7) {
+            ns8.b(this.h0.mMd5);
+        }
+    }
+
+    public final void u3(ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048676, this, shareItem) == null) {
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_duration = Integer.valueOf(this.h0.video_duration);
             builder.play_count = Integer.valueOf(this.h0.play_count);
@@ -6591,10 +6616,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void t4() {
+    public final void u4() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048675, this) == null) || this.A == null || (imageView = this.z) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048677, this) == null) || this.A == null || (imageView = this.z) == null) {
             return;
         }
         imageView.clearAnimation();
@@ -6603,13 +6628,13 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         this.A.setVisibility(8);
     }
 
-    public final void u3(boolean z2) {
-        xr8 xr8Var;
+    public final void v3(boolean z2) {
+        ts8 ts8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048676, this, z2) == null) || (xr8Var = this.V0) == null || xr8Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048678, this, z2) == null) || (ts8Var = this.W0) == null || ts8Var.a() == null) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.V0.a().getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.W0.a().getLayoutParams();
         int i2 = 0;
         if (!z2) {
             int i3 = this.a;
@@ -6620,19 +6645,19 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             }
         }
         layoutParams.bottomMargin = i2;
-        this.V0.a().requestLayout();
+        this.W0.a().requestLayout();
     }
 
-    public final void u4() {
+    public final void v4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048677, this) == null) || Q4()) {
+        if (!(interceptable == null || interceptable.invokeV(1048679, this) == null) || R4()) {
             return;
         }
         TbVideoViewContainer tbVideoViewContainer = this.i;
         if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null && this.B != null && this.h0 != null) {
             if (this.i.getParent() == null) {
-                E4();
                 F4();
+                G4();
             }
             VideoMiddleNiaiControllerView videoMiddleNiaiControllerView = this.k0;
             if (videoMiddleNiaiControllerView != null) {
@@ -6641,58 +6666,58 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (!UbsABTestHelper.isVideoSetUrlAgainABTest()) {
                 this.i.getControl().setIsVolume0(false);
             }
-            this.i.getControl().p(this.o1);
+            this.i.getControl().p(this.p1);
             this.k0.p();
             this.B.setVisibility(8);
-            N4();
+            O4();
         }
-        if (isResumed() && this.l0 && m4()) {
+        if (isResumed() && this.l0 && n4()) {
             return;
         }
-        o4();
+        p4();
         if (this.B != null) {
-            A4();
+            B4();
         }
     }
 
-    public final void v3() {
+    public final void w3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048678, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048680, this) == null) {
             int i2 = this.a;
             if (i2 != 4 && i2 != 3) {
-                v4(UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
+                w4(UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
             } else {
-                v4(0);
+                w4(0);
             }
         }
     }
 
-    public final void v4(int i2) {
+    public final void w4(int i2) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048679, this, i2) == null) || (view2 = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048681, this, i2) == null) || (view2 = this.f) == null) {
             return;
         }
         view2.setPadding(0, 0, 0, i2);
     }
 
-    public final void w3() {
+    public final void x3() {
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048680, this) == null) || (videoItemData = this.h0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048682, this) == null) || (videoItemData = this.h0) == null) {
             return;
         }
         if ("1".equals(videoItemData.is_agreed)) {
-            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080a, WebPManager.ResourceStateType.NORMAL));
+            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080813, WebPManager.ResourceStateType.NORMAL));
         } else {
-            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080808, WebPManager.ResourceStateType.NORMAL));
+            this.p0.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080811, WebPManager.ResourceStateType.NORMAL));
         }
-        B4(ng.g(this.h0.agree_num, 0L), this.R);
+        C4(ng.g(this.h0.agree_num, 0L), this.R);
     }
 
-    public final void w4(int i2) {
+    public final void x4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048681, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048683, this, i2) == null) {
             this.x.setVisibility(i2);
             this.X.setVisibility(i2);
             this.y.setVisibility(i2);
@@ -6701,10 +6726,10 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void x3() {
+    public final void y3() {
         UserItemData userItemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048682, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048684, this) == null) {
             VideoItemData videoItemData = this.h0;
             if (videoItemData != null && (userItemData = videoItemData.author_info) != null && !this.A0 && (userItemData == null || !"1".equals(userItemData.is_follow))) {
                 this.V.setVisibility(0);
@@ -6716,9 +6741,9 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public final void x4(float f2) {
+    public final void y4(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048683, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048685, this, f2) == null) {
             LinearLayout linearLayout = this.u;
             if (linearLayout != null) {
                 linearLayout.setVisibility(0);
@@ -6739,15 +6764,15 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
                 linearLayout3.setVisibility(0);
                 this.w.setAlpha(f2);
             }
-            View view2 = this.h1;
+            View view2 = this.i1;
             if (view2 != null) {
                 view2.setVisibility(0);
-                this.h1.setAlpha(f2);
+                this.i1.setAlpha(f2);
             }
-            View view3 = this.i1;
+            View view3 = this.j1;
             if (view3 != null) {
                 view3.setVisibility(0);
-                this.i1.setAlpha(f2);
+                this.j1.setAlpha(f2);
             }
             View view4 = this.m;
             if (view4 != null) {
@@ -6762,18 +6787,18 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
         }
     }
 
-    public void y3(int i2) {
-        xr8 xr8Var;
+    public void z3(int i2) {
+        ts8 ts8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048684, this, i2) == null) || (xr8Var = this.V0) == null || xr8Var.a() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048686, this, i2) == null) || (ts8Var = this.W0) == null || ts8Var.a() == null) {
             return;
         }
-        this.V0.a().w(i2);
+        this.W0.a().w(i2);
     }
 
-    public final void y4(int i2) {
+    public final void z4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048685, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048687, this, i2) == null) {
             LinearLayout linearLayout = this.u;
             if (linearLayout != null) {
                 linearLayout.setVisibility(i2);
@@ -6790,11 +6815,11 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (linearLayout3 != null) {
                 linearLayout3.setVisibility(i2);
             }
-            View view2 = this.h1;
+            View view2 = this.i1;
             if (view2 != null) {
                 view2.setVisibility(i2);
             }
-            View view3 = this.i1;
+            View view3 = this.j1;
             if (view3 != null) {
                 view3.setVisibility(i2);
             }
@@ -6806,23 +6831,6 @@ public class VideoPlayFragment extends BaseFragment implements xg5.b, us8, OnSta
             if (view5 != null) {
                 view5.setVisibility(i2);
             }
-        }
-    }
-
-    public final void z3(boolean z2) {
-        VideoMiddleNiaiControllerView videoMiddleNiaiControllerView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048686, this, z2) == null) || (videoMiddleNiaiControllerView = this.k0) == null) {
-            return;
-        }
-        int i2 = this.a;
-        videoMiddleNiaiControllerView.setBottomBarShow(z2, (i2 == 3 || i2 == 4 || TbSingleton.getInstance().isFromFeedVideoClick()) ? 1 : 0);
-    }
-
-    public void z4(k58.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048687, this, cVar) == null) {
-            this.W0 = cVar;
         }
     }
 }

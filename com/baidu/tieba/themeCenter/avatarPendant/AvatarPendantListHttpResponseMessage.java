@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rm8;
-import com.repackage.tn8;
+import com.repackage.nn8;
+import com.repackage.po8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +21,8 @@ import tbclient.GetPendantByCategory.ThemePendantInMain;
 public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rm8> mAvatarPendantList;
-    public tn8 mRecommand;
+    public List<nn8> mAvatarPendantList;
+    public po8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListHttpResponseMessage(int i) {
@@ -44,16 +44,16 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
         }
     }
 
-    public List<rm8> getAvatarPendantListList() {
+    public List<nn8> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAvatarPendantList : (List) invokeV.objValue;
     }
 
-    public tn8 getRecommand() {
+    public po8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (tn8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (po8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,17 +74,17 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
             return;
         }
         if (dataRes.recommend != null) {
-            tn8 tn8Var = new tn8();
-            this.mRecommand = tn8Var;
-            tn8Var.d(getPendantByCategoryResIdl.data.recommend);
+            po8 po8Var = new po8();
+            this.mRecommand = po8Var;
+            po8Var.d(getPendantByCategoryResIdl.data.recommend);
         }
         if (getPendantByCategoryResIdl.data.pendant != null) {
             this.mAvatarPendantList = new ArrayList();
             for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                 if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                    rm8 rm8Var = new rm8();
-                    rm8Var.c(themePendantInMain);
-                    this.mAvatarPendantList.add(rm8Var);
+                    nn8 nn8Var = new nn8();
+                    nn8Var.c(themePendantInMain);
+                    this.mAvatarPendantList.add(nn8Var);
                 }
             }
         }

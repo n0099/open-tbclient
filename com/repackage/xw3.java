@@ -1,27 +1,84 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes7.dex */
 public class xw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ww3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ww3 a() {
+    @Inject(force = false)
+    public static nx3 a() {
         InterceptResult invokeV;
-        ww3 ww3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (xw3.class) {
-                if (a == null) {
-                    a = new ww3();
-                }
-                ww3Var = a;
-            }
-            return ww3Var;
-        }
-        return (ww3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? dn5.a() : (nx3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static sx3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new bx3() : (sx3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static rx3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new ax3() : (rx3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static ox3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? hq3.a() : (ox3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static qx3 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mq3.a() : (qx3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static px3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? jq3.a() : (px3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static tx3 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new cx3() : (tx3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static ux3 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new dx3() : (ux3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static vx3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new ex3() : (vx3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static wx3 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new fx3() : (wx3) invokeV.objValue;
     }
 }

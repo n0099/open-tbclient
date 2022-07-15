@@ -1,92 +1,271 @@
 package com.kwad.sdk.core.e;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.reward.a;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tbadk.core.util.RomTypeUtil;
+import com.kwad.sdk.core.e.kwai.b;
+import com.kwad.sdk.core.e.kwai.c;
+import com.kwad.sdk.core.e.kwai.d;
+import com.kwad.sdk.core.e.kwai.e;
+import com.kwad.sdk.core.e.kwai.h;
+import com.kwad.sdk.core.e.kwai.i;
+import com.kwad.sdk.core.e.kwai.j;
+import com.kwad.sdk.oaid.OADIDSDKHelper;
+import com.kwad.sdk.oaid.OADIDSDKHelper25;
+import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.service.kwai.f;
+import com.kwad.sdk.utils.an;
+import com.kwad.sdk.utils.au;
+import com.kwad.sdk.utils.g;
 /* loaded from: classes5.dex */
-public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.h.a {
-    public T mCallerContext;
-    public Presenter mPresenter;
-    public View mRootView;
+public final class a {
+    public static String a = "";
+    public static boolean b;
+    public static boolean c;
 
-    private void notifyOnCreate() {
-        T t = this.mCallerContext;
-        if (t == null) {
+    public static String a(Context context) {
+        if (!an.i() || TextUtils.isEmpty(an.j())) {
+            if (TextUtils.isEmpty(a)) {
+                if (an.i() || ((f) ServiceProvider.a(f.class)).a(2048L)) {
+                    return a;
+                }
+                b(context);
+                return a;
+            }
+            return a;
+        }
+        return an.j();
+    }
+
+    public static /* synthetic */ void a() {
+    }
+
+    public static void b(Context context) {
+        if (!TextUtils.isEmpty(a) || context == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.a) {
-            aVar.a(this);
+        c(context);
+        if (OADIDSDKHelper.isSupport()) {
+            OADIDSDKHelper.getOAId(context, new OADIDSDKHelper.a() { // from class: com.kwad.sdk.core.e.a.1
+                @Override // com.kwad.sdk.oaid.OADIDSDKHelper.a
+                public final void a(String str) {
+                    String unused = a.a = str;
+                    a.a();
+                }
+            });
+        } else if (OADIDSDKHelper25.isSupport()) {
+            OADIDSDKHelper25.getOAId(context, new OADIDSDKHelper25.a() { // from class: com.kwad.sdk.core.e.a.2
+                @Override // com.kwad.sdk.oaid.OADIDSDKHelper25.a
+                public final void a(String str) {
+                    String unused = a.a = str;
+                    a.a();
+                }
+            });
         }
     }
 
-    private void notifyOnDestroy() {
-        T t = this.mCallerContext;
-        if (t == null) {
+    public static void c(Context context) {
+        if (!TextUtils.isEmpty(a) || context == null || b) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.a) {
-            aVar.d(this);
-        }
-    }
-
-    private void notifyOnPause() {
-        T t = this.mCallerContext;
-        if (t == null) {
+        b = true;
+        if (c) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.a) {
-            aVar.c(this);
-        }
+        final Context applicationContext = context.getApplicationContext();
+        g.a(new Runnable() { // from class: com.kwad.sdk.core.e.a.3
+            /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+            @Override // java.lang.Runnable
+            public final void run() {
+                char c2;
+                String a2;
+                j jVar;
+                String upperCase = Build.MANUFACTURER.toUpperCase();
+                switch (upperCase.hashCode()) {
+                    case -2053026509:
+                        if (upperCase.equals("LENOVO")) {
+                            c2 = 6;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -1712043046:
+                        if (upperCase.equals("SAMSUNG")) {
+                            c2 = '\n';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -1706170181:
+                        if (upperCase.equals("XIAOMI")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -1134767290:
+                        if (upperCase.equals("BLACKSHARK")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case -602397472:
+                        if (upperCase.equals(RomTypeUtil.ROM_ONEPLUS)) {
+                            c2 = 4;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 89163:
+                        if (upperCase.equals("ZTE")) {
+                            c2 = '\f';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 2018896:
+                        if (upperCase.equals("ASUS")) {
+                            c2 = 11;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 2432928:
+                        if (upperCase.equals("OPPO")) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 2555124:
+                        if (upperCase.equals("SSUI")) {
+                            c2 = 14;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 2634924:
+                        if (upperCase.equals("VIVO")) {
+                            c2 = 5;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 73239724:
+                        if (upperCase.equals("MEIZU")) {
+                            c2 = '\b';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 74632627:
+                        if (upperCase.equals(RomUtils.ROM_NUBIA)) {
+                            c2 = '\t';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 630905871:
+                        if (upperCase.equals("MOTOLORA")) {
+                            c2 = 7;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 976565563:
+                        if (upperCase.equals("FERRMEOS")) {
+                            c2 = '\r';
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 2141820391:
+                        if (upperCase.equals("HUAWEI")) {
+                            c2 = 0;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    default:
+                        c2 = 65535;
+                        break;
+                }
+                switch (c2) {
+                    case 0:
+                        a2 = new b(applicationContext).a();
+                        String unused = a.a = a2;
+                        break;
+                    case 1:
+                    case 2:
+                        a2 = new i(applicationContext).a();
+                        String unused2 = a.a = a2;
+                        break;
+                    case 3:
+                    case 4:
+                        a2 = new com.kwad.sdk.core.e.kwai.f(applicationContext).a();
+                        String unused22 = a.a = a2;
+                        break;
+                    case 5:
+                        a2 = new h(applicationContext).a();
+                        String unused222 = a.a = a2;
+                        break;
+                    case 6:
+                    case 7:
+                        a2 = new c(applicationContext).a();
+                        String unused2222 = a.a = a2;
+                        break;
+                    case '\b':
+                        a2 = new d(applicationContext).a();
+                        String unused22222 = a.a = a2;
+                        break;
+                    case '\t':
+                        a2 = new e(applicationContext).a();
+                        String unused222222 = a.a = a2;
+                        break;
+                    case '\n':
+                        a2 = new com.kwad.sdk.core.e.kwai.g(applicationContext).a();
+                        String unused2222222 = a.a = a2;
+                        break;
+                    case 11:
+                        a2 = new com.kwad.sdk.core.e.kwai.a(applicationContext).a();
+                        String unused22222222 = a.a = a2;
+                        break;
+                    case '\f':
+                    case '\r':
+                    case 14:
+                        jVar = new j(applicationContext);
+                        a2 = jVar.a();
+                        String unused222222222 = a.a = a2;
+                        break;
+                    default:
+                        if (a.e() || a.f()) {
+                            jVar = new j(applicationContext);
+                            a2 = jVar.a();
+                            String unused2222222222 = a.a = a2;
+                            break;
+                        }
+                        break;
+                }
+                com.kwad.sdk.core.d.b.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.a);
+                if (TextUtils.isEmpty(a.a)) {
+                    boolean unused3 = a.c = true;
+                }
+                a.a();
+                boolean unused4 = a.b = false;
+            }
+        });
     }
 
-    private void notifyOnResume() {
-        T t = this.mCallerContext;
-        if (t == null) {
-            return;
-        }
-        for (com.kwad.sdk.reward.a.a aVar : t.a) {
-            aVar.b(this);
-        }
+    public static boolean e() {
+        String a2 = au.a("ro.build.freeme.label");
+        return !TextUtils.isEmpty(a2) && a2.equalsIgnoreCase("FREEMEOS");
     }
 
-    public void onActivityCreated(@NonNull View view2) {
-        this.mRootView = view2;
-        this.mCallerContext = onCreateCallerContext();
-        if (this.mPresenter == null) {
-            Presenter onCreatePresenter = onCreatePresenter();
-            this.mPresenter = onCreatePresenter;
-            onCreatePresenter.c(this.mRootView);
-        }
-        this.mPresenter.a(this.mCallerContext);
-        notifyOnCreate();
-    }
-
-    public abstract T onCreateCallerContext();
-
-    public abstract Presenter onCreatePresenter();
-
-    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onDestroy() {
-        notifyOnDestroy();
-        T t = this.mCallerContext;
-        if (t != null) {
-            t.a();
-        }
-        Presenter presenter = this.mPresenter;
-        if (presenter != null) {
-            presenter.k();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onPause() {
-        notifyOnPause();
-    }
-
-    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onResume() {
-        super.onResume();
-        notifyOnResume();
+    public static boolean f() {
+        String a2 = au.a("ro.ssui.product");
+        return (TextUtils.isEmpty(a2) || a2.equalsIgnoreCase("unknown")) ? false : true;
     }
 }

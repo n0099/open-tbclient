@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.TogetherHi;
+import protobuf.TogetherHi;
 /* loaded from: classes3.dex */
 public class TogetherHiPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -44,28 +44,6 @@ public class TogetherHiPojo extends OrmObject {
                 return null;
             }
             TogetherHiPojo togetherHiPojo = new TogetherHiPojo();
-            togetherHiPojo.albumName = togetherHi.album_name;
-            togetherHiPojo.albumId = togetherHi.album_id;
-            togetherHiPojo.startTime = togetherHi.start_time;
-            togetherHiPojo.endTime = togetherHi.end_time;
-            togetherHiPojo.location = togetherHi.location;
-            togetherHiPojo.numSignup = togetherHi.num_signup;
-            togetherHiPojo.potraits = togetherHi.potraits;
-            togetherHiPojo.numJoin = togetherHi.num_join;
-            togetherHiPojo.picUrls = togetherHi.pic_urls;
-            return togetherHiPojo;
-        }
-        return (TogetherHiPojo) invokeL.objValue;
-    }
-
-    public static TogetherHiPojo z(protobuf.TogetherHi togetherHi) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, togetherHi)) == null) {
-            if (togetherHi == null) {
-                return null;
-            }
-            TogetherHiPojo togetherHiPojo = new TogetherHiPojo();
             togetherHiPojo.albumName = togetherHi.albumName;
             togetherHiPojo.albumId = togetherHi.albumId;
             togetherHiPojo.startTime = togetherHi.startTime;
@@ -75,6 +53,28 @@ public class TogetherHiPojo extends OrmObject {
             togetherHiPojo.potraits = togetherHi.potraits;
             togetherHiPojo.numJoin = togetherHi.numJoin;
             togetherHiPojo.picUrls = togetherHi.picUrls;
+            return togetherHiPojo;
+        }
+        return (TogetherHiPojo) invokeL.objValue;
+    }
+
+    public static TogetherHiPojo B(tbclient.TogetherHi togetherHi) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, togetherHi)) == null) {
+            if (togetherHi == null) {
+                return null;
+            }
+            TogetherHiPojo togetherHiPojo = new TogetherHiPojo();
+            togetherHiPojo.albumName = togetherHi.album_name;
+            togetherHiPojo.albumId = togetherHi.album_id;
+            togetherHiPojo.startTime = togetherHi.start_time;
+            togetherHiPojo.endTime = togetherHi.end_time;
+            togetherHiPojo.location = togetherHi.location;
+            togetherHiPojo.numSignup = togetherHi.num_signup;
+            togetherHiPojo.potraits = togetherHi.potraits;
+            togetherHiPojo.numJoin = togetherHi.num_join;
+            togetherHiPojo.picUrls = togetherHi.pic_urls;
             return togetherHiPojo;
         }
         return (TogetherHiPojo) invokeL.objValue;

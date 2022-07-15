@@ -171,8 +171,8 @@ public class bg {
             rf rfVar = new rf();
             this.a = rfVar;
             a(rfVar);
-            this.a.b().v(str);
-            this.a.b().q(z4);
+            this.a.b().s(str);
+            this.a.b().o(z4);
             of ofVar = new of(this.a);
             this.b = ofVar;
             return ofVar.c(str2, vfVar, i2, i3, i4, i5, z2, z3);
@@ -205,7 +205,7 @@ public class bg {
             rf rfVar = new rf();
             this.a = rfVar;
             b(rfVar, z);
-            this.a.b().v(str);
+            this.a.b().s(str);
             of ofVar = new of(this.a);
             this.b = ofVar;
             ofVar.d(i2, i3, i4);
@@ -242,7 +242,7 @@ public class bg {
             rf rfVar = new rf();
             this.a = rfVar;
             b(rfVar, z);
-            this.a.b().v(str);
+            this.a.b().s(str);
             if (list != null) {
                 for (BasicNameValuePair basicNameValuePair : list) {
                     this.a.b().d(basicNameValuePair);
@@ -270,7 +270,7 @@ public class bg {
             rf rfVar = new rf();
             this.a = rfVar;
             b(rfVar, z);
-            this.a.b().v(str);
+            this.a.b().s(str);
             if (linkedList != null) {
                 Iterator<BasicNameValuePair> it = linkedList.iterator();
                 while (it.hasNext()) {

@@ -18,10 +18,10 @@ public class bn {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f936a;
+    public int f1663a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f937a;
+    public Context f1664a;
 
     public bn(Context context) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class bn {
                 return;
             }
         }
-        this.f936a = 0;
-        this.f937a = context.getApplicationContext();
+        this.f1663a = 0;
+        this.f1664a = context.getApplicationContext();
     }
 
     public static bn a(Context context) {
@@ -59,31 +59,31 @@ public class bn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.f936a;
+            int i = this.f1663a;
             if (i != 0) {
                 return i;
             }
             try {
-                this.f936a = Settings.Global.getInt(this.f937a.getContentResolver(), "device_provisioned", 0);
+                this.f1663a = Settings.Global.getInt(this.f1664a.getContentResolver(), "device_provisioned", 0);
             } catch (Exception unused) {
             }
-            return this.f936a;
+            return this.f1663a;
         }
         return invokeV.intValue;
     }
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m639a() {
+    public Uri m1582a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Settings.Global.getUriFor("device_provisioned") : (Uri) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m640a() {
+    public boolean m1583a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ae.f85a.contains("xmsf") || com.xiaomi.push.ae.f85a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ae.f85a.contains("miui") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ae.f812a.contains("xmsf") || com.xiaomi.push.ae.f812a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ae.f812a.contains("miui") : invokeV.booleanValue;
     }
 }

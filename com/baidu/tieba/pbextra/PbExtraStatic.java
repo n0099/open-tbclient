@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz7;
-import com.repackage.ih8;
+import com.repackage.di8;
+import com.repackage.wz7;
 /* loaded from: classes3.dex */
 public class PbExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -47,8 +47,8 @@ public class PbExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof ih8)) {
-                ((ih8) customResponsedMessage.getData()).a().add(new cz7(null, PostData.C0));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof di8)) {
+                ((di8) customResponsedMessage.getData()).a().add(new wz7(null, PostData.E0));
             }
         }
     }
@@ -67,7 +67,7 @@ public class PbExtraStatic {
             }
         }
         MessageManager.getInstance().registerListener(new a(2004015));
-        PostData.F0 = true;
+        PostData.H0 = true;
     }
 
     public PbExtraStatic() {

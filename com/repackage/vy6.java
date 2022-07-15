@@ -1,148 +1,131 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class vy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public long e;
+    public long f;
+    public long g;
+    public int h;
+    public YyExtData i;
 
-    public static void a(int i) {
+    public vy6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            StringBuilder sb = new StringBuilder();
-            sb.append("key_card_interest_close_click_num_");
-            sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", ht4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            StringBuilder sb = new StringBuilder();
-            sb.append("key_card_interest_close_click_num_");
-            sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", ht4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
-        }
-    }
-
-    public static boolean c(qw4 qw4Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, qw4Var, str)) == null) {
-            long m = ht4.k().m("key_card_interest_close_click_time_" + str, 0L);
-            if (m != 0) {
-                return qw4Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= qw4Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.d = 0;
     }
 
-    public static boolean d(qw4 qw4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qw4Var)) == null) ? qw4Var.c() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean e() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (UbsABTestHelper.isRecommendCardInterestABTestA() && h()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                qw4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig == null) {
-                    return false;
-                }
-                if (d(homepageInterestConfig)) {
-                    return true;
-                }
-                if (ht4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
-                    if (c(homepageInterestConfig, currentAccount)) {
-                        return true;
-                    }
-                } else if (g(homepageInterestConfig)) {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.longValue;
     }
 
-    public static boolean f(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            if (h()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                qw4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig != null && i2 > 0) {
-                    if (d(homepageInterestConfig)) {
-                        return true;
-                    }
-                    if (ht4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
-                        if (c(homepageInterestConfig, currentAccount) && i == 0) {
-                            return true;
-                        }
-                    } else if (g(homepageInterestConfig) && i == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public static boolean g(qw4 qw4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, qw4Var)) == null) ? qw4Var.d() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean h() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (TbadkCoreApplication.isLogin()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                qw4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig == null) {
-                    return false;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append("key_card_interest_close_click_num_");
-                sb.append(currentAccount);
-                return ht4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public static void i() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ht4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
-            String str = "key_card_interest_close_click_num_" + currentAccount;
-            ht4.k().w(str, ht4.k().l(str, 0) + 1);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.g = j;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
         }
     }
 }

@@ -15,5 +15,5 @@ public interface FunAdCallback {
 
     void onAdShowError(String str, String str2, String str3, int i, String str4);
 
-    void onRewardedVideo(String str, String str2, String str3);
+    void onRewardedVideo(String str, String str2, String str3, boolean z, int i);
 }

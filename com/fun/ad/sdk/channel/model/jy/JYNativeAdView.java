@@ -2,7 +2,6 @@ package com.fun.ad.sdk.channel.model.jy;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -22,7 +21,7 @@ public final class JYNativeAdView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public FrameLayout b;
-    public View c;
+    public PBMediaView c;
     public TextView d;
     public ImageView e;
     public Button f;
@@ -99,13 +98,13 @@ public final class JYNativeAdView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900ab);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900ac);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             PBMediaView pBMediaView = new PBMediaView(getContext());
             this.c = pBMediaView;
             this.b.addView(pBMediaView, layoutParams);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ef);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f0);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a4);
             this.f = (Button) findViewById(R.id.obfuscated_res_0x7f090098);
         }
     }

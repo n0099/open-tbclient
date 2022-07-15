@@ -1,16 +1,9 @@
 package com.kwad.sdk.widget;
 
-import androidx.annotation.ColorInt;
+import android.view.View;
 /* loaded from: classes5.dex */
-public final class c {
-    @ColorInt
-    public int a;
+public interface c {
+    void a_(View view2);
 
-    public c(int i) {
-        this.a = i;
-    }
-
-    public int a() {
-        return this.a;
-    }
+    void b(View view2);
 }

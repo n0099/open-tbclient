@@ -1,183 +1,69 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.SampleResult;
-import com.repackage.n29;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class wi5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final wi5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
+    public SparseArray<vi5> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755200402, "Lcom/repackage/wi5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755200402, "Lcom/repackage/wi5;");
+                return;
+            }
+        }
+        b = new wi5();
+    }
 
     public wi5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        i();
+        this.a = new SparseArray<>();
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return d(i);
-            }
-            int i2 = this.a;
-            if (i2 == 1) {
-                return c(i);
-            }
-            if (i2 == 0) {
-                return d(i);
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public void b(ArrayList<Integer> arrayList, vi5 vi5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, vi5Var) == null) || arrayList == null || vi5Var == null) {
-            return;
-        }
-        Iterator<Integer> it = arrayList.iterator();
-        while (it.hasNext()) {
-            int intValue = it.next().intValue();
-            vi5Var.b(intValue, a(intValue));
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            String e = e(i);
-            if (oi.isEmpty(e)) {
-                return 0;
-            }
-            SampleResult a = m29.a(e);
-            return (a == SampleResult.T1 || a == SampleResult.T2 || a == SampleResult.T3 || a == SampleResult.T4 || a == SampleResult.T5) ? 1 : 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            String f = f(i);
-            return (!oi.isEmpty(f) && ht4.k().l(f, 0) == 1) ? 1 : 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i == 2) {
-                return "46";
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final String f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i == 1) {
-                return "key_card_show_type";
-            }
-            if (i == 2) {
-                return "key_card_abstract_switch";
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public boolean g() {
+    public static wi5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (wi5) invokeV.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public vi5 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                try {
-                    n29.a aVar = new n29.a();
-                    aVar.e(TbadkCoreApplication.getInst());
-                    aVar.j(false);
-                    aVar.n(30L);
-                    aVar.m(1);
-                    aVar.l(false);
-                    aVar.o(15L);
-                    aVar.k(1000);
-                    m29.b(aVar.c());
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (vi5) invokeI.objValue;
     }
 
-    public final void i() {
+    public void c(int i, vi5 vi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = ht4.k().l("key_abtest_channel", 0);
-            j();
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
-            boolean h = h();
-            this.b = h;
-            if (h) {
-                return;
-            }
-            this.a = 0;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (i == 1 || i == 0) {
-                this.a = i;
-                ht4.k().w("key_abtest_channel", this.a);
-                j();
-            }
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, vi5Var) == null) {
+            this.a.put(i, vi5Var);
         }
     }
 }

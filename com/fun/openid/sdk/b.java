@@ -33,16 +33,16 @@ public class b {
             if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) || str.equalsIgnoreCase("redmi") || str.equalsIgnoreCase("meitu") || str.equalsIgnoreCase("小米")) {
                 return new h();
             }
-            if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_VIVO)) {
+            if (str.equalsIgnoreCase("vivo")) {
                 return new m();
             }
-            if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_OPPO) || str.equalsIgnoreCase("oneplus")) {
+            if (str.equalsIgnoreCase("oppo") || str.equalsIgnoreCase("oneplus")) {
                 return new k();
             }
             if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
                 return new g();
             }
-            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.j)) {
+            if (Build.MANUFACTURER.equalsIgnoreCase("SAMSUNG")) {
                 return new l();
             }
             return null;

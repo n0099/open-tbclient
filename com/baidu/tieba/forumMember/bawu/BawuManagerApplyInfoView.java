@@ -53,14 +53,14 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
             this.d.setText(str);
             this.c.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805e6, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
             if (i > 0) {
-                this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0298), StringHelper.numberUniformFormat(i)));
+                this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f029b), StringHelper.numberUniformFormat(i)));
                 this.c.setEnabled(true);
                 this.c.setClickable(true);
                 SkinManager.setViewTextColor(this.d, R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(this.e, R.color.CAM_X0305, 1);
                 return;
             }
-            this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f029a));
+            this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f029d));
             this.c.setEnabled(false);
             this.c.setClickable(false);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
@@ -73,9 +73,9 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0142, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e45);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f58);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f59);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e53);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ffd);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ffe);
         }
     }
 

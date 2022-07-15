@@ -22,21 +22,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jt4;
-import com.repackage.lt4;
+import com.repackage.au4;
+import com.repackage.cu4;
 import com.repackage.qg;
-import com.repackage.vw8;
+import com.repackage.xx8;
 /* loaded from: classes4.dex */
 public class NewVcodeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
-    public vw8 b;
+    public xx8 b;
     public BaseWebView c;
     public View d;
-    public jt4 e;
+    public au4 e;
     public TextView f;
-    public lt4 g;
+    public cu4 g;
     public boolean h;
     public Runnable i;
     public float j;
@@ -109,18 +109,18 @@ public class NewVcodeView {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, newVcodeActivity)) == null) {
             newVcodeActivity.setActivityBgTransparent();
             newVcodeActivity.setSwipeBackEnabled(false);
-            newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d05f7);
-            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918c0);
+            newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0613);
+            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091969);
             this.d = findViewById;
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f090715);
+            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09071c);
             this.f = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1125));
-            lt4 lt4Var = new lt4();
-            this.g = lt4Var;
-            lt4Var.a = 1000L;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f111c));
+            cu4 cu4Var = new cu4();
+            this.g = cu4Var;
+            cu4Var.a = 1000L;
             if (this.c == null) {
                 try {
-                    this.c = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091532);
+                    this.c = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0915db);
                     UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.c, 1.2631578f);
                     this.c.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
                     this.c.setInitialScale(100);
@@ -167,7 +167,7 @@ public class NewVcodeView {
                             if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                                 super.onReceivedError(webView, i, str, str2);
                                 this.a.h(false);
-                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
+                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
                                 this.a.a.finish();
                             }
                         }
@@ -223,9 +223,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.e == null) {
-                jt4 jt4Var = new jt4(this.a.getPageContext());
-                this.e = jt4Var;
-                jt4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                au4 au4Var = new au4(this.a.getPageContext());
+                this.e = au4Var;
+                au4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -276,10 +276,10 @@ public class NewVcodeView {
         this.c.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
     }
 
-    public void setPresenter(vw8 vw8Var) {
+    public void setPresenter(xx8 xx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vw8Var) == null) {
-            this.b = vw8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xx8Var) == null) {
+            this.b = xx8Var;
             this.h = false;
         }
     }

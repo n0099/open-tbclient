@@ -1,73 +1,33 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class af8 implements kr4 {
+public class af8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yp4 a;
 
-    public af8(yp4 yp4Var) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yp4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", str2);
+            statisticItem.param("obj_locate", is4.f() >= 1 ? 2 : 1);
+            TiebaStatic.log(statisticItem);
         }
-        this.a = yp4Var;
     }
 
-    @Override // com.repackage.kr4
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yp4 yp4Var = this.a;
-            if (yp4Var == null) {
-                return null;
-            }
-            return yp4Var.a();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
+            statisticItem.param("obj_type", str);
+            statisticItem.param("obj_locate", is4.f() >= 1 ? 2 : 1);
+            TiebaStatic.log(statisticItem);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.kr4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yp4 yp4Var = this.a;
-            if (yp4Var == null) {
-                return null;
-            }
-            return yp4Var.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yp4 yp4Var = this.a;
-            if (yp4Var == null) {
-                return null;
-            }
-            return yp4Var.c();
-        }
-        return (String) invokeV.objValue;
     }
 }

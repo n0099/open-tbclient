@@ -1,21 +1,22 @@
 package com.repackage;
 
-import android.opengl.Matrix;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.FloatBuffer;
 /* loaded from: classes7.dex */
-public class rb0 implements Cloneable {
+public class rb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public float[] b;
-    public boolean c;
-    public boolean d;
+    public FloatBuffer a;
+    public FloatBuffer b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
 
     public rb0() {
         Interceptable interceptable = $ic;
@@ -27,82 +28,43 @@ public class rb0 implements Cloneable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        float[] fArr = new float[16];
-        this.a = fArr;
-        Matrix.setIdentityM(fArr, 0);
-        float[] fArr2 = new float[16];
-        this.b = fArr2;
-        Matrix.setIdentityM(fArr2, 0);
-        this.c = false;
-        this.d = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public rb0 clone() {
-        rb0 rb0Var;
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                rb0Var = (rb0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                rb0Var = null;
-            }
-            if (rb0Var != null) {
-                rb0Var.f((float[]) this.a.clone());
-                rb0Var.g((float[]) this.b.clone());
-            }
-            return rb0Var;
-        }
-        return (rb0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public float[] b() {
+    public FloatBuffer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (FloatBuffer) invokeV.objValue;
     }
 
-    public float[] c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public boolean d() {
+    public FloatBuffer d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (FloatBuffer) invokeV.objValue;
     }
 
-    public boolean e() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public void f(float[] fArr) {
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) {
-            this.a = fArr;
-        }
-    }
-
-    public void g(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
-            this.b = fArr;
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 }

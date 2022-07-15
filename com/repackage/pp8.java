@@ -1,236 +1,275 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.YuvImage;
-import android.util.SparseArray;
+import android.graphics.Typeface;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater;
+import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class pp8 {
     public static /* synthetic */ Interceptable $ic;
+    public static pp8 k;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Context c;
+    public TextWordsEntity.TextStyleEntity d;
+    public TextWordsEntity.TextFontEntity e;
+    public final TextPaint f;
+    public final TextPaint g;
+    public final TextPaint h;
+    public int i;
+    public List<String> j;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-    }
-
-    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
+    public pp8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
-                return false;
-            }
-            SparseArray sparseArray = new SparseArray();
-            Iterator<a> it = arrayList.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                int i = next.a;
-                int i2 = next.b;
-                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
-                    return false;
-                }
-                int pixel = bitmap.getPixel(i, i2);
-                if (sparseArray.get(pixel) != null) {
-                    return false;
-                }
-                next.c = pixel;
-                sparseArray.put(pixel, next);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Bitmap b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            Bitmap bitmap = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
-                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-                byteArrayOutputStream.close();
-                return bitmap;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return bitmap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Bitmap) invokeLII.objValue;
+        this.b = 5;
+        this.j = new ArrayList();
+        this.f = new TextPaint(1);
+        this.g = new TextPaint(1);
+        this.h = new TextPaint(1);
+        this.a = n99.j(R.dimen.tbds72);
     }
 
-    public static void c(Context context, String str) {
+    public static pp8 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            try {
-                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
-                context.sendBroadcast(intent);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
-            int i3 = i * i2;
-            int i4 = 0;
-            int i5 = 0;
-            for (int i6 = 0; i6 < i2; i6++) {
-                int i7 = 0;
-                while (i7 < i) {
-                    int i8 = iArr[i5];
-                    int i9 = (iArr[i5] & 16711680) >> 16;
-                    int i10 = (iArr[i5] & 65280) >> 8;
-                    int i11 = 255;
-                    int i12 = (iArr[i5] & 255) >> 0;
-                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
-                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
-                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
-                    int i16 = i4 + 1;
-                    if (i13 < 0) {
-                        i13 = 0;
-                    } else if (i13 > 255) {
-                        i13 = 255;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (k == null) {
+                synchronized (pp8.class) {
+                    if (k == null) {
+                        k = new pp8();
                     }
-                    bArr[i4] = (byte) i13;
-                    if (i6 % 2 == 0 && i5 % 2 == 0) {
-                        int i17 = i3 + 1;
-                        if (i15 < 0) {
-                            i15 = 0;
-                        } else if (i15 > 255) {
-                            i15 = 255;
-                        }
-                        bArr[i3] = (byte) i15;
-                        i3 = i17 + 1;
-                        if (i14 < 0) {
-                            i11 = 0;
-                        } else if (i14 <= 255) {
-                            i11 = i14;
-                        }
-                        bArr[i17] = (byte) i11;
-                    }
-                    i5++;
-                    i7++;
-                    i4 = i16;
                 }
             }
+            return k;
+        }
+        return (pp8) invokeV.objValue;
+    }
+
+    public final void a(String str, Canvas canvas, int i, int i2, int i3, TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textPaint}) == null) {
+            i(textPaint);
+            canvas.drawText(str, i, i2, textPaint);
         }
     }
 
-    public static byte[] e(Bitmap bitmap) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.setTypeface(Typeface.DEFAULT);
+            this.g.setTypeface(Typeface.DEFAULT);
+            this.h.setTypeface(Typeface.DEFAULT);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f.setShader(null);
+            this.f.setColor(-1);
+            this.f.clearShadowLayer();
+            this.g.clearShadowLayer();
+            this.h.clearShadowLayer();
+            this.j.clear();
+        }
+    }
+
+    public final String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) ? g(bitmap.getWidth(), bitmap.getHeight(), bitmap) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str.contains("\n")) {
+                String[] split = str.split("\n");
+                if (split.length > 1) {
+                    int i = 0;
+                    int i2 = 0;
+                    for (int i3 = 0; i3 < split.length; i3++) {
+                        int length = split[i3].length();
+                        if (length > i2) {
+                            i = i3;
+                            i2 = length;
+                        }
+                    }
+                    return split[i];
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.repackage.pp8$a> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> f(Bitmap bitmap) {
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) (p99.e() * 0.85d) : invokeV.intValue;
+    }
+
+    public final int[] g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                SparseArray sparseArray = new SparseArray();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new int[]{0, 0};
+            }
+            String e = e(str);
+            int[] iArr = new int[2];
+            TextPaint textPaint = new TextPaint(1);
+            i(textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setTextSize(this.a);
+            float measureText = textPaint.measureText(e) + 2.0f + 40.0f;
+            if (measureText > f()) {
+                measureText = f() + 2.0f;
+            }
+            float f = 0.0f;
+            if (measureText > 0.0f) {
+                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.b, Layout.Alignment.ALIGN_CENTER, 0);
+                this.i = measuredStaticLayout.getLineCount();
                 int i = 0;
-                loop0: for (int i2 = 0; i2 < width; i2++) {
-                    for (int i3 = 0; i3 < height; i3++) {
-                        int pixel = bitmap.getPixel(i2, i3);
-                        a aVar = new a(i2, i3);
-                        if (sparseArray.get(pixel) == null) {
-                            sparseArray.put(pixel, aVar);
-                            i++;
-                        }
-                        if (i == 3) {
-                            break loop0;
-                        }
+                for (int i2 = 0; i2 < this.i; i2++) {
+                    int lineEnd = measuredStaticLayout.getLineEnd(i2);
+                    if (lineEnd != 0) {
+                        this.j.add(str.substring(i, lineEnd));
+                        i = lineEnd;
                     }
                 }
-                ArrayList<a> arrayList = new ArrayList<>();
-                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
-                    arrayList.add(sparseArray.valueAt(i4));
+                f = measuredStaticLayout.getHeight() + 2.0f + 40.0f;
+            }
+            iArr[0] = (int) measureText;
+            iArr[1] = (int) f;
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public Bitmap h(Context context, String str, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        InterceptResult invokeLLLL;
+        int i;
+        int i2;
+        int i3;
+        Canvas canvas;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, str, textStyleEntity, textFontEntity)) == null) {
+            c();
+            this.c = context;
+            this.d = textStyleEntity;
+            this.e = textFontEntity;
+            this.f.setTextSize(this.a);
+            int[] g = g(str);
+            if (g[0] >= 1 && g[1] >= 1) {
+                Bitmap a = z89.a(this.d);
+                NinePatchChunk f = z89.f(a, this.d);
+                if (f != null) {
+                    Rect rect = f.padding;
+                    i = rect.left;
+                    int i4 = rect.top;
+                    g[0] = g[0] + i;
+                    g[1] = g[1] + i4;
+                    g[0] = g[0] + rect.right;
+                    g[1] = g[1] + rect.bottom;
+                    if (a != null && g[0] < a.getWidth()) {
+                        g[0] = a.getWidth();
+                    }
+                    i2 = i4;
+                } else {
+                    i = 0;
+                    i2 = 0;
                 }
-                return arrayList;
+                Bitmap createBitmap = Bitmap.createBitmap(g[0], g[1], Bitmap.Config.ARGB_8888);
+                Canvas canvas2 = new Canvas(createBitmap);
+                canvas2.save();
+                int i5 = 20;
+                z89.b(a, f, canvas2, 20);
+                int g2 = z89.g(this.f);
+                int i6 = i + 20;
+                int abs = (g2 / 2) + ((int) (Math.abs(this.f.ascent() + this.f.descent()) / 2.0f)) + 20 + i2;
+                int i7 = 0;
+                while (i7 < this.i) {
+                    int i8 = i7 + 1;
+                    z89.c(this.f, this.d, null);
+                    int[] d = z89.d(this.f, this.g, this.h, this.d, null);
+                    z89.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
+                    if (d[0] != 0) {
+                        i3 = i7;
+                        canvas = canvas2;
+                        a(this.j.get(i7), canvas2, i6, abs, i3, this.g);
+                    } else {
+                        i3 = i7;
+                        canvas = canvas2;
+                    }
+                    if (d[1] != 0) {
+                        a(this.j.get(i3), canvas, i6, abs, i3, this.h);
+                    }
+                    a(this.j.get(i3), canvas, i6, abs, i3, this.f);
+                    abs += g2;
+                    canvas2 = canvas;
+                    i7 = i8;
+                    i5 = 20;
+                }
+                canvas2.restore();
+                return createBitmap;
             }
-            return new ArrayList<>();
+            return Bitmap.createBitmap(10, this.a, Bitmap.Config.ARGB_8888);
         }
-        return (ArrayList) invokeL.objValue;
+        return (Bitmap) invokeLLLL.objValue;
     }
 
-    public static byte[] g(int i, int i2, Bitmap bitmap) {
-        InterceptResult invokeIIL;
+    public final void i(TextPaint textPaint) {
+        TextWordsEntity.TextFontEntity textFontEntity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
-            int i3 = i * i2;
-            try {
-                int[] iArr = new int[i3];
-                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
-                byte[] bArr = new byte[(i3 * 3) / 2];
-                d(bArr, iArr, i, i2);
-                return bArr;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.e) == null) {
+            return;
         }
-        return (byte[]) invokeIIL.objValue;
+        try {
+            if (textFontEntity.isDefault()) {
+                b();
+                return;
+            }
+            this.e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
+            textPaint.setTypeface(Typeface.createFromFile(this.e.getSourceFile()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public static Bitmap h(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postRotate(f);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
         }
-        return (Bitmap) invokeLF.objValue;
     }
 }

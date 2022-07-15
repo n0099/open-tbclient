@@ -94,12 +94,12 @@ public class bj {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f133a;
+        public Map<String, String> f860a;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f133a.toString()) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f860a.toString()) : (String) invokeV.objValue;
         }
     }
 
@@ -143,7 +143,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m188a(Context context) {
+    public static NetworkInfo m1131a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -172,27 +172,27 @@ public class bj {
             try {
                 try {
                     try {
-                        HttpURLConnection m190a = m190a(context, m191a(str));
-                        m190a.setConnectTimeout(10000);
-                        m190a.setReadTimeout(15000);
+                        HttpURLConnection m1133a = m1133a(context, m1134a(str));
+                        m1133a.setConnectTimeout(10000);
+                        m1133a.setReadTimeout(15000);
                         String str4 = str2;
                         if (str2 == 0) {
                             str4 = "GET";
                         }
-                        m190a.setRequestMethod(str4);
+                        m1133a.setRequestMethod(str4);
                         int i = 0;
                         if (map != null) {
                             z = "gzip".equalsIgnoreCase(map.get("Content-Encoding"));
                             for (String str5 : map.keySet()) {
-                                m190a.setRequestProperty(str5, map.get(str5));
+                                m1133a.setRequestProperty(str5, map.get(str5));
                             }
                         } else {
                             z = false;
                         }
                         if (!TextUtils.isEmpty(str3)) {
-                            m190a.setDoOutput(true);
+                            m1133a.setDoOutput(true);
                             byte[] bytes = str3.getBytes();
-                            OutputStream gZIPOutputStream = z ? new GZIPOutputStream(m190a.getOutputStream()) : m190a.getOutputStream();
+                            OutputStream gZIPOutputStream = z ? new GZIPOutputStream(m1133a.getOutputStream()) : m1133a.getOutputStream();
                             try {
                                 gZIPOutputStream.write(bytes, 0, bytes.length);
                                 gZIPOutputStream.flush();
@@ -205,23 +205,23 @@ public class bj {
                                 throw new IOException(th.getMessage());
                             }
                         }
-                        bhVar.a = m190a.getResponseCode();
-                        com.xiaomi.channel.commonutils.logger.b.m84a("Http POST Response Code: " + bhVar.a);
+                        bhVar.a = m1133a.getResponseCode();
+                        com.xiaomi.channel.commonutils.logger.b.m1027a("Http POST Response Code: " + bhVar.a);
                         while (true) {
-                            String headerFieldKey = m190a.getHeaderFieldKey(i);
-                            String headerField = m190a.getHeaderField(i);
+                            String headerFieldKey = m1133a.getHeaderFieldKey(i);
+                            String headerField = m1133a.getHeaderField(i);
                             if (headerFieldKey == null && headerField == null) {
                                 try {
                                     break;
                                 } catch (IOException unused) {
-                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m190a.getErrorStream())));
+                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m1133a.getErrorStream())));
                                 }
                             } else {
-                                bhVar.f132a.put(headerFieldKey, headerField);
+                                bhVar.f859a.put(headerFieldKey, headerField);
                                 i = i + 1 + 1;
                             }
                         }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m190a.getInputStream())));
+                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m1133a.getInputStream())));
                     } catch (IOException e2) {
                         e = e2;
                     }
@@ -235,7 +235,7 @@ public class bj {
                         stringBuffer.append(readLine);
                         stringBuffer.append(property);
                     }
-                    bhVar.f131a = stringBuffer.toString();
+                    bhVar.f858a = stringBuffer.toString();
                     bufferedReader.close();
                     ab.a((Closeable) null);
                     ab.a((Closeable) null);
@@ -277,39 +277,39 @@ public class bj {
                     URL url2 = !z ? new URL(a(url.toString())) : url;
                     try {
                         HttpURLConnection.setFollowRedirects(true);
-                        HttpURLConnection m190a = m190a(context, url2);
-                        m190a.setConnectTimeout(10000);
-                        m190a.setReadTimeout(15000);
+                        HttpURLConnection m1133a = m1133a(context, url2);
+                        m1133a.setConnectTimeout(10000);
+                        m1133a.setReadTimeout(15000);
                         if (!TextUtils.isEmpty(str)) {
-                            m190a.setRequestProperty("User-Agent", str);
+                            m1133a.setRequestProperty("User-Agent", str);
                         }
                         if (str2 != null) {
-                            m190a.setRequestProperty("Cookie", str2);
+                            m1133a.setRequestProperty("Cookie", str2);
                         }
                         if (map != null) {
                             for (String str3 : map.keySet()) {
-                                m190a.setRequestProperty(str3, map.get(str3));
+                                m1133a.setRequestProperty(str3, map.get(str3));
                             }
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                            bVar.a = m190a.getResponseCode();
-                            if (bVar.f133a == null) {
-                                bVar.f133a = new HashMap();
+                            bVar.a = m1133a.getResponseCode();
+                            if (bVar.f860a == null) {
+                                bVar.f860a = new HashMap();
                             }
                             int i = 0;
                             while (true) {
-                                String headerFieldKey = m190a.getHeaderFieldKey(i);
-                                String headerField = m190a.getHeaderField(i);
+                                String headerFieldKey = m1133a.getHeaderFieldKey(i);
+                                String headerField = m1133a.getHeaderField(i);
                                 if (headerFieldKey == null && headerField == null) {
                                     break;
                                 }
                                 if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                                    bVar.f133a.put(headerFieldKey, headerField);
+                                    bVar.f860a.put(headerFieldKey, headerField);
                                 }
                                 i++;
                             }
                         }
-                        return new a(m190a.getInputStream());
+                        return new a(m1133a.getInputStream());
                     } catch (IOException e) {
                         throw new IOException("IOException:" + e.getClass().getSimpleName());
                     } catch (Throwable th) {
@@ -324,7 +324,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m189a(Context context) {
+    public static String m1132a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -502,8 +502,8 @@ public class bj {
                         stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
                         stringBuffer.append("&");
                     } catch (UnsupportedEncodingException e) {
-                        com.xiaomi.channel.commonutils.logger.b.m84a("Failed to convert from params map to string: " + e);
-                        com.xiaomi.channel.commonutils.logger.b.m84a("map: " + map.toString());
+                        com.xiaomi.channel.commonutils.logger.b.m1027a("Failed to convert from params map to string: " + e);
+                        com.xiaomi.channel.commonutils.logger.b.m1027a("map: " + map.toString());
                         return null;
                     }
                 }
@@ -517,24 +517,24 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m190a(Context context, URL url) {
+    public static HttpURLConnection m1133a(Context context, URL url) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, url)) == null) {
-            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m192a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
+            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m1135a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
         }
         return (HttpURLConnection) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static URL m191a(String str) {
+    public static URL m1134a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? new URL(str) : (URL) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m192a(Context context) {
+    public static boolean m1135a(Context context) {
         InterceptResult invokeL;
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
@@ -630,8 +630,8 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            NetworkInfo m188a = m188a(context);
-            return m188a != null && m188a.getType() == 0 && 20 == m188a.getSubtype();
+            NetworkInfo m1131a = m1131a(context);
+            return m1131a != null && m1131a.getType() == 0 && 20 == m1131a.getSubtype();
         }
         return invokeL.booleanValue;
     }
@@ -640,8 +640,8 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
-            NetworkInfo m188a = m188a(context);
-            return m188a != null && m188a.getType() == 0 && 13 == m188a.getSubtype();
+            NetworkInfo m1131a = m1131a(context);
+            return m1131a != null && m1131a.getType() == 0 && 13 == m1131a.getSubtype();
         }
         return invokeL.booleanValue;
     }
@@ -650,11 +650,11 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
-            NetworkInfo m188a = m188a(context);
-            if (m188a != null && m188a.getType() == 0) {
-                String subtypeName = m188a.getSubtypeName();
+            NetworkInfo m1131a = m1131a(context);
+            if (m1131a != null && m1131a.getType() == 0) {
+                String subtypeName = m1131a.getSubtypeName();
                 if (!"TD-SCDMA".equalsIgnoreCase(subtypeName) && !"CDMA2000".equalsIgnoreCase(subtypeName) && !"WCDMA".equalsIgnoreCase(subtypeName)) {
-                    switch (m188a.getSubtype()) {
+                    switch (m1131a.getSubtype()) {
                         case 3:
                         case 5:
                         case 6:
@@ -684,9 +684,9 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            NetworkInfo m188a = m188a(context);
-            if (m188a != null && m188a.getType() == 0) {
-                int subtype = m188a.getSubtype();
+            NetworkInfo m1131a = m1131a(context);
+            if (m1131a != null && m1131a.getType() == 0) {
+                int subtype = m1131a.getSubtype();
                 return subtype == 1 || subtype == 2 || subtype == 4 || subtype == 7 || subtype == 11;
             }
             return false;

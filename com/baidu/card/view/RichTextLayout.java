@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.fx;
+import com.repackage.gx;
+import com.repackage.nn4;
 import com.repackage.pi;
-import com.repackage.ym4;
+import com.repackage.ur4;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements fx<ym4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements gx<nn4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -131,39 +131,39 @@ public class RichTextLayout extends LinearLayout implements fx<ym4>, View.OnClic
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d071e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d073b, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f78);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f86);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09201d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09202b);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
+    @Override // com.repackage.gx
     /* renamed from: d */
-    public void a(ym4 ym4Var) {
+    public void a(nn4 nn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ym4Var) == null) || ym4Var == null || ym4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nn4Var) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = ym4Var.getThreadData();
+        ThreadData threadData = nn4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.e) {
             this.b.setVisibility(8);
-            fr4 d = fr4.d(this.c);
+            ur4 d = ur4.d(this.c);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
-            if (!originalThreadInfo.m && !ym4Var.getThreadData().shouldShowBlockedState()) {
+            if (!originalThreadInfo.m && !nn4Var.getThreadData().shouldShowBlockedState()) {
                 SpannableString c = originalThreadInfo.c();
                 ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                 if (c != null) {
                     TiePlusEventController.p(originalThreadInfo.g());
                 }
             } else {
-                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.obfuscated_res_0x7f0f0d07)), threadData, this.a, this.e, this.g);
+                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.obfuscated_res_0x7f0f0cfb)), threadData, this.a, this.e, this.g);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             }
         } else {

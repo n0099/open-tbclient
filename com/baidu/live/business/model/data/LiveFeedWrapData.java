@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ia0;
-import com.repackage.u80;
+import com.repackage.na0;
+import com.repackage.v80;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -41,7 +41,7 @@ public class LiveFeedWrapData implements Parcelable {
     public String tab;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LiveFeedWrapData> {
+    public static class a implements Parcelable.Creator<LiveFeedWrapData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,7 +143,7 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && ia0.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && na0.c(this.roomInfoList)) ? true : true;
     }
 
     @Override // android.os.Parcelable
@@ -175,7 +175,7 @@ public class LiveFeedWrapData implements Parcelable {
             } catch (JSONException e) {
                 LiveFeedPageSdk.m("Feed 缓存记录时间失败 " + e.getMessage());
             }
-            u80.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
+            v80.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
         }
     }
 

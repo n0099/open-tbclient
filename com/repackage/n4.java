@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.v8.NodeJS;
 import com.repackage.a7;
 import com.repackage.t1;
 import java.io.BufferedReader;
@@ -341,7 +340,7 @@ public class n4 extends t1<b> {
                 }
                 i8++;
                 String num = Integer.toString(i8);
-                String str = "default".equals(aVar2.a) ? NodeJS.NODE + num : aVar2.a;
+                String str = "default".equals(aVar2.a) ? "node" + num : aVar2.a;
                 if ("default".equals(aVar2.a)) {
                     String str2 = "mesh" + num;
                 } else {

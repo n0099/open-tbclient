@@ -1,24 +1,26 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class m87<T> {
+public class m87 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public T b;
+    public d67 b;
 
     public m87() {
         Interceptable interceptable = $ic;
@@ -30,88 +32,55 @@ public class m87<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 2001154;
+        this.b = d67.v();
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
+        }
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
-    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (str == null) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
             }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() == 3) {
-                    jSONArray.optString(0);
-                    this.a = jSONArray.optInt(1);
-                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                    if (1 == this.a) {
-                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
-                        String optString2 = optJSONObject.optString("shareSourceIcon");
-                        String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString("shareUrl");
-                        String optString5 = optJSONObject.optString("shareSourceUrl");
-                        if (TextUtils.isEmpty(optString4)) {
-                            ?? r4 = (T) new ShareFromPBMsgData();
-                            r4.setContent(optJSONObject.optString("themeContent"));
-                            r4.setForumName(optJSONObject.optString("forumName"));
-                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                            r4.setPostId(optJSONObject.optString("postID"));
-                            r4.setThreadId(optJSONObject.optString("themeID"));
-                            r4.setTitle(optJSONObject.optString("themeTitle"));
-                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.b = r4;
-                            return 0;
-                        }
-                        ?? r1 = (T) new ShareFromGameCenterMsgData();
-                        r1.setContent(optJSONObject.optString("themeContent"));
-                        r1.setForumName(optJSONObject.optString("forumName"));
-                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r1.setPostId(optJSONObject.optString("postID"));
-                        r1.setThreadId(optJSONObject.optString("themeID"));
-                        r1.setTitle(optJSONObject.optString("themeTitle"));
-                        r1.setButton(optString);
-                        r1.setShareSource(optString3);
-                        r1.setShareSourceIcon(optString2);
-                        r1.setShareSourceUrl(optString5);
-                        r1.setShareUrl(optString4);
-                        this.b = r1;
-                        return 1;
-                    } else if (4 == this.a) {
-                        ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
-                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
-                        r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.b = r12;
-                        return 2;
-                    } else {
-                        return -1;
-                    }
+            List<i67> w = d67.w();
+            if (w != null && w.size() > 0) {
+                HashMap hashMap = new HashMap(w.size());
+                for (i67 i67Var : w) {
+                    hashMap.put(i67Var.b(), i67Var);
                 }
-                return -1;
-            } catch (Exception unused) {
-                return -1;
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = w;
+                try {
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return officialFeedHeadResponsedMessage;
             }
+            return a(this.a);
         }
-        return invokeLL.intValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

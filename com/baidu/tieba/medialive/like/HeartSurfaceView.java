@@ -87,10 +87,10 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 heartSurfaceView.h = heartSurfaceView.getWidth();
                 HeartSurfaceView heartSurfaceView2 = this.a;
                 heartSurfaceView2.g = heartSurfaceView2.getHeight();
-                float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c7);
-                float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c8);
-                float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c4);
-                float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c6);
+                float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416);
+                float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070417);
+                float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070413);
+                float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070415);
                 PointF pointF = new PointF(dimensionPixelSize, this.a.g - dimensionPixelSize3);
                 PointF pointF2 = new PointF(dimensionPixelSize, dimensionPixelSize4);
                 PointF pointF3 = new PointF(dimensionPixelSize2, this.a.g - dimensionPixelSize3);
@@ -99,7 +99,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 this.a.i.add(Pair.create(pointF, pointF2));
                 this.a.i.add(Pair.create(pointF3, pointF4));
                 this.a.j = new PointF(0.0f, this.a.g * 0.5f);
-                this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c5), this.a.g * 0.5f);
+                this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070414), this.a.g * 0.5f);
             }
         }
     }
@@ -1030,11 +1030,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(r(R.drawable.obfuscated_res_0x7f080d48));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d49));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d4a));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d4b));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d4c));
+            arrayList.add(r(R.drawable.obfuscated_res_0x7f080cc5));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080cc6));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080cc7));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080cc8));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080cc9));
         }
     }
 
@@ -1137,11 +1137,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.e = false;
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(s(R.drawable.obfuscated_res_0x7f080d48));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d49));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d4a));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d4b));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d4c));
+            arrayList.add(s(R.drawable.obfuscated_res_0x7f080cc5));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080cc6));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080cc7));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080cc8));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080cc9));
         }
     }
 

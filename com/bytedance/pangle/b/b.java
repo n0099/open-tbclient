@@ -49,10 +49,11 @@ public class b {
         public static int s = 32005;
         public static int t = 32006;
         public static int u = 32007;
-        public static int v = 32999;
-        public static int w = 40000;
-        public static int x = 41000;
-        public static int y = 42000;
+        public static int v = 32008;
+        public static int w = 32999;
+        public static int x = 40000;
+        public static int y = 41000;
+        public static int z = 42000;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

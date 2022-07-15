@@ -1,74 +1,88 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TimeZone;
 /* loaded from: classes6.dex */
-public class p01 {
+public final class p01 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + "/bddownload/";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static File b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT > 28) {
-                    return context.getExternalFilesDir(null);
-                }
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (j01.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && j01.b("permission_storage")) {
-                        return c();
-                    }
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        return context.getExternalFilesDir(null);
-                    }
-                    return context.getFilesDir();
-                }
-                return context.getFilesDir();
-            } catch (Exception unused) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755463840, "Lcom/repackage/p01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755463840, "Lcom/repackage/p01;");
+                return;
             }
         }
-        return (File) invokeL.objValue;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    public static int a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Environment.getExternalStorageDirectory() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000) : invokeCommon.intValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
+    public static String b(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? e(context, "/mnt/sdcard") : (String) invokeL.objValue;
-    }
-
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                return a(b(context).getPath());
-            } catch (Throwable unused) {
-                return a(str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
             }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            return (i2 != 0 || z) ? String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)) : String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeCommon.objValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? Math.abs((j2 - j) / 86400000) : invokeCommon.longValue;
+    }
+
+    public static boolean d(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j2);
+            return calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6);
+        }
+        return invokeCommon.booleanValue;
     }
 }

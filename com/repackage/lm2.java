@@ -1,20 +1,19 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lm2 implements rp2 {
+public class lm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lm2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
+    public final y83 a;
 
     public lm2() {
         Interceptable interceptable = $ic;
@@ -29,42 +28,69 @@ public class lm2 implements rp2 {
                 return;
             }
         }
-        this.a = -200.0d;
-        this.b = -200.0d;
-    }
-
-    @Override // com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("longitude") && jSONObject.has("latitude")) {
-            this.a = jSONObject.optDouble("latitude", this.a);
-            this.b = jSONObject.optDouble("longitude", this.b);
+        this.a = new y83("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
         }
+        c();
     }
 
-    @Override // com.repackage.rp2
-    public boolean isValid() {
+    public static lm2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            double d = this.a;
-            if (d >= -90.0d && d <= 90.0d) {
-                double d2 = this.b;
-                if (d2 >= -180.0d && d2 <= 180.0d) {
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (lm2.class) {
+                    if (b == null) {
+                        b = new lm2();
+                    }
                 }
             }
-            return false;
+            return b;
         }
-        return invokeV.booleanValue;
+        return (lm2) invokeV.objValue;
     }
 
-    public String toString() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "[latitude：" + this.a + "longitude：" + this.b + PreferencesUtil.RIGHT_MOUNT;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("sids", "") : (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        Object e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<mm2> c = new km2().c();
+            for (mm2 mm2Var : c) {
+                nm2 b2 = mm2Var.b();
+                om2 c2 = mm2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (mm2 mm2Var2 : c) {
+                nm2 b3 = mm2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            this.a.writeString("sids", sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1));
         }
-        return (String) invokeV.objValue;
     }
 }

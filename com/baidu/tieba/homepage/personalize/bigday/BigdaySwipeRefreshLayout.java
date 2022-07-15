@@ -33,10 +33,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ot4;
+import com.repackage.fu4;
+import com.repackage.ky6;
 import com.repackage.pi;
 import com.repackage.qg;
-import com.repackage.ux6;
 /* loaded from: classes3.dex */
 public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
@@ -172,7 +172,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ot4.j {
+    public class c implements fu4.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -197,7 +197,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.a = kVar;
         }
 
-        @Override // com.repackage.ot4.j
+        @Override // com.repackage.fu4.j
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -215,7 +215,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             }
         }
 
-        @Override // com.repackage.ot4.j
+        @Override // com.repackage.fu4.j
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -594,8 +594,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             if (kVar != null) {
                 kVar.getView().setVisibility(8);
                 k kVar2 = this.s;
-                if (kVar2 instanceof ot4) {
-                    ((ot4) kVar2).I();
+                if (kVar2 instanceof fu4) {
+                    ((fu4) kVar2).I();
                 }
                 setColorViewAlpha(255);
                 G(this.v - this.l, true);
@@ -623,7 +623,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    public final void F(boolean z, boolean z2, ot4.i iVar) {
+    public final void F(boolean z, boolean z2, fu4.i iVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), iVar}) == null) || this.c == z) {
             return;
@@ -820,7 +820,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    public final void m(ot4.i iVar) {
+    public final void m(fu4.i iVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048599, this, iVar) == null) || this.s == null) {
             return;
@@ -828,8 +828,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         this.a = 3;
         if (iVar != null && u()) {
             k kVar = this.s;
-            if (kVar instanceof ot4) {
-                ((ot4) kVar).S(iVar);
+            if (kVar instanceof fu4) {
+                ((fu4) kVar).S(iVar);
                 setExecuteMsgAnimation(true);
                 this.s.d();
                 qg.a().removeCallbacks(this.H);
@@ -1212,8 +1212,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.B = false;
             if (u()) {
                 k kVar = this.s;
-                if (kVar instanceof ot4) {
-                    ((ot4) kVar).I();
+                if (kVar instanceof fu4) {
+                    ((fu4) kVar).I();
                 }
             }
         }
@@ -1291,8 +1291,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void setExecuteMsgAnimation(boolean z) {
         k kVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048622, this, z) == null) && (kVar = this.s) != null && (kVar instanceof ot4)) {
-            ((ot4) kVar).Q(z);
+        if ((interceptable == null || interceptable.invokeZ(1048622, this, z) == null) && (kVar = this.s) != null && (kVar instanceof fu4)) {
+            ((fu4) kVar).Q(z);
         }
     }
 
@@ -1318,8 +1318,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof ux6) {
-                ((ux6) kVar).U(new c(this, kVar));
+            if (kVar instanceof ky6) {
+                ((ky6) kVar).U(new c(this, kVar));
             }
         }
     }
@@ -1357,8 +1357,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
             k kVar = this.s;
-            if (kVar != null && (kVar instanceof ot4)) {
-                return ((ot4) kVar).O();
+            if (kVar != null && (kVar instanceof fu4)) {
+                return ((fu4) kVar).O();
             }
             return false;
         }
@@ -1441,7 +1441,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         kVar.a();
     }
 
-    public void z(ot4.i iVar) {
+    public void z(fu4.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, iVar) == null) {
             if (iVar == null) {

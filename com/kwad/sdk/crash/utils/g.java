@@ -1,312 +1,307 @@
 package com.kwad.sdk.crash.utils;
 
-import com.baidu.android.common.others.IStringUtil;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
+import android.content.Context;
+import android.os.Build;
+import android.os.StatFs;
+import android.text.TextUtils;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.math.BigInteger;
-import java.nio.channels.FileChannel;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
-import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes5.dex */
-public class g {
-    public static final Charset a = Charset.forName("US-ASCII");
-    public static final Charset b = Charset.forName("UTF-8");
-    public static final BigInteger c;
-    public static final BigInteger d;
-    public static final BigInteger e;
-    public static final BigInteger f;
-    public static final BigInteger g;
-    public static final BigInteger h;
-    public static final char i;
-    public static final BigInteger j;
-    public static final BigInteger k;
-    public static final File[] l;
-    public static final String m;
-    public static final Charset n;
-    public static final char o;
+public final class g {
+    public static final char a = File.separatorChar;
+    public static final String b;
 
     static {
-        BigInteger valueOf = BigInteger.valueOf(1024L);
-        c = valueOf;
-        BigInteger multiply = valueOf.multiply(valueOf);
-        d = multiply;
-        BigInteger multiply2 = c.multiply(multiply);
-        e = multiply2;
-        BigInteger multiply3 = c.multiply(multiply2);
-        f = multiply3;
-        BigInteger multiply4 = c.multiply(multiply3);
-        g = multiply4;
-        h = c.multiply(multiply4);
-        BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
-        j = multiply5;
-        k = c.multiply(multiply5);
-        l = new File[0];
-        m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
-        n = Charset.forName("UTF-8");
-        o = File.separatorChar;
-        i = a() ? WebvttCueParser.CHAR_SLASH : FileUtil.WINDOWS_SEPARATOR;
-    }
-
-    public static FileInputStream a(File file) {
-        if (!file.exists()) {
-            throw new FileNotFoundException("File '" + file + "' does not exist");
-        } else if (file.isDirectory()) {
-            throw new IOException("File '" + file + "' exists but is a directory");
-        } else if (file.canRead()) {
-            return new FileInputStream(file);
-        } else {
-            throw new IOException("File '" + file + "' cannot be read");
-        }
-    }
-
-    public static FileOutputStream a(File file, boolean z) {
-        if (!file.exists()) {
-            File parentFile = file.getParentFile();
-            if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
-                throw new IOException("Directory '" + parentFile + "' could not be created");
-            }
-        } else if (file.isDirectory()) {
-            throw new IOException("File '" + file + "' exists but is a directory");
-        } else if (!file.canWrite()) {
-            throw new IOException("File '" + file + "' cannot be written to");
-        }
-        return new FileOutputStream(file, z);
-    }
-
-    public static String a(File file, Charset charset) {
-        FileInputStream fileInputStream;
+        PrintWriter printWriter;
+        Throwable th;
+        StringBuilderWriter stringBuilderWriter;
+        Exception e;
+        String str;
         try {
-            fileInputStream = a(file);
             try {
-                String a2 = h.a(fileInputStream, a.a(charset));
-                b.a((InputStream) fileInputStream);
-                return a2;
-            } catch (Throwable th) {
-                th = th;
-                b.a((InputStream) fileInputStream);
+                stringBuilderWriter = new StringBuilderWriter(4);
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            try {
+                printWriter = new PrintWriter(stringBuilderWriter);
+                try {
+                    printWriter.println();
+                    str = stringBuilderWriter.toString();
+                    b.a(printWriter);
+                    b.a(stringBuilderWriter);
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    b.a(printWriter);
+                    b.a(stringBuilderWriter);
+                    str = "\n";
+                    b = str;
+                }
+            } catch (Exception e3) {
+                printWriter = null;
+                e = e3;
+            } catch (Throwable th3) {
+                printWriter = null;
+                th = th3;
+                b.a(printWriter);
+                b.a(stringBuilderWriter);
                 throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
+        } catch (Exception e4) {
+            printWriter = null;
+            e = e4;
+            stringBuilderWriter = null;
+        } catch (Throwable th4) {
+            printWriter = null;
+            th = th4;
+            stringBuilderWriter = null;
         }
+        b = str;
     }
 
-    public static void a(File file, File file2) {
-        a(file, file2, true);
+    public static int a(InputStream inputStream, OutputStream outputStream) {
+        long b2 = b(inputStream, outputStream);
+        if (b2 > 2147483647L) {
+            return -1;
+        }
+        return (int) b2;
     }
 
-    public static void a(File file, File file2, FileFilter fileFilter, boolean z) {
-        if (file == null) {
-            throw new NullPointerException("Source must not be null");
+    public static int a(Reader reader, Writer writer) {
+        long b2 = b(reader, writer);
+        if (b2 > 2147483647L) {
+            return -1;
         }
-        if (file2 == null) {
-            throw new NullPointerException("Destination must not be null");
-        }
-        if (!file.exists()) {
-            throw new FileNotFoundException("Source '" + file + "' does not exist");
-        } else if (!file.isDirectory()) {
-            throw new IOException("Source '" + file + "' exists but is not a directory");
-        } else if (file.getCanonicalPath().equals(file2.getCanonicalPath())) {
-            throw new IOException("Source '" + file + "' and destination '" + file2 + "' are the same");
-        } else {
-            ArrayList arrayList = null;
-            if (file2.getCanonicalPath().startsWith(file.getCanonicalPath())) {
-                File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
-                if (listFiles != null && listFiles.length > 0) {
-                    arrayList = new ArrayList(listFiles.length);
-                    for (File file3 : listFiles) {
-                        arrayList.add(new File(file2, file3.getName()).getCanonicalPath());
-                    }
-                }
+        return (int) b2;
+    }
+
+    public static long a(InputStream inputStream, OutputStream outputStream, byte[] bArr) {
+        long j = 0;
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (-1 == read) {
+                return j;
             }
-            a(file, file2, fileFilter, z, arrayList);
+            outputStream.write(bArr, 0, read);
+            j += read;
         }
     }
 
-    public static void a(File file, File file2, FileFilter fileFilter, boolean z, List<String> list) {
-        File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
-        if (listFiles == null) {
-            throw new IOException("Failed to list contents of " + file);
-        }
-        if (file2.exists()) {
-            if (!file2.isDirectory()) {
-                throw new IOException("Destination '" + file2 + "' exists but is not a directory");
+    public static long a(Reader reader, Writer writer, char[] cArr) {
+        long j = 0;
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
+                return j;
             }
-        } else if (!file2.mkdirs() && !file2.isDirectory()) {
-            throw new IOException("Destination '" + file2 + "' directory cannot be created");
-        }
-        if (!file2.canWrite()) {
-            throw new IOException("Destination '" + file2 + "' cannot be written to");
-        }
-        for (File file3 : listFiles) {
-            File file4 = new File(file2, file3.getName());
-            if (list == null || !list.contains(file3.getCanonicalPath())) {
-                if (file3.isDirectory()) {
-                    a(file3, file4, fileFilter, z, list);
-                } else {
-                    b(file3, file4, z);
-                }
-            }
-        }
-        if (z) {
-            file2.setLastModified(file.lastModified());
+            writer.write(cArr, 0, read);
+            j += read;
         }
     }
 
-    public static void a(File file, File file2, boolean z) {
-        a(file, file2, null, z);
-    }
-
-    public static boolean a() {
-        return o == '\\';
-    }
-
-    public static void b(File file) {
-        if (file.exists()) {
-            if (!f(file)) {
-                c(file);
-            }
-            if (file.delete()) {
-                return;
-            }
-            throw new IOException("Unable to delete directory " + file + ".");
+    public static long a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0L;
         }
+        return b(new File(str));
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00a6 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v0 */
-    /* JADX WARN: Type inference failed for: r4v1 */
-    /* JADX WARN: Type inference failed for: r4v2, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r4v3 */
-    /* JADX WARN: Type inference failed for: r4v4, types: [java.io.OutputStream, java.io.FileOutputStream] */
-    public static void b(File file, File file2, boolean z) {
-        FileInputStream fileInputStream;
-        ?? r4;
-        FileChannel fileChannel;
-        if (file2.exists() && file2.isDirectory()) {
-            throw new IOException("Destination '" + file2 + "' exists but is a directory");
-        }
-        FileChannel fileChannel2 = null;
+    public static String a(Context context, String str) {
+        InputStream inputStream = null;
         try {
-            fileInputStream = new FileInputStream(file);
+            inputStream = context.getAssets().open(str);
+            return a(inputStream, a.a(Charset.defaultCharset()));
+        } finally {
+            b.a(inputStream);
+        }
+    }
+
+    public static String a(File file) {
+        return b(new InputStreamReader(new BufferedInputStream(new FileInputStream(file)), a.b));
+    }
+
+    public static String a(InputStream inputStream) {
+        InputStreamReader inputStreamReader;
+        Throwable th;
+        BufferedReader bufferedReader;
+        try {
+            inputStreamReader = new InputStreamReader(inputStream);
             try {
-                r4 = new FileOutputStream(file2);
+                bufferedReader = new BufferedReader(inputStreamReader, 1024);
                 try {
-                    fileChannel = fileInputStream.getChannel();
-                    try {
-                        fileChannel2 = r4.getChannel();
-                        long size = fileChannel.size();
-                        long j2 = 0;
-                        while (j2 < size) {
-                            long j3 = size - j2;
-                            j2 += fileChannel2.transferFrom(fileChannel, j2, j3 > 31457280 ? 31457280L : j3);
-                        }
-                        b.a(fileChannel2);
-                        b.a((OutputStream) r4);
-                        b.a(fileChannel);
-                        b.a((InputStream) fileInputStream);
-                        if (file.length() == file2.length()) {
-                            if (z) {
-                                file2.setLastModified(file.lastModified());
-                                return;
-                            }
-                            return;
-                        }
-                        throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
-                    } catch (Throwable th) {
-                        th = th;
-                        b.a(fileChannel2);
-                        b.a((OutputStream) r4);
-                        b.a(fileChannel);
-                        b.a((InputStream) fileInputStream);
-                        throw th;
-                    }
+                    String b2 = b(bufferedReader);
+                    b.a(bufferedReader);
+                    b.a(inputStreamReader);
+                    return b2;
                 } catch (Throwable th2) {
                     th = th2;
-                    fileChannel = null;
+                    b.a(bufferedReader);
+                    b.a(inputStreamReader);
+                    throw th;
                 }
             } catch (Throwable th3) {
                 th = th3;
-                r4 = 0;
-                fileChannel = r4;
-                b.a(fileChannel2);
-                b.a((OutputStream) r4);
-                b.a(fileChannel);
-                b.a((InputStream) fileInputStream);
-                throw th;
+                bufferedReader = null;
             }
         } catch (Throwable th4) {
+            inputStreamReader = null;
             th = th4;
-            fileInputStream = null;
-            r4 = 0;
+            bufferedReader = null;
         }
     }
 
-    public static void c(File file) {
-        if (!file.exists()) {
-            throw new IllegalArgumentException(file + " does not exist");
-        } else if (!file.isDirectory()) {
-            throw new IllegalArgumentException(file + " is not a directory");
-        } else {
-            File[] listFiles = file.listFiles();
-            if (listFiles == null) {
-                throw new IOException("Failed to list contents of " + file);
+    public static String a(InputStream inputStream, Charset charset) {
+        StringBuilderWriter stringBuilderWriter = new StringBuilderWriter();
+        a(inputStream, stringBuilderWriter, charset);
+        return stringBuilderWriter.toString();
+    }
+
+    public static String a(Reader reader) {
+        StringBuilderWriter stringBuilderWriter = new StringBuilderWriter();
+        a(reader, stringBuilderWriter);
+        return stringBuilderWriter.toString();
+    }
+
+    public static void a(InputStream inputStream, Writer writer, Charset charset) {
+        a(new InputStreamReader(inputStream, a.a(charset)), writer);
+    }
+
+    public static void a(String str, OutputStream outputStream, Charset charset) {
+        if (str != null) {
+            outputStream.write(str.getBytes(a.a(charset)));
+        }
+    }
+
+    public static void a(String str, String str2, boolean z) {
+        FileWriter fileWriter;
+        try {
+            File file = new File(str);
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
             }
-            IOException e2 = null;
-            for (File file2 : listFiles) {
-                try {
-                    e(file2);
-                } catch (IOException e3) {
-                    e2 = e3;
+            fileWriter = new FileWriter(str, false);
+        } catch (Throwable unused) {
+            fileWriter = null;
+        }
+        try {
+            fileWriter.write(str2);
+            fileWriter.flush();
+            b.a(fileWriter);
+        } catch (Throwable unused2) {
+            b.a(fileWriter);
+        }
+    }
+
+    public static long b(File file) {
+        try {
+            if (file.exists()) {
+                StatFs statFs = new StatFs(file.getAbsolutePath());
+                return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getAvailableBlocks() : statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong();
+            }
+            return 0L;
+        } catch (Exception unused) {
+            return 0L;
+        }
+    }
+
+    public static long b(InputStream inputStream, OutputStream outputStream) {
+        return a(inputStream, outputStream, new byte[4096]);
+    }
+
+    public static long b(Reader reader, Writer writer) {
+        return a(reader, writer, new char[4096]);
+    }
+
+    public static long b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0L;
+        }
+        return c(new File(str));
+    }
+
+    public static String b(InputStream inputStream) {
+        return a(inputStream, Charset.defaultCharset());
+    }
+
+    public static String b(Reader reader) {
+        StringWriter stringWriter;
+        Throwable th;
+        StringWriter stringWriter2 = new StringWriter();
+        try {
+            stringWriter = new StringWriter();
+            try {
+                char[] cArr = new char[1024];
+                while (true) {
+                    int read = reader.read(cArr);
+                    if (read == -1) {
+                        String stringWriter3 = stringWriter.toString();
+                        b.a(reader);
+                        b.a(stringWriter);
+                        return stringWriter3;
+                    }
+                    stringWriter.write(cArr, 0, read);
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                b.a(reader);
+                b.a(stringWriter);
+                throw th;
             }
-            if (e2 != null) {
-                throw e2;
-            }
+        } catch (Throwable th3) {
+            stringWriter = stringWriter2;
+            th = th3;
         }
     }
 
-    public static String d(File file) {
-        return a(file, Charset.defaultCharset());
+    public static long c(File file) {
+        try {
+            if (file.exists()) {
+                StatFs statFs = new StatFs(file.getAbsolutePath());
+                return Build.VERSION.SDK_INT < 18 ? statFs.getBlockSize() * statFs.getBlockCount() : statFs.getBlockSizeLong() * statFs.getBlockCountLong();
+            }
+            return 0L;
+        } catch (Exception unused) {
+            return 0L;
+        }
     }
 
-    public static void e(File file) {
-        if (file.isDirectory()) {
-            b(file);
-            return;
-        }
-        boolean exists = file.exists();
-        if (file.delete()) {
-            return;
-        }
-        if (exists) {
-            throw new IOException("Unable to delete file: " + file);
-        }
-        throw new FileNotFoundException("File does not exist: " + file);
-    }
-
-    public static boolean f(File file) {
-        if (file != null) {
-            if (a()) {
-                return false;
+    public static String c(InputStream inputStream) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            try {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    String str = new String(byteArrayOutputStream.toByteArray());
+                    b.a(inputStream);
+                    b.a(byteArrayOutputStream);
+                    return str;
+                }
+                byteArrayOutputStream.write(bArr, 0, read);
+            } catch (IOException unused) {
+                b.a(inputStream);
+                b.a(byteArrayOutputStream);
+                return null;
+            } catch (Throwable th) {
+                b.a(inputStream);
+                b.a(byteArrayOutputStream);
+                throw th;
             }
-            if (file.getParent() != null) {
-                file = new File(file.getParentFile().getCanonicalFile(), file.getName());
-            }
-            return !file.getCanonicalFile().equals(file.getAbsoluteFile());
         }
-        throw new NullPointerException("File must not be null");
     }
 }

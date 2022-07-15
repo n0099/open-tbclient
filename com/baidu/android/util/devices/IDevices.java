@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes.dex */
 public interface IDevices {
     public static final String ABI_MIPS = "mips";
@@ -43,7 +42,7 @@ public interface IDevices {
                 }
             }
             Unknown = new ARCH("Unknown", 0);
-            ARM = new ARCH(w0.j1, 1);
+            ARM = new ARCH("ARM", 1);
             X86 = new ARCH("X86", 2);
             MIPS = new ARCH("MIPS", 3);
             ARCH arch = new ARCH("ARM64", 4);

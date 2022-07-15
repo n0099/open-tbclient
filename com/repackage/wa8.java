@@ -1,189 +1,139 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes7.dex */
-public class wa8 extends BaseAdapter {
+public class wa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<xa8> b;
-    public boolean c;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TbImageView c;
-        public View d;
-
-        public b(wa8 wa8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(wa8 wa8Var, a aVar) {
-            this(wa8Var);
-        }
-    }
-
-    public wa8(Context context) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = true;
-        this.a = context;
-        this.b = new ArrayList();
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    public void a(List<xa8> list) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        this.b.addAll(list);
-        notifyDataSetChanged();
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
     }
 
-    public final b b(View view2) {
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+    }
+
+    public static si0 d(@NonNull AdCard adCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09197e);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09197c);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09197d);
-            bVar.c = tbImageView;
-            tbImageView.setAutoChangeStyle(false);
-            bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09120f);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public xa8 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<xa8> list = this.b;
-            if (list == null || i >= list.size()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (ii0.a().query(adCard.getDownloadKey()) != null) {
+                return ii0.a().query(adCard.getDownloadKey());
             }
-            return this.b.get(i);
-        }
-        return (xa8) invokeI.objValue;
-    }
-
-    public View d(xa8 xa8Var, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        b b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, xa8Var, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof b)) {
-                b2 = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0726, viewGroup, false);
-                b2 = b(view2);
-                view2.setTag(b2);
+            si0 si0Var = new si0();
+            si0Var.g(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(si0Var.d())) {
+                    si0Var.g(adCard.downloadInfo.b);
+                }
+                pa8 pa8Var = adCard.downloadInfo;
+                si0Var.g = pa8Var.b;
+                si0Var.d = pa8Var.a;
             }
-            if (xa8Var == null) {
-                return view2;
+            if (TextUtils.isEmpty(si0Var.d())) {
+                si0Var.g(adCard.adId);
             }
-            b2.a.setText(xa8Var.d);
-            b2.b.setText(xa8Var.e);
-            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081092);
-            b2.c.G(xa8Var.f, 10, 0, 0, false);
-            return view2;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<xa8> list = this.b;
-            if (list != null) {
-                return list.size();
+            wi0 wi0Var = new wi0();
+            wi0Var.j = adCard.adId;
+            wi0Var.a = adCard.getExtInfo();
+            pn4 pn4Var = adCard.appInfoModel;
+            if (pn4Var != null) {
+                wi0Var.g = pn4Var.b;
+                wi0Var.h = pn4Var.c;
             }
-            return 0;
+            if (eh0.n(adCard.cmdScheme)) {
+                wi0Var.c = adCard.cmdScheme;
+            }
+            si0Var.p = wi0Var;
+            ti0 ti0Var = new ti0();
+            ti0Var.a = adCard.getAdvertAppInfo().j;
+            ti0Var.s = di5.a().b();
+            ti0Var.r = di5.a().h();
+            si0Var.q = ti0Var;
+            return si0Var;
         }
-        return invokeV.intValue;
+        return (si0) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) ? d(this.b.get(i), view2, viewGroup) : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) ? sr4.D(sr4.k(tr4.y(), i), i2, i3, i4) : (Drawable) invokeIIII.objValue;
+    }
+
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i != i2 && f > 0.0f) {
+                if (f >= 1.0f) {
+                    return i2;
+                }
+                int red = Color.red(i);
+                int green = Color.green(i);
+                int blue = Color.blue(i);
+                int alpha = Color.alpha(i);
+                return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+            }
+            return i;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
+            }
+        }
+        return invokeLI.intValue;
     }
 }

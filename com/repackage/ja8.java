@@ -1,231 +1,417 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.os.Process;
+import android.app.Application;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ja8 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static ja8 c;
+    public static DownloadData d;
+    public static List<DownloadData> e;
+    public static HashMap<String, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public HashMap<String, la8> b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ja8 a;
+
+        public b(ja8 ja8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ja8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ja8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public DownloadData doInBackground(DownloadData... downloadDataArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadDataArr)) == null) {
+                DownloadData downloadData = downloadDataArr[0];
+                if (downloadData == null) {
+                    return downloadData;
+                }
+                String id = downloadData.getId();
+                String name = downloadData.getName();
+                if (oi.isEmpty(id) || oi.isEmpty(name)) {
+                    return downloadData;
+                }
+                boolean isForceDownload = downloadData.isForceDownload();
+                String str = id.replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
+                String j = ja8.j(str);
+                File GetFile = FileHelper.GetFile(str);
+                if (!isForceDownload && GetFile != null) {
+                    DownloadData downloadData2 = new DownloadData(id);
+                    downloadData2.setName(str);
+                    downloadData2.setPath(j);
+                    downloadData2.setStatus(3);
+                    return downloadData2;
+                }
+                downloadData.setCallback(new a15());
+                downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
+                downloadData.setType(12);
+                downloadData.setPath(j);
+                return downloadData;
+            }
+            return (DownloadData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+                super.onPostExecute(downloadData);
+                this.a.a = null;
+                if (downloadData != null) {
+                    if (downloadData.getStatus() == 3) {
+                        this.a.r(downloadData);
+                        if (downloadData.isNeedInvokeApk()) {
+                            Application app = TbadkCoreApplication.getInst().getApp();
+                            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                        }
+                    } else {
+                        ia8.f().h(downloadData);
+                        if (this.a.i(downloadData.getId(), downloadData.getName()) <= 0) {
+                            if (downloadData.getDownloadStaticsData() != null) {
+                                downloadData.getDownloadStaticsData().setDa_range("0");
+                            }
+                            if (downloadData.isNeedNotify()) {
+                                String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0509);
+                                la8 la8Var = new la8(downloadData, 0);
+                                this.a.b.put(downloadData.getUrl(), la8Var);
+                                Application app2 = TbadkCoreApplication.getInst().getApp();
+                                int notifyId = downloadData.getNotifyId();
+                                NotificationHelper.showProgressNotification(app2, notifyId, downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), this.a.h(downloadData.getAction()), false, la8Var.b(), false);
+                            }
+                        } else if (downloadData.getDownloadStaticsData() != null) {
+                            downloadData.getDownloadStaticsData().setDa_range("1");
+                        }
+                    }
+                    DownloadData unused = ja8.d = null;
+                    if (ja8.e.isEmpty()) {
+                        return;
+                    }
+                    ja8.e.remove(0);
+                    this.a.t();
+                }
+            }
+        }
+
+        public /* synthetic */ b(ja8 ja8Var, a aVar) {
+            this(ja8Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755595280, "Lcom/repackage/ja8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755595280, "Lcom/repackage/ja8;");
-        }
-    }
-
-    public static void a(ClogBuilder clogBuilder, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, clogBuilder, i) == null) {
-            clogBuilder.w(ClogBuilder.LogType.DEEP_LINK);
-            boolean z = i == 1000;
-            clogBuilder.h(z ? "APP" : "URL");
-            if (!z) {
-                clogBuilder.j(String.valueOf(i));
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755595280, "Lcom/repackage/ja8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            clogBuilder.t("DEEPLINK");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755595280, "Lcom/repackage/ja8;");
+                return;
+            }
         }
+        e = new LinkedList();
+        f = new HashMap<>();
     }
 
-    public static String b(HashMap hashMap) {
+    public ja8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = new HashMap<>();
+    }
+
+    public static String j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            String valueOf = hashMap != null ? String.valueOf(hashMap.get("da_area")) : null;
-            return TextUtils.isEmpty(valueOf) ? "hotarea" : valueOf;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(FileHelper.getCacheDir());
+            File file = new File(sb.toString());
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c() {
+    public static ja8 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (ja8.class) {
+                if (c == null) {
+                    c = new ja8();
                 }
-                return "GET_PROCESS_NAME_FAIL";
-            } catch (Exception unused) {
-                return "GET_PROCESS_NAME_FAIL";
+            }
+            return c;
+        }
+        return (ja8) invokeV.objValue;
+    }
+
+    public static Integer m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (f.containsKey(str)) {
+                return f.get(str);
+            }
+            Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
+            f.put(str, valueOf);
+            return valueOf;
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        DownloadData downloadData = null;
+        for (DownloadData downloadData2 : ia8.f().e()) {
+            if (downloadData2.getId() != null && downloadData2.getId().equals(str2)) {
+                downloadData = downloadData2;
             }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.x(String.valueOf(i2)).o(String.valueOf(i)).t(str).h(str3).i(str4).j(str5).k(str6).l(str7).m(str8).n(str2);
-            vx0.c(clogBuilder);
-        }
-    }
-
-    public static void e(AdvertAppInfo advertAppInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, advertAppInfo, i) == null) {
-            f(advertAppInfo, 0, "", i);
-        }
-    }
-
-    public static void f(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
-        eg0 eg0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) || advertAppInfo == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder o = clogBuilder.w(ClogBuilder.LogType.CLICK).o(String.valueOf(equals ? -1 : advertAppInfo.position + 1));
-        if (equals) {
-            i = -1;
-        }
-        o.u(String.valueOf(i)).t(advertAppInfo.j).h(str).n(advertAppInfo.g);
-        if (advertAppInfo != null && (eg0Var = advertAppInfo.r) != null) {
-            clogBuilder.k(eg0Var.a());
-        }
-        vx0.c(clogBuilder);
-        a(clogBuilder, i2);
-        vx0.c(clogBuilder);
-    }
-
-    public static void g(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
-            f(advertAppInfo, i, b(hashMap), i2);
-        }
-    }
-
-    public static void h(AdvertAppInfo advertAppInfo, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i, i2) == null) {
-            i(advertAppInfo, i, i2, -999, -999);
-        }
-    }
-
-    public static void i(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        int i5;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || advertAppInfo == null || (i5 = advertAppInfo.c) == 1001 || i5 == -1001) {
-            return;
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder o = clogBuilder.w(ClogBuilder.LogType.DISCARD).i(String.valueOf(i2)).o(String.valueOf(equals ? -1 : advertAppInfo.position + 1));
-        if (equals) {
-            i = -1;
-        }
-        o.u(String.valueOf(i)).t(advertAppInfo.j).n(advertAppInfo.g);
-        if (i3 != -999) {
-            clogBuilder.j(String.valueOf(i3));
-        }
-        if (i4 != -999) {
-            clogBuilder.k(String.valueOf(i4));
-        }
-        if (i2 == 31) {
-            if (TextUtils.isEmpty(a)) {
-                a = c();
+        ia8.f().d(str);
+        if (downloadData != null) {
+            int i = i(downloadData.getId(), downloadData.getName());
+            String str3 = i + "%";
+            if (downloadData == null || i < 0) {
+                return;
             }
-            clogBuilder.m(a);
-        }
-        vx0.c(clogBuilder);
-    }
-
-    public static void j(sh8 sh8Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, sh8Var, i) == null) {
-            k(sh8Var, i, -999, -999);
+            la8 la8Var = this.b.get(downloadData.getUrl());
+            if (la8Var == null) {
+                la8Var = new la8(downloadData, i);
+            }
+            la8Var.d();
+            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), h(downloadData.getAction()), false, la8Var.b(), false);
         }
     }
 
-    public static void k(sh8 sh8Var, int i, int i2, int i3) {
+    public final PendingIntent h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65547, null, sh8Var, i, i2, i3) == null) || sh8Var == null || sh8Var.getAdvertAppInfo() == null || sh8Var.getAdvertAppInfo().c == 1001 || sh8Var.getAdvertAppInfo().c == -1001) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Intent intent = new Intent(str);
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
         }
-        AdvertAppInfo advertAppInfo = sh8Var.getAdvertAppInfo();
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.DISCARD).i(String.valueOf(i)).o(String.valueOf(sh8Var.H0 ? -1 : sh8Var.O0 + 1)).u(String.valueOf(sh8Var.H0 ? -1 : sh8Var.M0)).t(sh8Var.P0()).p(sh8Var.J0).q(sh8Var.K0).r(sh8Var.I0).n(advertAppInfo.g);
-        if (i2 != -999) {
-            clogBuilder.j(String.valueOf(i2));
-        }
-        if (i3 != -999) {
-            clogBuilder.k(String.valueOf(i3));
-        }
-        vx0.c(clogBuilder);
+        return (PendingIntent) invokeL.objValue;
     }
 
-    public static void l(AdvertAppInfo advertAppInfo) {
+    public int i(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, advertAppInfo) == null) {
-            m(advertAppInfo, 0, "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            long k = k(str, str2);
+            long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L);
+            if (0 == j) {
+                return -1;
+            }
+            if (k > j) {
+                return 0;
+            }
+            return (int) ((k * 100) / j);
+        }
+        return invokeLL.intValue;
+    }
+
+    public long k(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            String str3 = str + "_" + str2 + ".tmp";
+            File GetFile = FileHelper.GetFile(str3);
+            if (GetFile == null) {
+                GetFile = FileHelper.GetFileInCache(str3);
+            }
+            if (GetFile != null && GetFile.exists() && GetFile.isFile()) {
+                return GetFile.length();
+            }
+            return -1L;
+        }
+        return invokeLL.longValue;
+    }
+
+    public boolean n(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L) == 0) {
+                return false;
+            }
+            String str3 = str + "_" + str2 + ".tmp";
+            File GetFile = FileHelper.GetFile(str3);
+            if (GetFile == null) {
+                GetFile = FileHelper.GetFileInCache(str3);
+            }
+            return GetFile != null && GetFile.exists() && GetFile.isFile();
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            for (DownloadData downloadData : ia8.f().e()) {
+                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(str.replace(".", "_"));
+            sb.append(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+            return FileHelper.GetFile(sb.toString()) != null;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            for (DownloadData downloadData : ia8.f().e()) {
+                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void r(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadData) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(downloadData);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
         }
     }
 
-    public static void m(AdvertAppInfo advertAppInfo, int i, String str) {
-        eg0 eg0Var;
+    public boolean s(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65549, null, advertAppInfo, i, str) == null) || advertAppInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            List<DownloadData> e2 = ia8.f().e();
+            if (e2 != null && e2.size() >= 5) {
+                downloadData.setStatus(2);
+                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fd));
+                r(downloadData);
+                UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f04fd);
+                return false;
+            }
+            e.add(downloadData);
+            t();
+            return true;
         }
-        if (TextUtils.isEmpty(str)) {
-            str = "hotarea";
-        }
-        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        ClogBuilder o = clogBuilder.w(ClogBuilder.LogType.CLICK).o(String.valueOf(equals ? -1 : advertAppInfo.position + 1));
-        if (equals) {
-            i = -1;
-        }
-        o.u(String.valueOf(i)).t(advertAppInfo.j).h(str).n(advertAppInfo.g);
-        if (advertAppInfo != null && (eg0Var = advertAppInfo.r) != null) {
-            clogBuilder.k(eg0Var.a());
-        }
-        vx0.c(clogBuilder);
+        return invokeL.booleanValue;
     }
 
-    public static void n(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
+    public final void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
-            m(advertAppInfo, i, b(hashMap));
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && d == null && !e.isEmpty()) {
+            DownloadData downloadData = e.get(0);
+            d = downloadData;
+            if (downloadData != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.setPriority(3);
+                this.a.execute(d);
+            }
         }
-    }
-
-    public static void o(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, null, advertAppInfo) == null) || advertAppInfo == null) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).o(String.valueOf(advertAppInfo.position + 1)).u(String.valueOf(-1)).t(advertAppInfo.j).n(advertAppInfo.g);
-        vx0.c(clogBuilder);
     }
 }

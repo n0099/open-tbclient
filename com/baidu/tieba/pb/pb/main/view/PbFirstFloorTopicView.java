@@ -88,7 +88,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
             this.a = context;
-            this.c = pi.f(context, R.dimen.obfuscated_res_0x7f070305);
+            this.c = pi.f(context, R.dimen.obfuscated_res_0x7f070304);
             this.d = pi.k(this.a);
             this.b = pi.k(this.a) / 2;
         }

@@ -1,36 +1,35 @@
 package com.repackage;
 
+import android.media.AudioTrack;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s59;
-import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class b69 extends y59 {
+public class b69 extends v59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a69 B;
+    public Thread C;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b69(v59 v59Var, d69 d69Var, s59.a aVar) {
-        super(v59Var, d69Var, aVar);
+    public b69(String str, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v59Var, d69Var, aVar};
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((v59) objArr2[0], (d69) objArr2[1], (s59.a) objArr2[2]);
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,60 +37,142 @@ public class b69 extends y59 {
         }
     }
 
-    @Override // com.repackage.y59
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.v59
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(j);
-            return randomAccessFile;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            M(j * 1000, true);
         }
-        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.y59
-    public Map<String, String> f(d69 d69Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.v59
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d69Var)) == null) {
-            HashMap hashMap = new HashMap();
-            long c = d69Var.c() + d69Var.b();
-            long a = d69Var.a();
-            hashMap.put("Range", "bytes=" + c + "-" + a);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread thread = this.C;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.C = thread2;
+                thread2.start();
+            }
+            super.I();
         }
-        return (Map) invokeL.objValue;
     }
 
-    @Override // com.repackage.y59
-    public int g() {
+    public final void K() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (i() == 1) {
+                i = 4;
+            } else {
+                i();
+                i = 12;
+            }
+            int i2 = this.q;
+            if (i2 != 1 && i2 != 2) {
+                this.q = 2;
+            }
+            this.B = new a69(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
+        }
+    }
+
+    public boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 206;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a69 a69Var = this.B;
+            return a69Var != null && a69Var.getState() == 1;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.y59
-    public String h() {
+    public final void M(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            if (this.e != null && j > this.e.getDuration()) {
+                j = this.e.getDuration();
+            }
+            if (z) {
+                int playState = L() ? this.B.getPlayState() : 2;
+                if (playState == 2) {
+                    pause();
+                }
+                synchronized (this.b) {
+                    if (L()) {
+                        this.B.flush();
+                    }
+                    this.d = 0L;
+                }
+                e();
+                c();
+                if (playState == 3) {
+                    I();
+                }
+            }
+            synchronized (this.c) {
+                if (this.e != null) {
+                    this.e.seek(j);
+                }
+            }
+        }
+    }
+
+    public void N(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            synchronized (this.b) {
+                if (L()) {
+                    this.B.setStereoVolume(f, f2);
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.v59
+    public z59 p() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b69.class.getSimpleName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            K();
+            return this.B;
+        }
+        return (z59) invokeV.objValue;
     }
 
-    @Override // com.repackage.y59
-    public void j(d69 d69Var) {
+    @Override // com.repackage.v59
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d69Var) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 2) {
+                    this.B.pause();
+                }
+            }
         }
     }
 
-    @Override // com.repackage.y59
-    public void n(d69 d69Var) {
+    @Override // com.repackage.v59
+    public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, d69Var) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 3) {
+                    this.B.play();
+                }
+            }
         }
+    }
+
+    @Override // com.repackage.v59
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
+            return;
+        }
+        this.C = null;
     }
 }

@@ -1,25 +1,39 @@
 package com.kwad.sdk.api.loader;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
-import com.kwad.sdk.api.core.IKsAdSDK;
-import com.kwad.sdk.api.loader.k;
 /* loaded from: classes5.dex */
-public class r {
-    public static void a(Context context, IKsAdSDK iKsAdSDK) {
-        if (Math.abs(System.currentTimeMillis() - q.b(context, "lastUpdateTime")) < q.b(context, "interval") * 1000) {
-            return;
-        }
-        k.a("https://open.e.kuaishou.com/rest/e/v3/open/sdk2", iKsAdSDK).a(new k.c<Boolean>() { // from class: com.kwad.sdk.api.loader.r.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.api.loader.k.c
-            public void a(Boolean bool) {
-                Log.d("Updater", "checkAndUpdate result: " + bool);
-            }
+public final class r {
+    public static String a = "kssdk_api_pref";
 
-            @Override // com.kwad.sdk.api.loader.k.c
-            public void a(Throwable th) {
-            }
-        });
+    public static String a(Context context, String str) {
+        return b(context, str, "");
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void a(Context context, String str, long j) {
+        context.getSharedPreferences(a, 0).edit().putLong(str, j).commit();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void a(Context context, String str, String str2) {
+        context.getSharedPreferences(a, 0).edit().putString(str, str2).commit();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void a(Context context, String str, boolean z) {
+        context.getSharedPreferences(a, 0).edit().putBoolean(str, z).commit();
+    }
+
+    public static String b(Context context, String str, String str2) {
+        return context.getSharedPreferences(a, 0).getString(str, str2);
+    }
+
+    public static boolean b(Context context, String str) {
+        return context.getSharedPreferences(a, 0).getBoolean(str, false);
+    }
+
+    public static long c(Context context, String str) {
+        return context.getSharedPreferences(a, 0).getLong(str, 0L);
     }
 }

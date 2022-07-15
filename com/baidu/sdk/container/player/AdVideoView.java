@@ -23,27 +23,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.kuaishou.weapon.un.w0;
-import com.repackage.ad1;
-import com.repackage.d01;
-import com.repackage.s01;
-import com.repackage.wc1;
-import com.repackage.xc1;
-import com.repackage.yc1;
-import com.repackage.yz0;
-import com.repackage.zc1;
+import com.repackage.g11;
+import com.repackage.l01;
+import com.repackage.ld1;
+import com.repackage.md1;
+import com.repackage.nd1;
+import com.repackage.od1;
+import com.repackage.pd1;
+import com.repackage.q01;
 import java.lang.ref.SoftReference;
 /* loaded from: classes2.dex */
 public class AdVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zc1 A;
+    public od1 A;
     public SurfaceHolder B;
-    public xc1 C;
+    public md1 C;
     public BaseMediaPlayer a;
-    public wc1 b;
-    public wc1.a c;
-    public wc1.b d;
+    public ld1 b;
+    public ld1.a c;
+    public ld1.b d;
     public Context e;
     public AdVideoProgressBar f;
     public int g;
@@ -51,7 +50,7 @@ public class AdVideoView extends RelativeLayout {
     public boolean i;
     public int j;
     public e k;
-    public yc1 l;
+    public nd1 l;
     public View m;
     public boolean n;
     public String o;
@@ -68,7 +67,7 @@ public class AdVideoView extends RelativeLayout {
     public Surface z;
 
     /* loaded from: classes2.dex */
-    public class a implements ad1 {
+    public class a implements pd1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -91,7 +90,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.repackage.ad1
+        @Override // com.repackage.pd1
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -101,7 +100,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements zc1 {
+    public class b implements od1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -124,7 +123,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.repackage.zc1
+        @Override // com.repackage.od1
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -137,7 +136,7 @@ public class AdVideoView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.zc1
+        @Override // com.repackage.od1
         public void b(Surface surface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surface) == null) {
@@ -149,7 +148,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements xc1 {
+    public class c implements md1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -172,7 +171,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.repackage.xc1
+        @Override // com.repackage.md1
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -185,7 +184,7 @@ public class AdVideoView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.xc1
+        @Override // com.repackage.md1
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) {
@@ -227,7 +226,7 @@ public class AdVideoView extends RelativeLayout {
                 String action = intent.getAction();
                 if ("android.intent.action.SCREEN_OFF".equals(action)) {
                     Context context2 = this.this$0.e;
-                    if (yz0.d(context2, context2.getPackageName())) {
+                    if (l01.d(context2, context2.getPackageName())) {
                         return;
                     }
                     this.this$0.s = true;
@@ -428,9 +427,9 @@ public class AdVideoView extends RelativeLayout {
                     this.v = 0;
                     this.w = false;
                     l();
-                    wc1 wc1Var = this.b;
-                    if (wc1Var != null) {
-                        wc1Var.d();
+                    ld1 ld1Var = this.b;
+                    if (ld1Var != null) {
+                        ld1Var.d();
                         return;
                     }
                     return;
@@ -440,7 +439,7 @@ public class AdVideoView extends RelativeLayout {
                     u();
                     return;
                 case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
-                    wc1.b bVar = this.d;
+                    ld1.b bVar = this.d;
                     if (bVar != null) {
                         bVar.onPrepared();
                     }
@@ -449,9 +448,9 @@ public class AdVideoView extends RelativeLayout {
                         this.a.k(i2);
                     }
                     setVideoMute(this.n);
-                    yc1 yc1Var = this.l;
-                    if (yc1Var != null) {
-                        yc1Var.onVideoSizeChanged(this.a.d(), this.a.c());
+                    nd1 nd1Var = this.l;
+                    if (nd1Var != null) {
+                        nd1Var.onVideoSizeChanged(this.a.d(), this.a.c());
                     }
                     AdVideoProgressBar adVideoProgressBar = this.f;
                     if (adVideoProgressBar != null) {
@@ -463,7 +462,7 @@ public class AdVideoView extends RelativeLayout {
                             postDelayed(this.k, 200L);
                         }
                     }
-                    if (this.q && s01.c(this)) {
+                    if (this.q && g11.c(this)) {
                         t();
                         return;
                     }
@@ -474,13 +473,13 @@ public class AdVideoView extends RelativeLayout {
                 case 260:
                     this.w = true;
                     l();
-                    wc1 wc1Var2 = this.b;
-                    if (wc1Var2 != null) {
-                        wc1Var2.e();
+                    ld1 ld1Var2 = this.b;
+                    if (ld1Var2 != null) {
+                        ld1Var2.e();
                         return;
                     }
                     return;
-                case w0.F /* 261 */:
+                case 261:
                     z();
                     return;
                 case 262:
@@ -601,9 +600,9 @@ public class AdVideoView extends RelativeLayout {
                 return;
             }
             baseMediaPlayer.g();
-            wc1 wc1Var = this.b;
-            if (wc1Var != null) {
-                wc1Var.b();
+            ld1 ld1Var = this.b;
+            if (ld1Var != null) {
+                ld1Var.b();
             }
             x();
         }
@@ -617,14 +616,14 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    public void setAdVideoViewListener(wc1 wc1Var) {
+    public void setAdVideoViewListener(ld1 ld1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, wc1Var) == null) {
-            this.b = wc1Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, ld1Var) == null) {
+            this.b = ld1Var;
         }
     }
 
-    public void setDestroyedListener(wc1.a aVar) {
+    public void setDestroyedListener(ld1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.c = aVar;
@@ -638,7 +637,7 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    public void setPreparedListener(wc1.b bVar) {
+    public void setPreparedListener(ld1.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
             this.d = bVar;
@@ -651,7 +650,7 @@ public class AdVideoView extends RelativeLayout {
             this.i = z;
             this.h = i;
             this.g = i2;
-            this.j = d01.c.a(getContext(), i3);
+            this.j = q01.c.a(getContext(), i3);
         }
     }
 
@@ -708,9 +707,9 @@ public class AdVideoView extends RelativeLayout {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            wc1 wc1Var = this.b;
-            if (wc1Var != null) {
-                wc1Var.a();
+            ld1 ld1Var = this.b;
+            if (ld1Var != null) {
+                ld1Var.a();
             }
             l();
             B();
@@ -736,10 +735,10 @@ public class AdVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && !TextUtils.isEmpty(this.o) && this.q && this.r) {
             Context context = this.e;
-            if ((yz0.d(context, context.getPackageName()) || !this.s) && this.w) {
-                wc1 wc1Var = this.b;
-                if (wc1Var != null) {
-                    wc1Var.c();
+            if ((l01.d(context, context.getPackageName()) || !this.s) && this.w) {
+                ld1 ld1Var = this.b;
+                if (ld1Var != null) {
+                    ld1Var.c();
                 }
                 if (!this.u) {
                     t();

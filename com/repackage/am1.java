@@ -1,45 +1,16 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.repackage.zl1;
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes5.dex */
-public interface am1<T extends zl1> extends TypedCallbackHandler {
-    SwanAppWebViewManager.d J();
+public interface am1 {
+    void a(NgWebView ngWebView);
 
-    @UiThread
-    void Q();
+    void b(NgWebView ngWebView, String str);
 
-    void X(f12 f12Var);
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    String a();
+    void d(String str, Context context);
 
-    String c();
-
-    void d(gy1 gy1Var);
-
-    void destroy();
-
-    String e0();
-
-    void f(Activity activity);
-
-    void h0();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void s();
-
-    T u();
-
-    void v(f12 f12Var);
+    void e(String str, Context context);
 }

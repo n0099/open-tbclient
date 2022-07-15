@@ -1,15 +1,16 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public abstract class pu3 {
+public class pu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String errMsg;
 
     public pu3() {
         Interceptable interceptable = $ic;
@@ -24,9 +25,4 @@ public abstract class pu3 {
             }
         }
     }
-
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
 }

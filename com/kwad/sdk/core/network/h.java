@@ -7,11 +7,11 @@ import com.kwad.sdk.core.network.g;
 /* loaded from: classes5.dex */
 public interface h<R extends g, T extends BaseResultData> {
     @WorkerThread
-    void a(@NonNull R r);
+    void onError(@NonNull R r, int i, String str);
 
     @WorkerThread
-    void a(@NonNull R r, int i, String str);
+    void onStartRequest(@NonNull R r);
 
     @WorkerThread
-    void a(@NonNull R r, @NonNull T t);
+    void onSuccess(@NonNull R r, @NonNull T t);
 }

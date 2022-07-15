@@ -1,94 +1,43 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes7.dex */
-public class u71 implements Runnable {
+public class u71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Handler b;
-    public String c;
-    public ImageView d;
-    public int e;
-    public int f;
 
-    public u71(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getApplicationContext();
-        this.b = handler;
-        this.c = str;
-        this.d = imageView;
-        this.e = i;
-        this.f = i2;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Bitmap a(String str, int i, int i2) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
-            try {
-                bitmap = o71.b(this.a).c(str, i, i2);
-            } catch (IOException e) {
-                e = e;
-                bitmap = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
             try {
-            } catch (IOException e2) {
-                e = e2;
-                e.printStackTrace();
-                bitmap2 = bitmap;
-                if (bitmap2 != null) {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
                 }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
             }
-            if (bitmap != null) {
-                o71.c().a(str, bitmap);
-                return bitmap;
-            }
-            o71.b(this.a).a(str);
-            bitmap2 = o71.b(this.a).c(str, i, i2);
-            return bitmap2 != null ? r71.a(str) : bitmap2;
         }
-        return (Bitmap) invokeLII.objValue;
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Bitmap a = a(this.c, this.e, this.f);
-            if (this.b != null) {
-                this.b.obtainMessage(1, new t71(this.d, this.c, a)).sendToTarget();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo a = a(context);
+            return a != null && a.isConnectedOrConnecting();
         }
+        return invokeL.booleanValue;
     }
 }

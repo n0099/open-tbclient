@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cu6;
+import com.repackage.du6;
+import com.repackage.fu6;
 import com.repackage.nn;
-import com.repackage.ot6;
-import com.repackage.pt6;
-import com.repackage.rt6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<nn> a;
-    public List<rt6> b;
+    public List<fu6> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -55,7 +55,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new rt6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) null, false), this.c, b));
+            this.b.add(new fu6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d071f, (ViewGroup) null, false), this.c, b));
         }
     }
 
@@ -77,38 +77,38 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<rt6> list = this.b;
+        List<fu6> list = this.b;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (rt6 rt6Var : this.b) {
-            rt6Var.l(i);
+        for (fu6 fu6Var : this.b) {
+            fu6Var.l(i);
         }
     }
 
-    public void d(ot6 ot6Var) {
+    public void d(cu6 cu6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ot6Var) == null) || ot6Var == null || ListUtils.isEmpty(ot6Var.f())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cu6Var) == null) || cu6Var == null || ListUtils.isEmpty(cu6Var.d())) {
             return;
         }
         this.a.clear();
-        this.a.addAll(ot6Var.f());
+        this.a.addAll(cu6Var.d());
         for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-            rt6 rt6Var = this.b.get(i);
-            rt6Var.m(!ot6Var.h());
-            rt6Var.c((nn) ListUtils.getItem(this.a, i));
+            fu6 fu6Var = this.b.get(i);
+            fu6Var.m(!cu6Var.g());
+            fu6Var.c((nn) ListUtils.getItem(this.a, i));
         }
         notifyDataSetChanged();
-        if (this.a.get(0) instanceof pt6) {
-            pt6 pt6Var = (pt6) this.a.get(0);
+        if (this.a.get(0) instanceof du6) {
+            du6 du6Var = (du6) this.a.get(0);
             StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-            if (!StringUtils.isNull(pt6Var.a)) {
-                param = param.param("obj_name", pt6Var.a);
+            if (!StringUtils.isNull(du6Var.a)) {
+                param = param.param("obj_name", du6Var.a);
             }
             TiebaStatic.log(param);
-            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", pt6Var.a()).param("obj_locate", (int) this.e);
-            if (!StringUtils.isNull(pt6Var.a)) {
-                param2 = param2.param("obj_name", pt6Var.a);
+            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", du6Var.a()).param("obj_locate", (int) this.e);
+            if (!StringUtils.isNull(du6Var.a)) {
+                param2 = param2.param("obj_name", du6Var.a);
             }
             TiebaStatic.log(param2);
         }
@@ -128,15 +128,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            rt6 rt6Var = this.b.get(i);
-            pt6 j2 = rt6Var.j();
+            fu6 fu6Var = this.b.get(i);
+            du6 j2 = fu6Var.j();
             if (j2 != null) {
                 int i2 = 0;
                 while (true) {
-                    pt6.a[] aVarArr = j2.d;
+                    du6.a[] aVarArr = j2.d;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].g() == j) {
-                            rt6Var.n(i2, z);
+                            fu6Var.n(i2, z);
                         }
                         i2++;
                     }
@@ -158,20 +158,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            List<rt6> list = this.b;
+            List<fu6> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            rt6 rt6Var = (rt6) ListUtils.getItem(list, i);
-            if (rt6Var == null) {
+            fu6 fu6Var = (fu6) ListUtils.getItem(list, i);
+            if (fu6Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (rt6Var.b().getParent() == null) {
-                viewGroup.addView(rt6Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (fu6Var.b().getParent() == null) {
+                viewGroup.addView(fu6Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            rt6Var.b().setTag(Integer.valueOf(i));
-            rt6Var.c((nn) ListUtils.getItem(this.a, i));
-            return rt6Var.b();
+            fu6Var.b().setTag(Integer.valueOf(i));
+            fu6Var.c((nn) ListUtils.getItem(this.a, i));
+            return fu6Var.b();
         }
         return invokeLI.objValue;
     }

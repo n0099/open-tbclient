@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a05;
-import com.repackage.hi8;
+import com.repackage.c15;
+import com.repackage.dj8;
 import com.repackage.ng;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class XiubaTbJsBridge implements hi8 {
+public class XiubaTbJsBridge implements dj8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -328,7 +328,7 @@ public class XiubaTbJsBridge implements hi8 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            a05.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1600), -1, -1);
+            c15.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1604), -1, -1);
         }
     }
 
@@ -357,7 +357,7 @@ public class XiubaTbJsBridge implements hi8 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.hi8
+    @Override // com.repackage.dj8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

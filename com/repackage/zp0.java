@@ -1,115 +1,105 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class zp0 extends aq0 {
+public final class zp0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final zp0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public tp0 c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755104457, "Lcom/repackage/zp0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755104457, "Lcom/repackage/zp0;");
+                return;
+            }
+        }
+        a = new zp0();
+    }
 
     public zp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void A() {
-        tp0 tp0Var;
+    @JvmStatic
+    public static final int a(wp0 wp0Var, String str) {
+        InterceptResult invokeLL;
+        up0 c;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tp0Var = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, wp0Var, str)) == null) {
+            Integer valueOf = (wp0Var == null && ((c = yp0.c(str)) == null || (wp0Var = c.a()) == null)) ? null : Integer.valueOf(wp0Var.a());
+            if (valueOf != null) {
+                return valueOf.intValue();
+            }
+            return 0;
         }
-        tp0Var.onVideoSwitchToHalf();
+        return invokeLL.intValue;
     }
 
-    @Override // com.repackage.aq0
-    public void r() {
+    @JvmStatic
+    public static final String c(wp0 wp0Var, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.r();
-            this.c = null;
-        }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, wp0Var, str, str2)) == null) ? a.b(a(wp0Var, str), str2) : (String) invokeLLL.objValue;
     }
 
-    public void t() {
-        tp0 tp0Var;
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tp0Var = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            return i != 1 ? "" : str == null || str.length() == 0 ? "https://sv.baidu.com" : d(str);
         }
-        tp0Var.onBeforeSwitchToFull();
+        return (String) invokeIL.objValue;
     }
 
-    public void u() {
-        tp0 tp0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tp0Var = this.c) == null) {
-            return;
-        }
-        tp0Var.onBeforeSwitchToHalf();
-    }
-
-    public void v() {
-        tp0 tp0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tp0Var = this.c) == null) {
-            return;
-        }
-        tp0Var.onGestureActionEnd();
-    }
-
-    public void w() {
-        tp0 tp0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (tp0Var = this.c) == null) {
-            return;
-        }
-        tp0Var.onGestureActionStart();
-    }
-
-    public boolean x(MotionEvent motionEvent) {
+    public final String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            tp0 tp0Var = this.c;
-            if (tp0Var != null) {
-                return tp0Var.onGestureDoubleClick(motionEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                Uri url = Uri.parse(str);
+                Intrinsics.checkNotNullExpressionValue(url, "url");
+                String scheme = url.getScheme();
+                if (scheme != null) {
+                    String str2 = scheme + "://";
+                    if (str2 != null) {
+                        String str3 = str2 + url.getHost();
+                        return str3 != null ? str3 : "https://sv.baidu.com";
+                    }
+                    return "https://sv.baidu.com";
+                }
+                return "https://sv.baidu.com";
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "https://sv.baidu.com";
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void y(boolean z) {
-        tp0 tp0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (tp0Var = this.c) == null) {
-            return;
-        }
-        tp0Var.onPanelVisibilityChanged(z);
-    }
-
-    public void z() {
-        tp0 tp0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tp0Var = this.c) == null) {
-            return;
-        }
-        tp0Var.onVideoSwitchToFull();
+        return (String) invokeL.objValue;
     }
 }

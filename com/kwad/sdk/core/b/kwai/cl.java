@@ -1,71 +1,53 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.tencent.connect.share.QzonePublish;
+import android.net.http.Headers;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cl implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.MaterialFeature> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
+public final class cl implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        materialFeature.featureType = jSONObject.optInt("featureType");
-        materialFeature.materialUrl = jSONObject.optString("materialUrl");
-        if (jSONObject.opt("materialUrl") == JSONObject.NULL) {
-            materialFeature.materialUrl = "";
+        aVar.a = jSONObject.optString("Access-Control-Allow-Origin");
+        if (jSONObject.opt("Access-Control-Allow-Origin") == JSONObject.NULL) {
+            aVar.a = "";
         }
-        materialFeature.photoId = jSONObject.optLong("photoId");
-        materialFeature.coverUrl = jSONObject.optString("coverUrl");
-        if (jSONObject.opt("coverUrl") == JSONObject.NULL) {
-            materialFeature.coverUrl = "";
+        aVar.b = jSONObject.optString("Timing-Allow-Origin");
+        if (jSONObject.opt("Timing-Allow-Origin") == JSONObject.NULL) {
+            aVar.b = "";
         }
-        materialFeature.videoDuration = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-        materialFeature.firstFrame = jSONObject.optString(SpeedStatsMainTable.FIRST_FRAME_STAGE);
-        if (jSONObject.opt(SpeedStatsMainTable.FIRST_FRAME_STAGE) == JSONObject.NULL) {
-            materialFeature.firstFrame = "";
+        aVar.c = jSONObject.optString(Headers.CONTENT_TYPE);
+        if (jSONObject.opt(Headers.CONTENT_TYPE) == JSONObject.NULL) {
+            aVar.c = "";
         }
-        materialFeature.blurBackgroundUrl = jSONObject.optString("blurBackgroundUrl");
-        if (jSONObject.opt("blurBackgroundUrl") == JSONObject.NULL) {
-            materialFeature.blurBackgroundUrl = "";
-        }
-        materialFeature.webpCoverUrl = jSONObject.optString("webpCoverUrl");
-        if (jSONObject.opt("webpCoverUrl") == JSONObject.NULL) {
-            materialFeature.webpCoverUrl = "";
-        }
-        materialFeature.videoWidth = jSONObject.optInt("videoWidth");
-        materialFeature.videoHeight = jSONObject.optInt("videoHeight");
-        materialFeature.likeCount = jSONObject.optLong("likeCount");
-        materialFeature.commentCount = jSONObject.optLong("commentCount");
-        materialFeature.source = jSONObject.optInt("source");
-        materialFeature.ruleId = jSONObject.optString("ruleId");
-        if (jSONObject.opt("ruleId") == JSONObject.NULL) {
-            materialFeature.ruleId = "";
+        aVar.d = jSONObject.optString("Date");
+        if (jSONObject.opt("Date") == JSONObject.NULL) {
+            aVar.d = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "featureType", materialFeature.featureType);
-        com.kwad.sdk.utils.t.a(jSONObject, "materialUrl", materialFeature.materialUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "photoId", materialFeature.photoId);
-        com.kwad.sdk.utils.t.a(jSONObject, "coverUrl", materialFeature.coverUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, materialFeature.videoDuration);
-        com.kwad.sdk.utils.t.a(jSONObject, SpeedStatsMainTable.FIRST_FRAME_STAGE, materialFeature.firstFrame);
-        com.kwad.sdk.utils.t.a(jSONObject, "blurBackgroundUrl", materialFeature.blurBackgroundUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "webpCoverUrl", materialFeature.webpCoverUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoWidth", materialFeature.videoWidth);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoHeight", materialFeature.videoHeight);
-        com.kwad.sdk.utils.t.a(jSONObject, "likeCount", materialFeature.likeCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "commentCount", materialFeature.commentCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "source", materialFeature.source);
-        com.kwad.sdk.utils.t.a(jSONObject, "ruleId", materialFeature.ruleId);
+        com.kwad.sdk.utils.r.a(jSONObject, "Access-Control-Allow-Origin", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "Timing-Allow-Origin", aVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, Headers.CONTENT_TYPE, aVar.c);
+        com.kwad.sdk.utils.r.a(jSONObject, "Date", aVar.d);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

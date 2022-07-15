@@ -1,101 +1,55 @@
 package com.repackage;
 
-import android.os.SystemClock;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.internal.api.Module;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.gh9;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public final class kb9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(ih9 ih9Var);
-    }
-
-    public static <T extends ib9> T a(Random random, List<T> list, lb9<T> lb9Var) {
-        InterceptResult invokeLLL;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, lb9Var)) == null) {
-            if (random == null || list == null || list.isEmpty()) {
-                return null;
-            }
-            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            T t = null;
-            for (int i = 0; i < size; i++) {
-                T t2 = list.get(i);
-                if (lb9Var != null) {
-                    if (!lb9Var.a(t2)) {
-                        continue;
-                    }
-                    if (t == null && t2.b() != t.b()) {
-                        break;
-                    }
-                    arrayList.add(t2);
-                    t = t2;
-                } else {
-                    if (!t2.a()) {
-                        continue;
-                    }
-                    if (t == null) {
-                    }
-                    arrayList.add(t2);
-                    t = t2;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            if (arrayList.isEmpty()) {
-                LogPrinter.v("No one is selected", new Object[0]);
-                return null;
-            }
-            return (T) arrayList.get(random.nextInt(arrayList.size()));
+            return sb.toString();
         }
-        return (T) invokeLLL.objValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static void b(long j, a aVar, Map<String, PidLoaderCreator> map) {
+    public static byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), aVar, map}) == null) {
-            gh9.a aVar2 = gh9.a;
-            aVar2.a = System.currentTimeMillis() - 0;
-            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
-            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
-            aVar.a(new ih9(map));
-        }
-    }
-
-    public static void c(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
-        Module module;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, funAdConfig, map, str3) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             try {
-                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
-                LogPrinter.d("Module for %s created", str2);
-            } catch (Exception e) {
-                LogPrinter.e(e, "Module for %s not found", str2);
-                module = null;
-            }
-            if (module == null) {
-                return;
-            }
-            PidLoaderCreator init = module.init(funAdConfig, str3);
-            if (init == null) {
-                LogPrinter.e("Module for %s init failed", str);
-            } else {
-                map.put(str, init);
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return messageDigest.digest();
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) ? a(b(bArr), "", z) : (String) invokeLZ.objValue;
     }
 }

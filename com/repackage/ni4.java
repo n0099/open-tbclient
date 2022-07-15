@@ -1,51 +1,47 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.util.Base64;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
+import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
+import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class ni4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oi4 a;
-    public long b;
-    public CustomMessageListener c;
+    public boolean a;
+    public b b;
+    public za c;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ni4 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ni4 ni4Var, int i) {
-            super(i);
+        public a(ni4 ni4Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ni4Var, Integer.valueOf(i)};
+                Object[] objArr = {ni4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -54,15 +50,25 @@ public class ni4 {
             this.a = ni4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.repackage.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage == null || responsedMessage.getError() != 0) {
+                    this.a.d(false, null);
+                } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
+                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
+                } else if (responsedMessage instanceof GetTokenHttpResponsedMessage) {
+                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
+                }
             }
-            this.a.g();
         }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, ij4 ij4Var);
     }
 
     public ni4() {
@@ -78,75 +84,52 @@ public class ni4 {
                 return;
             }
         }
-        this.c = new a(this, 2001371);
-        this.a = new oi4();
-        MessageManager.getInstance().registerListener(this.c);
-        g();
-        this.b = ht4.k().m("key_redpacket_pop_last_time", 0L);
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        f();
+        e();
     }
 
-    public void b() {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d() && e()) {
-            f();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a) {
+            return;
         }
+        this.a = true;
+        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
+        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
+        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
     }
 
-    public final boolean c(si4 si4Var) {
-        InterceptResult invokeL;
+    public final void d(boolean z, ij4 ij4Var) {
+        b bVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, si4Var)) == null) ? si4Var != null && this.b >= si4Var.b() && this.b <= si4Var.a() : invokeL.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Date date = new Date();
-            return date.getTime() >= this.a.b() && date.getTime() <= this.a.a();
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, ij4Var) == null) || (bVar = this.b) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        bVar.a(z, ij4Var);
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a.c())) {
-                return false;
-            }
-            Date date = new Date();
-            Iterator<si4> it = this.a.c().iterator();
-            while (it.hasNext()) {
-                si4 next = it.next();
-                if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
-        return invokeV.booleanValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || oi.isEmpty(this.a.d())) {
-            return;
-        }
-        this.b = System.currentTimeMillis();
-        ht4.k().x("key_redpacket_pop_last_time", this.b);
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
-        String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            wh8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            wh8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 
-    public final void g() {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.e(ht4.k().q("key_redpacket_pop", ""));
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

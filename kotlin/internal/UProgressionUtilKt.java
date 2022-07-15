@@ -11,32 +11,32 @@ import kotlin.UnsignedKt;
 /* loaded from: classes8.dex */
 public final class UProgressionUtilKt {
     /* renamed from: differenceModulo-WZ9TVnA  reason: not valid java name */
-    public static final int m1881differenceModuloWZ9TVnA(int i, int i2, int i3) {
-        int m1041uintRemainderJ1ME1BU = UnsignedKt.m1041uintRemainderJ1ME1BU(i, i3);
-        int m1041uintRemainderJ1ME1BU2 = UnsignedKt.m1041uintRemainderJ1ME1BU(i2, i3);
-        int uintCompare = UnsignedKt.uintCompare(m1041uintRemainderJ1ME1BU, m1041uintRemainderJ1ME1BU2);
-        int m787constructorimpl = UInt.m787constructorimpl(m1041uintRemainderJ1ME1BU - m1041uintRemainderJ1ME1BU2);
-        return uintCompare >= 0 ? m787constructorimpl : UInt.m787constructorimpl(m787constructorimpl + i3);
+    public static final int m2824differenceModuloWZ9TVnA(int i, int i2, int i3) {
+        int m1984uintRemainderJ1ME1BU = UnsignedKt.m1984uintRemainderJ1ME1BU(i, i3);
+        int m1984uintRemainderJ1ME1BU2 = UnsignedKt.m1984uintRemainderJ1ME1BU(i2, i3);
+        int uintCompare = UnsignedKt.uintCompare(m1984uintRemainderJ1ME1BU, m1984uintRemainderJ1ME1BU2);
+        int m1730constructorimpl = UInt.m1730constructorimpl(m1984uintRemainderJ1ME1BU - m1984uintRemainderJ1ME1BU2);
+        return uintCompare >= 0 ? m1730constructorimpl : UInt.m1730constructorimpl(m1730constructorimpl + i3);
     }
 
     /* renamed from: differenceModulo-sambcqE  reason: not valid java name */
-    public static final long m1882differenceModulosambcqE(long j, long j2, long j3) {
-        long m1043ulongRemaindereb3DHEI = UnsignedKt.m1043ulongRemaindereb3DHEI(j, j3);
-        long m1043ulongRemaindereb3DHEI2 = UnsignedKt.m1043ulongRemaindereb3DHEI(j2, j3);
-        int ulongCompare = UnsignedKt.ulongCompare(m1043ulongRemaindereb3DHEI, m1043ulongRemaindereb3DHEI2);
-        long m865constructorimpl = ULong.m865constructorimpl(m1043ulongRemaindereb3DHEI - m1043ulongRemaindereb3DHEI2);
-        return ulongCompare >= 0 ? m865constructorimpl : ULong.m865constructorimpl(m865constructorimpl + j3);
+    public static final long m2825differenceModulosambcqE(long j, long j2, long j3) {
+        long m1986ulongRemaindereb3DHEI = UnsignedKt.m1986ulongRemaindereb3DHEI(j, j3);
+        long m1986ulongRemaindereb3DHEI2 = UnsignedKt.m1986ulongRemaindereb3DHEI(j2, j3);
+        int ulongCompare = UnsignedKt.ulongCompare(m1986ulongRemaindereb3DHEI, m1986ulongRemaindereb3DHEI2);
+        long m1808constructorimpl = ULong.m1808constructorimpl(m1986ulongRemaindereb3DHEI - m1986ulongRemaindereb3DHEI2);
+        return ulongCompare >= 0 ? m1808constructorimpl : ULong.m1808constructorimpl(m1808constructorimpl + j3);
     }
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
     /* renamed from: getProgressionLastElement-7ftBX0g  reason: not valid java name */
-    public static final long m1883getProgressionLastElement7ftBX0g(long j, long j2, long j3) {
+    public static final long m2826getProgressionLastElement7ftBX0g(long j, long j2, long j3) {
         int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
         if (i > 0) {
-            return UnsignedKt.ulongCompare(j, j2) >= 0 ? j2 : ULong.m865constructorimpl(j2 - m1882differenceModulosambcqE(j2, j, ULong.m865constructorimpl(j3)));
+            return UnsignedKt.ulongCompare(j, j2) >= 0 ? j2 : ULong.m1808constructorimpl(j2 - m2825differenceModulosambcqE(j2, j, ULong.m1808constructorimpl(j3)));
         } else if (i < 0) {
-            return UnsignedKt.ulongCompare(j, j2) <= 0 ? j2 : ULong.m865constructorimpl(j2 + m1882differenceModulosambcqE(j, j2, ULong.m865constructorimpl(-j3)));
+            return UnsignedKt.ulongCompare(j, j2) <= 0 ? j2 : ULong.m1808constructorimpl(j2 + m2825differenceModulosambcqE(j, j2, ULong.m1808constructorimpl(-j3)));
         } else {
             throw new IllegalArgumentException("Step is zero.");
         }
@@ -45,11 +45,11 @@ public final class UProgressionUtilKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     /* renamed from: getProgressionLastElement-Nkh28Cs  reason: not valid java name */
-    public static final int m1884getProgressionLastElementNkh28Cs(int i, int i2, int i3) {
+    public static final int m2827getProgressionLastElementNkh28Cs(int i, int i2, int i3) {
         if (i3 > 0) {
-            return UnsignedKt.uintCompare(i, i2) >= 0 ? i2 : UInt.m787constructorimpl(i2 - m1881differenceModuloWZ9TVnA(i2, i, UInt.m787constructorimpl(i3)));
+            return UnsignedKt.uintCompare(i, i2) >= 0 ? i2 : UInt.m1730constructorimpl(i2 - m2824differenceModuloWZ9TVnA(i2, i, UInt.m1730constructorimpl(i3)));
         } else if (i3 < 0) {
-            return UnsignedKt.uintCompare(i, i2) <= 0 ? i2 : UInt.m787constructorimpl(i2 + m1881differenceModuloWZ9TVnA(i, i2, UInt.m787constructorimpl(-i3)));
+            return UnsignedKt.uintCompare(i, i2) <= 0 ? i2 : UInt.m1730constructorimpl(i2 + m2824differenceModuloWZ9TVnA(i, i2, UInt.m1730constructorimpl(-i3)));
         } else {
             throw new IllegalArgumentException("Step is zero.");
         }

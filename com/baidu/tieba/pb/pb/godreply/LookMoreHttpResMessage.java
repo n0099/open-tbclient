@@ -65,7 +65,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             }
             for (Post post : list) {
                 PostData postData = new PostData();
-                postData.k0(post);
+                postData.m0(post);
                 postData.M = 102;
                 this.list.add(postData);
             }

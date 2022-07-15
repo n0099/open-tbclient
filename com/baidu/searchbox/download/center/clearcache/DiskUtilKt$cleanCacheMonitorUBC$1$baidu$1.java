@@ -3,6 +3,7 @@ package com.baidu.searchbox.download.center.clearcache;
 import android.os.Build;
 import android.system.Os;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,7 +67,7 @@ public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda impl
             if (this.$exceptionFiles.length() < 10 && it.length() >= this.$total) {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("path", it.getAbsolutePath());
-                jSONObject.put("length", it.length());
+                jSONObject.put(CloudStabilityUBCUtils.KEY_LENGTH, it.length());
                 jSONObject.put("lastModified", it.lastModified());
                 jSONObject.put("lastAccessTime", Build.VERSION.SDK_INT >= 21 ? Os.lstat(it.getAbsolutePath()).st_atime : 0L);
                 this.$exceptionFiles.put(jSONObject);

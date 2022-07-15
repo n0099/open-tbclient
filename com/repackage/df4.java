@@ -1,57 +1,80 @@
 package com.repackage;
 
-import android.content.Context;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface df4 {
-    String a();
+public class df4 implements Comparable<df4> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public long c;
+    public String d;
+    public long e;
+    public MethodInfo f;
 
-    String b();
+    public df4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean c(String str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(df4 df4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, df4Var)) == null) ? (int) (this.e - df4Var.e()) : invokeL.intValue;
+    }
 
-    ExecutorService d();
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.c - this.b;
+            if (j < 0) {
+                return 0L;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
 
-    void e(String str, int i, JSONArray jSONArray);
+    public MethodInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (MethodInfo) invokeV.objValue;
+    }
 
-    void f(String str, int i);
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+    }
 
-    void g(String str, String str2, int i, String str3, int i2);
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
+    }
 
-    String getAppId();
-
-    String getAppVersion();
-
-    String getDeviceId(Context context);
-
-    String h();
-
-    void i(String str, int i, String str2);
-
-    boolean j();
-
-    String k();
-
-    int l();
-
-    ef4 m();
-
-    String n();
-
-    void o(String str, String str2, int i, String str3, long j, int i2);
-
-    String p(Context context);
-
-    boolean q();
-
-    boolean r();
-
-    boolean s();
-
-    String t();
-
-    String u();
-
-    String v(Context context);
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
 }

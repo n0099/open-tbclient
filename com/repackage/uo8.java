@@ -1,7 +1,11 @@
 package com.repackage;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
 public interface uo8 {
-    void a();
+    void a(String str);
 
-    void b();
+    void b(BdUniqueId bdUniqueId);
+
+    void c(String str);
 }

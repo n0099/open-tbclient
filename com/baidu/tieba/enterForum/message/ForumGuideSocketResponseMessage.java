@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mq4;
+import com.repackage.br4;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -199,7 +199,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        mq4.f();
-        mq4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
+        br4.f();
+        br4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
     }
 }

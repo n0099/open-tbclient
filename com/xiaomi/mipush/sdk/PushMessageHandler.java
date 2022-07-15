@@ -33,7 +33,7 @@ public class PushMessageHandler extends BaseService {
     public static List<MiPushClient.ICallbackResult> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f39a;
+    public static ThreadPoolExecutor f766a;
     public static List<MiPushClient.MiPushClientCallback> b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +56,7 @@ public class PushMessageHandler extends BaseService {
         }
         a = new ArrayList();
         b = new ArrayList();
-        f39a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f766a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public PushMessageHandler() {
@@ -101,7 +101,7 @@ public class PushMessageHandler extends BaseService {
             try {
                 context.startService(intent);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m1027a(e.getMessage());
             }
         }
     }
@@ -175,21 +175,21 @@ public class PushMessageHandler extends BaseService {
                 MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) aVar;
                 String command = miPushCommandMessage.getCommand();
                 String str = null;
-                if (ey.a.f326a.equals(command)) {
+                if (ey.a.f1053a.equals(command)) {
                     List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                     if (commandArguments != null && !commandArguments.isEmpty()) {
                         str = commandArguments.get(0);
                     }
                     a(miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-                } else if (ey.c.f326a.equals(command) || ey.d.f326a.equals(command) || ey.i.f326a.equals(command)) {
+                } else if (ey.c.f1053a.equals(command) || ey.d.f1053a.equals(command) || ey.i.f1053a.equals(command)) {
                     a(context, miPushCommandMessage.getCategory(), command, miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), miPushCommandMessage.getCommandArguments());
-                } else if (ey.g.f326a.equals(command)) {
+                } else if (ey.g.f1053a.equals(command)) {
                     List<String> commandArguments2 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments2 != null && !commandArguments2.isEmpty()) {
                         str = commandArguments2.get(0);
                     }
                     a(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
-                } else if (ey.h.f326a.equals(command)) {
+                } else if (ey.h.f1053a.equals(command)) {
                     List<String> commandArguments3 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments3 != null && !commandArguments3.isEmpty()) {
                         str = commandArguments3.get(0);
@@ -272,7 +272,7 @@ public class PushMessageHandler extends BaseService {
                 intent.setAction("action_clicked_activity_finish");
                 context.sendBroadcast(intent, d.a(context));
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("callback sync error" + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("callback sync error" + e);
             }
         }
     }
@@ -285,7 +285,7 @@ public class PushMessageHandler extends BaseService {
             try {
                 z = intent.getBooleanExtra("is_clicked_activity_call", false);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("intent unparcel error:" + th);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("intent unparcel error:" + th);
             }
             try {
                 ResolveInfo resolveInfo = null;
@@ -297,7 +297,7 @@ public class PushMessageHandler extends BaseService {
                     com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hnVar.d());
                     MiTinyDataClient.upload(context, hnVar);
                 } else if (1 == PushMessageHelper.getPushMode(context)) {
-                    if (m103b()) {
+                    if (m1046b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                         if (z) {
                             b(context);
@@ -368,7 +368,7 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m103b() {
+    public static boolean m1046b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? b.isEmpty() : invokeV.booleanValue;
@@ -376,20 +376,20 @@ public class PushMessageHandler extends BaseService {
 
     public static void c(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65556, null, context, intent) == null) || intent == null || f39a.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeLL(65556, null, context, intent) == null) || intent == null || f766a.isShutdown()) {
             return;
         }
-        f39a.execute(new al(context, intent));
+        f766a.execute(new al(context, intent));
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo104a() {
+    public boolean mo1047a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = f39a;
-            return (threadPoolExecutor == null || threadPoolExecutor.getQueue() == null || f39a.getQueue().size() <= 0) ? false : true;
+            ThreadPoolExecutor threadPoolExecutor = f766a;
+            return (threadPoolExecutor == null || threadPoolExecutor.getQueue() == null || f766a.getQueue().size() <= 0) ? false : true;
         }
         return invokeV.booleanValue;
     }

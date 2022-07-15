@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
@@ -272,7 +273,7 @@ public class g implements d {
         this.zd.a(ARPScriptEnvironment.KEY_DATA_PIP_SLAM, fArr);
         if (this.zf) {
             this.zf = false;
-            this.ze.b(7001, null);
+            this.ze.b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, null);
         }
         if (hp()) {
             fArr = s(fArr);

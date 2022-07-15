@@ -1,20 +1,22 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetThemeList.ThemeList;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetBgByCategory.ThemeBgInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes7.dex */
 public class sn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public long c;
-    public String d;
+    public List<DressItemData> b;
 
     public sn8() {
         Interceptable interceptable = $ic;
@@ -30,10 +32,10 @@ public class sn8 {
         }
     }
 
-    public String a() {
+    public List<DressItemData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
     public String b() {
@@ -42,26 +44,15 @@ public class sn8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void c(ThemeBgInMain themeBgInMain) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public void d(ThemeList themeList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, themeList) == null) || themeList == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) == null) || themeBgInMain == null) {
             return;
         }
-        this.a = themeList.name;
-        this.b = themeList.icon;
-        this.c = themeList.last_update_time.longValue();
-        this.d = themeList.type;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
+        this.a = themeBgInMain.bg_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
+        }
     }
 }

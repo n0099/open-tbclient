@@ -64,7 +64,7 @@ public class a {
             hashMap.put("ability_sky_segmentation", Integer.valueOf((int) FeatureCodes.SKY_SEG));
             hashMap.put("ability_hair_segmentation", 1800);
             hashMap.put("ability_object_detect", 2000);
-            hashMap.put("ability_3d_track", Integer.valueOf((int) FeatureCodes.TRACK_3D));
+            hashMap.put("ability_3d_track", 3100);
             return hashMap;
         }
         return (Map) invokeV.objValue;

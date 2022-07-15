@@ -1,7 +1,9 @@
 package com.repackage;
-
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 /* loaded from: classes6.dex */
 public interface ky2 {
-    void a(WheelView3d wheelView3d, int i);
+    int getHeight();
+
+    void onSoftInputShowing(boolean z);
+
+    void refreshHeight(int i);
 }

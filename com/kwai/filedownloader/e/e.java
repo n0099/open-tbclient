@@ -23,13 +23,6 @@ public class e {
     public final boolean f;
     public final boolean g;
 
-    /* renamed from: com.kwai.filedownloader.e.e$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
@@ -49,27 +42,26 @@ public class e {
                     return;
                 }
             }
-            a = new e(null);
+            a = new e((byte) 0);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x019c  */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:136:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0091 A[Catch: all -> 0x01f5, TryCatch #3 {all -> 0x01f5, blocks: (B:9:0x0037, B:10:0x003e, B:11:0x0042, B:12:0x0046, B:13:0x004a, B:14:0x004e, B:44:0x008d, B:46:0x0091, B:48:0x0095, B:49:0x009d), top: B:122:0x0037 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x009d A[Catch: all -> 0x01f5, TRY_LEAVE, TryCatch #3 {all -> 0x01f5, blocks: (B:9:0x0037, B:10:0x003e, B:11:0x0042, B:12:0x0046, B:13:0x004a, B:14:0x004e, B:44:0x008d, B:46:0x0091, B:48:0x0095, B:49:0x009d), top: B:122:0x0037 }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00bd  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00e9  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x00f3  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0102  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x011b  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x0125  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0135  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x013a  */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x0163  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0168  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0196  */
+    /* JADX WARN: Removed duplicated region for block: B:116:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0085 A[Catch: all -> 0x01e0, TryCatch #1 {all -> 0x01e0, blocks: (B:9:0x0037, B:10:0x003e, B:11:0x0042, B:12:0x0046, B:13:0x004a, B:14:0x004e, B:39:0x0081, B:41:0x0085, B:43:0x0089, B:44:0x0091), top: B:104:0x0037 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0091 A[Catch: all -> 0x01e0, TRY_LEAVE, TryCatch #1 {all -> 0x01e0, blocks: (B:9:0x0037, B:10:0x003e, B:11:0x0042, B:12:0x0046, B:13:0x004a, B:14:0x004e, B:39:0x0081, B:41:0x0085, B:43:0x0089, B:44:0x0091), top: B:104:0x0037 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00e0  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00ef  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00f5  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0112  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0122  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0127  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0152  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0157  */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0181  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x0187  */
     /* JADX WARN: Type inference failed for: r6v10 */
     /* JADX WARN: Type inference failed for: r6v11, types: [boolean] */
     /* JADX WARN: Type inference failed for: r6v12 */
@@ -77,7 +69,6 @@ public class e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public e() {
-        Throwable th;
         InputStream inputStream;
         InputStream inputStream2;
         String str;
@@ -120,20 +111,14 @@ public class e {
                     try {
                         properties.load(inputStream2);
                         str = properties.getProperty("http.lenient");
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         inputStream = inputStream2;
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                        com.kwad.sdk.crash.utils.b.a(inputStream);
                         throw th;
                     }
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     str = null;
                     str2 = null;
                     str3 = null;
@@ -141,8 +126,7 @@ public class e {
                     str5 = null;
                     if (e instanceof FileNotFoundException) {
                     }
-                    if (inputStream2 != null) {
-                    }
+                    com.kwad.sdk.crash.utils.b.a(inputStream2);
                     str6 = str;
                     str7 = str5;
                     str8 = null;
@@ -165,16 +149,15 @@ public class e {
                 }
                 try {
                     str2 = properties.getProperty("download.min-progress-step");
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     str2 = null;
                     str3 = null;
                     str4 = null;
                     str5 = null;
                     if (e instanceof FileNotFoundException) {
                     }
-                    if (inputStream2 != null) {
-                    }
+                    com.kwad.sdk.crash.utils.b.a(inputStream2);
                     str6 = str;
                     str7 = str5;
                     str8 = null;
@@ -197,54 +180,18 @@ public class e {
                 }
                 try {
                     str3 = properties.getProperty("download.min-progress-time");
-                } catch (IOException e4) {
-                    e = e4;
-                    str3 = null;
-                    str4 = null;
-                    str5 = null;
-                    if (e instanceof FileNotFoundException) {
-                    }
-                    if (inputStream2 != null) {
-                    }
-                    str6 = str;
-                    str7 = str5;
-                    str8 = null;
-                    if (str6 == null) {
-                    }
-                    this.d = true;
-                    if (str2 != null) {
-                    }
-                    if (str3 != null) {
-                    }
-                    this.b = j2;
-                    if (str4 != null) {
-                    }
-                    if (str7 == null) {
-                    }
-                    if (str8 == null) {
-                    }
-                    if (d.a) {
-                    }
-                }
-                try {
-                    str4 = properties.getProperty("download.max-network-thread-count");
                     try {
-                        str5 = properties.getProperty("file.non-pre-allocation");
-                    } catch (IOException e5) {
-                        e = e5;
+                        str4 = properties.getProperty("download.max-network-thread-count");
+                    } catch (IOException e3) {
+                        e = e3;
+                        str4 = null;
                         str5 = null;
                         if (e instanceof FileNotFoundException) {
                             e.printStackTrace();
                         } else if (d.a) {
                             d.c(e.class, "not found filedownloader.properties", new Object[0]);
                         }
-                        if (inputStream2 != null) {
-                            try {
-                                inputStream2.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
+                        com.kwad.sdk.crash.utils.b.a(inputStream2);
                         str6 = str;
                         str7 = str5;
                         str8 = null;
@@ -266,14 +213,13 @@ public class e {
                         }
                     }
                     try {
-                        str6 = str;
-                        str8 = properties.getProperty("broadcast.completed");
-                    } catch (IOException e7) {
-                        e = e7;
+                        str5 = properties.getProperty("file.non-pre-allocation");
+                    } catch (IOException e4) {
+                        e = e4;
+                        str5 = null;
                         if (e instanceof FileNotFoundException) {
                         }
-                        if (inputStream2 != null) {
-                        }
+                        com.kwad.sdk.crash.utils.b.a(inputStream2);
                         str6 = str;
                         str7 = str5;
                         str8 = null;
@@ -294,14 +240,42 @@ public class e {
                         if (d.a) {
                         }
                     }
-                } catch (IOException e8) {
-                    e = e8;
+                    try {
+                        str8 = properties.getProperty("broadcast.completed");
+                        str6 = str;
+                    } catch (IOException e5) {
+                        e = e5;
+                        if (e instanceof FileNotFoundException) {
+                        }
+                        com.kwad.sdk.crash.utils.b.a(inputStream2);
+                        str6 = str;
+                        str7 = str5;
+                        str8 = null;
+                        if (str6 == null) {
+                        }
+                        this.d = true;
+                        if (str2 != null) {
+                        }
+                        if (str3 != null) {
+                        }
+                        this.b = j2;
+                        if (str4 != null) {
+                        }
+                        if (str7 == null) {
+                        }
+                        if (str8 == null) {
+                        }
+                        if (d.a) {
+                        }
+                    }
+                } catch (IOException e6) {
+                    e = e6;
+                    str3 = null;
                     str4 = null;
                     str5 = null;
                     if (e instanceof FileNotFoundException) {
                     }
-                    if (inputStream2 != null) {
-                    }
+                    com.kwad.sdk.crash.utils.b.a(inputStream2);
                     str6 = str;
                     str7 = str5;
                     str8 = null;
@@ -323,26 +297,20 @@ public class e {
                     }
                 }
             } else {
-                str6 = null;
                 str8 = null;
+                str6 = null;
                 str2 = null;
                 str3 = null;
                 str4 = null;
                 str5 = null;
             }
-            if (inputStream2 != null) {
-                try {
-                    inputStream2.close();
-                } catch (IOException e9) {
-                    e9.printStackTrace();
-                }
-            }
+            com.kwad.sdk.crash.utils.b.a(inputStream2);
             str7 = str5;
-        } catch (IOException e10) {
-            e = e10;
+        } catch (IOException e7) {
+            e = e7;
             inputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             inputStream = null;
         }
         if (str6 == null) {
@@ -422,7 +390,7 @@ public class e {
         }
     }
 
-    public /* synthetic */ e(AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ e(byte b) {
         this();
     }
 
@@ -433,7 +401,7 @@ public class e {
             if (i > 12) {
                 d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i), 12, 12);
                 return 12;
-            } else if (i < 1) {
+            } else if (i <= 0) {
                 d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i), 1, 1);
                 return 1;
             } else {

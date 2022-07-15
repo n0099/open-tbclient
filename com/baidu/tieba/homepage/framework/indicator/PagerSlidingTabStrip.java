@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
@@ -44,11 +45,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au6;
-import com.repackage.fr4;
-import com.repackage.ht4;
 import com.repackage.pi;
-import com.repackage.tw4;
+import com.repackage.qu6;
+import com.repackage.rx4;
+import com.repackage.ur4;
+import com.repackage.xt4;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
@@ -68,13 +69,15 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public int L;
     public int M;
     public int N;
-    public boolean O;
+    public int O;
     public boolean P;
-    public Locale Q;
-    public RectF R;
-    public int S;
-    public c T;
-    public Context U;
+    public boolean Q;
+    public Locale R;
+    public RectF S;
+    public int T;
+    public c U;
+    public Context V;
+    public boolean W;
     public LinearLayout.LayoutParams a;
     public LinearLayout.LayoutParams b;
     public final d c;
@@ -163,7 +166,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             CREATOR = new a();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, au6 au6Var) {
+        public /* synthetic */ SavedState(Parcel parcel, qu6 qu6Var) {
             this(parcel);
         }
 
@@ -251,9 +254,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 pagerSlidingTabStrip.h = pagerSlidingTabStrip.f.getCurrentItem();
                 PagerSlidingTabStrip pagerSlidingTabStrip2 = this.a;
                 pagerSlidingTabStrip2.j = pagerSlidingTabStrip2.h;
-                this.a.E();
+                this.a.G();
                 PagerSlidingTabStrip pagerSlidingTabStrip3 = this.a;
-                pagerSlidingTabStrip3.D(pagerSlidingTabStrip3.h, 0);
+                pagerSlidingTabStrip3.F(pagerSlidingTabStrip3.h, 0);
             }
         }
     }
@@ -287,11 +290,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.P) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.Q) {
                 return;
             }
-            if (this.b.T != null) {
-                this.b.T.a(view2, this.a);
+            if (this.b.U != null) {
+                this.b.U.a(view2, this.a);
             }
             if (this.a == 1 || !FullBrowseHelper.checkIsFullBrowseMode()) {
                 int currentItem = this.b.f.getCurrentItem();
@@ -302,15 +305,15 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                         return;
                     }
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RECOMMEND_TIP_ITEM_CLICK).param("obj_locate", this.a + 1).param("obj_type", "1"));
-                    this.b.O = true;
+                    this.b.P = true;
                     if (this.b.f.getAdapter() instanceof NewScrollFragmentAdapter) {
-                        ((NewScrollFragmentAdapter) this.b.f.getAdapter()).H(this.a);
+                        ((NewScrollFragmentAdapter) this.b.f.getAdapter()).I(this.a);
                     }
                     try {
                         this.b.f.setCurrentItem(this.a);
                     } catch (Exception unused) {
                     }
-                    this.b.E();
+                    this.b.G();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921501, 1));
@@ -355,12 +358,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             }
             if (i == 0) {
                 PagerSlidingTabStrip pagerSlidingTabStrip = this.a;
-                pagerSlidingTabStrip.D(pagerSlidingTabStrip.f.getCurrentItem(), 0);
+                pagerSlidingTabStrip.F(pagerSlidingTabStrip.f.getCurrentItem(), 0);
                 this.a.i = 0.0f;
-                this.a.O = false;
                 this.a.P = false;
+                this.a.Q = false;
             } else if (i == 1) {
-                this.a.P = true;
+                this.a.Q = true;
                 PagerSlidingTabStrip pagerSlidingTabStrip2 = this.a;
                 pagerSlidingTabStrip2.k = pagerSlidingTabStrip2.f.getCurrentItem();
                 PagerSlidingTabStrip pagerSlidingTabStrip3 = this.a;
@@ -381,7 +384,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.e.getChildCount() == 0) {
                 return;
             }
-            if (!this.a.O) {
+            if (!this.a.P) {
                 if (i == this.a.k) {
                     this.a.h = i;
                     this.a.j = i + 1;
@@ -399,9 +402,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 }
                 this.a.i = f;
                 PagerSlidingTabStrip pagerSlidingTabStrip = this.a;
-                pagerSlidingTabStrip.D(i, (int) (pagerSlidingTabStrip.e.getChildAt(i).getWidth() * f));
+                pagerSlidingTabStrip.F(i, (int) (pagerSlidingTabStrip.e.getChildAt(i).getWidth() * f));
             }
-            this.a.E();
+            this.a.G();
             this.a.invalidate();
             ViewPager.OnPageChangeListener onPageChangeListener = this.a.d;
             if (onPageChangeListener != null) {
@@ -417,9 +420,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (onPageChangeListener != null) {
                     onPageChangeListener.onPageSelected(i);
                 }
-                if (this.a.O) {
+                if (this.a.P) {
                     PagerSlidingTabStrip pagerSlidingTabStrip = this.a;
-                    pagerSlidingTabStrip.D(i, (int) (pagerSlidingTabStrip.i * this.a.e.getChildAt(i).getWidth()));
+                    pagerSlidingTabStrip.F(i, (int) (pagerSlidingTabStrip.i * this.a.e.getChildAt(i).getWidth()));
                     this.a.k = i;
                     this.a.h = i;
                     this.a.j = i;
@@ -428,7 +431,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             }
         }
 
-        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, au6 au6Var) {
+        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, qu6 qu6Var) {
             this(pagerSlidingTabStrip);
         }
     }
@@ -454,467 +457,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
     }
 
-    public boolean A() {
-        InterceptResult invokeV;
+    public void A(int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.o : invokeV.booleanValue;
-    }
-
-    public void B() {
-        ViewPager viewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (viewPager = this.f) == null || viewPager.getAdapter() == null || this.f.getAdapter().getCount() == 0) {
-            return;
-        }
-        this.e.removeAllViews();
-        this.g = this.f.getAdapter().getCount();
-        for (int i = 0; i < this.g; i++) {
-            r(i, this.f.getAdapter().getPageTitle(i).toString());
-        }
-        E();
-        getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                this.v = SkinManager.getColor(R.color.CAM_X0101);
-                this.w = SkinManager.getColor(R.color.CAM_X0101);
-                this.l.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            } else {
-                this.v = SkinManager.getColor(this.s);
-                this.w = SkinManager.getColor(this.t);
-                this.l.setColor(SkinManager.getColor(this.u));
-            }
-            this.m.setColor(SkinManager.getColor(R.color.CAM_X0301));
-            E();
-            invalidate();
-        }
-    }
-
-    public final void D(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || this.g == 0) {
-            return;
-        }
-        int left = this.e.getChildAt(i).getLeft() + i2;
-        if (i > 0 || i2 > 0) {
-            left -= this.x;
-        }
-        if (left != this.M) {
-            this.M = left;
-            scrollTo(left, 0);
-        }
-    }
-
-    public final void E() {
-        float x;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            float f = this.i;
-            if (this.j < this.h) {
-                f = 1.0f - f;
-            }
-            int i = 0;
-            while (i < this.g) {
-                View childAt = this.e.getChildAt(i);
-                if (childAt != null) {
-                    childAt.setBackgroundResource(this.N);
-                    if (i == this.h) {
-                        x = s(f);
-                    } else {
-                        x = i == this.j ? x(f) : 1.0f;
-                    }
-                    TextView textView = null;
-                    if (childAt instanceof FrsTabItemCustomeView) {
-                        FrsTabItemCustomeView frsTabItemCustomeView = (FrsTabItemCustomeView) childAt;
-                        frsTabItemCustomeView.a();
-                        if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                            frsTabItemCustomeView.setSelectColorFilter(new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0101), PorterDuff.Mode.SRC_IN));
-                        } else {
-                            frsTabItemCustomeView.setSelectColorFilter(null);
-                        }
-                        frsTabItemCustomeView.setScaleX(x);
-                        frsTabItemCustomeView.setScaleY(x);
-                        if (f >= 0.5f) {
-                            if (i == this.j) {
-                                frsTabItemCustomeView.b(false);
-                            } else {
-                                frsTabItemCustomeView.b(true);
-                            }
-                        } else if (i == this.h) {
-                            frsTabItemCustomeView.b(true);
-                        } else {
-                            frsTabItemCustomeView.b(false);
-                        }
-                    } else if (childAt instanceof TextView) {
-                        textView = (TextView) childAt;
-                    } else if (childAt instanceof LinearLayout) {
-                        LinearLayout linearLayout = (LinearLayout) childAt;
-                        textView = (TextView) linearLayout.getChildAt(0);
-                        if (linearLayout.getChildCount() > 1 && (linearLayout.getChildAt(1) instanceof ImageView)) {
-                            ((ImageView) linearLayout.getChildAt(1)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08091b, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-                        }
-                    }
-                    if (textView != null) {
-                        textView.setScaleX(x);
-                        textView.setScaleY(x);
-                        int i2 = (f > 0.5f ? 1 : (f == 0.5f ? 0 : -1));
-                        if (i2 >= 0) {
-                            if (i == this.j) {
-                                textView.setTextColor(this.v);
-                            } else {
-                                textView.setTextColor(this.w);
-                            }
-                        } else if (i == this.h) {
-                            textView.setTextColor(this.v);
-                        } else {
-                            textView.setTextColor(this.w);
-                        }
-                        if (i2 >= 0) {
-                            if (i == this.j) {
-                                fr4.d(textView).A(R.string.F_X02);
-                            } else {
-                                fr4.d(textView).A(R.string.F_X01);
-                            }
-                        } else if (i == this.h) {
-                            fr4.d(textView).A(R.string.F_X02);
-                        } else {
-                            fr4.d(textView).A(R.string.F_X01);
-                        }
-                    }
-                }
-                i++;
-            }
-        }
-    }
-
-    public int getCurrentTabIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (isInEditMode() || this.g == 0) {
-                return;
-            }
-            View childAt2 = this.e.getChildAt(this.h);
-            float left = childAt2.getLeft() + this.A;
-            float right = childAt2.getRight() - this.A;
-            if ((childAt2 instanceof LinearLayout) && (((LinearLayout) childAt2).getChildAt(0) instanceof TextView)) {
-                float left2 = (childAt2.getLeft() + childAt2.getRight()) / 2.0f;
-                right = v(left2, childAt2);
-                left = u(left2, childAt2);
-            }
-            if (this.i > 0.0f) {
-                int i = this.h;
-                int i2 = this.j;
-                if (i != i2 && i2 <= this.g - 1 && i2 >= 0) {
-                    View childAt3 = this.e.getChildAt(i2);
-                    float left3 = childAt3.getLeft() + this.A;
-                    float right2 = childAt3.getRight() - this.A;
-                    if ((childAt3 instanceof LinearLayout) && (((LinearLayout) childAt3).getChildAt(0) instanceof TextView)) {
-                        float left4 = (childAt3.getLeft() + childAt3.getRight()) / 2.0f;
-                        right2 = v(left4, childAt3);
-                        left3 = u(left4, childAt3);
-                    }
-                    left = t(left, left3, this.i);
-                    right = w(right, right2, this.i);
-                }
-            }
-            int height = getHeight();
-            RectF rectF = this.R;
-            if (rectF == null) {
-                int i3 = this.z;
-                this.R = new RectF(left, (height - this.y) - i3, right, height - i3);
-            } else {
-                int i4 = this.z;
-                rectF.set(left, (height - this.y) - i4, right, height - i4);
-            }
-            RectF rectF2 = this.R;
-            int i5 = this.y;
-            canvas.drawRoundRect(rectF2, i5 * 0.5f, i5 * 0.5f, this.l);
-            if (!this.p || (childAt = this.e.getChildAt(this.q)) == null) {
-                return;
-            }
-            int right3 = (childAt.getRight() - this.L) - this.J;
-            int top = childAt.getTop() + this.K;
-            int i6 = this.J;
-            this.n.set(right3, top, right3 + i6, top + i6);
-            canvas.drawOval(this.n, this.m);
-        }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, parcelable) == null) {
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(savedState.getSuperState());
-            int i = savedState.currentPosition;
-            this.h = i;
-            this.j = i;
-            requestLayout();
-        }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.View
-    public Parcelable onSaveInstanceState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.currentPosition = this.h;
-            return savedState;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    public final void q(int i, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, view2) == null) {
-            view2.setFocusable(true);
-            view2.setOnClickListener(new b(this, i));
-            if (view2 instanceof FrsTabItemCustomeView) {
-                this.e.addView(view2, i);
-            } else if (i == 0 && (view2 instanceof LinearLayout) && UbsABTestHelper.isConcernForumCardShow()) {
-                this.e.addView(view2, i, this.a);
-            } else {
-                this.e.addView(view2, i, this.r ? this.b : this.a);
-            }
-        }
-    }
-
-    public final void r(int i, String str) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
-            tw4 a2 = tw4.a(str);
-            if (a2 != null) {
-                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds47);
-                FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(getContext());
-                frsTabItemCustomeView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds26), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds26), 0);
-                frsTabItemCustomeView.setTabHeight(dimenPixelSize);
-                frsTabItemCustomeView.setNeedNightShade(false);
-                frsTabItemCustomeView.e(a2.g);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                layoutParams.rightMargin = pi.f(getContext(), R.dimen.tbds5);
-                layoutParams.gravity = 16;
-                frsTabItemCustomeView.setLayoutParams(layoutParams);
-                q(i, frsTabItemCustomeView);
-            } else if (UbsABTestHelper.isConcernForumCardShow() && i == 0 && (getResources().getString(R.string.obfuscated_res_0x7f0f1364).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f02b0).equals(str))) {
-                LinearLayout linearLayout = new LinearLayout(getContext());
-                linearLayout.setOrientation(0);
-                TextView textView = new TextView(getContext());
-                if (TbadkCoreApplication.isLogin() && ht4.k().l("key_home_concern_all_status", 0) == 1) {
-                    string = getResources().getString(R.string.obfuscated_res_0x7f0f02b0);
-                } else {
-                    string = getResources().getString(R.string.obfuscated_res_0x7f0f1364);
-                }
-                textView.setText(string);
-                textView.setGravity(17);
-                textView.setTextSize(0, this.E);
-                textView.setSingleLine();
-                textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds26), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds26), 0);
-                ImageView imageView = new ImageView(getContext());
-                imageView.setVisibility(4);
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08091b, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-                linearLayout.addView(textView);
-                linearLayout.addView(imageView);
-                ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.S;
-                linearLayout.setGravity(16);
-                q(i, linearLayout);
-            } else {
-                EMTextView eMTextView = new EMTextView(getContext());
-                if (i == 0) {
-                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && ht4.k().l("key_home_concern_all_status", 0) == 1) {
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f02b0);
-                    } else {
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f1364);
-                    }
-                }
-                eMTextView.setTextSize(0, this.E);
-                eMTextView.setSingleLine();
-                eMTextView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds26), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds26), 0);
-                eMTextView.setGravity(17);
-                eMTextView.setText(str);
-                q(i, eMTextView);
-            }
-        }
-    }
-
-    public final float s(float f) {
-        InterceptResult invokeF;
-        float f2;
-        float f3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            if (f <= 0.1f) {
-                f2 = this.H;
-                f3 = (this.I - f2) / 0.1f;
-            } else {
-                f2 = this.I;
-                f3 = (f2 - 1.0f) / (-0.9f);
-                f -= 0.1f;
-            }
-            return f2 + (f3 * f);
-        }
-        return invokeF.floatValue;
-    }
-
-    public void setConcernTabIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-        }
-    }
-
-    public void setExpandedTabLayoutParams(LinearLayout.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, layoutParams) == null) {
-            this.b = layoutParams;
-        }
-    }
-
-    public void setHotTopicIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.q = i;
-        }
-    }
-
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onPageChangeListener) == null) {
-            this.d = onPageChangeListener;
-        }
-    }
-
-    public void setOnTabItemClickListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
-            this.T = cVar;
-        }
-    }
-
-    public void setShowConcernRedTip(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.o = z;
-            invalidate();
-        }
-    }
-
-    public void setShowHotTopicRedTip(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.p = z;
-            invalidate();
-        }
-    }
-
-    public void setTabItemClicked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.O = z;
-        }
-    }
-
-    public void setViewPager(ViewPager viewPager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, viewPager) == null) {
-            this.f = viewPager;
-            if (viewPager.getAdapter() == null) {
-                return;
-            }
-            viewPager.setOnPageChangeListener(this.c);
-            B();
-        }
-    }
-
-    public final float t(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f2 <= f) {
-                return ((double) f3) >= 0.5d ? f - (((f - f2) * (1.0f - f3)) / 0.5f) : f2;
-            }
-            double d2 = f3;
-            if (d2 <= 0.5d) {
-                return f;
-            }
-            if (d2 <= 0.8d) {
-                return f + ((((f2 + this.B) - f) * (f3 - 0.5f)) / 0.3f);
-            }
-            int i = this.B;
-            return (f2 + i) - ((i * (f3 - 0.8f)) / 0.2f);
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public final float u(float f, View view2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f - ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f1364)) + (UtilHelper.getDimenPixelSize(R.dimen.tbds26) * 2)) / 2.0f)) + this.A : invokeCommon.floatValue;
-    }
-
-    public final float v(float f, View view2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f + ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f1364)) + (UtilHelper.getDimenPixelSize(R.dimen.tbds26) * 2)) / 2.0f)) - this.A : invokeCommon.floatValue;
-    }
-
-    public final float w(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f2 > f) {
-                return ((double) f3) <= 0.5d ? f + (((f2 - f) * f3) / 0.5f) : f2;
-            }
-            double d2 = f3;
-            if (d2 >= 0.5d) {
-                return f;
-            }
-            if (d2 >= 0.2d) {
-                return f - ((((this.B + f) - f2) * (0.5f - f3)) / 0.3f);
-            }
-            int i = this.B;
-            return (f2 - i) + ((i * (0.2f - f3)) / 0.2f);
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public final float x(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
-            if (f <= 0.1f) {
-                return 1.0f;
-            }
-            if (f <= 0.9f) {
-                return (((1.0f - this.I) / (-0.79999995f)) * (f - 0.1f)) + 1.0f;
-            }
-            float f2 = this.I;
-            return f2 + (((f2 - this.H) / (-0.100000024f)) * (f - 0.9f));
-        }
-        return invokeF.floatValue;
-    }
-
-    public View y(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) ? this.e.getChildAt(i) : (View) invokeI.objValue;
-    }
-
-    public void z(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             setFillViewport(true);
             setWillNotDraw(false);
             LinearLayout linearLayout = new LinearLayout(getContext());
@@ -933,7 +478,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             int i4 = this.E;
             this.H = (this.F * 1.0f) / i4;
             this.I = (f * 1.0f) / i4;
-            this.S = -pi.f(getContext(), R.dimen.tbds11);
+            this.T = -pi.f(getContext(), R.dimen.tbds11);
             this.y = i3;
             this.r = z;
             Paint paint = new Paint();
@@ -953,13 +498,587 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.L = (int) (pi.f(getContext(), R.dimen.tbds22) * 0.4d);
             this.a = new LinearLayout.LayoutParams(-2, -1);
             this.b = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.tbds165), -1);
-            this.A = UtilHelper.getDimenPixelSize(R.dimen.tbds26) + Math.round(i * 0.5f);
+            this.A = this.M + Math.round(i * 0.5f);
             this.z = pi.f(getContext(), R.dimen.tbds5);
             this.B = pi.f(getContext(), R.dimen.tbds8);
-            if (this.Q == null) {
-                this.Q = getResources().getConfiguration().locale;
+            if (this.R == null) {
+                this.R = getResources().getConfiguration().locale;
+            }
+            E();
+        }
+    }
+
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.o : invokeV.booleanValue;
+    }
+
+    public void D() {
+        ViewPager viewPager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (viewPager = this.f) == null || viewPager.getAdapter() == null || this.f.getAdapter().getCount() == 0) {
+            return;
+        }
+        this.e.removeAllViews();
+        this.g = this.f.getAdapter().getCount();
+        for (int i = 0; i < this.g; i++) {
+            if (UbsABTestHelper.isHomeTabModifyABTestA() && !this.W) {
+                int i2 = this.g;
+                if (i == i2 - 1) {
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.b);
+                    this.b = layoutParams;
+                    layoutParams.rightMargin = 0;
+                } else if (i2 < 4) {
+                    this.b.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds34);
+                } else {
+                    this.b.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
+                }
+            }
+            r(i, this.f.getAdapter().getPageTitle(i).toString());
+        }
+        G();
+        getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (UbsABTestHelper.isHomeTabModifyABTestA()) {
+                this.v = SkinManager.getColor(this.s);
+                this.w = SkinManager.getColor(this.t);
+                this.l.setColor(SkinManager.getColor(this.u));
+            } else if (TbadkApplication.getInst().isUseLuckyHeader()) {
+                boolean z = this.W;
+                int i = R.color.CAM_X0102;
+                this.v = SkinManager.getColor(z ? R.color.CAM_X0102 : R.color.CAM_X0101);
+                this.w = SkinManager.getColor(this.W ? R.color.CAM_X0102 : R.color.CAM_X0101);
+                Paint paint = this.l;
+                if (!this.W) {
+                    i = R.color.CAM_X0101;
+                }
+                paint.setColor(SkinManager.getColor(i));
+            } else {
+                this.v = SkinManager.getColor(this.s);
+                this.w = SkinManager.getColor(this.t);
+                this.l.setColor(SkinManager.getColor(this.u));
+            }
+            setBackgroundColor(SkinManager.getColor(this.O));
+            this.m.setColor(SkinManager.getColor(R.color.CAM_X0301));
+            G();
+            invalidate();
+        }
+    }
+
+    public final void F(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || this.g == 0) {
+            return;
+        }
+        int left = this.e.getChildAt(i).getLeft() + i2;
+        if (i > 0 || i2 > 0) {
+            left -= this.x;
+        }
+        if (left != this.N) {
+            this.N = left;
+            scrollTo(left, 0);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0085  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x011c A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void G() {
+        float y;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            float f = this.i;
+            if (this.j < this.h) {
+                f = 1.0f - f;
+            }
+            for (int i = 0; i < this.g; i++) {
+                View childAt = this.e.getChildAt(i);
+                if (childAt != null) {
+                    if (!this.W) {
+                        if (i == this.h) {
+                            y = t(f);
+                        } else if (i == this.j) {
+                            y = y(f);
+                        }
+                        textView = null;
+                        if (!(childAt instanceof FrsTabItemCustomeView)) {
+                            FrsTabItemCustomeView frsTabItemCustomeView = (FrsTabItemCustomeView) childAt;
+                            frsTabItemCustomeView.a();
+                            if (TbadkApplication.getInst().isUseLuckyHeader()) {
+                                frsTabItemCustomeView.setSelectColorFilter(new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0101), PorterDuff.Mode.SRC_IN));
+                            } else {
+                                frsTabItemCustomeView.setSelectColorFilter(null);
+                            }
+                            frsTabItemCustomeView.setScaleX(y);
+                            frsTabItemCustomeView.setScaleY(y);
+                            if (f >= 0.5f) {
+                                if (i == this.j) {
+                                    frsTabItemCustomeView.b(false);
+                                } else {
+                                    frsTabItemCustomeView.b(true);
+                                }
+                            } else if (i == this.h) {
+                                frsTabItemCustomeView.b(true);
+                            } else {
+                                frsTabItemCustomeView.b(false);
+                            }
+                        } else if (childAt instanceof TextView) {
+                            textView = (TextView) childAt;
+                        } else if (childAt instanceof LinearLayout) {
+                            LinearLayout linearLayout = (LinearLayout) childAt;
+                            textView = (TextView) linearLayout.getChildAt(0);
+                            if (linearLayout.getChildCount() > 1 && (linearLayout.getChildAt(1) instanceof ImageView)) {
+                                ((ImageView) linearLayout.getChildAt(1)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+                            }
+                        }
+                        if (textView == null) {
+                            textView.setScaleX(y);
+                            textView.setScaleY(y);
+                            int i2 = (f > 0.5f ? 1 : (f == 0.5f ? 0 : -1));
+                            if (i2 >= 0) {
+                                if (i == this.j) {
+                                    textView.setTextColor(this.v);
+                                } else {
+                                    textView.setTextColor(this.w);
+                                }
+                            } else if (i == this.h) {
+                                textView.setTextColor(this.v);
+                            } else {
+                                textView.setTextColor(this.w);
+                            }
+                            if (i2 >= 0) {
+                                if (i == this.j) {
+                                    ur4.d(textView).A(R.string.F_X02);
+                                } else {
+                                    ur4.d(textView).A(R.string.F_X01);
+                                }
+                            } else if (i == this.h) {
+                                ur4.d(textView).A(R.string.F_X02);
+                            } else {
+                                ur4.d(textView).A(R.string.F_X01);
+                            }
+                        }
+                    }
+                    y = 1.0f;
+                    textView = null;
+                    if (!(childAt instanceof FrsTabItemCustomeView)) {
+                    }
+                    if (textView == null) {
+                    }
+                }
             }
         }
+    }
+
+    public int getCurrentTabIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (isInEditMode() || this.g == 0 || this.W) {
+                return;
+            }
+            View childAt2 = this.e.getChildAt(this.h);
+            float left = childAt2.getLeft() + this.A;
+            float right = childAt2.getRight() - this.A;
+            if ((childAt2 instanceof LinearLayout) && (((LinearLayout) childAt2).getChildAt(0) instanceof TextView)) {
+                float left2 = (childAt2.getLeft() + childAt2.getRight()) / 2.0f;
+                right = w(left2, childAt2);
+                left = v(left2, childAt2);
+            }
+            if (this.i > 0.0f) {
+                int i = this.h;
+                int i2 = this.j;
+                if (i != i2 && i2 <= this.g - 1 && i2 >= 0) {
+                    View childAt3 = this.e.getChildAt(i2);
+                    float left3 = childAt3.getLeft() + this.A;
+                    float right2 = childAt3.getRight() - this.A;
+                    if ((childAt3 instanceof LinearLayout) && (((LinearLayout) childAt3).getChildAt(0) instanceof TextView)) {
+                        float left4 = (childAt3.getLeft() + childAt3.getRight()) / 2.0f;
+                        right2 = w(left4, childAt3);
+                        left3 = v(left4, childAt3);
+                    }
+                    left = u(left, left3, this.i);
+                    right = x(right, right2, this.i);
+                }
+            }
+            int height = getHeight();
+            RectF rectF = this.S;
+            if (rectF == null) {
+                int i3 = this.z;
+                this.S = new RectF(left, (height - this.y) - i3, right, height - i3);
+            } else {
+                int i4 = this.z;
+                rectF.set(left, (height - this.y) - i4, right, height - i4);
+            }
+            RectF rectF2 = this.S;
+            int i5 = this.y;
+            canvas.drawRoundRect(rectF2, i5 * 0.5f, i5 * 0.5f, this.l);
+            if (!this.p || (childAt = this.e.getChildAt(this.q)) == null) {
+                return;
+            }
+            int right3 = (childAt.getRight() - this.L) - this.J;
+            int top = childAt.getTop() + this.K;
+            int i6 = this.J;
+            this.n.set(right3, top, right3 + i6, top + i6);
+            canvas.drawOval(this.n, this.m);
+        }
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, parcelable) == null) {
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            int i = savedState.currentPosition;
+            this.h = i;
+            this.j = i;
+            requestLayout();
+        }
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.view.View
+    public Parcelable onSaveInstanceState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            savedState.currentPosition = this.h;
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    public final void q(int i, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, view2) == null) {
+            view2.setFocusable(true);
+            view2.setOnClickListener(new b(this, i));
+            if (view2 instanceof FrsTabItemCustomeView) {
+                this.e.addView(view2, i);
+            } else if (i == 0 && (view2 instanceof LinearLayout) && UbsABTestHelper.isConcernForumCardShow()) {
+                this.e.addView(view2, i, this.a);
+            } else {
+                this.e.addView(view2, i, this.r ? this.b : this.a);
+            }
+        }
+    }
+
+    public final void r(int i, String str) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
+            rx4 a2 = rx4.a(str);
+            if (a2 != null && (!UbsABTestHelper.isHomeTabModifyABTestA() || !this.W)) {
+                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds47);
+                FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(getContext());
+                int i2 = this.M;
+                frsTabItemCustomeView.setPadding(i2, 0, i2, 0);
+                frsTabItemCustomeView.setTabHeight(dimenPixelSize);
+                frsTabItemCustomeView.setNeedNightShade(false);
+                frsTabItemCustomeView.e(a2.g);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+                layoutParams.rightMargin = pi.f(getContext(), R.dimen.tbds5);
+                layoutParams.gravity = 16;
+                frsTabItemCustomeView.setLayoutParams(layoutParams);
+                q(i, frsTabItemCustomeView);
+            } else if (UbsABTestHelper.isConcernForumCardShow() && i == 0 && (getResources().getString(R.string.obfuscated_res_0x7f0f135d).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f02b3).equals(str))) {
+                LinearLayout linearLayout = new LinearLayout(getContext());
+                linearLayout.setOrientation(0);
+                TextView textView = new TextView(getContext());
+                if (TbadkCoreApplication.isLogin() && xt4.k().l("key_home_concern_all_status", 0) == 1) {
+                    string = getResources().getString(R.string.obfuscated_res_0x7f0f02b3);
+                } else {
+                    string = getResources().getString(R.string.obfuscated_res_0x7f0f135d);
+                }
+                textView.setText(string);
+                textView.setGravity(17);
+                textView.setTextSize(0, this.E);
+                textView.setSingleLine();
+                int i3 = this.M;
+                textView.setPadding(i3, 0, i3, 0);
+                ImageView imageView = new ImageView(getContext());
+                imageView.setVisibility(4);
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+                linearLayout.addView(textView);
+                linearLayout.addView(imageView);
+                ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.T;
+                linearLayout.setGravity(16);
+                q(i, linearLayout);
+            } else {
+                EMTextView eMTextView = new EMTextView(getContext());
+                if (UbsABTestHelper.isHomeTabModifyABTestA() && this.W && a2 != null) {
+                    str = a2.c();
+                }
+                if (i == 0 && !this.W) {
+                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && xt4.k().l("key_home_concern_all_status", 0) == 1) {
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f02b3);
+                    } else {
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f135d);
+                    }
+                }
+                eMTextView.setTextSize(0, this.E);
+                eMTextView.setSingleLine();
+                int i4 = this.M;
+                eMTextView.setPadding(i4, 0, i4, 0);
+                eMTextView.setGravity(17);
+                eMTextView.setText(str);
+                q(i, eMTextView);
+            }
+        }
+    }
+
+    public void s(boolean z, boolean z2) {
+        int color;
+        int color2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            int i = R.color.CAM_X0102;
+            if (!z) {
+                if (!this.W) {
+                    i = R.color.CAM_X0101;
+                }
+                color = SkinManager.getColor(i);
+                color2 = SkinManager.getColor(this.u);
+            } else if (z2) {
+                Resources resources = getContext().getResources();
+                boolean z3 = this.W;
+                int i2 = R.color.CAM_X0107;
+                color = resources.getColor(z3 ? R.color.CAM_X0107 : R.color.CAM_X0105);
+                Resources resources2 = getContext().getResources();
+                if (!this.W) {
+                    i2 = this.u;
+                }
+                color2 = resources2.getColor(i2);
+            } else {
+                Resources resources3 = getContext().getResources();
+                if (!this.W) {
+                    i = R.color.CAM_X0101;
+                }
+                color = resources3.getColor(i);
+                color2 = color;
+            }
+            this.v = color;
+            this.w = color;
+            this.l.setColor(color2);
+            this.m.setColor(SkinManager.getColor(R.color.CAM_X0301));
+            G();
+            invalidate();
+        }
+    }
+
+    public void setBackResId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.O = i;
+        }
+    }
+
+    public void setConcernTabIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        }
+    }
+
+    public void setExpandedTabLayoutParams(LinearLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, layoutParams) == null) {
+            this.b = layoutParams;
+        }
+    }
+
+    public void setHotTopicIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.q = i;
+        }
+    }
+
+    public void setIsFromSecondtab(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.W = z;
+        }
+    }
+
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onPageChangeListener) == null) {
+            this.d = onPageChangeListener;
+        }
+    }
+
+    public void setOnTabItemClickListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, cVar) == null) {
+            this.U = cVar;
+        }
+    }
+
+    public void setShowConcernRedTip(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.o = z;
+            invalidate();
+        }
+    }
+
+    public void setShowHotTopicRedTip(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.p = z;
+            invalidate();
+        }
+    }
+
+    public void setTabItemClicked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.P = z;
+        }
+    }
+
+    public void setTextNormalColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.t = i;
+        }
+    }
+
+    public void setTextPadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.M = i;
+        }
+    }
+
+    public void setViewPager(ViewPager viewPager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, viewPager) == null) {
+            this.f = viewPager;
+            if (viewPager.getAdapter() == null) {
+                return;
+            }
+            viewPager.setOnPageChangeListener(this.c);
+            D();
+        }
+    }
+
+    public final float t(float f) {
+        InterceptResult invokeF;
+        float f2;
+        float f3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f)) == null) {
+            if (f <= 0.1f) {
+                f2 = this.H;
+                f3 = (this.I - f2) / 0.1f;
+            } else {
+                f2 = this.I;
+                f3 = (f2 - 1.0f) / (-0.9f);
+                f -= 0.1f;
+            }
+            return f2 + (f3 * f);
+        }
+        return invokeF.floatValue;
+    }
+
+    public final float u(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f2 <= f) {
+                return ((double) f3) >= 0.5d ? f - (((f - f2) * (1.0f - f3)) / 0.5f) : f2;
+            }
+            double d2 = f3;
+            if (d2 <= 0.5d) {
+                return f;
+            }
+            if (d2 <= 0.8d) {
+                return f + ((((f2 + this.B) - f) * (f3 - 0.5f)) / 0.3f);
+            }
+            int i = this.B;
+            return (f2 + i) - ((i * (f3 - 0.8f)) / 0.2f);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float v(float f, View view2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f - ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f135d)) + (this.M * 2)) / 2.0f)) + this.A : invokeCommon.floatValue;
+    }
+
+    public final float w(float f, View view2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f + ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f135d)) + (this.M * 2)) / 2.0f)) - this.A : invokeCommon.floatValue;
+    }
+
+    public final float x(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f2 > f) {
+                return ((double) f3) <= 0.5d ? f + (((f2 - f) * f3) / 0.5f) : f2;
+            }
+            double d2 = f3;
+            if (d2 >= 0.5d) {
+                return f;
+            }
+            if (d2 >= 0.2d) {
+                return f - ((((this.B + f) - f2) * (0.5f - f3)) / 0.3f);
+            }
+            int i = this.B;
+            return (f2 - i) + ((i * (0.2f - f3)) / 0.2f);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float y(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048608, this, f)) == null) {
+            if (f <= 0.1f) {
+                return 1.0f;
+            }
+            if (f <= 0.9f) {
+                return (((1.0f - this.I) / (-0.79999995f)) * (f - 0.1f)) + 1.0f;
+            }
+            float f2 = this.I;
+            return f2 + (((f2 - this.H) / (-0.100000024f)) * (f - 0.9f));
+        }
+        return invokeF.floatValue;
+    }
+
+    public View z(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) ? this.e.getChildAt(i) : (View) invokeI.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -1021,10 +1140,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.D = 1;
         this.E = 17;
         this.F = 17;
-        this.M = 0;
-        this.N = R.drawable.obfuscated_res_0x7f080e7c;
-        this.O = false;
+        this.M = UtilHelper.getDimenPixelSize(R.dimen.tbds26);
+        this.N = 0;
         this.P = false;
-        this.U = context;
+        this.Q = false;
+        this.V = context;
     }
 }

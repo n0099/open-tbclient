@@ -1,17 +1,12 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,108 +14,66 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public abstract class p13 extends t03<UnitedSchemeBaseDispatcher> {
+public class p13 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755462817, "Lcom/repackage/p13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755462817, "Lcom/repackage/p13;");
-                return;
-            }
-        }
-        b = cg1.a;
-    }
+    public nm1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p13(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
-        super(unitedSchemeBaseDispatcher, str);
+    public p13(e13 e13Var) {
+        super(e13Var, "/swanAPI/getSlaveIdSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeBaseDispatcher, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeAbsDispatcher) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Nullable
-    public static JSONObject a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, unitedSchemeEntity, str)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            String param = unitedSchemeEntity.getParam(str);
-            if (TextUtils.isEmpty(param)) {
-                return null;
-            }
-            try {
-                return new JSONObject(param);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public sz2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sz2.M() : (sz2) invokeV.objValue;
-    }
-
-    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var);
-
-    public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (e23.b) {
+                Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (this.c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
             try {
-                if (TextUtils.equals(this.a, str)) {
-                    return d(context, unitedSchemeEntity, callbackHandler, c());
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("slaveId", this.c.b());
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                return true;
+            } catch (JSONException e) {
+                if (e23.b) {
+                    Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
                 }
-                return i(context, unitedSchemeEntity, callbackHandler, str, c());
-            } catch (Throwable th) {
-                if (b) {
-                    Log.e("SwanAppAction", Log.getStackTraceString(th));
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
-        InterceptResult invokeLLLLL;
+    public void j(nm1 nm1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + unitedSchemeEntity.getUri().getPath());
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nm1Var) == null) {
+            this.c = nm1Var;
         }
-        return invokeLLLLL.booleanValue;
     }
 }

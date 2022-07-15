@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import java.util.List;
 import tbclient.CommonReq;
 import tbclient.GetForumBroadcastList.DataReq;
@@ -26,7 +26,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1043common;
+    public CommonReq f1770common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -57,7 +57,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1162common = this.f1043common;
+            builder.f1892common = this.f1770common;
             builder.query_type = Integer.valueOf(this.queryType);
             builder.forum_id = Long.valueOf(this.forumId);
             builder.need_cnt = Integer.valueOf(this.needCount);
@@ -65,7 +65,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
             builder.bcast_ids = this.bcastIds;
             builder.staff_id64 = Long.valueOf(this.lastId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             GetForumBroadcastListReqIdl.Builder builder2 = new GetForumBroadcastListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -77,7 +77,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1043common = commonReq;
+            this.f1770common = commonReq;
         }
     }
 }

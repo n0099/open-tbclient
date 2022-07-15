@@ -1,16 +1,16 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fi3 extends di3 {
+public class fi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,35 +26,25 @@ public class fi3 extends di3 {
                 return;
             }
         }
-        boolean z = cg1.a;
+        a = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fi3(p03 p03Var) {
-        super(p03Var, "/swanAPI/recommendSimilarProducts");
+    public static void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((p03) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
+            k73 k73Var = new k73();
+            k73Var.a = "swan";
+            k73Var.b = str;
+            k73Var.g = str2;
+            if (TextUtils.equals(str, "click")) {
+                k73Var.e = str3;
             }
+            k73Var.f = str5;
+            k73Var.a("source", str4);
+            if (a) {
+                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + k73Var.f());
+            }
+            a73.x("1372", k73Var);
         }
-    }
-
-    @Override // com.repackage.di3
-    @NonNull
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? rf3.b() : (String) invokeV.objValue;
     }
 }

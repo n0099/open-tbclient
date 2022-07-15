@@ -1,124 +1,108 @@
 package com.repackage;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ht5 extends an<xt5, CardViewHolder<dv5>> {
+public class ht5 extends bn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public Context b;
+    public View c;
+    public ImageView d;
+    public TextView e;
+    public View f;
+    public View g;
+    public View.OnClickListener h;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xt5 a;
-        public final /* synthetic */ ht5 b;
-
-        public a(ht5 ht5Var, xt5 xt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ht5Var, xt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ht5Var;
-            this.a = xt5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b0(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ht5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), xt5.b);
+    public ht5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.b = context;
     }
 
-    public final void a0(xt5 xt5Var, dv5 dv5Var) {
-        wt5 c;
+    @Override // com.repackage.bn
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xt5Var, dv5Var) == null) || (c = xt5Var.c()) == null || c.h == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f2, (ViewGroup) null);
+            this.c = inflate;
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901d8);
+            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901d7);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901d9);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901d6);
+            d(TbadkCoreApplication.getInst().getSkinType());
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.bn
+    public void c() {
+        View.OnClickListener onClickListener;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.h) == null || (view2 = this.c) == null) {
             return;
         }
-        dv5Var.w(8);
-        dv5Var.x(c.h.a);
-        dv5Var.j(this.i, TbadkCoreApplication.getInst().getSkinType());
+        onClickListener.onClick(view2);
     }
 
-    public final void b0(xt5 xt5Var) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, xt5Var) == null) || xt5Var == null || xt5Var.c() == null || xt5Var.c().h == null) {
-            return;
-        }
-        lu5 lu5Var = xt5Var.c().h;
-        cl4.y(this.i.getPageActivity(), true, lu5Var.b, lu5Var.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public CardViewHolder<dv5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new dv5(this.i)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, xt5 xt5Var, CardViewHolder<dv5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xt5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
             }
-            a0(xt5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this, xt5Var));
-            return cardViewHolder.c().h();
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
+            }
+            ImageView imageView = this.d;
+            if (imageView != null) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
+            }
+            View view3 = this.f;
+            if (view3 != null) {
+                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
+            }
+            View view4 = this.g;
+            if (view4 != null) {
+                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.h = onClickListener;
+        }
     }
 }

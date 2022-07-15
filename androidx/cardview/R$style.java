@@ -12,13 +12,13 @@ public final class R$style {
     public static final int obfuscated_res_0x7f100016 = 2131755030;
 
     /* renamed from: CardView */
-    public static final int obfuscated_res_0x7f1000fa = 2131755258;
-
-    /* renamed from: CardView_Dark */
     public static final int obfuscated_res_0x7f1000fb = 2131755259;
 
-    /* renamed from: CardView_Light */
+    /* renamed from: CardView_Dark */
     public static final int obfuscated_res_0x7f1000fc = 2131755260;
+
+    /* renamed from: CardView_Light */
+    public static final int obfuscated_res_0x7f1000fe = 2131755262;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$style() {

@@ -1,10 +1,9 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,47 +12,175 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ge1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ge1 c;
+    public static volatile ge1 a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
 
     /* loaded from: classes6.dex */
-    public class a extends Handler {
+    public interface a {
+        void onFinish(String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ge1 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ge1 ge1Var, Looper looper) {
-            super(looper);
+        public b(ge1 ge1Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ge1Var, looper};
+                Object[] objArr = {ge1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = ge1Var;
+            this.a = context;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                de1 de1Var = new de1();
-                de1Var.a = message.arg2;
-                int i = message.arg1;
-                if (i == -1) {
-                    i = ee1.j().a();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.b.e(this.a);
+                    te1.j().d(this.a);
+                } catch (Throwable th) {
+                    sf1.d(th);
                 }
-                ee1.j().c(message.what, 3, 2019, i, "out time.", de1Var, true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ a c;
+
+        public c(ge1 ge1Var, Context context, long j, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ge1Var, context, Long.valueOf(j), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = j;
+            this.c = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    te1.j().e(this.a, 0, null, this.b, this.c);
+                } catch (Throwable th) {
+                    sf1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ a c;
+
+        public d(ge1 ge1Var, Context context, long j, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ge1Var, context, Long.valueOf(j), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = j;
+            this.c = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    te1.j().f(this.a, this.b, this.c);
+                } catch (Throwable th) {
+                    sf1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ a c;
+
+        public e(ge1 ge1Var, Context context, long j, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ge1Var, context, Long.valueOf(j), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = j;
+            this.c = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    te1.j().l(this.a, this.b, this.c);
+                } catch (Throwable th) {
+                    sf1.d(th);
+                }
             }
         }
     }
@@ -68,43 +195,117 @@ public class ge1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("callback-handler");
-        this.a = handlerThread;
-        this.b = null;
-        handlerThread.start();
-        this.b = new a(this, this.a.getLooper());
     }
 
-    public static ge1 a() {
+    public static ge1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
                 synchronized (ge1.class) {
-                    if (c == null) {
-                        c = new ge1();
+                    if (a == null) {
+                        a = new ge1();
                     }
                 }
             }
-            return c;
+            return a;
         }
         return (ge1) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.removeMessages(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            int intValue = ((Integer) ag1.c(context).second).intValue();
+            if (intValue == 1) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
+            }
+            if (intValue == 3) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
+            }
+            if (intValue == 2) {
+                return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public synchronized void d(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            synchronized (this) {
+                try {
+                    b = str;
+                    c = str2;
+                    mf1.a().post(new b(this, context));
+                } catch (Throwable th) {
+                    sf1.d(th);
+                }
+            }
         }
     }
 
-    public void c(Message message, long j) {
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
-            this.b.sendMessageDelayed(message, j);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            String l0 = he1.f(context).l0();
+            if (TextUtils.isEmpty(l0)) {
+                return;
+            }
+            String[] split = l0.split("_");
+            if (split.length != 2) {
+                he1.f(context).h();
+            }
+            b = split[0];
+            c = split[1];
+        }
+    }
+
+    public void f(Context context, long j, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                mf1.a().post(new d(this, context, j, aVar));
+            } catch (Throwable th) {
+                sf1.d(th);
+            }
+        }
+    }
+
+    public void g(Context context, long j, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                mf1.a().post(new c(this, context, j, aVar));
+            } catch (Throwable th) {
+                sf1.d(th);
+            }
+        }
+    }
+
+    public void h(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, context, z) == null) {
+            try {
+                he1.f(context).W(z);
+            } catch (Throwable th) {
+                sf1.d(th);
+            }
+        }
+    }
+
+    public void i(Context context, long j, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            try {
+                mf1.a().post(new e(this, context, j, aVar));
+            } catch (Throwable th) {
+                sf1.d(th);
+            }
         }
     }
 }

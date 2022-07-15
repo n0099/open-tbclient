@@ -1,229 +1,135 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sofire.utility.LocalConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class yk3 implements wj1 {
+public class yk3 implements rk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final an3<JSONObject> b;
-    public static final long c;
     public transient /* synthetic */ FieldHolder $fh;
+    public zk3 a;
+    public int b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755138960, "Lcom/repackage/yk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755138960, "Lcom/repackage/yk3;");
-                return;
-            }
-        }
-        a = cg1.a;
-        b = new an3<>();
-        c = TimeUnit.MINUTES.toMillis(2L);
-    }
-
-    public yk3() {
+    public yk3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = -1;
+        c(context);
     }
 
-    @Override // com.repackage.wj1
-    public void a(String str, String str2) {
+    @Override // com.repackage.rk3
+    public void a() {
+        zk3 zk3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.wj1
-    public File b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return null;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.wj1
-    public JSONObject c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (a) {
-                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList params=" + str);
-            }
-            String str2 = rz2.K().getAppId() + rz2.K().r().N().c(context);
-            JSONObject c2 = b.c(str2);
-            if (a) {
-                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList k=" + str2);
-            }
-            if (c2 != null) {
-                if (a) {
-                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with cache=" + c2);
-                }
-                return c2;
-            } else if (md3.O()) {
-                return null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (zk3Var = this.a) != null && zk3Var.c()) {
+            this.c = false;
+            if (this.a.b()) {
+                g();
             } else {
-                JSONObject f = f(context, str);
-                if (a) {
-                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with request=" + f);
-                }
-                return b.a(str2, f, c);
+                f();
             }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.wj1
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.b();
         }
     }
 
-    public final JSONObject e(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.rk3
+    public void b(int i) {
+        zk3 zk3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject2 = new JSONObject();
-            sc3.f(jSONObject2, "pa_type", 7);
-            sc3.f(jSONObject2, "pa_unread_sums", Integer.valueOf(i));
-            jSONArray.put(jSONObject2);
-            sc3.f(jSONObject, "un_read_list", jSONArray);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.c || (zk3Var = this.a) == null || !zk3Var.c()) {
+            return;
         }
-        return (JSONObject) invokeI.objValue;
+        this.c = true;
+        if (this.a.b()) {
+            e(i);
+        } else {
+            d(i);
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0026, code lost:
-        r9 = r4.optString("pa_uid");
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject f(Context context, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        ResponseBody responseBody;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048581, this, context, str)) != null) {
-            return (JSONObject) invokeLL.objValue;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = zk3.a(context);
         }
-        sz2 b0 = sz2.b0();
-        ResponseBody responseBody2 = null;
-        if (b0 == null) {
-            return null;
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int g = this.a.g();
+            this.b = g;
+            if (g != -1) {
+                xk3 f = el3.f();
+                int i2 = f.a;
+                if (i2 < 1) {
+                    i2 = 10;
+                }
+                int a = f.a() <= 0 ? LocalConstant.NEXTSUFFIX : f.a();
+                int i3 = i2;
+                this.a.h(this.b, 0, i3, -1, -1, -1);
+                this.a.h(this.b, 2, i3, i2, -1, -1);
+                int i4 = a;
+                this.a.h(this.b, 4, i4, -1, -1, -1);
+                this.a.h(this.b, 6, i4, a, -1, -1);
+                this.a.h(this.b, 15, i2, i2, i2, i2);
+                this.a.h(this.b, 17, a, a, a, a);
+                this.a.e(this.b, i);
+            }
         }
-        try {
-            JSONArray jSONArray = new JSONArray(str);
-            int length = jSONArray.length();
-            int i = 0;
-            int i2 = 0;
-            while (true) {
-                if (i2 >= length) {
-                    str2 = null;
-                    break;
-                }
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                if (optJSONObject.optInt("pa_type") == 7) {
-                    break;
-                }
-                i2++;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            xk3 f = el3.f();
+            int i2 = f.a;
+            if (i2 < 1) {
+                i2 = 10;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return null;
+            int a = f.a() <= 0 ? LocalConstant.NEXTSUFFIX : f.a();
+            int f2 = this.a.f(i2, a, i2, a);
+            this.b = f2;
+            if (f2 != -1) {
+                this.a.e(f2, i);
             }
-            String n = zi2.o().n();
-            t64 t64Var = new t64(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", b0.O()).add("pa", str2).build()).build().body(), null);
-            t64Var.f = true;
-            t64Var.g = true;
-            t64Var.h = true;
-            t64Var.b = "POST";
-            HttpRequestBuilder a2 = v64.a(t64Var);
-            u64.g().u(a2, t64Var);
-            try {
-                Response executeSync = a2.build().executeSync();
-                if (!executeSync.isSuccessful()) {
-                    uf4.d(null);
-                    return null;
-                }
-                responseBody = executeSync.body();
-                if (responseBody == null) {
-                    uf4.d(responseBody);
-                    return null;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(responseBody.string());
-                    if (!"0".equals(jSONObject.optString("errno"))) {
-                        uf4.d(responseBody);
-                        return null;
-                    }
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-                    if (optJSONObject2 != null) {
-                        i = optJSONObject2.optInt("num");
-                    }
-                    JSONObject e = e(i);
-                    zi2.K().i(e);
-                    uf4.d(responseBody);
-                    return e;
-                } catch (IOException | JSONException unused) {
-                    uf4.d(responseBody);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    responseBody2 = responseBody;
-                    uf4.d(responseBody2);
-                    throw th;
-                }
-            } catch (IOException | JSONException unused2) {
-                responseBody = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } catch (JSONException unused3) {
         }
+    }
+
+    public final void f() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (i = this.b) == -1) {
+            return;
+        }
+        this.a.d(i);
+        this.a.j(this.b);
+    }
+
+    public final void g() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i = this.b) == -1) {
+            return;
+        }
+        this.a.d(i);
+        this.a.i(this.b);
     }
 }

@@ -13,9 +13,9 @@ import com.fun.ad.sdk.BuildConfig;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.dc9;
-import com.repackage.pb9;
-import com.repackage.xb9;
+import com.repackage.gi9;
+import com.repackage.jd9;
+import com.repackage.oi9;
 import java.util.HashMap;
 import java.util.Random;
 import org.json.JSONException;
@@ -43,7 +43,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        FAKE_AD_RIPPER = new pb9();
+        FAKE_AD_RIPPER = new jd9();
         a = new Random();
     }
 
@@ -185,12 +185,12 @@ public abstract class BaseAdRipper implements AdRipper {
                 jSONObject.put("convU", rippedAd.convUrl);
                 jSONObject.put("uniqueId", rippedAd.uniqueId);
                 jSONObject.put("lid", j);
-                dc9<Reporter> dc9Var = xb9.b;
-                synchronized (dc9Var) {
-                    if (dc9Var.a == null) {
-                        dc9Var.a = dc9Var.a();
+                oi9<Reporter> oi9Var = gi9.b;
+                synchronized (oi9Var) {
+                    if (oi9Var.a == null) {
+                        oi9Var.a = oi9Var.a();
                     }
-                    reporter = dc9Var.a;
+                    reporter = oi9Var.a;
                 }
                 reporter.logEvent("adM", jSONObject);
             } catch (JSONException e) {

@@ -3,7 +3,6 @@ package com.repackage;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes7.dex */
-public class s07 extends BaseCardInfo {
+public class s07 extends nn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ThreadData b;
-    public long c;
-    public int d;
-    public int e;
-    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +29,7 @@ public class s07 extends BaseCardInfo {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public s07() {
@@ -54,42 +46,30 @@ public class s07 extends BaseCardInfo {
         }
     }
 
-    public void c(TopicThread topicThread) {
+    @Override // com.repackage.nn4
+    public kp4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        this.a = topicThread.feed_id.longValue();
-        if (topicThread.thread_info != null) {
-            ThreadData threadData = new ThreadData();
-            this.b = threadData;
-            threadData.parserProtobuf(topicThread.thread_info);
-            this.b.parser_title();
-        }
-        this.d = topicThread.user_agree.intValue();
-        this.e = topicThread.source.intValue();
+        return (kp4) invokeV.objValue;
     }
 
-    public void f(tbclient.NewTopicThread.TopicThread topicThread) {
+    @Override // com.repackage.nn4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) == null) || topicThread == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        this.a = topicThread.feed_id.longValue();
-        if (topicThread.thread_info != null) {
-            ThreadData threadData = new ThreadData();
-            this.b = threadData;
-            threadData.parserProtobuf(topicThread.thread_info);
-            this.b.parser_title();
-        }
-        this.d = Integer.parseInt(topicThread.user_agree);
-        this.e = topicThread.source.intValue();
+        return (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

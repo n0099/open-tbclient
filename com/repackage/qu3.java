@@ -1,46 +1,114 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qu3 {
+public final class qu3 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r72 a;
+    public oz3 b;
+    @V8JavascriptField
+    public final String domain;
 
-    public static void a(yt3 yt3Var, JsObject jsObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qu3(r72 r72Var) {
+        super(r72Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, yt3Var, jsObject) == null) {
-            ru3 ru3Var = new ru3();
-            zr1 F = zr1.F(jsObject);
-            if (F == null) {
-                F = new zr1();
-            }
-            boolean z = false;
-            if (yt3Var == null) {
-                ru3Var.errMsg = "openCustomerServiceConversation:fail";
-                d24.call(F, false, ru3Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r72Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (bw3.c()) {
-                sz2 M = sz2.M();
-                if (M != null) {
-                    String str = "{\"appKey\":\"" + M.O() + "\"}";
-                    if (SchemeRouter.invoke(zi2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        ru3Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        ru3Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    ru3Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                ru3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
+        }
+        this.domain = "openData";
+        this.a = r72Var;
+    }
+
+    @JavascriptInterface
+    public void getFriendCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new oz3(this.a);
             }
-            d24.call(F, z, ru3Var);
+            this.b.getFriendCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public qu3 getOpenData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (qu3) invokeV.objValue;
+    }
+
+    @JavascriptInterface
+    public void getUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new oz3(this.a);
+            }
+            this.b.getUserCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void getUserInfo(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new oz3(this.a);
+            }
+            this.b.getUserInfo(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void initSharedCanvas(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) && (this.a.o() instanceof nu3)) {
+            ((nu3) this.a.o()).A(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void removeUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new oz3(this.a);
+            }
+            this.b.removeUserCloudStorage(jsObject);
+        }
+    }
+
+    @JavascriptInterface
+    public void setUserCloudStorage(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+            if (this.b == null) {
+                this.b = new oz3(this.a);
+            }
+            this.b.setUserCloudStorage(jsObject);
         }
     }
 }

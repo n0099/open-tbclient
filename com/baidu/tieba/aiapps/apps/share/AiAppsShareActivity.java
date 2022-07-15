@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qm5;
+import com.repackage.tn5;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -106,10 +106,10 @@ public class AiAppsShareActivity extends Activity {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            qm5 qm5Var = new qm5();
+            tn5 tn5Var = new tn5();
             try {
-                qm5Var.p(new JSONObject(stringExtra));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, qm5Var, false)));
+                tn5Var.p(new JSONObject(stringExtra));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, tn5Var, false)));
                 MessageManager.getInstance().registerListener(this.a);
                 LogUtil.logActivity(this, "onCreate");
             } catch (JSONException unused) {

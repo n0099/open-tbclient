@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.content.Intent;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface gm4 {
-    void d1(Intent intent);
+    void a(View view2, boolean z, Object obj);
 }

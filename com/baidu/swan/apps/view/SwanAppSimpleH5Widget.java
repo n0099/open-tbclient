@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g12;
+import com.repackage.v12;
 /* loaded from: classes2.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     public static /* synthetic */ Interceptable $ic;
@@ -137,12 +137,12 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
                 return;
             }
         }
-        b1(new SimpleWebViewClient(this, null));
-        a1(new SimpleWebChromeClient(this));
+        a1(new SimpleWebViewClient(this, null));
+        Z0(new SimpleWebChromeClient(this));
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean X1() {
+    public boolean W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -152,7 +152,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean Y1() {
+    public boolean X1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -161,16 +161,16 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.sy1
-    public boolean q() {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hz1
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g12 g12Var = this.U;
-            if (g12Var != null) {
-                g12Var.goBack();
+            v12 v12Var = this.U;
+            if (v12Var != null) {
+                v12Var.goBack();
             }
-            return super.q();
+            return super.p();
         }
         return invokeV.booleanValue;
     }

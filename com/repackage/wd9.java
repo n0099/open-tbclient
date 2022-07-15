@@ -1,117 +1,162 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes7.dex */
-public class wd9 implements AdEventListener {
+public class wd9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ ExpressAdListenerWrapper c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ NativeExpressADData2 e;
-    public final /* synthetic */ td9 f;
 
-    public wd9(td9 td9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, NativeExpressADData2 nativeExpressADData2) {
+    public wd9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {td9Var, expressAdListenerWrapper, str, nativeExpressADData2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = td9Var;
-        this.c = expressAdListenerWrapper;
-        this.d = str;
-        this.e = nativeExpressADData2;
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onAdClosed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClose();
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.d);
             }
         }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onClick() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -2105157443:
+                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1412451668:
+                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1263692214:
+                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1071311851:
+                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -950004865:
+                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 347930415:
+                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 556489085:
+                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1168375858:
+                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1319012390:
+                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1328722634:
+                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1922685617:
+                    if (str.equals(FunAdType.CSJ_NATIVE)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2079438081:
+                    if (str.equals(FunAdType.CSJ_SPLASH)) {
+                        c = 11;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return new qe9(pid);
+                case 1:
+                    return new bf9(pid);
+                case 2:
+                    return new cf9(pid);
+                case 3:
+                    return new me9(pid);
+                case 4:
+                    return new gf9(pid);
+                case 5:
+                    return new yd9(pid);
+                case 6:
+                    return new fe9(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+                case 7:
+                    return new mf9(pid);
+                case '\b':
+                    return new we9(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
+                case '\t':
+                    return new zd9(pid);
+                case '\n':
+                    return new lf9(pid);
+                case 11:
+                    return new ae9(pid);
+                default:
+                    LogPrinter.e("Not supported pid.type:%s", pid.type);
+                    return null;
             }
         }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onExposed() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.e();
-            this.f.onAdShow(this.e, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderFail() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.f.onError(0, "RenderFail");
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderSuccess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.f.i.put(this.e, this.c);
-            this.f.onAdLoaded((td9) this.e);
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

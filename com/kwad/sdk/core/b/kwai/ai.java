@@ -1,27 +1,34 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.report.ReportAction;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ai implements com.kwad.sdk.core.d<ReportAction.a> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(ReportAction.a aVar, JSONObject jSONObject) {
+public final class ai implements com.kwad.sdk.core.d<com.kwad.components.core.webview.b.kwai.b> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.core.webview.b.kwai.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optInt("posIdWidth");
-        aVar.b = jSONObject.optInt("posIdHeight");
+        bVar.a = jSONObject.optInt("hasInstalled");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(ReportAction.a aVar, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.core.webview.b.kwai.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "posIdWidth", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "posIdHeight", aVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, "hasInstalled", bVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.core.webview.b.kwai.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.core.webview.b.kwai.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

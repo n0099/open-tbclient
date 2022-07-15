@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
-import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -93,7 +92,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
-        samplingFrequencyIndexMap.put(9, Integer.valueOf((int) w0.X3));
+        samplingFrequencyIndexMap.put(9, 12000);
         samplingFrequencyIndexMap.put(10, 11025);
         samplingFrequencyIndexMap.put(11, 8000);
         audioObjectTypeMap.put(1, "AAC main");

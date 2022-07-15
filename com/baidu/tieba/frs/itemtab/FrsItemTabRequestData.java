@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.qc5;
-import com.repackage.r65;
+import com.repackage.t75;
+import com.repackage.td5;
 import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes3.dex */
-public class FrsItemTabRequestData extends OrmObject implements r65 {
+public class FrsItemTabRequestData extends OrmObject implements t75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
@@ -34,8 +34,8 @@ public class FrsItemTabRequestData extends OrmObject implements r65 {
         }
     }
 
-    @Override // com.repackage.t65
-    public Object g(boolean z) {
+    @Override // com.repackage.v75
+    public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -44,7 +44,7 @@ public class FrsItemTabRequestData extends OrmObject implements r65 {
             builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
-            qc5.c(builder, true, false, true);
+            td5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -52,8 +52,8 @@ public class FrsItemTabRequestData extends OrmObject implements r65 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.q65
-    public HashMap<String, Object> v() {
+    @Override // com.repackage.s75
+    public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -62,8 +62,8 @@ public class FrsItemTabRequestData extends OrmObject implements r65 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.q65
-    public HashMap<String, String> x() {
+    @Override // com.repackage.s75
+    public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

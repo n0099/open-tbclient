@@ -1,272 +1,82 @@
 package com.kwad.sdk.api.loader;
 
+import android.content.ComponentCallbacks;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.res.AssetManager;
-import android.content.res.Configuration;
+import android.content.ContextWrapper;
 import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.kwad.sdk.api.loader.Reflect;
-import java.util.HashMap;
-import java.util.Map;
+import com.kwad.sdk.api.core.ResContext;
 /* loaded from: classes5.dex */
-public class o {
-    public static Map<String, Resources> a = new HashMap();
-    public static final Object b = new Object();
+public final class o extends ContextWrapper implements ResContext {
+    public final Context a;
+    public Resources.Theme b;
+    public int c;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static Resources b(Resources resources, AssetManager assetManager) {
-            try {
-                Resources resources2 = (Resources) Reflect.a(resources.getClass()).a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a();
-                if (resources2 != null) {
-                    return resources2;
-                }
-                throw new RuntimeException("Can not create Resources");
-            } catch (Exception unused) {
-                return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-            }
-        }
+    public o(Context context) {
+        super(context);
+        this.c = -1;
+        this.a = context;
+        this.c = ((Integer) Reflect.a(context).b("getThemeResId").a).intValue();
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static Resources b(Resources resources, AssetManager assetManager) {
-            try {
-                return c(resources, assetManager);
-            } catch (Exception e) {
-                e.printStackTrace();
-                try {
-                    return a.b(resources, assetManager);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                }
-            }
-        }
-
-        public static Resources c(Resources resources, AssetManager assetManager) {
-            Resources resources2 = (Resources) Reflect.a("android.content.res.HwResources").a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a();
-            if (resources2 != null) {
-                return resources2;
-            }
-            throw new RuntimeException("Can not create Resources");
-        }
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Context getApplicationContext() {
+        return Wrapper.wrapContextIfNeed(super.getApplicationContext());
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static Resources b(Resources resources, AssetManager assetManager) {
-            try {
-                return c(resources, assetManager);
-            } catch (Exception e) {
-                e.printStackTrace();
-                try {
-                    return a.b(resources, assetManager);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                }
-            }
-        }
-
-        public static Resources c(Resources resources, AssetManager assetManager) {
-            Resources resources2 = (Resources) Reflect.a("android.content.res.MiuiResourcesImpl").a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a();
-            if (resources2 != null) {
-                return resources2;
-            }
-            throw new RuntimeException("Can not create Resources");
-        }
+    @Override // android.content.ContextWrapper
+    public final Context getBaseContext() {
+        return Wrapper.wrapContextIfNeed(super.getBaseContext());
     }
 
-    /* loaded from: classes5.dex */
-    public static final class d {
-        public static Resources b(Resources resources, AssetManager assetManager) {
-            try {
-                return c(resources, assetManager);
-            } catch (Exception e) {
-                e.printStackTrace();
-                try {
-                    return a.b(resources, assetManager);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                }
-            }
-        }
-
-        public static Resources c(Resources resources, AssetManager assetManager) {
-            Resources resources2 = (Resources) Reflect.a("android.content.res.MiuiResources").a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a();
-            if (resources2 != null) {
-                return resources2;
-            }
-            throw new RuntimeException("Can not create Resources");
-        }
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final ClassLoader getClassLoader() {
+        return Wrapper.replaceExternalClassLoader(super.getClassLoader());
     }
 
-    /* loaded from: classes5.dex */
-    public static final class e {
-        public static Resources b(Resources resources, AssetManager assetManager) {
-            try {
-                return c(resources, assetManager);
-            } catch (Exception e) {
-                e.printStackTrace();
-                try {
-                    return a.b(resources, assetManager);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                }
-            }
-        }
-
-        public static Resources c(Resources resources, AssetManager assetManager) {
-            Resources resources2 = (Resources) Reflect.a("android.content.res.NubiaResources").a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a();
-            if (resources2 != null) {
-                return resources2;
-            }
-            throw new RuntimeException("Can not create Resources");
-        }
+    @Override // com.kwad.sdk.api.core.ResContext
+    public final Context getDelegatedContext() {
+        return this.a;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class f {
-        public static Resources b(Context context, Resources resources, AssetManager assetManager) {
-            try {
-                return c(context, resources, assetManager);
-            } catch (Exception e) {
-                e.printStackTrace();
-                try {
-                    return a.b(resources, assetManager);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-                }
-            }
-        }
-
-        public static Resources c(Context context, Resources resources, AssetManager assetManager) {
-            Resources resources2 = (Resources) Reflect.a("android.content.res.VivoResources").a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a();
-            if (resources2 != null) {
-                try {
-                    Reflect.a(resources2).a("init", new Class[]{String.class}, context.getPackageName());
-                } catch (Reflect.ReflectException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    Reflect.a(resources2).a("mThemeValues", Reflect.a(resources).b("mThemeValues"));
-                } catch (Reflect.ReflectException e2) {
-                    e2.printStackTrace();
-                }
-                return resources2;
-            }
-            throw new RuntimeException("Can not create Resources");
-        }
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Resources getResources() {
+        return Wrapper.replaceExternalResources(super.getResources());
     }
 
-    public static Resources a(Context context, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
-        Resources resources = context.getResources();
-        return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.b(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Object getSystemService(String str) {
+        return Wrapper.wrapSystemService(super.getSystemService(str), str, this);
     }
 
-    @NonNull
-    public static Resources a(Context context, Resources resources, String str) {
-        Resources resources2;
-        synchronized (b) {
-            resources2 = a.get(str);
-            if (resources2 == null) {
-                resources2 = b(context, resources, str);
-                if (resources2 == null) {
-                    throw new RuntimeException("Can not createResources for " + str);
-                }
-                a.put(str, resources);
-            }
-        }
-        return resources2;
-    }
-
-    public static void a(AssetManager assetManager, String str) {
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final Resources.Theme getTheme() {
+        Resources.Theme theme;
         try {
-            Reflect.a(assetManager).a("addOverlayPath", new Class[]{String.class}, str);
-        } catch (Throwable unused) {
-            Reflect.a(assetManager).a(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+            theme = super.getTheme();
+        } catch (Exception e) {
+            e.printStackTrace();
+            theme = null;
         }
-    }
-
-    public static boolean a(Resources resources) {
-        return "android.content.res.MiuiResources".equals(resources.getClass().getName());
-    }
-
-    public static int b(AssetManager assetManager, String str) {
-        try {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Reflect.a(assetManager).a("addAssetPathAsSharedLibrary", new Class[]{String.class}, str);
-            } else {
-                Reflect.a(assetManager).a(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
-            }
-        } catch (Throwable unused) {
-            Reflect.a(assetManager).a(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+        Resources.Theme theme2 = this.b;
+        if (theme2 == null || theme2 == theme) {
+            this.b = Wrapper.replaceTheme(theme, this.b, this.c);
         }
-        return 0;
+        return this.b;
     }
 
-    public static Resources b(Context context, Resources resources, String str) {
-        String[] strArr;
-        AssetManager assetManager = (AssetManager) Reflect.a((Class<?>) AssetManager.class).b().a();
-        Reflect.a(assetManager).a(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
-        if (Build.VERSION.SDK_INT >= 21) {
-            ApplicationInfo applicationInfo = context.getApplicationInfo();
-            try {
-                Object b2 = Reflect.a(applicationInfo).b("resourceDirs");
-                if (b2 != null && b2.getClass().isArray()) {
-                    Object[] objArr = (Object[]) b2;
-                    if (objArr.length > 0) {
-                        for (Object obj : objArr) {
-                            if (obj instanceof String) {
-                                a(assetManager, (String) obj);
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            try {
-                if (applicationInfo.sharedLibraryFiles != null && applicationInfo.sharedLibraryFiles.length > 0) {
-                    for (String str2 : applicationInfo.sharedLibraryFiles) {
-                        if (str2 != null && str2.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
-                            b(assetManager, str2);
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                th2.printStackTrace();
-            }
-        }
-        return a(context, assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+    @Override // android.content.Context
+    public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
+        this.a.registerComponentCallbacks(componentCallbacks);
     }
 
-    public static boolean b(Resources resources) {
-        return "android.content.res.MiuiResourcesImpl".equals(resources.getClass().getName());
+    @Override // android.content.ContextWrapper, android.content.Context
+    public final void setTheme(int i) {
+        this.c = i;
+        super.setTheme(i);
     }
 
-    public static boolean c(Resources resources) {
-        return "android.content.res.VivoResources".equals(resources.getClass().getName());
-    }
-
-    public static boolean d(Resources resources) {
-        return "android.content.res.NubiaResources".equals(resources.getClass().getName());
-    }
-
-    public static boolean e(Resources resources) {
-        return "android.content.res.HwResources".equals(resources.getClass().getName());
-    }
-
-    public static boolean f(Resources resources) {
-        return !"android.content.res.Resources".equals(resources.getClass().getName());
+    @Override // android.content.Context
+    public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
+        this.a.unregisterComponentCallbacks(componentCallbacks);
     }
 }

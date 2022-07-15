@@ -1,51 +1,34 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v72 implements d72 {
+public final class v72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v72() {
+    public static p72 a(w72 w72Var, m82 m82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, w72Var, m82Var, v8ThreadDelegatePolicy)) == null) {
+            x72 a = oj2.B0().a(w72Var);
+            p72 a2 = a.a(w72Var.a(), m82Var, v8ThreadDelegatePolicy);
+            a2.J0(a.getUserAgent());
+            return a2;
         }
+        return (p72) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.d72
-    @SuppressLint({"BDThrowableCheck"})
-    public i72 a(h72 h72Var) {
-        InterceptResult invokeL;
+    public static p72 b(w72 w72Var, m82 m82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h72Var)) == null) {
-            int type = h72Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (!cg1.a) {
-                            return new y72();
-                        }
-                        throw new IllegalArgumentException("invalid model object:" + h72Var);
-                    }
-                    return new m12();
-                }
-                return aj2.b();
-            }
-            return new y72();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, w72Var, m82Var, v8ThreadDelegatePolicy)) == null) {
+            p72 a = a(w72Var, m82Var, v8ThreadDelegatePolicy);
+            a.r0();
+            return a;
         }
-        return (i72) invokeL.objValue;
+        return (p72) invokeLLL.objValue;
     }
 }

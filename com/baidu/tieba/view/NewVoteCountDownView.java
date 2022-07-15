@@ -120,13 +120,13 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ce);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090730);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090da0);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0913ea);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090731);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090da1);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0913eb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091977);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090737);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090dae);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091492);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090738);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090daf);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091493);
         }
     }
 
@@ -141,7 +141,7 @@ public class NewVoteCountDownView extends LinearLayout {
             layoutParams.topMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0614, (ViewGroup) this, true);
             c();
         }
     }

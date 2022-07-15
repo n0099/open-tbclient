@@ -1,45 +1,71 @@
 package com.repackage;
 
-import android.webkit.DownloadListener;
-import android.webkit.URLUtil;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.webviewbase.AdvancedWebView;
+import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 /* loaded from: classes5.dex */
-public class dk9 implements DownloadListener {
+public final class dk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AdvancedWebView a;
 
-    public dk9(AdvancedWebView advancedWebView) {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {advancedWebView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeZ(65536, null, z) == null) && !z) {
+            throw new IllegalArgumentException();
         }
-        this.a = advancedWebView;
     }
 
-    @Override // android.webkit.DownloadListener
-    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+    @NonNull
+    @EnsuresNonNull({"#1"})
+    public static String b(@Nullable String str, @NonNull Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
-            String guessFileName = URLUtil.guessFileName(str, str3, str4);
-            gk9 gk9Var = this.a.c;
-            if (gk9Var != null) {
-                gk9Var.b(str, guessFileName, str4, j, str3, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException(String.valueOf(obj));
             }
+            return str;
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && xk9.a()) {
+            throw new IllegalStateException(str);
+        }
+    }
+
+    @NonNull
+    @EnsuresNonNull({"#1"})
+    public static <T> T d(@Nullable T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException("null reference");
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @NonNull
+    @EnsuresNonNull({"#1"})
+    public static <T> T e(@NonNull T t, @NonNull Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException(String.valueOf(obj));
+        }
+        return (T) invokeLL.objValue;
     }
 }

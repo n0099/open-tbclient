@@ -1,119 +1,104 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yu3 {
+public class yu3 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755129350, "Lcom/repackage/yu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements af3<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(yu3 yu3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755129350, "Lcom/repackage/yu3;");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                Context appContext = AppRuntime.getAppContext();
+                if (bool.booleanValue()) {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0134, 1).show();
+                } else {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0133, 1).show();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yu3(e13 e13Var) {
+        super(e13Var, "/swanAPI/debugGameSconsole");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
-        b = 86400000L;
-        c = "duration_permission_list";
     }
 
-    public static void a(JsObject jsObject) {
-        zu3 zu3Var;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
-            sz2 M = sz2.M();
-            zr1 zr1Var = null;
-            if (jsObject == null || M == null || !b(M)) {
-                zu3Var = null;
-            } else {
-                if (a) {
-                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (e23.b) {
+                JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012e, 1).show();
+                    return false;
                 }
-                zr1 F = zr1.F(jsObject);
-                String B = F.B("swanGameId");
-                if (TextUtils.isEmpty(B)) {
-                    zu3Var = null;
-                } else {
-                    a83 a2 = g83.a();
-                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                        a2.putLong(B + "_Duration", 0L);
-                    }
-                    zu3Var = new zu3();
-                    zu3Var.duration = a2.getLong(B + "_Duration", 0L);
+                String optString = a2.optString("downloadurl");
+                if (TextUtils.isEmpty(optString)) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f012f, 1).show();
+                    return false;
                 }
-                zr1Var = F;
-            }
-            d24.call(zr1Var, true, zu3Var);
-        }
-    }
-
-    public static boolean b(sz2 sz2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sz2Var)) == null) {
-            String string = g83.a().getString(c, "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(string);
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (sz2.g0().contains(jSONArray.optString(i))) {
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
+                xu3.m().c(optString, new a(this));
+                return false;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
-    }
-
-    public static void d(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || j2 <= j || sz2.M() == null || TextUtils.isEmpty(sz2.g0())) {
-            return;
-        }
-        String g0 = sz2.g0();
-        a83 a2 = g83.a();
-        long j3 = a2.getLong(g0 + "_LastPause", 0L);
-        long j4 = a2.getLong(g0 + "_Duration", 0L);
-        if (c(Long.valueOf(j), Long.valueOf(j2))) {
-            if (c(Long.valueOf(j3), Long.valueOf(j))) {
-                a2.putLong(g0 + "_Duration", (j4 + j2) - j);
-            } else {
-                a2.putLong(g0 + "_Duration", j2 - j);
-            }
-        } else {
-            a2.putLong(g0 + "_Duration", j2 % b);
-        }
-        a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
+        return invokeLLLL.booleanValue;
     }
 }

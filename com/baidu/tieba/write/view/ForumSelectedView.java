@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
+import com.repackage.ur4;
 /* loaded from: classes4.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -65,11 +65,11 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c5, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090589);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09058b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09058c);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090588);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09058a);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09058b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09058d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09058e);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09058a);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09058c);
             setOnClickListener(this);
             c();
         }
@@ -86,7 +86,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-        fr4 d = fr4.d(this.d);
+        ur4 d = ur4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0206);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);

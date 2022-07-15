@@ -1,223 +1,62 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.SystemProperties;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.down.utils.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.o60;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class p70 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile p70 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static void a(Context context, long j, String str, String str2) {
+    public p70() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
-            try {
-                o60.c cVar = new o60.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
-            } catch (Exception e) {
-                s70.c("LCPCommon", "businessEvent exception ", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public static synchronized p70 a() {
+        InterceptResult invokeV;
+        p70 p70Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                s70.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Object c(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MANUFACTURER;
-            String str3 = Build.MODEL;
-            String b = TextUtils.isEmpty(b(context)) ? "" : b(context);
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = t70.b(context);
-            String e = t70.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put(HttpConstants.OS_VERSION, str);
-                        jSONObject.put("manufacture", str2);
-                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
-                        jSONObject.put("app_id", t70.b(context));
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2280016");
-                        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
-                        jSONObject.put("sign", f(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (p70.class) {
+                if (b == null) {
+                    synchronized (p70.class) {
+                        b = new p70();
                     }
-                    s70.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
                 }
-                String str4 = "nonNet";
-                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
-                    str4 = RequsetNetworkUtils.isWifiConnected(context) ? "wifi" : RequsetNetworkUtils.getMobileType(context);
-                }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.w(e);
-                newBuilder.x("android");
-                newBuilder.B(str);
-                newBuilder.y(str2);
-                newBuilder.z(str3);
-                newBuilder.u(b2);
-                newBuilder.v(b);
-                newBuilder.D("2280016");
-                newBuilder.A(str4);
-                newBuilder.C(d(context));
-                return newBuilder.build();
-            } catch (Exception e2) {
-                s70.c("LCPCommon", "getData :", e2);
-                return null;
+                p70Var = b;
             }
+            return p70Var;
         }
-        return invokeLZ.objValue;
+        return (p70) invokeV.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String upperCase = Build.MANUFACTURER.toUpperCase();
-            String str3 = "";
-            if (upperCase.contains("XIAOMI")) {
-                str = "ro.miui.ui.version.code";
-            } else if (upperCase.contains("HUAWEI")) {
-                str = "ro.build.version.emui";
-            } else if (upperCase.contains("MEIZU")) {
-                str = RomUtils.PROP_RO_BUILD_DISPLAY_ID;
-            } else if (upperCase.contains("OPPO")) {
-                str = "ro.build.version.opporom";
-            } else {
-                str = upperCase.contains("VIVO") ? "ro.vivo.os.version" : "";
-            }
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    str2 = SystemProperties.get(str);
-                } else {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
-                }
-                str3 = str2;
-            } catch (Throwable unused) {
-                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
-                    return Constants.SDK_VER;
-                }
-                if (upperCase.contains("HUAWEI")) {
-                    return "1.0";
-                }
-                if (upperCase.contains("XIAOMI")) {
-                    return "4.0";
-                }
-                if (upperCase.contains("MEIZU")) {
-                    return "6.0";
-                }
-                if (upperCase.contains("OPPO")) {
-                    return "3.0";
-                }
-                if (upperCase.contains("VIVO")) {
-                    return "3.2";
-                }
-            }
-            if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str3)) {
-                String substring = str3.substring(str3.indexOf("_") + 1, str3.length());
-                return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : Constants.SDK_VER;
-            }
-            if (upperCase.contains("MEIZU")) {
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = Build.DISPLAY;
-                }
-                Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher.find()) {
-                    str3 = matcher.group();
-                }
-            } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str3);
-                if (matcher2.find()) {
-                    str3 = matcher2.group(1);
-                }
-            } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher3.find()) {
-                    return matcher3.group();
-                }
-            }
-            return str3;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public static String f(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) ? e(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j))) : (String) invokeCommon.objValue;
     }
 }

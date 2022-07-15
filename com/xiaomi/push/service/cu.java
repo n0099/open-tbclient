@@ -16,10 +16,10 @@ public class cu extends XMPushService.j {
     public final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f967a;
+    public final /* synthetic */ String f1694a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ byte[] f968a;
+    public final /* synthetic */ byte[] f1695a;
     public final /* synthetic */ int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,8 +42,8 @@ public class cu extends XMPushService.j {
         }
         this.a = xMPushService;
         this.b = i2;
-        this.f967a = str;
-        this.f968a = bArr;
+        this.f1694a = str;
+        this.f1695a = bArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
@@ -58,13 +58,13 @@ public class cu extends XMPushService.j {
         fx fxVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            u.m677a((Context) this.a);
-            bg.a().m635a("5");
+            u.m1620a((Context) this.a);
+            bg.a().m1578a("5");
             com.xiaomi.push.ae.a(this.b);
-            fxVar = this.a.f838a;
+            fxVar = this.a.f1565a;
             fxVar.c(fx.a());
-            com.xiaomi.channel.commonutils.logger.b.m84a("clear account and start registration. " + this.f967a);
-            this.a.a(this.f968a, this.f967a);
+            com.xiaomi.channel.commonutils.logger.b.m1027a("clear account and start registration. " + this.f1694a);
+            this.a.a(this.f1695a, this.f1694a);
         }
     }
 }

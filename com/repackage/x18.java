@@ -1,76 +1,104 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SmartApp;
 /* loaded from: classes7.dex */
-public class x18 {
+public class x18 implements m18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Long b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public Integer h;
 
-    public static void a(View view2, ym4 ym4Var, int i) {
+    public x18(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view2, ym4Var, i) == null) || view2 == null || ym4Var == null || ym4Var.getThreadData() == null || StringUtils.isNull(ym4Var.getThreadData().getTid())) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {smartApp};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        if (smartApp == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-        statisticItem.param("obj_source", 3);
-        ThreadData threadData = ym4Var.getThreadData();
-        if (threadData.isBJHArticleThreadType()) {
-            statisticItem.param("obj_type", 1);
-        } else if (threadData.isBJHVideoThreadType()) {
-            statisticItem.param("obj_type", 2);
-        } else if (threadData.isBJHNormalThreadType()) {
-            statisticItem.param("obj_type", 3);
-        } else if (threadData.isBJHVideoDynamicThreadType()) {
-            statisticItem.param("obj_type", 4);
-        } else if (threadData.threadType == 0) {
-            statisticItem.param("obj_type", 5);
-        } else if (threadData.isVideoThreadType()) {
-            statisticItem.param("obj_type", 6);
+        this.b = smartApp.swan_app_id;
+        this.c = smartApp.id;
+        this.d = smartApp.avatar;
+        this.e = smartApp.name;
+        String str = smartApp._abstract;
+        String str2 = smartApp.pic;
+        this.f = smartApp.h5_url;
+        this.g = smartApp.link;
+        if (smartApp.is_recom.intValue() == 1) {
+            this.a = 1;
         }
-        if (ym4Var.getThreadData().getAuthor() != null) {
-            statisticItem.param("uid", ym4Var.getThreadData().getAuthor().getUserId());
-        }
-        if (threadData.getBaijiahaoData() != null) {
-            statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-        } else {
-            statisticItem.param("obj_id", threadData.getTid());
-        }
-        statisticItem.param("obj_locate", i);
-        TiebaStatic.log(statisticItem);
+        this.h = smartApp.is_game;
     }
 
-    public static void b(ym4 ym4Var) {
+    public Long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, ym4Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
-            ThreadData threadData = ym4Var.getThreadData();
-            if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 3);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.threadType == 0) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 6);
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            statisticItem.param("uid", threadData.getAuthor().getUserId());
-            TiebaStatic.log(statisticItem);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Long) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public Integer e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (Integer) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m18
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
     }
 }

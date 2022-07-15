@@ -1,19 +1,15 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface f59 {
-    int a(byte[] bArr, int i);
+public class f59 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a();
+    public abstract String a();
 
-    boolean a(int i, int i2, int i3, int i4);
+    public abstract void b();
 
-    byte[] a(int i);
-
-    boolean b();
-
-    void c();
-
-    void d();
-
-    void e();
+    public abstract void c();
 }

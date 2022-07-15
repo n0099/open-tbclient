@@ -1,42 +1,91 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.AnyThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wo1;
-import com.repackage.x43;
-import com.repackage.xo1;
+import com.repackage.uo1;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class q23 extends p13 implements xo1.c {
+public class q23 extends e23 implements uo1.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler c;
+    public String c;
+    public CallbackHandler d;
+    public long e;
+    public long f;
+    public long g;
 
     /* loaded from: classes6.dex */
-    public class a implements le3<v43<x43.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ wo1.c b;
-        public final /* synthetic */ sz2 c;
-        public final /* synthetic */ q23 d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ h03 d;
+        public final /* synthetic */ q23 e;
 
-        public a(q23 q23Var, CallbackHandler callbackHandler, wo1.c cVar, sz2 sz2Var) {
+        /* renamed from: com.repackage.q23$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0711a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ a c;
+
+            public RunnableC0711a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, guideType, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = guideType;
+                this.b = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    uo1 l = uo1.l();
+                    a aVar = this.c;
+                    h03 h03Var = aVar.d;
+                    l.p(aVar.e, (Activity) aVar.b, h03Var, this.a, this.b, h03Var.W().Q(), this.c.e.e);
+                }
+            }
+        }
+
+        public a(q23 q23Var, String str, Context context, JSONObject jSONObject, h03 h03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, callbackHandler, cVar, sz2Var};
+                Object[] objArr = {q23Var, str, context, jSONObject, h03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,31 +95,64 @@ public final class q23 extends p13 implements xo1.c {
                     return;
                 }
             }
-            this.d = q23Var;
-            this.a = callbackHandler;
-            this.b = cVar;
-            this.c = sz2Var;
+            this.e = q23Var;
+            this.a = str;
+            this.b = context;
+            this.c = jSONObject;
+            this.d = h03Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: b */
-        public void a(v43<x43.e> v43Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                this.d.k(v43Var, this.a, this.b, this.c.n0());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                p83 a = v83.a();
+                ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(this.a);
+                String string = this.b.getString(parse.defaultText);
+                this.e.c = this.c.optString("cb");
+                String str = this.d.b;
+                String str2 = "favorite_guide_count_" + str;
+                if (f72.n(str)) {
+                    hx1.i("ShowFavoriteGuideAction", "favorite already");
+                    v83.a().putString(str2, "-1");
+                    return;
+                }
+                String string2 = v83.a().getString(str2, "");
+                if (TextUtils.equals("-1", string2)) {
+                    hx1.i("ShowFavoriteGuideAction", "favorite at one time");
+                    return;
+                }
+                String[] split = string2.split("#");
+                long j = 0;
+                int i = 0;
+                if (split.length == 2 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1])) {
+                    i = Integer.parseInt(split[0]);
+                    j = Long.parseLong(split[1]);
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                int i2 = i;
+                this.e.e = a.getLong("swan_favorite_guide_duration", 3L);
+                this.e.f = a.getLong("swan_favorite_guide_intervalDays", 3L);
+                this.e.g = a.getLong("swan_favorite_guide_maxTimes", 3L);
+                hx1.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
+                if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
+                    v83.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                    be3.e0(new RunnableC0711a(this, parse, string));
+                    return;
+                }
+                hx1.i("ShowFavoriteGuideAction", "Not satisfying display conditions");
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q23(p03 p03Var) {
-        super(p03Var, "/swanAPI/getLocation");
+    public q23(e13 e13Var) {
+        super(e13Var, "/swanAPI/showFavoriteGuide");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,83 +166,51 @@ public final class q23 extends p13 implements xo1.c {
         }
     }
 
-    @Override // com.repackage.xo1.c
-    public void b(wo1.c cVar, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i) == null) || this.c == null) {
-            return;
-        }
-        sw1.c("GetLocationAction", "request location error code : " + i);
-        this.c.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(i).toString());
-    }
-
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            this.c = callbackHandler;
-            if (sz2Var == null) {
-                sw1.c("location", "swan app is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            hx1.i("ShowFavoriteGuideAction", "call ShowFavoriteGuideAction pid=" + Process.myPid() + ", Thread=" + Thread.currentThread().getName());
+            if (!be3.G()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support outside baiduboxapp");
+                hx1.i("ShowFavoriteGuideAction", "not support outside baiduboxapp");
                 return false;
             }
-            wo1.c b = wo1.c.b(unitedSchemeEntity.getParam("params"));
-            if (b != null && b.a()) {
-                if (TextUtils.isEmpty(b.c)) {
-                    sw1.c("location", "empty cb");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+            this.d = callbackHandler;
+            JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+            if (a2 != null && h03Var != null && (context instanceof Activity)) {
+                String optString = a2.optString("type");
+                if (uo1.l().n(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                sz2Var.e0().g(context, "mapp_location", new a(this, callbackHandler, b, sz2Var));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                bd3.g().execute(new a(this, optString, context, a2, h03Var), "ShowFavoriteGuideAction");
+                JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
+                unitedSchemeEntity.result = wrapCallbackParams;
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
                 return true;
             }
-            sw1.c("location", "params is invalid");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+            hx1.i("ShowFavoriteGuideAction", "params parse error");
             return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.xo1.c
-    public void f(wo1.c cVar, String str) {
-        CallbackHandler callbackHandler;
+    @Override // com.repackage.uo1.j
+    @AnyThread
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) || (callbackHandler = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.c == null || this.d == null) {
             return;
         }
-        callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
-    }
-
-    @Override // com.repackage.xo1.c
-    public void g(wo1.c cVar, r23 r23Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, r23Var) == null) {
-            if (p13.b) {
-                Log.d("GetLocationAction", "convert info : " + r23Var.a());
-            }
-            CallbackHandler callbackHandler = this.c;
-            if (callbackHandler == null) {
-                return;
-            }
-            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(r23Var.a(), 0).toString());
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("action", z ? 1 : 0);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
-
-    public final void k(v43<x43.e> v43Var, CallbackHandler callbackHandler, wo1.c cVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{v43Var, callbackHandler, cVar, Boolean.valueOf(z)}) == null) {
-            sw1.i("GetLocationAction", "authorized result is " + v43Var);
-            if (q43.h(v43Var)) {
-                xo1.d().e(cVar, this, z);
-                return;
-            }
-            int b = v43Var.b();
-            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(b, q43.f(b)).toString());
-        }
+        this.d.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
     }
 }

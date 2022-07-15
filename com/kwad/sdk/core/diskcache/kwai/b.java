@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public class b implements Closeable {
+public final class b implements Closeable {
     public final InputStream a;
     public final Charset b;
     public byte[] c;
@@ -19,22 +19,19 @@ public class b implements Closeable {
         if (inputStream == null || charset == null) {
             throw null;
         }
-        if (i < 0) {
-            throw new IllegalArgumentException("capacity <= 0");
-        }
-        if (!charset.equals(c.a)) {
+        if (!charset.equals(com.kwad.sdk.crash.utils.a.a)) {
             throw new IllegalArgumentException("Unsupported encoding");
         }
         this.a = inputStream;
         this.b = charset;
-        this.c = new byte[i];
+        this.c = new byte[8192];
     }
 
     public b(InputStream inputStream, Charset charset) {
         this(inputStream, 8192, charset);
     }
 
-    private void c() {
+    private void b() {
         InputStream inputStream = this.a;
         byte[] bArr = this.c;
         int read = inputStream.read(bArr, 0, bArr.length);
@@ -45,13 +42,13 @@ public class b implements Closeable {
         this.e = read;
     }
 
-    public String a() {
+    public final String a() {
         int i;
         int i2;
         synchronized (this.a) {
             if (this.c != null) {
                 if (this.d >= this.e) {
-                    c();
+                    b();
                 }
                 for (int i3 = this.d; i3 != this.e; i3++) {
                     if (this.c[i3] == 10) {
@@ -71,7 +68,7 @@ public class b implements Closeable {
                 }
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.e - this.d) + 80) { // from class: com.kwad.sdk.core.diskcache.kwai.b.1
                     @Override // java.io.ByteArrayOutputStream
-                    public String toString() {
+                    public final String toString() {
                         int i4 = ((ByteArrayOutputStream) this).count;
                         try {
                             return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, b.this.b.name());
@@ -83,7 +80,7 @@ public class b implements Closeable {
                 loop1: while (true) {
                     byteArrayOutputStream.write(this.c, this.d, this.e - this.d);
                     this.e = -1;
-                    c();
+                    b();
                     i = this.d;
                     while (i != this.e) {
                         if (this.c[i] == 10) {
@@ -102,16 +99,12 @@ public class b implements Closeable {
         }
     }
 
-    public boolean b() {
-        return this.e == -1;
-    }
-
     @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
+    public final void close() {
         synchronized (this.a) {
             if (this.c != null) {
                 this.c = null;
-                this.a.close();
+                com.kwad.sdk.crash.utils.b.a(this.a);
             }
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.e.c;
 /* loaded from: classes5.dex */
-public class a implements c.a {
+public final class a implements c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class a implements c.a {
     }
 
     @Override // com.kwai.filedownloader.e.c.a
-    public int a(int i, String str, String str2, long j) {
-        InterceptResult invokeCommon;
+    public final int a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             if (j < 1048576) {
                 return 1;
             }
@@ -41,6 +41,6 @@ public class a implements c.a {
             }
             return j < 104857600 ? 4 : 5;
         }
-        return invokeCommon.intValue;
+        return invokeJ.intValue;
     }
 }

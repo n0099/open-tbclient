@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -7,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -16,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ht4;
 import com.repackage.ng;
+import com.repackage.xt4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -53,7 +55,7 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            ht4 k = ht4.k();
+            xt4 k = xt4.k();
             long m = k.m("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
             return m == 0 || System.currentTimeMillis() - m > REQUEST_SPACE;
         }
@@ -110,8 +112,20 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            ht4 k = ht4.k();
+            xt4 k = xt4.k();
             k.x("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+        }
+    }
+
+    public void requestFroChatActivity(@NonNull UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(userData.getUserId());
+            IMUserListHttpReqMessage iMUserListHttpReqMessage = new IMUserListHttpReqMessage(arrayList);
+            iMUserListHttpReqMessage.needCheckBlock();
+            iMUserListHttpReqMessage.needCheckCanChat();
+            sendMessage(iMUserListHttpReqMessage);
         }
     }
 }

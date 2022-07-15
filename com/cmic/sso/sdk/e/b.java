@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.i1;
 import java.math.BigInteger;
 import java.security.Key;
 import java.security.KeyPairGenerator;
@@ -111,7 +110,7 @@ public class b {
                             Key key = keyStore.getKey("CMCC_SDK_V1", null);
                             if (key instanceof SecretKey) {
                                 c.b("KeystoreUtil", "随机生成aes秘钥");
-                                cipher2 = Cipher.getInstance(i1.c);
+                                cipher2 = Cipher.getInstance("AES/CBC/PKCS7Padding");
                                 cipher2.init(1, key, new IvParameterSpec(a));
                             } else if (!(key instanceof PrivateKey)) {
                                 return null;
@@ -136,7 +135,7 @@ public class b {
                                 return null;
                             }
                             if (key2 instanceof SecretKey) {
-                                cipher = Cipher.getInstance(i1.c);
+                                cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
                                 cipher.init(2, key2, new IvParameterSpec(a));
                                 c.b("KeystoreUtil", "使用aes");
                             } else if (!(key2 instanceof PrivateKey)) {

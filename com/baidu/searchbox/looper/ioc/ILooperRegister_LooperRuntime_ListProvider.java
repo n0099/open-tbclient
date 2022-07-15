@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ya1;
+import com.repackage.nb1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class ILooperRegister_LooperRuntime_ListProvider implements ya1 {
+public class ILooperRegister_LooperRuntime_ListProvider implements nb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class ILooperRegister_LooperRuntime_ListProvider implements ya1 {
         }
     }
 
-    @Override // com.repackage.ya1
+    @Override // com.repackage.nb1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

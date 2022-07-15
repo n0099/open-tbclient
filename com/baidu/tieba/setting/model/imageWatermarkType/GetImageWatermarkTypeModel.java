@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.km4;
+import com.repackage.zm4;
 /* loaded from: classes4.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetImageWatermarkTypeResMsg)) {
                 GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
                 if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                    km4.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                    zm4.c().i(getImageWatermarkTypeResMsg.mMaskType);
                 }
             }
         }

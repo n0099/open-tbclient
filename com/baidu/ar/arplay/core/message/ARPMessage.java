@@ -382,7 +382,7 @@ public class ARPMessage {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("script", str);
+        hashMap.put(ARPMessageType.ARPMessageParamKeys.MAP_NPC_KEY_NAME, str);
         sendMessage(2001, hashMap);
     }
 

@@ -9,7 +9,7 @@ import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class a implements Interceptor {
+public final class a implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class a implements Interceptor {
     }
 
     @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) {
+    public final Response intercept(Interceptor.Chain chain) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {

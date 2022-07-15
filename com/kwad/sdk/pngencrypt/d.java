@@ -9,25 +9,21 @@ public abstract class d extends ChunkReader {
     public byte[] h;
     public int i;
 
-    public d(int i, String str, boolean z, long j, DeflatedChunksSet deflatedChunksSet) {
+    public d(int i, String str, long j, DeflatedChunksSet deflatedChunksSet) {
         super(i, str, j, ChunkReader.ChunkReaderMode.PROCESS);
         this.f = false;
         this.g = false;
         this.i = -1;
         this.e = deflatedChunksSet;
-        if (str.equals("fdAT")) {
-            this.g = true;
-            this.h = new byte[4];
-        }
         deflatedChunksSet.a(this);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.i = i;
     }
 
     @Override // com.kwad.sdk.pngencrypt.ChunkReader
-    public void a(int i, byte[] bArr, int i2, int i3) {
+    public final void a(int i, byte[] bArr, int i2, int i3) {
         if (this.g && i < 4) {
             while (i < 4 && i3 > 0) {
                 this.h[i] = bArr[i2];
@@ -47,9 +43,9 @@ public abstract class d extends ChunkReader {
     @Override // com.kwad.sdk.pngencrypt.ChunkReader
     public void c() {
         int c;
-        if (!this.g || !a().c.equals("fdAT") || this.i < 0 || (c = n.c(this.h, 0)) == this.i) {
+        if (!this.g || this.i < 0 || (c = n.c(this.h, 0)) == this.i) {
             return;
         }
-        com.kwad.sdk.core.d.a.a(new PngjException("bad chunk sequence for fDAT chunk " + c + " expected " + this.i));
+        com.kwad.sdk.core.d.b.a(new PngjException("bad chunk sequence for fDAT chunk " + c + " expected " + this.i));
     }
 }

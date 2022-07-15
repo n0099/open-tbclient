@@ -14,6 +14,7 @@ import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
 import com.baidu.mobstat.Config;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ public class LottieCompositionMoshiParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", Config.OPERATOR, "fr", "v", "layers", "assets", "fonts", "chars", "markers");
     public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", "w", "h", "p", "u");
     public static final JsonReader.Options FONT_NAMES = JsonReader.Options.of("list");
-    public static final JsonReader.Options MARKER_NAMES = JsonReader.Options.of("cm", "tm", "dr");
+    public static final JsonReader.Options MARKER_NAMES = JsonReader.Options.of(FunAdSdk.PLATFORM_CM, "tm", "dr");
 
     public static LottieComposition parse(JsonReader jsonReader) throws IOException {
         HashMap hashMap;

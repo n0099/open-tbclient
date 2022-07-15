@@ -1,77 +1,87 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    public static void a(w97 w97Var, int i) {
+    public fa7() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, w97Var, i) == null) || w97Var == null || w97Var.B() == null || ListUtils.isEmpty(w97Var.j()) || w97Var.j().size() < 2) {
-            return;
-        }
-        List<NewFloorInfo> j = w97Var.j();
-        if (j.size() > 2) {
-            if (StringHelper.equals(w97Var.B().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                if (j.get(1) != null) {
-                    if (j.get(1).is_floor.intValue() == 0) {
-                        b(w97Var, 12, i);
-                        return;
-                    } else if (j.get(1).is_floor.intValue() == 1) {
-                        b(w97Var, 13, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
-            } else if (j.get(1) != null) {
-                if (j.get(1).is_floor.intValue() == 0) {
-                    if (w97Var.t() != null) {
-                        if (StringHelper.equals(w97Var.t().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                            b(w97Var, 14, i);
-                            return;
-                        } else {
-                            b(w97Var, 15, i);
-                            return;
-                        }
-                    }
-                    return;
-                } else if (j.get(1).is_floor.intValue() == 1) {
-                    b(w97Var, 16, i);
-                    return;
-                } else {
-                    return;
-                }
-            } else {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(w97Var, 11, i);
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
     }
 
-    public static void b(w97 w97Var, int i, int i2) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, w97Var, i, i2) == null) || w97Var == null || w97Var.w() == null || w97Var.l() == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem("c12928");
-        statisticItem.param("tid", w97Var.l().f);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("fid", w97Var.l().e);
-        statisticItem.param("fname", w97Var.l().d);
-        statisticItem.param("pid", w97Var.r());
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", i2);
-        TiebaStatic.log(statisticItem);
+        try {
+            this.a = jSONObject.optInt("agree", 0);
+            this.b = jSONObject.optInt("replyme", 0);
+            this.c = jSONObject.optInt("atme", 0);
+            this.d = jSONObject.optInt("fans", 0);
+            jSONObject.optInt("pletter", 0);
+            this.e = jSONObject.optInt("bookmark", 0);
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

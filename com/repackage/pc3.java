@@ -1,13 +1,22 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.net.Uri;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.widget.SlideHelper;
+import com.baidu.searchbox.widget.SlideInterceptor;
+import com.baidu.searchbox.widget.SlidingPaneLayout;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,34 +24,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableBitmap;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.repackage.el2;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class pc3 {
+public class pc3 implements SlideInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public SlideHelper a;
+    public WeakReference<SwanAppActivity> b;
+    public w53 c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes6.dex */
-    public static class a extends BaseBitmapDataSubscriber {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ pc3 this$0;
 
-        public a(b bVar, String str) {
+        public a(pc3 pc3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str};
+                Object[] objArr = {pc3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,57 +57,87 @@ public class pc3 {
                     return;
                 }
             }
-            this.a = bVar;
-            this.b = str;
+            this.this$0 = pc3Var;
         }
 
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                this.a.a(this.b, null);
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.a.a(this.b, null);
-            }
-        }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    try {
-                        if (bitmap.getConfig() == null) {
-                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                        } else {
-                            copy = bitmap.copy(bitmap.getConfig(), true);
-                        }
-                        this.a.a(this.b, copy);
-                        return;
-                    } catch (Exception e) {
-                        if (pc3.a) {
-                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
-                        }
-                        this.a.a(this.b, null);
-                        return;
-                    }
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.intent.action.CLOSE_SYSTEM_DIALOGS".equals(intent.getAction())) {
+                String stringExtra = intent.getStringExtra("reason");
+                if (TextUtils.isEmpty(stringExtra)) {
+                    return;
                 }
-                this.a.a(this.b, null);
+                if ((PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_HOME_KEY.equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.a != null) {
+                    this.this$0.a.closePane();
+                    this.this$0.a.setCanSlide(false);
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str, Bitmap bitmap);
+    public class b implements SlidingPaneLayout.PanelSlideListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ pc3 b;
+
+        public b(pc3 pc3Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pc3Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pc3Var;
+            this.a = swanAppActivity;
+        }
+
+        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+        public void onPanelClosed(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+        public void onPanelOpened(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                this.a.p0(3);
+                this.b.h();
+                this.a.overridePendingTransition(0, 0);
+                vq2.e().g();
+            }
+        }
+
+        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+        public void onPanelSlide(View view2, float f) {
+            View maskView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) || (maskView = this.b.a.getMaskView()) == null) {
+                return;
+            }
+            maskView.setAlpha(1.0f - f);
+            if (this.a.Z()) {
+                this.a.Q().t0();
+            }
+            if (f == 0.0f) {
+                maskView.setBackgroundColor(Color.parseColor("#40000000"));
+            }
+            if (f == 1.0f) {
+                maskView.setBackgroundColor(0);
+            }
+        }
     }
 
     static {
@@ -118,129 +153,207 @@ public class pc3 {
                 return;
             }
         }
-        a = cg1.a;
+        e = rg1.a;
     }
 
-    public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
-        InterceptResult invokeL;
-        CloseableReference<CloseableImage> closeableReference;
-        Throwable th;
-        Bitmap underlyingBitmap;
+    public pc3(SwanAppActivity swanAppActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, dataSource)) != null) {
-            return (Bitmap) invokeL.objValue;
-        }
-        if (dataSource == null) {
-            return null;
-        }
-        try {
-            closeableReference = dataSource.getResult();
-            if (closeableReference != null) {
-                try {
-                    CloseableImage closeableImage = closeableReference.get();
-                    if (closeableImage != null && (closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled()) {
-                        try {
-                            Bitmap createBitmap = Bitmap.createBitmap(underlyingBitmap);
-                            dataSource.close();
-                            CloseableReference.closeSafely(closeableReference);
-                            return createBitmap;
-                        } catch (OutOfMemoryError unused) {
-                            System.gc();
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    dataSource.close();
-                    CloseableReference.closeSafely(closeableReference);
-                    throw th;
-                }
-            }
-            dataSource.close();
-            CloseableReference.closeSafely(closeableReference);
-            return null;
-        } catch (Throwable th3) {
-            closeableReference = null;
-            th = th3;
-        }
-    }
-
-    public static Bitmap c(Uri uri, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
-            if (uri != null && context != null) {
-                if (d(uri)) {
-                    if (a) {
-                        Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
-                    }
-                    return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
-                }
-                if (a) {
-                    Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
-                }
-                DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
-                if (isInDiskCache != null && isInDiskCache.hasResult() && isInDiskCache.getResult() != null && isInDiskCache.getResult().booleanValue()) {
-                    try {
-                        return b(Fresco.getImagePipeline().fetchDecodedImage(ImageRequest.fromUri(uri), context));
-                    } finally {
-                        isInDiskCache.close();
-                    }
-                }
-            }
-            return null;
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? uri != null && Fresco.getImagePipeline().isInBitmapMemoryCache(uri) : invokeL.booleanValue;
-    }
-
-    public static void e(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, bVar) == null) {
-            Uri C = md3.C(str);
-            if (C == null) {
-                bVar.a(str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, str), UiThreadImmediateExecutorService.getInstance());
+        }
+        this.d = new a(this);
+        this.b = new WeakReference<>(swanAppActivity);
+        this.a = new SlideHelper();
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            return (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.closePane();
         }
     }
 
-    public static void f(Uri uri, String str) {
+    public void f() {
+        SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, uri, str) == null) || uri == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (swanAppActivity = this.b.get()) == null || swanAppActivity.isDestroyed()) {
             return;
         }
-        if (a) {
-            Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
+        this.a.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
+        this.a.attachActivity(swanAppActivity);
+        this.a.setEnableReleaseWhenNoTranslucent(false);
+        this.a.setFadeColor(0);
+        this.a.setSlideInterceptor(this);
+        this.a.setSlideListener(new b(this, swanAppActivity));
+        nm1 g = g();
+        if (g != null) {
+            this.a.setRegionFactor(g.B());
         }
-        Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);
     }
 
-    public static Bitmap g(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
+    public final nm1 g() {
+        InterceptResult invokeV;
+        qz1 X;
+        nz1 m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
-            if (bitmap == null || i <= 0 || i2 <= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity == null || (X = swanAppActivity.X()) == null || (m = X.m()) == null || !(m instanceof pz1)) {
                 return null;
             }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            try {
-                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            } catch (Exception | OutOfMemoryError unused) {
-                return null;
-            }
+            return ((pz1) m).o3();
         }
-        return (Bitmap) invokeLII.objValue;
+        return (nm1) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && oj2.M().a()) {
+            this.c.c(8);
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r3v3, types: [com.repackage.om1] */
+    @Override // com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        qz1 X;
+        nm1 g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity == null || !swanAppActivity.Z() || (X = swanAppActivity.X()) == null || (g = g()) == null) {
+                return false;
+            }
+            qm1 l = g.l();
+            return X.k() <= 1 && g.isSlidable(motionEvent) && !(l != null && l.t() != 0 && l.t().canGoBack()) && j();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.Z()) {
+                pz1 o = swanAppActivity.X().o();
+                if (o != null) {
+                    w03 G1 = o.G1();
+                    if (G1 == null) {
+                        return true;
+                    }
+                    if (G1.l || G1.m) {
+                        h53 h53Var = fs2.g(true).get("scope_disable_swipe_back");
+                        if (h53Var == null || h53Var.d) {
+                            return false;
+                        }
+                        SlideHelper slideHelper = this.a;
+                        if (slideHelper != null) {
+                            slideHelper.setRegionFactor(0.1d);
+                        }
+                    }
+                    return true;
+                } else if (e) {
+                    Log.d("SwanActivitySlideHelper", "topFragment = null; return false");
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (swanAppActivity = this.b.get()) == null) {
+            return;
+        }
+        w53 w = swanAppActivity.w();
+        this.c = w;
+        if (w == null) {
+            return;
+        }
+        if (zk2.c(false).booleanValue()) {
+            this.c.c(0);
+        }
+        f();
+    }
+
+    public void o() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (swanAppActivity = this.b.get()) == null) {
+            return;
+        }
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+        swanAppActivity.registerReceiver(this.d, intentFilter);
+    }
+
+    public void p() {
+        WeakReference<SwanAppActivity> weakReference;
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.b) == null || (swanAppActivity = weakReference.get()) == null) {
+            return;
+        }
+        swanAppActivity.unregisterReceiver(this.d);
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b.get() == null) {
+            return;
+        }
+        this.a.setCanSlide(c());
+    }
+
+    public void r() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (swanAppActivity = this.b.get()) == null) {
+            return;
+        }
+        el2.a S = swanAppActivity.S();
+        if ((S != null && "1230000000000000".equals(S.T())) || swanAppActivity.R() == 1) {
+            this.a.setCanSlide(false);
+        } else {
+            this.a.setCanSlide(c());
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && zk2.c(true).booleanValue()) {
+            this.c.c(0);
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.a.setCanSlide(z);
+        }
     }
 }

@@ -1,222 +1,129 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ew5;
 /* loaded from: classes6.dex */
-public class gw5 implements fw5, View.OnClickListener {
+public final class gw5 extends ew5<gw5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public TbPageContext b;
-    public LinearLayout c;
-    public ImageView d;
-    public ImageView e;
-    public ImageView f;
-    public ImageView g;
-    public ImageView h;
-    public RelativeLayout i;
-    public RelativeLayout j;
-    public RelativeLayout k;
-    public RelativeLayout l;
-    public RelativeLayout m;
-    public ew5 n;
-    public float o;
-    public float p;
+    public hw5 t;
+    public float u;
+    public boolean v;
 
-    public gw5(TbPageContext tbPageContext, int i, int i2, ew5 ew5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public <K> gw5(K k, fw5<K> fw5Var) {
+        super(k, fw5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Integer.valueOf(i2), ew5Var};
+            Object[] objArr = {k, fw5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(objArr2[0], (fw5) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.n = ew5Var;
-        float f = (i * 1.0f) / i2;
-        this.a = f;
-        this.o = f;
-        this.p = 0.0f;
-        a();
+        this.t = null;
+        this.u = Float.MAX_VALUE;
+        this.v = false;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ew5
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090489);
-            this.c = linearLayout;
-            fr4 d = fr4.d(linearLayout);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0214);
-            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b7);
-            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b8);
-            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b5);
-            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b6);
-            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b3);
-            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b4);
-            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919af);
-            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b0);
-            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b1);
-            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0919b2);
-            g();
-            this.i.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.fw5
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getVisibility() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.fw5
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c.setVisibility(i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l();
+            this.t.g(e());
+            super.h();
         }
     }
 
-    @Override // com.repackage.fw5
-    public void d(int i) {
+    @Override // com.repackage.ew5
+    public boolean j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.i.setVisibility(i);
-            if (i == 8) {
-                this.p = 1.7777778f;
-                f(1.7777778f);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (this.v) {
+                float f = this.u;
+                if (f != Float.MAX_VALUE) {
+                    this.t.e(f);
+                    this.u = Float.MAX_VALUE;
+                }
+                this.b = this.t.a();
+                this.a = 0.0f;
+                this.v = false;
+                return true;
             }
-        }
-    }
-
-    @Override // com.repackage.fw5
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : invokeV.floatValue;
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.o = f;
-            ew5 ew5Var = this.n;
-            if (ew5Var != null) {
-                ew5Var.a(f);
+            if (this.u != Float.MAX_VALUE) {
+                this.t.a();
+                long j2 = j / 2;
+                ew5.i h = this.t.h(this.b, this.a, j2);
+                this.t.e(this.u);
+                this.u = Float.MAX_VALUE;
+                ew5.i h2 = this.t.h(h.a, h.b, j2);
+                this.b = h2.a;
+                this.a = h2.b;
+            } else {
+                ew5.i h3 = this.t.h(this.b, this.a, j);
+                this.b = h3.a;
+                this.a = h3.b;
             }
-            g();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080990));
-            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08098f));
-            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08098e));
-            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08098c));
-            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08098d));
-            float f = this.p;
-            if (f == 0.0f) {
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080990, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.7777778f) {
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098f, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.3333334f) {
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098e, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 0.5625f) {
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098c, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.0f) {
-                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098d, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            float max = Math.max(this.b, this.h);
+            this.b = max;
+            float min = Math.min(max, this.g);
+            this.b = min;
+            if (k(min, this.a)) {
+                this.b = this.t.a();
+                this.a = 0.0f;
+                return true;
             }
+            return false;
         }
+        return invokeJ.booleanValue;
     }
 
-    @Override // com.repackage.fw5
-    public float getRatio() {
-        InterceptResult invokeV;
+    public boolean k(float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : invokeV.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.t.c(f, f2) : invokeCommon.booleanValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0919b8) {
-                this.p = 0.0f;
-                f(this.a);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919b6) {
-                this.p = 1.7777778f;
-                f(1.7777778f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919b4) {
-                this.p = 1.3333334f;
-                f(1.3333334f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919b0) {
-                this.p = 0.5625f;
-                f(0.5625f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919b2) {
-                this.p = 1.0f;
-                f(1.0f);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hw5 hw5Var = this.t;
+            if (hw5Var != null) {
+                double a = hw5Var.a();
+                if (a <= this.g) {
+                    if (a < this.h) {
+                        throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+                    }
+                    return;
+                }
+                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
             }
+            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
     }
 
-    @Override // com.repackage.fw5
-    public void reset() {
+    public gw5 m(hw5 hw5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.p = 0.0f;
-            f(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hw5Var)) == null) {
+            this.t = hw5Var;
+            return this;
         }
-    }
-
-    public gw5(TbPageContext tbPageContext, ew5 ew5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ew5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = tbPageContext;
-        this.n = ew5Var;
-        this.a = 1.7777778f;
-        this.o = 1.7777778f;
-        this.p = 0.0f;
-        a();
+        return (gw5) invokeL.objValue;
     }
 }

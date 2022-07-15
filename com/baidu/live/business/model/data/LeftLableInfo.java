@@ -2,6 +2,7 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,12 +17,14 @@ public class LeftLableInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LeftLableInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public String dot;
     public String endColor;
+    public String isShow;
     public String startColor;
     public String text;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LeftLableInfo> {
+    public static class a implements Parcelable.Creator<LeftLableInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,11 +91,17 @@ public class LeftLableInfo implements Parcelable {
         }
     }
 
+    public boolean canShowLabel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.isShow) && !TextUtils.isEmpty(this.text) : invokeV.booleanValue;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -100,21 +109,25 @@ public class LeftLableInfo implements Parcelable {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.text = jSONObject.optString("text");
         this.startColor = jSONObject.optString("start_color");
         this.endColor = jSONObject.optString("end_color");
+        this.dot = jSONObject.optString("dot");
+        this.isShow = jSONObject.optString("is_show");
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.text);
             parcel.writeString(this.startColor);
             parcel.writeString(this.endColor);
+            parcel.writeString(this.dot);
+            parcel.writeString(this.isShow);
         }
     }
 
@@ -136,5 +149,7 @@ public class LeftLableInfo implements Parcelable {
         this.text = parcel.readString();
         this.startColor = parcel.readString();
         this.endColor = parcel.readString();
+        this.dot = parcel.readString();
+        this.isShow = parcel.readString();
     }
 }

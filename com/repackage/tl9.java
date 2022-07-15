@@ -1,29 +1,15 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import java.util.ListIterator;
 /* loaded from: classes7.dex */
-public class tl9 {
+public abstract class tl9<E> extends sl9<E> implements ListIterator<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public boolean b;
-    public ql9 c;
-    public Info d;
-    public Handler e;
 
     public tl9() {
         Interceptable interceptable = $ic;
@@ -35,70 +21,25 @@ public class tl9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new qk9(this, Looper.getMainLooper());
-    }
-
-    public void a(View view2, Info info, ql9 ql9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, info, ql9Var) == null) {
-            this.a = view2;
-            this.c = ql9Var;
-            this.d = info;
-            try {
-                Log.e(MiPushClient.COMMAND_REGISTER, "b111:" + this.b);
-                if (!this.b) {
-                    this.e.sendEmptyMessage(1101);
-                }
-                Log.e(MiPushClient.COMMAND_REGISTER, "b2222");
-                ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-                viewTreeObserver.addOnScrollChangedListener(new uk9(this, ql9Var));
-                viewTreeObserver.addOnGlobalFocusChangeListener(new yk9(this, ql9Var));
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowFocusChangeListener(new cl9(this));
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowAttachListener(new fl9(this));
-                }
-                viewTreeObserver.addOnTouchModeChangeListener(new il9(this));
-                if (Build.VERSION.SDK_INT >= 16) {
-                    viewTreeObserver.addOnDrawListener(new ll9(this, viewTreeObserver));
-                }
-                viewTreeObserver.addOnGlobalLayoutListener(new ol9(this, viewTreeObserver));
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004f A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean b(View view2) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // java.util.ListIterator
+    @Deprecated
+    public final void add(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) != null) {
-            return invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, e) == null) {
+            throw new UnsupportedOperationException();
         }
-        if (view2 == null || !view2.isShown()) {
-            return false;
-        }
-        Rect rect = new Rect();
-        if (view2.getGlobalVisibleRect(rect) && this.d != null) {
-            if (rect.width() >= this.d.getSper() * view2.getMeasuredWidth()) {
-                if (rect.height() >= this.d.getSper() * view2.getMeasuredHeight()) {
-                    z = false;
-                    return z;
-                }
-            }
-        }
-        z = true;
-        if (z) {
+    }
+
+    @Override // java.util.ListIterator
+    @Deprecated
+    public final void set(E e) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e) == null) {
+            throw new UnsupportedOperationException();
         }
     }
 }

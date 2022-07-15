@@ -27,7 +27,6 @@ import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.DecoderConfigDescriptor;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.SLConfigDescriptor;
-import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -173,7 +172,7 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(24000, 6);
         samplingFrequencyIndexMap.put(22050, 7);
         samplingFrequencyIndexMap.put(16000, 8);
-        samplingFrequencyIndexMap.put(Integer.valueOf((int) w0.X3), 9);
+        samplingFrequencyIndexMap.put(12000, 9);
         samplingFrequencyIndexMap.put(11025, 10);
         samplingFrequencyIndexMap.put(8000, 11);
         samplingFrequencyIndexMap.put(0, 96000);
@@ -185,7 +184,7 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
-        samplingFrequencyIndexMap.put(9, Integer.valueOf((int) w0.X3));
+        samplingFrequencyIndexMap.put(9, 12000);
         samplingFrequencyIndexMap.put(10, 11025);
         samplingFrequencyIndexMap.put(11, 8000);
     }

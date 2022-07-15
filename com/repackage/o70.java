@@ -1,62 +1,97 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class o70 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o70 b;
+    public static o70 c;
+    public static final int d;
+    public static final int e;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public ThreadPoolExecutor a;
+    public Context b;
 
-    public o70() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755486935, "Lcom/repackage/o70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755486935, "Lcom/repackage/o70;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        d = availableProcessors;
+        e = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f = (d * 2) + 1;
+    }
+
+    public o70(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = true;
+        this.a = null;
+        this.b = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(e, f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        Executors.newSingleThreadExecutor();
     }
 
-    public static synchronized o70 a() {
-        InterceptResult invokeV;
-        o70 o70Var;
+    public static o70 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (o70.class) {
-                if (b == null) {
-                    synchronized (o70.class) {
-                        b = new o70();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (c == null) {
+                synchronized (o70.class) {
+                    if (c == null) {
+                        c = new o70(context);
                     }
                 }
-                o70Var = b;
             }
-            return o70Var;
+            return c;
         }
-        return (o70) invokeV.objValue;
+        return (o70) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable th) {
+                t70.c("TaskManager", "Exception ", th);
+            }
         }
     }
 }

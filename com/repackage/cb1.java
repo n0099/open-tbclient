@@ -1,9 +1,16 @@
 package com.repackage;
 
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface cb1<T> {
-    void a(ya1<List<T>> ya1Var);
+public class cb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    List<T> getList();
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            fy0.a().b("splash_sp_name").g("splash_launch_status", 2);
+        }
+    }
 }

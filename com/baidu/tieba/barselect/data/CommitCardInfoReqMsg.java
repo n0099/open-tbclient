@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.CommitCardInfo.CommitCardInfoReqIdl;
 import tbclient.CommitCardInfo.DataReq;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class CommitCardInfoReqMsg extends NetMessage {
             builder.card_type = Integer.valueOf(this.card_type);
             builder.image_info = this.image_info;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             CommitCardInfoReqIdl.Builder builder2 = new CommitCardInfoReqIdl.Builder();
             builder2.data = builder.build(false);

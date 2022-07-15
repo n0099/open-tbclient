@@ -21,7 +21,7 @@ public final class ProcessAndDisplayImageTask implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         L.d("PostProcess image before displaying [%s]", this.imageLoadingInfo.memoryCacheKey);
         BitmapProcessor postProcessor = this.imageLoadingInfo.options.getPostProcessor();
         DecodedResult decodedResult = this.decodedResult;

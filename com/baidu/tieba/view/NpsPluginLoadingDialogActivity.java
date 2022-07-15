@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kf7;
+import com.repackage.cg7;
 /* loaded from: classes4.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kf7.j().n();
+            cg7.j().n();
         }
     }
 
@@ -91,7 +91,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0912cb) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091371) {
             finish();
             A1();
         }
@@ -106,26 +106,26 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d08a5);
+            setContentView(R.layout.obfuscated_res_0x7f0d08c5);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091922);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f0919cb);
             this.a = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cb);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
-            if (!kf7.j().m()) {
+            if (!cg7.j().m()) {
                 finish();
             } else {
-                kf7.j().o(this);
+                cg7.j().o(this);
             }
         }
     }

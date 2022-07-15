@@ -1,39 +1,41 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
+import java.io.File;
+import java.net.URLConnection;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vo1 extends vn1 {
+public class vo1 extends ko1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public int g;
-    public ViewTreeObserver.OnGlobalLayoutListener h;
 
     /* loaded from: classes7.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vo1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ vo1 b;
 
-        public a(vo1 vo1Var) {
+        public a(vo1 vo1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vo1Var};
+                Object[] objArr = {vo1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,62 +45,35 @@ public class vo1 extends vn1 {
                     return;
                 }
             }
-            this.a = vo1Var;
+            this.b = vo1Var;
+            this.a = str;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                this.a.f.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.a.g == height) {
-                    return;
-                }
-                if (this.a.g - height <= 180) {
-                    if (height - this.a.g > 180) {
-                        HashMap hashMap = new HashMap();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("height", 0);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        hashMap.put("data", jSONObject.toString());
-                        fl2.U().u(new t92("keyboardHeightChange", hashMap));
-                        this.a.g = height;
-                        return;
-                    }
-                    return;
-                }
-                HashMap hashMap2 = new HashMap();
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("height", jd3.O(this.a.g - height));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                hashMap2.put("data", jSONObject2.toString());
-                fl2.U().u(new t92("keyboardHeightChange", hashMap2));
-                this.a.g = height;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new hs1(0));
+                return true;
             }
+            return invokeLIL.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vo1(@NonNull tn1 tn1Var) {
-        super(tn1Var);
+    public vo1(@NonNull io1 io1Var) {
+        super(io1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tn1Var};
+            Object[] objArr = {io1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tn1) newInitContext.callArgs[0]);
+                super((io1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,75 +81,86 @@ public class vo1 extends vn1 {
         }
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SwanAppActivity activity = fl2.U().getActivity();
-            if (activity == null) {
-                sw1.c("SoftKeyboardApi", "activity is null");
-                return;
-            }
-            this.f = activity.getWindow().getDecorView();
-            Rect rect = new Rect();
-            this.f.getWindowVisibleDisplayFrame(rect);
-            this.g = rect.height();
-            if (this.h == null) {
-                this.h = new a(this);
-                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
-            }
-        }
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.h != null) {
-                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
-            }
-            this.h = null;
-            this.g = 0;
-        }
-    }
-
-    public sr1 C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#startKeyboardHeightChange", false);
-            if (sz2.b0() == null) {
-                return new sr1(1001, "swan app is null");
-            }
-            A();
-            return sr1.f();
-        }
-        return (sr1) invokeV.objValue;
-    }
-
-    public sr1 D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            q("#stopKeyboardHeightChange", false);
-            if (sz2.b0() == null) {
-                return new sr1(1001, "swan app is null");
-            }
-            B();
-            return sr1.f();
-        }
-        return (sr1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vn1
+    @Override // com.repackage.ko1
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.vn1
+    @Override // com.repackage.ko1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
+    }
+
+    public final String x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                return !TextUtils.isEmpty(contentTypeFor) ? contentTypeFor : "*/*";
+            }
+            return "*/*";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public hs1 y(String str) {
+        InterceptResult invokeL;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#shareFile", false);
+            if (n()) {
+                hx1.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new hs1(1001, "FileApi does not supported when app is invisible.");
+            }
+            Pair<hs1, JSONObject> s = s(str);
+            hs1 hs1Var = (hs1) s.first;
+            if (hs1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("filePath");
+                String M = p73.M(optString, h03.g0());
+                if (!TextUtils.isEmpty(optString) && p73.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                    String optString2 = jSONObject.optString("cb");
+                    if (TextUtils.isEmpty(optString2)) {
+                        hx1.c("FileApi", "cb is required");
+                        return new hs1(202, "cb is required");
+                    }
+                    File file = new File(M);
+                    if (file.exists() && !file.isDirectory()) {
+                        SwanAppActivity activity = ul2.U().getActivity();
+                        if (activity == null) {
+                            hx1.c("FileApi", "activity null");
+                            return new hs1(1001, "activity null");
+                        }
+                        ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                        Intent intent = new Intent();
+                        if (oc3.i()) {
+                            fromFile = ee3.a(activity, file);
+                            intent.setFlags(3);
+                        } else {
+                            fromFile = Uri.fromFile(file);
+                        }
+                        intent.setAction("android.intent.action.SEND");
+                        intent.putExtra("android.intent.extra.STREAM", fromFile);
+                        intent.setType(x(M));
+                        resultDispatcher.addConsumer(new a(this, optString2));
+                        resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                        return hs1.f();
+                    }
+                    hx1.c("FileApi", "file not exists");
+                    return new hs1(1001, "file not exists");
+                }
+                hx1.c("FileApi", "a valid filePath is required");
+                return new hs1(202, "a valid filePath is required");
+            }
+            return hs1Var;
+        }
+        return (hs1) invokeL.objValue;
     }
 }

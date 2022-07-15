@@ -34,7 +34,7 @@ public class by extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo202a() {
+    public String mo1145a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10052" : (String) invokeV.objValue;
@@ -48,10 +48,10 @@ public class by extends al.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-            cnVar = this.a.f145a;
+            cnVar = this.a.f872a;
             if (cnVar != null) {
-                cnVar2 = this.a.f145a;
-                context = this.a.f142a;
+                cnVar2 = this.a.f872a;
+                context = this.a.f869a;
                 cnVar2.a(context);
                 this.a.b("upload_time");
             }

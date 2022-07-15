@@ -1,46 +1,26 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.zip.GZIPInputStream;
-import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes6.dex */
-public class pm9 {
+public final class pm9 extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public URL a;
-    public byte[] b;
-    public Map c;
-    public Map d;
-    public String e;
-    public int f;
-    public boolean g;
-    public boolean h;
-    public int i;
-    public int j;
+    public final /* synthetic */ mm9 a;
+    public final /* synthetic */ lm9 b;
 
-    public pm9(String str, String str2, Map map) {
+    public pm9(lm9 lm9Var, mm9 mm9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, map};
+            Object[] objArr = {lm9Var, mm9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,107 +30,28 @@ public class pm9 {
                 return;
             }
         }
-        this.e = "GET";
-        this.f = -1;
-        this.g = false;
-        this.h = true;
-        this.a = new URL(str);
-        this.e = str2;
-        this.c = map;
-        this.i = 20000;
-        this.j = 20000;
+        this.b = lm9Var;
+        this.a = mm9Var;
     }
 
-    public sm9 a() {
-        InterceptResult invokeV;
-        HttpURLConnection httpURLConnection;
-        InputStream errorStream;
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            String url = this.a.toString();
-            if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
-                httpURLConnection = (HttpURLConnection) this.a.openConnection();
-            } else {
-                httpURLConnection = (HttpsURLConnection) this.a.openConnection();
-            }
-            httpURLConnection.setRequestMethod(this.e);
-            httpURLConnection.setInstanceFollowRedirects(this.h);
-            httpURLConnection.setReadTimeout(this.j);
-            httpURLConnection.setConnectTimeout(this.i);
-            httpURLConnection.setDoInput(true);
-            Map map = this.c;
-            if (map != null && map.size() > 0) {
-                for (Map.Entry entry : map.entrySet()) {
-                    String str = (String) entry.getKey();
-                    for (String str2 : (List) entry.getValue()) {
-                        String str3 = "header:" + str + "=" + str2;
-                        httpURLConnection.setRequestProperty(str, str2);
-                    }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
+                this.b.p();
+                int i = extras.getInt("install.status");
+                if (i == 1 || i == 2 || i == 3) {
+                    this.a.a(com.google.ar.core.p.a);
+                } else if (i == 4) {
+                    this.a.a(com.google.ar.core.p.c);
+                } else if (i != 6) {
+                } else {
+                    this.a.a(com.google.ar.core.p.b);
                 }
             }
-            if (this.e.equals("POST")) {
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                PrintWriter printWriter = null;
-                PrintWriter printWriter2 = null;
-                try {
-                    OutputStream outputStream = httpURLConnection.getOutputStream();
-                    byte[] bArr = this.b;
-                    if (bArr == null) {
-                        PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
-                        try {
-                            URL url2 = this.a;
-                            printWriter3.print(url2 != null ? url2.getQuery() : null);
-                            printWriter3.flush();
-                            printWriter2 = printWriter3;
-                        } catch (Throwable th) {
-                            th = th;
-                            printWriter = printWriter3;
-                            if (printWriter != null) {
-                                printWriter.close();
-                            }
-                            throw th;
-                        }
-                    } else {
-                        outputStream.write(bArr);
-                        outputStream.flush();
-                    }
-                    if (printWriter2 != null) {
-                        printWriter2.close();
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-            this.f = httpURLConnection.getResponseCode();
-            httpURLConnection.getContentLength();
-            if (httpURLConnection.getHeaderFields() != null) {
-                this.d = httpURLConnection.getHeaderFields();
-            }
-            try {
-                String contentEncoding = httpURLConnection.getContentEncoding();
-                errorStream = (contentEncoding == null || !contentEncoding.contains("gzip")) ? httpURLConnection.getInputStream() : new GZIPInputStream(httpURLConnection.getInputStream());
-            } catch (IOException e) {
-                errorStream = httpURLConnection.getErrorStream();
-                if (errorStream == null) {
-                    throw new RuntimeException("InputStream is error: " + e.getMessage());
-                }
-            }
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
-            byte[] bArr2 = new byte[4096];
-            int i = 0;
-            while (!this.g && i != -1) {
-                i = bufferedInputStream.read(bArr2);
-                if (i > 0) {
-                    byteArrayOutputStream.write(bArr2, 0, i);
-                }
-            }
-            httpURLConnection.disconnect();
-            byteArrayOutputStream.flush();
-            errorStream.close();
-            return new sm9(this.f, byteArrayOutputStream.toByteArray(), this.d);
         }
-        return (sm9) invokeV.objValue;
     }
 }

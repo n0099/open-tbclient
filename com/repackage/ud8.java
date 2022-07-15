@@ -1,185 +1,173 @@
 package com.repackage;
 
-import android.content.res.Configuration;
-import android.os.Looper;
-import android.os.MessageQueue;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
+import android.content.Context;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.http.IHttpContext;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.EventListener;
+import okhttp3.Request;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class ud8 {
+public class ud8 implements IHttpContext {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public wd8 a;
-    public vd8 b;
+    public Context a;
 
-    /* loaded from: classes7.dex */
-    public class a implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ud8 ud8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755264696, "Lcom/repackage/ud8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ud8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755264696, "Lcom/repackage/ud8;");
+                return;
             }
         }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_IDLE_END_STAMP_KEY);
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
+        boolean isDebug = AppConfig.isDebug();
+        b = isDebug;
+        b = isDebug;
+        c = ud8.class.getSimpleName();
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(ud8 ud8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ud8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_HANDLER_END_STAMP_KEY);
-            }
-        }
-    }
-
+    @DebugTrace
     public ud8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = AppRuntime.getAppContext();
     }
 
-    public void a(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, baseFragmentActivity, viewGroup, i) == null) || baseFragmentActivity == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpRequest)) == null) {
+            return false;
         }
-        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY);
-        b(baseFragmentActivity, viewGroup, i);
-        c();
-        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY);
+        return invokeL.booleanValue;
     }
 
-    public final void b(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, viewGroup, i) == null) {
-            ae8 ae8Var = new ae8(baseFragmentActivity, viewGroup, i);
-            this.a = ae8Var;
-            be8 be8Var = new be8(ae8Var);
-            this.b = new ee8(this.a, be8Var);
-            viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f7b);
-            uf8.g().i(this.a.getUniqueId());
-            MessageManager.getInstance().runTask(2921668, (Class) null);
-            baseFragmentActivity.registerListener(new zd8(this.a, be8Var));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return null;
         }
+        return (CookieManager) invokeCommon.objValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public EventListener getEventListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param(TiebaStatic.Params.BEAR_CONFIG, sb5.q(ht4.k().l("splash_ad_strategy_key", 0)) ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, ht4.k().l("splash_origin_ad_strategy_key", 1) != 0 ? 1 : 0).param("obj_param1", this.a.i() ? 2 : 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.i() ? 2 : 1).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.j()).eventStat();
-            Looper.myQueue().addIdleHandler(new a(this));
-            qg.a().post(new b(this));
-            this.b.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
+        return (EventListener) invokeV.objValue;
     }
 
-    public void d(Configuration configuration) {
-        vd8 vd8Var;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public int getFallbackConnectDelayMs() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (vd8Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0;
         }
-        vd8Var.onConfigurationChanged(configuration);
+        return invokeV.intValue;
     }
 
-    public void e() {
-        wd8 wd8Var;
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (wd8Var = this.a) == null) {
-            return;
-        }
-        wd8Var.b(false);
-    }
-
-    public void f() {
-        wd8 wd8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (wd8Var = this.a) == null) {
-            return;
-        }
-        wd8Var.b(true);
-        w75 pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
-        if (pageStayDurationItem != null) {
-            pageStayDurationItem.r(this.a.getAdSource());
-        }
-        if (this.a.g()) {
-            ce8.g(this.a).b();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            vd8 vd8Var = this.b;
-            if (vd8Var != null) {
-                vd8Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, httpRequest)) == null) {
+            if (b) {
+                String str = c;
+                Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
+                return null;
             }
-            MessageManager.getInstance().runTask(2921555, (Class) null);
+            return null;
+        }
+        return (IHttpDns) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewHttpDns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (b) {
+                Log.i(c, "baidunetwork HttpContext getNewHttpDns!");
+                return null;
+            }
+            return null;
+        }
+        return (IHttpDns) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public NetworkStat<Request> getNewNetworkStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (NetworkStat) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void init() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b) {
+            Log.i(c, "baidunetwork HttpContext init!");
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void prefetchDnsResult(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, networkInfoRecord) == null) {
         }
     }
 }

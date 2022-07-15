@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i60;
+import com.repackage.j60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -415,7 +415,7 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ACCEPT_PUSH, z);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -574,7 +574,7 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -718,7 +718,7 @@ public class PaManagerImpl {
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 104);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -787,7 +787,7 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_SEARCH_CONTENT, str);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -848,7 +848,7 @@ public class PaManagerImpl {
                                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, this.val$paId);
                                 creatMethodIntent.putExtra(Constants.EXTRA_PA_INFO, paInfo);
                                 try {
-                                    i60.g(PaManagerImpl.mContext).f(PaManagerImpl.mContext, creatMethodIntent);
+                                    j60.g(PaManagerImpl.mContext).f(PaManagerImpl.mContext, creatMethodIntent);
                                     return;
                                 } catch (Exception e) {
                                     ListenerManager.getInstance().removeListener(this.val$key);
@@ -994,7 +994,7 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);

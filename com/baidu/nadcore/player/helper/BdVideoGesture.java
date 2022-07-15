@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh0;
-import com.repackage.c11;
-import com.repackage.fs0;
-import com.repackage.n01;
-import com.repackage.no0;
-import com.repackage.uw0;
+import com.repackage.ap0;
+import com.repackage.b11;
+import com.repackage.hh0;
+import com.repackage.hx0;
+import com.repackage.q11;
+import com.repackage.ss0;
 /* loaded from: classes2.dex */
 public class BdVideoGesture {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public class BdVideoGesture {
     public int i;
     public int j;
     public int k;
-    public fs0 l;
+    public ss0 l;
     public int m;
     public int n;
 
@@ -116,15 +116,15 @@ public class BdVideoGesture {
                 return;
             }
         }
-        o = uw0.b(bh0.b()) / 10;
+        o = hx0.b(hh0.b()) / 10;
     }
 
-    public BdVideoGesture(Context context, @NonNull fs0 fs0Var) {
+    public BdVideoGesture(Context context, @NonNull ss0 ss0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, fs0Var};
+            Object[] objArr = {context, ss0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -141,10 +141,10 @@ public class BdVideoGesture {
         this.h = 0;
         this.i = 0;
         this.j = 0;
-        this.m = no0.a;
-        this.n = no0.b;
+        this.m = ap0.a;
+        this.n = ap0.b;
         f(context);
-        this.l = fs0Var;
+        this.l = ss0Var;
     }
 
     public void a(float f, int i) {
@@ -157,11 +157,11 @@ public class BdVideoGesture {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            fs0 fs0Var = this.l;
-            if (fs0Var == null) {
+            ss0 ss0Var = this.l;
+            if (ss0Var == null) {
                 return false;
             }
-            if (fs0Var.p()) {
+            if (ss0Var.p()) {
                 this.l.m(this.e);
                 return false;
             } else if (motionEvent.getAction() == 0) {
@@ -171,9 +171,9 @@ public class BdVideoGesture {
                 this.a = motionEvent.getX();
                 this.b = motionEvent.getY();
                 this.c = motionEvent.getPointerId(0);
-                this.i = uw0.c(bh0.b());
+                this.i = hx0.c(hh0.b());
                 this.j = this.l.getCurrentPosition();
-                this.k = n01.a(this.l.o());
+                this.k = b11.a(this.l.o());
                 this.l.m(this.e);
                 return false;
             } else if (motionEvent.getAction() == 2) {
@@ -233,7 +233,7 @@ public class BdVideoGesture {
             }
             double d = abs;
             double d2 = abs2;
-            if (d > d2 * 1.0d && abs > c11.a(30.0f) && this.d) {
+            if (d > d2 * 1.0d && abs > q11.a(30.0f) && this.d) {
                 this.f = true;
                 if (f3 <= i / 2) {
                     this.e = VideoPluginGesture.BrightChange;
@@ -242,7 +242,7 @@ public class BdVideoGesture {
                     this.e = VideoPluginGesture.VolumeChange;
                     return;
                 }
-            } else if (d * 1.0d >= d2 || abs2 <= c11.a(30.0f)) {
+            } else if (d * 1.0d >= d2 || abs2 <= q11.a(30.0f)) {
                 return;
             } else {
                 this.e = VideoPluginGesture.PlayTimeChange;
@@ -260,7 +260,7 @@ public class BdVideoGesture {
         if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
             float f5 = this.i + ((f2 / 100.0f) * o);
             if (f5 > 0.0f) {
-                r13 = f5 > ((float) uw0.b(bh0.b())) ? uw0.b(bh0.b()) : f5;
+                r13 = f5 > ((float) hx0.b(hh0.b())) ? hx0.b(hh0.b()) : f5;
             }
             this.l.f(r13);
         } else if (videoPluginGesture == VideoPluginGesture.BrightChange) {

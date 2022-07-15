@@ -3,7 +3,6 @@ package com.kwai.filedownloader;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes5.dex */
-public class j {
+public final class j {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 10;
     public static int b = 5;
@@ -46,7 +45,7 @@ public class j {
                     return;
                 }
             }
-            a = new j();
+            a = new j((byte) 0);
         }
     }
 
@@ -69,9 +68,13 @@ public class j {
             }
         }
 
-        private void a(ArrayList<t> arrayList) {
+        public /* synthetic */ b(byte b) {
+            this();
+        }
+
+        public static void a(ArrayList<t> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, this, arrayList) == null) {
+            if (interceptable == null || interceptable.invokeL(65538, null, arrayList) == null) {
                 Iterator<t> it = arrayList.iterator();
                 while (it.hasNext()) {
                     it.next().b();
@@ -81,7 +84,7 @@ public class j {
         }
 
         @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
+        public final boolean handleMessage(Message message) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
@@ -90,7 +93,7 @@ public class j {
                     ((t) message.obj).b();
                 } else if (i == 2) {
                     a((ArrayList) message.obj);
-                    j.a().c();
+                    j.a().b();
                 }
                 return true;
             }
@@ -129,8 +132,12 @@ public class j {
         this.c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
         this.f = new Object();
         this.g = new ArrayList<>();
-        this.d = new Handler(Looper.getMainLooper(), new b());
+        this.d = new Handler(Looper.getMainLooper(), new b((byte) 0));
         this.e = new LinkedBlockingQueue<>();
+    }
+
+    public /* synthetic */ j(byte b2) {
+        this();
     }
 
     public static j a() {
@@ -139,68 +146,9 @@ public class j {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (j) invokeV.objValue;
     }
 
-    private void b(t tVar) {
+    private void a(t tVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, tVar) == null) {
-            Handler handler = this.d;
-            handler.sendMessage(handler.obtainMessage(1, tVar));
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a > 0 : invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f) {
-                if (this.g.isEmpty()) {
-                    if (this.e.isEmpty()) {
-                        return;
-                    }
-                    int i = 0;
-                    if (b()) {
-                        int i2 = a;
-                        int min = Math.min(this.e.size(), b);
-                        while (i < min) {
-                            this.g.add(this.e.remove());
-                            i++;
-                        }
-                        i = i2;
-                    } else {
-                        this.e.drainTo(this.g);
-                    }
-                    Handler handler = this.d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.g), i);
-                }
-            }
-        }
-    }
-
-    private void c(t tVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, tVar) == null) {
-            synchronized (this.f) {
-                this.e.offer(tVar);
-            }
-            c();
-        }
-    }
-
-    public void a(t tVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tVar) == null) {
-            a(tVar, false);
-        }
-    }
-
-    public void a(t tVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65541, this, tVar, z) == null) {
             if (tVar.c()) {
                 tVar.b();
             } else if (tVar.d()) {
@@ -230,7 +178,7 @@ public class j {
                     }
 
                     @Override // java.lang.Runnable
-                    public void run() {
+                    public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             this.a.b();
@@ -238,7 +186,7 @@ public class j {
                     }
                 });
             } else {
-                if (!b() && !this.e.isEmpty()) {
+                if (!c() && !this.e.isEmpty()) {
                     synchronized (this.f) {
                         if (!this.e.isEmpty()) {
                             Iterator<t> it = this.e.iterator();
@@ -249,12 +197,71 @@ public class j {
                         this.e.clear();
                     }
                 }
-                if (!b() || z) {
-                    b(tVar);
-                } else {
+                if (c()) {
                     c(tVar);
+                } else {
+                    b(tVar);
                 }
             }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            synchronized (this.f) {
+                if (this.g.isEmpty()) {
+                    if (this.e.isEmpty()) {
+                        return;
+                    }
+                    int i = 0;
+                    if (c()) {
+                        int i2 = a;
+                        int min = Math.min(this.e.size(), b);
+                        while (i < min) {
+                            this.g.add(this.e.remove());
+                            i++;
+                        }
+                        i = i2;
+                    } else {
+                        this.e.drainTo(this.g);
+                    }
+                    Handler handler = this.d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.g), i);
+                }
+            }
+        }
+    }
+
+    private void b(t tVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, tVar) == null) {
+            Handler handler = this.d;
+            handler.sendMessage(handler.obtainMessage(1, tVar));
+        }
+    }
+
+    private void c(t tVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, tVar) == null) {
+            synchronized (this.f) {
+                this.e.offer(tVar);
+            }
+            b();
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a > 0 : invokeV.booleanValue;
+    }
+
+    public final void a(t tVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tVar) == null) {
+            a(tVar, false);
         }
     }
 }

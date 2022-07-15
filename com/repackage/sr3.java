@@ -1,113 +1,121 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import com.repackage.pk2;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755310979, "Lcom/repackage/sr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755310979, "Lcom/repackage/sr3;");
-                return;
-            }
-        }
-        a = cg1.a;
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sr3 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3, String str4, qr3 qr3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, qr3Var) == null) {
-            String l = rr3.l(str2);
-            if (TextUtils.isEmpty(l)) {
-                return;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-4396832, "Lcom/repackage/sr3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-4396832, "Lcom/repackage/sr3$a;");
+                    return;
+                }
             }
-            if (a) {
-                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            rr3 rr3Var = new rr3();
-            rr3Var.m(qr3Var);
-            rr3Var.b = l;
-            rr3Var.e = str3;
-            rr3Var.v = str;
-            rr3Var.l = md3.D();
-            if (sz2.b0() != null) {
-                pk2.a W = sz2.b0().W();
-                rr3Var.a = l63.n(W.G());
-                rr3Var.f = W.H();
-                rr3Var.c = W.T();
-            }
-            rr3Var.t = str4;
-            l63.x("1245", rr3Var);
+            a = new sr3();
         }
     }
 
-    public static void b(String str, String str2) {
+    public sr3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            c(str, str2, "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(String str, String str2, String str3) {
+    public static sr3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            String l = rr3.l(str);
-            if (TextUtils.isEmpty(l)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (sr3) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject, @NonNull zr3 zr3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, zr3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                zr3Var.a(new as3(31008, "download is not exist"));
+            } else {
+                xw3.c().c(optString);
+            }
+        }
+    }
+
+    public void c(@NonNull JSONObject jSONObject, @NonNull zr3 zr3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, zr3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                zr3Var.a(new as3(31008, "download is not exist"));
+            } else {
+                xw3.c().e(optString);
+            }
+        }
+    }
+
+    public void d(@NonNull JSONObject jSONObject, @NonNull zr3 zr3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, zr3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            if (!optBoolean) {
+                zr3Var.a(new as3(31008, "download is not exist"));
                 return;
             }
-            rr3 rr3Var = new rr3();
-            rr3Var.b = l;
-            rr3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
-            if (str3 == null) {
-                str3 = "";
+            String optString = jSONObject.optString("packageName");
+            String optString2 = jSONObject.optString("apkId");
+            String optString3 = jSONObject.optString("url");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                if (xw3.c().a(optString3, optString, optString2, optBoolean, new ur3(zr3Var))) {
+                    return;
+                }
+                zr3Var.a(new as3(31006, "is not in main process"));
+                return;
             }
-            rr3Var.a("packageName", str3);
-            l63.x("1245", rr3Var);
+            zr3Var.a(new as3(31007, "invalid params"));
         }
     }
 
-    public static void d(int i, String str, String str2, String str3) {
+    public void e(@NonNull JSONObject jSONObject, @NonNull zr3 zr3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            String d = iw3.b().d();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cuid", zi2.h0().i(zi2.c()));
-                jSONObject.put("type", i);
-                jSONObject.put("time", System.currentTimeMillis() / 1000);
-                jSONObject.put("host", zi2.n().a());
-                jSONObject.put("version", md3.D());
-                jSONObject.put("package", str);
-                jSONObject.put("appid", str2);
-                jSONObject.put("url", str3);
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) u64.h(zi2.c()).postRequest().cookieManager(zi2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, zr3Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                zr3Var.a(new as3(31008, "download is not exist"));
+            } else {
+                xw3.c().f(optString);
             }
         }
     }

@@ -1,120 +1,145 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e67;
 /* loaded from: classes6.dex */
-public class f67 implements l65 {
-    public static /* synthetic */ Interceptable $ic;
+public class f67 extends s57 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static s57 d = null;
+    public static String e = "tb_private_msg_";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public e67.a b;
-    public r57 c;
-    public long d;
-    public int e;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755755798, "Lcom/repackage/f67;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755755798, "Lcom/repackage/f67;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f67() {
+        super("tb_private_msg_", PersonalChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static f67 a(ChatMessage chatMessage, e67.a aVar) {
-        InterceptResult invokeLL;
+    public static synchronized f67 v() {
+        InterceptResult invokeV;
+        f67 f67Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, chatMessage, aVar)) == null) {
-            f67 f67Var = new f67();
-            if (chatMessage == null) {
-                return f67Var;
-            }
-            aVar.h /= 100;
-            f67Var.m(chatMessage.getReadCountPv());
-            f67Var.l(aVar);
-            f67Var.h(chatMessage.getTime());
-            if (chatMessage.getObjContent() instanceof r57) {
-                f67Var.j((r57) chatMessage.getObjContent());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (f67.class) {
+                if (d == null) {
+                    d = new f67();
+                }
+                f67Var = (f67) d;
             }
             return f67Var;
         }
-        return (f67) invokeLL.objValue;
+        return (f67) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public CommonMsgPojo w(String str, int i) {
+        InterceptResult invokeLI;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public r57 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (r57) invokeV.objValue;
-    }
-
-    public e67.a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (e67.a) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                try {
+                    cursor = z57.d().e("select * from " + (e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    try {
+                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
+                        if (cursor != null && cursor.moveToNext()) {
+                            commonMsgPojo.setGid(str);
+                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
+                            commonMsgPojo.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
+                            commonMsgPojo.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
+                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
+                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
+                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                            commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
+                            qi.a(cursor);
+                            return commonMsgPojo;
+                        }
+                    } catch (SQLiteException e2) {
+                        e = e2;
+                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
+                        e.printStackTrace();
+                        b(str);
+                        qi.a(cursor);
+                        return null;
+                    } catch (Exception e3) {
+                        e = e3;
+                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
+                        e.printStackTrace();
+                        qi.a(cursor);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = i;
+                    qi.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e4) {
+                e = e4;
+                cursor = null;
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                qi.a(cursor2);
+                throw th;
+            }
+            qi.a(cursor);
+            return null;
         }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void j(r57 r57Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, r57Var) == null) {
-            this.c = r57Var;
-        }
-    }
-
-    public void l(e67.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
+        return (CommonMsgPojo) invokeLI.objValue;
     }
 }

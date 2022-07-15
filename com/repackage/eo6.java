@@ -1,27 +1,42 @@
 package com.repackage;
 
-import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class eo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
 
-    public static do6 a(io6 io6Var, Intent intent) {
-        InterceptResult invokeLL;
+    public eo6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, io6Var, intent)) == null) {
-            int intExtra = intent.getIntExtra("transition_type", 0);
-            if (intExtra == 1) {
-                return new jo6(io6Var, intent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (intExtra == 2) {
-                return new co6(io6Var, intent);
-            }
-            return null;
         }
-        return (do6) invokeLL.objValue;
+        this.a = false;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
+        this.h = -1;
     }
 }

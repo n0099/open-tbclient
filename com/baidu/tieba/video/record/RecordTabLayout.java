@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes4.dex */
 public class RecordTabLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -104,7 +103,7 @@ public class RecordTabLayout extends LinearLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 float x = (this.a.getX() + ((this.a.getWidth() - this.c.b.getWidth()) / 2)) - this.c.b.getLeft();
                 if (this.b) {
-                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c.b, AnimationProperty.TRANSLATE_X, this.c.b.getTranslationX(), x);
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c.b, "translationX", this.c.b.getTranslationX(), x);
                     ofFloat.setDuration(500L);
                     ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                     ofFloat.start();
@@ -153,7 +152,7 @@ public class RecordTabLayout extends LinearLayout {
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c6);
+                layoutParams.leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c5);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -171,8 +170,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c6), pi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070263);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c5), pi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070262);
             addView(this.b, layoutParams);
         }
     }

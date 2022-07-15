@@ -1,67 +1,59 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.HotTopicList;
+/* loaded from: classes6.dex */
 public class ef7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
 
-    public static List<nn> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
+    public ef7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList();
-            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-            if (recommendForumInfo != null) {
-                af7 af7Var = new af7();
-                af7Var.j(recommendForumInfo);
-                arrayList.add(af7Var);
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                bf7 bf7Var = new bf7();
-                bf7Var.j(item);
-                arrayList.add(bf7Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                cf7 cf7Var = new cf7();
-                cf7Var.o(str);
-                cf7Var.n(sugLiveInfo);
-                arrayList.add(cf7Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                df7 df7Var = new df7();
-                df7Var.h(str);
-                df7Var.g(sugRankingInfo);
-                arrayList.add(df7Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                ze7 ze7Var = new ze7();
-                ze7Var.c(str);
-                ze7Var.f(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, ze7Var);
-                } else {
-                    arrayList.add(ze7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void d(HotTopicList hotTopicList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
+            return;
+        }
+        this.a = hotTopicList.topic_id.longValue();
+        this.b = hotTopicList.topic_name;
+        this.c = hotTopicList.tag.intValue();
     }
 }

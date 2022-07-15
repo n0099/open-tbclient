@@ -6,7 +6,7 @@ import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 /* loaded from: classes5.dex */
 public final class SimpleBitmapDisplayer implements BitmapDisplayer {
     @Override // com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer
-    public void display(DecodedResult decodedResult, ImageAware imageAware, LoadedFrom loadedFrom) {
+    public final void display(DecodedResult decodedResult, ImageAware imageAware, LoadedFrom loadedFrom) {
         imageAware.setImageBitmap(decodedResult.mBitmap);
     }
 }

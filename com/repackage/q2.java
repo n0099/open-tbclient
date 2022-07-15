@@ -33,7 +33,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q2 extends z0 implements GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean w;
@@ -407,7 +407,7 @@ public class q2 extends z0 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.getInput().R0();
+                this.d.getInput().S0();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

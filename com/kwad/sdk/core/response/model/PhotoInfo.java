@@ -1,38 +1,21 @@
 package com.kwad.sdk.core.response.model;
 
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.live.mode.LiveInfo;
+import com.ksad.json.annotation.KsJson;
+import com.kwad.sdk.utils.s;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes5.dex */
 public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -4483350806354759008L;
+    public String mOriginJString;
     public BaseInfo baseInfo = new BaseInfo();
     public VideoInfo videoInfo = new VideoInfo();
-    public HotspotInfo mHotspotInfo = new HotspotInfo();
-    public CoverInfo coverInfo = new CoverInfo();
-    public AuthorInfo authorInfo = new AuthorInfo();
-    public LiveInfo liveInfo = new LiveInfo();
-    public TubeEpisode tubeEpisode = new TubeEpisode();
-    public WallpaperInfo wallpaperInfo = new WallpaperInfo();
-    public ProductInfo productInfo = new ProductInfo();
 
-    /* loaded from: classes5.dex */
-    public static class AuthorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static final long serialVersionUID = 3647144332352243129L;
-        public String authorEid;
-        public String authorGender;
-        public String authorIcon;
-        public String authorIconGuide;
-        public long authorId;
-        public String authorName;
-        public String authorText;
-        public boolean isJoinedBlacklist;
-        public String kwaiId;
-        public String rawAuthorName;
-    }
-
+    @KsJson
     /* loaded from: classes5.dex */
     public static class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 2257669583403371065L;
@@ -52,83 +35,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public int waterMarkPosition;
     }
 
-    /* loaded from: classes5.dex */
-    public static class CoverInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static final long serialVersionUID = 9136122984250063738L;
-        public String blurBackgroundUrl;
-        public String blurCoverUrl;
-        public String coverUrl;
-        public int height;
-        public String webpCoverUrl;
-        public int width;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class ProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static final long serialVersionUID = -6976688557388750318L;
-        public ProductDetail productDetail = new ProductDetail();
-        public String productDetails;
-        public long productId;
-        public String shennongjiaLog;
-
-        /* loaded from: classes5.dex */
-        public static class ProductDetail extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-            public static final long serialVersionUID = -3610510819973783411L;
-            public String linkCode;
-            public String nebulaKwaiLink;
-            public int platformTypeCode;
-            public String strongStyleAdMark;
-            public int strongStyleAppearTime;
-            public String strongStyleCardUrl;
-            public boolean strongStyleEnableClose;
-            public long strongStyleItemId;
-            public String strongStyleItemPrice;
-            public String strongStyleItemUrl;
-            public String strongStylePicUrl;
-            public String strongStylePriceAfterComm;
-            public String strongStyleTitle;
-            public String strongStyleUserCommAmountBuying;
-            public String strongStyleUserCommAmountSharing;
-            public String weakStyleAdMark;
-            public int weakStyleAppearTime;
-            public boolean weakStyleEnableClose;
-            public String weakStyleIcon;
-            public int weakStyleShowTime;
-            public String weakStyleTitle;
-        }
-
-        @Override // com.kwad.sdk.core.response.kwai.a
-        public void afterParseJson(@Nullable JSONObject jSONObject) {
-            if (this.productDetails == null) {
-                return;
-            }
-            super.afterParseJson(jSONObject);
-            try {
-                this.productDetail.parseJson(new JSONObject(this.productDetails));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class TubeEpisode extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static final long serialVersionUID = -2087412525733788061L;
-        public String episodeName;
-        public long playCount;
-        public String tubeName;
-        public long tubeId = -1;
-        public boolean hasTube = false;
-
-        @Override // com.kwad.sdk.core.response.kwai.a
-        public void afterParseJson(@Nullable JSONObject jSONObject) {
-            super.afterParseJson(jSONObject);
-            if (jSONObject != null && this.tubeId > 0) {
-                this.hasTube = true;
-            }
-        }
-    }
-
+    @KsJson
     /* loaded from: classes5.dex */
     public static class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1395696168725754442L;
@@ -145,9 +52,25 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public double widthRatio;
     }
 
-    /* loaded from: classes5.dex */
-    public static class WallpaperInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static final long serialVersionUID = -8572865298854850054L;
-        public boolean isWallpaperPhoto = false;
+    @Override // com.kwad.sdk.core.response.kwai.a
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
+        super.afterParseJson(jSONObject);
+        if (jSONObject == null || !TextUtils.isEmpty(this.mOriginJString)) {
+            return;
+        }
+        this.mOriginJString = jSONObject.toString();
+    }
+
+    @Override // com.kwad.sdk.core.response.kwai.a
+    public void beforeToJson(JSONObject jSONObject) {
+        super.beforeToJson(jSONObject);
+        if (TextUtils.isEmpty(this.mOriginJString)) {
+            return;
+        }
+        try {
+            s.a(jSONObject, new JSONObject(this.mOriginJString));
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.b.b(e);
+        }
     }
 }

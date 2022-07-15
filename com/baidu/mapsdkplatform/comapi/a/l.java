@@ -11,6 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -173,7 +174,7 @@ public class l extends c {
             } else if (!(this.g[0] instanceof LatLng)) {
                 throw new ClassCastException("BDMapSDKException: if the marker isn't fixed on screen, the parameters of Transformation must be Latlng");
             } else {
-                ofObject = ObjectAnimator.ofObject(marker, "position", new a(this), this.g);
+                ofObject = ObjectAnimator.ofObject(marker, CriusAttrConstants.POSITION, new a(this), this.g);
             }
             if (ofObject != null) {
                 ofObject.setRepeatCount(this.f);

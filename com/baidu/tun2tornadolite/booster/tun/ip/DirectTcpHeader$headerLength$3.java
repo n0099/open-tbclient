@@ -49,7 +49,7 @@ public final class DirectTcpHeader$headerLength$3 extends Lambda implements Func
     public final void invoke(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.this$0.getBuffer()[i] = (byte) ((((i2 * 4) >>> 4) << 4) | (((UByte.m711constructorimpl(this.this$0.getBuffer()[i]) & 255) << 4) >>> 4));
+            this.this$0.getBuffer()[i] = (byte) ((((i2 * 4) >>> 4) << 4) | (((UByte.m1654constructorimpl(this.this$0.getBuffer()[i]) & 255) << 4) >>> 4));
         }
     }
 }

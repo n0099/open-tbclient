@@ -1,8 +1,12 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes7.dex */
-public class r13 extends p13 {
+public class r13 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r13(p03 p03Var) {
-        super(p03Var, "/swanAPI/ubcFlowJar");
+    public r13(e13 e13Var) {
+        super(e13Var, "/swanAPI/openApp4Ad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,88 +44,90 @@ public class r13 extends p13 {
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    public static ResolveInfo j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+                return null;
+            }
+            return queryIntentActivities.iterator().next();
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public static void k(Context context, ResolveInfo resolveInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) || context == null || resolveInfo == null) {
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        ActivityInfo activityInfo = resolveInfo.activityInfo;
+        intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        try {
+            oj2.a().b(context, intent, g03.K().q().O(), null, resolveInfo.activityInfo.packageName);
+        } catch (Exception e) {
+            if (e23.b) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("SwanAppAction", "start ubc flor jar");
-            }
-            if (sz2Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            JSONObject a = e23.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                hx1.i("OpenAdAppAction", "params parse error");
                 return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+            } else if (!oj2.a().d()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
+                hx1.i("OpenAdAppAction", "Host denied");
                 return false;
-            }
-            String optString = optParamsAsJo.optString("flowId");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-                return false;
-            }
-            char c = 65535;
-            switch (optString.hashCode()) {
-                case 53647:
-                    if (optString.equals("670")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 53648:
-                    if (optString.equals("671")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 55357:
-                    if (optString.equals("805")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 56506:
-                    if (optString.equals("967")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1508542:
-                    if (optString.equals("1153")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1529139648:
-                    if (optString.equals("renderMonitorLog")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            if (c == 0) {
-                dr1.B(optParamsAsJo, sz2Var);
-            } else if (c == 1) {
-                dr1.F(optParamsAsJo.optJSONArray("data"));
-            } else if (c == 2) {
-                dr1.E(optParamsAsJo.optJSONArray("data"));
-            } else if (c == 3) {
-                dr1.D(optParamsAsJo);
-            } else if (c != 4) {
-                if (c != 5) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+            } else {
+                String optString = a.optString("name");
+                String optString2 = a.optString("url");
+                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
+                    hx1.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
                     return false;
                 }
-                dr1.C(optParamsAsJo);
-            } else if (sz2Var.W().p0()) {
-                bx1.g(optParamsAsJo.optJSONArray("data"));
-            } else {
-                ix1.i(optParamsAsJo.optJSONArray("data"));
+                if (!TextUtils.isEmpty(optString2)) {
+                    if (be3.W(context, optString2)) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
+                    hx1.i("OpenAdAppAction", "deeplink launch failed");
+                }
+                if (!TextUtils.isEmpty(optString)) {
+                    ResolveInfo j = j(context, optString);
+                    if (j != null) {
+                        k(context, j);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
+                    hx1.i("OpenAdAppAction", "app not installed");
+                }
+                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
+                    hx1.i("OpenAdAppAction", "launch failed");
+                }
+                return false;
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

@@ -1,48 +1,33 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface pj1 {
+public class pj1 implements gm1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onFinish();
+    public pj1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(Exception exc);
+    @Override // com.repackage.gm1
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
+        }
     }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z);
-
-        void b();
-    }
-
-    void a(a aVar);
-
-    void b(Activity activity, Bundle bundle, eg1 eg1Var);
-
-    void c(gg1 gg1Var);
-
-    String d(@NonNull Context context);
-
-    boolean e(Context context);
-
-    String f(@NonNull Context context);
-
-    void g(c cVar);
-
-    String h(Context context);
-
-    String i(@NonNull Context context);
-
-    void j(eg1 eg1Var);
 }

@@ -1,82 +1,18 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface x11 {
-    public static final x11 a = new a();
+    public static final a a = y11.a;
 
     /* loaded from: classes7.dex */
-    public static class a implements x11 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        AbsContainer a(d21 d21Var, e21 e21Var, int i);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        boolean b(HashMap<String, String> hashMap, int i);
 
-        @Override // com.repackage.x11
-        public void a(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
-                return;
-            }
-            activity.finish();
-        }
+        void c(Context context, boolean z, int i);
     }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static x11 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(78660507, "Lcom/repackage/x11$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(78660507, "Lcom/repackage/x11$b;");
-                    return;
-                }
-            }
-            a = t11.d();
-        }
-
-        @NonNull
-        public static x11 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a == null) {
-                    a = x11.a;
-                }
-                return a;
-            }
-            return (x11) invokeV.objValue;
-        }
-    }
-
-    void a(Activity activity);
 }

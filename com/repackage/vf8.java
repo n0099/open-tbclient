@@ -1,44 +1,73 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.Animatable;
-import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vf8 {
+public class vf8 implements zr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public nq4 a;
 
-    public static final TbPageContext a(Context context) {
-        InterceptResult invokeL;
+    public vf8(nq4 nq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null || !(context instanceof TbPageContextSupport)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nq4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = nq4Var;
+    }
+
+    @Override // com.repackage.zr4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            nq4 nq4Var = this.a;
+            if (nq4Var == null) {
                 return null;
             }
-            return ((TbPageContextSupport) context).getPageContext();
+            return nq4Var.a();
         }
-        return (TbPageContext) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static final void b(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
+    @Override // com.repackage.zr4
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContextSupport, animatable) == null) || tbPageContextSupport == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            nq4 nq4Var = this.a;
+            if (nq4Var == null) {
+                return null;
+            }
+            return nq4Var.b();
         }
-        tbPageContextSupport.getPageContext().startAnimatable(animatable);
+        return (String) invokeV.objValue;
     }
 
-    public static final void c(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContextSupport, view2, animation, animationListener) == null) || tbPageContextSupport == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            nq4 nq4Var = this.a;
+            if (nq4Var == null) {
+                return null;
+            }
+            return nq4Var.c();
         }
-        tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
+        return (String) invokeV.objValue;
     }
 }

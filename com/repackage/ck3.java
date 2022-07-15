@@ -1,7 +1,17 @@
 package com.repackage;
-/* loaded from: classes5.dex */
-public interface ck3 {
-    void a();
 
-    void b(int i);
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class ck3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static SharedPreferences a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new pg4("swan_config_sp_name") : (SharedPreferences) invokeV.objValue;
+    }
 }

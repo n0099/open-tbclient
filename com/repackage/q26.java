@@ -1,9 +1,8 @@
 package com.repackage;
 
-import java.util.List;
+import androidx.annotation.WorkerThread;
 /* loaded from: classes6.dex */
 public interface q26 {
-    void a(int i, String str);
-
-    void b(List<l26> list, List<l26> list2, int i);
+    @WorkerThread
+    void a(p06 p06Var);
 }

@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh0;
-import com.repackage.lz0;
+import com.repackage.hh0;
+import com.repackage.yz0;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class BdNetUtils {
@@ -122,7 +122,7 @@ public class BdNetUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                return ((ConnectivityManager) bh0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+                return ((ConnectivityManager) hh0.b().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused) {
                 return null;
             }
@@ -186,14 +186,14 @@ public class BdNetUtils {
     public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bcd));
+            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bc1));
             if (!TextUtils.isEmpty(str)) {
                 sb.append("，\n");
-                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0c02));
+                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0bf6));
                 sb.append(str);
                 sb.append("MB");
             }
-            lz0.a().a(context, sb.toString());
+            yz0.a().a(context, sb.toString());
         }
     }
 }

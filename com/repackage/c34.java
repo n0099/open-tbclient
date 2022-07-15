@@ -1,106 +1,141 @@
 package com.repackage;
 
+import android.graphics.Color;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 /* loaded from: classes5.dex */
 public class c34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    @V8JavascriptField
+    public String backgroundColor;
+    @V8JavascriptField
+    public String borderColor;
+    @V8JavascriptField
+    public double borderRadius;
+    @V8JavascriptField
+    public int borderWidth;
+    @V8JavascriptField
+    public String color;
+    @V8JavascriptField
+    public double fontSize;
+    @V8JavascriptField
+    public String fontWeight;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public boolean hidden;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int lineHeight;
+    @V8JavascriptField
+    public double opacity;
+    @V8JavascriptField
+    public String textAlign;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
     /* loaded from: classes5.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
+    public interface a {
+        void s();
     }
 
-    public static Map<String, String> a(@NonNull sz2 sz2Var, int i, String str) {
-        InterceptResult invokeLIL;
+    public c34(@NonNull os1 os1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, sz2Var, i, str)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, sz2Var.O());
-            treeMap.put("to_app_key", str);
-            treeMap.put("source", String.valueOf(i));
-            treeMap.put("timestamp", c());
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : treeMap.keySet()) {
-                sb.append(str2);
-                sb.append("=");
-                sb.append((String) treeMap.get(str2));
-                sb.append("&");
-            }
-            sb.append("dsb9Ao44");
-            treeMap.put("sign", wf4.d(sb.toString().getBytes(), false));
-            return treeMap;
-        }
-        return (Map) invokeLIL.objValue;
-    }
-
-    public static void b(int i, @NonNull ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
-            sz2 M = sz2.M();
-            if (M == null) {
-                responseCallback.onFail(new Exception("framework error: swan app is null."));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {os1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            M.i0().getRequest().cookieManager(zi2.q().a()).url(iw3.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
+        }
+        this.fontSize = 16.0d;
+        this.opacity = 1.0d;
+        a(os1Var);
+    }
+
+    public static int c(@ColorInt int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            float f = (((-16777216) & i) >>> 24) / 255.0f;
+            return f > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f) + 0.5d), (int) ((((65280 & i) >> 8) * f) + 0.5d), (int) (((i & 255) * f) + 0.5d)) : i;
+        }
+        return invokeI.intValue;
+    }
+
+    public final void a(@NonNull os1 os1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, os1Var) == null) {
+            this.left = os1Var.r("left", this.left);
+            this.top = os1Var.r("top", this.top);
+            this.width = os1Var.r("width", this.width);
+            this.height = os1Var.r("height", this.height);
+            this.backgroundColor = os1Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
+            this.borderColor = os1Var.C("borderColor", this.borderColor);
+            this.borderRadius = os1Var.n("borderRadius", this.borderRadius);
+            this.borderWidth = os1Var.r("borderWidth", this.borderWidth);
+            this.fontSize = os1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
+            this.lineHeight = os1Var.r("lineHeight", this.lineHeight);
+            this.textAlign = os1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
+            this.fontWeight = os1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
+            this.hidden = os1Var.m("hidden", this.hidden);
+            this.opacity = os1Var.n(NativeConstants.OPACITY, this.opacity);
+            this.color = os1Var.C("color", this.color);
+            if (rg1.a) {
+                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
+            }
         }
     }
 
-    public static String c() {
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (rg1.a) {
+                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.s();
+            }
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
-    }
-
-    public static void d(int i, String str) {
-        sz2 M;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (M = sz2.M()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
         }
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(zi2.q().a())).url(iw3.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
+        return (String) invokeV.objValue;
     }
 }

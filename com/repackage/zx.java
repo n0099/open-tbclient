@@ -3,9 +3,8 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,42 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class zx extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadSmartAppLayout h;
-    public ym4 i;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx a;
-
-        public a(zx zxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zxVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
-                return;
-            }
-            this.a.d().a(view2, this.a.i);
-        }
-    }
+    public SmartAppBottomLayout h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zx(Context context) {
@@ -70,36 +34,35 @@ public class zx extends xw {
                 return;
             }
         }
-        r(pi.f(context, R.dimen.M_H_X003));
-        this.h = new ThreadSmartAppLayout(context);
-        this.h.setAfterClickListener(new a(this));
+        this.h = new SmartAppBottomLayout(context);
     }
 
     @Override // com.repackage.qw
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ThreadSmartAppLayout threadSmartAppLayout;
+        SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (threadSmartAppLayout = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (smartAppBottomLayout = this.h) == null) {
             return;
         }
-        threadSmartAppLayout.d();
+        smartAppBottomLayout.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
+    @Override // com.repackage.gx
     /* renamed from: t */
-    public void a(ym4 ym4Var) {
+    public void a(nn4 nn4Var) {
+        SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ym4Var) == null) {
-            this.i = ym4Var;
-            this.h.a(ym4Var);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) || (smartAppBottomLayout = this.h) == null) {
+            return;
         }
+        smartAppBottomLayout.a(nn4Var);
     }
 }

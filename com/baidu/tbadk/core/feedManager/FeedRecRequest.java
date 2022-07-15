@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.Personalized.DataReq;
 /* loaded from: classes3.dex */
 public class FeedRecRequest extends NetMessage {
@@ -56,7 +56,7 @@ public class FeedRecRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            qc5.c(builder, true, false, true);
+            td5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);

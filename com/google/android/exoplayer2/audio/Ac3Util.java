@@ -13,12 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
-import org.apache.http.HttpStatus;
 /* loaded from: classes4.dex */
 public final class Ac3Util {
     public static /* synthetic */ Interceptable $ic = null;
@@ -100,7 +99,7 @@ public final class Ac3Util {
         SAMPLE_RATE_BY_FSCOD2 = new int[]{24000, 22050, 16000};
         CHANNEL_COUNT_BY_ACMOD = new int[]{2, 1, 2, 3, 3, 4, 4, 5};
         BITRATE_BY_HALF_FRMSIZECOD = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, 576, 640};
-        SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1 = new int[]{69, 87, 104, 121, 139, MatroskaExtractor.ID_TRACK_ENTRY, 208, 243, w0.w0, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, 835, 975, 1114, 1253, 1393};
+        SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1 = new int[]{69, 87, 104, 121, Cea708Decoder.COMMAND_TGW, MatroskaExtractor.ID_TRACK_ENTRY, 208, 243, 278, 348, 417, 487, 557, 696, 835, 975, 1114, 1253, 1393};
     }
 
     public Ac3Util() {

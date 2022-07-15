@@ -1,82 +1,33 @@
 package com.repackage;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class td3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CookieManager.getInstance().setCookie(".baidu.com", kd3.k(".baidu.com", "SP_FW_VER", x83.h(0), 2937600L));
-                CookieManager.getInstance().setCookie(".baidu.com", kd3.k(".baidu.com", "SG_FW_VER", x83.h(1), 2937600L));
-                td3.b();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755294642, "Lcom/repackage/td3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755294642, "Lcom/repackage/td3;");
-                return;
-            }
-        }
-        zi2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
-    }
-
-    public static void a() {
+    public static void a(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            rz2.M().post(new a());
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (zb3.f()) {
-                CookieManager.getInstance().flush();
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, context, file) == null) && file.exists()) {
+            Intent intent = new Intent();
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.setAction("android.intent.action.SEND");
+            intent.setTypeAndNormalize(be3.s(file));
+            if (Build.VERSION.SDK_INT >= 24) {
+                intent.putExtra("android.intent.extra.STREAM", ee3.a(context, file));
+                intent.addFlags(1);
+            } else {
+                intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
             }
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-            CookieSyncManager.getInstance().sync();
+            context.startActivity(intent);
         }
     }
 }

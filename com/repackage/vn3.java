@@ -1,22 +1,15 @@
 package com.repackage;
-
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.repackage.mn3;
 /* loaded from: classes7.dex */
 public interface vn3 {
-    void a(DownloadInfo downloadInfo);
+    void a(boolean z, String str);
 
-    void b(DownloadInfo downloadInfo);
+    void b(boolean z);
 
-    void c(DownloadInfo downloadInfo);
+    void c(int i, int i2);
 
-    void d(DownloadInfo downloadInfo);
+    void onClick();
 
-    void destroy();
+    void onClose();
 
-    void f(@NonNull String str, @NonNull Uri uri, @NonNull mn3.d<Boolean> dVar);
-
-    DownloadInfo g(String str);
+    void onError(String str);
 }

@@ -22,7 +22,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.zi2;
+import com.repackage.oj2;
 import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -59,9 +59,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090802);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090250);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09024f);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090809);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090251);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090250);
         }
     }
 
@@ -80,7 +80,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                 return;
             }
         }
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07068b);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e7);
     }
 
     public MediaModel d(int i) {
@@ -123,7 +123,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            zi2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            oj2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -133,7 +133,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c5, viewGroup, false)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e3, viewGroup, false)) : (a) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

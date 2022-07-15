@@ -1,125 +1,126 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class pk6 extends qw<wk6> {
+public class pk6 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public EMTextView g;
-    public ArrayList<bl6> h;
+    public d9 a;
+    public ej8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pk6(Context context) {
-        super(context);
+    public pk6(d9 d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = d9Var;
     }
 
-    @Override // com.repackage.qw
-    public View g() {
+    public void a(ej8 ej8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ej8Var) == null) {
+            this.b = ej8Var;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == null) {
-                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) null, true);
-                this.f = inflate;
-                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f23);
-            }
-            return this.f;
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
         }
         return (View) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: o */
-    public void a(wk6 wk6Var) {
-        boolean z;
-        View childAt;
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wk6Var) == null) && wk6Var != null && wk6Var.f()) {
-            ArrayList<bl6> c = wk6Var.c();
-            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
-                if (ListUtils.getCount(this.h) > 0) {
-                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
-                }
-                z = true;
-            } else {
-                z = false;
-            }
-            if (c != null) {
-                for (int i = 0; i < c.size(); i++) {
-                    if (z) {
-                        childAt = new CardItemDetailListItemLayout(this.b);
-                        ((ViewGroup) this.f).addView(childAt, -1, -2);
-                    } else {
-                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
-                    }
-                    if (childAt instanceof CardItemDetailListItemLayout) {
-                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
-                    }
-                }
-            }
-            ViewGroup viewGroup = (ViewGroup) this.f;
-            int childCount = viewGroup.getChildCount() - 1;
-            while (true) {
-                if (childCount <= 0) {
-                    break;
-                }
-                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
-                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
-                    break;
-                }
-                childCount--;
-            }
-            this.h = c;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
         }
     }
 
-    @Override // com.repackage.gx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            fr4 d = fr4.d(this.f);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            fr4 d2 = fr4.d(this.g);
-            d2.A(R.string.F_X02);
-            d2.v(R.color.CAM_X0105);
-            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
-                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
-                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            d9 d9Var = this.a;
+            if (d9Var == null || !sg.f(d9Var)) {
+                return true;
             }
+            return super.onJsAlert(webView, str, str2, jsResult);
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            d9 d9Var = this.a;
+            if (d9Var == null || !sg.f(d9Var)) {
+                return true;
+            }
+            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            d9 d9Var = this.a;
+            if (d9Var == null || !sg.f(d9Var)) {
+                return true;
+            }
+            return super.onJsConfirm(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        d9 d9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            ej8 ej8Var = this.b;
+            if ((ej8Var == null || !ej8Var.onJsPrompt(str2, jsPromptResult)) && (d9Var = this.a) != null && sg.f(d9Var)) {
+                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            }
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

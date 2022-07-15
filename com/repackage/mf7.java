@@ -1,190 +1,138 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.utils.SocialEncodeUtils;
-import com.baidu.searchbox.live.interfaces.data.UserAccount;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class mf7 implements AccountManagerService {
+public class mf7 extends an<rf7, SearchSuggestCommonViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService.AccountStatusChangedListener a;
-    public AccountManagerService.LoginResultListener b;
+    public final Context i;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public class a implements xn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mf7 a;
+        public final /* synthetic */ Context a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mf7 mf7Var, int i) {
-            super(i);
+        public a(mf7 mf7Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mf7Var, Integer.valueOf(i)};
+                Object[] objArr = {mf7Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = mf7Var;
+            this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.repackage.xn
+        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.a.b != null) {
-                    this.a.b.onResult(this.a.isLogin(2) ? 0 : -2);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rf7)) {
+                rf7 rf7Var = (rf7) nnVar;
+                String a = rf7Var.a();
+                String b = rf7Var.b();
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
+                Context context = this.a;
+                if (context != null && (context instanceof BdBaseActivity)) {
+                    customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
                 }
-                if (this.a.a != null) {
-                    this.a.a.onAccountStatusChanged(this.a.isLogin(2));
-                }
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
+                TiebaStatic.log(new StatisticItem("c12842").param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
             }
         }
     }
 
-    public mf7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mf7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(this, 2005016));
+        this.i = context;
+        this.d = bdUniqueId;
+        V(new a(this, context));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
-            this.a = accountStatusChangedListener;
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.an
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, rf7 rf7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
+        a0(i, view2, viewGroup, rf7Var, searchSuggestCommonViewHolder);
+        return view2;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public UserAccount getAccount() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public SearchSuggestCommonViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UserAccount userAccount = new UserAccount();
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                userAccount.setDisplayname(currentAccountInfo.getAccountNameShow());
-                userAccount.setBduss(currentAccountInfo.getBDUSS());
-                userAccount.setUid(currentAccountInfo.getID());
-                userAccount.setProtrait(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
-                userAccount.setNickName(currentAccountInfo.getAccountNameShow());
-                userAccount.setUk(getSocialEncryption(currentAccountInfo.getID(), "baiduuid_"));
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SearchSuggestCommonViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0752, viewGroup, false)) : (SearchSuggestCommonViewHolder) invokeL.objValue;
+    }
+
+    public View a0(int i, View view2, ViewGroup viewGroup, rf7 rf7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rf7Var, searchSuggestCommonViewHolder})) == null) {
+            if (rf7Var == null) {
+                return view2;
             }
-            return userAccount;
+            b0(searchSuggestCommonViewHolder);
+            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a29, R.color.CAM_X0109, null);
+            lf7.a(searchSuggestCommonViewHolder.b, rf7Var.b(), rf7Var.a());
+            return view2;
         }
-        return (UserAccount) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialDecrypt(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void b0(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                return SocialEncodeUtils.getSocialDecrypt(str, str2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialEncryption(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = "";
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                str3 = SocialEncodeUtils.getSocialEncryption(str, str2);
-                return URLEncoder.encode(str3, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str3;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            UserAccount account = getAccount();
-            return account != null ? account.getUid() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public boolean isLogin(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? TbadkCoreApplication.isLogin() : invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.b = loginResultListener;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
+            ur4 d = ur4.d(searchSuggestCommonViewHolder.b);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X06);
+            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
+            ur4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
         }
     }
 }

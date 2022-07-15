@@ -1,41 +1,237 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o22;
-import com.repackage.oi2;
-import com.repackage.w22;
-import java.io.File;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class x22<T extends w22> extends e74<r84> {
+public class x22 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile x22 d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
+    public final Set<a> a;
+    public final Set<a> b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755223559, "Lcom/repackage/x22;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755223559, "Lcom/repackage/x22;");
+                return;
+            }
+        }
+        c = rg1.a;
+    }
+
+    public x22() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = le3.a(new a[0]);
+        this.b = le3.a(new a[0]);
+    }
+
+    public static x22 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (x22.class) {
+                    if (d == null) {
+                        d = new x22();
+                    }
+                }
+            }
+            return d;
+        }
+        return (x22) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(true);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (c) {
+                Log.d("PreloadAppsRecorder", "clear all");
+            }
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (z) {
+                k();
+            }
+        }
+    }
+
+    public Set<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashSet a2 = le3.a(new String[0]);
+            synchronized (this.a) {
+                for (a aVar : this.a) {
+                    a2.add(aVar.a);
+                }
+                for (a aVar2 : this.b) {
+                    a2.add(aVar2.a);
+                }
+            }
+            return a2;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() > 0 : invokeV.booleanValue;
+    }
+
+    public boolean f(a aVar) {
+        InterceptResult invokeL;
+        boolean contains;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            synchronized (this.a) {
+                contains = this.a.contains(aVar);
+            }
+            return contains;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean g(a aVar) {
+        InterceptResult invokeL;
+        boolean contains;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            synchronized (this.a) {
+                contains = this.b.contains(aVar);
+            }
+            return contains;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && c) {
+            Log.d(str, "all apps in recorder :");
+            synchronized (this.a) {
+                Iterator<a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    Log.d(str, "loaded:" + it.next());
+                }
+                Iterator<a> it2 = this.b.iterator();
+                while (it2.hasNext()) {
+                    Log.d(str, "loading:" + it2.next());
+                }
+            }
+        }
+    }
+
+    public void i(a aVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048583, this, aVar, z) == null) && aVar != null && aVar.a()) {
+            if (c) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("record one app status - ");
+                sb.append(z ? "loaded" : "loading");
+                Log.d("PreloadAppsRecorder", sb.toString());
+                Log.d("PreloadAppsRecorder", "record one app - " + aVar);
+            }
+            synchronized (this.a) {
+                (z ? this.a : this.b).add(aVar);
+            }
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        int length;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null || jSONObject.length() <= 0) {
+            return;
+        }
+        if (c) {
+            Log.d("PreloadAppsRecorder", "get multi preload status - " + jSONObject);
+        }
+        synchronized (this.a) {
+            b(false);
+            JSONArray optJSONArray = jSONObject.optJSONArray("loaded");
+            if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
+                for (int i = 0; i < length; i++) {
+                    i(new a(optJSONArray.optJSONObject(i)), true);
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("loading");
+            if (optJSONObject != null && optJSONObject.length() > 0) {
+                i(new a(optJSONObject), false);
+            }
+        }
+        k();
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            sw2 w = tw2.Q("swan_multi_preload_on_server").A("swan_multi_preload_app_ids", (String[]) d().toArray(new String[0])).w("swan_multi_preload_app_process_index", SwanAppProcessInfo.current().index);
+            w.K(true);
+            w.call();
+            if (c) {
+                Log.d("PreloadAppsRecorder", "send all prefetch records to server");
+            }
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements o22.c {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r84 a;
-        public final /* synthetic */ x22 b;
+        public final String a;
+        public final String b;
 
-        public a(x22 x22Var, r84 r84Var) {
+        public a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x22Var, r84Var};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,190 +241,75 @@ public abstract class x22<T extends w22> extends e74<r84> {
                     return;
                 }
             }
-            this.b = x22Var;
-            this.a = r84Var;
+            this.a = str;
+            this.b = String.valueOf(j);
         }
 
-        @Override // com.repackage.o22.c
-        public void a(PMSDownloadType pMSDownloadType) {
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.b.r(this.a);
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) ? false : true : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.o22.c
-        public void b(PMSDownloadType pMSDownloadType, lb3 lb3Var) {
+        public boolean equals(@Nullable Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, lb3Var) == null) {
-                this.b.u(this.a, lb3Var);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (obj == this) {
+                    return true;
+                }
+                if (obj instanceof a) {
+                    a aVar = (a) obj;
+                    return TextUtils.equals(this.a, aVar.a) && TextUtils.equals(this.b, aVar.b);
+                }
+                return false;
             }
+            return invokeL.booleanValue;
         }
-    }
 
-    public x22(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String str = this.a;
+                int hashCode = str == null ? 0 : str.hashCode();
+                String str2 = this.b;
+                return (hashCode * 31) + (str2 != null ? str2.hashCode() : 0);
             }
+            return invokeV.intValue;
         }
-        this.a = t;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.h74
-    /* renamed from: l */
-    public String d(r84 r84Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, r84Var)) == null) ? oi2.e.h().getAbsolutePath() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.j74
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.a.m(bundle, set) : (Bundle) invokeLL.objValue;
-    }
-
-    public PMSDownloadType o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? PMSDownloadType.PLUGIN : (PMSDownloadType) invokeV.objValue;
-    }
-
-    public final void p(r84 r84Var, lb3 lb3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, r84Var, lb3Var) == null) {
-            u(r84Var, lb3Var);
-            o22.c().a(r84Var, o(), lb3Var);
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "Item{appKey='" + this.a + "', version='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
-    }
 
-    public final void q(@NonNull r84 r84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, r84Var) == null) {
-            r(r84Var);
-            o22.c().b(r84Var, o());
-        }
-    }
-
-    public abstract void r(@NonNull r84 r84Var);
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e74, com.repackage.h74
-    /* renamed from: s */
-    public void e(r84 r84Var, k84 k84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, r84Var, k84Var) == null) {
-            super.e(r84Var, k84Var);
-            kv2.b("plugin download error: " + k84Var);
-            lb3 lb3Var = new lb3();
-            lb3Var.k(17L);
-            lb3Var.i((long) k84Var.a);
-            lb3Var.d(k84Var.b);
-            lb3Var.f(k84Var.toString());
-            p(r84Var, lb3Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e74, com.repackage.h74
-    /* renamed from: t */
-    public void i(r84 r84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, r84Var) == null) {
-            super.i(r84Var);
-            if (r84Var == null) {
-                kv2.b("download finish, plugin is null");
-                lb3 lb3Var = new lb3();
-                lb3Var.k(17L);
-                lb3Var.i(2201L);
-                lb3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                p(null, lb3Var);
-            } else if (!fd3.a(new File(r84Var.a), r84Var.m)) {
-                uf4.M(r84Var.a);
-                kv2.b("download finish, check zip sign failure");
-                lb3 lb3Var2 = new lb3();
-                lb3Var2.k(17L);
-                lb3Var2.i(2202L);
-                lb3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
-                p(r84Var, lb3Var2);
-            } else {
-                File t = oi2.t(r84Var.g, String.valueOf(r84Var.i));
-                uf4.l(t);
-                if (t != null && t.exists()) {
-                    boolean U = uf4.U(r84Var.a, t.getAbsolutePath());
-                    uf4.M(r84Var.a);
-                    kv2.b("download finish, unZipSuccess = " + U);
-                    if (!U) {
-                        lb3 lb3Var3 = new lb3();
-                        lb3Var3.k(17L);
-                        lb3Var3.i(2320L);
-                        lb3Var3.d("plugin unzip fail.");
-                        p(r84Var, lb3Var3);
-                        return;
-                    }
-                    r84Var.c = r84Var.b();
-                    r84Var.d = r84Var.b();
-                    n74.i().m(r84Var);
-                    q(r84Var);
+        public a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
-                uf4.M(r84Var.a);
-                kv2.b("download finish, create file failure, name = " + r84Var.g + " ; version = " + r84Var.i);
-                lb3 lb3Var4 = new lb3();
-                lb3Var4.k(17L);
-                lb3Var4.i(2203L);
-                lb3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
-                p(r84Var, lb3Var4);
             }
-        }
-    }
-
-    public abstract void u(r84 r84Var, lb3 lb3Var);
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e74, com.repackage.h74
-    /* renamed from: v */
-    public void c(r84 r84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, r84Var) == null) {
-            super.c(r84Var);
-            if (r84Var != null) {
-                kv2.b("plugin download start: bundleId = " + r84Var.g);
+            if (jSONObject == null) {
+                this.b = null;
+                this.a = null;
+                return;
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e74, com.repackage.h74
-    /* renamed from: w */
-    public void f(r84 r84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, r84Var) == null) {
-            super.f(r84Var);
-            if (r84Var != null) {
-                kv2.b("plugin on downloading: bundleId = " + r84Var.g);
-            }
-            x(r84Var);
-        }
-    }
-
-    public final void x(r84 r84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, r84Var) == null) {
-            o22.c().d(r84Var, new a(this, r84Var));
+            this.a = jSONObject.optString("appKey");
+            this.b = jSONObject.optString("version");
         }
     }
 }

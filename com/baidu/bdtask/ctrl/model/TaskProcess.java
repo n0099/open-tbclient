@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.kuaishou.weapon.un.w0;
 import com.repackage.mv;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -74,7 +73,7 @@ public final class TaskProcess implements ITaskModelData {
         public final TaskProcess a(TaskRuleData taskRuleData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) ? new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, w0.b1, null) : (TaskProcess) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) ? new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, 199, null) : (TaskProcess) invokeL.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {

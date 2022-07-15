@@ -1,66 +1,18 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.repackage.zl1;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public interface yl1<T extends zl1> extends am1<T>, hl1 {
-    void B(FrameLayout frameLayout, h03 h03Var);
+public interface yl1 {
+    ExecutorService d();
 
-    void E(int i);
+    void e(String str, int i, JSONArray jSONArray);
 
-    boolean L();
+    void f(String str, int i);
 
-    boolean M();
+    void g(String str, String str2, int i, String str3, int i2);
 
-    void N(j62 j62Var);
+    void i(String str, int i, String str2);
 
-    jm1 P();
-
-    void R(FrameLayout frameLayout, h03 h03Var);
-
-    int T();
-
-    void U(String str);
-
-    void W();
-
-    boolean a0(q33 q33Var);
-
-    boolean b0(q33 q33Var);
-
-    void c0(g12 g12Var);
-
-    void d0(h12 h12Var);
-
-    boolean e();
-
-    @Nullable
-    iw1 f0();
-
-    int i0();
-
-    void j(sp2 sp2Var);
-
-    PullToRefreshBaseWebView k0();
-
-    void l(ViewGroup viewGroup, View view2);
-
-    boolean l0();
-
-    bm1 m();
-
-    @Nullable
-    String m0();
-
-    String o();
-
-    boolean t(int i);
-
-    void x(String str);
-
-    boolean y(q33 q33Var);
+    void n(String str, String str2, int i, String str3, long j, int i2);
 }

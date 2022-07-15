@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.b;
 import com.kwad.sdk.collector.model.c;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
@@ -22,6 +22,7 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(AppRunningInfoNative appRunningInfoNative) {
@@ -36,6 +37,7 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
     @NonNull
     /* renamed from: a */
     public AppRunningInfoNative clone() {
@@ -44,7 +46,7 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
         return appRunningInfoNative;
     }
 
-    public String a(long j) {
+    public static String a(long j) {
         return a.format(new Date(j));
     }
 
@@ -97,9 +99,9 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "name", AppStatusNative.appRunningInfoGetName(this));
-        t.a(jSONObject, "packageName", AppStatusNative.appRunningInfoGetPackageName(this));
-        t.a(jSONObject, "lastRunningTime", AppStatusNative.appRunningInfoGetLastRunningTime(this));
+        r.a(jSONObject, "name", AppStatusNative.appRunningInfoGetName(this));
+        r.a(jSONObject, "packageName", AppStatusNative.appRunningInfoGetPackageName(this));
+        r.a(jSONObject, "lastRunningTime", AppStatusNative.appRunningInfoGetLastRunningTime(this));
         return jSONObject;
     }
 

@@ -1,75 +1,41 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.io.ObjectOutput;
 /* loaded from: classes6.dex */
-public class mi9 {
+public abstract class mi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
+    public final int mVer;
 
-    public mi9(InstallActivity installActivity) {
+    public mi9(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
+        this.mVer = i;
     }
 
-    public void a(com.google.ar.core.p pVar) {
+    public final void srzable(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.e(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
-                    } else if (ordinal == 2) {
-                        if (!InstallActivity.f(this.b)) {
-                            InstallActivity.g(this.b);
-                        }
-                        InstallActivity.a(this.b, null);
-                    }
-                    this.a = true;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.mVer);
+            srzableInternal(objectOutput);
         }
     }
 
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.e(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.a(this.b, exc);
-            }
-        }
-    }
+    public abstract void srzableInternal(ObjectOutput objectOutput);
 }

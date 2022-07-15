@@ -16,7 +16,7 @@ public class u {
             try {
                 return (String) v.a(null, "android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(null, str, str2);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("SystemProperties.get: " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("SystemProperties.get: " + e);
                 return str2;
             }
         }

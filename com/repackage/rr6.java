@@ -1,20 +1,23 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes7.dex */
-public class rr6 extends qa {
+public class rr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public ArrayList<Integer> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rr6() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,32 +25,43 @@ public class rr6 extends qa {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.repackage.ua
-    public /* bridge */ /* synthetic */ HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        c(httpResponsedMessage2);
-        return httpResponsedMessage2;
-    }
-
-    public HttpResponsedMessage c(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !qr6.c(httpResponsedMessage.getCmd())) {
-                qr6.d();
-            }
-            return httpResponsedMessage;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public ArrayList<Integer> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+    }
+
+    public void d(PresentCategoryList presentCategoryList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, presentCategoryList) == null) || presentCategoryList == null) {
+            return;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        this.a = presentCategoryList.category_id.intValue();
+        this.b = presentCategoryList.category_name;
+        List<Integer> list = presentCategoryList.gift_ids;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.c = arrayList;
+        arrayList.addAll(presentCategoryList.gift_ids);
     }
 }

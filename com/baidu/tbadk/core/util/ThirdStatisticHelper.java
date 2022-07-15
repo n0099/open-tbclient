@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
 import com.repackage.mg;
-import com.repackage.pd5;
+import com.repackage.se5;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -173,7 +173,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", pd5.b());
+                httpURLConnection.setRequestProperty("User-Agent", se5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }

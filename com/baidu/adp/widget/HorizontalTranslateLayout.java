@@ -704,7 +704,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403da, R.attr.obfuscated_res_0x7f0403df, R.attr.obfuscated_res_0x7f040540, R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f0406aa, R.attr.obfuscated_res_0x7f0406ab});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f0406ab, R.attr.obfuscated_res_0x7f0406ac});
             this.b = obtainStyledAttributes.getDimension(0, -1.0f);
             this.c = obtainStyledAttributes.getDimension(2, -1.0f);
             String string = obtainStyledAttributes.getString(6);

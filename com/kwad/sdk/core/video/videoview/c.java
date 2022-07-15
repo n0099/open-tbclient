@@ -1,64 +1,25 @@
 package com.kwad.sdk.core.video.videoview;
-
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public abstract class c extends FrameLayout {
-    public static final AtomicInteger a = new AtomicInteger(0);
-    public Timer b;
-    public TimerTask c;
-    @NonNull
-    public final d d;
+public interface c {
+    void a();
 
-    public c(Context context, @NonNull d dVar) {
-        super(context);
-        this.d = dVar;
-    }
+    void b();
 
-    public abstract void a(int i);
+    void c();
 
-    public void a(int i, int i2) {
-    }
+    boolean d();
 
-    public abstract void e();
+    boolean e();
 
-    public abstract void i();
+    boolean g();
 
-    public void k() {
-        l();
-        if (this.b == null) {
-            this.b = new Timer("ksad-IVideoPlayer-timer" + a.getAndIncrement());
-        }
-        if (this.c == null) {
-            this.c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
-                @Override // java.util.TimerTask, java.lang.Runnable
-                public void run() {
-                    c.this.post(new Runnable() { // from class: com.kwad.sdk.core.video.videoview.c.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            c.this.i();
-                        }
-                    });
-                }
-            };
-        }
-        this.b.schedule(this.c, 0L, 1000L);
-    }
+    int getBufferPercentage();
 
-    public void l() {
-        Timer timer = this.b;
-        if (timer != null) {
-            timer.cancel();
-            this.b = null;
-        }
-        TimerTask timerTask = this.c;
-        if (timerTask != null) {
-            timerTask.cancel();
-            this.c = null;
-        }
-    }
+    long getCurrentPosition();
+
+    long getDuration();
+
+    void i();
+
+    void setKsPlayLogParam(com.kwad.sdk.contentalliance.kwai.kwai.a aVar);
 }

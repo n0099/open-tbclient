@@ -1,82 +1,85 @@
 package com.bytedance.pangle.download;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.bytedance.pangle.Zeus;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static b d;
+    public static volatile b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<a> b;
-    public boolean c;
-    public int e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1012231086, "Lcom/bytedance/pangle/download/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1012231086, "Lcom/bytedance/pangle/download/b;");
-        }
-    }
+    public final List<String> a;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0;
-        this.a = true;
-        this.b = new ArrayList();
-        this.c = false;
-    }
+        this.a = new CopyOnWriteArrayList();
+        Zeus.getAppApplication().registerActivityLifecycleCallbacks(new com.bytedance.pangle.a(this) { // from class: com.bytedance.pangle.download.b.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
 
-    public static /* synthetic */ int c(b bVar) {
-        int i = bVar.e;
-        bVar.e = i + 1;
-        return i;
-    }
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.a = this;
+            }
 
-    public static /* synthetic */ int d(b bVar) {
-        int i = bVar.e;
-        bVar.e = i - 1;
-        return i;
+            @Override // com.bytedance.pangle.a, android.app.Application.ActivityLifecycleCallbacks
+            public final void onActivityResumed(Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
+                    Iterator it = this.a.a.iterator();
+                    while (it.hasNext()) {
+                        it.next();
+                        c.a();
+                    }
+                }
+            }
+        });
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
                 synchronized (b.class) {
-                    if (d == null) {
-                        d = new b();
+                    if (b == null) {
+                        b = new b();
                     }
                 }
             }
-            return d;
+            return b;
         }
         return (b) invokeV.objValue;
     }

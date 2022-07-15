@@ -2,7 +2,6 @@ package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,8 +53,8 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
             ArrayList arrayList = new ArrayList();
             arrayList.add("MyGiftListActivityConfig");
             arrayList.add("GiftTabActivityConfig");
-            arrayList.add(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT);
-            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_USER_GIFT);
+            arrayList.add("https://tieba.baidu.com/user/gift");
+            arrayList.add("https://tieba.baidu.com/user/gift");
             hashMap.put("com.baidu.tieba.gift.giftTab.GiftStatic", arrayList);
             return hashMap;
         }

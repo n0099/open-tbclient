@@ -53,6 +53,8 @@ public class SdkConfig {
     @Keep
     public KsCustomController ksCustomController;
     @Nullable
+    public KsInitCallback ksInitCallback;
+    @Nullable
     @KsAdSdkApi
     @Keep
     public String nightThemeStyleAssetsFileName;
@@ -76,6 +78,8 @@ public class SdkConfig {
         public boolean enableDebug;
         @Nullable
         public KsCustomController ksCustomController;
+        @Nullable
+        public KsInitCallback ksInitCallback;
         public boolean showNotification = true;
         public boolean canReadMacAddress = true;
         public boolean canReadNearbyWifiList = true;
@@ -118,6 +122,7 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        @Deprecated
         public Builder canReadICCID(boolean z) {
             this.canReadICCID = z;
             return this;
@@ -125,6 +130,7 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        @Deprecated
         public Builder canReadMacAddress(boolean z) {
             this.canReadMacAddress = z;
             return this;
@@ -160,6 +166,13 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        public Builder setInitCallback(KsInitCallback ksInitCallback) {
+            this.ksInitCallback = ksInitCallback;
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder showNotification(boolean z) {
             this.showNotification = z;
             return this;
@@ -180,6 +193,7 @@ public class SdkConfig {
         this.canReadICCID = builder.canReadICCID;
         this.nightThemeStyleAssetsFileName = builder.nightThemeStyleAssetsFileName;
         this.ksCustomController = builder.ksCustomController;
+        this.ksInitCallback = builder.ksInitCallback;
     }
 
     public static SdkConfig create(String str) {

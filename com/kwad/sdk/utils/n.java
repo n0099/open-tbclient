@@ -1,90 +1,71 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebView;
-import java.lang.reflect.Field;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.kwad.sdk.service.ServiceProvider;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class n {
-    public static void a(Context context, View view2) {
-        InputMethodManager inputMethodManager;
-        if (context == null || view2 == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
-            return;
+    public static String a = "";
+    public static String b = "";
+    public static String c = "";
+
+    public static String a(int i) {
+        String str;
+        String str2;
+        Context a2 = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).a();
+        if (a2 == null) {
+            com.kwad.sdk.core.d.b.e("EncryptUtils", "EncryptUtils getKey context is null");
+            return "";
         }
-        String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
-        for (int i = 0; i < 3; i++) {
+        if (i == 0) {
+            str = a;
+            str2 = GrowthConstant.UBC_KEY_AES_KEY;
+        } else if (i == 1) {
+            str = b;
+            str2 = "rsa_public_key";
+        } else if (i != 2) {
+            str = "";
+            str2 = str;
+        } else {
+            str = c;
+            str2 = "rsa_private_key";
+        }
+        if (TextUtils.isEmpty(str)) {
+            if (TextUtils.isEmpty(str2)) {
+                com.kwad.sdk.core.d.b.e("EncryptUtils", "EncryptUtils getKey get id is error ");
+            }
             try {
-                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i]);
-                if (!declaredField.isAccessible()) {
-                    declaredField.setAccessible(true);
+                InputStream open = a2.getResources().getAssets().open("ksad_common_encrypt_image.png");
+                if (open == null) {
+                    open = a2.getAssets().open("ksad_common_encrypt_image.png");
                 }
-                Object obj = declaredField.get(inputMethodManager);
-                if (!(obj instanceof View)) {
-                    continue;
-                } else if (!context.equals(((View) obj).getContext())) {
-                    return;
-                } else {
-                    declaredField.set(inputMethodManager, null);
+                String a3 = a(str2, open);
+                if (TextUtils.isEmpty(a3)) {
+                    com.kwad.sdk.core.d.b.e("EncryptUtils", "EncryptUtils getKey get encryptedKey is invalid ");
                 }
-            } catch (Throwable th) {
-                th.printStackTrace();
+                if (i == 0) {
+                    a = a3;
+                } else if (i == 1) {
+                    b = a3;
+                } else if (i == 2) {
+                    c = a3;
+                }
+                return a3;
             }
         }
+        return str;
     }
 
-    public static void a(Context context, Window window) {
-        if (window == null) {
-            return;
-        }
-        View decorView = window.getDecorView();
-        a(decorView);
-        a(context, decorView);
-    }
-
-    public static synchronized void a(View view2) {
+    public static String a(String str, InputStream inputStream) {
+        String a2;
         synchronized (n.class) {
-            if (view2 == null) {
-                return;
-            }
-            if (view2 instanceof WebView) {
-                try {
-                    ((WebView) view2).destroy();
-                } catch (Throwable unused) {
-                }
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    a(viewGroup.getChildAt(i));
-                }
-            }
+            com.kwad.sdk.pngencrypt.o oVar = new com.kwad.sdk.pngencrypt.o(inputStream, true);
+            oVar.b();
+            a2 = oVar.a().a(str);
+            oVar.c();
         }
-    }
-
-    public static void a(com.kwad.sdk.h.a aVar) {
-        if (aVar == null) {
-            return;
-        }
-        a(aVar.getActivity(), aVar.getWindow());
-    }
-
-    public static void a(com.kwad.sdk.h.b bVar) {
-        if (bVar == null) {
-            return;
-        }
-        a(bVar.getActivity(), bVar.getWindow());
-    }
-
-    public static void a(com.kwad.sdk.h.d dVar) {
-        if (dVar == null) {
-            return;
-        }
-        View view2 = dVar.getView();
-        a(dVar.getView());
-        a(dVar.getContext(), view2);
+        return a2;
     }
 }

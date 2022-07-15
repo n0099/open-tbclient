@@ -2,6 +2,7 @@ package com.kwad.sdk.api;
 
 import android.app.Activity;
 import androidx.annotation.Keep;
+import com.kwad.sdk.api.KsInnerAd;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
@@ -72,7 +73,15 @@ public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
+    void setInnerAdInteractionListener(KsInnerAd.KsInnerAdInteractionListener ksInnerAdInteractionListener);
+
+    @KsAdSdkApi
+    @Keep
     void setRewardAdInteractionListener(RewardAdInteractionListener rewardAdInteractionListener);
+
+    @KsAdSdkApi
+    @Keep
+    void setRewardPlayAgainInteractionListener(RewardAdInteractionListener rewardAdInteractionListener);
 
     @KsAdSdkApi
     @Keep

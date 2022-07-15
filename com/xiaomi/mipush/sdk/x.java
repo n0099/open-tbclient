@@ -13,7 +13,7 @@ public class x {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f81a;
+    public String f808a;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class x {
             }
         }
         this.a = 0;
-        this.f81a = "";
+        this.f808a = "";
     }
 
     public boolean equals(Object obj) {
@@ -40,7 +40,7 @@ public class x {
                 return false;
             }
             x xVar = (x) obj;
-            return !TextUtils.isEmpty(xVar.f81a) && xVar.f81a.equals(this.f81a);
+            return !TextUtils.isEmpty(xVar.f808a) && xVar.f808a.equals(this.f808a);
         }
         return invokeL.booleanValue;
     }

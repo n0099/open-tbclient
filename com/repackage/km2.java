@@ -1,6 +1,8 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,16 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.mm2;
+import com.repackage.nm2;
+import com.repackage.om2;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class km2 implements rp2 {
+public class km2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public pm2 d;
+    public final List<mm2> a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +37,7 @@ public class km2 implements rp2 {
                 return;
             }
         }
-        boolean z = cg1.a;
+        b = rg1.a;
     }
 
     public km2() {
@@ -49,35 +53,92 @@ public class km2 implements rp2 {
                 return;
             }
         }
-        this.b = "";
-        this.c = false;
+        this.a = new ArrayList();
+        e();
     }
 
-    @Override // com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Nullable
+    public final nm2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("position") && jSONObject.has("iconPath")) {
-            String optString = jSONObject.optString("controlId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
+            nm2.a aVar = new nm2.a();
+            aVar.e(str);
+            aVar.g(i);
+            aVar.c(i2);
+            aVar.b(str2);
+            aVar.f(obj);
+            nm2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
+                    return null;
+                }
+                return null;
             }
-            pm2 pm2Var = new pm2();
-            this.d = pm2Var;
-            pm2Var.a(jSONObject.optJSONObject("position"));
-            this.b = jSONObject.optString("iconPath");
-            this.c = jSONObject.optBoolean("clickable");
+            return a;
         }
+        return (nm2) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.rp2
-    public boolean isValid() {
+    @Nullable
+    public final om2 b(int i, @NonNull String str, @NonNull Object obj) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            om2.a aVar = new om2.a();
+            aVar.e(i);
+            aVar.d(str);
+            aVar.b(obj);
+            om2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+                }
+                return null;
+            }
+            return a;
+        }
+        return (om2) invokeILL.objValue;
+    }
+
+    @NonNull
+    public List<mm2> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pm2 pm2Var = this.d;
-            return (pm2Var == null || !pm2Var.isValid() || TextUtils.isEmpty(this.b)) ? false : true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.a) : (List) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            om2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            mm2.a aVar = new mm2.a();
+            aVar.c(b2);
+            aVar.a(arrayList);
+            mm2 b3 = aVar.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.a.add(b3);
         }
         return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            hx1.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        }
     }
 }

@@ -1,70 +1,67 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public abstract class ds9 implements fs9 {
+public class ds9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ds9 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755756697, "Lcom/repackage/ds9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755756697, "Lcom/repackage/ds9;");
+                return;
+            }
+        }
+        a = new ds9();
+    }
 
     public ds9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.fs9
-    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, ts9 ts9Var, at9 at9Var) throws InvalidDataException {
+    public static ds9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, ts9Var, at9Var) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ds9) invokeV.objValue;
     }
 
-    @Override // com.repackage.fs9
-    public bt9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, ts9 ts9Var) throws InvalidDataException {
-        InterceptResult invokeLLL;
+    public xr9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, ts9Var)) == null) ? new xs9() : (bt9) invokeLLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (xr9) invokeV.objValue;
     }
 
-    @Override // com.repackage.fs9
-    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, ts9 ts9Var) throws InvalidDataException {
+    public hs9 c(hs9 hs9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, ts9Var) == null) {
-        }
-    }
-
-    @Deprecated
-    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
-
-    @Override // com.repackage.fs9
-    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
-            webSocket.sendFrame(new rs9((qs9) framedata));
-        }
-    }
-
-    @Override // com.repackage.fs9
-    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hs9Var)) == null) ? hs9Var : (hs9) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.g;
+import com.kuaishou.weapon.p0.C0294;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -181,7 +181,7 @@ public class DeviceUtil implements IDevices {
                 }
                 CPUInfo cPUInfo2 = new CPUInfo();
                 try {
-                    FileReader fileReader = new FileReader("/proc/cpuinfo");
+                    FileReader fileReader = new FileReader(C0294.f19);
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());
@@ -762,7 +762,7 @@ public class DeviceUtil implements IDevices {
                 return false;
             }
             String[] strArr = {"SM-F9000", "SM-F9160"};
-            if (g.j.equalsIgnoreCase(Build.MANUFACTURER)) {
+            if ("SAMSUNG".equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i = 0; i < 2; i++) {
                     if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
                         return true;

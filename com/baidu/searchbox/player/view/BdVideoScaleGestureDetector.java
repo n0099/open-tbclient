@@ -16,13 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\n\b\u0016\u0018\u0000 52\u00020\u00012\u00020\u0002:\u0003567B\u000f\u0012\u0006\u0010/\u001a\u00020.¢\u0006\u0004\b3\u00104J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\n\u0010\tJ\u0017\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u000e\u001a\u00020\u000b2\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u000e\u0010\rJ\u0019\u0010\u0010\u001a\u00020\u000f2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0014\u001a\u00020\u000b2\u0006\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u001f\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\u0016\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0015\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\u0005¢\u0006\u0004\b\u001b\u0010\u001cR\"\u0010\u001d\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001d\u0010\u001f\"\u0004\b \u0010!R$\u0010#\u001a\u0004\u0018\u00010\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(R\u001d\u0010-\u001a\u00020\u00038B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,R\u0019\u0010/\u001a\u00020.8\u0006@\u0006¢\u0006\f\n\u0004\b/\u00100\u001a\u0004\b1\u00102¨\u00068"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "Lcom/baidu/searchbox/player/interfaces/IKernelGestureDetector;", "android/view/ScaleGestureDetector$SimpleOnScaleGestureListener", "Landroid/view/ScaleGestureDetector;", "detector", "", "computeScale", "(Landroid/view/ScaleGestureDetector;)F", "getMaxScale", "()F", "getMinScale", "", "onScale", "(Landroid/view/ScaleGestureDetector;)Z", "onScaleBegin", "", "onScaleEnd", "(Landroid/view/ScaleGestureDetector;)V", "Landroid/view/MotionEvent;", "event", "onTouchEvent", "(Landroid/view/MotionEvent;)Z", "newPivotX", "newPivotY", "setPivot", "(FF)V", AnimationProperty.SCALE, "setScale", "(F)V", "isScaleDetected", "Z", "()Z", "setScaleDetected", "(Z)V", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "listener", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "getListener", "()Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "setListener", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;)V", "scaleGestureDetector$delegate", "Lkotlin/Lazy;", "getScaleGestureDetector", "()Landroid/view/ScaleGestureDetector;", "scaleGestureDetector", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "getView", "()Landroid/view/View;", "<init>", "(Landroid/view/View;)V", "Companion", "OnScaleGestureListener", "SimpleOnScaleGestureListener", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\n\b\u0016\u0018\u0000 52\u00020\u00012\u00020\u0002:\u0003567B\u000f\u0012\u0006\u0010/\u001a\u00020.¢\u0006\u0004\b3\u00104J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\n\u0010\tJ\u0017\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u000e\u001a\u00020\u000b2\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u000e\u0010\rJ\u0019\u0010\u0010\u001a\u00020\u000f2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0014\u001a\u00020\u000b2\u0006\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u001f\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\u0016\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0015\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\u0005¢\u0006\u0004\b\u001b\u0010\u001cR\"\u0010\u001d\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001d\u0010\u001f\"\u0004\b \u0010!R$\u0010#\u001a\u0004\u0018\u00010\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(R\u001d\u0010-\u001a\u00020\u00038B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,R\u0019\u0010/\u001a\u00020.8\u0006@\u0006¢\u0006\f\n\u0004\b/\u00100\u001a\u0004\b1\u00102¨\u00068"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "Lcom/baidu/searchbox/player/interfaces/IKernelGestureDetector;", "android/view/ScaleGestureDetector$SimpleOnScaleGestureListener", "Landroid/view/ScaleGestureDetector;", "detector", "", "computeScale", "(Landroid/view/ScaleGestureDetector;)F", "getMaxScale", "()F", "getMinScale", "", "onScale", "(Landroid/view/ScaleGestureDetector;)Z", "onScaleBegin", "", "onScaleEnd", "(Landroid/view/ScaleGestureDetector;)V", "Landroid/view/MotionEvent;", "event", "onTouchEvent", "(Landroid/view/MotionEvent;)Z", "newPivotX", "newPivotY", "setPivot", "(FF)V", "scale", "setScale", "(F)V", "isScaleDetected", "Z", "()Z", "setScaleDetected", "(Z)V", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "listener", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "getListener", "()Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "setListener", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;)V", "scaleGestureDetector$delegate", "Lkotlin/Lazy;", "getScaleGestureDetector", "()Landroid/view/ScaleGestureDetector;", "scaleGestureDetector", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "getView", "()Landroid/view/View;", "<init>", "(Landroid/view/View;)V", "Companion", "OnScaleGestureListener", "SimpleOnScaleGestureListener", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnScaleGestureListener implements IKernelGestureDetector {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,7 +35,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final Lazy scaleGestureDetector$delegate;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1032view;
+    public final View f1759view;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$Companion;", "", "SCALE_MAX", "F", "SCALE_MIN", "SCALE_NORMAL", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -140,7 +139,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1032view = view2;
+        this.f1759view = view2;
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new BdVideoScaleGestureDetector$scaleGestureDetector$2(this));
     }
 
@@ -156,7 +155,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, detector)) == null) {
             Intrinsics.checkNotNullParameter(detector, "detector");
             float scaleFactor = detector.getScaleFactor();
-            float scaleX = this.f1032view.getScaleX();
+            float scaleX = this.f1759view.getScaleX();
             if (scaleFactor < 1.0f && scaleX > getMinScale()) {
                 float f = scaleX * scaleFactor;
                 return f < getMinScale() ? getMinScale() : f;
@@ -197,7 +196,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1032view : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1759view : (View) invokeV.objValue;
     }
 
     public final boolean isScaleDetected() {
@@ -270,9 +269,9 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public void setPivot(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            View view2 = this.f1032view;
+            View view2 = this.f1759view;
             float f3 = 1;
-            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1032view.getPivotX() - f) * (f3 - this.f1032view.getScaleX())), this.f1032view.getTranslationY() + ((this.f1032view.getPivotY() - f2) * (f3 - this.f1032view.getScaleY())));
+            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1759view.getPivotX() - f) * (f3 - this.f1759view.getScaleX())), this.f1759view.getTranslationY() + ((this.f1759view.getPivotY() - f2) * (f3 - this.f1759view.getScaleY())));
             view2.setPivotX(f);
             view2.setPivotY(f2);
         }
@@ -281,8 +280,8 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final void setScale(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            this.f1032view.setScaleX(f);
-            this.f1032view.setScaleY(f);
+            this.f1759view.setScaleX(f);
+            this.f1759view.setScaleY(f);
         }
     }
 

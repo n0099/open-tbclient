@@ -25,7 +25,6 @@ import com.googlecode.mp4parser.boxes.DTSSpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
 import com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.AudioSpecificConfig;
-import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -304,7 +303,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                                 b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                     s2 = (short) (s2 + 1);
-                                    b2 = (byte) (b2 | YogaNodeJNIBase.HAS_NEW_LAYOUT);
+                                    b2 = (byte) (b2 | 16);
                                 }
                             } else {
                                 i = b2 | 32;

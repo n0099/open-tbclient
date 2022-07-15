@@ -1,51 +1,66 @@
 package com.repackage;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgMutiPicLayout;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my;
+import com.repackage.ny;
 /* loaded from: classes6.dex */
-public class lx extends qw<ym4> {
+public class lx extends sw implements hx, gx<ThreadData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgMutiPicLayout f;
-    public ym4 g;
-    public int h;
-    public String i;
-    public Context j;
+    public final RelativeLayout e;
+    public final LinearLayout f;
+    public View g;
+    public View h;
+    public View i;
+    public ImageView j;
+    public TextView k;
+    public ThreadData l;
+    public boolean m;
+    public boolean n;
+    public CustomMessageListener o;
 
     /* loaded from: classes6.dex */
-    public class a implements fg<ImageView> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lx a;
 
-        public a(lx lxVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lx lxVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lxVar};
+                Object[] objArr = {lxVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -54,110 +69,18 @@ public class lx extends qw<ym4> {
             this.a = lxVar;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            e(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            h(imageView2);
-            return imageView2;
-        }
-
-        public ImageView e(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageView)) == null) {
-                if (imageView instanceof TbImageView) {
-                    TbImageView tbImageView = (TbImageView) imageView;
-                    tbImageView.setTag(null);
-                    if (km4.c().g()) {
-                        tbImageView.setAdjustViewBounds(false);
-                        tbImageView.setInterceptOnClick(false);
-                    } else {
-                        tbImageView.setDefaultResource(R.drawable.icon_click);
-                        tbImageView.setAdjustViewBounds(true);
-                        tbImageView.setInterceptOnClick(true);
-                    }
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: f */
-        public void b(ImageView imageView) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, imageView) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.O();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ThreadData) && ((ThreadData) customResponsedMessage.getData()) == this.a.l) {
+                this.a.r();
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: g */
-        public ImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j);
-                boolean g = km4.c().g();
-                foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    foreDrawableImageView.setAdjustViewBounds(false);
-                    foreDrawableImageView.setInterceptOnClick(false);
-                } else {
-                    foreDrawableImageView.setDefaultResource(R.drawable.icon_click);
-                    foreDrawableImageView.setAdjustViewBounds(true);
-                    foreDrawableImageView.setInterceptOnClick(true);
-                }
-                return foreDrawableImageView;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-
-        public ImageView h(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, imageView)) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.O();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                    foreDrawableImageView.F();
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements fg<GifView> {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lx a;
@@ -180,143 +103,30 @@ public class lx extends qw<ym4> {
             this.a = lxVar;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
-            GifView gifView2 = gifView;
-            e(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
-        public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
-            GifView gifView2 = gifView;
-            h(gifView2);
-            return gifView2;
-        }
-
-        public GifView e(GifView gifView) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
-                gifView.setTag(null);
-                if (km4.c().g()) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null || this.a.l == null || this.a.k == null || this.a.l.isTransportThread() || !this.a.n) {
+                return;
+            }
+            if (this.a.l.isMarkToDel() || !tc6.f().i()) {
+                if (this.a.l.isMarkToMove() || !sc6.h().j()) {
+                    tc6.f().l(this.a.l);
+                    this.a.l.setMarkToDel(false);
+                    sc6.h().l(this.a.l);
+                    this.a.l.setMarkToMove(false);
+                } else if (sc6.h().a(this.a.l)) {
+                    this.a.l.setMarkToMove(true);
                 }
-                return gifView;
+            } else if (tc6.f().a(this.a.l)) {
+                this.a.l.setMarkToDel(true);
             }
-            return (GifView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: f */
-        public void b(GifView gifView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, gifView) == null) {
-                gifView.setBackgroundDrawable(null);
-                gifView.setImageDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                gifView.b0();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        /* renamed from: g */
-        public GifView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.a.j);
-                boolean g = km4.c().g();
-                gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
-                }
-                return gifView;
-            }
-            return (GifView) invokeV.objValue;
-        }
-
-        public GifView h(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gifView)) == null) {
-                gifView.e0();
-                gifView.b0();
-                gifView.setImageDrawable(null);
-                gifView.f0();
-                gifView.setBackgroundDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
+            this.a.r();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, this.a.l));
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements my.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lx a;
-
-        public c(lx lxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lxVar;
-        }
-
-        @Override // com.repackage.my.b
-        public boolean a(my.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    xw5.a(this.a.g.getThreadData().getId());
-                    TextView textView = this.a.f.a;
-                    TextView textView2 = this.a.f.b;
-                    xw5.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    xw5.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lx(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -326,86 +136,148 @@ public class lx extends qw<ym4> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = 3;
-        new eg(new a(this), 12, 0);
-        new eg(new b(this), 20, 0);
-        this.j = context;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().i instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().i.getParent() == null) {
-            MutiImgMutiPicLayout mutiImgMutiPicLayout = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().i;
-            this.f = mutiImgMutiPicLayout;
-            mutiImgMutiPicLayout.setRealContext(context);
-            return;
+        this.m = false;
+        this.n = true;
+        this.o = new a(this, 2921402);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0586, (ViewGroup) null);
+        this.g = inflate;
+        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0914ed);
+        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0914e7);
+        this.h.setAlpha(0.5f);
+        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0914ec);
+        this.i = findViewById;
+        findViewById.setAlpha(0.5f);
+        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0913f1);
+        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0914e8);
+        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0913f3);
+        g(this.g);
+        this.g.setFocusable(true);
+        this.g.setOnClickListener(new b(this));
+        h(-1);
+        if (context instanceof BaseActivity) {
+            ((BaseActivity) context).registerListener(this.o);
+        } else if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).registerListener(this.o);
         }
-        this.f = new MutiImgMutiPicLayout(context);
     }
 
-    @Override // com.repackage.qw
-    public View g() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sw
+    public void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 
-    @Override // com.repackage.qw
-    public void h() {
+    @Override // com.repackage.sw
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i(1, new c(this));
         }
     }
 
-    @Override // com.repackage.qw
-    public void l(mx5<ym4> mx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mx5Var) == null) {
-            this.f.setSubClickListener(mx5Var);
-        }
-    }
-
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.h = i;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08091a, R.color.CAM_X0107, null);
+            } else {
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080917, R.color.CAM_X0304, null);
+            }
+            ur4 d = ur4.d(this.h);
+            d.n(R.string.J_X06);
+            d.m(this.m ? 2 : 1);
+            d.f(R.color.CAM_X0201);
+            ur4 d2 = ur4.d(this.i);
+            d2.n(R.string.J_X06);
+            d2.m(2);
+            d2.f(R.color.CAM_X0201);
+            ur4.d(this.k).A(R.string.F_X01);
+            SkinManager.setViewTextColor(this.k, (this.l.isMarkToDel() || this.l.isMarkToMove()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: r */
-    public void a(ym4 ym4Var) {
+    @Override // com.repackage.gx
+    /* renamed from: p */
+    public void a(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ym4Var) == null) {
-            this.g = ym4Var;
-            this.f.setFrom(this.i);
-            this.f.a(ym4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
+            this.l = threadData;
+            this.n = threadData.getType() != ThreadData.TYPE_FAKE_VIDEO && (threadData == null || threadData.getAuthor() == null || !threadData.getAuthor().isForumBusinessAccount() || threadData.isSelf()) && threadData != null && (!threadData.isTiePlusCantDeleteUnion() || threadData.isSelf());
+            if (!tc6.f().i() && !sc6.h().j()) {
+                this.d.o(new ny.a(4, Boolean.TRUE));
+                this.g.setVisibility(8);
+                return;
+            }
+            this.g.setVisibility(0);
+            this.d.o(new ny.a(4, Boolean.FALSE));
+            r();
         }
     }
 
-    public void s(String str) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.m = z;
         }
     }
 
-    public void t(boolean z) {
+    public final void r() {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (threadData = this.l) == null) {
+            return;
+        }
+        int i = 4;
+        this.h.setVisibility((threadData.isMarkToDel() || this.l.isMarkToMove() || !this.n) ? 0 : 4);
+        this.i.setVisibility((this.l.isMarkToDel() || this.l.isMarkToMove()) ? 0 : 0);
+        if (this.m) {
+            this.e.setVisibility(0);
+            if (this.n) {
+                this.j.setVisibility(0);
+                this.k.setVisibility(0);
+                boolean isMarkToDel = this.l.isMarkToDel();
+                int i2 = R.color.CAM_X0304;
+                if (!isMarkToDel && !this.l.isMarkToMove()) {
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08091a, R.color.CAM_X0107, null);
+                } else {
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080917, R.color.CAM_X0304, null);
+                }
+                TextView textView = this.k;
+                if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
+                    i2 = R.drawable.selector_comment_and_prise_item_text_color;
+                }
+                SkinManager.setViewTextColor(textView, i2);
+                return;
+            }
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
+            return;
+        }
+        this.e.setVisibility(8);
+        this.j.setVisibility(8);
+        this.k.setVisibility(8);
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
         }
     }
 
-    public void u(boolean z) {
+    public void t(int i, dy dyVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setNeedFrsTabName(z);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, dyVar) == null) {
+            this.f.setWeightSum(i);
+            if (this.f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.f.getLayoutParams()).setMargins(dyVar.f, dyVar.d, dyVar.g, dyVar.e);
+            }
         }
     }
 }

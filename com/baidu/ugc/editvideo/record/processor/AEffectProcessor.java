@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a49;
-import com.repackage.c89;
-import com.repackage.je0;
+import com.repackage.b99;
 import com.repackage.oe0;
+import com.repackage.te0;
+import com.repackage.z49;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
     public boolean isCamera;
     public Map<String, ShaderConfig> mTrackConfig;
     public List<MediaTrack> mUpdateMediaTracks;
-    public oe0 mVlogEditCore;
+    public te0 mVlogEditCore;
     public final LinkedList<Runnable> runOnDraw;
 
     public AEffectProcessor() {
@@ -43,9 +43,9 @@ public class AEffectProcessor extends BaseEffectProcessor {
             }
         }
         this.runOnDraw = new LinkedList<>();
-        oe0 oe0Var = new oe0();
-        this.mVlogEditCore = oe0Var;
-        oe0Var.j(a49.c().getContext());
+        te0 te0Var = new te0();
+        this.mVlogEditCore = te0Var;
+        te0Var.j(z49.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,8 +54,8 @@ public class AEffectProcessor extends BaseEffectProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.isCamera = false;
-            MediaTrack mediaTrack = (MediaTrack) c89.c(this.mUpdateMediaTracks, 0);
-            if (mediaTrack == null || (mediaSegment = (MediaSegment) c89.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {
+            MediaTrack mediaTrack = (MediaTrack) b99.c(this.mUpdateMediaTracks, 0);
+            if (mediaTrack == null || (mediaSegment = (MediaSegment) b99.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {
                 return;
             }
             this.isCamera = true;
@@ -243,11 +243,11 @@ public class AEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(je0 je0Var, int i, float[] fArr) {
+    public int onProcessFrame(oe0 oe0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, je0Var, i, fArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, oe0Var, i, fArr)) == null) {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {

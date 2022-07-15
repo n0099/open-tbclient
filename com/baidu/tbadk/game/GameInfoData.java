@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l65;
+import com.repackage.n75;
 import com.repackage.ng;
 import java.io.Serializable;
 import java.util.List;
@@ -19,7 +19,7 @@ import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes3.dex */
-public class GameInfoData implements Serializable, l65 {
+public class GameInfoData implements Serializable, n75 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;

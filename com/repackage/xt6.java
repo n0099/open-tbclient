@@ -1,36 +1,32 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.homepage.concern.message.ConcernNetModel;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.DataRes;
+import com.repackage.cy;
 /* loaded from: classes7.dex */
-public class xt6 {
+public class xt6 extends an<xy5, ThreadCardViewHolder<xy5>> implements ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final BdUniqueId b;
-    public RecPersonalizePageModel c;
-    public ConcernNetModel d;
-    public d e;
-    public RecPersonalizePageModel.c f;
-    public ConcernNetModel.d g;
-    public ConcernNetModel.c h;
+    public BdUniqueId i;
+    public TbPageContext<?> j;
+    public String k;
+    public tn l;
 
     /* loaded from: classes7.dex */
-    public class a implements RecPersonalizePageModel.c {
+    public class a implements xn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xt6 a;
@@ -53,122 +49,38 @@ public class xt6 {
             this.a = xt6Var;
         }
 
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
-        public void a(DataRes dataRes, boolean z, boolean z2) {
+        /* JADX WARN: Removed duplicated region for block: B:11:0x001c  */
+        /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
+        @Override // com.repackage.xn
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            xy5 xy5Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (this.a.e != null) {
-                    TbSingleton.getInstance().mIsForceLayoutMaintab = true;
-                    ty6.a("mOnResultListenerSuccess");
-                    this.a.e.b(dataRes, z, z2);
-                }
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
-            }
-        }
-
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.e == null) {
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) {
                 return;
             }
-            TbSingleton.getInstance().mIsForceLayoutMaintab = true;
-            ty6.a("mOnResultListenerError");
-            this.a.e.c("", str, i, false, 1);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ConcernNetModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xt6 a;
-
-        public b(xt6 xt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xt6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (nnVar instanceof gn) {
+                gn gnVar = (gn) nnVar;
+                if (gnVar.c() instanceof xy5) {
+                    xy5Var = (xy5) gnVar.c();
+                    if (xy5Var == null) {
+                        ((a65) ServiceManager.getService(a65.a.a())).a(this.a.j, xy5Var.b0());
+                        return;
+                    }
                     return;
                 }
             }
-            this.a = xt6Var;
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
-        public void a(tbclient.Userlike.DataRes dataRes, boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, dataRes, z) == null) || this.a.e == null) {
-                return;
+            xy5Var = null;
+            if (xy5Var == null) {
             }
-            this.a.e.d(dataRes, z);
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.c("", str, i, false, 0);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements ConcernNetModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xt6 a;
-
-        public c(xt6 xt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xt6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xt6Var;
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.c
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.a(z);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a(boolean z);
-
-        void b(DataRes dataRes, boolean z, boolean z2);
-
-        void c(String str, String str2, int i, boolean z, int i2);
-
-        void d(tbclient.Userlike.DataRes dataRes, boolean z);
-
-        void e(boolean z, bz6 bz6Var, boolean z2, String str, String str2, boolean z3);
-    }
-
-    public xt6(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xt6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,93 +90,118 @@ public class xt6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = RecPersonalizePageModel.g();
-        this.f = new a(this);
-        this.g = new b(this);
-        this.h = new c(this);
-        this.a = tbPageContext;
-        this.b = bdUniqueId;
-        ConcernNetModel concernNetModel = new ConcernNetModel(tbPageContext, bdUniqueId);
-        this.d = concernNetModel;
-        concernNetModel.G(this.g);
-        this.d.F(this.h);
+        this.j = tbPageContext;
     }
 
-    public void b(boolean z) {
-        ConcernNetModel concernNetModel;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public ThreadCardViewHolder<xy5> I(ViewGroup viewGroup, xy5 xy5Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (concernNetModel = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, viewGroup, xy5Var)) == null) {
+            cy.b bVar = new cy.b(this.j.getPageActivity(), false);
+            bVar.n(new ly(this.j, this.i));
+            bVar.l().h(0);
+            ThreadCardViewHolder<xy5> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.l));
+            threadCardViewHolder.k(this.i);
+            V(new a(this));
+            return threadCardViewHolder;
         }
-        concernNetModel.C(z);
+        return (ThreadCardViewHolder) invokeLL.objValue;
     }
 
-    public TbPageContext<BaseFragmentActivity> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: b0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TbPageContext) invokeV.objValue;
-    }
-
-    public md7 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             return null;
         }
-        return (md7) invokeV.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public RecPersonalizePageModel.c e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: c0 */
+    public View P(int i, View view2, ViewGroup viewGroup, xy5 xy5Var, ThreadCardViewHolder<xy5> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xy5Var, threadCardViewHolder})) == null) {
+            if (threadCardViewHolder == null) {
+                return null;
+            }
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.c().b(this.k);
+            xy5Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+            threadCardViewHolder.g(xy5Var);
+            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: d0 */
+    public View S(int i, View view2, ViewGroup viewGroup, xy5 xy5Var, ThreadCardViewHolder<xy5> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xy5Var, threadCardViewHolder})) == null) {
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void e0(tn tnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tnVar) == null) {
+            this.l = tnVar;
+        }
+    }
+
+    @Override // com.repackage.ck5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    @Override // com.repackage.an
+    public BdUniqueId u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (RecPersonalizePageModel.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ny5.M : (BdUniqueId) invokeV.objValue;
     }
 
-    public d f() {
+    @Override // com.repackage.an
+    public BdUniqueId v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ny5.N : (BdUniqueId) invokeV.objValue;
     }
 
-    public BdUniqueId g() {
+    @Override // com.repackage.an
+    public BdUniqueId w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? ny5.L : (BdUniqueId) invokeV.objValue;
     }
 
-    public void h(String str, tb5 tb5Var) {
-        ConcernNetModel concernNetModel;
+    @Override // com.repackage.an
+    public BdUniqueId x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, tb5Var) == null) || (concernNetModel = this.d) == null) {
-            return;
-        }
-        concernNetModel.D(str, tb5Var);
-    }
-
-    public void i(int i, int i2, tb5 tb5Var, int i3, int i4) {
-        RecPersonalizePageModel recPersonalizePageModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), tb5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (recPersonalizePageModel = this.c) == null) {
-            return;
-        }
-        recPersonalizePageModel.i(i, i2, tb5Var, i3, i4);
-    }
-
-    public void j(md7 md7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, md7Var) == null) {
-        }
-    }
-
-    public void k(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
-            this.e = dVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? ny5.D : (BdUniqueId) invokeV.objValue;
     }
 }

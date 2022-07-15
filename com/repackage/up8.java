@@ -1,186 +1,132 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.util.Log;
-import android.view.Surface;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.afx.recode.OutputSurface;
-import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.FaceUnityUtils;
-import com.faceunity.gles.FullFrameRect;
-import com.faceunity.gles.Texture2dProgram;
-import com.faceunity.wrapper.faceunity;
 /* loaded from: classes7.dex */
-public class up8 implements SurfaceTexture.OnFrameAvailableListener {
+public abstract class up8<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static int m;
-    public static int n;
-    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceTexture a;
-    public Surface b;
-    public Object c;
-    public boolean d;
-    public Context e;
-    public String f;
-    public int g;
-    public int h;
-    public FullFrameRect i;
-    public FullFrameRect j;
-    public int k;
-    public final float[] l;
+    public String a;
+    public T b;
+    public T c;
+    public a d;
+    public String e;
+    public Long f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755253164, "Lcom/repackage/up8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755253164, "Lcom/repackage/up8;");
-                return;
-            }
-        }
-        o = new int[]{0, 0, 0};
+    /* loaded from: classes7.dex */
+    public interface a<T> {
+        void a(up8<T> up8Var, T t, T t2);
     }
 
-    public up8(Context context, String str, int i, int i2) {
+    public up8(String str, T t, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {str, t, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.f = "normal";
-        this.l = new float[16];
-        this.e = context;
-        this.f = str;
-        this.g = i;
-        this.h = i2;
-        f();
+        this.e = str2;
+        i(t);
+        j(str);
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                while (!this.d) {
-                    try {
-                        this.c.wait(500L);
-                        if (!this.d) {
-                            throw new RuntimeException("Surface frame wait timed out");
-                        }
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                this.d = false;
-            }
-            b("before updateTexImage");
-            this.a.updateTexImage();
-        }
-    }
-
-    public void b(String str) {
-        int glGetError;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
-            return;
-        }
-        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
-        throw new RuntimeException(str + ": glError " + glGetError);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.updateTexImage();
-            this.a.getTransformMatrix(this.l);
-            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
-            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
-            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
-            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
-        }
-    }
-
-    public Surface d() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (T) invokeV.objValue;
     }
 
-    public void e() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.release();
-            this.b = null;
-            this.a = null;
-            FullFrameRect fullFrameRect = this.i;
-            if (fullFrameRect != null) {
-                fullFrameRect.release(false);
-                this.i = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f == null && !TextUtils.isEmpty(this.e)) {
+                d();
             }
-            faceunity.fuDestroyItem(n);
-            int[] iArr = o;
-            n = 0;
-            iArr[1] = 0;
-            faceunity.fuDestroyItem(m);
-            int[] iArr2 = o;
-            m = 0;
-            iArr2[0] = 0;
-            faceunity.fuOnDeviceLost();
+            Long l = this.f;
+            if (l == null) {
+                return 0L;
+            }
+            return l.longValue();
         }
+        return invokeV.longValue;
     }
 
-    public final void f() {
+    public T d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
-            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.j = fullFrameRect;
-            this.k = fullFrameRect.createTextureObject();
-            this.a = new SurfaceTexture(this.k);
-            this.b = new Surface(this.a);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
-            m = upFaceUnity;
-            o[0] = upFaceUnity;
-            this.a.setOnFrameAvailableListener(this);
-        }
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            Log.d(OutputSurface.TAG, "new frame available");
-            synchronized (this.c) {
-                if (!this.d) {
-                    this.d = true;
-                    this.c.notifyAll();
-                } else {
-                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null && !TextUtils.isEmpty(this.a)) {
+                this.b = f();
+                if (!TextUtils.isEmpty(this.e)) {
+                    this.f = Long.valueOf(e(this.e, 0L));
                 }
+            }
+            return this.b;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public abstract long e(String str, long j);
+
+    public abstract T f();
+
+    public abstract void g(String str, long j);
+
+    public abstract void h();
+
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+            this.c = t;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void k(T t) {
+        T t2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, t) == null) || TextUtils.isEmpty(this.a) || t == (t2 = this.b)) {
+            return;
+        }
+        if (t == null || !t.equals(t2)) {
+            T t3 = this.b;
+            this.b = t;
+            h();
+            if (!TextUtils.isEmpty(this.e)) {
+                Long valueOf = Long.valueOf(System.currentTimeMillis());
+                this.f = valueOf;
+                g(this.e, valueOf.longValue());
+            }
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(this, t3, t);
             }
         }
     }

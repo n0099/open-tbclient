@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.utility.FileUtil;
 /* loaded from: classes3.dex */
 public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -73,14 +72,14 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
                                     }
                                 }
                             } else {
-                                sb.append(FileUtil.WINDOWS_SEPARATOR);
+                                sb.append('\\');
                                 sb.append(charAt);
                             }
                         } else {
                             sb.append("\\'");
                         }
                     }
-                    sb.append(FileUtil.WINDOWS_SEPARATOR);
+                    sb.append('\\');
                     sb.append(charAt);
                 } else {
                     sb.append("\\r");

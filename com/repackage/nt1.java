@@ -1,18 +1,15 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class nt1 extends ys1 {
+public abstract class nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     public nt1() {
         Interceptable interceptable = $ic;
@@ -24,31 +21,11 @@ public class nt1 extends ys1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = Integer.MAX_VALUE;
-        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) || (i = this.a) == Integer.MAX_VALUE || (i2 = this.b) == Integer.MAX_VALUE) {
-            return;
-        }
-        zs1Var.f.lineTo(i, i2);
-    }
+    public abstract void a(ot1 ot1Var, Canvas canvas);
 
-    @Override // com.repackage.ys1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
-            return;
-        }
-        this.a = jd3.g((float) jSONArray.optDouble(0));
-        this.b = jd3.g((float) jSONArray.optDouble(1));
-    }
+    public abstract void b(JSONArray jSONArray);
 }

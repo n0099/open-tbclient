@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.z;
+import com.kuaishou.weapon.p0.C0294;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -258,7 +258,7 @@ public class q {
         }
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream("/proc/cpuinfo"), Charset.forName(IMAudioTransRequest.CHARSET));
+                inputStreamReader = new InputStreamReader(new FileInputStream(C0294.f19), Charset.forName(IMAudioTransRequest.CHARSET));
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -356,7 +356,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq").start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
@@ -384,7 +384,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);

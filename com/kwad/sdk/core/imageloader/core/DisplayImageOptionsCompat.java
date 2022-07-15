@@ -210,82 +210,82 @@ public final class DisplayImageOptionsCompat {
         return new Builder().build();
     }
 
-    public int getBlurRadius() {
+    public final int getBlurRadius() {
         return this.blurRadius;
     }
 
-    public int getCornerRound() {
+    public final int getCornerRound() {
         return this.cornerRound;
     }
 
-    public BitmapFactory.Options getDecodingOptions() {
+    public final BitmapFactory.Options getDecodingOptions() {
         return this.decodingOptions;
     }
 
-    public int getDelayBeforeLoading() {
+    public final int getDelayBeforeLoading() {
         return this.delayBeforeLoading;
     }
 
-    public Drawable getImageForEmptyUri(Resources resources) {
+    public final Drawable getImageForEmptyUri(Resources resources) {
         int i = this.imageResForEmptyUri;
         return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
     }
 
-    public Drawable getImageOnFail(Resources resources) {
+    public final Drawable getImageOnFail(Resources resources) {
         int i = this.imageResOnFail;
         return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
     }
 
-    public Drawable getImageOnLoading(Resources resources) {
+    public final Drawable getImageOnLoading(Resources resources) {
         int i = this.imageResOnLoading;
         return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
     }
 
-    public int getStrokeColor() {
+    public final int getStrokeColor() {
         return this.strokeColor;
     }
 
-    public float getStrokeWidth() {
+    public final float getStrokeWidth() {
         return this.strokeWidth;
     }
 
-    public boolean isCacheInMemory() {
+    public final boolean isCacheInMemory() {
         return this.cacheInMemory;
     }
 
-    public boolean isCacheOnDisk() {
+    public final boolean isCacheOnDisk() {
         return this.cacheOnDisk;
     }
 
-    public boolean isCircle() {
+    public final boolean isCircle() {
         return this.isCircle;
     }
 
-    public boolean isConsiderExifParams() {
+    public final boolean isConsiderExifParams() {
         return this.considerExifParams;
     }
 
-    public boolean isFrameSequence() {
+    public final boolean isFrameSequence() {
         return this.isFrameSequence;
     }
 
-    public boolean isResetViewBeforeLoading() {
+    public final boolean isResetViewBeforeLoading() {
         return this.resetViewBeforeLoading;
     }
 
-    public boolean shouldDelayBeforeLoading() {
+    public final boolean shouldDelayBeforeLoading() {
         return this.delayBeforeLoading > 0;
     }
 
-    public boolean shouldShowImageForEmptyUri() {
+    public final boolean shouldShowImageForEmptyUri() {
         return (this.imageForEmptyUri == null && this.imageResForEmptyUri == 0) ? false : true;
     }
 
-    public boolean shouldShowImageOnFail() {
+    public final boolean shouldShowImageOnFail() {
         return (this.imageOnFail == null && this.imageResOnFail == 0) ? false : true;
     }
 
-    public boolean shouldShowImageOnLoading() {
+    public final boolean shouldShowImageOnLoading() {
         return (this.imageOnLoading == null && this.imageResOnLoading == 0) ? false : true;
     }
 }

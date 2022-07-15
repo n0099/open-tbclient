@@ -95,7 +95,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
                 this.f.clearAnimation();
                 this.f.startAnimation(this.l);
             }
-            this.h.setText(R.string.obfuscated_res_0x7f0f01ab);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01ad);
         }
     }
 
@@ -120,7 +120,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
             this.f.clearAnimation();
             this.f.setVisibility(4);
             this.g.setVisibility(0);
-            this.h.setText(R.string.obfuscated_res_0x7f0f01af);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01b1);
         }
     }
 
@@ -130,7 +130,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.f.clearAnimation();
             this.f.startAnimation(this.k);
-            this.h.setText(R.string.obfuscated_res_0x7f0f01ac);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01ae);
         }
     }
 
@@ -139,7 +139,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f.clearAnimation();
-            this.h.setText(R.string.obfuscated_res_0x7f0f01ab);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01ad);
         }
     }
 
@@ -156,13 +156,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091962);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091960);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091963);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091964);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091966);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091968);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091961);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a0b);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a09);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091a0c);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091a0d);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091a0f);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a11);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a0a);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

@@ -1,34 +1,199 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
+import com.baidu.tieba.frs.itemtab.FrsItemTabHttpResponseMessage;
+import com.baidu.tieba.frs.itemtab.FrsItemTabNetModel;
+import com.baidu.tieba.frs.itemtab.FrsItemTabRequestData;
+import com.baidu.tieba.frs.itemtab.FrsItemTabSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class bl6 {
+public class bl6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public FrsItemTabFragment a;
+    public cl6 b;
+    public FrsItemTabNetModel c;
+    public int d;
+    public String e;
 
-    public bl6(String str, String str2, String str3) {
+    public bl6(FrsItemTabFragment frsItemTabFragment, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {frsItemTabFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        if (frsItemTabFragment == null) {
+            return;
+        }
+        this.a = frsItemTabFragment;
+        FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
+        frsItemTabRequestData.itemId = i;
+        FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
+        this.c = frsItemTabNetModel;
+        frsItemTabNetModel.c0(this);
+        this.c.setUniqueId(frsItemTabFragment.getUniqueId());
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            cl6 cl6Var = this.b;
+            return (cl6Var == null || cl6Var.a == null) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(this.d);
+            errorData.setError_msg(this.e);
+            if (this.d != 0) {
+                this.a.f(errorData);
+            }
+        }
+    }
+
+    public final boolean c(cl6 cl6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cl6Var)) == null) {
+            if (cl6Var == null) {
+                return false;
+            }
+            this.b = cl6Var;
+            cl6Var.c = e(cl6Var.c);
+            this.a.v1(this.b);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c.U()) {
+            return;
+        }
+        this.c.loadData();
+        br6.a();
+    }
+
+    public final ArrayList<nn> e(ArrayList<nn> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, arrayList)) == null) {
+            ArrayList<nn> arrayList2 = new ArrayList<>();
+            Iterator<nn> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                nn next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
+                        qq4 qq4Var = new qq4();
+                        qq4Var.s = threadData;
+                        qq4Var.position = i;
+                        qq4Var.a = true;
+                        qq4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(qq4Var);
+                        qq4 qq4Var2 = new qq4();
+                        qq4Var2.s = threadData;
+                        qq4Var2.position = i;
+                        if (threadData.picCount() == 1) {
+                            qq4Var2.d = true;
+                            qq4Var2.t = imageWidthAndHeight[0];
+                            qq4Var2.u = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            qq4Var2.e = true;
+                        } else {
+                            qq4Var2.b = true;
+                        }
+                        qq4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(qq4Var2);
+                        qq4 qq4Var3 = new qq4();
+                        qq4Var3.g = true;
+                        qq4Var3.s = threadData;
+                        qq4Var3.position = i;
+                        qq4Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(qq4Var3);
+                        i++;
+                    }
+                    threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                } else {
+                    if (next instanceof BaseCardInfo) {
+                        ((BaseCardInfo) next).position = i;
+                    }
+                    arrayList2.add(next);
+                    i++;
+                }
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void o(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        cl6 cl6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof FrsItemTabSocketResponseMessage)) {
+            cl6Var = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (cl6Var == null || !c(cl6Var)) {
+            this.d = mvcSocketResponsedMessage.getError();
+            this.e = mvcSocketResponsedMessage.getErrorString();
+            b();
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void t(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        cl6 cl6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof FrsItemTabHttpResponseMessage)) {
+            cl6Var = (cl6) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (cl6Var == null || !c(cl6Var)) {
+            this.d = mvcHttpResponsedMessage.getError();
+            this.e = mvcHttpResponsedMessage.getErrorString();
+            b();
+        }
     }
 }

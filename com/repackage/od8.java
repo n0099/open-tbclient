@@ -1,19 +1,26 @@
 package com.repackage;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
+import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
+import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
+import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.xiaomi.mipush.sdk.MiPushClient;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class od8 {
+public class od8 implements ICloudControlRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public od8() {
         Interceptable interceptable = $ic;
@@ -29,19 +36,15 @@ public class od8 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
+    public void registerAllProcessors(DataProcessors dataProcessors) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
-                return;
-            }
-            try {
-                this.a = jSONObject.optString("banner_pic");
-                this.b = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
+            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
+            dataProcessors.addProcessor(UBCCloudControlProcessor.UBC_KEY, new UBCCloudControlProcessor());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, MiPushClient.COMMAND_REGISTER);
+            if (runTask != null) {
+                dataProcessors.addProcessor(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, (ICloudControlProcessor) runTask.getData());
             }
         }
     }

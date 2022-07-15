@@ -1,24 +1,21 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.repackage.te;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class s87 implements q87 {
+public class s87 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
 
     public s87() {
         Interceptable interceptable = $ic;
@@ -30,46 +27,24 @@ public class s87 implements q87 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(3);
-        this.a = hashMap;
-        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
-        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
-        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
     }
 
-    @Override // com.repackage.q87
-    public boolean a(ChatMessage... chatMessageArr) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) ? this.a.containsKey(c(chatMessageArr)) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.q87
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) == null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
-            return;
-        }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f091f01);
-        if (chatMessageArr == null || chatMessageArr.length <= 1) {
-            return;
-        }
-        ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr == null || chatMessageArr.length <= 0 || chatMessageArr[0] == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
                 return null;
             }
-            return chatMessageArr[0].getContent();
+            br4.f();
+            List<te.b<String>> b = ui.b(br4.g("tb.im_group_search_history"));
+            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
+            responseSearchGroupLocalMessage.setCacheList(b);
+            return responseSearchGroupLocalMessage;
         }
-        return (String) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

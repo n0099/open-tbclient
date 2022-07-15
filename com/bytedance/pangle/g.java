@@ -2,20 +2,26 @@ package com.bytedance.pangle;
 
 import android.app.Application;
 import android.content.pm.ProviderInfo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import com.android.server.SystemConfig;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.ZeusParam;
 import com.bytedance.pangle.log.ZeusLogger;
-import com.bytedance.pangle.plugin.PluginManager;
 import com.bytedance.pangle.provider.ContentProviderManager;
+import com.bytedance.pangle.servermanager.MainServerManager;
 import com.bytedance.pangle.util.FieldUtils;
-import java.util.Collections;
+import com.bytedance.pangle.util.MethodUtils;
+import com.bytedance.pangle.util.h;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
@@ -23,8 +29,9 @@ public class g {
     public static volatile g d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public ZeusParam b;
-    public List<ZeusPluginStateListener> c;
+    public final List<ZeusPluginStateListener> b;
+    public final List<ZeusPluginEventCallback> c;
+    public final Handler e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -39,7 +46,9 @@ public class g {
                 return;
             }
         }
-        this.c = Collections.emptyList();
+        this.b = new CopyOnWriteArrayList();
+        this.c = new ArrayList();
+        this.e = new Handler(Looper.getMainLooper());
     }
 
     public static g a() {
@@ -66,12 +75,16 @@ public class g {
             try {
                 for (ProviderInfo providerInfo : Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 8).providers) {
                     if (!TextUtils.isEmpty(providerInfo.authority)) {
-                        if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.a)) {
+                        if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.e)) {
                             if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
                                 str = providerInfo.processName.split(":")[1];
-                                Zeus.getServerManagerHashMap().put(str, providerInfo);
+                                if (Zeus.getServerManagerHashMap().get(str) != null || !TextUtils.equals(str, "main") || !TextUtils.equals(providerInfo.name, MainServerManager.class.getName())) {
+                                    Zeus.getServerManagerHashMap().put(str, providerInfo);
+                                }
                             }
                             str = "main";
+                            if (Zeus.getServerManagerHashMap().get(str) != null) {
+                            }
                             Zeus.getServerManagerHashMap().put(str, providerInfo);
                         }
                     }
@@ -82,23 +95,34 @@ public class g {
         }
     }
 
-    public final synchronized void a(Application application, ZeusParam zeusParam) {
+    private Object[] c() {
+        InterceptResult invokeV;
+        Object[] array;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, application, zeusParam) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            synchronized (this.c) {
+                array = !this.c.isEmpty() ? this.c.toArray() : null;
+            }
+            return array == null ? new Object[0] : array;
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    public final synchronized void a(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
             synchronized (this) {
                 if (this.a) {
                     ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager zeus has been inited!");
-                } else if (application != null) {
-                    if (zeusParam == null) {
-                        zeusParam = new ZeusParam.Builder().build();
-                        ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
-                    }
-                    this.b = zeusParam;
-                    ZeusLogger.setDebug(zeusParam.isDebug());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.b);
-                    if (!this.b.isCloseDefaultReport()) {
-                        com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
-                    }
+                    return;
+                }
+                a(3000, 0, null, -1, null);
+                Zeus.setAppContext(application);
+                GlobalParam globalParam = GlobalParam.getInstance();
+                globalParam.init();
+                if (application != null) {
+                    ZeusLogger.setDebug(globalParam.isDebug());
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + globalParam);
                     com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
                     com.bytedance.pangle.b.a aVar = new com.bytedance.pangle.b.a(this) { // from class: com.bytedance.pangle.g.1
                         public static /* synthetic */ Interceptable $ic;
@@ -127,74 +151,120 @@ public class g {
                         public final void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, str, jSONObject, jSONObject2, jSONObject3) == null) {
-                                com.bytedance.pangle.log.d.a(str, jSONObject, jSONObject2, jSONObject3);
+                                com.bytedance.pangle.log.c.a(str, jSONObject, jSONObject2, jSONObject3);
                             }
                         }
                     };
                     synchronized (a.a) {
                         a.a.add(aVar);
                     }
-                    if (this.b.isEnable()) {
-                        b.a();
-                        if (com.bytedance.pangle.util.g.e()) {
-                            com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ g a;
+                    b.a();
+                    if (Build.VERSION.SDK_INT == 29) {
+                        com.bytedance.pangle.c.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ g a;
 
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.a = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public final void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        try {
-                                            SystemConfig.getInstance();
-                                        } catch (Throwable unused) {
-                                        }
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
                                     }
                                 }
-                            });
-                        }
-                        if (com.bytedance.pangle.util.g.d()) {
-                            try {
-                                FieldUtils.writeField(com.bytedance.pangle.helper.a.a(), "mHiddenApiWarningShown", Boolean.TRUE);
-                                ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager disableApiWarningShownForAndroidP, true");
-                            } catch (Exception e) {
-                                ZeusLogger.e(ZeusLogger.TAG_INIT, "disableApiWarningShownForAndroidP failed", e);
+                                this.a = this;
                             }
-                        }
-                        b();
-                        ContentProviderManager.getInstance().initSystemContentProviderInfo();
-                        if (com.bytedance.pangle.helper.c.b(application)) {
-                            if (this.b.autoFetch()) {
-                                com.bytedance.pangle.download.f.a();
-                                com.bytedance.pangle.download.f.b();
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    try {
+                                        MethodUtils.invokeStaticMethod(Class.forName("com.android.server.SystemConfig"), "getInstance", new Object[0]);
+                                    } catch (Throwable unused) {
+                                    }
+                                }
                             }
-                            PluginManager.getInstance().installFromDownloadDir();
-                        }
-                        com.bytedance.pangle.receiver.b.a(application);
+                        });
                     }
+                    if (h.d()) {
+                        try {
+                            FieldUtils.writeField(com.bytedance.pangle.c.a.a(), "mHiddenApiWarningShown", Boolean.TRUE);
+                            ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager disableApiWarningShownForAndroidP, true");
+                        } catch (Exception e) {
+                            ZeusLogger.e(ZeusLogger.TAG_INIT, "disableApiWarningShownForAndroidP failed", e);
+                        }
+                    }
+                    b();
+                    ContentProviderManager.getInstance().initSystemContentProviderInfo();
+                    com.bytedance.pangle.receiver.b.a(application);
                     this.a = true;
-                } else {
-                    throw new IllegalArgumentException("context must be not null !!!");
+                    a(3100, 0, null, -1, null);
+                    return;
                 }
+                throw new IllegalArgumentException("context must be not null !!!");
+            }
+        }
+    }
+
+    public final void a(int i, int i2, @Nullable String str, int i3, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th}) == null) {
+            for (Object obj : c()) {
+                this.e.post(new Runnable(this, obj, i, i2, str, i3, th) { // from class: com.bytedance.pangle.g.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Object a;
+                    public final /* synthetic */ int b;
+                    public final /* synthetic */ int c;
+                    public final /* synthetic */ String d;
+                    public final /* synthetic */ int e;
+                    public final /* synthetic */ Throwable f;
+                    public final /* synthetic */ g g;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, obj, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.g = this;
+                        this.a = obj;
+                        this.b = i;
+                        this.c = i2;
+                        this.d = str;
+                        this.e = i3;
+                        this.f = th;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                ((ZeusPluginEventCallback) this.a).onPluginEvent(this.b, this.c, this.d, this.e, this.f);
+                            } catch (Throwable unused) {
+                            }
+                        }
+                    }
+                });
             }
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.x;
+import com.kuaishou.weapon.p0.C0400;
 /* loaded from: classes.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
@@ -19,20 +19,20 @@ public class i {
     public static long a(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(x.y, 0).getLong(str, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(C0400.f426, 0).getLong(str, j) : invokeCommon.longValue;
     }
 
     public static String a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? context.getSharedPreferences(x.y, 0).getString(str, "") : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? context.getSharedPreferences(C0400.f426, 0).getString(str, "") : (String) invokeLL.objValue;
     }
 
     public static void a(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(C0400.f426, 0).edit();
                 edit.putInt(str, i);
                 edit.commit();
             } catch (Exception e) {
@@ -77,7 +77,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(C0400.f426, 0).edit();
                 edit.putString(str, str2);
                 edit.commit();
                 return true;
@@ -92,20 +92,20 @@ public class i {
     public static int b(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, context, str, i)) == null) ? context.getSharedPreferences(x.y, 0).getInt(str, i) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, context, str, i)) == null) ? context.getSharedPreferences(C0400.f426, 0).getInt(str, i) : invokeLLI.intValue;
     }
 
     public static long b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? context.getSharedPreferences(x.y, 0).getLong(str, 0L) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? context.getSharedPreferences(C0400.f426, 0).getLong(str, 0L) : invokeLL.longValue;
     }
 
     public static void b(Context context, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(C0400.f426, 0).edit();
                 edit.putLong(str, j);
                 edit.commit();
             } catch (Exception e) {
@@ -118,7 +118,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, context, str, str2) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(C0400.f426, 0).edit();
                 edit.putString(str, str2);
                 edit.apply();
             } catch (Exception e) {

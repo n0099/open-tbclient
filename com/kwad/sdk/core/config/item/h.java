@@ -1,71 +1,65 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import android.text.TextUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class h extends b<a> {
+public final class h extends b<a> {
 
+    @KsJson
     /* loaded from: classes5.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a {
-        public String a = "";
-        public String b = "";
+    public static class a extends com.kwad.sdk.core.response.kwai.a {
+        public int a = TiebaStatic.MAX_COST_VALUE;
+        public int b = 90000;
     }
 
-    public h() {
-        super("idMapping", new a());
+    public h(String str) {
+        super(str, new a());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(SharedPreferences.Editor editor) {
-        String b;
+    public final void a(SharedPreferences.Editor editor) {
+        String a2;
         String str;
-        if (a() == null || a().toJson() == null) {
-            b = b();
+        if (b() == null || b().toJson() == null) {
+            a2 = a();
             str = "";
         } else {
-            b = b();
-            str = a().toJson().toString();
+            a2 = a();
+            str = b().toJson().toString();
         }
-        editor.putString(b, str);
+        editor.putString(a2, str);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(SharedPreferences sharedPreferences) {
-        a a2 = a();
-        if (a2 == null) {
-            a2 = new a();
+    public final void a(SharedPreferences sharedPreferences) {
+        a b = b();
+        if (b == null) {
+            b = new a();
         }
-        String string = sharedPreferences.getString(b(), "");
-        if (!TextUtils.isEmpty(string)) {
-            try {
-                a2.parseJson(new JSONObject(string));
-            } catch (JSONException e) {
-                com.kwad.sdk.core.d.a.b(e);
-            }
+        JSONObject jSONObject = null;
+        try {
+            jSONObject = new JSONObject(sharedPreferences.getString(a(), ""));
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.b.b(e);
         }
-        a((h) a2);
+        if (jSONObject != null) {
+            b.parseJson(jSONObject);
+        }
+        a((h) b);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject = jSONObject.optJSONObject(b());
-        if (optJSONObject == null) {
+    public final void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
+            a((h) c());
             return;
         }
         a aVar = new a();
         aVar.parseJson(optJSONObject);
         a((h) aVar);
-    }
-
-    public String d() {
-        a a2 = a();
-        return (a2 == null || TextUtils.isEmpty(a2.a)) ? "" : a2.a;
-    }
-
-    public String e() {
-        a a2 = a();
-        return (a2 == null || TextUtils.isEmpty(a2.b)) ? "" : a2.b;
     }
 }

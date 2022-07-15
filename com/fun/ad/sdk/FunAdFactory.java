@@ -10,9 +10,6 @@ public interface FunAdFactory {
 
     List<CacheStatistic> getCacheStatistics(String str);
 
-    @Deprecated
-    FunNativeAd getNativeAd(Context context, String str);
-
     FunNativeAd2 getNativeAd2(Context context, String str);
 
     boolean isAdReady(String str);
@@ -20,8 +17,6 @@ public interface FunAdFactory {
     void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
 
     void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener);
-
-    void showAd(Activity activity, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater);
 
     FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener);
 }

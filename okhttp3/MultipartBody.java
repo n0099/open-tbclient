@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -259,7 +260,7 @@ public final class MultipartBody extends RequestBody {
         PARALLEL = MediaType.get("multipart/parallel");
         FORM = MediaType.get(IMAudioTransRequest.CONTENT_TYPE);
         COLONSPACE = new byte[]{58, 32};
-        CRLF = new byte[]{13, 10};
+        CRLF = new byte[]{StrictLineReader.CR, 10};
         DASHDASH = new byte[]{45, 45};
     }
 

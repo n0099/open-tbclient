@@ -58,9 +58,9 @@ public final class c {
         c = cVar2;
         c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
         d = cVar3;
-        c cVar4 = new c("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        c cVar4 = new c("VIVO", 3, 2, "vivo");
         e = cVar4;
-        c cVar5 = new c("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        c cVar5 = new c("OPPO", 4, 3, "oppo");
         f = cVar5;
         c cVar6 = new c("MOTO", 5, 4, "motorola");
         g = cVar6;
@@ -68,7 +68,7 @@ public final class c {
         h = cVar7;
         c cVar8 = new c("ASUS", 7, 6, "asus");
         i = cVar8;
-        c cVar9 = new c(com.kuaishou.weapon.un.g.j, 8, 7, ManufacturerUtils.SAMSUNG);
+        c cVar9 = new c("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
         j = cVar9;
         c cVar10 = new c("MEIZU", 9, 8, "meizu");
         k = cVar10;
@@ -76,7 +76,7 @@ public final class c {
         l = cVar11;
         c cVar12 = new c("ZTE", 11, 11, "ZTE");
         m = cVar12;
-        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.i);
+        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, "OnePlus");
         n = cVar13;
         c cVar14 = new c("BLACKSHARK", 13, 13, "blackshark");
         o = cVar14;

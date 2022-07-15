@@ -1,166 +1,133 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cesium.i.i;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.codec.digest4util.XXHash32;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class cz {
+public final class cz extends bz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public final byte[] b;
-    public final int c;
-    public int d;
-    public int e;
+    public b d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cz() {
-        this(0);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Class<?> a;
+        public Method b;
+        public Method c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            d();
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public final long b(Object obj) throws i.a {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                try {
+                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
+                } catch (Exception unused) {
+                    throw new i.a("");
+                }
+            }
+            return invokeL.longValue;
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a = Class.forName(com.baidu.cesium.i.i.a(zy.b()), true, Object.class.getClassLoader());
+                    this.b = com.baidu.cesium.i.i.b(this.a, com.baidu.cesium.i.i.a(zy.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.c = com.baidu.cesium.i.i.b(this.a, com.baidu.cesium.i.i.a(zy.c()), null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public final void f(Object obj, byte[] bArr, int i, int i2) throws i.a {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
+                try {
+                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
+                } catch (Exception unused) {
+                    throw new i.a("");
+                }
+            }
+        }
+
+        public final Object g() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
+        }
+    }
+
+    public cz(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
+        this.d = new b(null);
     }
 
-    public cz(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new int[4];
-        this.b = new byte[16];
-        this.c = i;
-        e();
-    }
-
-    public static int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) ? (int) (d(bArr, i, 4) & 4294967295L) : invokeLI.intValue;
-    }
-
-    public static long d(byte[] bArr, int i, int i2) {
+    @Override // com.repackage.bz
+    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
+        long j;
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
-            if (i2 <= 8) {
-                long j = 0;
-                for (int i3 = 0; i3 < i2; i3++) {
-                    j |= (bArr[i + i3] & 255) << (i3 * 8);
-                }
-                return j;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            try {
+                Object g = this.d.g();
+                this.d.f(g, bArr, i, i2);
+                j = this.d.b(g);
+            } catch (Exception unused) {
+                j = 4294967295L;
             }
-            throw new IllegalArgumentException("can't read more than eight bytes into a long value");
+            return com.baidu.cesium.i.b.a(new long[]{j});
         }
-        return invokeLII.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = 0;
-            int rotateLeft = (this.d > 16 ? Integer.rotateLeft(this.a[0], 1) + Integer.rotateLeft(this.a[1], 7) + Integer.rotateLeft(this.a[2], 12) + Integer.rotateLeft(this.a[3], 18) : this.a[2] + XXHash32.PRIME5) + this.d;
-            int i2 = this.e - 4;
-            while (i <= i2) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.b, i) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
-                i += 4;
-            }
-            while (i < this.e) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.b[i] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
-                i++;
-            }
-            int i3 = (rotateLeft ^ (rotateLeft >>> 15)) * XXHash32.PRIME2;
-            int i4 = (i3 ^ (i3 >>> 13)) * XXHash32.PRIME3;
-            return (i4 ^ (i4 >>> 16)) & 4294967295L;
-        }
-        return invokeV.longValue;
-    }
-
-    public void c(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || i2 <= 0) {
-            return;
-        }
-        this.d += i2;
-        int i3 = i + i2;
-        int i4 = this.e;
-        if (i4 + i2 < 16) {
-            System.arraycopy(bArr, i, this.b, i4, i2);
-            this.e += i2;
-            return;
-        }
-        if (i4 > 0) {
-            int i5 = 16 - i4;
-            System.arraycopy(bArr, i, this.b, i4, i5);
-            f(this.b, 0);
-            i += i5;
-        }
-        int i6 = i3 - 16;
-        while (i <= i6) {
-            f(bArr, i);
-            i += 16;
-        }
-        if (i < i3) {
-            int i7 = i3 - i;
-            this.e = i7;
-            System.arraycopy(bArr, i, this.b, 0, i7);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int[] iArr = this.a;
-            int i = this.c;
-            iArr[0] = i + XXHash32.PRIME1 + XXHash32.PRIME2;
-            iArr[1] = XXHash32.PRIME2 + i;
-            iArr[2] = i;
-            iArr[3] = i - XXHash32.PRIME1;
-        }
-    }
-
-    public final void f(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, bArr, i) == null) {
-            int[] iArr = this.a;
-            int i2 = iArr[0];
-            int i3 = iArr[1];
-            int i4 = iArr[2];
-            int i5 = iArr[3];
-            int rotateLeft = Integer.rotateLeft(i2 + (a(bArr, i) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int rotateLeft2 = Integer.rotateLeft(i3 + (a(bArr, i + 4) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int rotateLeft3 = Integer.rotateLeft(i4 + (a(bArr, i + 8) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int rotateLeft4 = Integer.rotateLeft(i5 + (a(bArr, i + 12) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int[] iArr2 = this.a;
-            iArr2[0] = rotateLeft;
-            iArr2[1] = rotateLeft2;
-            iArr2[2] = rotateLeft3;
-            iArr2[3] = rotateLeft4;
-            this.e = 0;
-        }
+        return (com.baidu.cesium.i.b) invokeLII.objValue;
     }
 }

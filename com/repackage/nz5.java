@@ -1,233 +1,147 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class nz5 {
+public class nz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
-    public static final nz5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final oz5 a;
-    public boolean b;
+    public String a;
+    public long b;
     public int c;
-    public CacheManager d;
-    public int e;
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final nz5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nz5.g : (nz5) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755452184, "Lcom/repackage/nz5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755452184, "Lcom/repackage/nz5;");
-                return;
-            }
-        }
-        f = new a(null);
-        g = new nz5();
-    }
+    public long d;
+    public long e;
+    public String f;
+    public long g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public int m;
+    public double n;
 
     public nz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new oz5();
-    }
-
-    public final nz5 b(int i, int i2, int i3, boolean z, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
-            synchronized (this) {
-                this.a.a(i, i2, i3, z, i4);
-                this.e = h(this.a.c());
-            }
-            return this;
-        }
-        return (nz5) invokeCommon.objValue;
-    }
-
-    public final void d() {
-        CacheManager i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                int i2 = this.c - 1;
-                this.c = i2;
-                if (i2 <= 0 && this.b && (i = i()) != null) {
-                    i.l(this);
-                }
-                Unit unit = Unit.INSTANCE;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c <= 0) {
-                    n();
-                } else {
-                    this.b = true;
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.a.b();
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final oz5 g() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            oz5 oz5Var = this.a;
-            if ((Intrinsics.areEqual(oz5Var.c(), z06.b()) || oz5Var.c().isRecycled()) ? false : true) {
-                return oz5Var;
-            }
-            return null;
-        }
-        return (oz5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final int h(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
-            if (bitmap == null) {
-                return 0;
-            }
-            if (Build.VERSION.SDK_INT >= 19) {
-                return bitmap.getAllocationByteCount();
-            }
-            return bitmap.getRowBytes() * bitmap.getHeight();
-        }
-        return invokeL.intValue;
-    }
-
-    public final CacheManager i() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (CacheManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (String) invokeV.objValue;
     }
 
-    public final int j() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.e() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
     }
 
-    public final int k() {
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
     }
 
-    public final int l() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.f() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : invokeV.intValue;
     }
 
-    public final void m() {
+    public long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.c++;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
     }
 
-    public final void n() {
+    public long g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
-                    BdLog.e(Intrinsics.stringPlus("DanmakuEngineDrawingCache recycle called must on cache thread but now on ", Thread.currentThread().getName()));
-                }
-                if (this.c > 0) {
-                    return;
-                }
-                this.b = false;
-                this.a.g();
-                this.e = 0;
-                Unit unit = Unit.INSTANCE;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.longValue;
     }
 
-    public final void o(CacheManager cacheManager) {
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cacheManager) == null) {
-            this.d = cacheManager;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public double i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.n : invokeV.doubleValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? StringUtils.isNull(this.l) ? this.k : this.l : (String) invokeV.objValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        this.a = jSONObject.optString("order_id");
+        jSONObject.optLong(MemberPayActivityConfig.SCENE_ID);
+        this.b = jSONObject.optLong("scores");
+        this.c = jSONObject.optInt("status");
+        this.d = jSONObject.optLong("create_time");
+        this.e = jSONObject.optLong("finish_time");
+        this.f = jSONObject.optString("title");
+        this.g = jSONObject.optLong("money");
+        jSONObject.optString("preg_field");
+        this.k = jSONObject.optString("user_name");
+        this.l = jSONObject.optString("user_nickname");
+        this.h = jSONObject.optString("activity_desc");
+        this.i = jSONObject.optString("activity_url");
+        this.j = jSONObject.optString("button_name");
+        this.m = jSONObject.optInt("price_type", 0);
+        this.n = jSONObject.optDouble("order_yy_amount", 0.0d);
+        jSONObject.optDouble("order_amount", 0.0d);
     }
 }

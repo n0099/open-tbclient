@@ -161,7 +161,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b, R.attr.obfuscated_res_0x7f0406b7}, i, obfuscated_res_0x7f10035b, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b, R.attr.obfuscated_res_0x7f0406b8}, i, obfuscated_res_0x7f10035b, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
             CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }

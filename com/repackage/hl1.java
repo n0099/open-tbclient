@@ -1,7 +1,7 @@
 package com.repackage;
 
-import com.baidu.searchbox.widget.SlideInterceptor;
+import android.os.Message;
 /* loaded from: classes6.dex */
-public interface hl1 extends SlideInterceptor {
-    double C();
+public interface hl1 {
+    boolean a(Message message);
 }

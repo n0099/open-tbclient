@@ -423,7 +423,7 @@ public class PopupWindow {
             int i = this.K;
             if (i == -1) {
                 if (this.d) {
-                    return this.G ? R.style.obfuscated_res_0x7f100163 : R.style.obfuscated_res_0x7f100162;
+                    return this.G ? R.style.obfuscated_res_0x7f100164 : R.style.obfuscated_res_0x7f100163;
                 }
                 return 0;
             }
@@ -820,7 +820,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404de, R.attr.obfuscated_res_0x7f0404df}, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404e2, R.attr.obfuscated_res_0x7f0404e3}, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

@@ -34,13 +34,13 @@ public class a {
         this.b = new HashMap<>();
     }
 
-    private void a(LinkedList<c> linkedList, b bVar) {
+    public static void a(LinkedList<c> linkedList, b bVar) {
         Object[] array;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, linkedList, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, linkedList, bVar) == null) {
             for (Object obj : linkedList.toArray()) {
-                if (obj != null && ((c) obj).a(bVar)) {
-                    break;
+                if (obj != null) {
+                    ((c) obj).a(bVar);
                 }
             }
             Runnable runnable = bVar.a;
@@ -50,7 +50,7 @@ public class a {
         }
     }
 
-    public boolean a(b bVar) {
+    public final boolean a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
@@ -79,7 +79,7 @@ public class a {
         return invokeL.booleanValue;
     }
 
-    public boolean a(String str, c cVar) {
+    public final boolean a(String str, c cVar) {
         InterceptResult invokeLL;
         boolean add;
         Interceptable interceptable = $ic;
@@ -110,14 +110,11 @@ public class a {
         return invokeLL.booleanValue;
     }
 
-    public void b(b bVar) {
+    public final void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             if (d.a) {
                 d.e(this, "asyncPublishInNewThread %s", bVar.b());
-            }
-            if (bVar == null) {
-                throw new IllegalArgumentException("event must not be null!");
             }
             this.a.execute(new Runnable(this, bVar) { // from class: com.kwai.filedownloader.event.a.1
                 public static /* synthetic */ Interceptable $ic;
@@ -145,7 +142,7 @@ public class a {
                 }
 
                 @Override // java.lang.Runnable
-                public void run() {
+                public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {

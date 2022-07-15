@@ -29,7 +29,7 @@ public final class k {
         public final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final boolean f809a;
+        public final boolean f1536a;
 
         public a(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public final class k {
                 }
             }
             this.a = str;
-            this.f809a = z;
+            this.f1536a = z;
         }
 
         public String a() {
@@ -64,7 +64,7 @@ public final class k {
         public final LinkedBlockingQueue<IBinder> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f810a;
+        public boolean f1537a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public final class k {
                     return;
                 }
             }
-            this.f810a = false;
+            this.f1537a = false;
             this.a = new LinkedBlockingQueue<>(1);
         }
 
@@ -91,10 +91,10 @@ public final class k {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f810a) {
+                if (this.f1537a) {
                     throw new IllegalStateException();
                 }
-                this.f810a = true;
+                this.f1537a = true;
                 return this.a.poll(30000L, TimeUnit.MILLISECONDS);
             }
             return (IBinder) invokeV.objValue;

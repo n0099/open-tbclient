@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.va6;
-import com.repackage.wa6;
+import com.repackage.sb6;
+import com.repackage.tb6;
 /* loaded from: classes3.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public va6 a;
+    public sb6 a;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    public va6 A1() {
+    public sb6 A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (va6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (sb6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            wa6 wa6Var = this.a.d;
-            if (wa6Var != null) {
-                wa6Var.a(i);
+            tb6 tb6Var = this.a.d;
+            if (tb6Var != null) {
+                tb6Var.a(i);
             }
         }
     }
@@ -60,18 +60,11 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            va6 va6Var = new va6(this, getPageContext());
-            this.a = va6Var;
-            va6Var.k(getIntent());
+            sb6 sb6Var = new sb6(this, getPageContext());
+            this.a = sb6Var;
+            sb6Var.k(getIntent());
+            setContentView(this.a.d.e());
             this.a.m();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onResume();
         }
     }
 }

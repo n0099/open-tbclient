@@ -1,17 +1,15 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.List;
+/* loaded from: classes6.dex */
 public class ep4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
 
     public ep4() {
         Interceptable interceptable = $ic;
@@ -24,6 +22,12 @@ public class ep4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void a(List<HotTopicBussinessData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
         }
     }
 }

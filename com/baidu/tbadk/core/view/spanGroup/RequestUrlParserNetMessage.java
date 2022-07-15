@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.UrlParser.DataReq;
 import tbclient.UrlParser.UrlParserReqIdl;
 /* loaded from: classes3.dex */
@@ -49,7 +49,7 @@ public class RequestUrlParserNetMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.mForumId);
             builder.url = this.mUrl;
             builder.link_num = Integer.valueOf(this.mLinkNum);
-            qc5.a(builder, true);
+            td5.a(builder, true);
             UrlParserReqIdl.Builder builder2 = new UrlParserReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

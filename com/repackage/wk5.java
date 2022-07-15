@@ -1,40 +1,60 @@
 package com.repackage;
 
+import android.os.Build;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.browser.core.async.BdRunnable;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
+import com.baidubce.AbstractBceClient;
+import java.io.IOException;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wk5 extends ob1<gh0> {
+public class wk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
     /* loaded from: classes7.dex */
-    public class a implements gh0 {
+    public class a extends BdRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wk5 c;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ wk5 e;
 
         /* renamed from: com.repackage.wk5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0559a implements hh0 {
+        public class C0757a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a f;
+            public final /* synthetic */ JSONObject c;
+            public final /* synthetic */ a d;
 
-            public C0559a(a aVar) {
+            public C0757a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {aVar, jSONObject};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -44,153 +64,25 @@ public class wk5 extends ob1<gh0> {
                         return;
                     }
                 }
-                this.f = aVar;
+                this.d = aVar;
+                this.c = jSONObject;
             }
 
-            @Override // com.repackage.hh0
-            public String a() {
-                InterceptResult invokeV;
+            @Override // com.baidu.browser.core.async.BdRunnable
+            public void b() {
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? xk5.h().a() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String b() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? xk5.h().d() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String c() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? xk5.h().l() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String d() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? xk5.h().o() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String e() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? xk5.h().f() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String g() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? xk5.h().b() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String h() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.c.c() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String i() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? xk5.h().n() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String j() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? xk5.h().j() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String k() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "tieba" : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String l() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "2" : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String m() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? xk5.h().p() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            @NonNull
-            public String o() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? xk5.h().e() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String p() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? xk5.h().g() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String packageName() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? xk5.h().m() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String q() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? xk5.h().c() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String t() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? xk5.h().i() : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public String u() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "Tieba" : (String) invokeV.objValue;
-            }
-
-            @Override // com.repackage.hh0
-            public boolean v() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                    return true;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.d.e.a.a(this.c);
                 }
-                return invokeV.booleanValue;
             }
         }
 
-        public a(wk5 wk5Var) {
+        public a(wk5 wk5Var, Map map, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wk5Var};
+                Object[] objArr = {wk5Var, map, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -200,72 +92,134 @@ public class wk5 extends ob1<gh0> {
                     return;
                 }
             }
-            this.c = wk5Var;
+            this.e = wk5Var;
+            this.c = map;
+            this.d = str;
         }
 
-        @Override // com.repackage.gh0
-        @NonNull
-        public hh0 a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.browser.core.async.BdRunnable
+        public void b() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0559a(this) : (hh0) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    this.e.d(this.c);
+                    this.e.f(this.c, jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                OkHttpClient okHttpClient = new OkHttpClient();
+                RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
+                Response response = null;
+                try {
+                    response = okHttpClient.newCall(new Request.Builder().url(this.d).post(create).build()).execute();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                try {
+                    zv.f().h(new C0757a(this, new JSONObject(response.body().string())));
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                } catch (JSONException e4) {
+                    e4.printStackTrace();
+                }
+            }
         }
     }
 
-    public wk5() {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755198480, "Lcom/repackage/wk5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755198480, "Lcom/repackage/wk5;");
+                return;
+            }
+        }
+        b = tm4.e() ? "http://" : "https://";
+        c = b + "afdconf.baidu.com/afd/download";
+    }
+
+    public wk5(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ob1
-    /* renamed from: b */
-    public gh0 createService() throws ServiceNotFoundException {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (gh0) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        byte[] b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = "";
-            String q = ht4.k().q("key_last_cached_real_oid", "");
-            if (StringUtils.isNull(q)) {
-                String k = xk5.h().k();
-                if (StringUtils.isNull(k)) {
-                    return "";
-                }
-                String[] split = k.split("-");
-                if (split != null && split.length > 1) {
-                    String str2 = split[1];
-                    if (StringUtils.isNull(str2) || (b = new v30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
-                        return "";
-                    }
-                    try {
-                        str = new String(b, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                    if (!StringUtils.isNull(str)) {
-                        ht4.k().y("key_last_cached_real_oid", str);
-                    }
-                }
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (ni.H()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
             }
-            return q;
+            return UtilHelper.getGprsIpAddress();
         }
         return (String) invokeV.objValue;
+    }
+
+    public final Map<String, String> d(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            map.put("_client_version", TbConfig.getVersion());
+            map.put("uid", TbadkCoreApplication.getCurrentAccount());
+            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            map.put("ua", se5.b());
+            map.put("model", Build.MODEL);
+            map.put(HttpRequest.CLIENT_TYPE, "2");
+            map.put("_os_version", Build.VERSION.RELEASE);
+            map.put("nt", String.valueOf(ni.I()));
+            map.put("imei", TbadkCoreApplication.getInst().getImei());
+            map.put(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
+            map.put("ip", e());
+            map.put("ssl", "1");
+            return map;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final JSONObject f(Map<String, String> map, JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
+            if (gd7.f(map)) {
+                return jSONObject;
+            }
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.putOpt(entry.getKey(), entry.getValue());
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public void g(Map<String, String> map, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
+            zv.f().g(new a(this, map, str));
+        }
     }
 }

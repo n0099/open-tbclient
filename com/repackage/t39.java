@@ -1,52 +1,63 @@
 package com.repackage;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public final class t39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public t39() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            char[] charArray = str.toCharArray();
-            StringBuilder sb = new StringBuilder();
-            for (char c : charArray) {
-                String binaryString = Integer.toBinaryString(c);
-                while (binaryString.length() < 8) {
-                    binaryString = "0" + binaryString;
-                }
-                sb.append(binaryString);
-            }
-            while (sb.length() % 6 != 0) {
-                sb.append("0");
-            }
-            String valueOf = String.valueOf(sb);
-            int length = valueOf.length() / 6;
-            char[] cArr = new char[length];
-            for (int i = 0; i < length; i++) {
-                int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                valueOf = valueOf.substring(6);
-                cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-            }
-            StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-            if (str.length() % 3 == 1) {
-                sb2.append("==");
-            } else if (str.length() % 3 == 2) {
-                sb2.append("=");
-            }
-            for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                sb2.insert(i2, "\r\n");
-            }
-            sb2.append("\r\n");
-            return String.valueOf(sb2);
         }
-        return (String) invokeL.objValue;
+        this.a = s39.a().c();
+    }
+
+    public final List<com.baidu.ubs.analytics.a.i> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
+                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
+                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
+                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
+                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(iVar);
+            }
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        }
     }
 }

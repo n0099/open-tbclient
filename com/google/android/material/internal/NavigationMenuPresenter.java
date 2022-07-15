@@ -907,7 +907,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         if (interceptable == null || interceptable.invokeLL(1048593, this, context, menuBuilder) == null) {
             this.layoutInflater = LayoutInflater.from(context);
             this.menu = menuBuilder;
-            this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070216);
+            this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070214);
         }
     }
 

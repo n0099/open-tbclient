@@ -1,26 +1,33 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
+import java.lang.reflect.InvocationTargetException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
 /* loaded from: classes5.dex */
-public class a70 {
+public abstract class a70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-    public Boolean b;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
+    public Context a;
+    public b70 b;
 
-    public a70() {
+    public a70(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,11 +37,23 @@ public class a70 {
                 return;
             }
         }
-        Boolean bool = Boolean.FALSE;
-        this.a = bool;
-        this.b = bool;
-        this.c = null;
-        this.d = null;
-        this.e = null;
+        this.b = null;
+        this.a = context;
     }
+
+    public b70 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (b70) invokeV.objValue;
+    }
+
+    public abstract InputStream b() throws Exception;
+
+    public abstract void c(b70 b70Var);
+
+    public abstract boolean d() throws IOException;
+
+    public abstract b70 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
+
+    public abstract void f(z60 z60Var) throws IOException;
 }

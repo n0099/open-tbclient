@@ -2,243 +2,733 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.business.model.data.LiveTabEntity;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tieba.R;
+import com.baidu.live.business.model.data.LeftLableInfo;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveStatInfo;
+import com.baidu.live.business.model.data.RightLableInfo;
+import com.baidu.live.business.model.data.ThirdLabelInfo;
+import com.baidu.live.business.util.NetWorkUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.ubc.Flow;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class e80 {
     public static /* synthetic */ Interceptable $ic;
+    public static final UBCManager a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
-    public String c;
-    public b d;
-    public Context e;
 
-    /* loaded from: classes5.dex */
-    public class a implements aa0<i80> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ e80 c;
-
-        public a(e80 e80Var, String str, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755783884, "Lcom/repackage/e80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e80Var, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = e80Var;
-            this.a = str;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't wrap try/catch for region: R(13:3|(2:5|(1:45)(1:8))(1:46)|9|(1:11)(1:44)|12|(3:14|(9:38|39|40|18|(2:(1:36)(1:27)|28)(1:37)|29|30|31|32)|16)(1:43)|17|18|(0)(0)|29|30|31|32) */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x00c9  */
-        /* JADX WARN: Removed duplicated region for block: B:37:0x00e1  */
-        @Override // com.repackage.aa0
-        /* renamed from: b */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(NetResponse netResponse, i80 i80Var, Map<String, String> map, List<String> list) {
-            String str;
-            String str2;
-            int i;
-            String str3;
-            String str4;
-            String str5;
-            String str6;
-            long j;
-            String str7;
-            m80 m80Var;
-            List<LiveTabEntity> list2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse, i80Var, map, list) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                String str8 = "";
-                if (netResponse == null) {
-                    String string = this.c.e.getResources().getString(R.string.obfuscated_res_0x7f0f0a03);
-                    this.c.d.b(-100, string, map);
-                    str = "";
-                    str2 = string;
-                    i = -100;
-                } else if (!netResponse.isSuccessful() || i80Var == null) {
-                    this.c.d.b(netResponse.netErrorCode, netResponse.exception, map);
-                    int i2 = netResponse.netErrorCode;
-                    str2 = netResponse.exception;
-                    str = "";
-                    i = i2;
-                } else {
-                    this.c.d.a(i80Var, map);
-                    t80.a(list);
-                    i = i80Var.a;
-                    str2 = i80Var.b;
-                    str = i80Var.c;
-                }
-                String str9 = this.c.b ? "chenjinshi" : "zhibopindao";
-                if (map != null) {
-                    String str10 = map.get("tab");
-                    String str11 = map.get("subtab");
-                    str4 = map.get("resource");
-                    String str12 = map.get("session_id");
-                    if (map.containsKey(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY)) {
-                        try {
-                            j = currentTimeMillis - Long.parseLong(map.get(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY));
-                            str3 = str10;
-                            str5 = str11;
-                            str6 = str12;
-                        } catch (NumberFormatException unused) {
-                        }
-                        if (str4.contains("tab")) {
-                            str7 = "";
-                        } else {
-                            str7 = (i80Var == null || (m80Var = i80Var.g) == null || (list2 = m80Var.c) == null || list2.isEmpty()) ? "1" : "0";
-                        }
-                        str8 = URLEncoder.encode(str4, "UTF-8");
-                        d80.r(this.c.e, this.c.a, str9, j, i, str2, str, str8, str3, str5, str6, str7);
-                    }
-                    str3 = str10;
-                    str5 = str11;
-                    str6 = str12;
-                } else {
-                    str3 = "";
-                    str4 = str3;
-                    str5 = str4;
-                    str6 = str5;
-                }
-                j = 0;
-                if (str4.contains("tab")) {
-                }
-                str8 = URLEncoder.encode(str4, "UTF-8");
-                d80.r(this.c.e, this.c.a, str9, j, i, str2, str, str8, str3, str5, str6, str7);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.aa0
-        /* renamed from: c */
-        public i80 onParseResponseInBackground(NetResponse netResponse) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, netResponse)) == null) {
-                i80 i80Var = new i80();
-                if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
-                    try {
-                        i80Var.c(new JSONObject(netResponse.decodedResponseStr), this.a, this.b);
-                    } catch (JSONException e) {
-                        LiveFeedPageSdk.m(e.getMessage());
-                        if (TextUtils.equals("banner,tab,feed,follow,config", this.a)) {
-                            i80Var.a("banner,tab,feed,follow,config", -101, e.getMessage());
-                        }
-                    }
-                }
-                return i80Var;
-            }
-            return (i80) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(i80 i80Var, Map<String, String> map);
-
-        void b(int i, String str, Map<String, String> map);
-    }
-
-    public e80(Context context, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755783884, "Lcom/repackage/e80;");
                 return;
             }
         }
-        this.e = context;
-        this.a = str;
-        this.b = z;
-        this.c = z ? "immer" : "tab";
+        a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     }
 
-    public final void e(String str, String str2, int i, String str3, String str4, String str5, int i2, String str6, List<String> list) {
+    public static void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5, Integer.valueOf(i2), str6, list}) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("resource", str);
-            hashMap.put("scene", this.c);
-            if (str2 == null) {
-                str2 = "";
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+            jSONObject.put("page", "main_page");
+            if (ta0.a(str)) {
+                return;
             }
-            hashMap.put("session_id", str2);
-            hashMap.put("refresh_type", String.valueOf(i));
-            hashMap.put("tab", str3);
-            hashMap.put("channel_id", str4);
-            hashMap.put("subtab", str5);
-            hashMap.put("upload_ids", str6);
-            hashMap.put("refresh_index", String.valueOf(i2));
-            hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, System.currentTimeMillis() + "");
-            ba0.f("https://tiebac.baidu.com/livefeed/feed", hashMap, new a(this, str, i), 0, 0, null, list);
+            jSONObject.put("source", str);
+        } catch (JSONException e) {
+            LiveFeedPageSdk.m(e.getMessage());
         }
     }
 
-    public void f() {
+    public static void b(Context context, String str, JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e(PersonListActivityConfig.FOLLOW, "", 0, "", "", "", 1, "", null);
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, str, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.put("host_suzhu", m());
+        if (!ta0.a(str)) {
+            jSONObject.put("position_changjing", str);
+        }
+        String h = LiveFeedPageSdk.f().h(context);
+        if (!TextUtils.isEmpty(h)) {
+            jSONObject.put("hdid", h);
+        }
+        String b = LiveFeedPageSdk.f().b();
+        if (TextUtils.isEmpty(b)) {
+            return;
+        }
+        jSONObject.put("yonghuid", b);
+    }
+
+    public static void c(LiveRoomEntity liveRoomEntity, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, liveRoomEntity, jSONObject) == null) {
+            LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
+            if (leftLableInfo != null && !TextUtils.isEmpty(leftLableInfo.dot)) {
+                try {
+                    jSONObject.put("lt_value", liveRoomEntity.leftLabel.dot);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
+            if (rightLableInfo != null && !TextUtils.isEmpty(rightLableInfo.dot)) {
+                try {
+                    jSONObject.put("rt_value", liveRoomEntity.rightLabel.dot);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            ThirdLabelInfo thirdLabelInfo = liveRoomEntity.thirdLabel;
+            if (thirdLabelInfo == null || TextUtils.isEmpty(thirdLabelInfo.dot)) {
+                return;
+            }
+            try {
+                jSONObject.put("ld_value", liveRoomEntity.thirdLabel.dot);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
         }
     }
 
-    public void g() {
+    public static void d(String str, String str2, int i, String str3, JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, t80.b(), t80.b);
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), str3, jSONObject}) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            jSONObject.put("roomid", str);
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            jSONObject.put("nid", str2);
+        }
+        String str4 = i == 0 ? "preview" : i == 1 ? "live" : i == 3 ? "record" : "";
+        if (!TextUtils.isEmpty(str4)) {
+            jSONObject.put("status", str4);
+        }
+        if (TextUtils.isEmpty(str3)) {
+            return;
+        }
+        jSONObject.put("bduid", str3);
+    }
+
+    public static void e(LiveStatInfo liveStatInfo, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, liveStatInfo, jSONObject) == null) || jSONObject == null || liveStatInfo == null) {
+            return;
+        }
+        try {
+            jSONObject.put(TiebaStatic.YYParams.YYSID, liveStatInfo.sid);
+            jSONObject.put(TiebaStatic.YYParams.YYSSID, liveStatInfo.ssid);
+            jSONObject.put(TiebaStatic.YYParams.YYUID, liveStatInfo.yyuid);
+            if (liveStatInfo.isYY) {
+                jSONObject.put("isyylive", "1");
+            }
+            jSONObject.put("yytpl_id", liveStatInfo.tpl);
+            jSONObject.put("template_id", liveStatInfo.templateId);
+        } catch (JSONException e) {
+            LiveFeedPageSdk.m(e.getMessage());
         }
     }
 
-    public void h(String str, String str2, int i, String str3, String str4, String str5, int i2) {
+    public static void f(Context context, String str, int i, String str2, String str3, int i2, String str4, String str5, String str6, LiveStatInfo liveStatInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5, Integer.valueOf(i2)}) == null) {
-            e(str, str2, i, str3, str4, str5, i2, t80.b(), t80.b);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4, str5, str6, liveStatInfo}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "click");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "zhibopindao_page");
+                if (!ta0.a(str)) {
+                    jSONObject.put("source", str);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pos_banner", i);
+                if (!ta0.a(str2)) {
+                    jSONObject2.put("roomid", str2);
+                }
+                if (!ta0.a(str3)) {
+                    jSONObject2.put("nid", str3);
+                }
+                jSONObject2.put("huodong", i2);
+                if (!ta0.a(str6)) {
+                    jSONObject2.put("mtr_id", str6);
+                }
+                b(context, str5, jSONObject2);
+                jSONObject2.put("bduid", str4);
+                e(liveStatInfo, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4222", jSONObject.toString());
         }
     }
 
-    public void i(b bVar) {
+    public static void g(Context context, String str, int i, String str2, String str3, int i2, String str4, String str5, String str6, LiveStatInfo liveStatInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4, str5, str6, liveStatInfo}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "show");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "zhibopindao_page");
+                if (!ta0.a(str)) {
+                    jSONObject.put("source", str);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pos_banner", i);
+                if (!ta0.a(str2)) {
+                    jSONObject2.put("roomid", str2);
+                }
+                if (!ta0.a(str3)) {
+                    jSONObject2.put("nid", str3);
+                }
+                jSONObject2.put("huodong", i2);
+                if (!ta0.a(str6)) {
+                    jSONObject2.put("mtr_id", str6);
+                }
+                b(context, str5, jSONObject2);
+                jSONObject2.put("bduid", str4);
+                e(liveStatInfo, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4221", jSONObject.toString());
+        }
+    }
+
+    public static void h(Context context, String str, String str2, int i, String str3, String str4, String str5, String str6, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, str5, str6, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("source", str);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("host_suzhu", m());
+                jSONObject2.put("request_result_code", i);
+                jSONObject2.put("request_result_msg", str3);
+                jSONObject2.put("request_erjitab", str4);
+                jSONObject2.put("request_sanjisubtab", str5);
+                jSONObject2.put("request_session_id", str6);
+                jSONObject2.put("response_feed_real_num", i3);
+                jSONObject2.put("response_feed_num", i2);
+                jSONObject2.put("page_type", str2);
+                jSONObject2.put("refresh_type", i4);
+                jSONObject2.put("refresh_index", i5);
+                if (context != null) {
+                    jSONObject2.put("net_status", NetWorkUtils.b(context) ? "0" : "1");
+                }
+                if (LiveFeedPageSdk.f().g() != null) {
+                    jSONObject2.put("cuid", LiveFeedPageSdk.f().g().getCuid());
+                    jSONObject2.put("uk", LiveFeedPageSdk.f().g().b());
+                }
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4358", jSONObject.toString());
+        }
+    }
+
+    public static void i(Context context, String str, String str2, String str3, int i, String str4, String str5, LiveStatInfo liveStatInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, str2, str3, Integer.valueOf(i), str4, str5, liveStatInfo}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "click");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "follow_page");
+                if (!ta0.a(str)) {
+                    jSONObject.put("source", str);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str3, jSONObject2);
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject2.put("roomid", str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    jSONObject2.put("nid", str5);
+                }
+                jSONObject2.put("pos", i);
+                jSONObject2.put("bduid", str2);
+                e(liveStatInfo, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4223", jSONObject.toString());
+        }
+    }
+
+    public static void j(Context context, String str, String str2, String str3, int i, String str4, String str5, LiveStatInfo liveStatInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, str2, str3, Integer.valueOf(i), str4, str5, liveStatInfo}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "show");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "follow_page");
+                if (!ta0.a(str)) {
+                    jSONObject.put("source", str);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str3, jSONObject2);
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject2.put("roomid", str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    jSONObject2.put("nid", str5);
+                }
+                jSONObject2.put("pos", i);
+                jSONObject2.put("bduid", str2);
+                e(liveStatInfo, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4224", jSONObject.toString());
+        }
+    }
+
+    public static void k(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, str2) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "click");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "main_page");
+                if (!ta0.a(str)) {
+                    jSONObject.put("source", str);
+                }
+                jSONObject.put("value", "follow_more");
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str2, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("3326", jSONObject.toString());
+        }
+    }
+
+    public static void l(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, str2) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "show");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "main_page");
+                if (!ta0.a(str)) {
+                    jSONObject.put("source", str);
+                }
+                jSONObject.put("value", "follow_more");
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str2, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("3326", jSONObject.toString());
+        }
+    }
+
+    public static String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? "baidu".equals(LiveFeedPageSdk.f().e()) ? "shoubai" : "haokan".equals(LiveFeedPageSdk.f().e()) ? "haokan" : "quanmin".equals(LiveFeedPageSdk.f().e()) ? "quanmin" : "tieba".equals(LiveFeedPageSdk.f().e()) ? "tieba" : "" : (String) invokeV.objValue;
+    }
+
+    public static String n(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65550, null, z)) == null) ? z ? "chenjinshi" : "zhibopindao" : (String) invokeZ.objValue;
+    }
+
+    public static String o(LiveRoomEntity liveRoomEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, liveRoomEntity)) == null) {
+            if (liveRoomEntity == null) {
+                return "";
+            }
+            if (liveRoomEntity.isDateLive()) {
+                int i = liveRoomEntity.showTpl;
+                if (i == 1 || i == 2) {
+                    return "x-1";
+                }
+                if (i == 3) {
+                    return "x-2";
+                }
+            } else if (liveRoomEntity.isYYShow() && liveRoomEntity.isHorizontalScreen()) {
+                int i2 = liveRoomEntity.showTpl;
+                if (i2 == 1 || i2 == 2) {
+                    return "y-1";
+                }
+                if (i2 == 3) {
+                    return "y-2";
+                }
+            } else if (liveRoomEntity.isHorizontalScreen()) {
+                int i3 = liveRoomEntity.showTpl;
+                if (i3 == 1 || i3 == 2) {
+                    return "h-1";
+                }
+                if (i3 == 3) {
+                    return "h-2";
+                }
+            } else {
+                int i4 = liveRoomEntity.showTpl;
+                if (i4 == 1 || i4 == 2) {
+                    return "v-1";
+                }
+                if (i4 == 3) {
+                    return "v-2";
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void onEvent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+            a.onEvent(str);
+        }
+    }
+
+    public static void p(Context context, String str, String str2, int i, String str3, String str4, LiveRoomEntity liveRoomEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, liveRoomEntity}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "clk");
+                a(str, jSONObject);
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str2, jSONObject2);
+                jSONObject2.put("pos", i);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("erjitab", str3);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject2.put("sanjitab", str4);
+                }
+                if (liveRoomEntity != null) {
+                    d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, liveRoomEntity.hostInfo != null ? liveRoomEntity.hostInfo.uk : "", jSONObject2);
+                    e(liveRoomEntity.statInfo, jSONObject2);
+                    c(liveRoomEntity, jSONObject2);
+                    jSONObject2.put("id", liveRoomEntity.nid);
+                    JSONObject jSONObject3 = new JSONObject();
+                    String str5 = liveRoomEntity.grExt;
+                    if (!TextUtils.isEmpty(str5)) {
+                        jSONObject3.put("gr_ext", new JSONObject(str5));
+                    }
+                    jSONObject2.put("ext", jSONObject3);
+                }
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            LiveFeedPageSdk.m("grLog clk      " + jSONObject.toString());
+            a.onEvent("4384", jSONObject.toString());
+        }
+    }
+
+    public static void q(Context context, String str, String str2, int i, String str3, String str4, String str5, String str6, String str7, String str8, int i2, String str9, long j, long j2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, str5, str6, str7, str8, Integer.valueOf(i2), str9, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("source", str);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("host_suzhu", m());
+                jSONObject2.put("page_type", str2);
+                jSONObject2.put("request_result_code", i);
+                jSONObject2.put("request_result_msg", str3);
+                jSONObject2.put("request_erjitab", str6);
+                jSONObject2.put("request_sanjisubtab", str7);
+                jSONObject2.put("request_session_id", str8);
+                jSONObject2.put("resp_logid", str4);
+                jSONObject2.put("resource", str5);
+                jSONObject2.put("cache_item", str9);
+                jSONObject2.put("cache_cause", i2);
+                jSONObject2.put("cache_time", j);
+                jSONObject2.put("cache_read_time", j2);
+                jSONObject2.put("cache_availability", i3);
+                if (context != null) {
+                    jSONObject2.put("net_status", NetWorkUtils.b(context) ? "0" : "1");
+                }
+                if (LiveFeedPageSdk.f().g() != null) {
+                    jSONObject2.put("cuid", LiveFeedPageSdk.f().g().getCuid());
+                    jSONObject2.put("uk", LiveFeedPageSdk.f().g().b());
+                }
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4359", jSONObject.toString());
+        }
+    }
+
+    public static Flow r(Context context, boolean z, String str, String str2, String str3, String str4, Flow flow) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3, str4, flow})) == null) {
+            if (z) {
+                return a.beginFlow("3327");
+            }
+            if (flow != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    a(str, jSONObject);
+                    JSONObject jSONObject2 = new JSONObject();
+                    b(context, str2, jSONObject2);
+                    if (!TextUtils.isEmpty(str3)) {
+                        jSONObject2.put("erjitab", str3);
+                    }
+                    if (!TextUtils.isEmpty(str4)) {
+                        jSONObject2.put("sanjitab", str4);
+                    }
+                    jSONObject.put("ext", jSONObject2.toString());
+                } catch (JSONException e) {
+                    LiveFeedPageSdk.m(e.getMessage());
+                }
+                a.flowSetValueWithDuration(flow, jSONObject.toString());
+                a.flowEnd(flow);
+            }
+            return flow;
+        }
+        return (Flow) invokeCommon.objValue;
+    }
+
+    public static void s(Context context, String str, String str2, long j, int i, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, str2, Long.valueOf(j), Integer.valueOf(i), str3, str4, str5, str6, str7, str8, str9}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("source", str);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("host_suzhu", m());
+                jSONObject2.put("request_time", j);
+                jSONObject2.put("page_type", str2);
+                jSONObject2.put("request_result_code", i);
+                jSONObject2.put("request_result_msg", str3);
+                jSONObject2.put("request_logid", str4);
+                jSONObject2.put("request_resource", str5);
+                jSONObject2.put("request_erjitab", str6);
+                jSONObject2.put("request_sanjisubtab", str7);
+                jSONObject2.put("request_session_id", str8);
+                if (!TextUtils.isEmpty(str9)) {
+                    jSONObject2.put("response_tab_availability", str9);
+                }
+                if (context != null) {
+                    jSONObject2.put("net_status", NetWorkUtils.b(context) ? "0" : "1");
+                }
+                if (LiveFeedPageSdk.f().g() != null) {
+                    jSONObject2.put("cuid", LiveFeedPageSdk.f().g().getCuid());
+                    jSONObject2.put("uk", LiveFeedPageSdk.f().g().b());
+                }
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4298", jSONObject.toString());
+        }
+    }
+
+    public static void t(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65557, null, context, str, str2) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "show");
+                a(str, jSONObject);
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str2, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4261", jSONObject.toString());
+        }
+    }
+
+    public static Flow u(Context context, boolean z, String str, String str2, int i, String str3, String str4, LiveRoomEntity liveRoomEntity, Flow flow) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{context, Boolean.valueOf(z), str, str2, Integer.valueOf(i), str3, str4, liveRoomEntity, flow})) == null) {
+            if (z) {
+                return a.beginFlow("4912");
+            }
+            if (flow != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", "show");
+                    a(str, jSONObject);
+                    JSONObject jSONObject2 = new JSONObject();
+                    b(context, str2, jSONObject2);
+                    jSONObject2.put("pos", i);
+                    jSONObject2.put("kapianshipei", o(liveRoomEntity));
+                    if (!TextUtils.isEmpty(str3)) {
+                        jSONObject2.put("erjitab", str3);
+                    }
+                    if (!TextUtils.isEmpty(str4)) {
+                        jSONObject2.put("sanjitab", str4);
+                    }
+                    if (liveRoomEntity != null) {
+                        d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, liveRoomEntity.hostInfo != null ? liveRoomEntity.hostInfo.uk : "", jSONObject2);
+                        jSONObject2.put("auto_play", liveRoomEntity.autoPlay);
+                        e(liveRoomEntity.statInfo, jSONObject2);
+                        jSONObject2.put("id", liveRoomEntity.nid);
+                        JSONObject jSONObject3 = new JSONObject();
+                        String str5 = liveRoomEntity.grExt;
+                        if (!TextUtils.isEmpty(str5)) {
+                            jSONObject3.put("gr_ext", new JSONObject(str5));
+                        }
+                        jSONObject2.put("ext", jSONObject3);
+                    }
+                    jSONObject.put("ext", jSONObject2.toString());
+                } catch (JSONException e) {
+                    LiveFeedPageSdk.m(e.getMessage());
+                }
+                a.flowSetValueWithDuration(flow, jSONObject.toString());
+                a.flowEnd(flow);
+            }
+            return flow;
+        }
+        return (Flow) invokeCommon.objValue;
+    }
+
+    public static void v(Context context, String str, String str2, int i, String str3, String str4, LiveRoomEntity liveRoomEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, str4, liveRoomEntity}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", CriusAttrConstants.DISPLAY);
+                a(str, jSONObject);
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str2, jSONObject2);
+                jSONObject2.put("pos", i);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("erjitab", str3);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject2.put("sanjitab", str4);
+                }
+                if (liveRoomEntity != null) {
+                    d(liveRoomEntity.roomId, liveRoomEntity.nid, liveRoomEntity.liveStatus, liveRoomEntity.hostInfo != null ? liveRoomEntity.hostInfo.uk : "", jSONObject2);
+                    e(liveRoomEntity.statInfo, jSONObject2);
+                    c(liveRoomEntity, jSONObject2);
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("id", liveRoomEntity.nid);
+                    JSONObject jSONObject4 = new JSONObject();
+                    String str5 = liveRoomEntity.grExt;
+                    if (!TextUtils.isEmpty(str5)) {
+                        jSONObject4.put("gr_ext", new JSONObject(str5));
+                    }
+                    jSONObject3.put("ext", jSONObject4);
+                    jSONObject3.put("position_changjing ", str2);
+                    jSONObject3.put("pos", i);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONArray.put(jSONObject3);
+                    jSONObject2.put("item", jSONArray);
+                }
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            LiveFeedPageSdk.m("grLog display      " + jSONObject.toString());
+            a.onEvent("4383", jSONObject.toString());
+        }
+    }
+
+    public static void w(Context context, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65560, null, context, str, str2, str3, str4) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "show");
+                a(str, jSONObject);
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, str2, jSONObject2);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("erjitab", str3);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject2.put("sanjitab", str4);
+                }
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("3326", jSONObject.toString());
+        }
+    }
+
+    public static void x(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65561, null, context) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "clk");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "main_page");
+                jSONObject.put("source", "yijitabzhibo");
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, null, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4792", jSONObject.toString());
+        }
+    }
+
+    public static void y(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, null, context) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "show");
+                jSONObject.put("from", AccountConstants.LOGIN_TYPE_NATIVE_SRC_LIVESHOW);
+                jSONObject.put("page", "main_page");
+                jSONObject.put("source", "yijitabzhibo");
+                JSONObject jSONObject2 = new JSONObject();
+                b(context, null, jSONObject2);
+                jSONObject.put("ext", jSONObject2.toString());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m(e.getMessage());
+            }
+            a.onEvent("4793", jSONObject.toString());
         }
     }
 }

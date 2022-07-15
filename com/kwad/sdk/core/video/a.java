@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.TextureView;
 import android.view.View;
 /* loaded from: classes5.dex */
-public class a extends TextureView {
+public final class a extends TextureView {
     public int a;
     public int b;
 
@@ -12,7 +12,7 @@ public class a extends TextureView {
         super(context);
     }
 
-    public void a(int i, int i2) {
+    public final void a(int i, int i2) {
         if (this.b == i || this.a == i2) {
             return;
         }
@@ -22,7 +22,7 @@ public class a extends TextureView {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public final void onMeasure(int i, int i2) {
         int i3;
         float rotation = getRotation();
         if (rotation == 90.0f || rotation == 270.0f) {
@@ -91,7 +91,7 @@ public class a extends TextureView {
     }
 
     @Override // android.view.View
-    public void setRotation(float f) {
+    public final void setRotation(float f) {
         if (f != getRotation()) {
             super.setRotation(f);
             requestLayout();

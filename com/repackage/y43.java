@@ -1,88 +1,98 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.util.Log;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y43 extends d53<JSONObject> {
+public class y43 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String m;
-    public final Context n;
 
-    public y43(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y43(e13 e13Var) {
+        super(e13Var, "/swanAPI/login");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = str;
-        this.n = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.p43
-    /* renamed from: P */
-    public JSONObject m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? q43.c(jSONObject) : (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.repackage.p43
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, this.m);
-                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject.put("host_key_hash", q43.g());
-                String l = zi2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject.put("host_api_key", l);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var != null && h03Var.n0()) {
+                if (e23.b) {
+                    Log.d("LoginAction", "LoginAction does not supported when app is invisible.");
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            } else if (h03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                pj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception").toString());
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
+                    pj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "params is null").toString());
+                    po1.J(h03Var, 1, 201, "params is null");
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("invokeFrom");
+                String str = optString.equals(NativeConstants.COMPONENT) ? "loginButton" : "loginApi";
+                a73.T(str, "create");
+                String optString2 = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    pj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+                    po1.J(h03Var, 1, 201, "empty cb");
+                    return false;
+                } else if (!optParamsAsJo.optBoolean(TTDownloadField.TT_FORCE, true) && !h03Var.N().e(context)) {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                    pj2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                    po1.J(h03Var, 43, 10004, "user not logged in");
+                    return true;
+                } else {
+                    if (!h03Var.N().e(context)) {
+                        a73.S("show", 1, optString);
+                    }
+                    if (!g03.K().q().N().e(context)) {
+                        a73.T(str, "passLogin");
+                    }
+                    po1.D(h03Var, (Activity) context, optParamsAsJo, callbackHandler, optString2, true, str);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
             }
-            v("data", jSONObject.toString());
-            return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.d53
-    public HttpRequest w(d53 d53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d53Var)) == null) ? zi2.o().a(this.n, d53Var.B()) : (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.repackage.d53
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.CHECK_SESSION : (SwanInterfaceType) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

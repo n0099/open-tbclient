@@ -152,7 +152,7 @@ public class ShieldMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(2011);
+        setMsgType(IMConstants.IM_MSG_TYPE_SHIELD);
         this.text = str;
         setText(str);
     }
@@ -172,7 +172,7 @@ public class ShieldMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(z ? IMConstants.IM_MSG_TYPE_SHIELD_ME : 2011);
+        setMsgType(z ? IMConstants.IM_MSG_TYPE_SHIELD_ME : IMConstants.IM_MSG_TYPE_SHIELD);
         this.text = str;
         setText(str);
     }

@@ -1,39 +1,66 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import org.json.JSONObject;
+import tbclient.Error;
+import tbclient.ZoneRight.DataRes;
+import tbclient.ZoneRight.Toast;
+import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes7.dex */
-public interface wm6 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public class wm6 implements u75 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
+    public int d;
+    public String e;
 
-    void b(boolean z);
+    public wm6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(float f);
+    @Override // com.repackage.u75
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        }
+    }
 
-    void d(int i, boolean z);
-
-    void e(@NonNull ThemeElement themeElement);
-
-    @NonNull
-    NavigationBar f();
-
-    @Nullable
-    cn6 g();
-
-    void h(boolean z);
-
-    int i();
-
-    void j(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
-
-    @Nullable
-    zm6 k();
-
-    void onChangeSkinType(int i);
+    @Override // com.repackage.u75
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && (message instanceof ZoneRightResIdl)) {
+            ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
+            Error error = zoneRightResIdl.error;
+            if (error != null) {
+                this.b = error.errorno.intValue();
+                this.c = zoneRightResIdl.error.usermsg;
+            }
+            DataRes dataRes = zoneRightResIdl.data;
+            if (dataRes != null) {
+                this.a = dataRes.has_right.intValue() == 1;
+                Toast toast = zoneRightResIdl.data.toast;
+                if (toast != null) {
+                    this.d = toast.type.intValue();
+                    this.e = zoneRightResIdl.data.toast.content;
+                }
+            }
+        }
+    }
 }

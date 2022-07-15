@@ -14,7 +14,7 @@ import java.util.List;
 public class rq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<kr3>> a;
+    public volatile HashMap<String, List<zq3>> a;
 
     public rq3() {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class rq3 {
         this.a = new HashMap<>();
     }
 
-    public synchronized void a(String str, kr3 kr3Var) {
+    public synchronized void a(String str, zq3 zq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kr3Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, zq3Var) == null) {
             synchronized (this) {
-                if (e(str, kr3Var)) {
+                if (e(str, zq3Var)) {
                     return;
                 }
-                List<kr3> c = c(str);
-                if (!c.contains(kr3Var)) {
-                    c.add(kr3Var);
+                List<zq3> c = c(str);
+                if (!c.contains(zq3Var)) {
+                    c.add(zq3Var);
                 }
                 if (!this.a.containsKey(str)) {
                     this.a.put(str, c);
@@ -50,27 +50,27 @@ public class rq3 {
         }
     }
 
-    public synchronized void b(String str, mr3 mr3Var) {
+    public synchronized void b(String str, ar3 ar3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mr3Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ar3Var) == null) {
             synchronized (this) {
-                for (kr3 kr3Var : new ArrayList(c(str))) {
-                    if (kr3Var != null) {
-                        kr3Var.a(mr3Var);
+                for (zq3 zq3Var : new ArrayList(c(str))) {
+                    if (zq3Var != null) {
+                        zq3Var.a(ar3Var);
                     }
                 }
             }
         }
     }
 
-    public final List<kr3> c(String str) {
+    public final List<zq3> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return new ArrayList();
             }
-            List<kr3> list = this.a.get(str);
+            List<zq3> list = this.a.get(str);
             return list == null ? new ArrayList() : list;
         }
         return (List) invokeL.objValue;
@@ -85,7 +85,7 @@ public class rq3 {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                List<kr3> list = this.a.get(str);
+                List<zq3> list = this.a.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -97,10 +97,10 @@ public class rq3 {
         return invokeL.booleanValue;
     }
 
-    public final boolean e(String str, kr3 kr3Var) {
+    public final boolean e(String str, zq3 zq3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, kr3Var)) == null) ? TextUtils.isEmpty(str) || kr3Var == null : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, zq3Var)) == null) ? TextUtils.isEmpty(str) || zq3Var == null : invokeLL.booleanValue;
     }
 
     public synchronized void f(String str) {
@@ -112,20 +112,20 @@ public class rq3 {
         }
     }
 
-    public synchronized void g(String str, kr3 kr3Var) {
+    public synchronized void g(String str, zq3 zq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, kr3Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, zq3Var) == null) {
             synchronized (this) {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                if (kr3Var == null) {
+                if (zq3Var == null) {
                     this.a.remove(str);
                     return;
                 }
-                List<kr3> c = c(str);
-                if (c.contains(kr3Var)) {
-                    c.remove(kr3Var);
+                List<zq3> c = c(str);
+                if (c.contains(zq3Var)) {
+                    c.remove(zq3Var);
                     if (c.isEmpty()) {
                         this.a.remove(str);
                     }

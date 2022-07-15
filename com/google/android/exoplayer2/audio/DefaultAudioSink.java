@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1106,7 +1108,7 @@ public final class DefaultAudioSink implements AudioSink {
                 i3 = getEncodingForMimeType(str);
                 z = false;
             }
-            int i8 = 252;
+            int i8 = GDiffPatcher.COPY_INT_UBYTE;
             int i9 = 12;
             switch (i) {
                 case 1:
@@ -1122,10 +1124,10 @@ public final class DefaultAudioSink implements AudioSink {
                     i7 = 204;
                     break;
                 case 5:
-                    i7 = 220;
+                    i7 = PassFaceRecogManager.k;
                     break;
                 case 6:
-                    i7 = 252;
+                    i7 = GDiffPatcher.COPY_INT_UBYTE;
                     break;
                 case 7:
                     i7 = 1276;

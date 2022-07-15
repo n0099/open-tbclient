@@ -1,97 +1,179 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes5.dex */
-public class d79 extends a79 {
+public class d79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean B;
 
-    @Override // com.repackage.z69, com.repackage.o79
-    public void a(i79 i79Var, SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, i79Var, surfaceTexture) == null) {
-            i79Var.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
-            i79Var.f(surfaceTexture);
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = i2;
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 
-    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
+    public static int[] a(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            GLES20.glBindFramebuffer(36160, i2);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
-            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glClear(16640);
-            if (this.z) {
-                if (z) {
-                    int i8 = this.j;
-                    int i9 = this.k;
-                    if (i8 > i9) {
-                        int i10 = this.p;
-                        float f = (i10 * 1.0f) / i8;
-                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
-                    } else {
-                        GLES20.glViewport(0, 0, this.p, this.q);
-                    }
-                    this.o.drawFrame(this.l, fArr2);
-                }
-                if (z2) {
-                    GLES20.glViewport(0, 0, this.p, this.q);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int[] iArr = new int[2];
+            if (f > 1.0f) {
+                iArr[0] = i;
+                iArr[1] = (int) (i * f);
+                int i2 = iArr[1] % 16;
+                if (i2 > 8) {
+                    iArr[1] = iArr[1] + (16 - i2);
                 } else {
-                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                    iArr[1] = iArr[1] - i2;
                 }
-                this.mFullScreen2D.drawFrame(i, fArr);
             } else {
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(i, fArr);
-                if (z) {
-                    int i11 = i4 + this.w;
-                    int i12 = this.q;
-                    int i13 = this.k;
-                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
-                    this.o.drawFrame(this.l, fArr2);
+                iArr[1] = i;
+                iArr[0] = (int) (i * (1.0f / f));
+                int i3 = iArr[0] % 16;
+                if (i3 > 8) {
+                    iArr[0] = iArr[0] + (16 - i3);
+                } else {
+                    iArr[0] = iArr[0] - i3;
                 }
             }
-            GLES20.glBindFramebuffer(36160, 0);
+            return iArr;
         }
+        return (int[]) invokeCommon.objValue;
     }
 
-    public boolean j(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public static int[] b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(je0 je0Var, int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, je0Var, i, fArr) == null) && this.s && this.l != 0) {
-            try {
-                this.mTextureId = i;
-                this.m.updateTexImage();
-                this.m.getTransformMatrix(this.n);
-                f();
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
-            } catch (Throwable th) {
-                x79.c("followvideo", th.toString());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int[] iArr = new int[2];
+            if (i > i2) {
+                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i3 == 0) {
+                    iArr[0] = c(i);
+                    iArr[1] = c(i);
+                    return iArr;
+                }
+                if (i3 > 0) {
+                    iArr[1] = i;
+                    iArr[0] = (int) (i * (1.0f / f));
+                } else {
+                    iArr[1] = i2;
+                    iArr[0] = (int) (i2 * (1.0f / f));
+                }
+                iArr[0] = c(iArr[0]);
+            } else {
+                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i4 == 0) {
+                    iArr[0] = c(i2);
+                    iArr[1] = c(i2);
+                    return iArr;
+                }
+                if (i4 > 0) {
+                    iArr[0] = i;
+                    iArr[1] = (int) (i * f);
+                } else {
+                    iArr[0] = i2;
+                    iArr[1] = (int) (i2 * f);
+                }
+                iArr[1] = c(iArr[1]);
             }
+            return iArr;
         }
+        return (int[]) invokeCommon.objValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i % 16;
+            return i2 > 8 ? i + (16 - i2) : i - i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static a d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i > 1920 || i2 > 1920) {
+                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                return new a(a2[0], a2[1]);
+            }
+            return new a(i, i2);
+        }
+        return (a) invokeII.objValue;
+    }
+
+    public static a e(float f, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] a2 = a(f, i);
+            return new a(a2[0], a2[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static a f(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] b = b(f, i, i2);
+            return new a(b[0], b[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static boolean g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

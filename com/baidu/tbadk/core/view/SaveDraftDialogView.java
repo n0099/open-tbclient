@@ -92,23 +92,23 @@ public class SaveDraftDialogView extends LinearLayout {
             this.a.addView(this.c, -1, -2);
             TextView textView3 = new TextView(context);
             this.d = textView3;
-            textView3.setId(R.id.obfuscated_res_0x7f091bd0);
+            textView3.setId(R.id.obfuscated_res_0x7f091c6f);
             this.d.setTextSize(0, f2);
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0ca0);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0c94);
             addView(this.d, -1, pi.f(context, R.dimen.tbds136));
             TextView textView4 = new TextView(context);
             this.e = textView4;
-            textView4.setId(R.id.obfuscated_res_0x7f091bd1);
+            textView4.setId(R.id.obfuscated_res_0x7f091c70);
             this.e.setTextSize(0, f2);
             this.e.setGravity(17);
             addView(this.e, -1, pi.f(context, R.dimen.tbds136));
             TextView textView5 = new TextView(context);
             this.f = textView5;
-            textView5.setId(R.id.obfuscated_res_0x7f091bcf);
+            textView5.setId(R.id.obfuscated_res_0x7f091c6e);
             this.f.setTextSize(0, f2);
             this.f.setGravity(17);
-            this.f.setText(R.string.obfuscated_res_0x7f0f0366);
+            this.f.setText(R.string.obfuscated_res_0x7f0f036a);
             addView(this.f, -1, pi.f(context, R.dimen.tbds136));
             a();
         }

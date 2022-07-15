@@ -19,15 +19,15 @@ public final class R$attr {
     public static final int fontStyle = 2130969247;
     public static final int fontVariationSettings = 2130969248;
     public static final int fontWeight = 2130969249;
-    public static final int keylines = 2130969396;
-    public static final int layout_anchor = 2130969541;
-    public static final int layout_anchorGravity = 2130969542;
-    public static final int layout_behavior = 2130969543;
-    public static final int layout_dodgeInsetEdges = 2130969548;
-    public static final int layout_insetEdge = 2130969552;
-    public static final int layout_keyline = 2130969553;
-    public static final int statusBarBackground = 2130970066;
-    public static final int ttcIndex = 2130970290;
+    public static final int keylines = 2130969392;
+    public static final int layout_anchor = 2130969549;
+    public static final int layout_anchorGravity = 2130969550;
+    public static final int layout_behavior = 2130969551;
+    public static final int layout_dodgeInsetEdges = 2130969556;
+    public static final int layout_insetEdge = 2130969560;
+    public static final int layout_keyline = 2130969561;
+    public static final int statusBarBackground = 2130970067;
+    public static final int ttcIndex = 2130970291;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$attr() {

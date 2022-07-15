@@ -2,7 +2,6 @@ package com.ksad.download;
 
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.utils.o;
 import com.kwai.filedownloader.e.c;
 import java.io.InputStream;
 import java.util.List;
@@ -22,20 +23,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
 /* loaded from: classes5.dex */
-public class h implements com.kwai.filedownloader.kwai.b {
+public final class h implements com.kwai.filedownloader.kwai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final OkHttpClient a;
     public final Request.Builder b;
     public Request c;
     public Response d;
-
-    /* renamed from: com.ksad.download.h$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes5.dex */
     public static class a implements c.b {
@@ -77,7 +71,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         }
 
         @Override // com.kwai.filedownloader.e.c.b
-        public com.kwai.filedownloader.kwai.b a(String str) {
+        public final com.kwai.filedownloader.kwai.b a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -89,7 +83,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
                         }
                     }
                 }
-                return new h(str, this.a, null);
+                return new h(str, this.a, (byte) 0);
             }
             return (com.kwai.filedownloader.kwai.b) invokeL.objValue;
         }
@@ -116,7 +110,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
         }
     }
 
-    public /* synthetic */ h(String str, OkHttpClient okHttpClient, AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ h(String str, OkHttpClient okHttpClient, byte b) {
         this(str, okHttpClient);
     }
 
@@ -144,10 +138,10 @@ public class h implements com.kwai.filedownloader.kwai.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             String a2 = a("Content-Type");
-            String b = com.ksad.download.c.a.b(str);
+            String e = o.e(str);
             boolean isEmpty = TextUtils.isEmpty(a2);
             String str2 = Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
-            if (isEmpty || !TextUtils.isEmpty(b)) {
+            if (isEmpty || !TextUtils.isEmpty(e)) {
                 if (TextUtils.isEmpty(str)) {
                     return System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
                 }
@@ -178,13 +172,13 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public InputStream a() {
+    public final InputStream a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Response response = this.d;
             if (response != null) {
-                return com.kwad.sdk.core.h.b.a().b(response.body().byteStream());
+                return ((com.kwad.sdk.service.kwai.h) ServiceProvider.a(com.kwad.sdk.service.kwai.h.class)).a(response.body().byteStream());
             }
             throw new IllegalStateException("Please invoke #execute first!");
         }
@@ -192,7 +186,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public String a(String str) {
+    public final String a(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
@@ -208,7 +202,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
             } catch (Exception unused) {
                 str2 = "";
             }
-            if (TextUtils.isEmpty(com.kwai.filedownloader.e.f.g(this.d.header(str)))) {
+            if (TextUtils.isEmpty(com.kwai.filedownloader.e.f.d(this.d.header(str)))) {
                 List<String> pathSegments = this.d.request().url().pathSegments();
                 str2 = pathSegments.get(pathSegments.size() - 1);
                 return "attachment; filename=\"" + b(str2) + "\"";
@@ -219,7 +213,7 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             this.b.addHeader(str, str2);
@@ -227,20 +221,10 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public boolean a(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    @Override // com.kwai.filedownloader.kwai.b
-    public Map<String, List<String>> b() {
+    public final Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.c == null) {
                 this.c = this.b.build();
             }
@@ -250,10 +234,10 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public Map<String, List<String>> c() {
+    public final Map<String, List<String>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Response response = this.d;
             if (response == null) {
                 return null;
@@ -264,9 +248,9 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public void d() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.c == null) {
                 this.c = this.b.build();
             }
@@ -275,10 +259,10 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public int e() {
+    public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Response response = this.d;
             if (response != null) {
                 return response.code();
@@ -289,13 +273,13 @@ public class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public void f() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c = null;
             Response response = this.d;
             if (response != null && response.body() != null) {
-                this.d.body().close();
+                com.kwad.sdk.crash.utils.b.a(this.d.body());
             }
             this.d = null;
         }

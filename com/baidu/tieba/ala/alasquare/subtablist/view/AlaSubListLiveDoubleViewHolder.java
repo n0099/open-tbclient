@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mr5;
+import com.repackage.js5;
 /* loaded from: classes3.dex */
 public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mr5 a;
+    public js5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaSubListLiveDoubleViewHolder(mr5 mr5Var) {
-        super(mr5Var.h());
+    public AlaSubListLiveDoubleViewHolder(js5 js5Var) {
+        super(js5Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mr5Var};
+            Object[] objArr = {js5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = mr5Var;
+        this.a = js5Var;
     }
 }

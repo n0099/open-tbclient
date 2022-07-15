@@ -19,6 +19,7 @@ public class ThreadRecommendInfoData implements Serializable {
     public ThemeColorInfo backgroundColor;
     public String forumAvatar;
     public String forumName;
+    public String jumpLink;
     public String recommendIcon;
     public String recommendReason;
     public ThemeColorInfo recommendReasonColor;
@@ -54,6 +55,7 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.showType = jSONObject.optString(RecordVideoActivityConfig.SHOW_TYPE);
                 this.recommendReason = jSONObject.optString("recommend_reason");
                 this.recommendTopicId = jSONObject.optLong("topic_id");
+                this.jumpLink = jSONObject.optString("jump_link");
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -78,5 +80,6 @@ public class ThreadRecommendInfoData implements Serializable {
         this.recommendReasonColor = threadRecommendInfo.recommend_reason_color;
         this.stripColor = threadRecommendInfo.strip_color;
         this.backgroundColor = threadRecommendInfo.background_color;
+        this.jumpLink = threadRecommendInfo.jump_link;
     }
 }

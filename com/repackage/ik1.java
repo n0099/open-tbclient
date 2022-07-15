@@ -1,10 +1,10 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
-import java.util.List;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.repackage.lz2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface ik1 {
-    @Nullable
-    List<ContentValues> a();
+    lz2.a a(Context context, h03 h03Var, h53 h53Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

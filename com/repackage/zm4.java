@@ -1,30 +1,24 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.ActInfo;
 /* loaded from: classes7.dex */
 public class zm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static zm4 f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public int c;
-    public int d;
-    public String e;
-    public int f;
-    public boolean g;
-    public int h;
-    public int i;
-    public vp4 j;
+    public String c;
+    public boolean d;
+    public int e;
 
     public zm4() {
         Interceptable interceptable = $ic;
@@ -39,127 +33,123 @@ public class zm4 {
                 return;
             }
         }
-        this.h = 1;
-        this.i = 1;
+        this.a = 0;
+        this.b = 0;
+        this.c = null;
+        this.d = true;
+        this.e = 0;
     }
 
-    public int a() {
+    public static zm4 c() {
+        InterceptResult invokeV;
+        zm4 zm4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            zm4 zm4Var2 = f;
+            if (zm4Var2 == null) {
+                synchronized (zm4.class) {
+                    if (f == null) {
+                        f = new zm4();
+                    }
+                    zm4Var = f;
+                }
+                return zm4Var;
+            }
+            return zm4Var2;
+        }
+        return (zm4) invokeV.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            xt4 k = xt4.k();
+            int l = k.l(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
+            this.b = l;
+            return l;
+        }
+        return invokeV.intValue;
     }
 
-    public int c() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int l = xt4.k().l("image_quality", 0);
+            this.a = l;
+            return l;
+        }
+        return invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public int f() {
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = xt4.k().l("image_quality", 0);
+            xt4.k().l("new_abstract_state", 0);
+            this.e = xt4.k().l("view_image_quality", 0);
+            boolean h = xt4.k().h("show_images", true);
+            this.d = h;
+            if (h) {
+                return;
+            }
+            this.d = true;
+            xt4.k().D("show_images");
+            xt4.k().w("view_image_quality", 0);
+            this.e = 0;
+        }
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
     }
 
-    public void h(JSONObject jSONObject) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.b == i) {
             return;
         }
-        try {
-            this.a = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-            this.b = jSONObject.optInt("status");
-            this.c = jSONObject.optInt("begin_time");
-            this.d = jSONObject.optInt("end_time");
-            this.e = jSONObject.optString("url");
-            this.f = jSONObject.optInt("total_num");
-            jSONObject.optInt("activity_id");
-            jSONObject.optInt("award_act_id");
-            jSONObject.optInt("component_id");
-            this.g = jSONObject.optBoolean("is_senior");
-            jSONObject.optString("banner_img");
-            jSONObject.optInt("show_total_num");
-            String optString = jSONObject.optString("banner_img_size");
-            if (!oi.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                this.h = ng.e(split[0], 1);
-                this.i = ng.e(split[1], 1);
-            }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        this.b = i;
+        xt4 k = xt4.k();
+        k.w(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
         }
     }
 
-    public void i(ActInfo actInfo) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) == null) || actInfo == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.e == i) {
             return;
         }
-        Integer num = actInfo.activity_type;
-        this.a = num != null ? num.intValue() : -1;
-        Integer num2 = actInfo.status;
-        this.b = num2 != null ? num2.intValue() : -1;
-        Integer num3 = actInfo.begin_time;
-        this.c = num3 != null ? num3.intValue() : -1;
-        Integer num4 = actInfo.end_time;
-        this.d = num4 != null ? num4.intValue() : -1;
-        this.e = actInfo.url;
-        Integer num5 = actInfo.total_num;
-        this.f = num5 != null ? num5.intValue() : -1;
-        actInfo.activity_id.intValue();
-        actInfo.award_act_id.intValue();
-        actInfo.component_id.intValue();
-        this.g = actInfo.is_senior.booleanValue();
-        String str = actInfo.banner_img;
-        actInfo.show_total_num.intValue();
-        String str2 = actInfo.banner_img_size;
-        if (!oi.isEmpty(str2)) {
-            try {
-                String[] split = str2.split(",");
-                this.h = ng.e(split[0], 1);
-                this.i = ng.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        if (this.h <= 0) {
-            this.h = 1;
-        }
-        if (this.i <= 0) {
-            this.i = 1;
-        }
-        vp4 vp4Var = new vp4();
-        this.j = vp4Var;
-        vp4Var.a(actInfo.lottery_senior);
+        this.e = i;
+        xt4.k().w("view_image_quality", i);
+        TbImageHelper.getInstance().updateFrsShowBigImage();
+        TbImageHelper.getInstance().updateUrlQuality();
     }
 }

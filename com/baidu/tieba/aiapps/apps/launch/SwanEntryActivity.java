@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nl5;
-import com.repackage.rc3;
-import com.repackage.ul3;
+import com.repackage.gd3;
+import com.repackage.jm3;
+import com.repackage.qm5;
 import com.repackage.y8;
 /* loaded from: classes3.dex */
 public class SwanEntryActivity extends Activity {
@@ -89,8 +89,8 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        nl5.a();
-        ul3.a(uri);
+        qm5.a();
+        jm3.a(uri);
     }
 
     @Override // android.app.Activity
@@ -99,7 +99,7 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             y8.b(this);
             super.onCreate(bundle);
-            if (rc3.a(this)) {
+            if (gd3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }

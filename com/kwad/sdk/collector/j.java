@@ -7,14 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.collector.model.jni.UploadEntryNative;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.core.network.l;
+import com.kwad.sdk.core.network.m;
+import com.kwad.sdk.utils.r;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j {
+public final class j {
     public static void a(Context context) {
         try {
             File file = new File(context.getApplicationInfo().dataDir, "LOCAL_TEMP_UPLOAD_FAILURE_JSON");
@@ -52,50 +54,61 @@ public class j {
         if (list == null || list.size() == 0) {
             return;
         }
-        new com.kwad.sdk.core.network.i<com.kwad.sdk.collector.a.b, CollectResponse>() { // from class: com.kwad.sdk.collector.j.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.i
+        new l<com.kwad.sdk.collector.kwai.b, CollectResponse>() { // from class: com.kwad.sdk.collector.j.1
             @NonNull
-            /* renamed from: a */
-            public CollectResponse b(String str) {
+            public static CollectResponse a(String str) {
                 CollectResponse collectResponse = new CollectResponse();
                 collectResponse.parseJson(new JSONObject(str));
                 return collectResponse;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.a
             @NonNull
             /* renamed from: a */
-            public com.kwad.sdk.collector.a.b b() {
-                return new com.kwad.sdk.collector.a.b(list);
+            public com.kwad.sdk.collector.kwai.b createRequest() {
+                return new com.kwad.sdk.collector.kwai.b(list);
             }
 
-            @Override // com.kwad.sdk.core.network.i
-            public boolean c() {
+            @Override // com.kwad.sdk.core.network.l
+            public final boolean enableMonitorReport() {
                 return false;
             }
-        }.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.collector.a.b, CollectResponse>() { // from class: com.kwad.sdk.collector.j.2
+
+            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
+            @Override // com.kwad.sdk.core.network.l
+            @NonNull
+            public final /* synthetic */ CollectResponse parseData(String str) {
+                return a(str);
+            }
+        }.request(new m<com.kwad.sdk.collector.kwai.b, CollectResponse>() { // from class: com.kwad.sdk.collector.j.2
             private synchronized void a() {
                 j.a(context);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.a.b bVar) {
-                super.a((AnonymousClass2) bVar);
+            /* JADX INFO: Access modifiers changed from: private */
+            @Override // com.kwad.sdk.core.network.m, com.kwad.sdk.core.network.h
+            /* renamed from: a */
+            public void onStartRequest(@NonNull com.kwad.sdk.collector.kwai.b bVar) {
+                super.onStartRequest(bVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.a.b bVar, int i, String str) {
-                super.a((AnonymousClass2) bVar, i, str);
+            /* JADX INFO: Access modifiers changed from: private */
+            @Override // com.kwad.sdk.core.network.m, com.kwad.sdk.core.network.h
+            /* renamed from: a */
+            public void onError(@NonNull com.kwad.sdk.collector.kwai.b bVar, int i, String str) {
+                super.onError(bVar, i, str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.a.b bVar, @NonNull CollectResponse collectResponse) {
-                super.a((AnonymousClass2) bVar, (com.kwad.sdk.collector.a.b) collectResponse);
+            /* JADX INFO: Access modifiers changed from: private */
+            @Override // com.kwad.sdk.core.network.m, com.kwad.sdk.core.network.h
+            /* renamed from: a */
+            public void onSuccess(@NonNull com.kwad.sdk.collector.kwai.b bVar, @NonNull CollectResponse collectResponse) {
+                super.onSuccess(bVar, collectResponse);
                 a();
             }
         });
@@ -105,7 +118,7 @@ public class j {
         File file = new File(context.getApplicationInfo().dataDir, "LOCAL_TEMP_UPLOAD_FAILURE_JSON");
         if (file.exists()) {
             try {
-                return t.a(com.kwad.sdk.crash.utils.h.a(file));
+                return r.a(com.kwad.sdk.crash.utils.g.a(file));
             } catch (IOException unused) {
                 return null;
             }

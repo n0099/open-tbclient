@@ -1,49 +1,89 @@
 package com.repackage;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ck9 implements Runnable {
+public final class ck9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fk9 a;
 
-    public ck9(fk9 fk9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fk9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<String> a;
+        public final Object b;
+
+        public /* synthetic */ a(Object obj, ik9 ik9Var) {
+            dk9.d(obj);
+            this.b = obj;
+            this.a = new ArrayList();
         }
-        this.a = fk9Var;
+
+        @NonNull
+        public a a(@NonNull String str, @Nullable Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
+                List<String> list = this.a;
+                dk9.d(str);
+                String valueOf = String.valueOf(obj);
+                StringBuilder sb = new StringBuilder(str.length() + 1 + String.valueOf(valueOf).length());
+                sb.append(str);
+                sb.append("=");
+                sb.append(valueOf);
+                list.add(sb.toString());
+                return this;
+            }
+            return (a) invokeLL.objValue;
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                StringBuilder sb = new StringBuilder(100);
+                sb.append(this.b.getClass().getSimpleName());
+                sb.append('{');
+                int size = this.a.size();
+                for (int i = 0; i < size; i++) {
+                    sb.append(this.a.get(i));
+                    if (i < size - 1) {
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    }
+                }
+                sb.append('}');
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static boolean a(@Nullable Object obj, @Nullable Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                View rootView = this.a.a.getRootView();
-                if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
-                    un9 a = yn9.a(this.a.b.a);
-                    a.d(new co9(this.a.b.c), this.a.a.getWidth(), this.a.a.getHeight());
-                    a.m();
-                    sl9.n(this.a.b.c);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
+    }
+
+    public static int b(@NonNull Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
+    }
+
+    @NonNull
+    public static a c(@NonNull Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new a(obj, null) : (a) invokeL.objValue;
     }
 }

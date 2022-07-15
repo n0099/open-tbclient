@@ -1,88 +1,126 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.repackage.el2;
+import com.repackage.m62;
 /* loaded from: classes6.dex */
-public class nt2 implements ot2 {
+public class nt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nt2() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755458043, "Lcom/repackage/nt2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755458043, "Lcom/repackage/nt2;");
         }
     }
 
-    @Override // com.repackage.ot2
-    public List<at2> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public static void a(String str, @Nullable hq2 hq2Var) {
+        h03 M;
+        el2.a Y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("apiName");
-            c("api-name " + optString);
-            if (TextUtils.isEmpty(optString)) {
-                return arrayList;
-            }
-            int optInt = jSONObject.optInt("count");
-            c("api-count " + optInt);
-            if (optInt > 0 && (optJSONObject = jSONObject.optJSONObject("caller")) != null) {
-                b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
-                b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<at2> list, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) || jSONObject == null || jSONObject.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, hq2Var) == null) || (M = h03.M()) == null || (Y = M.Y()) == null) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
-        JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
-        if (optJSONArray == null || optJSONArray2 == null) {
-            return;
-        }
-        int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-        for (int i2 = 0; i2 < min; i2++) {
-            at2 at2Var = new at2();
-            at2Var.g(i);
-            at2Var.f(str);
-            at2Var.i(optJSONArray.optLong(i2));
-            at2Var.h(optJSONArray2.optLong(i2));
-            list.add(at2Var);
+        HybridUbcFlow q = mt2.q("route", str);
+        q.D("appid", Y.H());
+        q.D("swan", m93.i(Y.j0(), Y.G()));
+        q.D("net", SwanAppNetworkUtils.f().type);
+        q.D("appversion", Y.v1());
+        q.D("thirdversion", Y.w1());
+        q.D("mobile", xc3.c());
+        q.D("scheme", Y.W());
+        q.D("launchid", Y.V());
+        q.E("from", "swan");
+        q.D("web_widget_state", "0");
+        q.A();
+        if (hq2Var != null) {
+            q.E("na_multi_jump_dst_path", hq2Var.a());
         }
     }
 
-    public final void c(String str) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && ot2.a) {
-            Log.d("Api-Parser", str);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            uq2.j(true);
+            mt2.s("route", str);
+            HybridUbcFlow q = mt2.q("route", str);
+            q.F(new UbcFlowEvent("na_first_receive_action"));
+            q.D("sub_state", "0");
+            a = System.currentTimeMillis();
+        }
+    }
+
+    public static void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
+            mi2.c(i);
+            HybridUbcFlow q = mt2.q("route", str);
+            if (i != 6 && i != 4 && i != 1) {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
+            } else {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
+            }
+            q.E("type", Integer.valueOf(i));
+            pz1 H = ul2.U().H();
+            q.E("na_multi_jump_src_path", H != null ? H.m3().a() : "");
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(mt2.q("route", str).h("sub_state"), "1")) {
+            mt2.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
+        }
+    }
+
+    public static void e(m62.e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
+            mt2.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
+            if (eVar == null) {
+                return;
+            }
+            nm1 nm1Var = eVar.a;
+            if (nm1Var != null) {
+                nm1Var.w(str);
+            }
+            HybridUbcFlow q = mt2.q("route", str);
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
+            ubcFlowEvent.h(eVar.d);
+            q.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
+            ubcFlowEvent2.h(eVar.e);
+            q.F(ubcFlowEvent2);
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            HybridUbcFlow q = mt2.q("route", str);
+            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
+            q.D("web_widget_state", "1");
+            q.T();
         }
     }
 }

@@ -101,20 +101,20 @@ public final class R$drawable {
     public static final int btn_radio_off_to_on_mtrl_animation = 2131231705;
     public static final int btn_radio_on_mtrl = 2131231706;
     public static final int btn_radio_on_to_off_mtrl_animation = 2131231707;
-    public static final int notification_action_background = 2131234403;
-    public static final int notification_bg = 2131234404;
-    public static final int notification_bg_low = 2131234405;
-    public static final int notification_bg_low_normal = 2131234406;
-    public static final int notification_bg_low_pressed = 2131234407;
-    public static final int notification_bg_normal = 2131234408;
-    public static final int notification_bg_normal_pressed = 2131234409;
-    public static final int notification_icon_background = 2131234410;
-    public static final int notification_template_icon_bg = 2131234411;
-    public static final int notification_template_icon_low_bg = 2131234412;
-    public static final int notification_tile_bg = 2131234413;
-    public static final int notify_panel_notification_icon_bg = 2131234415;
-    public static final int tooltip_frame_dark = 2131235328;
-    public static final int tooltip_frame_light = 2131235329;
+    public static final int notification_action_background = 2131234274;
+    public static final int notification_bg = 2131234275;
+    public static final int notification_bg_low = 2131234276;
+    public static final int notification_bg_low_normal = 2131234277;
+    public static final int notification_bg_low_pressed = 2131234278;
+    public static final int notification_bg_normal = 2131234279;
+    public static final int notification_bg_normal_pressed = 2131234280;
+    public static final int notification_icon_background = 2131234281;
+    public static final int notification_template_icon_bg = 2131234282;
+    public static final int notification_template_icon_low_bg = 2131234283;
+    public static final int notification_tile_bg = 2131234284;
+    public static final int notify_panel_notification_icon_bg = 2131234286;
+    public static final int tooltip_frame_dark = 2131235200;
+    public static final int tooltip_frame_light = 2131235201;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$drawable() {

@@ -1,32 +1,48 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.sdk.core.webview.a.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eh implements com.kwad.sdk.core.d<AdMatrixInfo.TemplateData> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdMatrixInfo.TemplateData templateData, JSONObject jSONObject) {
+public final class eh implements com.kwad.sdk.core.d<b.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(b.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        templateData.templateShowTime = jSONObject.optLong("templateShowTime");
-        templateData.templateDelayTime = jSONObject.optLong("templateDelayTime");
-        templateData.data = jSONObject.optString("data");
-        if (jSONObject.opt("data") == JSONObject.NULL) {
-            templateData.data = "";
+        aVar.a = jSONObject.optString("url");
+        if (jSONObject.opt("url") == JSONObject.NULL) {
+            aVar.a = "";
+        }
+        aVar.b = jSONObject.optString("method");
+        if (jSONObject.opt("method") == JSONObject.NULL) {
+            aVar.b = "";
+        }
+        aVar.c = jSONObject.optString("params");
+        if (jSONObject.opt("params") == JSONObject.NULL) {
+            aVar.c = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdMatrixInfo.TemplateData templateData, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(b.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "templateShowTime", templateData.templateShowTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "templateDelayTime", templateData.templateDelayTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "data", templateData.data);
+        com.kwad.sdk.utils.r.a(jSONObject, "url", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "method", aVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, "params", aVar.c);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(b.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(b.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

@@ -1,132 +1,78 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class an3<ContenT> {
+public class an3 extends gi1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, an3<ContenT>.a> a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ContenT b;
-        public final /* synthetic */ an3 c;
-
-        public a(an3 an3Var, String str, ContenT content) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755851061, "Lcom/repackage/an3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {an3Var, str, content};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = an3Var;
-            this.a = str;
-            this.b = content;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755851061, "Lcom/repackage/an3;");
+                return;
             }
         }
+        a = rg1.a;
     }
 
     public an3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-    }
-
-    public synchronized ContenT a(String str, ContenT content, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                d(str);
-                if (content == null) {
-                    return null;
-                }
-                an3<ContenT>.a aVar = new a(this, str, content);
-                this.a.put(str, aVar);
-                if (j > 0) {
-                    rz2.M().postDelayed(aVar, j);
-                }
-                return content;
-            }
-        }
-        return (ContenT) invokeCommon.objValue;
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (an3<ContenT>.a aVar : this.a.values()) {
-                    if (aVar != null) {
-                        rz2.M().removeCallbacks(aVar);
-                    }
-                }
-                this.a.clear();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public ContenT c(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.dk1
+    public JSONObject getRawSwitch() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            an3<ContenT>.a aVar = this.a.get(str);
-            if (aVar == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (gi4.a()) {
+                    jSONObject.put("swanswitch_android_setdata", 1);
+                }
+                jSONObject.put("swanswitch_ab_inline_video", 1);
+                jSONObject.put("swanswitch_ab_inline_input", 1);
+                jSONObject.put("swanswitch_ab_inline_textarea", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return aVar.b;
+            return jSONObject;
         }
-        return (ContenT) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public synchronized ContenT d(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.dk1
+    public boolean y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                an3<ContenT>.a remove = this.a.remove(str);
-                if (remove != null) {
-                    rz2.M().removeCallbacks(remove);
-                    return remove.b;
-                }
-                return null;
-            }
-        }
-        return (ContenT) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (a && gw2.G().booleanValue()) ? false : true : invokeV.booleanValue;
     }
 }

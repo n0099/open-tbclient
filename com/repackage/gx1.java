@@ -1,100 +1,133 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class gx1 extends p13 {
+public class gx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, mm1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx1(p03 p03Var) {
-        super(p03Var, "/swanAPI/remoteDebug");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755662767, "Lcom/repackage/gx1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755662767, "Lcom/repackage/gx1;");
                 return;
             }
         }
+        a = rg1.a;
+        b = new HashMap(2);
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public static mm1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            sw1.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("ConsoleCache", "create new sConsole");
+            }
+            hx1.n(true);
+            return b72.U().f0().b(AppRuntime.getAppContext());
         }
-        return invokeLLLL.booleanValue;
+        return (mm1) invokeV.objValue;
     }
 
-    @Override // com.repackage.p13
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
-        InterceptResult invokeLLLLL;
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized mm1 b() {
+        InterceptResult invokeV;
+        String str;
+        mm1 mm1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
-            sw1.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-            if (!jx1.d()) {
-                sw1.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (gx1.class) {
+                h03 b0 = h03.b0();
+                if (b0 != null && !TextUtils.isEmpty(b0.getAppId())) {
+                    str = b0.getAppId();
+                    String a2 = js1.a(str);
+                    mm1Var = b.get(a2);
+                    if (mm1Var == null) {
+                        e();
+                        mm1Var = a();
+                        b.put(a2, mm1Var);
+                        if (a) {
+                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
+                        }
+                    }
+                    if (a) {
+                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
+                    }
+                }
+                str = "_no_id_";
+                String a22 = js1.a(str);
+                mm1Var = b.get(a22);
+                if (mm1Var == null) {
+                }
+                if (a) {
+                }
+            }
+            return mm1Var;
+        }
+        return (mm1) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            h03 b0 = h03.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return fx1.b(js1.a(b0.b));
+            }
+            if (a) {
+                Log.w("ConsoleCache", "swanApp is null or appId is empty");
                 return false;
             }
-            SwanAppActivity x = rz2.K().x();
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -279631955) {
-                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
-                    c = 0;
-                }
-            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
-                c = 1;
-            }
-            if (c == 0) {
-                sw1.i("RemoteDebugAction", "Remote Debug reload");
-                if (x != null) {
-                    Intent intent = x.getIntent();
-                    jx1.f();
-                    rz2.K().o(new String[0]);
-                    rz2.K().m(intent.getExtras(), "update_tag_by_remote_debug");
-                }
-                return true;
-            } else if (c != 1) {
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, sz2Var);
-            } else {
-                if (x != null) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        x.finishAndRemoveTask();
-                    } else {
-                        x.finish();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
+        }
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (gx1.class) {
+                if (b.size() > 0) {
+                    for (String str : b.keySet()) {
+                        mm1 mm1Var = b.get(str);
+                        if (mm1Var != null) {
+                            mm1Var.F();
+                        }
                     }
-                    System.exit(0);
+                    b.clear();
                 }
-                return true;
             }
         }
-        return invokeLLLLL.booleanValue;
     }
 }

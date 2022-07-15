@@ -17,10 +17,10 @@ public class dr {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f223a;
+    public Context f950a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f224a;
+    public a f951a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -42,7 +42,7 @@ public class dr {
                 return;
             }
         }
-        this.f223a = context;
+        this.f950a = context;
     }
 
     public static int a(int i) {
@@ -70,11 +70,11 @@ public class dr {
     private void a(com.xiaomi.push.service.ba baVar, al alVar, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, baVar, alVar, z) == null) && baVar.a(ho.a.a(), true)) {
-            dv dvVar = new dv(this.f223a);
+            dv dvVar = new dv(this.f950a);
             if (z) {
                 alVar.a((al.a) dvVar, a(baVar.a(ho.b.a(), 86400)));
             } else {
-                alVar.m161a((al.a) dvVar);
+                alVar.m1104a((al.a) dvVar);
             }
         }
     }
@@ -84,7 +84,7 @@ public class dr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             try {
-                ((Application) (this.f223a instanceof Application ? this.f223a : this.f223a.getApplicationContext())).registerActivityLifecycleCallbacks(new dl(this.f223a, String.valueOf(System.currentTimeMillis() / 1000)));
+                ((Application) (this.f950a instanceof Application ? this.f950a : this.f950a.getApplicationContext())).registerActivityLifecycleCallbacks(new dl(this.f950a, String.valueOf(System.currentTimeMillis() / 1000)));
                 return true;
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -99,9 +99,9 @@ public class dr {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            al a2 = al.a(this.f223a);
-            com.xiaomi.push.service.ba a3 = com.xiaomi.push.service.ba.a(this.f223a);
-            SharedPreferences sharedPreferences = this.f223a.getSharedPreferences("mipush_extra", 0);
+            al a2 = al.a(this.f950a);
+            com.xiaomi.push.service.ba a3 = com.xiaomi.push.service.ba.a(this.f950a);
+            SharedPreferences sharedPreferences = this.f950a.getSharedPreferences("mipush_extra", 0);
             long currentTimeMillis = System.currentTimeMillis();
             long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
             if (j == currentTimeMillis) {
@@ -113,9 +113,9 @@ public class dr {
             a(a3, a2, false);
             if (a3.a(ho.aI.a(), true)) {
                 int a4 = a(a3.a(ho.aJ.a(), 86400));
-                a2.a(new du(this.f223a, a4), a4, 0);
+                a2.a(new du(this.f950a, a4), a4, 0);
             }
-            if (m.m556a(this.f223a) && (aVar = this.f224a) != null) {
+            if (m.m1499a(this.f950a) && (aVar = this.f951a) != null) {
                 aVar.a();
             }
             if (a3.a(ho.ap.a(), false)) {
@@ -126,10 +126,10 @@ public class dr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m265a() {
+    public void m1208a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            al.a(this.f223a).a(new ds(this));
+            al.a(this.f950a).a(new ds(this));
         }
     }
 }

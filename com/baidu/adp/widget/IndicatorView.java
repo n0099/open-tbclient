@@ -444,7 +444,7 @@ public class IndicatorView extends View {
             }
         }
         this.g = new b(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04009e, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0401fd, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f0405b4});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04009e, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0401fd, R.attr.obfuscated_res_0x7f040586, R.attr.obfuscated_res_0x7f0405b5});
         this.a = obtainStyledAttributes.getDimensionPixelSize(4, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.b = obtainStyledAttributes.getInteger(1, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(2);

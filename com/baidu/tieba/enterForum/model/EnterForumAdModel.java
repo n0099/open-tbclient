@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a46;
 import com.repackage.h9;
-import com.repackage.sf8;
-import com.repackage.uf8;
+import com.repackage.ng8;
+import com.repackage.pg8;
+import com.repackage.y46;
 /* loaded from: classes3.dex */
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a46 a;
+    public y46 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -91,26 +91,26 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public a46 E() {
+    public y46 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (a46) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (y46) invokeV.objValue;
     }
 
-    public void F() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
         }
     }
 
-    public void G(Context context) {
-        a46 a46Var;
+    public void H(Context context) {
+        y46 y46Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (a46Var = this.a) == null || !a46Var.a()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (y46Var = this.a) == null || !y46Var.a()) {
             return;
         }
-        uf8.g().c(h9.a(context).getUniqueId(), sf8.f("a025", "common_fill", true, 1, 5));
+        pg8.g().c(h9.a(context).getUniqueId(), ng8.f("a025", "common_fill", true, 1, 5));
         this.b = true;
     }
 

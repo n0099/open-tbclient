@@ -1,16 +1,15 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import tbclient.BackUser.DataRes;
 /* loaded from: classes6.dex */
-public class mj4 extends jj4 {
+public class mj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public mj4() {
         Interceptable interceptable = $ic;
@@ -22,29 +21,17 @@ public class mj4 extends jj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    @Override // com.repackage.ij4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
-            c(strArr, sb, map, 1);
-            return sb.toString();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ij4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
+        this.a = dataRes.is_back_user.intValue() == 1;
     }
 }

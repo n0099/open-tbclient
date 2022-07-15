@@ -1,37 +1,77 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dg0 {
+public class dg0 extends g51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
-        InterceptResult invokeLLLL;
-        String str3;
+    public dg0(AdBaseModel adBaseModel, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
-            if (map != null) {
-                str3 = map.get(str);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = map.get("default");
-                }
-            } else {
-                str3 = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adBaseModel, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(str3)) {
-                str = str3;
-            }
-            String str4 = map2 != null ? map2.get(str) : null;
-            if (TextUtils.equals(str4, "__CMD_NONE__")) {
-                return null;
-            }
-            return TextUtils.isEmpty(str4) ? str2 : str4;
         }
-        return (String) invokeLLLL.objValue;
+        this.a = adBaseModel;
+        this.b = view2;
+    }
+
+    @Override // com.repackage.g51
+    public void b(@NonNull ln0 ln0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ln0Var) == null) {
+            Toast.makeText(hh0.b(), "on click : operator btn", 1).show();
+            if (ln0Var.c) {
+                qg0.b(ln0Var.a);
+                g(ClogBuilder.LogType.CLICK, NativeConstants.ID_BUTTON, this.a);
+            }
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
+            }
+        }
+    }
+
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        fn0 fn0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, str, adBaseModel) == null) || adBaseModel == null || (fn0Var = adBaseModel.f) == null || TextUtils.isEmpty(fn0Var.d)) {
+            return;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(logType);
+        clogBuilder.j(str);
+        clogBuilder.p(adBaseModel.f.d);
+        iy0.b(clogBuilder);
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
     }
 }

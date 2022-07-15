@@ -37,11 +37,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.if8;
+import com.repackage.dg8;
+import com.repackage.ig8;
 import com.repackage.jf;
-import com.repackage.nf8;
+import com.repackage.lq4;
 import com.repackage.oi;
-import com.repackage.wp4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SignStatic {
@@ -139,7 +139,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<nf8> {
+    public static class b implements CustomMessageTask.CustomRunnable<ig8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,12 +158,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<nf8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<ig8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof wp4)) {
-                    new if8().f((wp4) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof lq4)) {
+                    new dg8().f((lq4) customMessage.getData());
                 }
                 return null;
             }

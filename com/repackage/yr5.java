@@ -1,88 +1,161 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveDoubleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yr5 extends an<ps5, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder> {
+public class yr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public jn5 j;
-    public String k;
+    public TbPageContext a;
+    public ur5 b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yr5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public yr5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.c = -1;
+        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder M(ViewGroup viewGroup) {
+    public void a(ViewGroup viewGroup) {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.a(viewGroup);
+    }
+
+    public void b(ir5 ir5Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ir5Var, z) == null) {
+            if (ir5Var == null) {
+                this.c = -1;
+                this.b = new vr5(this.a);
+            } else if (z) {
+                int i = ir5Var.d;
+                this.c = i;
+                if (i == 1) {
+                    this.b = new xr5(this.a);
+                } else if (i == 2) {
+                    this.b = new zr5(this.a);
+                } else if (i != 3) {
+                    this.b = new vr5(this.a);
+                } else {
+                    this.b = new wr5(this.a);
+                }
+            }
+            if (this.b.f(ir5Var)) {
+                if (z) {
+                    this.b.d();
+                }
+                this.b.b(ir5Var);
+                return;
+            }
+            this.c = -1;
+            vr5 vr5Var = new vr5(this.a);
+            this.b = vr5Var;
+            if (z) {
+                vr5Var.d();
+            }
+            this.b.b(ir5Var);
+        }
+    }
+
+    public boolean c(ir5 ir5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView = new AlaGameFrsLiveDoubleView(this.i);
-            alaGameFrsLiveDoubleView.t(this.k);
-            return new AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder(alaGameFrsLiveDoubleView);
-        }
-        return (AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ir5Var)) == null) ? ir5Var == null || this.c != ir5Var.d : invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ps5 ps5Var, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder alaGameFrsLiveDoubleViewHolder) {
-        InterceptResult invokeCommon;
+    public void d(boolean z) {
+        ur5 ur5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ps5Var, alaGameFrsLiveDoubleViewHolder})) == null) {
-            alaGameFrsLiveDoubleViewHolder.a.i(ps5Var);
-            alaGameFrsLiveDoubleViewHolder.a.u(this.j);
-            in5.b().a(new StatisticItem("c12115").param("obj_id", ps5Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(ps5Var.a.getThreadAlaInfo().appId) ? ps5Var.a.getThreadAlaInfo().appId : ""));
-            ThreadData threadData = ps5Var.b;
-            if (threadData != null) {
-                in5.b().a(new StatisticItem("c12115").param("obj_id", ps5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(threadData.getThreadAlaInfo().appId) ? "" : ps5Var.b.getThreadAlaInfo().appId));
-            }
-            return alaGameFrsLiveDoubleViewHolder.b();
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (ur5Var = this.b) == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        ur5Var.g(z);
     }
 
-    public void b0(jn5 jn5Var) {
+    public void e() {
+        ur5 ur5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jn5Var) == null) {
-            this.j = jn5Var;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ur5Var = this.b) == null) {
+            return;
         }
+        ur5Var.h();
+    }
+
+    public void f(int i) {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.i(i);
+    }
+
+    public void g() {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.j();
+    }
+
+    public void h() {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.k();
+    }
+
+    public void i() {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.l();
+    }
+
+    public void j() {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.m();
+    }
+
+    public void k() {
+        ur5 ur5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (ur5Var = this.b) == null) {
+            return;
+        }
+        ur5Var.n();
     }
 }

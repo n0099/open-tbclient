@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.ss.android.socialbase.downloader.depend.aa;
 import com.ss.android.socialbase.downloader.depend.ab;
@@ -91,13 +90,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public interface InterfaceC0624a {
+        public interface InterfaceC0830a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0624a interfaceC0624a);
+        t a(InterfaceC0830a interfaceC0830a);
 
         m b();
     }
@@ -146,15 +145,12 @@ public class c {
 
     @NonNull
     public static JSONObject E() {
-        if (B != null && B.a() != null) {
-            return B.a();
-        }
-        return com.ss.android.socialbase.downloader.constants.e.i;
+        return (B == null || B.a() == null) ? com.ss.android.socialbase.downloader.constants.e.i : B.a();
     }
 
     public static void F() {
         if (TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.c)) {
-            com.ss.android.socialbase.downloader.constants.e.c = RomUtils.MANUFACTURER_OPPO;
+            com.ss.android.socialbase.downloader.constants.e.c = "oppo";
             com.ss.android.socialbase.downloader.constants.e.b = com.ss.android.socialbase.downloader.constants.e.c.toUpperCase();
         }
     }
@@ -288,6 +284,215 @@ public class c {
         }
     }
 
+    public static int a(DownloadInfo downloadInfo) {
+        if (downloadInfo == null) {
+            return 0;
+        }
+        return a(downloadInfo.getUrl(), downloadInfo.getSavePath());
+    }
+
+    public static int a(String str, String str2) {
+        k B2 = B();
+        if (B2 == null) {
+            return 0;
+        }
+        return B2.a(str, str2);
+    }
+
+    public static com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
+        return a(str, list, 0, false, null);
+    }
+
+    public static com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list, int i2, boolean z2, DownloadInfo downloadInfo) throws Exception {
+        com.ss.android.socialbase.downloader.network.g b2;
+        Exception e2 = null;
+        for (int i3 : a(i2)) {
+            try {
+                b2 = b(str, list, i3, z2, downloadInfo);
+            } catch (Exception e3) {
+                e2 = e3;
+            }
+            if (b2 != null) {
+                return b2;
+            }
+        }
+        if (e2 == null) {
+            return null;
+        }
+        throw e2;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0045  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static com.ss.android.socialbase.downloader.network.i a(int i2, String str, String str2, List<com.ss.android.socialbase.downloader.model.c> list, int i3, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
+        IDownloadHttpService d2 = i3 == 1 ? d() : h();
+        if (d2 == null) {
+            throw new BaseException(1022, new IOException("httpService not exist, netLib = " + i3));
+        }
+        IOException iOException = null;
+        long j2 = 0;
+        if (z2) {
+            try {
+                j2 = System.currentTimeMillis();
+            } catch (IOException e2) {
+                e = e2;
+                iOException = e;
+                throw iOException;
+            } catch (Throwable th) {
+                th = th;
+                IOException iOException2 = iOException;
+                if (z2) {
+                }
+                throw th;
+            }
+        }
+        try {
+            try {
+                com.ss.android.socialbase.downloader.network.i downloadWithConnection = d2.downloadWithConnection(i2, str, list);
+                if (z2) {
+                    com.ss.android.socialbase.downloader.d.a.a(downloadWithConnection, str, str2, System.currentTimeMillis() - j2, SharedPreferenceManager.OPERATION_GET_PERFIX, i3, null, downloadInfo);
+                }
+                return downloadWithConnection;
+            } catch (IOException e3) {
+                e = e3;
+                iOException = e;
+                throw iOException;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            IOException iOException22 = iOException;
+            if (z2) {
+                com.ss.android.socialbase.downloader.d.a.a(null, str, str2, System.currentTimeMillis() - j2, SharedPreferenceManager.OPERATION_GET_PERFIX, i3, iOException22, downloadInfo);
+            }
+            throw th;
+        }
+    }
+
+    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, String str2, List<com.ss.android.socialbase.downloader.model.c> list, int i3, boolean z3, DownloadInfo downloadInfo) throws Exception {
+        List<com.ss.android.socialbase.downloader.model.c> list2;
+        int i4;
+        com.ss.android.socialbase.downloader.network.i a2;
+        if (!TextUtils.isEmpty(str2)) {
+            List<com.ss.android.socialbase.downloader.model.c> arrayList = list == null ? new ArrayList<>() : list;
+            arrayList.add(new com.ss.android.socialbase.downloader.model.c("ss_d_request_host_ip_114", str2));
+            list2 = arrayList;
+            i4 = 1;
+        } else if (z2) {
+            list2 = list;
+            i4 = i3;
+        } else {
+            i4 = 2;
+            list2 = list;
+        }
+        int[] a3 = a(i4);
+        Exception exc = null;
+        for (int i5 : a3) {
+            try {
+                a2 = a(i2, str, str2, list2, i5, z3, downloadInfo);
+            } catch (Exception e2) {
+                if (downloadInfo.isExpiredRedownload() && com.ss.android.socialbase.downloader.i.f.g(e2) && com.ss.android.socialbase.downloader.i.f.c(list2)) {
+                    com.ss.android.socialbase.downloader.c.a.a("dcach::http exception 304, throw excepiton, not retry " + e2);
+                    throw e2;
+                }
+                exc = e2;
+            }
+            if (a2 != null) {
+                return a2;
+            }
+        }
+        if (exc == null) {
+            return null;
+        }
+        throw exc;
+    }
+
+    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
+        return a(z2, i2, str, null, list, 0, false, null);
+    }
+
+    public static synchronized void a() {
+        synchronized (c.class) {
+            try {
+                if (J && x != null && a != null) {
+                    a.unregisterReceiver(x);
+                    J = false;
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static synchronized void a(Context context) {
+        synchronized (c.class) {
+            if (context != null) {
+                if (a == null) {
+                    a = context.getApplicationContext();
+                    com.ss.android.socialbase.downloader.a.a.a().a(a);
+                }
+            }
+        }
+    }
+
+    public static void a(com.ss.android.socialbase.downloader.constants.d dVar) {
+        synchronized (R) {
+            for (com.ss.android.socialbase.downloader.depend.k kVar : R) {
+                if (kVar != null) {
+                    if (dVar == com.ss.android.socialbase.downloader.constants.d.SYNC_START) {
+                        kVar.a();
+                    } else if (dVar == com.ss.android.socialbase.downloader.constants.d.SYNC_SUCCESS) {
+                        kVar.b();
+                    }
+                }
+            }
+            if (dVar == com.ss.android.socialbase.downloader.constants.d.SYNC_SUCCESS) {
+                R.clear();
+            }
+        }
+    }
+
+    public static void a(com.ss.android.socialbase.downloader.d.b bVar) {
+        if (bVar != null) {
+            A = bVar;
+        }
+    }
+
+    public static void a(com.ss.android.socialbase.downloader.d.c cVar) {
+        X = cVar;
+    }
+
+    public static void a(aa aaVar) {
+        B = aaVar;
+        com.ss.android.socialbase.downloader.g.a.a();
+    }
+
+    public static void a(af afVar) {
+        if (afVar != null) {
+            e = afVar;
+        }
+    }
+
+    public static void a(ak akVar) {
+        if (akVar == null) {
+            return;
+        }
+        synchronized (C) {
+            C.add(akVar);
+        }
+    }
+
+    public static void a(com.ss.android.socialbase.downloader.depend.k kVar) {
+        synchronized (R) {
+            if (kVar != null) {
+                if (!R.contains(kVar)) {
+                    R.add(kVar);
+                }
+            }
+        }
+    }
+
     public static synchronized void a(DownloaderBuilder downloaderBuilder) {
         synchronized (c.class) {
             if (Y) {
@@ -350,7 +555,186 @@ public class c {
         }
     }
 
+    public static void a(a aVar) {
+        com.ss.android.socialbase.downloader.c.a.a("wjd", "setIndependentServiceCreator::creator=" + aVar);
+        i = aVar;
+    }
+
+    public static void a(g gVar) {
+        if (gVar != null) {
+            w = gVar;
+        }
+    }
+
+    public static void a(h hVar) {
+        if (hVar != null) {
+            d = hVar;
+        }
+    }
+
+    public static void a(j jVar) {
+        if (jVar != null) {
+            b = jVar;
+        }
+    }
+
+    public static void a(k kVar) {
+        if (kVar != null) {
+            c = kVar;
+        }
+    }
+
+    public static synchronized void a(l lVar) {
+        synchronized (c.class) {
+            if (lVar != null) {
+                n = lVar;
+                if (b instanceof com.ss.android.socialbase.downloader.impls.d) {
+                    ((com.ss.android.socialbase.downloader.impls.d) b).h();
+                }
+            }
+        }
+    }
+
     public static void a(r rVar) {
+    }
+
+    public static void a(DownloadTask downloadTask, int i2) {
+        synchronized (S) {
+            for (ab abVar : S) {
+                if (abVar != null) {
+                    abVar.a(downloadTask, i2);
+                }
+            }
+        }
+    }
+
+    public static void a(IDownloadHttpService iDownloadHttpService) {
+        if (iDownloadHttpService != null) {
+            j = iDownloadHttpService;
+        }
+        Q = j != null;
+    }
+
+    public static void a(com.ss.android.socialbase.downloader.network.h hVar) {
+        if (hVar != null) {
+            k = hVar;
+        }
+    }
+
+    public static void a(Runnable runnable) {
+        b(runnable, false);
+    }
+
+    public static void a(Runnable runnable, boolean z2) {
+        if (runnable == null) {
+            return;
+        }
+        if (!z2 || com.ss.android.socialbase.downloader.i.f.d()) {
+            l().execute(runnable);
+        } else {
+            runnable.run();
+        }
+    }
+
+    public static void a(List<com.ss.android.socialbase.downloader.depend.m> list) {
+        if (I.isEmpty()) {
+            synchronized (I) {
+                I.addAll(list);
+            }
+        }
+    }
+
+    public static void a(ExecutorService executorService) {
+        if (executorService != null) {
+            u = executorService;
+        }
+    }
+
+    public static void a(boolean z2) {
+        V = z2;
+    }
+
+    public static int[] a(int i2) {
+        return i2 != 1 ? i2 != 2 ? i2 != 3 ? new int[]{1, 0} : new int[]{0, 1} : new int[]{1} : new int[]{0};
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0047  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static com.ss.android.socialbase.downloader.network.g b(String str, List<com.ss.android.socialbase.downloader.model.c> list, int i2, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
+        com.ss.android.socialbase.downloader.network.h f2 = i2 == 1 ? f() : i();
+        if (f2 == null) {
+            throw new BaseException(1022, new IOException("httpService not exist, netLib = " + i2));
+        }
+        IOException iOException = null;
+        long j2 = 0;
+        if (z2) {
+            try {
+                j2 = System.currentTimeMillis();
+            } catch (IOException e2) {
+                e = e2;
+                iOException = e;
+                throw iOException;
+            } catch (Throwable th) {
+                th = th;
+                IOException iOException2 = iOException;
+                if (z2) {
+                }
+                throw th;
+            }
+        }
+        try {
+            try {
+                com.ss.android.socialbase.downloader.network.g a2 = f2.a(str, list);
+                if (z2) {
+                    com.ss.android.socialbase.downloader.d.a.a(a2, str, null, System.currentTimeMillis() - j2, "head", i2, null, downloadInfo);
+                }
+                return a2;
+            } catch (IOException e3) {
+                e = e3;
+                iOException = e;
+                throw iOException;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            IOException iOException22 = iOException;
+            if (z2) {
+                com.ss.android.socialbase.downloader.d.a.a(null, str, null, System.currentTimeMillis() - j2, "head", i2, iOException22, downloadInfo);
+            }
+            throw th;
+        }
+    }
+
+    public static synchronized void b() {
+        synchronized (c.class) {
+            if (D) {
+                return;
+            }
+            D = true;
+            Intent intent = new Intent(N(), DownloadHandleService.class);
+            intent.setAction("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY");
+            N().startService(intent);
+            if (!com.ss.android.socialbase.downloader.i.f.c()) {
+                com.ss.android.socialbase.downloader.impls.l.a(true).startService();
+            }
+        }
+    }
+
+    public static void b(int i2) {
+        if (i2 > 0) {
+            K = i2;
+        }
+    }
+
+    public static void b(com.ss.android.socialbase.downloader.depend.k kVar) {
+        synchronized (R) {
+            if (kVar != null) {
+                if (R.contains(kVar)) {
+                    R.remove(kVar);
+                }
+            }
+        }
     }
 
     public static synchronized void b(DownloaderBuilder downloaderBuilder) {
@@ -359,7 +743,50 @@ public class c {
         }
     }
 
+    public static void b(DownloadTask downloadTask, int i2) {
+        synchronized (S) {
+            for (ab abVar : S) {
+                if (abVar != null) {
+                    abVar.b(downloadTask, i2);
+                }
+            }
+        }
+    }
+
+    public static void b(Runnable runnable) {
+        if (runnable == null) {
+            return;
+        }
+        if (com.ss.android.socialbase.downloader.i.f.d()) {
+            r().execute(runnable);
+        } else {
+            runnable.run();
+        }
+    }
+
+    public static void b(Runnable runnable, boolean z2) {
+        if (runnable == null) {
+            return;
+        }
+        if (!z2 || com.ss.android.socialbase.downloader.i.f.d()) {
+            m().execute(runnable);
+        } else {
+            runnable.run();
+        }
+    }
+
+    public static void b(ExecutorService executorService) {
+        if (executorService != null) {
+            v = executorService;
+        }
+    }
+
+    public static void b(boolean z2) {
+        U = z2;
+    }
+
     public static void c(DownloaderBuilder downloaderBuilder) {
+        com.ss.android.socialbase.downloader.network.h i2;
         if (downloaderBuilder != null) {
             if (downloaderBuilder.getContext() != null) {
                 a(downloaderBuilder.getContext());
@@ -440,11 +867,12 @@ public class c {
                 H = downloaderBuilder.getTTNetHandler();
                 if (H.a()) {
                     a(H.b());
-                    a(H.c());
+                    i2 = H.c();
                 } else {
                     a(h());
-                    a(i());
+                    i2 = i();
                 }
+                a(i2);
             }
             b(downloaderBuilder.needAutoRefreshUnSuccessTask());
             if (downloaderBuilder.getDownloadMonitorListener() != null) {
@@ -453,8 +881,72 @@ public class c {
         }
     }
 
+    public static void c(ExecutorService executorService) {
+        if (executorService != null) {
+            o = executorService;
+        }
+    }
+
+    public static synchronized boolean c() {
+        boolean z2;
+        synchronized (c.class) {
+            z2 = D;
+        }
+        return z2;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x000f A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c1654612903249dc(String str) {
+        while (true) {
+            char c2 = 'J';
+            char c3 = '7';
+            while (true) {
+                switch (c2) {
+                    case 'H':
+                        break;
+                    case 'I':
+                        switch (c3) {
+                            case '^':
+                                break;
+                            case '_':
+                            case '`':
+                                break;
+                            default:
+                                switch (c3) {
+                                }
+                        }
+                        c2 = 'I';
+                        c3 = '`';
+                        break;
+                    case 'J':
+                        switch (c3) {
+                        }
+                        c2 = 'I';
+                        c3 = '`';
+                        break;
+                    default:
+                        c2 = 'H';
+                }
+            }
+        }
+        char[] charArray = str.toCharArray();
+        for (int i2 = 0; i2 < charArray.length; i2++) {
+            charArray[i2] = (char) (charArray[i2] ^ i2);
+        }
+        return new String(charArray);
+    }
+
     public static IDownloadHttpService d() {
         return j;
+    }
+
+    public static void d(ExecutorService executorService) {
+        if (executorService != null) {
+            p = executorService;
+        }
     }
 
     public static List<ak> e() {
@@ -465,12 +957,30 @@ public class c {
         return list;
     }
 
+    public static void e(ExecutorService executorService) {
+        if (executorService != null) {
+            q = executorService;
+        }
+    }
+
     public static com.ss.android.socialbase.downloader.network.h f() {
         return k;
     }
 
+    public static void f(ExecutorService executorService) {
+        if (executorService != null) {
+            r = executorService;
+        }
+    }
+
     public static com.ss.android.socialbase.downloader.d.b g() {
         return A;
+    }
+
+    public static void g(ExecutorService executorService) {
+        if (executorService != null) {
+            s = executorService;
+        }
     }
 
     public static IDownloadHttpService h() {
@@ -482,6 +992,12 @@ public class c {
             }
         }
         return l;
+    }
+
+    public static void h(ExecutorService executorService) {
+        if (executorService != null) {
+            t = executorService;
+        }
     }
 
     public static com.ss.android.socialbase.downloader.network.h i() {
@@ -650,476 +1166,5 @@ public class c {
             }
         }
         return h;
-    }
-
-    public static void d(ExecutorService executorService) {
-        if (executorService != null) {
-            p = executorService;
-        }
-    }
-
-    public static void f(ExecutorService executorService) {
-        if (executorService != null) {
-            r = executorService;
-        }
-    }
-
-    public static void g(ExecutorService executorService) {
-        if (executorService != null) {
-            s = executorService;
-        }
-    }
-
-    public static synchronized void b() {
-        synchronized (c.class) {
-            if (D) {
-                return;
-            }
-            D = true;
-            Intent intent = new Intent(N(), DownloadHandleService.class);
-            intent.setAction("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY");
-            N().startService(intent);
-            if (!com.ss.android.socialbase.downloader.i.f.c()) {
-                com.ss.android.socialbase.downloader.impls.l.a(true).startService();
-            }
-        }
-    }
-
-    public static void e(ExecutorService executorService) {
-        if (executorService != null) {
-            q = executorService;
-        }
-    }
-
-    public static void h(ExecutorService executorService) {
-        if (executorService != null) {
-            t = executorService;
-        }
-    }
-
-    public static void b(com.ss.android.socialbase.downloader.depend.k kVar) {
-        synchronized (R) {
-            if (kVar != null) {
-                if (R.contains(kVar)) {
-                    R.remove(kVar);
-                }
-            }
-        }
-    }
-
-    public static void b(DownloadTask downloadTask, int i2) {
-        synchronized (S) {
-            for (ab abVar : S) {
-                if (abVar != null) {
-                    abVar.b(downloadTask, i2);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0039  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static com.ss.android.socialbase.downloader.network.g b(String str, List<com.ss.android.socialbase.downloader.model.c> list, int i2, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
-        IOException iOException;
-        com.ss.android.socialbase.downloader.network.h f2 = i2 == 1 ? f() : i();
-        if (f2 != null) {
-            long j2 = 0;
-            if (z2) {
-                try {
-                    j2 = System.currentTimeMillis();
-                } catch (IOException e2) {
-                    try {
-                        throw e2;
-                    } catch (Throwable th) {
-                        iOException = e2;
-                        th = th;
-                        if (z2) {
-                            com.ss.android.socialbase.downloader.d.a.a(null, str, null, System.currentTimeMillis() - j2, "head", i2, iOException, downloadInfo);
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    iOException = null;
-                    if (z2) {
-                    }
-                    throw th;
-                }
-            }
-            com.ss.android.socialbase.downloader.network.g a2 = f2.a(str, list);
-            if (z2) {
-                com.ss.android.socialbase.downloader.d.a.a(a2, str, null, System.currentTimeMillis() - j2, "head", i2, null, downloadInfo);
-            }
-            return a2;
-        }
-        throw new BaseException(1022, new IOException("httpService not exist, netLib = " + i2));
-    }
-
-    public static void b(ExecutorService executorService) {
-        if (executorService != null) {
-            v = executorService;
-        }
-    }
-
-    public static void b(Runnable runnable, boolean z2) {
-        if (runnable == null) {
-            return;
-        }
-        if (z2 && !com.ss.android.socialbase.downloader.i.f.d()) {
-            runnable.run();
-        } else {
-            m().execute(runnable);
-        }
-    }
-
-    public static synchronized void a() {
-        synchronized (c.class) {
-            try {
-                if (J && x != null && a != null) {
-                    a.unregisterReceiver(x);
-                    J = false;
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void b(Runnable runnable) {
-        if (runnable == null) {
-            return;
-        }
-        if (!com.ss.android.socialbase.downloader.i.f.d()) {
-            runnable.run();
-        } else {
-            r().execute(runnable);
-        }
-    }
-
-    public static void b(int i2) {
-        if (i2 > 0) {
-            K = i2;
-        }
-    }
-
-    public static void a(ak akVar) {
-        if (akVar == null) {
-            return;
-        }
-        synchronized (C) {
-            C.add(akVar);
-        }
-    }
-
-    public static void b(boolean z2) {
-        U = z2;
-    }
-
-    public static void a(com.ss.android.socialbase.downloader.depend.k kVar) {
-        synchronized (R) {
-            if (kVar != null) {
-                if (!R.contains(kVar)) {
-                    R.add(kVar);
-                }
-            }
-        }
-    }
-
-    public static void a(com.ss.android.socialbase.downloader.constants.d dVar) {
-        synchronized (R) {
-            for (com.ss.android.socialbase.downloader.depend.k kVar : R) {
-                if (kVar != null) {
-                    if (dVar == com.ss.android.socialbase.downloader.constants.d.SYNC_START) {
-                        kVar.a();
-                    } else if (dVar == com.ss.android.socialbase.downloader.constants.d.SYNC_SUCCESS) {
-                        kVar.b();
-                    }
-                }
-            }
-            if (dVar == com.ss.android.socialbase.downloader.constants.d.SYNC_SUCCESS) {
-                R.clear();
-            }
-        }
-    }
-
-    public static void a(DownloadTask downloadTask, int i2) {
-        synchronized (S) {
-            for (ab abVar : S) {
-                if (abVar != null) {
-                    abVar.a(downloadTask, i2);
-                }
-            }
-        }
-    }
-
-    public static synchronized boolean c() {
-        boolean z2;
-        synchronized (c.class) {
-            z2 = D;
-        }
-        return z2;
-    }
-
-    public static void c(ExecutorService executorService) {
-        if (executorService != null) {
-            o = executorService;
-        }
-    }
-
-    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
-        return a(z2, i2, str, null, list, 0, false, null);
-    }
-
-    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, String str2, List<com.ss.android.socialbase.downloader.model.c> list, int i3, boolean z3, DownloadInfo downloadInfo) throws Exception {
-        List<com.ss.android.socialbase.downloader.model.c> list2;
-        int i4;
-        com.ss.android.socialbase.downloader.network.i a2;
-        if (!TextUtils.isEmpty(str2)) {
-            List<com.ss.android.socialbase.downloader.model.c> arrayList = list == null ? new ArrayList<>() : list;
-            arrayList.add(new com.ss.android.socialbase.downloader.model.c("ss_d_request_host_ip_114", str2));
-            list2 = arrayList;
-            i4 = 1;
-        } else if (z2) {
-            list2 = list;
-            i4 = i3;
-        } else {
-            i4 = 2;
-            list2 = list;
-        }
-        int[] a3 = a(i4);
-        Exception exc = null;
-        for (int i5 : a3) {
-            try {
-                a2 = a(i2, str, str2, list2, i5, z3, downloadInfo);
-            } catch (Exception e2) {
-                if (downloadInfo.isExpiredRedownload() && com.ss.android.socialbase.downloader.i.f.g(e2) && com.ss.android.socialbase.downloader.i.f.c(list2)) {
-                    com.ss.android.socialbase.downloader.c.a.a("dcach::http exception 304, throw excepiton, not retry " + e2);
-                    throw e2;
-                }
-                exc = e2;
-            }
-            if (a2 != null) {
-                return a2;
-            }
-        }
-        if (exc == null) {
-            return null;
-        }
-        throw exc;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0044  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static com.ss.android.socialbase.downloader.network.i a(int i2, String str, String str2, List<com.ss.android.socialbase.downloader.model.c> list, int i3, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
-        IOException iOException;
-        IDownloadHttpService d2 = i3 == 1 ? d() : h();
-        if (d2 != null) {
-            IOException iOException2 = null;
-            long j2 = 0;
-            if (z2) {
-                try {
-                    j2 = System.currentTimeMillis();
-                } catch (IOException e2) {
-                    e = e2;
-                    iOException = e;
-                    try {
-                        throw iOException;
-                    } catch (Throwable th) {
-                        th = th;
-                        iOException2 = iOException;
-                        if (z2) {
-                            com.ss.android.socialbase.downloader.d.a.a(null, str, str2, System.currentTimeMillis() - j2, SharedPreferenceManager.OPERATION_GET_PERFIX, i3, iOException2, downloadInfo);
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (z2) {
-                    }
-                    throw th;
-                }
-            }
-            try {
-                com.ss.android.socialbase.downloader.network.i downloadWithConnection = d2.downloadWithConnection(i2, str, list);
-                if (z2) {
-                    com.ss.android.socialbase.downloader.d.a.a(downloadWithConnection, str, str2, System.currentTimeMillis() - j2, SharedPreferenceManager.OPERATION_GET_PERFIX, i3, null, downloadInfo);
-                }
-                return downloadWithConnection;
-            } catch (IOException e3) {
-                e = e3;
-                iOException = e;
-                throw iOException;
-            } catch (Throwable th3) {
-                th = th3;
-                if (z2) {
-                }
-                throw th;
-            }
-        }
-        throw new BaseException(1022, new IOException("httpService not exist, netLib = " + i3));
-    }
-
-    public static com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
-        return a(str, list, 0, false, null);
-    }
-
-    public static com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list, int i2, boolean z2, DownloadInfo downloadInfo) throws Exception {
-        com.ss.android.socialbase.downloader.network.g b2;
-        Exception e2 = null;
-        for (int i3 : a(i2)) {
-            try {
-                b2 = b(str, list, i3, z2, downloadInfo);
-            } catch (Exception e3) {
-                e2 = e3;
-            }
-            if (b2 != null) {
-                return b2;
-            }
-        }
-        if (e2 == null) {
-            return null;
-        }
-        throw e2;
-    }
-
-    public static int[] a(int i2) {
-        return i2 != 1 ? i2 != 2 ? i2 != 3 ? new int[]{1, 0} : new int[]{0, 1} : new int[]{1} : new int[]{0};
-    }
-
-    public static synchronized void a(l lVar) {
-        synchronized (c.class) {
-            if (lVar != null) {
-                n = lVar;
-                if (b instanceof com.ss.android.socialbase.downloader.impls.d) {
-                    ((com.ss.android.socialbase.downloader.impls.d) b).h();
-                }
-            }
-        }
-    }
-
-    public static void a(ExecutorService executorService) {
-        if (executorService != null) {
-            u = executorService;
-        }
-    }
-
-    public static void a(List<com.ss.android.socialbase.downloader.depend.m> list) {
-        if (I.isEmpty()) {
-            synchronized (I) {
-                I.addAll(list);
-            }
-        }
-    }
-
-    public static void a(boolean z2) {
-        V = z2;
-    }
-
-    public static void a(Runnable runnable) {
-        b(runnable, false);
-    }
-
-    public static void a(Runnable runnable, boolean z2) {
-        if (runnable == null) {
-            return;
-        }
-        if (z2 && !com.ss.android.socialbase.downloader.i.f.d()) {
-            runnable.run();
-        } else {
-            l().execute(runnable);
-        }
-    }
-
-    public static void a(IDownloadHttpService iDownloadHttpService) {
-        if (iDownloadHttpService != null) {
-            j = iDownloadHttpService;
-        }
-        Q = j != null;
-    }
-
-    public static void a(com.ss.android.socialbase.downloader.network.h hVar) {
-        if (hVar != null) {
-            k = hVar;
-        }
-    }
-
-    public static void a(j jVar) {
-        if (jVar != null) {
-            b = jVar;
-        }
-    }
-
-    public static void a(k kVar) {
-        if (kVar != null) {
-            c = kVar;
-        }
-    }
-
-    public static void a(com.ss.android.socialbase.downloader.d.b bVar) {
-        if (bVar != null) {
-            A = bVar;
-        }
-    }
-
-    public static void a(aa aaVar) {
-        B = aaVar;
-        com.ss.android.socialbase.downloader.g.a.a();
-    }
-
-    public static void a(h hVar) {
-        if (hVar != null) {
-            d = hVar;
-        }
-    }
-
-    public static void a(af afVar) {
-        if (afVar != null) {
-            e = afVar;
-        }
-    }
-
-    public static void a(g gVar) {
-        if (gVar != null) {
-            w = gVar;
-        }
-    }
-
-    public static synchronized void a(Context context) {
-        synchronized (c.class) {
-            if (context != null) {
-                if (a == null) {
-                    a = context.getApplicationContext();
-                    com.ss.android.socialbase.downloader.a.a.a().a(a);
-                }
-            }
-        }
-    }
-
-    public static int a(DownloadInfo downloadInfo) {
-        if (downloadInfo == null) {
-            return 0;
-        }
-        return a(downloadInfo.getUrl(), downloadInfo.getSavePath());
-    }
-
-    public static int a(String str, String str2) {
-        k B2 = B();
-        if (B2 == null) {
-            return 0;
-        }
-        return B2.a(str, str2);
-    }
-
-    public static void a(com.ss.android.socialbase.downloader.d.c cVar) {
-        X = cVar;
-    }
-
-    public static void a(a aVar) {
-        com.ss.android.socialbase.downloader.c.a.a("wjd", "setIndependentServiceCreator::creator=" + aVar);
-        i = aVar;
     }
 }

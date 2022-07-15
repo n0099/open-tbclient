@@ -541,21 +541,21 @@ public class oh {
                             try {
                                 rf rfVar = new rf();
                                 String str4 = this.b;
-                                if (z2 && str4.contains("c.tieba.baidu.com")) {
-                                    str4 = str4.replace("c.tieba.baidu.com", "123.125.115.120");
-                                    rfVar.b().a("Host", "c.tieba.baidu.com");
+                                if (z2 && str4.contains("tiebac.baidu.com")) {
+                                    str4 = str4.replace("tiebac.baidu.com", "123.125.115.120");
+                                    rfVar.b().a("Host", "tiebac.baidu.com");
                                 }
-                                rfVar.b().v(str4);
-                                rfVar.b().t(HttpMessageTask.HTTP_METHOD.POST);
+                                rfVar.b().s(str4);
+                                rfVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
                                 HashMap<String, Object> f2 = qh.f(str4, this.a, z);
                                 if (f2 != null) {
-                                    rfVar.b().u(new ArrayList(f2.entrySet()));
+                                    rfVar.b().r(new ArrayList(f2.entrySet()));
                                 }
                                 hashMap.clear();
                                 hashMap.put("pf", bArr);
                                 arrayList3.clear();
                                 arrayList3.addAll(hashMap.entrySet());
-                                rfVar.b().u(arrayList3);
+                                rfVar.b().r(arrayList3);
                                 try {
                                     new of(rfVar).m(3, -1, -1);
                                 } catch (Exception e4) {
@@ -574,17 +574,17 @@ public class oh {
                     }
                 }
                 rf rfVar2 = new rf();
-                if (z2 && str3.contains("c.tieba.baidu.com")) {
-                    str3 = str3.replace("c.tieba.baidu.com", "123.125.115.120");
-                    rfVar2.b().a("Host", "c.tieba.baidu.com");
+                if (z2 && str3.contains("tiebac.baidu.com")) {
+                    str3 = str3.replace("tiebac.baidu.com", "123.125.115.120");
+                    rfVar2.b().a("Host", "tiebac.baidu.com");
                 }
-                rfVar2.b().v(str3);
-                rfVar2.b().t(HttpMessageTask.HTTP_METHOD.POST);
+                rfVar2.b().s(str3);
+                rfVar2.b().q(HttpMessageTask.HTTP_METHOD.POST);
                 HashMap<String, Object> f3 = qh.f(str3, this.a, z);
                 if (f3 != null) {
-                    rfVar2.b().u(new ArrayList(f3.entrySet()));
+                    rfVar2.b().r(new ArrayList(f3.entrySet()));
                 }
-                rfVar2.b().u(arrayList3);
+                rfVar2.b().r(arrayList3);
                 try {
                     new of(rfVar2).m(3, -1, -1);
                     int i = rfVar2.c().b;
@@ -694,14 +694,14 @@ public class oh {
             hashMap.put(ehVar.q(), bArr);
             ArrayList arrayList3 = new ArrayList(hashMap.entrySet());
             rf rfVar = new rf();
-            rfVar.b().a("Host", "c.tieba.baidu.com");
-            rfVar.b().v(this.c);
-            rfVar.b().t(HttpMessageTask.HTTP_METHOD.POST);
+            rfVar.b().a("Host", "tiebac.baidu.com");
+            rfVar.b().s(this.c);
+            rfVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
             HashMap<String, Object> f2 = qh.f(this.c, this.a, false);
             if (f2 != null) {
-                rfVar.b().u(new ArrayList(f2.entrySet()));
+                rfVar.b().r(new ArrayList(f2.entrySet()));
             }
-            rfVar.b().u(arrayList3);
+            rfVar.b().r(arrayList3);
             try {
                 new of(rfVar).m(3, -1, -1);
                 if (rfVar.c().b == 200) {

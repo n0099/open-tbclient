@@ -1,36 +1,25 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class kg6 extends fc6<bq4, ThreadCardViewHolder<ThreadData>> implements kx5, sn6, zi5, lx5 {
+public class kg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> t;
-    public String u;
-    public int v;
-    public qn6 w;
+    public fg6 a;
+    public String b;
+    public VideoAggregationModel c;
+    public boolean d;
+    public VideoAggregationModel.c e;
 
     /* loaded from: classes6.dex */
-    public class a implements xn {
+    public class a implements VideoAggregationModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kg6 a;
@@ -53,135 +42,111 @@ public class kg6 extends fc6<bq4, ThreadCardViewHolder<ThreadData>> implements k
             this.a = kg6Var;
         }
 
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast.i(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f1522), R.drawable.obfuscated_res_0x7f0809b5, true).n();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.a == null) {
+                return;
             }
+            this.a.a.m();
+            this.a.a.k(str);
+            this.a.a.onLoadFail();
+        }
+
+        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
+        public void b(List<ig6> list, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.a.a == null) {
+                return;
+            }
+            this.a.a.m();
+            this.a.d = z2;
+            this.a.a.O0(list, z, z2);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public kg6(TbPageContext tbPageContext, fg6 fg6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, fg6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = 3;
-        this.w = new qn6();
-        this.t = tbPageContext;
+        a aVar = new a(this);
+        this.e = aVar;
+        this.a = fg6Var;
+        this.c = new VideoAggregationModel(tbPageContext, aVar);
     }
 
-    @Override // com.repackage.kx5
-    public void a(String str) {
+    public void c() {
+        VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoAggregationModel = this.c) == null) {
+            return;
+        }
+        videoAggregationModel.cancelLoadData();
+    }
+
+    public void d() {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.c) != null && this.d) {
+            videoAggregationModel.loadData();
         }
     }
 
-    @Override // com.repackage.zi5
+    public void e() {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoAggregationModel = this.c) == null) {
+            return;
+        }
+        videoAggregationModel.E();
+    }
+
+    public void f(String str) {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (videoAggregationModel = this.c) == null) {
+            return;
+        }
+        videoAggregationModel.setFrom(str);
+    }
+
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.u = str;
-        }
-    }
-
-    @Override // com.repackage.sn6
-    public qn6 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.w : (qn6) invokeV.objValue;
-    }
-
-    @Override // com.repackage.lx5
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: n0 */
-    public ThreadCardViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            by.b bVar = new by.b(this.t.getPageActivity(), false);
-            yw ywVar = new yw(this.t.getPageActivity());
-            if (this.v == 502) {
-                ywVar.p(false);
-            } else {
-                ywVar.p(true);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+            VideoAggregationModel videoAggregationModel = this.c;
+            if (videoAggregationModel != null) {
+                videoAggregationModel.F(str);
             }
-            bVar.n(ywVar);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m));
-            threadCardViewHolder.k(this.e);
-            V(new a(this));
-            threadCardViewHolder.p(false);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc6, com.repackage.an
-    /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, bq4 bq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bq4Var, threadCardViewHolder})) == null) {
-            if (threadCardViewHolder == null) {
-                return null;
-            }
-            if (bq4Var == null) {
-                return threadCardViewHolder.b();
-            }
-            if (threadCardViewHolder.c() instanceof yi5) {
-                threadCardViewHolder.c().b(this.u);
-            }
-            super.S(i, view2, viewGroup, bq4Var, threadCardViewHolder);
-            ec6.i(threadCardViewHolder.c().f(), this.j);
-            threadCardViewHolder.c().q(i);
-            FrsViewData frsViewData = this.j;
-            if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.j.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.j.getForum().getTopic_special_icon_right())) {
-                bq4Var.s.setSpecUrl(this.j.getForum().getTopic_special_icon(), this.j.getForum().getTopic_special_icon_right());
-            }
-            threadCardViewHolder.g(bq4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.t, TbadkCoreApplication.getInst().getSkinType());
-            bq4Var.s.updateShowStatus();
-            return threadCardViewHolder.b();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.kx5
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.v = i;
         }
     }
 
-    @Override // com.repackage.fc6
-    public void setFrom(String str) {
+    public void h(String str) {
+        VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (videoAggregationModel = this.c) == null) {
+            return;
         }
+        videoAggregationModel.G(str);
+    }
+
+    public void i(String str) {
+        VideoAggregationModel videoAggregationModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (videoAggregationModel = this.c) == null) {
+            return;
+        }
+        videoAggregationModel.H(str);
     }
 }

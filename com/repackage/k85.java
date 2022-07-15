@@ -1,141 +1,136 @@
 package com.repackage;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.novel.NovelMemberCardView;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k85 extends r85 {
+public class k85 {
     public static /* synthetic */ Interceptable $ic;
+    public static k85 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755604983, "Lcom/repackage/k85;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755604983, "Lcom/repackage/k85;");
+        }
+    }
 
     public k85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.r85
-    public void b(n85 n85Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, n85Var) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            vg a = p85.a();
-            a.b("action", "time_t");
-            f(a, n85Var);
-            a.b("ishttp", n85Var.s ? "1" : "0");
-            a.b("issuccess", n85Var.b ? "1" : "0");
-            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(n85Var.e));
-            a.b("wt", String.valueOf(n85Var.p));
-            a.b("qt", String.valueOf(n85Var.f));
-            a.b("connt", String.valueOf(n85Var.g));
-            a.b("rwt", String.valueOf(n85Var.h));
-            a.b("dect", String.valueOf(n85Var.k));
-            a.b("parset", String.valueOf(n85Var.l));
-            a.b("rendert", String.valueOf(n85Var.o));
-            a.b("ss", String.valueOf(n85Var.q));
-            a.b("hs", String.valueOf(n85Var.r));
-            if (n85Var.s && (i = n85Var.t) != 0) {
-                a.b("salno", String.valueOf(i));
-                long j = n85Var.u;
-                if (j != 0) {
-                    a.b("scosttime", String.valueOf(j));
-                }
-            }
-            int i2 = n85Var.v;
-            if (i2 != 0) {
-                a.c("errcode", Integer.valueOf(i2));
-            }
-            if (n85Var.s) {
-                a.b("c_logid", String.valueOf(n85Var.A));
-            } else {
-                a.b("seq_id", String.valueOf(n85Var.z & 4294967295L));
-            }
-            BdStatisticsManager.getInstance().performance(this.a, a);
-        }
-    }
-
-    @Override // com.repackage.r85
-    public void c(n85 n85Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n85Var, i) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && n85Var.D > 0) {
-            vg a = p85.a();
-            a.b("action", "time_t");
-            f(a, n85Var);
-            a.b("pct", String.valueOf(n85Var.D));
-            if (i == 0) {
-                a.b("pct_type", String.valueOf(100));
-            } else if (i != 40) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            } else {
-                a.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.a, a);
         }
+        this.c = true;
+        this.d = true;
+        this.e = true;
+        this.a = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds144);
+        this.b = pi.i(TbadkCoreApplication.getInst());
     }
 
-    @Override // com.repackage.r85
-    public void d(n85 n85Var, boolean z) {
-        int i;
+    public static k85 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, n85Var, z) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            if (!z || n85Var.B > 0) {
-                if (z || n85Var.C > 0) {
-                    vg a = p85.a();
-                    a.b("action", "time_t");
-                    f(a, n85Var);
-                    if (z) {
-                        a.b(SharedPreferenceManager.OPERATION_PUT_PERFIX, String.valueOf(n85Var.B));
-                    } else {
-                        a.b("pdt", String.valueOf(n85Var.C));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (k85.class) {
+                    if (f == null) {
+                        f = new k85();
                     }
-                    a.b("ishttp", n85Var.s ? "1" : "0");
-                    a.b("issuccess", n85Var.b ? "1" : "0");
-                    a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-                    a.b("qt", String.valueOf(n85Var.f));
-                    a.b("connt", String.valueOf(n85Var.g));
-                    a.b("rwt", String.valueOf(n85Var.h));
-                    a.b("dect", String.valueOf(n85Var.k));
-                    a.b("parset", String.valueOf(n85Var.l));
-                    a.b("rendert", String.valueOf(n85Var.o));
-                    a.b("ss", String.valueOf(n85Var.q));
-                    a.b("hs", String.valueOf(n85Var.r));
-                    if (n85Var.s && (i = n85Var.t) != 0) {
-                        a.b("salno", String.valueOf(i));
-                        long j = n85Var.u;
-                        if (j != 0) {
-                            a.b("scosttime", String.valueOf(j));
-                        }
-                    }
-                    int i2 = n85Var.v;
-                    if (i2 != 0) {
-                        a.c("errcode", Integer.valueOf(i2));
-                    }
-                    BdStatisticsManager.getInstance().performance(this.a, a);
                 }
             }
+            return f;
         }
+        return (k85) invokeV.objValue;
     }
 
-    public final void f(vg vgVar, n85 n85Var) {
+    public boolean b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, vgVar, n85Var) == null) && (n85Var instanceof j85)) {
-            vgVar.c("ptype", Integer.valueOf(((j85) n85Var).F));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            int i = iArr[1];
+            return i > 0 && i < this.b - this.a;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str, String str2, q05 q05Var, NovelMemberCardView novelMemberCardView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, q05Var, novelMemberCardView) == null) || q05Var == null || novelMemberCardView == null || novelMemberCardView.getVisibility() != 0) {
+            return;
+        }
+        String valueOf = String.valueOf(q05Var.f());
+        int i = q05Var.h() ? 2 : 1;
+        if (b(novelMemberCardView.getNovelReadMoreButton()) && !q05Var.h()) {
+            if (this.c) {
+                this.c = false;
+                m85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i, valueOf, str, str2);
+            }
+        } else {
+            this.c = true;
+        }
+        if (b(novelMemberCardView.getNovelPaidButton()) && q05Var.h()) {
+            if (this.d) {
+                this.d = false;
+                m85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i, valueOf, str, str2);
+            }
+        } else {
+            this.d = true;
+        }
+        if (b(novelMemberCardView.getNovelCoverPage()) && !q05Var.h()) {
+            if (this.e) {
+                this.e = false;
+                m85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2);
+                return;
+            }
+            return;
+        }
+        this.e = true;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f = null;
+            this.c = true;
+            this.d = true;
+            this.e = true;
         }
     }
 }

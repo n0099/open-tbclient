@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.ReturnKeyType;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -543,7 +542,7 @@ public class NetInfo {
                 this.mDurationTime = JSONObjectUtils.getLong(this.mJSONObject, "duration_time");
                 this.mHeadRecv = JSONObjectUtils.getInt(this.mJSONObject, "head_recv");
                 this.mRedirect = JSONObjectUtils.getInt(this.mJSONObject, "redirect");
-                this.mSend = JSONObjectUtils.getInt(this.mJSONObject, ReturnKeyType.SEND);
+                this.mSend = JSONObjectUtils.getInt(this.mJSONObject, "send");
                 this.mSsl = JSONObjectUtils.getInt(this.mJSONObject, "ssl");
                 this.mTTfb = JSONObjectUtils.getInt(this.mJSONObject, "ttfb");
             }

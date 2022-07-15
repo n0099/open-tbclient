@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e67;
-import com.repackage.q37;
+import com.repackage.g47;
+import com.repackage.w67;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MsgMultiImageTextView extends q37 {
+public class MsgMultiImageTextView extends g47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView C;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0549);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0563);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,8 +45,8 @@ public class MsgMultiImageTextView extends q37 {
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f091f02);
-            this.C = (MultiContentView) a(R.id.obfuscated_res_0x7f091416);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f091fa6);
+            this.C = (MultiContentView) a(R.id.obfuscated_res_0x7f0914be);
         }
     }
 
@@ -56,7 +56,7 @@ public class MsgMultiImageTextView extends q37 {
             return;
         }
         I(chatMessage);
-        List<e67.a> b = e67.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        List<w67.a> b = w67.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.C.setPosition(this.f);
         this.C.setOnItemViewLongClickListener(this.c);
         this.C.setNeedNightMode(true);

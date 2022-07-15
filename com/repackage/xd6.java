@@ -1,20 +1,18 @@
 package com.repackage;
 
+import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xd6 implements id6 {
+public class xd6 extends SparseArray<he6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
 
     public xd6() {
         Interceptable interceptable = $ic;
@@ -26,50 +24,68 @@ public class xd6 implements id6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public void a(int i, he6 he6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, he6Var) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            put(i, he6Var);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                he6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.x(null);
+                    valueAt.k();
+                }
             }
         }
     }
 
-    @Override // com.repackage.id6
-    public an<? extends bq4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public he6 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) ? new ah6(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z) : (an) invokeLLZ.objValue;
-    }
-
-    @Override // com.repackage.id6
-    public fc6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) ? new fl6(tbPageContext, bdUniqueId, bdUniqueId2) : (fc6) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.id6
-    public an<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == vg8.d) {
-                return new cg6(tbPageContext, bdUniqueId, z);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
             }
-            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
-                return new bh6(tbPageContext, bdUniqueId, bdUniqueId2, z);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
+            return get(i);
         }
-        return (an) invokeCommon.objValue;
+        return (he6) invokeI.objValue;
     }
 
-    @Override // com.repackage.id6
-    public an<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
-                return new eg6(tbPageContext, bdUniqueId, bdUniqueId2);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                he6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
             }
-            throw new IllegalArgumentException("Unsupported adapter type.");
         }
-        return (an) invokeLLL.objValue;
+    }
+
+    public void e(le6 le6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, le6Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                he6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.x(le6Var);
+                }
+            }
+        }
     }
 }

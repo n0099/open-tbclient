@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j35;
+import com.repackage.l45;
 import com.repackage.pi;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -53,7 +53,7 @@ public class TbConfig {
     public static final int AUTO_PLAY_IN_WIFI = 1;
     public static final int AUTO_PLAY_UNSET = -1;
     public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
-    public static final String BAWUTEAME_ADDRESS = "http://tieba.baidu.com/mo/q/bawuteam";
+    public static final String BAWUTEAME_ADDRESS = "https://tieba.baidu.com/mo/q/bawuteam";
     public static final String BIGDAY_IMAGE_CACHE_DIR_NAME = "bigday_images";
     public static int BIG_IMAGE_MAX_USED_MEMORY = 0;
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
@@ -151,7 +151,7 @@ public class TbConfig {
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
     public static final String FATAL_ERROR_NATIVE_DIR = "native_crash";
-    public static final String FEED_BACK_WEB_VIEW_URL = "http://tieba.baidu.com/mo/q/feedback";
+    public static final String FEED_BACK_WEB_VIEW_URL = "https://tieba.baidu.com/mo/q/feedback";
     public static final String FINE_PB_PAGE = "c/f/excellent/excpbpage";
     public static final String FINE_PB_PRAISE = "c/f/excellent/exczan";
     public static final String FINISH_MEMBER_TASK = "c/c/encourage/point/finishmembertask";
@@ -190,6 +190,7 @@ public class TbConfig {
     public static final String GET_BANNER_GAME = "c/u/game/getgameadvertise";
     public static final String GET_BARRAGE_LIST = "c/f/video/getBarrageList";
     public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
+    public static final String GET_BAZHU_NOTICE_REDPOT = "c/c/bawu/setBawuNoticeRead";
     public static String GET_BFB_INFO = null;
     public static final String GET_BIGV_THREAD_LIST = "c/u/feed/queryModuleThreadInfo";
     public static final String GET_BOOK_DETAIL_INFO = "c/e/tbread/getBookDetailInfo";
@@ -270,14 +271,14 @@ public class TbConfig {
     public static final String HOME_REALTIME_ADDRESS = "c/f/excellent/realtime";
     public static final String HOT_THREAD_UNLIKE = "c/f/choiceness/unlike";
     public static final String HOT_USER_RANK_URL = "c/f/forum/getInfluenceRank";
-    public static final String HTTPS_FRS_PREFIX = "http://tieba.baidu.com/f?kw=";
+    public static final String HTTPS_FRS_PREFIX = "https://tieba.baidu.com/f?kw=";
     public static final String HTTPS_LIVE_SHARE_PREFIX = "https://tieba.baidu.com/ala/share";
-    public static final String HTTPS_PB_PREFIX = "http://tieba.baidu.com/p/";
-    public static final String HTTPS_PREFIX = "http://tieba.baidu.com/f?";
+    public static final String HTTPS_PB_PREFIX = "https://tieba.baidu.com/p/";
+    public static final String HTTPS_PREFIX = "https://tieba.baidu.com/f?";
     public static String HTTPS_QUICK_WEBVIEW_PREFIX = null;
     public static final String HTTPS_YY_LIVE_SHARE_PREFIX = "https://web.yy.com/bd_liveroom_share/invoke.html?hostid=5&livesid=";
-    public static final String HTTP_PB_PREFIX = "http://tieba.baidu.com/p/";
-    public static final String HTTP_PREFIX = "http://tieba.baidu.com/f?";
+    public static final String HTTP_PB_PREFIX = "https://tieba.baidu.com/p/";
+    public static final String HTTP_PREFIX = "https://tieba.baidu.com/f?";
     public static final String IMAGE_ADDRESS;
     public static final String IMAGE_CACHE_DIR_NAME = "images";
     public static final String IMAGE_PB_ADDRESS = "c/f/pb/picpage";
@@ -308,7 +309,7 @@ public class TbConfig {
     public static final String LOG_TOGETHER = "c/s/logtogether";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
     public static final int MAINTAB_NO_INTEREST = 1;
-    public static final String MANAGE_ADDRESS = "http://tieba.baidu.com/mo/q/bawuindex";
+    public static final String MANAGE_ADDRESS = "https://tieba.baidu.com/mo/q/bawuindex";
     public static final String MARK_ADDSTORE = "c/c/post/addstore";
     public static final String MARK_DELSTORE = "c/c/post/rmstore";
     public static final String MARK_GETSTORE = "c/f/post/threadstore";
@@ -459,7 +460,7 @@ public class TbConfig {
     public static final String SEND_BLESS = "c/b/commit/sendBless";
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
     public static final String SEND_GIFT = "c/c/gift/send";
-    public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
+    public static String SERVER_ADDRESS = "https://tiebac.baidu.com/";
     public static String SERVER_ADDRESS_CUSTOM = "http://mtx.tieba.otp.baidu.com/";
     public static String SERVER_ADDRESS_FAKE = "http://fakedata.tieba.baidu.com/";
     public static String SERVER_ADDRESS_WEB_VIEW = null;
@@ -607,7 +608,7 @@ public class TbConfig {
     public static final String URL_HISTORY_SWAN = "c/s/historySwan";
     public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
     public static final String URL_HOT_ACTIVITIES = "https://tieba.baidu.com/mo/q/creativeCenter?local=hots";
-    public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
+    public static final String URL_IMAGE_PREFIX = "https://tiebac.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/mo/q/packetpage/myPacket?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
     public static final String URL_JUMP_YY_LIVE_IN_VIDEO_LIST = "c/f/video/gotoLive";
@@ -616,7 +617,7 @@ public class TbConfig {
     public static final String URL_MANGA_OFFLINE_RESOURCE = "c/e/cartoon/getOfflineResource";
     public static final String URL_MANGA_REPORT = "c/e/cartoon/getReportType";
     public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
-    public static final String URL_MEMBER_BUY = "http://tieba.baidu.com/mo/q/member/pk?jumptoforum=memberbuy";
+    public static final String URL_MEMBER_BUY = "https://tieba.baidu.com/mo/q/member/pk?jumptoforum=memberbuy";
     public static final String URL_MOOV_REPORT = "c/c/video/reportSlowStart";
     public static final String URL_PLAY_DURATION_STATISTICS = "c/c/video/playDura";
     public static final String URL_PLAY_REPORT = "c/c/video/addReport";
@@ -641,7 +642,7 @@ public class TbConfig {
     public static final String URL_THREAD_PUBLISH = "c/c/bawu/threadPublish";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String URL_UEG_REPORT = "c/f/ueg/checkjubao";
-    public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter";
+    public static final String URL_UEG_SERVICE_CENTER = "https://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter";
     public static final String URL_UPLOAD_DOWNLOAD_INFO = "c/s/appDownloadLog";
     public static final String URL_UPLOAD_OFFLINE_PACK = "c/c/user/uploadOfflinePack";
     public static final String URL_UPLOAD_OFFLINE_PACK_STATUS = "c/c/user/updateOfflinePackTask";
@@ -715,9 +716,9 @@ public class TbConfig {
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEBVIEW_CACHE_URL = "c/s/getWebviewCacheInfo";
     public static final String WEB_URL_DELETE_THREAD_PAGE = "https://tieba.baidu.com/mo/q/pmc";
-    public static final String WEB_URL_FANS = "http://tieba.baidu.com/n/fans-party/prizeshow?nonavigationbar=1&from=native";
+    public static final String WEB_URL_FANS = "https://tieba.baidu.com/n/fans-party/prizeshow?nonavigationbar=1&from=native";
     public static final String WEB_URL_MAIN_THREAD_PRAISE_LIST = "https://tieba.baidu.com/n/apage-runtime/page/agree_list?";
-    public static final String WEB_URL_TDOU_UEG = "http://tieba.baidu.com/mo/q/nativePayUeg?errorno=";
+    public static final String WEB_URL_TDOU_UEG = "https://tieba.baidu.com/mo/q/nativePayUeg?errorno=";
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
     public static final String WEB_VIEW_NEED_FRESH = "need_fresh=1";
     public static final String WEIXIN_APP_ID = "wxdd0912f3a78239c8";
@@ -927,7 +928,7 @@ public class TbConfig {
         RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
         GET_HOT_GOD = "c/u/user/getHotGod";
         GET_BFB_INFO = "c/f/forum/getUserBfbInfo";
-        HTTPS_QUICK_WEBVIEW_PREFIX = "https://tieba.baidu.com/";
+        HTTPS_QUICK_WEBVIEW_PREFIX = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
         CHECK_SHARE_SDK_URL = SERVER_ADDRESS + "c/s/checkAppValid";
     }
 
@@ -1498,7 +1499,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                j35.k().t(i);
+                l45.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

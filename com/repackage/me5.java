@@ -1,28 +1,61 @@
 package com.repackage;
 
-import android.view.animation.LinearInterpolator;
-import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class me5 implements Runnable {
+public class me5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Scroller a;
-    public final le5 b;
-    public int c;
-    public int d;
+    public boolean a;
+    public List<oy5> b;
 
-    public me5(le5 le5Var) {
+    /* loaded from: classes6.dex */
+    public class a implements Comparator<oy5> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(me5 me5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {me5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(oy5 oy5Var, oy5 oy5Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oy5Var, oy5Var2)) == null) ? oy5Var.sort() - oy5Var2.sort() : invokeLL.intValue;
+        }
+    }
+
+    public me5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {le5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,56 +65,49 @@ public class me5 implements Runnable {
                 return;
             }
         }
-        this.b = le5Var;
-        this.a = new Scroller(le5Var.getContext(), new LinearInterpolator());
+        this.b = new LinkedList();
     }
 
-    public boolean a() {
+    public List<oy5> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) ? b(list, list2, null) : (List) invokeLL.objValue;
+    }
+
+    public List<oy5> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
+                    }
+                    this.b.add(pbLinkData);
+                }
+            }
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
+            }
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
+        }
+        return (List) invokeLLL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.a.isFinished() : invokeV.booleanValue;
-    }
-
-    public void b(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
-            c(0, 0, i, i2, i3);
-        }
-    }
-
-    public void c(int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.a.startScroll(i, i2, i3, i4, i5);
-            this.b.removeCallbacks(this);
-            this.b.post(this);
-            this.c = i;
-            this.d = i2;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.abortAnimation();
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.a.computeScrollOffset()) {
-                int currX = this.a.getCurrX();
-                int currY = this.a.getCurrY();
-                this.b.b(this.c, this.d, currX, currY);
-                this.b.post(this);
-                this.c = currX;
-                this.d = currY;
-                return;
-            }
-            this.b.removeCallbacks(this);
-            this.b.a();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

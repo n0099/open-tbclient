@@ -48,6 +48,6 @@ public final class DirectTcpHeader$headerLength$2 extends Lambda implements Func
     public final Integer invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf(((UByte.m711constructorimpl(this.this$0.getBuffer()[i]) & 255) >>> 4) * 4) : (Integer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf(((UByte.m1654constructorimpl(this.this$0.getBuffer()[i]) & 255) >>> 4) * 4) : (Integer) invokeI.objValue;
     }
 }

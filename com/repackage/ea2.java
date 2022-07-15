@@ -1,9 +1,7 @@
 package com.repackage;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,128 +9,106 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eb2;
-import com.repackage.hb2;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes5.dex */
-public abstract class ea2<P extends eb2, R extends hb2> {
+public class ea2 implements ll2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public P a;
-    @NonNull
-    public R b;
+    public Queue<fa2> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755744421, "Lcom/repackage/ea2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755744421, "Lcom/repackage/ea2;");
-                return;
-            }
-        }
-        c = cg1.a;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public ea2(@NonNull P p, @NonNull R r) {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ea2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-420934563, "Lcom/repackage/ea2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-420934563, "Lcom/repackage/ea2$b;");
+                    return;
+                }
+            }
+            a = new ea2(null);
+        }
+    }
+
+    public /* synthetic */ ea2(a aVar) {
+        this();
+    }
+
+    public static ea2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ea2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+            }
+        }
+    }
+
+    public synchronized void c(@NonNull fa2 fa2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fa2Var, str) == null) {
+            synchronized (this) {
+                while (this.c.size() > 0) {
+                    fa2 peek = this.c.peek();
+                    if (peek == null) {
+                        this.c.remove();
+                    } else if (peek.a()) {
+                        break;
+                    } else {
+                        this.c.remove();
+                    }
+                }
+                int size = this.c.size();
+                if (size == 0) {
+                    this.c.offer(fa2Var);
+                    be3.g0(fa2Var);
+                } else {
+                    fa2 peek2 = this.c.peek();
+                    this.c.offer(fa2Var);
+                    if (size == 1 && peek2 != null && peek2.b(str)) {
+                        be3.g0(fa2Var);
+                    } else {
+                        be3.q().post(fa2Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public ea2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p, r};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = p;
-        this.b = r;
-    }
-
-    public <T extends ya2> Exception a(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
-            }
-            return this.b.e(t);
-        }
-        return (Exception) invokeL.objValue;
-    }
-
-    public abstract String b(int i);
-
-    @Nullable
-    public abstract ExtensionCore c();
-
-    @NonNull
-    public ExtensionCore d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.a.a.c();
-            if (jb2.f(c2)) {
-                ExtensionCore extensionCore = new ExtensionCore();
-                extensionCore.extensionCoreVersionCode = 0L;
-                extensionCore.extensionCoreVersionName = "0";
-                extensionCore.extensionCorePath = b(c2);
-                extensionCore.extensionCoreType = 2;
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
-                }
-                return extensionCore;
-            }
-            ExtensionCore h = this.a.h();
-            ExtensionCore f = this.b.f();
-            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
-                }
-                return f;
-            }
-            if (c) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
-            }
-            return h;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    @NonNull
-    public P e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (P) invokeV.objValue;
-    }
-
-    @NonNull
-    public R f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (R) invokeV.objValue;
-    }
-
-    public void g(@Nullable le3<Exception> le3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, le3Var) == null) {
-            this.a.p(le3Var);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.q();
-        }
+        this.c = new ConcurrentLinkedQueue();
     }
 }

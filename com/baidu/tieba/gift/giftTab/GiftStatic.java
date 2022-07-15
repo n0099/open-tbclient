@@ -8,7 +8,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.gift.myGiftList.MyGiftListActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -51,7 +50,7 @@ public class GiftStatic {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                     String str2 = strArr[0];
-                    if ((str2.startsWith(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT) || str2.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_USER_GIFT)) && ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                    if ((str2.startsWith("https://tieba.baidu.com/user/gift") || str2.startsWith("https://tieba.baidu.com/user/gift")) && ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
                         if (currentAccount != null && currentAccount.length() > 0) {

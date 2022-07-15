@@ -1,7 +1,11 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,121 +15,127 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class gw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final d9 a;
+    public final pn b;
+    public Runnable c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ad5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.ad5
-        public Integer doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                mq4.f();
-                te<String> g = mq4.g("tb.write_privacy_state_space" + this.b);
-                if (g != null) {
-                    i = ng.e(g.get(this.c), this.a);
-                }
-                return Integer.valueOf(i);
-            }
-            return (Integer) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements gc5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gc5
-        /* renamed from: a */
-        public void onReturnDataInUI(Integer num) {
-            c cVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, num) == null) || (cVar = this.a) == null) {
+    public gw8(d9 d9Var, pn pnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d9Var, pnVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            cVar.a(num.intValue());
         }
+        this.a = d9Var;
+        this.b = pnVar;
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(int i);
-    }
-
-    public static void a(String str, int i, c cVar) {
+    @NonNull
+    public final Rect a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) || StringUtils.isNull(str) || cVar == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            Rect rect = new Rect();
+            view2.getGlobalVisibleRect(rect);
+            return rect;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
-            return;
-        }
-        ed5.b(new a(i, currentAccount, str), new b(cVar));
+        return (Rect) invokeL.objValue;
     }
 
-    public static void b(String str, int i) {
+    public final boolean b(Rect rect) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || StringUtils.isNull(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
+            float i = pi.i(TbadkCoreApplication.getInst());
+            return rect.top >= ((int) (0.0f * i)) && rect.bottom <= ((int) (i * 0.66f));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null) {
             return;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
+        qg.a().removeCallbacks(this.c);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d) {
             return;
         }
-        mq4.f();
-        te<String> g = mq4.g("tb.write_privacy_state_space" + currentAccount);
-        if (g != null) {
-            g.a(str, String.valueOf(i));
+        if (this.c == null) {
+            this.c = new Runnable() { // from class: com.repackage.ew8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        gw8.this.g();
+                    }
+                }
+            };
+        }
+        qg.a().postDelayed(this.c, 2000L);
+    }
+
+    public void e() {
+        pn pnVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null || (pnVar = this.b) == null || pnVar.getListView().getChildCount() == 0 || this.b.getContentViewsCount() == 0) {
+            return;
+        }
+        int childCount = this.b.getListView().getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = this.b.getListView().getChildAt(i);
+            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f092479) instanceof fw8)) {
+                ((fw8) childAt.getTag(R.id.obfuscated_res_0x7f092479)).b();
+            }
+        }
+    }
+
+    public void f(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f092479) instanceof fw8)) {
+            ((fw8) view2.getTag(R.id.obfuscated_res_0x7f092479)).b();
+            view2.setTag(R.id.obfuscated_res_0x7f092479, null);
+        }
+    }
+
+    public final void g() {
+        pn pnVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null || (pnVar = this.b) == null || pnVar.getListView().getChildCount() == 0 || this.b.getContentViewsCount() == 0) {
+            return;
+        }
+        int childCount = this.b.getListView().getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = this.b.getListView().getChildAt(i);
+            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f092479) instanceof fw8)) {
+                fw8 fw8Var = (fw8) childAt.getTag(R.id.obfuscated_res_0x7f092479);
+                if (b(a(childAt))) {
+                    fw8Var.play();
+                }
+            }
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.d = z;
         }
     }
 }

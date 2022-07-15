@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
-import com.repackage.qm8;
+import com.repackage.mn8;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes4.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
@@ -64,23 +64,23 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
             boolean z = responsedMessage instanceof SetPendantHttpResponse;
             if (z || (responsedMessage instanceof SetPendantSocketResponse)) {
                 if (responsedMessage.getError() == 0) {
-                    this.a.H(true);
+                    this.a.I(true);
                 } else {
-                    this.a.H(false);
+                    this.a.I(false);
                 }
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
-                    this.a.F(setPendantHttpResponse.getPendantId());
+                    this.a.G(setPendantHttpResponse.getPendantId());
                     this.a.c = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
-                    this.a.F(setPendantSocketResponse.getPendantId());
+                    this.a.G(setPendantSocketResponse.getPendantId());
                     this.a.c = setPendantSocketResponse.getFreeUseLevel();
                 }
                 if (this.a.e != null) {
-                    int i = qm8.b;
-                    if (responsedMessage.getError() == qm8.c) {
-                        i = qm8.a;
+                    int i = mn8.b;
+                    if (responsedMessage.getError() == mn8.c) {
+                        i = mn8.a;
                     }
                     this.a.e.m1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
                 }
@@ -108,12 +108,12 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        bh8.h(309412, SetPendantSocketResponse.class, false, false);
-        bh8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        wh8.h(309412, SetPendantSocketResponse.class, false, false);
+        wh8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 
-    public void E(long j, int i, int i2) {
+    public void F(long j, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             SetPendantRequest setPendantRequest = new SetPendantRequest();
@@ -124,21 +124,21 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
     }
 
-    public void F(long j) {
+    public void G(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.a = j;
         }
     }
 
-    public void G(b bVar) {
+    public void H(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void H(boolean z) {
+    public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.d = z;

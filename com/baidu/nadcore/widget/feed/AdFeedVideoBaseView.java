@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap0;
-import com.repackage.cn0;
-import com.repackage.wo0;
-import com.repackage.zm0;
+import com.repackage.jp0;
+import com.repackage.mn0;
+import com.repackage.np0;
+import com.repackage.pn0;
 /* loaded from: classes2.dex */
 public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wo0 i;
+    public jp0 i;
 
     /* loaded from: classes2.dex */
-    public class a extends ap0 {
+    public class a extends np0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdFeedVideoBaseView a;
@@ -44,7 +44,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             this.a = adFeedVideoBaseView;
         }
 
-        @Override // com.repackage.ap0, com.repackage.to0
+        @Override // com.repackage.np0, com.repackage.gp0
         public void onEnd(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -57,7 +57,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.repackage.ap0, com.repackage.to0
+        @Override // com.repackage.np0, com.repackage.gp0
         public void onError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
@@ -70,7 +70,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.repackage.ap0, com.repackage.to0
+        @Override // com.repackage.np0, com.repackage.gp0
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -83,7 +83,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.repackage.ap0, com.repackage.to0
+        @Override // com.repackage.np0, com.repackage.gp0
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -96,7 +96,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.repackage.ap0, com.repackage.to0
+        @Override // com.repackage.np0, com.repackage.gp0
         public void onResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -109,7 +109,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.repackage.ap0, com.repackage.to0
+        @Override // com.repackage.np0, com.repackage.gp0
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -148,9 +148,9 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.c();
-            wo0 wo0Var = this.i;
-            if (wo0Var != null) {
-                wo0Var.release();
+            jp0 jp0Var = this.i;
+            if (jp0Var != null) {
+                jp0Var.release();
                 this.i = null;
             }
         }
@@ -160,23 +160,23 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wo0 wo0Var = this.i;
-            if (wo0Var == null) {
+            jp0 jp0Var = this.i;
+            if (jp0Var == null) {
                 return -1L;
             }
-            return wo0Var.b();
+            return jp0Var.b();
         }
         return invokeV.longValue;
     }
 
     public final void i(@NonNull AdBaseModel adBaseModel) {
-        wo0 wo0Var;
-        zm0 zm0Var;
+        jp0 jp0Var;
+        mn0 mn0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) || (wo0Var = this.i) == null || (zm0Var = adBaseModel.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) || (jp0Var = this.i) == null || (mn0Var = adBaseModel.j) == null) {
             return;
         }
-        wo0Var.c(zm0Var);
+        jp0Var.c(mn0Var);
         this.i.a(new a(this));
     }
 
@@ -223,7 +223,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cn0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (pn0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -232,13 +232,13 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdFeedVideoBaseView(Context context, AttributeSet attributeSet, int i, cn0 cn0Var) {
+    public AdFeedVideoBaseView(Context context, AttributeSet attributeSet, int i, pn0 pn0Var) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), cn0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), pn0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

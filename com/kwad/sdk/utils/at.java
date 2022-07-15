@@ -5,7 +5,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 /* loaded from: classes5.dex */
-public class at {
+public final class at {
     public static final SimpleDateFormat a = new SimpleDateFormat("MM/dd", Locale.US);
     public static final SimpleDateFormat b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
     public static final SimpleDateFormat c = new SimpleDateFormat("MM月dd日", Locale.US);
@@ -14,7 +14,6 @@ public class at {
     public static final SimpleDateFormat f = new SimpleDateFormat("MM-dd", Locale.US);
     public static final SimpleDateFormat g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
-    @Deprecated
     public static boolean a(String str) {
         return TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str);
     }

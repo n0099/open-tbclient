@@ -1,342 +1,195 @@
 package com.repackage;
 
-import android.os.Environment;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.DisplayMetrics;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class zp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
+    public static DisplayMetrics a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public long g;
-    public Download h;
-    public String i;
-    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755104364, "Lcom/repackage/zp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755104364, "Lcom/repackage/zp3;");
-                return;
-            }
-        }
-        k = cg1.a;
-    }
-
-    public zp3() {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = System.currentTimeMillis();
-        this.i = "";
-        this.j = "";
+        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? (int) (f * d(AppRuntime.getAppContext())) : invokeF.intValue;
     }
 
-    public static String i() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                return str;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String substring = new sp3().a(String.valueOf(System.currentTimeMillis())).substring(4, 14);
+            String e = yo3.b().e();
+            return "38" + substring + e.substring(0, 4);
         }
         return (String) invokeV.objValue;
     }
 
-    public static String n() {
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+                int length = split.length;
+                for (int i = 0; i != length; i++) {
+                    String trim = split[i].trim();
+                    String[] split2 = trim.split("=");
+                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
+                        if (split2.length == 2) {
+                            return split2[1];
+                        }
+                        return trim.substring(split2[0].length() + 1);
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static float d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.density;
+            }
+            return 0.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/zip";
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                return str;
-            }
-            return null;
+            String str = Build.MODEL;
+            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
         }
         return (String) invokeV.objValue;
     }
 
-    public zp3 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public Download b() {
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.MANUFACTURER;
+            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.heightPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int i(@Nullable Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.widthPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()) : (String) invokeV.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? AppRuntime.getAppContext().getPackageName() : (String) invokeV.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             try {
-                jSONObject.put("apk_id", this.c);
-                jSONObject.put("download_time", this.g);
-                jSONObject.put("from_view", this.d);
-                jSONObject.put("from_value", this.e);
-                jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f);
-            } catch (JSONException e) {
-                if (k) {
-                    e.printStackTrace();
-                }
+                Context appContext = AppRuntime.getAppContext();
+                return appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
             }
-            download.setFromParam(jSONObject.toString());
-            download.setMimetype("application/vnd.android.package-archive");
-            download.setWifiOnly(false);
-            String i = i();
-            if (!TextUtils.isEmpty(i)) {
-                download.setSavedPathForUser(i);
-            }
-            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return download;
-        }
-        return (Download) invokeV.objValue;
-    }
-
-    public Download c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            download.setMimetype("application/zip");
-            download.setWifiOnly(false);
-            String n = n();
-            if (!TextUtils.isEmpty(n)) {
-                download.setSavedPathForUser(n);
-            }
-            download.setFileName(this.i + ".zip");
-            download.setFromParam(this.j);
-            return download;
-        }
-        return (Download) invokeV.objValue;
-    }
-
-    public zp3 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public zp3 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public zp3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public zp3 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Download download = this.h;
-            if (download == null) {
-                return null;
-            }
-            return download.getFromParam();
         }
         return (String) invokeV.objValue;
     }
 
-    public long k() {
+    public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
     }
 
-    public String l() {
-        InterceptResult invokeV;
+    public static void n(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public zp3 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public <T> void p(String str, T t) {
-        Download download;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, t) == null) || (download = this.h) == null) {
-            return;
-        }
-        String fromParam = download.getFromParam();
-        if (TextUtils.isEmpty(fromParam)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(fromParam);
-            jSONObject.put(str, t);
-            this.h.setFromParam(jSONObject.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public zp3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public zp3 r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (zp3) invokeL.objValue;
-    }
-
-    public zp3(@NonNull Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext != null) {
+                context = appContext;
+            }
+            if (context == null) {
                 return;
             }
+            a = context.getResources().getDisplayMetrics();
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = System.currentTimeMillis();
-        this.i = "";
-        this.j = "";
-        this.h = download;
-        this.a = download.getUrl();
-        this.b = download.getKeyByUser();
-        String fromParam = download.getFromParam();
-        if (TextUtils.isEmpty(fromParam)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(fromParam);
-            this.c = jSONObject.optString("apk_id");
-            this.d = jSONObject.optString("from_view");
-            this.e = jSONObject.optString("from_value");
-            this.f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-            this.g = jSONObject.optLong("download_time", System.currentTimeMillis());
-        } catch (JSONException e) {
-            if (k) {
-                e.printStackTrace();
-            }
-        }
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, yo3.b().a()) : invokeV.booleanValue;
+    }
+
+    public static int p(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) ? (int) (f / d(AppRuntime.getAppContext())) : invokeF.intValue;
     }
 }

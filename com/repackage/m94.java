@@ -1,11 +1,28 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import java.io.Closeable;
+import com.baidu.searchbox.http.callback.StatResponseCallback;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.o94;
+import java.lang.String;
 /* loaded from: classes6.dex */
-public interface m94 extends Closeable {
-    @Nullable
-    l94 body();
+public abstract class m94<T extends String> implements StatResponseCallback<T>, o94.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int code();
+    public m94() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

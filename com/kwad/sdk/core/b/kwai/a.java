@@ -3,10 +3,9 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.ABParams;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a implements com.kwad.sdk.core.d<ABParams> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(ABParams aBParams, JSONObject jSONObject) {
+public final class a implements com.kwad.sdk.core.d<ABParams> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(ABParams aBParams, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -17,18 +16,31 @@ public class a implements com.kwad.sdk.core.d<ABParams> {
             aBParams.drawActionBarTimes = "";
         }
         aBParams.showVideoAtH5 = jSONObject.optInt("showVideoAtH5");
+        aBParams.playableStyle = jSONObject.optInt("playableStyle");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(ABParams aBParams, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(ABParams aBParams, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "videoBlackAreaClick", aBParams.videoBlackAreaClick);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoBlackAreaNewStyle", aBParams.videoBlackAreaNewStyle);
-        com.kwad.sdk.utils.t.a(jSONObject, "drawActionBarTimes", aBParams.drawActionBarTimes);
-        com.kwad.sdk.utils.t.a(jSONObject, "showVideoAtH5", aBParams.showVideoAtH5);
+        com.kwad.sdk.utils.r.a(jSONObject, "videoBlackAreaClick", aBParams.videoBlackAreaClick);
+        com.kwad.sdk.utils.r.a(jSONObject, "videoBlackAreaNewStyle", aBParams.videoBlackAreaNewStyle);
+        com.kwad.sdk.utils.r.a(jSONObject, "drawActionBarTimes", aBParams.drawActionBarTimes);
+        com.kwad.sdk.utils.r.a(jSONObject, "showVideoAtH5", aBParams.showVideoAtH5);
+        com.kwad.sdk.utils.r.a(jSONObject, "playableStyle", aBParams.playableStyle);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(ABParams aBParams, JSONObject jSONObject) {
+        a2(aBParams, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(ABParams aBParams, JSONObject jSONObject) {
+        return b2(aBParams, jSONObject);
     }
 }

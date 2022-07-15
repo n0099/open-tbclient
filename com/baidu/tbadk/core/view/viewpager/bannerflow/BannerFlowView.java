@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv4;
-import com.repackage.cv4;
-import com.repackage.ev4;
-import com.repackage.fv4;
+import com.repackage.aw4;
+import com.repackage.cw4;
+import com.repackage.dw4;
 import com.repackage.nn;
 import com.repackage.pi;
+import com.repackage.zv4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BannerFlowView extends FrameLayout {
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public bv4 c;
-    public fv4 d;
+    public zv4 c;
+    public dw4 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,8 +67,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new bv4(context, this.a, this.b, null);
-            this.d = new fv4(context, ev4.a);
+            this.c = new zv4(context, this.a, this.b, null);
+            this.d = new dw4(context, cw4.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -100,13 +100,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(cv4.a<ev4, fv4.a> aVar) {
-        fv4 fv4Var;
+    public void setOnItemClickListener(aw4.a<cw4, dw4.a> aVar) {
+        dw4 dw4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (fv4Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (dw4Var = this.d) == null) {
             return;
         }
-        fv4Var.e(aVar);
+        dw4Var.e(aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

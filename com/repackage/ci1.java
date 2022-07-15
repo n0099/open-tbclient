@@ -1,21 +1,55 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad2;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.repackage.i62;
+import com.repackage.iz1;
 /* loaded from: classes5.dex */
-public class ci1 implements hk1 {
+public class ci1 implements kk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements i62.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iz1.c a;
+
+        public a(ci1 ci1Var, iz1.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ci1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        @Override // com.repackage.i62.e
+        public void a() {
+            iz1.c cVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.a) == null) {
+                return;
+            }
+            cVar.a();
+        }
+    }
 
     public ci1() {
         Interceptable interceptable = $ic;
@@ -31,65 +65,80 @@ public class ci1 implements hk1 {
         }
     }
 
-    @Override // com.repackage.hk1
-    public boolean a(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.repackage.kk1
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 10150;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.kk1
+    public VideoPlayerFactory b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (VideoPlayerFactory) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kk1
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 5000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.kk1
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                i62.h(AppRuntime.getAppContext()).k(ProcessUtils.isMainProcess());
+            } else {
+                i62.h(AppRuntime.getAppContext()).i();
+            }
+        }
+    }
+
+    @Override // com.repackage.kk1
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.hk1
-    public void b(@NonNull Context context) {
+    @Override // com.repackage.kk1
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.kk1
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.hk1
-    public void c(@NonNull String str) {
+    @Override // com.repackage.kk1
+    public void h(iz1.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            i62.h(AppRuntime.getAppContext()).f(new a(this, cVar));
         }
-    }
-
-    @Override // com.repackage.hk1
-    public void d(@NonNull CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
-            callbackHandler.handleSchemeDispatchCallback("", "");
-        }
-    }
-
-    @Override // com.repackage.hk1
-    public void e(sz2 sz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sz2Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.hk1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? context.getString(R.string.obfuscated_res_0x7f0f0156) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.hk1
-    public void g(sz2 sz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sz2Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.hk1
-    public void h(@NonNull Activity activity, String str, String str2, zc2 zc2Var, ad2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, zc2Var, bVar) == null) || bVar == null) {
-            return;
-        }
-        bVar.a();
     }
 }

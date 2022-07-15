@@ -1,78 +1,33 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
 
-    public kn2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.b = true;
-        this.d = "back";
-        this.e = 60;
-    }
-
-    public static kn2 a(JSONObject jSONObject) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            kn2 kn2Var = new kn2();
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    int length = optJSONArray.length();
-                    int i = 0;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        String optString = optJSONArray.optString(i2);
-                        char c = 65535;
-                        int hashCode = optString.hashCode();
-                        if (hashCode != -1367751899) {
-                            if (hashCode == 92896879 && optString.equals("album")) {
-                                c = 0;
-                            }
-                        } else if (optString.equals("camera")) {
-                            c = 1;
-                        }
-                        if (c == 0) {
-                            i |= 1;
-                        } else if (c == 1) {
-                            i |= 2;
-                        }
-                    }
-                    kn2Var.a = i;
-                }
-                kn2Var.b = jSONObject.optBoolean("compressed", true);
-                int optInt = jSONObject.optInt("maxDuration", 60);
-                kn2Var.e = optInt <= 60 ? optInt : 60;
-                kn2Var.d = jSONObject.optString("camera");
-                kn2Var.c = jSONObject.optString("cb");
-            }
-            return kn2Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "[swan_audio] " + str;
         }
-        return (kn2) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            hx1.k(str, a(str2));
+        }
+    }
+
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
+            hx1.l(str, a(str2), th);
+        }
     }
 }

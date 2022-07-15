@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.repackage.a7;
 import com.repackage.x7;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -109,12 +108,12 @@ public class b4 implements h7 {
 
         /* renamed from: com.repackage.b4$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0397c implements o<q> {
+        public class C0595c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0397c(c cVar, String[] strArr) {
+            public C0595c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -713,11 +712,11 @@ public class b4 implements h7 {
                 w7 w7Var2 = new w7(127, 0.99f);
                 w7Var2.i("xy", new k(this, strArr));
                 w7Var2.i("size", new l(this, strArr));
-                w7Var2.i(AnimationProperty.BOUNDS, new m(this, strArr));
+                w7Var2.i("bounds", new m(this, strArr));
                 w7Var2.i("offset", new n(this, strArr));
                 w7Var2.i("orig", new a(this, strArr));
                 w7Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                w7Var2.i(AnimationProperty.ROTATE, new C0397c(this, strArr));
+                w7Var2.i("rotate", new C0595c(this, strArr));
                 w7Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(j3Var.m()), 1024);
                 try {

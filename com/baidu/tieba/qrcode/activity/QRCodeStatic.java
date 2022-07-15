@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s78;
-import com.repackage.t78;
-import com.repackage.uh8;
+import com.repackage.n88;
+import com.repackage.o88;
+import com.repackage.pi8;
 import java.net.URISyntaxException;
 /* loaded from: classes3.dex */
 public class QRCodeStatic {
@@ -53,12 +53,12 @@ public class QRCodeStatic {
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, t78.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, o88.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<uh8> {
+    public static class b implements CustomMessageTask.CustomRunnable<pi8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,20 +77,20 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<uh8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<pi8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof uh8)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof pi8)) {
                     return null;
                 }
-                uh8 data = customMessage.getData();
+                pi8 data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
-                    str = s78.b(data.c);
+                    str = n88.b(data.c);
                 } else if (i == 1) {
-                    str = s78.c(data.d);
+                    str = n88.c(data.d);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.e = "qr_none";

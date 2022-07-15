@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.InputType;
 /* loaded from: classes.dex */
 public final class UriCompat {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +35,7 @@ public final class UriCompat {
             String scheme = uri.getScheme();
             String schemeSpecificPart = uri.getSchemeSpecificPart();
             if (scheme != null) {
-                if (!scheme.equalsIgnoreCase(InputType.TEL) && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase("mailto") && !scheme.equalsIgnoreCase("nfc")) {
+                if (!scheme.equalsIgnoreCase("tel") && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase("mailto") && !scheme.equalsIgnoreCase("nfc")) {
                     if (scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https") || scheme.equalsIgnoreCase("ftp") || scheme.equalsIgnoreCase("rtsp")) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("//");

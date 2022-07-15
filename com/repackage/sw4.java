@@ -1,18 +1,32 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<tw4> a;
+    public zw4 a;
+    public int b;
+    public long c;
+    public long d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public boolean j;
+    public String k;
+    public String l;
 
     public sw4() {
         Interceptable interceptable = $ic;
@@ -24,44 +38,100 @@ public class sw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = 0;
+        this.f = 0;
+        this.g = 300;
+        this.h = 1;
+        this.a = new zw4();
     }
 
-    public void a(JSONArray jSONArray) {
-        boolean z;
+    public zw4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    ht4.k().y("key_index_tab_info_list", "[]");
-                    return;
-                }
-                JSONArray jSONArray2 = new JSONArray(ht4.k().q("key_index_tab_info_list", "[]"));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    tw4 tw4Var = new tw4();
-                    tw4 tw4Var2 = new tw4();
-                    tw4Var.f(jSONArray.getJSONObject(i));
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        tw4Var2.f(jSONArray2.getJSONObject(i2));
-                        if (tw4Var.c != null && tw4Var.c.equals(tw4Var2.c)) {
-                            if (!TextUtils.isEmpty(tw4Var2.e) && tw4Var2.e.equals(tw4Var.e)) {
-                                z = false;
-                                tw4Var.f = z;
-                            }
-                            z = true;
-                            tw4Var.f = z;
-                        }
-                    }
-                    if (!tw4Var.d()) {
-                        this.a.add(tw4Var);
-                    }
-                }
-                ht4.k().y("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (zw4) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e == 1 : invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b == 1) {
+                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                return this.c < currentTimeMillis && currentTimeMillis < this.d;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+    }
+
+    public void g(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optInt("als_control", 1);
+        jSONObject.optInt("not_use_lego_patch", 0);
+        jSONObject.optInt("ad_video_not_autoplay", 1);
+        this.f = jSONObject.optInt("lp_video_not_autoplay", 0);
+        this.a.a(jSONObject);
+        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
+        if (optJSONObject != null) {
+            this.b = optJSONObject.optInt("log_feed_switch", 0);
+            this.c = optJSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, -1L);
+            this.d = optJSONObject.optLong("end_time", -1L);
+            optJSONObject.optString("ext_info");
+        }
+        this.e = jSONObject.optInt("ad_collect_switch", 0);
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+        if (optJSONObject2 != null) {
+            this.g = optJSONObject2.optInt("interval", 300);
+        }
+        this.h = jSONObject.optInt("video_page_style", 1);
+        xt4.k().w("video_page_style", this.h);
+        jSONObject.optInt("ad_download_lib", 0);
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
+        if (optJSONObject3 != null) {
+            this.i = optJSONObject3.optString("url");
+            optJSONObject3.optString("name");
+            optJSONObject3.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+            optJSONObject3.optString("text_color_pressed");
+        }
+        this.j = jSONObject.optInt("afd_jump_pb") == 1;
+        this.k = jSONObject.optString("afd_eid");
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("iadex_sniff_list_url");
+        if (optJSONObject4 != null) {
+            String optString = optJSONObject4.optString("os_type2_iadex_url");
+            this.l = optString;
+            xc5.h(optString);
+            return;
+        }
+        xc5.h(null);
     }
 }

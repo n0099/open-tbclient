@@ -94,7 +94,7 @@ public class RatingView extends LinearLayout {
                 textView2.setText(this.b.b);
                 textView2.setTextSize(0, pi.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
                 textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView2.setPadding(0, 0, pi.f(this.a, R.dimen.obfuscated_res_0x7f0702e9), 0);
+                textView2.setPadding(0, 0, pi.f(this.a, R.dimen.obfuscated_res_0x7f0702e8), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
@@ -112,15 +112,15 @@ public class RatingView extends LinearLayout {
             }
             int intValue = valueOf.intValue() >> 1;
             for (int i = 0; i < intValue; i++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a4b)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a54)));
             }
             int i2 = 5 - intValue;
             if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a4c)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a55)));
                 i2--;
             }
             for (int i3 = 0; i3 < i2; i3++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a4a)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a53)));
             }
         }
     }

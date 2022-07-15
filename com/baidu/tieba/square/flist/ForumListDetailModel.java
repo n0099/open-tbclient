@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.br4;
 import com.repackage.d9;
-import com.repackage.mq4;
 import com.repackage.te;
 /* loaded from: classes4.dex */
 public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
@@ -63,14 +63,14 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         this.b = requestParams;
     }
 
-    public void G(b bVar) {
+    public void H(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void H(ForumListModel.RequestParams requestParams) {
+    public void I(ForumListModel.RequestParams requestParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestParams) == null) {
             this.b = requestParams;
@@ -141,8 +141,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        mq4.f();
-                        te<String> g = mq4.g("tb.my_posts");
+                        br4.f();
+                        te<String> g = br4.g("tb.my_posts");
                         if (g != null) {
                             str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {
@@ -176,7 +176,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
                 if (forumListModel != null && forumListModel.isOk()) {
                     this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
                 } else {
-                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c37), this.b.f);
+                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c2b), this.b.f);
                 }
             }
         }

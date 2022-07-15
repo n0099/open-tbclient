@@ -43,9 +43,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidubce.services.vod.VodClient;
-import com.repackage.l51;
-import com.repackage.n51;
-import com.repackage.o51;
+import com.repackage.b61;
+import com.repackage.c61;
+import com.repackage.z51;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -271,7 +271,7 @@ public class LiveNPSPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new l51(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
+            NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new z51(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -294,20 +294,20 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.l51
+                @Override // com.repackage.z51
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.repackage.l51
+                @Override // com.repackage.z51
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                     }
                 }
-            }, new n51(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
+            }, new b61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -330,13 +330,13 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.n51
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, o51 o51Var) {
+                @Override // com.repackage.b61
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, c61 c61Var) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, o51Var) == null) || o51Var == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, c61Var) == null) || c61Var == null) {
                         return;
                     }
-                    o51Var.onResult(1);
+                    c61Var.onResult(1);
                 }
             }, 1);
         }

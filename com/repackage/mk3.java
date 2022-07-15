@@ -1,31 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import com.tencent.open.SocialOperation;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mk3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mk3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Method b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public String f;
+    public a a;
+    public volatile boolean b;
 
-    public mk3(Class<?> cls) {
+    /* loaded from: classes6.dex */
+    public static class a extends pg4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_host_info_config_sp_name");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public mk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,138 +62,186 @@ public class mk3 {
                 return;
             }
         }
-        if (cls == null) {
-            return;
-        }
-        try {
-            Object m = v34.m(cls);
-            this.a = m;
-            if (m != null) {
-                Method i3 = v34.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
-                this.b = i3;
-                if (i3 != null) {
-                    i3.setAccessible(true);
-                }
-                Method i4 = v34.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
-                this.c = i4;
-                if (i4 != null) {
-                    i4.setAccessible(true);
-                }
-                Method i5 = v34.i(cls, "isHypnusOK", new Class[0]);
-                this.e = i5;
-                if (i5 != null) {
-                    i5.setAccessible(true);
-                }
-                f();
-            }
-        } catch (Throwable unused) {
-        }
+        this.b = false;
+        this.a = new a();
     }
 
-    public static mk3 a(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    public static mk3 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = v34.b("com.oppo.hypnus.HypnusManager", true);
-            } catch (Throwable unused) {
-                cls = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (mk3.class) {
+                    if (c == null) {
+                        c = new mk3();
+                    }
+                }
             }
-            return new mk3(cls);
+            return c;
         }
-        return (mk3) invokeL.objValue;
+        return (mk3) invokeV.objValue;
     }
 
-    public final String b() {
+    public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f;
-            if (str != null) {
-                return str;
+            Set<String> stringSet = this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (stringSet != null) {
+                return stringSet;
             }
-            Method method = this.d;
-            if (method != null) {
-                try {
-                    Object invoke = method.invoke(null, new Object[0]);
-                    this.f = invoke == null ? "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4" : (String) invoke;
-                } catch (Throwable unused) {
-                    this.f = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
+            if (h()) {
+                return this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            }
+            return null;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String c2 = c("appKey");
+            if (TextUtils.isEmpty(c2)) {
+                if (bk3.a) {
+                    throw new IllegalStateException("获取 host app key 失败");
                 }
+                return "";
             }
-            return this.f;
+            return c2;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.c == null || b() == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public void d(int i, int i2) {
-        Object obj;
-        Method method;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (obj = this.a) == null || (method = this.b) == null) {
-            return;
-        }
-        try {
-            method.invoke(obj, Integer.valueOf(i), Integer.valueOf(i2));
-        } catch (Throwable unused) {
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && this.a != null && this.c != null && b() != null) {
-            try {
-                this.c.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), this.f);
-            } catch (Throwable unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                Class<?> b = v34.b("com.oppo.hypnus.Hypnus", true);
-                if (b != null) {
-                    Method i = v34.i(b, "getLocalSignature", new Class[0]);
-                    this.d = i;
-                    if (i != null) {
-                        i.setAccessible(true);
+            String string = this.a.getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                if (h()) {
+                    String string2 = this.a.getString(str, "");
+                    if (!TextUtils.isEmpty(string2)) {
+                        return string2;
                     }
                 }
-            } catch (Throwable unused) {
+                return null;
             }
+            return string;
         }
+        return (String) invokeL.objValue;
     }
 
-    public boolean g() {
+    @SuppressLint({"BDThrowableCheck"})
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object obj = this.a;
-            if (obj == null) {
-                return false;
-            }
-            Method method = this.e;
-            if (method == null) {
-                return true;
-            }
-            try {
-                Object invoke = method.invoke(obj, new Object[0]);
-                if (invoke != null) {
-                    return ((Boolean) invoke).booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String c2 = c("hostName");
+            if (TextUtils.isEmpty(c2)) {
+                if (bk3.a) {
+                    throw new IllegalStateException("获取 HostName-宿主名称 失败");
                 }
-            } catch (Throwable unused) {
+                return "";
             }
-            return false;
+            return c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String c2 = c("schemeHead");
+            if (TextUtils.isEmpty(c2)) {
+                if (bk3.a) {
+                    throw new IllegalStateException("获取 SchemeHead-协议头 失败");
+                }
+                return "";
+            }
+            return c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g(String str, int i, String str2) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String c2 = c("shareCallBackUrl");
+            if (TextUtils.isEmpty(c2)) {
+                return "";
+            }
+            String a2 = og4.a(og4.a(c2, "type", String.valueOf(i)), "appKey", str);
+            return !TextUtils.isEmpty(str2) ? og4.a(a2, "path", ng4.b(str2)) : a2;
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    public final synchronized boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    return true;
+                }
+                String D = jg4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
+                HashSet hashSet = null;
+                if (TextUtils.isEmpty(D)) {
+                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
+                    D = file.exists() ? jg4.E(file) : null;
+                }
+                if (TextUtils.isEmpty(D)) {
+                    return false;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(D);
+                    String optString = jSONObject.optString("hostName");
+                    String optString2 = jSONObject.optString("schemeHead");
+                    String optString3 = jSONObject.optString("appKey");
+                    String optString4 = jSONObject.optString("shareCallBackUrl");
+                    int optInt = jSONObject.optInt("version");
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        hashSet = new HashSet();
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            hashSet.add(optJSONArray.optString(i));
+                        }
+                    }
+                    i(optString, optString2, optString3, optString4, optInt, hashSet);
+                    this.b = true;
+                    return true;
+                } catch (JSONException e) {
+                    if (bk3.a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+            }
         }
         return invokeV.booleanValue;
+    }
+
+    public final void i(String str, String str2, String str3, String str4, int i, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), set}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i < 0) {
+            return;
+        }
+        SharedPreferences.Editor putInt = this.a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
+        if (set != null && !set.isEmpty()) {
+            putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
+        }
+        putInt.apply();
     }
 }

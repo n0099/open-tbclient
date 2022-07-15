@@ -1,144 +1,134 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.state.ViewType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ec5;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class zb5 {
+public class zb5 implements yb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<ViewType, ac5> a;
+    public final ViewGroup b;
+    public final hc5 c;
+    public final ec5 d;
+    public ViewType e;
+    public ac5 f;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public zb5(hc5 hc5Var, @NonNull ViewGroup viewGroup, @NonNull ec5 ec5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            if (i3 > i2 || i4 > i) {
-                int round = Math.round(i3 / i2);
-                int round2 = Math.round(i4 / i);
-                if (round >= round2) {
-                    round = round2;
-                }
-                if (round >= 3) {
-                    if (round < 6.5d) {
-                        return 4;
-                    }
-                    if (round < 8) {
-                        return 8;
-                    }
-                }
-                return round;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hc5Var, viewGroup, ec5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 1;
         }
-        return invokeLII.intValue;
+        this.a = new HashMap<>();
+        this.b = viewGroup;
+        this.c = hc5Var;
+        this.d = ec5Var;
     }
 
-    public static Bitmap b(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    @Override // com.repackage.yb5
+    public void a(ViewType viewType, String str) {
+        ec5.a aVar;
+        ec5.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            options.inSampleSize = a(options, i, i2);
-            options.inJustDecodeBounds = false;
-            return BitmapFactory.decodeFile(str, options);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
+            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
+                bVar.a = str;
+            } else if (viewType != ViewType.EMPTY || (aVar = this.d.b) == null) {
+            } else {
+                aVar.a = str;
+            }
         }
-        return (Bitmap) invokeLII.objValue;
     }
 
-    public static Bitmap c(View view2) {
+    @Override // com.repackage.yb5
+    public void b(ViewType viewType) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) == null) || this.e == viewType) {
+            return;
+        }
+        this.e = viewType;
+        if (this.b == null) {
+            return;
+        }
+        hc5 hc5Var = this.c;
+        if (hc5Var != null && hc5Var.getView() != null) {
+            this.c.getView().setVisibility(viewType == ViewType.CONTENT ? 0 : 8);
+        }
+        ac5 ac5Var = this.f;
+        if (ac5Var != null) {
+            ac5Var.b(this.b);
+        }
+        ac5 ac5Var2 = this.a.get(viewType);
+        ec5.e d = d(viewType);
+        if (ac5Var2 == null || d == null) {
+            return;
+        }
+        ac5Var2.c(viewType, this.b, d);
+        this.f = ac5Var2;
+        this.a.put(viewType, ac5Var2);
+    }
+
+    @Override // com.repackage.yb5
+    public void c(ViewType viewType, @NonNull ac5 ac5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, ac5Var) == null) {
+            this.a.put(viewType, ac5Var);
+        }
+    }
+
+    public final ec5.e d(ViewType viewType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            Bitmap bitmap = null;
-            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
+            if (viewType == ViewType.ERROR) {
+                return this.d.c;
             }
-            try {
-                try {
-                    Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-                    view2.draw(new Canvas(createBitmap));
-                    return createBitmap;
-                } catch (OutOfMemoryError e) {
-                    BdLog.e(e);
-                    return bitmap;
-                }
-            } catch (OutOfMemoryError unused) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.RGB_565);
-                view2.draw(new Canvas(bitmap));
-                return bitmap;
+            if (viewType == ViewType.EMPTY) {
+                return this.d.b;
             }
+            if (viewType == ViewType.LOADING) {
+                return this.d.a;
+            }
+            return null;
         }
-        return (Bitmap) invokeL.objValue;
+        return (ec5.e) invokeL.objValue;
     }
 
-    public static float[] d(Bitmap bitmap, Matrix matrix) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.yb5
+    public void onChangeSkinType(int i) {
+        ac5 ac5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bitmap, matrix)) == null) {
-            float[] fArr = new float[8];
-            matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
-            return fArr;
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (ac5Var = this.f) == null) {
+            return;
         }
-        return (float[]) invokeLL.objValue;
+        ac5Var.e(i);
     }
 
-    public static int[] e(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.yb5
+    public void onDestroy() {
+        ac5 ac5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            return new int[]{options.outWidth, options.outHeight};
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ac5Var = this.f) == null) {
+            return;
         }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static Bitmap f(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Bitmap bitmap3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmap, bitmap2, i, i2)) == null) {
-            if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
-                return null;
-            }
-            try {
-                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            } catch (OutOfMemoryError unused) {
-                bitmap3 = null;
-            }
-            try {
-                Canvas canvas = new Canvas(bitmap3);
-                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                return bitmap3;
-            } catch (OutOfMemoryError unused2) {
-                try {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
-                    Canvas canvas2 = new Canvas(bitmap3);
-                    canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                    return bitmap3;
-                } catch (OutOfMemoryError e) {
-                    BdLog.e(e);
-                    return bitmap3;
-                }
-            }
-        }
-        return (Bitmap) invokeLLII.objValue;
+        ac5Var.b(this.b);
     }
 }

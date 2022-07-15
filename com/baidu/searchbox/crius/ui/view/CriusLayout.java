@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.crius.CriusAlign;
 import com.baidu.crius.CriusDirection;
@@ -30,6 +31,7 @@ import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.parser.CriusDataFactory;
 import com.baidu.searchbox.crius.render.OpacityController;
 import com.baidu.searchbox.crius.ui.IOpacitySupport;
+import com.baidu.searchbox.crius.ui.recycler.CriusRecyclerView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -84,9 +86,17 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{criusNode, Float.valueOf(f), criusMeasureMode, Float.valueOf(f2), criusMeasureMode2})) == null) {
                 View view2 = (View) criusNode.getData();
+                if (AppConfig.isDebug()) {
+                    Log.d(CriusLayout.TAG, "#ViewMeasureFunction# view: " + view2 + ", width=" + f + " height=" + f2);
+                }
                 if (view2 != null && !(view2 instanceof CriusLayout)) {
                     view2.measure(View.MeasureSpec.makeMeasureSpec((int) f, viewMeasureSpecFromCriusMeasureMode(criusMeasureMode)), View.MeasureSpec.makeMeasureSpec((int) f2, viewMeasureSpecFromCriusMeasureMode(criusMeasureMode2)));
-                    return CriusMeasureOutput.make(view2.getMeasuredWidth(), view2.getMeasuredHeight());
+                    int measuredWidth = view2.getMeasuredWidth();
+                    int measuredHeight = view2.getMeasuredHeight();
+                    if (AppConfig.isDebug()) {
+                        Log.d(CriusLayout.TAG, "#ViewMeasureFunction# measuredWidth=" + measuredWidth + ", measuredHeight=" + measuredHeight);
+                    }
+                    return CriusMeasureOutput.make(measuredWidth, measuredHeight);
                 }
                 return CriusMeasureOutput.make(0, 0);
             }
@@ -355,7 +365,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         }
     }
 
-    private void createLayout(int i, int i2) {
+    private void calculateLayout(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65542, this, i, i2) == null) {
             int size = View.MeasureSpec.getSize(i);
@@ -412,7 +422,14 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
             if (this.mCriusDatas.containsKey(view2)) {
                 CriusData criusData3 = this.mCriusDatas.get(view2);
                 applyLayoutParams((LayoutParams) view2.getLayoutParams(), criusData3.criusNode, view2);
+                if ((view2 instanceof CriusLayout) || (view2 instanceof CriusRecyclerView)) {
+                    return;
+                }
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, "CriusLayout, addView child setMeasureFunction : " + view2);
+                }
                 criusData3.criusNode.setData(view2);
+                criusData3.criusNode.setMeasureFunction(new ViewMeasureFunction());
                 return;
             }
             if (view2 instanceof CriusLayout) {
@@ -494,8 +511,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (!(getParent() instanceof CriusLayout)) {
-                createLayout(View.MeasureSpec.makeMeasureSpec(i3 - i, 1073741824), View.MeasureSpec.makeMeasureSpec(i4 - i2, 1073741824));
+            if (!(getParent() instanceof CriusLayout) && !(getParent() instanceof CriusRecyclerView)) {
+                this.mCriusData.criusNode.calculateLayout(Float.NaN, Float.NaN);
             }
             applyLayoutRecursive(this.mCriusData, 0.0f, 0.0f);
         }
@@ -505,12 +522,12 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            if (!(getParent() instanceof CriusLayout)) {
-                createLayout(i, i2);
+            if (!(getParent() instanceof CriusLayout) && !(getParent() instanceof CriusRecyclerView)) {
+                calculateLayout(i, i2);
             }
             setMeasuredDimension(Math.round(this.mCriusData.criusNode.getLayoutWidth()), Math.round(this.mCriusData.criusNode.getLayoutHeight()));
             if (AppConfig.isDebug()) {
-                Log.d(TAG, "CriusLayout#onMeasure, width=" + getMeasuredWidth() + ", height=" + getMeasuredHeight());
+                Log.d(TAG, "CriusLayout#onMeasure, width=" + getMeasuredWidth() + ", height=" + getMeasuredHeight() + StringUtil.ARRAY_ELEMENT_SEPARATOR + this);
             }
         }
     }

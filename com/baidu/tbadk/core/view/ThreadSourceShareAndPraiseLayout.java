@@ -98,9 +98,9 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             return;
         }
         this.d = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0814, (ViewGroup) this, true);
-        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092383);
-        this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911b2);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0832, (ViewGroup) this, true);
+        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09242b);
+        this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091253);
         this.a.setOnClickListener(new a(this));
     }
 
@@ -128,7 +128,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             this.c = threadData;
             if (!StringUtils.isNull(threadData.getForum_name()) && !this.g) {
                 TextView textView = this.a;
-                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f0646));
+                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f0650));
                 this.a.setVisibility(0);
             } else {
                 this.a.setVisibility(8);

@@ -1,30 +1,68 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.openid.sdk.FunOpenIDSdk;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class cn9 {
     public static /* synthetic */ Interceptable $ic;
-    public static cn9 b;
-    public static String c;
-    public static String d;
-    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final pn9 a;
+    public final SVGAVideoEntity b;
 
-    public cn9(Context context) {
+    /* loaded from: classes5.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final kn9 b;
+
+        public a(cn9 cn9Var, String str, kn9 kn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cn9Var, str, kn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = kn9Var;
+        }
+
+        public final kn9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (kn9) invokeV.objValue;
+        }
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+    }
+
+    public cn9(SVGAVideoEntity sVGAVideoEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {sVGAVideoEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,71 +72,46 @@ public class cn9 {
                 return;
             }
         }
-        this.a = context;
+        this.b = sVGAVideoEntity;
+        this.a = new pn9();
     }
 
-    public static cn9 a(Context context) {
-        InterceptResult invokeL;
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (b == null) {
-                synchronized (cn9.class) {
-                    if (b == null) {
-                        b = new cn9(context);
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
         }
-        return (cn9) invokeL.objValue;
     }
 
-    public String b() {
+    public final pn9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (pn9) invokeV.objValue;
     }
 
-    public String c() {
+    public final SVGAVideoEntity c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                try {
-                    return in9.E(this.a);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return "";
-                }
-            }
-            return c;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SVGAVideoEntity) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public final List<a> d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e : (String) invokeV.objValue;
-    }
-
-    public void e() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                Class.forName("com.fun.openid.sdk.FunOpenIDSdk");
-                Class.forName("com.fun.openid.sdk.OnGetOaidListener");
-                z = true;
-            } catch (Exception unused) {
-                z = false;
-            }
-            if (z) {
-                try {
-                    FunOpenIDSdk.getOaid(this.a, new zm9(this));
-                } catch (Exception unused2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            List<jn9> g = this.b.g();
+            ArrayList arrayList = new ArrayList();
+            for (jn9 jn9Var : g) {
+                a aVar = null;
+                if (i >= 0 && i < jn9Var.a().size() && jn9Var.a().get(i).a() > 0.0d) {
+                    aVar = new a(this, jn9Var.b(), jn9Var.a().get(i));
+                }
+                if (aVar != null) {
+                    arrayList.add(aVar);
                 }
             }
+            return arrayList;
         }
+        return (List) invokeI.objValue;
     }
 }

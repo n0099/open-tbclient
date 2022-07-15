@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -117,7 +116,7 @@ public class j3 {
             }
             StringBuilder sb = new StringBuilder();
             sb.append("/");
-            sb.append(this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH));
+            sb.append(this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
             return j3.class.getResource(sb.toString()) != null;
         }
         return invokeV.booleanValue;
@@ -236,14 +235,14 @@ public class j3 {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String replace = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+            String replace = this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
             int lastIndexOf = replace.lastIndexOf(46);
             return lastIndexOf == -1 ? replace : replace.substring(0, lastIndexOf);
         }
@@ -271,7 +270,7 @@ public class j3 {
                     throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
                 }
             }
-            InputStream resourceAsStream = j3.class.getResourceAsStream("/" + this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH));
+            InputStream resourceAsStream = j3.class.getResourceAsStream("/" + this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
             if (resourceAsStream != null) {
                 return resourceAsStream;
             }
@@ -379,7 +378,7 @@ public class j3 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
     }
 
     public j3(String str, Files.FileType fileType) {

@@ -1,189 +1,187 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.R;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.repackage.op8;
-import java.util.List;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class bq8 implements jp8, op8.c, uy5 {
+public final class bq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public bp8 b;
-    public np8 c;
-    public SelectMusicModel d;
-    public String e;
+    public int a;
+    public boolean b;
+    public Object c;
 
-    public bq8(bp8 bp8Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755818232, "Lcom/repackage/bq8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755818232, "Lcom/repackage/bq8;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public bq8() {
+        this(0, false, null, 7, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public bq8(int i) {
+        this(i, false, null, 6, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.b = bp8Var;
-        this.a = bp8Var.a;
     }
 
-    public final void a(String str) {
-        bp8 bp8Var;
+    @JvmOverloads
+    public bq8(int i, boolean z, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bp8Var = this.b) == null) {
-            return;
-        }
-        if (bp8Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        bp8 bp8Var2 = this.b;
-        if (bp8Var2 != null) {
-            bp8Var2.f(videoInfo);
-        }
-    }
-
-    public void b() {
-        bp8 bp8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bp8Var = this.b) == null) {
-            return;
-        }
-        if (bp8Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            bp8 bp8Var2 = this.b;
-            if (!bp8Var2.e) {
-                r1(bp8Var2.b, -4399, "");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), obj};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        bp8 bp8Var3 = this.b;
-        selectMusicModel.C(bp8Var3.b, bp8Var3.d, cp8.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !bp8Var3.e);
+        this.a = i;
+        this.b = z;
+        this.c = obj;
     }
 
-    @Override // com.repackage.uy5
-    public void cancel() {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bp8 bp8Var = this.b;
-            if (bp8Var != null) {
-                bp8Var.i(true);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final Object c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.objValue;
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            np8 np8Var = this.c;
-            if (np8Var == null || !np8Var.f()) {
-                return;
+            if (obj instanceof bq8) {
+                bq8 bq8Var = (bq8) obj;
+                return this.a == bq8Var.a && this.b == bq8Var.b && Intrinsics.areEqual(this.c, bq8Var.c);
             }
-            this.c.e();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.c = obj;
         }
     }
 
-    @Override // com.repackage.op8.c
-    public void onGenFilterVideoFail(int i, String str) {
-        bp8 bp8Var;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (bp8Var = this.b) == null) {
-            return;
-        }
-        bp8Var.d(i, str);
-    }
-
-    @Override // com.repackage.op8.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        bp8 bp8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || (bp8Var = this.b) == null) {
-            return;
-        }
-        bp8Var.d(i, str);
-    }
-
-    @Override // com.repackage.op8.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            bp8 bp8Var = this.b;
-            if (bp8Var != null) {
-                bp8Var.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.a * 31;
+            boolean z = this.b;
+            int i2 = z;
+            if (z != 0) {
+                i2 = 1;
             }
-            a(str);
+            int i3 = (i + i2) * 31;
+            Object obj = this.c;
+            return i3 + (obj == null ? 0 : obj.hashCode());
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.repackage.jp8
-    public void r1(String str, int i, String str2) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, str, i, str2) == null) {
-            bp8 bp8Var = this.b;
-            if (bp8Var != null && bp8Var.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0adf);
-                bp8 bp8Var2 = this.b;
-                if (bp8Var2 != null) {
-                    bp8Var2.g(i, str2);
-                }
-            } else {
-                bp8 bp8Var3 = this.b;
-                if (bp8Var3 != null) {
-                    bp8Var3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        np8 np8Var = new np8(this.a.getActivity());
-                        this.c = np8Var;
-                        np8Var.i(this);
-                    }
-                    this.c.g(str, this.b.f);
-                    return;
-                }
-                bp8 bp8Var4 = this.b;
-                if (bp8Var4 != null) {
-                    bp8Var4.e();
-                }
-                a(str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "VideoAdData(agreeNum=" + this.a + ", agreed=" + this.b + ", funNativeAd=" + this.c + ')';
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.jp8
-    public void setMusicData(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-        }
+    public /* synthetic */ bq8(int i, boolean z, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? 0 : i, (i2 & 2) != 0 ? false : z, (i2 & 4) != 0 ? null : obj);
     }
 }

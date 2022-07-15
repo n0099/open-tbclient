@@ -1,21 +1,29 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
+import android.util.StateSet;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class b44 implements tj2 {
+public class b44 extends StateListDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public View b;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(View view2);
+
+        void b(View view2);
+    }
 
     public b44() {
         Interceptable interceptable = $ic;
@@ -27,118 +35,62 @@ public class b44 implements tj2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        addState(new int[]{16842919}, new ColorDrawable(0));
+        addState(new int[0], new ColorDrawable(0));
     }
 
-    @Override // com.repackage.tj2
-    public boolean a(Context context, im2 im2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, im2Var, bm2Var, sz2Var)) == null) {
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean b(Context context, dm2 dm2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dm2Var, bm2Var, sz2Var)) == null) ? k44.e().c(context, dm2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean c(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, em2Var, bm2Var, sz2Var)) == null) ? j44.d().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public void d(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yl1Var) == null) {
-            a44.h(yl1Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
-    @Override // com.repackage.tj2
-    public boolean e(Context context, cm2 cm2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public void b(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, cm2Var, bm2Var, sz2Var)) == null) ? h54.h().c(context, cm2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public void f(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yl1Var) == null) {
-            a44.d(yl1Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.b = view2;
         }
     }
 
-    @Override // com.repackage.tj2
-    public boolean g(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, em2Var, bm2Var, sz2Var)) == null) ? e44.e().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean h(Context context, gm2 gm2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, gm2Var, bm2Var, sz2Var)) == null) ? m44.e().c(context, gm2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public void i(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yl1Var) == null) {
-            a44.e(yl1Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
+            if (this.b != null && this.a != null) {
+                if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
+                    this.a.b(this.b);
+                } else {
+                    this.a.a(this.b);
+                }
+            }
+            return super.onStateChange(iArr);
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.tj2
-    public boolean j(Context context, hm2 hm2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public b44(Drawable drawable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, context, hm2Var, bm2Var, sz2Var)) == null) ? n44.e().c(context, hm2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean k(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, context, em2Var, bm2Var, sz2Var)) == null) ? h44.d().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean l(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, context, em2Var, bm2Var, sz2Var)) == null) ? f44.d().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean m(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, context, em2Var, bm2Var, sz2Var)) == null) ? l44.f().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean n(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, context, em2Var, bm2Var, sz2Var)) == null) ? i44.d().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.tj2
-    public boolean update(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, context, em2Var, bm2Var, sz2Var)) == null) ? g44.d().c(context, em2Var, bm2Var, sz2Var) : invokeLLLL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        addState(new int[]{16842919}, drawable);
+        addState(new int[0], drawable);
     }
 }

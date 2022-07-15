@@ -1,188 +1,89 @@
 package com.repackage;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.utils.Constant;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z35 {
+public class z35 implements b45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public ImageView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
 
-    public static void a(DownloadData downloadData) {
+    public z35(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
-            ju4.a(downloadData, 400);
-            o98.l().g(downloadData.getUrl(), downloadData.getId());
-        }
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? o98.l().p(str) : invokeL.booleanValue;
-    }
-
-    public static int c(@NonNull DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (o98.l().o(downloadData.getId())) {
-                return 5;
-            }
-            if (o98.l().q(downloadData.getId())) {
-                return 1;
-            }
-            return o98.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (a05.q().t(str)) {
-                return 1;
-            }
-            if (a05.q().r(str)) {
-                return 5;
-            }
-            File m = a05.q().m(str, str2);
-            return (m == null || !m.exists()) ? 6 : 7;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static PackageInfo e(String str) {
-        InterceptResult invokeL;
-        PackageInfo packageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                packageInfo = TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (str.equals(packageInfo.packageName)) {
-                return packageInfo;
-            }
-            return null;
-        }
-        return (PackageInfo) invokeL.objValue;
-    }
-
-    public static Intent f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                return context.getPackageManager().getLaunchIntentForPackage(str);
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Intent) invokeLL.objValue;
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b9);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909bb);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b7);
+        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909ba);
+        this.d.setText(R.string.obfuscated_res_0x7f0f06d5);
+        b();
     }
 
-    public static String g(Intent intent) {
-        InterceptResult invokeL;
+    @Override // com.repackage.b45
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
-            String dataString = intent.getDataString();
-            if (TextUtils.isEmpty(dataString)) {
-                return null;
-            }
-            String[] split = dataString.split(":");
-            return split.length == 2 ? split[1] : dataString;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int h(@NonNull DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int i = o98.l().i(downloadData.getId(), downloadData.getName());
-            if (i < 0 || i > 100) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, downloadData) == null) {
-            ju4.a(downloadData, 800);
-            Application app = TbadkCoreApplication.getInst().getApp();
-            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-        }
-    }
-
-    public static DownloadData j(ItemData itemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, itemData)) == null) {
-            String str = itemData.pkgName + ".v" + itemData.apkDetail.version;
-            DownloadData downloadData = new DownloadData();
-            downloadData.setType(12);
-            downloadData.setId(str);
-            downloadData.setName(itemData.mTitle);
-            downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(o98.m(str).intValue());
-            downloadData.setNeedInvokeApk(true);
-            downloadData.setNeedNotify(false);
-            ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());
-            itemDownloadExtraData.appName = itemData.mTitle;
-            itemDownloadExtraData.pkgName = itemData.pkgName;
-            downloadData.setExtra(itemDownloadExtraData);
-            return downloadData;
-        }
-        return (DownloadData) invokeL.objValue;
-    }
-
-    public static void k(String str) {
-        Context context;
-        Intent f;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, str) == null) || TextUtils.isEmpty(str) || (f = f((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        try {
-            context.startActivity(f);
-        } catch (Exception unused) {
-        }
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080ea1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e4, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
     }
 
-    public static boolean l(DownloadData downloadData) {
-        InterceptResult invokeL;
+    @Override // com.repackage.b45
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
-            if (pi.D()) {
-                return o98.l().s(downloadData);
-            }
-            zz4.b(downloadData);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.a;
+            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) null);
         }
-        return invokeL.booleanValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.b45
+    public void onClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        }
     }
 }

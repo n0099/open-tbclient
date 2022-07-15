@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
 import com.repackage.hg;
-import com.repackage.ht4;
 import com.repackage.of;
 import com.repackage.qf;
 import com.repackage.rf;
 import com.repackage.sf;
 import com.repackage.tf;
+import com.repackage.xt4;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -181,8 +181,8 @@ public class WebClient implements hg.a {
                     }
                     rf rfVar = new rf();
                     this.mContext = rfVar;
-                    rfVar.b().v(str);
-                    this.mContext.b().p(UseHttpAutoRetrySwitch.isOn());
+                    rfVar.b().s(str);
+                    this.mContext.b().n(UseHttpAutoRetrySwitch.isOn());
                     sf b = this.mContext.b();
                     b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
                     if (this.mPostList != null) {
@@ -334,7 +334,7 @@ public class WebClient implements hg.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (ht4.k().l("image_no_cache_switch", 0) == 1) {
+            if (xt4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;

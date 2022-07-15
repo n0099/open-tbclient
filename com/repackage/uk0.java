@@ -1,13 +1,13 @@
 package com.repackage;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class uk0 implements ya1 {
+public class uk0 extends ml0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,16 +25,11 @@ public class uk0 implements ya1 {
         }
     }
 
-    @Override // com.repackage.ya1
-    public Object get() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ml0, com.repackage.pl0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new uf0());
-            arrayList.add(new zr0());
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && y01.b()) {
+            tk0.b().request().a(true);
         }
-        return invokeV.objValue;
     }
 }

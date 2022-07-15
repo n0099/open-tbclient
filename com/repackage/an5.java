@@ -1,75 +1,167 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class an5 implements vj2 {
+public class an5 implements el1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755850999, "Lcom/repackage/an5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755850999, "Lcom/repackage/an5;");
+                return;
+            }
+        }
+        b = rg1.a;
+    }
 
     public an5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.vj2
-    public boolean a(Context context, String str, lb3 lb3Var) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.el1
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, lb3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            statisticItem.param("uid", pl5.l().p() == null ? "" : pl5.l().p());
-            statisticItem.param("obj_param1", lb3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, lb3Var.e());
-            TiebaStatic.log(statisticItem);
-            if (lb3Var.j() == 10 && lb3Var.h() == 1013) {
-                b(context, lb3Var);
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
             }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void b(Context context, lb3 lb3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lb3Var) == null) {
-            sz2 b0 = sz2.b0();
-            if (context == null || b0 == null) {
+            long m = xt4.k().m("smart_app_tid", 0L);
+            String q = xt4.k().q("smart_app_id", "");
+            String q2 = xt4.k().q("smart_app_name", "");
+            if (this.a == 0 || m == 0) {
                 return;
             }
-            String i = x83.i(fl2.U().M(), b0.Y().G());
-            long h = lb3Var.h();
-            String r = lb3Var.r();
-            if (!(1020 == h && !TextUtils.isEmpty(r))) {
-                r = ob4.b().a(h);
-            }
-            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + md3.D() + "/" + i + "/" + lb3Var.a());
-            forbiddenInfo.enableSlidingFlag = -1;
-            mk2.l(context, "type_need_update_sdk", lb3Var, forbiddenInfo, b0.Y().D());
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            y85 y85Var = new y85();
+            y85Var.y(currentTimeMillis);
+            y85Var.s(g());
+            y85Var.C(m);
+            y85Var.i = q;
+            y85Var.j = q2;
+            y85Var.x(h());
+            z85.b().j(true);
+            z85.b().k(TbadkApplication.getInst().getApplicationContext(), y85Var, i());
+            xt4.k().x("smart_app_tid", 0L);
         }
+    }
+
+    @Override // com.repackage.el1
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.el1
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + h03.M().b);
+            }
+            File file = new File(em.b("libBaiduMapSDK_map_v5_4_4.so"));
+            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && gm.a(BdBaseApplication.getInst().getContext(), em.a("libBaiduMapSDK_map_v5_4_4.so"))) {
+                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK_map_v5_4_4.so", em.a("libBaiduMapSDK_map_v5_4_4.so"));
+            }
+            this.a = System.currentTimeMillis();
+        }
+    }
+
+    @Override // com.repackage.el1
+    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable el2 el2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, el2Var) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppExit");
+            }
+            if (xt4.k().h("key_ai_app_guide_display", true)) {
+                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
+                intent.putExtra(DealIntentService.KEY_CLASS, 38);
+                swanAppActivity.startService(intent);
+            }
+        }
+    }
+
+    @Override // com.repackage.el1
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.el1
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+    }
+
+    public List<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("a001");
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public w85 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (w85) invokeV.objValue;
     }
 }

@@ -18,19 +18,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
-import com.repackage.md6;
+import com.repackage.je6;
+import com.repackage.kt5;
 import com.repackage.ng;
-import com.repackage.ns5;
+import com.repackage.xt4;
 import java.net.URL;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements je6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
     public boolean c;
-    public ns5 d;
+    public kt5 d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
@@ -115,7 +115,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.t1().contains(str) || str.contains(this.a.t1())) {
+                if (this.a.u1().contains(str) || str.contains(this.a.u1())) {
                     this.a.d.l();
                 }
             }
@@ -141,14 +141,14 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
         this.f = new b(this, 2921023);
     }
 
-    @Override // com.repackage.md6
-    public NavigationBar M0() {
+    @Override // com.repackage.je6
+    public NavigationBar N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d.j() : (NavigationBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.t75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,9 +177,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
                 return;
             }
             if (i == 1) {
-                this.d.y(s1(t1()));
+                this.d.y(t1(u1()));
             } else {
-                this.d.y(t1());
+                this.d.y(u1());
             }
             this.d.A(i);
         }
@@ -199,9 +199,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            ns5 ns5Var = new ns5(this.a);
-            this.d = ns5Var;
-            return ns5Var.B(layoutInflater, viewGroup);
+            kt5 kt5Var = new kt5(this.a);
+            this.d = kt5Var;
+            return kt5Var.B(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }
@@ -211,9 +211,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            ns5 ns5Var = this.d;
-            if (ns5Var != null) {
-                ns5Var.C();
+            kt5 kt5Var = this.d;
+            if (kt5Var != null) {
+                kt5Var.C();
             }
         }
     }
@@ -233,9 +233,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
             super.onPrimary();
             if (this.c || StringUtils.isNull(this.d.k().getUrl())) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.d.y(s1(t1()));
+                    this.d.y(t1(u1()));
                 } else {
-                    this.d.y(t1());
+                    this.d.y(u1());
                 }
                 this.c = false;
             }
@@ -250,7 +250,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
         }
     }
 
-    public final String s1(String str) {
+    public final String t1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
@@ -270,11 +270,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
         return (String) invokeL.objValue;
     }
 
-    public String t1() {
+    public String u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String q = ht4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            String q = xt4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
             if (q != null) {
                 StringBuilder sb = new StringBuilder(q);
                 if (q.endsWith("?")) {
@@ -291,20 +291,20 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements md6 
         return (String) invokeV.objValue;
     }
 
-    public void u1(String str) {
+    public void v1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void v1(String str) {
+    public void w1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
         }
     }
 
-    public void w1(boolean z) {
+    public void x1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.a = z;

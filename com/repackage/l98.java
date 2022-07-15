@@ -1,26 +1,11 @@
 package com.repackage;
-
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public interface l98 extends IAdBaseAsyncController {
+public interface l98 {
+    int d(String str, boolean z);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i);
-    }
+    int e(String str, boolean z);
 
-    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+    void f();
 
-    void c(AdvertAppInfo advertAppInfo, boolean z);
-
-    @Nullable
-    m88 i(AdvertAppInfo advertAppInfo);
-
-    void loadAd();
-
-    void m(AdvertAppInfo advertAppInfo);
+    void g(String str, int i, boolean z);
 }

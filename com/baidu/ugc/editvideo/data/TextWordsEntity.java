@@ -11,10 +11,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
-import com.repackage.g89;
-import com.repackage.r89;
-import com.repackage.z79;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.f99;
+import com.repackage.q99;
+import com.repackage.y89;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,7 +32,7 @@ public class TextWordsEntity {
     public static class StyleBackgroudInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName(AnimationProperty.OPACITY)
+        @SerializedName("alpha")
         public String mBackgroudAlpha;
         @SerializedName("bottom")
         public int mBackgroudBottom;
@@ -86,7 +85,7 @@ public class TextWordsEntity {
                 StyleBackgroudInfoEntity styleBackgroudInfoEntity = new StyleBackgroudInfoEntity();
                 try {
                     styleBackgroudInfoEntity.mBackgroudColor = jSONObject.optString("color");
-                    styleBackgroudInfoEntity.mBackgroudAlpha = jSONObject.optString(AnimationProperty.OPACITY);
+                    styleBackgroudInfoEntity.mBackgroudAlpha = jSONObject.optString("alpha");
                     styleBackgroudInfoEntity.mBackgroudImageUrl = jSONObject.optString("imageUrl");
                     styleBackgroudInfoEntity.mLocalParentFile = jSONObject.optString("localParentFile");
                     styleBackgroudInfoEntity.mBackgroudLeft = jSONObject.optInt("left");
@@ -136,7 +135,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleBackgroudInfoEntity.mBackgroudColor);
-                    jSONObject.put(AnimationProperty.OPACITY, styleBackgroudInfoEntity.mBackgroudAlpha);
+                    jSONObject.put("alpha", styleBackgroudInfoEntity.mBackgroudAlpha);
                     jSONObject.put("imageUrl", styleBackgroudInfoEntity.mBackgroudImageUrl);
                     jSONObject.put("localParentFile", styleBackgroudInfoEntity.mLocalParentFile);
                     jSONObject.put("left", styleBackgroudInfoEntity.mBackgroudLeft);
@@ -175,13 +174,13 @@ public class TextWordsEntity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (r89.a(this.mBackgroudImageUrl)) {
+                if (q99.a(this.mBackgroudImageUrl)) {
                     return new File("");
                 }
                 if (this.mSourceFile == null) {
                     String str = this.mLocalParentFile;
                     StringBuilder sb = new StringBuilder();
-                    sb.append(g89.b(this.mBackgroudImageUrl));
+                    sb.append(f99.b(this.mBackgroudImageUrl));
                     String str2 = this.mBackgroudImageUrl;
                     sb.append(str2.substring(str2.lastIndexOf(".")));
                     this.mSourceFile = new File(str, sb.toString());
@@ -200,7 +199,7 @@ public class TextWordsEntity {
         public boolean isNeedDown() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? r89.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? q99.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
         }
     }
 
@@ -208,7 +207,7 @@ public class TextWordsEntity {
     public static class StyleShadowInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName(AnimationProperty.OPACITY)
+        @SerializedName("alpha")
         public String mShadowAlpha;
         @SerializedName(ConstPath.KEY_BLUR)
         public String mShadowBlur;
@@ -245,7 +244,7 @@ public class TextWordsEntity {
                 StyleShadowInfoEntity styleShadowInfoEntity = new StyleShadowInfoEntity();
                 try {
                     styleShadowInfoEntity.mShadowColor = jSONObject.optString("color");
-                    styleShadowInfoEntity.mShadowAlpha = jSONObject.optString(AnimationProperty.OPACITY);
+                    styleShadowInfoEntity.mShadowAlpha = jSONObject.optString("alpha");
                     styleShadowInfoEntity.mShadowOffsetX = jSONObject.optString("offset_x");
                     styleShadowInfoEntity.mShadowOffsetY = jSONObject.optString("offset_y");
                     styleShadowInfoEntity.mShadowBlur = jSONObject.optString(ConstPath.KEY_BLUR);
@@ -267,7 +266,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleShadowInfoEntity.mShadowColor);
-                    jSONObject.put(AnimationProperty.OPACITY, styleShadowInfoEntity.mShadowAlpha);
+                    jSONObject.put("alpha", styleShadowInfoEntity.mShadowAlpha);
                     jSONObject.put("offset_x", styleShadowInfoEntity.mShadowOffsetX);
                     jSONObject.put("offset_y", styleShadowInfoEntity.mShadowOffsetY);
                     jSONObject.put(ConstPath.KEY_BLUR, styleShadowInfoEntity.mShadowBlur);
@@ -284,7 +283,7 @@ public class TextWordsEntity {
     public static class StyleStrokeInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName(AnimationProperty.OPACITY)
+        @SerializedName("alpha")
         public String mStrokeAlpha;
         @SerializedName("color")
         public String mStrokeColor;
@@ -315,7 +314,7 @@ public class TextWordsEntity {
                 StyleStrokeInfoEntity styleStrokeInfoEntity = new StyleStrokeInfoEntity();
                 try {
                     styleStrokeInfoEntity.mStrokeColor = jSONObject.optString("color");
-                    styleStrokeInfoEntity.mStrokeAlpha = jSONObject.optString(AnimationProperty.OPACITY);
+                    styleStrokeInfoEntity.mStrokeAlpha = jSONObject.optString("alpha");
                     styleStrokeInfoEntity.mStrokeWidth = jSONObject.optString("width");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -335,7 +334,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleStrokeInfoEntity.mStrokeColor);
-                    jSONObject.put(AnimationProperty.OPACITY, styleStrokeInfoEntity.mStrokeAlpha);
+                    jSONObject.put("alpha", styleStrokeInfoEntity.mStrokeAlpha);
                     jSONObject.put("width", styleStrokeInfoEntity.mStrokeWidth);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -350,7 +349,7 @@ public class TextWordsEntity {
     public static class StyleTextInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName(AnimationProperty.OPACITY)
+        @SerializedName("alpha")
         public String mTextAlpha;
         @SerializedName("color")
         public String mTextColor;
@@ -379,7 +378,7 @@ public class TextWordsEntity {
                 StyleTextInfoEntity styleTextInfoEntity = new StyleTextInfoEntity();
                 try {
                     styleTextInfoEntity.mTextColor = jSONObject.optString("color");
-                    styleTextInfoEntity.mTextAlpha = jSONObject.optString(AnimationProperty.OPACITY);
+                    styleTextInfoEntity.mTextAlpha = jSONObject.optString("alpha");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -398,7 +397,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleTextInfoEntity.mTextColor);
-                    jSONObject.put(AnimationProperty.OPACITY, styleTextInfoEntity.mTextAlpha);
+                    jSONObject.put("alpha", styleTextInfoEntity.mTextAlpha);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -440,9 +439,9 @@ public class TextWordsEntity {
                 TextColorEntity textColorEntity = new TextColorEntity();
                 try {
                     textColorEntity.mColor = jSONObject.optString("color");
-                    String optString = jSONObject.optString(AnimationProperty.OPACITY);
+                    String optString = jSONObject.optString("alpha");
                     textColorEntity.mAlpha = optString;
-                    textColorEntity.mColorInfo = z79.b(textColorEntity.mColor, optString);
+                    textColorEntity.mColorInfo = y89.b(textColorEntity.mColor, optString);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -461,7 +460,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", textColorEntity.mColor);
-                    jSONObject.put(AnimationProperty.OPACITY, textColorEntity.mAlpha);
+                    jSONObject.put("alpha", textColorEntity.mAlpha);
                     jSONObject.put("color_info", textColorEntity.mColorInfo);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -551,7 +550,7 @@ public class TextWordsEntity {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.mSourceFile == null) {
                     File file = this.mRootDir;
-                    this.mSourceFile = new File(file, g89.b(this.mDownloadUrl) + getSuffix());
+                    this.mSourceFile = new File(file, f99.b(this.mDownloadUrl) + getSuffix());
                 }
                 return this.mSourceFile;
             }

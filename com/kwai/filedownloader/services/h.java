@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes5.dex */
-public class h {
+public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<DownloadLaunchRunnable> a;
@@ -61,7 +61,7 @@ public class h {
         }
     }
 
-    public synchronized int a() {
+    public final synchronized int a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class h {
         return invokeV.intValue;
     }
 
-    public int a(String str, int i) {
+    public final int a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
@@ -94,7 +94,7 @@ public class h {
         return invokeLI.intValue;
     }
 
-    public void a(DownloadLaunchRunnable downloadLaunchRunnable) {
+    public final void a(DownloadLaunchRunnable downloadLaunchRunnable) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadLaunchRunnable) == null) {
@@ -114,7 +114,7 @@ public class h {
         }
     }
 
-    public synchronized boolean a(int i) {
+    public final synchronized boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -139,7 +139,7 @@ public class h {
         return invokeI.booleanValue;
     }
 
-    public synchronized List<Integer> b() {
+    public final synchronized List<Integer> b() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class h {
         return (List) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             c();
@@ -174,7 +174,7 @@ public class h {
         }
     }
 
-    public boolean c(int i) {
+    public final boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {

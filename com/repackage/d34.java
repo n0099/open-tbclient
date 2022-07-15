@@ -1,29 +1,38 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
-import android.view.View;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.games.view.button.base.ApiButton;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c34;
 /* loaded from: classes5.dex */
-public class d34 extends y24 {
+public class d34 extends EventTargetImpl implements c34.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int j;
-    public e34 k;
-    public e34 l;
+    public ApiButton a;
+    @V8JavascriptField
+    public String image;
+    @V8JavascriptField
+    public c34 style;
+    @V8JavascriptField
+    public String text;
+    @V8JavascriptField
+    public String type;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d34 a;
@@ -46,22 +55,20 @@ public class d34 extends y24 {
             this.a = d34Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.j < -1) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.a.a) == null) {
                 return;
             }
-            if (this.a.j == -1) {
-                this.a.c.p();
-            } else {
-                this.a.c.v(this.a.j);
-            }
+            a34.d(apiButton);
+            this.a.a = null;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends AnimatorListenerAdapter {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d34 a;
@@ -84,122 +91,278 @@ public class d34 extends y24 {
             this.a = d34Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.a.a) == null) {
+                return;
+            }
+            apiButton.hide();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d34 a;
+
+        public c(d34 d34Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d34Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d34Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.a.a) == null) {
+                return;
+            }
+            apiButton.show();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ d34 b;
+
+        public d(d34 d34Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d34Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d34Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (rg1.a) {
+                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
+                }
+                if (this.b.a == null) {
+                    return;
+                }
+                String str = this.a;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 3556653) {
+                    if (hashCode == 100313435 && str.equals("image")) {
+                        c = 1;
+                    }
+                } else if (str.equals("text")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    d34 d34Var = this.b;
+                    d34Var.a.setButtonText(d34Var.text);
+                } else if (c != 1) {
+                } else {
+                    d34 d34Var2 = this.b;
+                    d34Var2.a.setImageUrl(d34Var2.image);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d34 a;
+
+        public e(d34 d34Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d34Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d34Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d34 d34Var = this.a;
-                RecommendItemModel y = d34Var.y(d34Var.j);
-                this.a.k.b.setImageURI(y.iconUrl);
-                this.a.k.c.setText(y.appName);
-                this.a.k.a.setAlpha(1.0f);
-                d34 d34Var2 = this.a;
-                RecommendItemModel y2 = this.a.y(d34Var2.x(d34Var2.j));
-                this.a.l.b.setImageURI(y2.iconUrl);
-                this.a.l.c.setText(y2.appName);
-                this.a.l.a.setAlpha(0.0f);
-                d34.super.k();
+                if (d34Var.a == null || d34Var.C()) {
+                    return;
+                }
+                this.a.a.h();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d34(@NonNull Context context, @NonNull b34 b34Var) {
-        super(context, b34Var);
+    public d34(JsObject jsObject, r72 r72Var) {
+        super(r72Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, b34Var};
+            Object[] objArr = {jsObject, r72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (b34) objArr2[1]);
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = -2;
+        this.type = "text";
+        this.text = oj2.c().getString(R.string.obfuscated_res_0x7f0f0101);
+        B(jsObject);
     }
 
-    @Override // com.repackage.y24, com.repackage.z24
-    public void e(g34 g34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g34Var) == null) {
-            super.e(g34Var);
-            if (z(g34Var)) {
-                return;
-            }
-            this.j = -2;
-            this.l.b.setImageURI(g34Var.a.iconUrl);
-            this.l.c.setText(g34Var.a.appName);
-        }
-    }
-
-    @Override // com.repackage.y24
-    public View i() {
+    public final nq2 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            e34 e34Var = new e34(this.a);
-            this.l = e34Var;
-            e34Var.a.setAlpha(0.0f);
-            frameLayout.addView(this.l.a);
-            e34 e34Var2 = new e34(this.a);
-            this.k = e34Var2;
-            e34Var2.a.setAlpha(0.0f);
-            this.k.b.setActualImageResource(17170445);
-            this.k.c.setText((CharSequence) null);
-            frameLayout.addView(this.k.a);
-            this.k.a.setOnClickListener(new a(this));
-            return frameLayout;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            c34 c34Var = this.style;
+            if (c34Var == null || this.a == null) {
+                return null;
+            }
+            int g = yd3.g(c34Var.width);
+            int g2 = yd3.g(this.style.height);
+            int g3 = yd3.g(this.style.left);
+            int g4 = yd3.g(this.style.top);
+            int g5 = yd3.g(this.style.borderWidth) * 2;
+            if (g < g5) {
+                g = g5;
+            }
+            if (g2 < g5) {
+                g2 = g5;
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
+                return null;
+            }
+            return new nq2(g3, g4, g, g2);
         }
-        return (View) invokeV.objValue;
+        return (nq2) invokeV.objValue;
     }
 
-    @Override // com.repackage.y24
-    public void k() {
+    public final void B(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.b)) {
-                this.k.a.setAlpha(1.0f);
-                this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080168);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f1351);
-                super.k();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            os1 F = os1.F(jsObject);
+            if (rg1.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("parse jsObject = ");
+                sb.append(F);
+                Log.d("BaseButtonProxy", sb.toString() != null ? F.toString() : null);
+            }
+            if (F == null) {
                 return;
             }
-            this.j = x(this.j);
-            this.l.a.animate().setDuration(160L).alpha(1.0f);
-            this.k.a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
+            this.type = F.C("type", this.type);
+            this.text = F.C("text", this.text);
+            this.image = F.C("image", this.image);
+            os1 x = F.x("style", null);
+            this.style = x == null ? this.style : new c34(x);
         }
     }
 
-    public final int x(int i) {
-        InterceptResult invokeI;
+    public final boolean C() {
+        InterceptResult invokeV;
+        nq2 A;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int i2 = i + 1;
-            if (i2 == this.b.b.size()) {
-                return -1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a == null || this.style == null || (A = A()) == null || !a34.f(this.a, A)) ? false : true : invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            be3.e0(new a(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            be3.e0(new b(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            be3.e0(new d(this, str));
+        }
+    }
+
+    @Override // com.repackage.c34.a
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            be3.e0(new e(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            be3.e0(new c(this));
+        }
+    }
+
+    public boolean z() {
+        InterceptResult invokeV;
+        c34 c34Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.a == null || (c34Var = this.style) == null) {
+                return false;
             }
-            return i2;
+            c34Var.b(this);
+            nq2 A = A();
+            return A != null && a34.a(this.a, A);
         }
-        return invokeI.intValue;
-    }
-
-    public final RecommendItemModel y(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -1 ? this.b.a : this.b.b.get(i) : (RecommendItemModel) invokeI.objValue;
-    }
-
-    public final boolean z(g34 g34Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, g34Var)) == null) ? g34Var == null || g34Var.b == null || g34Var.a == null : invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

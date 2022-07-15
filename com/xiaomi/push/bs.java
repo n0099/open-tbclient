@@ -15,7 +15,7 @@ public class bs implements Runnable {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f140a;
+    public com.xiaomi.clientreport.processor.c f867a;
 
     public bs() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class bs implements Runnable {
     public void a(com.xiaomi.clientreport.processor.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f140a = cVar;
+            this.f867a = cVar;
         }
     }
 
@@ -53,22 +53,22 @@ public class bs implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                if (this.f140a != null) {
-                    this.f140a.a();
+                if (this.f867a != null) {
+                    this.f867a.a();
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-                if (this.f140a instanceof IEventProcessor) {
+                if (this.f867a instanceof IEventProcessor) {
                     a = bw.a(this.a);
                     str = "event_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
-                } else if (!(this.f140a instanceof IPerfProcessor)) {
+                } else if (!(this.f867a instanceof IPerfProcessor)) {
                     return;
                 } else {
                     a = bw.a(this.a);
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }
-                a.m206a("sp_client_report_status", str, currentTimeMillis);
+                a.m1149a("sp_client_report_status", str, currentTimeMillis);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }

@@ -1,49 +1,59 @@
 package com.repackage;
 
-import android.animation.TypeEvaluator;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class z37 implements TypeEvaluator<b47> {
+public class z37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b47 a;
 
-    public z37(b47 b47Var) {
+    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b47Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = b47Var;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, s67.o().l()) : (ImMessageCenterPojo) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public b47 evaluate(float f, b47 b47Var, b47 b47Var2) {
-        InterceptResult invokeCommon;
+    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), b47Var, b47Var2})) == null) {
-            float f2 = 1.0f - f;
-            float f3 = f2 * f2;
-            float f4 = 2.0f * f * f2;
-            b47 b47Var3 = this.a;
-            float f5 = f * f;
-            return new b47((int) ((b47Var.a * f3) + (b47Var3.a * f4) + (b47Var2.a * f5)), (int) ((f3 * b47Var.b) + (f4 * b47Var3.b) + (f5 * b47Var2.b)));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
+            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
+            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
+            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
+            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
+            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
+            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
+            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
+            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
+            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
+            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
+            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
+            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
+                    if (!s77.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
+                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
+                    } else {
+                        r77.a().c(true);
+                    }
+                }
+            }
+            if (imMessageCenterPojo2.getUnread_count() <= 0) {
+                imMessageCenterPojo2.setUnread_count(1);
+                r77.a().c(false);
+            }
+            return imMessageCenterPojo2;
         }
-        return (b47) invokeCommon.objValue;
+        return (ImMessageCenterPojo) invokeLL.objValue;
     }
 }

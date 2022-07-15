@@ -128,8 +128,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d22);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d21);
+            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
+            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091dc4);
         }
     }
 
@@ -158,8 +158,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                     super.onMeasure(i, i2);
                 }
             }
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070221);
-            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070220);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070220);
+            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021f);
             boolean z = false;
             boolean z2 = this.messageView.getLayout().getLineCount() > 1;
             if (!z2 || this.maxInlineActionWidth <= 0 || this.actionView.getMeasuredWidth() <= this.maxInlineActionWidth) {
@@ -207,7 +207,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ad, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f04045c});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ad, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040460});
         this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
         this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
         obtainStyledAttributes.recycle();

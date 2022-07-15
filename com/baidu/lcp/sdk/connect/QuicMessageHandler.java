@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a70;
-import com.repackage.y60;
+import com.repackage.b70;
 import com.repackage.z60;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
-public class QuicMessageHandler extends z60 implements QuicEventCallbackListener {
+public class QuicMessageHandler extends a70 implements QuicEventCallbackListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public class QuicMessageHandler extends z60 implements QuicEventCallbackListener
         initGlobalRef(this);
     }
 
-    @Override // com.repackage.z60
+    @Override // com.repackage.a70
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,16 +67,16 @@ public class QuicMessageHandler extends z60 implements QuicEventCallbackListener
         return (InputStream) invokeV.objValue;
     }
 
-    @Override // com.repackage.z60
-    public void c(a70 a70Var) {
+    @Override // com.repackage.a70
+    public void c(b70 b70Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a70Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b70Var) == null) {
         }
     }
 
     public native void closeStream(int i);
 
-    @Override // com.repackage.z60
+    @Override // com.repackage.a70
     public boolean d() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,22 +86,22 @@ public class QuicMessageHandler extends z60 implements QuicEventCallbackListener
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.z60
-    public a70 e(String str, int i) {
+    @Override // com.repackage.a70
+    public b70 e(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
             return null;
         }
-        return (a70) invokeLI.objValue;
+        return (b70) invokeLI.objValue;
     }
 
     public native void enableQuicCache(boolean z, String str);
 
-    @Override // com.repackage.z60
-    public void f(y60 y60Var) throws IOException {
+    @Override // com.repackage.a70
+    public void f(z60 z60Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, y60Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, z60Var) == null) {
         }
     }
 

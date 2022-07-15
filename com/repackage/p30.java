@@ -1,22 +1,49 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.math.BigInteger;
 /* loaded from: classes6.dex */
-public final class p30 {
+public class p30 implements v30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BigInteger a;
+    public BigInteger b;
 
-    public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i) {
+    public p30(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65536, null, byteBuffer, byteBuffer2, byteBuffer3, i) == null) {
-            if (i < 0 || byteBuffer2.remaining() < i || byteBuffer3.remaining() < i || byteBuffer.remaining() < i) {
-                throw new IllegalArgumentException("That combination of buffers, offsets and length to xor result in out-of-bond accesses.");
-            }
-            for (int i2 = 0; i2 < i; i2++) {
-                byteBuffer.put((byte) (byteBuffer2.get() ^ byteBuffer3.get()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new BigInteger(bArr);
+        this.b = new BigInteger(bArr2);
+    }
+
+    @Override // com.repackage.v30
+    public BigInteger a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BigInteger) invokeV.objValue;
+    }
+
+    @Override // com.repackage.v30
+    public BigInteger b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BigInteger) invokeV.objValue;
     }
 }

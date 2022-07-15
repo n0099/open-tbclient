@@ -1,6 +1,14 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,37 +17,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.FormBody;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 /* loaded from: classes7.dex */
-public class yz9 {
+public final class yz9 extends wz9<BannerConfigItem.BannerInfo> {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient b;
-    public static volatile yz9 c;
-    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, List<Cookie>> a;
+    public ImageLoaderSupplier c;
 
     /* loaded from: classes7.dex */
-    public class a implements CookieJar {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz9 a;
+        public ImageView a;
+        public final /* synthetic */ yz9 b;
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(yz9 yz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -55,78 +50,29 @@ public class yz9 {
                     return;
                 }
             }
-            this.a = yz9Var;
+            this.b = yz9Var;
         }
 
-        @Override // okhttp3.CookieJar
-        public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-            InterceptResult invokeL;
+        public final ImageView a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List<Cookie> list = (List) this.a.a.get(httpUrl.host());
-                return list != null ? list : new ArrayList();
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ImageView) invokeV.objValue;
+        }
+
+        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
+            ImageView imageView;
+            ImageLoaderSupplier e;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) || (imageView = this.a) == null || (e = this.b.e()) == null) {
+                return;
             }
-            return (List) invokeL.objValue;
+            e.onLoad(context, imageView, new ImageLoaderSupplier.ImageParam(bannerInfo != null ? bannerInfo.imageUrl : null, -1, -1));
         }
 
-        @Override // okhttp3.CookieJar
-        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+        public final void c(ImageView imageView) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.a.a.put(httpUrl.host(), list);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz9 a;
-        public final /* synthetic */ Request b;
-
-        public b(yz9 yz9Var, zz9 zz9Var, Request request) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz9Var, zz9Var, request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zz9Var;
-            this.b = request;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                boolean isCanceled = call.isCanceled();
-                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
-                this.a.a(this.b, isCanceled, iOException);
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                String unused = yz9.d = response.body().string();
-                try {
-                    this.a.b(yz9.d);
-                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + yz9.d);
-                } catch (Exception e) {
-                    RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
-                    e.printStackTrace();
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
+                this.a = imageView;
             }
         }
     }
@@ -134,155 +80,105 @@ public class yz9 {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755124359, "Lcom/repackage/yz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755124359, "Lcom/repackage/yz9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755124359, "Lcom/repackage/yz9;")) == null) {
+            return;
         }
-        MediaType.parse("application/json;charset=utf-8");
-        MediaType.parse("application/octet-stream");
-        MediaType.parse("text/x-markdown;charset=utf-8");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755124359, "Lcom/repackage/yz9;");
+        }
     }
 
-    public yz9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yz9(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new b0a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
-        cookieJar.dns(a0a.b());
-        b = cookieJar.build();
-        RLog.info("HttpCore", "HttpCore -- init");
+        RLog.debug("PluginCenterBannerAdapter", "constructor");
     }
 
-    public static yz9 f() {
+    @NonNull
+    public final a d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            a aVar = new a(this);
+            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09212f));
+            ImageView a2 = aVar.a();
+            if (a2 == null) {
+                Intrinsics.throwNpe();
+            }
+            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            view2.setTag(aVar);
+            return aVar;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public final ImageLoaderSupplier e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (yz9.class) {
-                    if (c == null) {
-                        c = new yz9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (yz9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ImageLoaderSupplier) invokeV.objValue;
     }
 
-    public static String i(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (map == null) {
-                new HashMap();
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) || bannerInfo == null) {
+            return;
+        }
+        Context mContext = this.b;
+        Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
+        aVar.b(bannerInfo, i, mContext);
+    }
+
+    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
+            this.c = imageLoaderSupplier;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d066c, (ViewGroup) null);
+                if (view2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+                aVar = d(view2);
             } else {
-                boolean z = true;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (z && !str.contains("?")) {
-                        z = false;
-                        sb.append("?");
-                    } else {
-                        sb.append("&");
-                    }
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        sb.append(" ");
-                    } else {
-                        sb.append(entry.getValue());
-                    }
+                Object tag = view2 != null ? view2.getTag() : null;
+                if (tag == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
                 }
+                aVar = (a) tag;
             }
-            return sb.toString();
+            BannerConfigItem.BannerInfo item = getItem(i);
+            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
+            f(item, aVar, i);
+            return view2;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
-            OkHttpClient okHttpClient = b;
-            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
-                for (Call call : b.dispatcher().queuedCalls()) {
-                    if (g.equals(call.request().tag())) {
-                        RLog.info("HttpCore", "cancel queued call:" + call);
-                        call.cancel();
-                    }
-                }
-                for (Call call2 : b.dispatcher().runningCalls()) {
-                    if (g.equals(call2.request().tag())) {
-                        RLog.info("HttpCore", "cancel running call:" + call2);
-                        call2.cancel();
-                    }
-                }
-                return;
-            }
-            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
-        }
-    }
-
-    public String e(String str, Map<String, String> map, int i, int i2, String str2, String str3, String str4, String str5, int i3, zz9 zz9Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), zz9Var})) == null) {
-            String g = g(i, i2);
-            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
-            if (map == null) {
-                map = new HashMap<>();
-            }
-            FormBody.Builder builder = new FormBody.Builder();
-            h(map, builder);
-            FormBody build = builder.build();
-            String i4 = i(str, null);
-            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
-            Request.Builder url = new Request.Builder().url(i4);
-            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
-            try {
-                b.newCall(build2).enqueue(new b(this, zz9Var, build2));
-            } catch (Exception e) {
-                e.printStackTrace();
-                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
-            }
-            return d;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public String g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return "payhttp:appId=" + i + "&userchanel=" + i2;
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public final void h(Map<String, String> map, FormBody.Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                builder.add(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
-            }
-        }
+        return (View) invokeILL.objValue;
     }
 }

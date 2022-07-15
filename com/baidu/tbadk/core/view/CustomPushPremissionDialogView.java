@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.yt4;
+import com.repackage.vu4;
 /* loaded from: classes3.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -67,18 +67,18 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0205, this);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090719);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090720);
             this.b = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.b.setFrame(0);
-            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f110046);
+            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f110047);
             this.b.playAnimation();
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09071c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090723);
             this.a = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.c = findViewById(R.id.obfuscated_res_0x7f090718);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09071f);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                this.d = findViewById(R.id.obfuscated_res_0x7f090266);
+                this.d = findViewById(R.id.obfuscated_res_0x7f090267);
                 TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(pi.f(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, pi.f(getContext(), R.dimen.tbds22)).into(this.d);
                 ViewGroup.LayoutParams layoutParams2 = this.c.getLayoutParams();
                 layoutParams2.width = pi.f(context, R.dimen.tbds774);
@@ -87,21 +87,21 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             } else {
                 TBSelector.makeDrawableSelector().setShape(0).radius(pi.f(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.c);
             }
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09071a);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090721);
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f3c));
-            yt4 yt4Var = new yt4();
-            yt4Var.r(R.color.CAM_X0105);
-            this.e.setConfig(yt4Var);
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f37));
+            vu4 vu4Var = new vu4();
+            vu4Var.r(R.color.CAM_X0105);
+            this.e.setConfig(vu4Var);
             this.e.k();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09071b);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090722);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
-            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f3e));
-            yt4 yt4Var2 = new yt4();
-            yt4Var2.p(R.color.CAM_X0302);
-            this.f.setConfig(yt4Var2);
+            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f39));
+            vu4 vu4Var2 = new vu4();
+            vu4Var2.p(R.color.CAM_X0302);
+            this.f.setConfig(vu4Var2);
         }
     }
 

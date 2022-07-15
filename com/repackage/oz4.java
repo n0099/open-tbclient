@@ -1,96 +1,85 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.tbadk.data.IconStampData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class oz4 implements nn {
+public class oz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
-    public List<nz4> h;
-    public String i;
-    public boolean j;
-    public int k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755422424, "Lcom/repackage/oz4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(IconStampData iconStampData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
+            if (iconStampData == null) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755422424, "Lcom/repackage/oz4;");
+            String c = c(iconStampData.stampType);
+            if (TextUtils.isEmpty(c)) {
+                return false;
+            }
+            return !StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) && new File(em.b(c)).exists();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        String c;
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            if (z) {
+                c = c(1);
+                c2 = c(3);
+            } else {
+                c = c(2);
+                c2 = c(4);
+            }
+            if (TextUtils.isEmpty(c) || TextUtils.isEmpty(c2)) {
                 return;
             }
-        }
-        l = BdUniqueId.gen();
-    }
-
-    public oz4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            String str = BdBaseApplication.getInst().getResHashMap().get(c2);
+            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
+                RequestParams requestParams = new RequestParams();
+                requestParams.setRunType(am.a);
+                requestParams.setRunNode("aps");
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("com.baidu.tieba.resloader." + c);
+                arrayList.add("com.baidu.tieba.resloader." + c2);
+                requestParams.addChannel(new zl(arrayList, (DefaultDownloadCallback) null));
+                PmsManager.getInstance().execute(requestParams);
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("user_id");
-        this.b = jSONObject.optString("name_show");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optInt("user_gender");
-        this.e = jSONObject.optInt("user_age", 0);
-        this.f = jSONObject.optString("user_constellation");
-        this.g = jSONObject.optString("distance");
-        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.h = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                nz4 nz4Var = new nz4();
-                nz4Var.a(optJSONArray.optJSONObject(i));
-                this.h.add(nz4Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return null;
+                        }
+                        return "reply_7_times.mp4";
+                    }
+                    return "post_7_times.mp4";
+                }
+                return "reply_1_times.mp4";
             }
+            return "post_1_times.mp4";
         }
-        this.i = jSONObject.optString("user_slogan");
-        this.j = jSONObject.optInt("is_friend", 0) == 1;
-        this.k = jSONObject.optInt("active_status", 0);
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 }

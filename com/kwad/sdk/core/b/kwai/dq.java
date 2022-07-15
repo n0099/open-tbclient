@@ -1,35 +1,34 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dq implements com.kwad.sdk.core.d<AdMatrixInfo.ShakeInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
+public final class dq implements com.kwad.sdk.core.d<com.kwad.components.core.webview.b.kwai.j> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.core.webview.b.kwai.j jVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        shakeInfo.subtitle = jSONObject.optString(SubtitleLog.TAG);
-        if (jSONObject.opt(SubtitleLog.TAG) == JSONObject.NULL) {
-            shakeInfo.subtitle = "";
-        }
-        shakeInfo.acceleration = jSONObject.optInt("acceleration");
-        shakeInfo.clickDisabled = jSONObject.optBoolean("clickDisabled");
-        shakeInfo.componentIndex = jSONObject.optInt("componentIndex");
+        jVar.a = jSONObject.optInt("scene");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.core.webview.b.kwai.j jVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, SubtitleLog.TAG, shakeInfo.subtitle);
-        com.kwad.sdk.utils.t.a(jSONObject, "acceleration", shakeInfo.acceleration);
-        com.kwad.sdk.utils.t.a(jSONObject, "clickDisabled", shakeInfo.clickDisabled);
-        com.kwad.sdk.utils.t.a(jSONObject, "componentIndex", shakeInfo.componentIndex);
+        com.kwad.sdk.utils.r.a(jSONObject, "scene", jVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.core.webview.b.kwai.j jVar, JSONObject jSONObject) {
+        a2(jVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.core.webview.b.kwai.j jVar, JSONObject jSONObject) {
+        return b2(jVar, jSONObject);
     }
 }

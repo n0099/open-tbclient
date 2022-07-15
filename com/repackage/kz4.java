@@ -1,122 +1,302 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.view.View;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
+import com.repackage.cr4;
+import java.util.Date;
 /* loaded from: classes6.dex */
 public class kz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static kz4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public HashMap<String, String> c;
 
-    public kz4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int[] b;
+        public final /* synthetic */ cr4 c;
 
-    public static synchronized kz4 a() {
-        InterceptResult invokeV;
-        kz4 kz4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (kz4.class) {
-                if (d == null) {
-                    d = new kz4();
+        public a(TbPageContext tbPageContext, int[] iArr, cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, iArr, cr4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                kz4Var = d;
             }
-            return kz4Var;
+            this.a = tbPageContext;
+            this.b = iArr;
+            this.c = cr4Var;
         }
-        return (kz4) invokeV.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                kz4.e(this.a);
+                this.b[0] = 1;
+                this.c.dismiss();
+            }
+        }
     }
 
-    public void b(JSONObject jSONObject) {
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int[] a;
+        public final /* synthetic */ cr4 b;
+
+        public b(int[] iArr, cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iArr, cr4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iArr;
+            this.b = cr4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a[0] = 2;
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int[] b;
+
+        public c(int i, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), iArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = iArr;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                StatisticItem statisticItem = new StatisticItem("c13673");
+                statisticItem.param("obj_source", this.a);
+                statisticItem.param("obj_type", this.b[0]);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    public static cr4 a(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, cr4.e eVar, cr4.e eVar2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{tbPageContext, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eVar, eVar2})) == null) {
+            return b(tbPageContext, i >= 0 ? TbadkCoreApplication.getInst().getContext().getString(i) : null, TbadkCoreApplication.getInst().getContext().getString(i2), TbadkCoreApplication.getInst().getContext().getString(i3), TbadkCoreApplication.getInst().getContext().getString(i4), eVar, eVar2);
+        }
+        return (cr4) invokeCommon.objValue;
+    }
+
+    public static cr4 b(TbPageContext<?> tbPageContext, String str, String str2, String str3, String str4, cr4.e eVar, cr4.e eVar2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, str, str2, str3, str4, eVar, eVar2})) == null) {
+            if (tbPageContext == null) {
+                return null;
+            }
+            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+            cr4Var.setTitle(str);
+            cr4Var.setMessage(str2);
+            cr4Var.setPositiveButton(str3, eVar);
+            cr4Var.setNegativeButton(str4, eVar2);
+            cr4Var.create(tbPageContext);
+            return cr4Var;
+        }
+        return (cr4) invokeCommon.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            return !StringUtils.isNull(systemProperty) && ng.e(systemProperty.replace("V", ""), 0) < 10;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, activity) == null) {
+            TbPageContext<BaseFragmentActivity> pageContext = activity instanceof BaseActivity ? ((BaseActivity) activity).getPageContext() : null;
+            if (activity instanceof BaseFragmentActivity) {
+                pageContext = ((BaseFragmentActivity) activity).getPageContext();
+            }
+            if (pageContext != null) {
+                e(pageContext);
+            }
+        }
+    }
+
+    public static void e(d9 d9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, d9Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 26 && !c()) {
+                    Intent intent = new Intent();
+                    intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                    intent.putExtra("android.provider.extra.APP_PACKAGE", d9Var.getPageActivity().getPackageName());
+                    intent.putExtra("android.provider.extra.CHANNEL_ID", d9Var.getPageActivity().getApplicationInfo().uid);
+                    intent.putExtra("app_package", d9Var.getPageActivity().getPackageName());
+                    intent.putExtra("app_uid", d9Var.getPageActivity().getApplicationInfo().uid);
+                    d9Var.getPageActivity().startActivity(intent);
+                } else {
+                    Intent intent2 = new Intent("android.settings.APPLICATION_SETTINGS");
+                    intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    intent2.setData(Uri.fromParts("package", d9Var.getPageActivity().getPackageName(), null));
+                    d9Var.getPageActivity().startActivity(intent2);
+                }
+            } catch (Exception unused) {
+                Intent intent3 = new Intent();
+                intent3.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                intent3.setData(Uri.fromParts("package", d9Var.getPageActivity().getPackageName(), null));
+                d9Var.getPageActivity().startActivity(intent3);
+            }
+        }
+    }
+
+    public static cr4 f(TbPageContext<?> tbPageContext, cr4.e eVar, cr4.e eVar2, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, tbPageContext, eVar, eVar2, str)) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+                return null;
+            }
+            cr4 create = new cr4(tbPageContext.getPageActivity()).setTitle(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f042f)).setMessage(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f14e7), str)).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0262), eVar).setNegativeButton(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f036a), eVar2).create(tbPageContext);
+            create.show();
+            return create;
+        }
+        return (cr4) invokeLLLL.objValue;
+    }
+
+    public static boolean g(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
+            boolean z = false;
+            if (NotificationManagerCompat.from(context).areNotificationsEnabled()) {
+                return false;
+            }
+            Date date = new Date(xt4.k().m("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(xt4.k().m("push_permission_dialog_scene_interaction_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date3 = new Date(currentTimeMillis);
+            if (i == 0 && TimeHelper.getDayDifference(date3, date2) >= 7 && !TimeHelper.isSameDay(date3, date)) {
+                z = true;
+            }
+            if (i == 1 && TimeHelper.getDayDifference(date3, date) >= 7 && !TimeHelper.isSameDay(date3, date2)) {
+                z = true;
+            }
+            if (z) {
+                if (i == 0) {
+                    xt4.k().x("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                } else if (i == 1) {
+                    xt4.k().x("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                }
+            }
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void h(TbPageContext<?> tbPageContext, boolean[] zArr, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65543, null, tbPageContext, zArr, i) == null) || tbPageContext == null || tbPageContext.getPageActivity() == null || zArr == null || zArr.length != 2) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("2g");
-                String optString2 = optJSONObject.optString("3g");
-                String optString3 = optJSONObject.optString("4g");
-                String optString4 = optJSONObject.optString("wifi");
-                if (optString != null) {
-                    this.a.put("2g", optString);
-                }
-                if (optString2 != null) {
-                    this.a.put("3g", optString2);
-                }
-                if (optString3 != null) {
-                    this.a.put("4g", optString3);
-                }
-                if (optString4 != null) {
-                    this.a.put("wifi", optString4);
-                }
+        i(tbPageContext, i, 0L);
+    }
+
+    public static void i(TbPageContext<?> tbPageContext, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{tbPageContext, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+            cr4Var.setCancelable(false);
+            cr4Var.setPositiveButton((String) null, (cr4.e) null);
+            cr4Var.setNegativeButton((String) null, (cr4.e) null);
+            cr4Var.setContentViewSize(4);
+            CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
+            cr4Var.setContentView(customPushPremissionDialogView);
+            int[] iArr = {-1};
+            customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new a(tbPageContext, iArr, cr4Var));
+            customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, cr4Var));
+            cr4Var.setOnDismissListener(new c(i, iArr));
+            if (j > 0) {
+                cr4Var.create(tbPageContext).show(j);
+            } else {
+                cr4Var.create(tbPageContext).show();
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-            if (optJSONObject2 != null) {
-                String optString5 = optJSONObject2.optString("2g");
-                String optString6 = optJSONObject2.optString("3g");
-                String optString7 = optJSONObject2.optString("4g");
-                String optString8 = optJSONObject2.optString("wifi");
-                if (optString5 != null) {
-                    this.b.put("2g", optString5);
-                }
-                if (optString6 != null) {
-                    this.b.put("3g", optString6);
-                }
-                if (optString7 != null) {
-                    this.b.put("4g", optString7);
-                }
-                if (optString8 != null) {
-                    this.b.put("wifi", optString8);
-                }
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-            if (optJSONObject3 != null) {
-                String optString9 = optJSONObject3.optString("2g");
-                String optString10 = optJSONObject3.optString("3g");
-                String optString11 = optJSONObject3.optString("4g");
-                String optString12 = optJSONObject3.optString("wifi");
-                if (optString9 != null) {
-                    this.c.put("2g", optString9);
-                }
-                if (optString10 != null) {
-                    this.c.put("3g", optString10);
-                }
-                if (optString11 != null) {
-                    this.c.put("4g", optString11);
-                }
-                if (optString12 != null) {
-                    this.c.put("wifi", optString12);
-                }
-            }
-            jSONObject.optString("is_on");
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            StatisticItem statisticItem = new StatisticItem("c13674");
+            statisticItem.param("obj_source", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

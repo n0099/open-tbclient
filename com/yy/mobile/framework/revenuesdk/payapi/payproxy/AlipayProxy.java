@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.kuaishou.weapon.un.w0;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
@@ -93,7 +92,7 @@ public final class AlipayProxy extends DefaultPayMethod {
                 case 1656380:
                     if (str.equals("6002")) {
                         if (iPayCallback != null) {
-                            iPayCallback.onFail(w0.p6, "网络连接出错", null);
+                            iPayCallback.onFail(6002, "网络连接出错", null);
                             return;
                         }
                         return;
@@ -102,7 +101,7 @@ public final class AlipayProxy extends DefaultPayMethod {
                 case 1656382:
                     if (str.equals("6004")) {
                         if (iPayCallback != null) {
-                            iPayCallback.onFail(w0.h3, "支付结果未知", null);
+                            iPayCallback.onFail(6004, "支付结果未知", null);
                             return;
                         }
                         return;

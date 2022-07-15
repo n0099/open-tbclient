@@ -1,247 +1,316 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xj3 {
+public class xj3 extends wj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xj3 c;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile boolean b;
+    public Callback d;
+    public JSONObject e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
 
     /* loaded from: classes7.dex */
-    public static class a extends ag4 {
+    public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xj3 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_host_info_config_sp_name");
+        public a(xj3 xj3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xj3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = xj3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (cj3.a) {
+                    Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
+                }
+                if (this.a.d != null) {
+                    if (exc instanceof IOException) {
+                        this.a.d.onFailure(null, (IOException) exc);
+                    } else {
+                        this.a.d.onFailure(null, new IOException(exc));
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.a.n(null, response);
+                return response;
+            }
+            return invokeLI.objValue;
         }
     }
 
-    public xj3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755169712, "Lcom/repackage/xj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755169712, "Lcom/repackage/xj3;");
+                return;
+            }
+        }
+        k = rg1.a;
+    }
+
+    public xj3(h03 h03Var, JSONObject jSONObject, String str, Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h03Var, jSONObject, str, callback};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = new a();
+        this.d = callback;
+        this.f = str;
+        m(jSONObject);
+        d(this.e.optString("method"));
     }
 
-    public static xj3 e() {
-        InterceptResult invokeV;
+    @Override // com.repackage.wj3
+    public void e(IOException iOException) {
+        Callback callback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (xj3.class) {
-                    if (c == null) {
-                        c = new xj3();
-                    }
-                }
-            }
-            return c;
-        }
-        return (xj3) invokeV.objValue;
-    }
-
-    public Set<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> stringSet = this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
-            if (stringSet != null) {
-                return stringSet;
-            }
-            if (h()) {
-                return this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
-            }
-            return null;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String c2 = c("appKey");
-            if (TextUtils.isEmpty(c2)) {
-                if (mj3.a) {
-                    throw new IllegalStateException("获取 host app key 失败");
-                }
-                return "";
-            }
-            return c2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = this.a.getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                if (h()) {
-                    String string2 = this.a.getString(str, "");
-                    if (!TextUtils.isEmpty(string2)) {
-                        return string2;
-                    }
-                }
-                return null;
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String c2 = c("hostName");
-            if (TextUtils.isEmpty(c2)) {
-                if (mj3.a) {
-                    throw new IllegalStateException("获取 HostName-宿主名称 失败");
-                }
-                return "";
-            }
-            return c2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String c2 = c("schemeHead");
-            if (TextUtils.isEmpty(c2)) {
-                if (mj3.a) {
-                    throw new IllegalStateException("获取 SchemeHead-协议头 失败");
-                }
-                return "";
-            }
-            return c2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g(String str, int i, String str2) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String c2 = c("shareCallBackUrl");
-            if (TextUtils.isEmpty(c2)) {
-                return "";
-            }
-            String a2 = zf4.a(zf4.a(c2, "type", String.valueOf(i)), "appKey", str);
-            return !TextUtils.isEmpty(str2) ? zf4.a(a2, "path", yf4.b(str2)) : a2;
-        }
-        return (String) invokeLIL.objValue;
-    }
-
-    public final synchronized boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return true;
-                }
-                String D = uf4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
-                HashSet hashSet = null;
-                if (TextUtils.isEmpty(D)) {
-                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    D = file.exists() ? uf4.E(file) : null;
-                }
-                if (TextUtils.isEmpty(D)) {
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(D);
-                    String optString = jSONObject.optString("hostName");
-                    String optString2 = jSONObject.optString("schemeHead");
-                    String optString3 = jSONObject.optString("appKey");
-                    String optString4 = jSONObject.optString("shareCallBackUrl");
-                    int optInt = jSONObject.optInt("version");
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        hashSet = new HashSet();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            hashSet.add(optJSONArray.optString(i));
-                        }
-                    }
-                    i(optString, optString2, optString3, optString4, optInt, hashSet);
-                    this.b = true;
-                    return true;
-                } catch (JSONException e) {
-                    if (mj3.a) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                }
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i(String str, String str2, String str3, String str4, int i, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), set}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) || (callback = this.d) == null) {
             return;
         }
-        SharedPreferences.Editor putInt = this.a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
-        if (set != null && !set.isEmpty()) {
-            putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
+        callback.onFailure(null, iOException);
+    }
+
+    @Override // com.repackage.wj3
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (cj3.a) {
+                Log.d("BdtlsRequestApi", "onRequestError=" + i);
+            }
+            Callback callback = this.d;
+            if (callback != null) {
+                callback.onFailure(null, new IOException("request error  code : " + i));
+            }
         }
-        putInt.apply();
+    }
+
+    @Override // com.repackage.wj3
+    public void h(byte[] bArr) {
+        JSONObject jSONObject;
+        HttpRequest httpRequest;
+        Callback callback;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject = new JSONObject(this.e.toString());
+                try {
+                    Uri parse = Uri.parse(this.h);
+                    String path = parse.getPath();
+                    String query = parse.getQuery();
+                    if (TextUtils.isEmpty(this.i)) {
+                        str = dj3.b;
+                    } else {
+                        str = this.i + "/bdtls";
+                    }
+                    StringBuilder sb = new StringBuilder(str + "/" + this.g);
+                    String str3 = "";
+                    if (TextUtils.isEmpty(path)) {
+                        path = "";
+                    }
+                    sb.append(path);
+                    if (!TextUtils.isEmpty(query)) {
+                        str3 = "?" + query;
+                    }
+                    sb.append(str3);
+                    if (k) {
+                        Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("header");
+                    if (this.a) {
+                        if (TextUtils.equals(b(), "GET")) {
+                            str2 = Base64.encodeToString(bArr, 2);
+                        } else {
+                            jSONObject.putOpt("data", bArr);
+                            str2 = "Bdtls";
+                        }
+                        optJSONObject.put("Bdtls", str2);
+                    }
+                    jSONObject.putOpt("header", optJSONObject);
+                    jSONObject.putOpt("url", sb.toString());
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject2 = jSONObject;
+                    if (k) {
+                        Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
+                    }
+                    jSONObject = jSONObject2;
+                    httpRequest = (HttpRequest) vp1.C(jSONObject, this.f).first;
+                    if (httpRequest == null) {
+                        callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+                    }
+                    l(httpRequest);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+            httpRequest = (HttpRequest) vp1.C(jSONObject, this.f).first;
+            if (httpRequest == null && (callback = this.d) != null) {
+                callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+            }
+            l(httpRequest);
+        }
+    }
+
+    public final void l(HttpRequest httpRequest) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, httpRequest) == null) || httpRequest == null) {
+            return;
+        }
+        httpRequest.executeAsync(new a(this));
+    }
+
+    public final void m(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            this.e = jSONObject;
+            this.h = jSONObject.optString("url");
+            JSONObject optJSONObject = this.e.optJSONObject("ext");
+            if (optJSONObject != null) {
+                this.i = optJSONObject.optString("customHost");
+            }
+        }
+    }
+
+    public final void n(Call call, Response response) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, call, response) == null) {
+            Headers headers = response.headers();
+            if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
+                ij3.l().m().s(0);
+                if (ij3.l().m().b()) {
+                    ij3.l().m().a();
+                    i(true);
+                    p();
+                    return;
+                }
+                this.d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+                return;
+            }
+            ij3.l().m().k();
+            if (this.a) {
+                ResponseBody body = response.body();
+                String g = g(body.bytes());
+                if (cj3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                }
+                if (this.b == 1) {
+                    Buffer buffer = new Buffer();
+                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                    Callback callback = this.d;
+                    if (callback != null) {
+                        callback.onResponse(call, build);
+                    }
+                    this.j = 0;
+                    return;
+                } else if (this.j < 3) {
+                    p();
+                    return;
+                } else {
+                    this.d.onFailure(call, new IOException("Url or serviceId is invalid"));
+                    this.j = 0;
+                    return;
+                }
+            }
+            Callback callback2 = this.d;
+            if (callback2 != null) {
+                callback2.onResponse(call, response);
+            }
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.g = str;
+            JSONObject jSONObject = this.e;
+            a(jSONObject != null ? jSONObject.optString("data") : "");
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.j++;
+            o(this.g);
+        }
     }
 }

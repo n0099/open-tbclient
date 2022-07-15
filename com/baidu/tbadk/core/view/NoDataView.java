@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
 import com.repackage.pi;
-import com.repackage.wt4;
+import com.repackage.tu4;
 /* loaded from: classes3.dex */
 public class NoDataView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -217,21 +217,21 @@ public class NoDataView extends LinearLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0600, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d061c, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fa0);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fb1);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(0);
             this.c.setDefaultResource(0);
-            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092027);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921f5);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921f0);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921fb);
-            this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09040d);
-            wt4 wt4Var = new wt4();
+            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0920cc);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09229b);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092296);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922a1);
+            this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09040f);
+            tu4 tu4Var = new tu4();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(wt4Var);
-            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092211);
+            this.h.setConfig(tu4Var);
+            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0922b7);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
             h();
@@ -349,13 +349,13 @@ public class NoDataView extends LinearLayout {
                 }
             }
             if (bVar2 != null && bVar != null) {
-                this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090415);
-                this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f09042f);
-                wt4 wt4Var = new wt4();
+                this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090417);
+                this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090431);
+                tu4 tu4Var = new tu4();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(wt4Var);
+                this.i.setConfig(tu4Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(wt4Var);
+                this.j.setConfig(tu4Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);
@@ -434,7 +434,7 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             Drawable drawable = SkinManager.getDrawable(i);
             int f = pi.f(this.a, R.dimen.obfuscated_res_0x7f070207);
-            int f2 = pi.f(this.a, R.dimen.obfuscated_res_0x7f070305);
+            int f2 = pi.f(this.a, R.dimen.obfuscated_res_0x7f070304);
             drawable.setBounds(0, 0, f, f);
             this.f.setCompoundDrawablePadding(f2);
             this.f.setCompoundDrawables(drawable, null, null, null);

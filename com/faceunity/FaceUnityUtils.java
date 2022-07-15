@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.wrapper.faceunity;
 import com.repackage.em;
-import com.repackage.xq8;
+import com.repackage.tr8;
 import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes4.dex */
@@ -41,7 +41,7 @@ public class FaceUnityUtils {
                 if (file.exists() && file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(b);
                     fileInputStream.close();
-                    faceunity.fuSetup(new byte[fileInputStream.available()], null, xq8.a());
+                    faceunity.fuSetup(new byte[fileInputStream.available()], null, tr8.a());
                 }
                 String b2 = em.b("face_beautification.mp3");
                 File file2 = new File(b2);

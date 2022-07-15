@@ -20,7 +20,7 @@ public class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f78a;
+    public final Context f805a;
 
     public s(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class s {
                 return;
             }
         }
-        this.f78a = context.getApplicationContext();
+        this.f805a = context.getApplicationContext();
     }
 
     public static s a(Context context) {
@@ -72,16 +72,16 @@ public class s {
 
     private void a(Cif cif, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m556a(this.f78a) && com.xiaomi.push.m.m555a() && cif != null && cif.f618a == hj.e && cif.m460a() != null && z) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("click to start activity result:" + String.valueOf(i));
-            ii iiVar = new ii(cif.m460a().m426a(), false);
-            iiVar.c(ht.ae.f498a);
-            iiVar.b(cif.m461a());
-            iiVar.d(cif.f625b);
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m1499a(this.f805a) && com.xiaomi.push.m.m1498a() && cif != null && cif.f1345a == hj.e && cif.m1403a() != null && z) {
+            com.xiaomi.channel.commonutils.logger.b.m1027a("click to start activity result:" + String.valueOf(i));
+            ii iiVar = new ii(cif.m1403a().m1369a(), false);
+            iiVar.c(ht.ae.f1225a);
+            iiVar.b(cif.m1404a());
+            iiVar.d(cif.f1352b);
             HashMap hashMap = new HashMap();
-            iiVar.f637a = hashMap;
+            iiVar.f1364a = hashMap;
             hashMap.put("result", String.valueOf(i));
-            ao.a(this.f78a).a(iiVar, hj.i, false, false, null, true, cif.f625b, cif.f621a, true, false);
+            ao.a(this.f805a).a(iiVar, hj.i, false, false, null, true, cif.f1352b, cif.f1348a, true, false);
         }
     }
 
@@ -111,14 +111,14 @@ public class s {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65544, null, context, cif, z) == null) {
-            b m126a = b.m126a(context);
-            if (TextUtils.isEmpty(m126a.m134c()) || TextUtils.isEmpty(m126a.d())) {
+            b m1069a = b.m1069a(context);
+            if (TextUtils.isEmpty(m1069a.m1077c()) || TextUtils.isEmpty(m1069a.d())) {
                 a2 = a(context);
                 i = 6;
             } else {
-                boolean m138f = m126a.m138f();
+                boolean m1081f = m1069a.m1081f();
                 a2 = a(context);
-                i = m138f ? 7 : 5;
+                i = m1081f ? 7 : 5;
             }
             a2.a(cif, i, z);
         }

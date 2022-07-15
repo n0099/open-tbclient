@@ -1,35 +1,27 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes5.dex */
-public class eh3 implements dk1 {
+/* loaded from: classes6.dex */
+public class eh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dh3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public eh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.dk1
-    public u43 a() {
+    public static synchronized dh3 a() {
         InterceptResult invokeV;
+        dh3 dh3Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new bh3() : (u43) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (eh3.class) {
+                if (a == null) {
+                    a = new dh3();
+                }
+                dh3Var = a;
+            }
+            return dh3Var;
+        }
+        return (dh3) invokeV.objValue;
     }
 }

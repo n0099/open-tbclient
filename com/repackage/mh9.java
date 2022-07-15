@@ -5,57 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsInterstitialAd;
 /* loaded from: classes6.dex */
-public abstract class mh9 {
+public class mh9 implements KsInterstitialAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public long b;
-    public Runnable c;
+    public final /* synthetic */ KsInterstitialAd a;
+    public final /* synthetic */ lh9 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mh9 a;
-
-        public a(mh9 mh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mh9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                if (this.a.a.get()) {
-                    qh9.a().postDelayed(this.a.c, this.a.b);
-                }
-            }
-        }
-    }
-
-    public mh9(long j) {
+    public mh9(lh9 lh9Var, KsInterstitialAd ksInterstitialAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {lh9Var, ksInterstitialAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,28 +29,74 @@ public abstract class mh9 {
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        this.c = new a(this);
-        this.b = 0 == j ? 300L : j;
+        this.b = lh9Var;
+        this.a = ksInterstitialAd;
     }
 
-    public abstract void b();
-
-    public void c() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.get()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.b.onAdClicked(this.a, false, new String[0]);
         }
-        this.a.set(true);
-        qh9.a().removeCallbacks(this.c);
-        qh9.a().postDelayed(this.c, oh9.e().i());
     }
 
-    public void d() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdClosed() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.get()) {
-            this.a.set(false);
-            qh9.a().removeCallbacks(this.c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.b.onAdShow(this.a, false, new String[0]);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onPageDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.b.onAdClose(this.a);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.b.onAdError(this.a, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            LogPrinter.d();
         }
     }
 }

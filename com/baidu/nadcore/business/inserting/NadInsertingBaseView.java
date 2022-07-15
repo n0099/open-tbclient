@@ -20,23 +20,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl0;
-import com.repackage.jf0;
-import com.repackage.kf0;
-import com.repackage.r01;
-import com.repackage.vx0;
-import com.repackage.wx0;
+import com.repackage.f11;
+import com.repackage.iy0;
+import com.repackage.jy0;
+import com.repackage.pf0;
+import com.repackage.pl0;
+import com.repackage.qf0;
 /* loaded from: classes2.dex */
 public abstract class NadInsertingBaseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jf0 a;
+    public pf0 a;
     public long b;
-    public r01 c;
-    public cl0 d;
+    public f11 c;
+    public pl0 d;
 
     /* loaded from: classes2.dex */
-    public class a implements cl0 {
+    public class a implements pl0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadInsertingBaseView a;
@@ -59,21 +59,21 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
             this.a = nadInsertingBaseView;
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivityDestroyed(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivityPaused(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
@@ -81,7 +81,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivityResumed(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
@@ -89,28 +89,28 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivityStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onBackgroundToForeground(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
@@ -118,7 +118,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.cl0
+        @Override // com.repackage.pl0
         public void onForegroundToBackground(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
@@ -128,13 +128,13 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadInsertingBaseView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull jf0 jf0Var) {
+    public NadInsertingBaseView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull pf0 pf0Var) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, jf0Var};
+            Object[] objArr = {context, viewGroup, pf0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -147,7 +147,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
             }
         }
         setContainer(viewGroup);
-        this.a = jf0Var;
+        this.a = pf0Var;
     }
 
     public abstract void a();
@@ -159,16 +159,16 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, str, str2) == null) || TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        vx0.c(new ClogBuilder().w(ClogBuilder.LogType.CHECK).n(adBaseModel.f.d).i(str).j(str2));
+        iy0.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).p(adBaseModel.f.d).k(str).l(str2));
     }
 
     public void d(@NonNull AdBaseModel adBaseModel, @NonNull ClogBuilder.Area area) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, adBaseModel, area) == null) {
-            vx0.c(new ClogBuilder().w(ClogBuilder.LogType.CLICK).n(adBaseModel.f.d).g(area));
+            iy0.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(adBaseModel.f.d).i(area));
             for (MonitorUrl monitorUrl : adBaseModel.e) {
                 if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
-                    wx0.b(monitorUrl.clickUrl);
+                    jy0.b(monitorUrl.clickUrl);
                 }
             }
         }
@@ -179,7 +179,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adBaseModel, area, Long.valueOf(j)}) == null) || TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        vx0.c(new ClogBuilder().w(ClogBuilder.LogType.CLOSE).n(adBaseModel.f.d).i(String.valueOf(j)).g(area));
+        iy0.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d).k(String.valueOf(j)).i(area));
     }
 
     public void f(@NonNull AdBaseModel adBaseModel) {
@@ -187,10 +187,10 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, adBaseModel) == null) || adBaseModel.a) {
             return;
         }
-        vx0.c(new ClogBuilder().w(ClogBuilder.LogType.SHOW).n(adBaseModel.f.d));
+        iy0.b(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
         for (MonitorUrl monitorUrl : adBaseModel.e) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
-                wx0.b(monitorUrl.showUrl);
+                jy0.b(monitorUrl.showUrl);
             }
         }
         adBaseModel.a = true;
@@ -224,7 +224,7 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         }
     }
 
-    public abstract void setData(@NonNull AdBaseModel adBaseModel, @NonNull kf0.c cVar);
+    public abstract void setData(@NonNull AdBaseModel adBaseModel, @NonNull qf0.c cVar);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NadInsertingBaseView(Context context, AttributeSet attributeSet) {

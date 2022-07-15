@@ -1,39 +1,83 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import androidx.annotation.Nullable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xm0 extends AdBaseModel {
+public class xm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public String b;
+    public final String c;
+    public final String d;
+    public final boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xm0(@NonNull sm0 sm0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(sm0Var, jSONObject);
+    public xm0(@NonNull JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sm0Var, jSONObject};
+            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sm0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (sm0Var.k.size() < 3) {
-            throw ParseError.contentError(3, sm0Var.a.value);
+        if (z) {
+            this.a = jSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+            this.b = jSONObject.optString("deferred_cmd");
+            this.c = jSONObject.optString("download_url");
+            this.d = jSONObject.optString("key");
+        } else {
+            this.a = jSONObject.optString("apk_name");
+            this.b = jSONObject.optString("deferred_cmd");
+            this.c = jSONObject.optString("download_url");
+            this.d = jSONObject.optString("download_key");
         }
+        this.e = a();
+    }
+
+    @Nullable
+    public static xm0 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return new xm0(jSONObject, false);
+        }
+        return (xm0) invokeL.objValue;
+    }
+
+    @Nullable
+    public static xm0 c(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return new xm0(jSONObject, true);
+        }
+        return (xm0) invokeL.objValue;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
     }
 }

@@ -90,10 +90,10 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092386);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f09242e);
             this.a = gifView;
             gifView.setGifFile(em.b("aiapp_guide.gif"));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e77);
             this.b = imageView;
             imageView.setOnClickListener(this.c);
             int k = pi.k(getActivity()) - (pi.f(getActivity(), R.dimen.tbds44) * 2);

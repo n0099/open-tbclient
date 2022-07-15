@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hp8;
-import com.repackage.j35;
-import com.repackage.km4;
+import com.repackage.dq8;
+import com.repackage.l45;
 import com.repackage.pi;
-import com.repackage.q85;
+import com.repackage.s95;
+import com.repackage.zm4;
 /* loaded from: classes2.dex */
 public class InitViewConfigTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -94,7 +94,7 @@ public class InitViewConfigTask extends LaunchTask {
                     }
                 };
                 pi.I(TbadkCoreApplication.getInst().mToast);
-                q85.b().H(System.currentTimeMillis() - currentTimeMillis);
+                s95.b().H(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
@@ -104,18 +104,18 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-            km4.c().f();
+            zm4.c().f();
             TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
             TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                j35.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+                l45.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
             } else {
-                j35.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+                l45.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
             }
             TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
             TbDimenManager.getInstance().init(AppRuntime.getApplication());
-            hp8.c();
+            dq8.c();
             initCustomToastView();
         }
     }

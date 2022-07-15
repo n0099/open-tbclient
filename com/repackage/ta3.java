@@ -1,136 +1,91 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.text.TextUtils;
+import android.provider.Settings;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ta3 {
+public class ta3 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static WifiConfiguration a(qa3 qa3Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ta3(e13 e13Var) {
+        super(e13Var, "/swanAPI/getAutoRotationSync");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, qa3Var)) == null) {
-            int b = ua3.b(qa3Var);
-            if (f(qa3Var.a)) {
-                WifiConfiguration wifiConfiguration = new WifiConfiguration();
-                wifiConfiguration.SSID = "\"" + qa3Var.a + "\"";
-                if (!TextUtils.isEmpty(qa3Var.b)) {
-                    wifiConfiguration.BSSID = qa3Var.b;
-                }
-                if (b == 0) {
-                    ua3.d(wifiConfiguration, 0);
-                } else if (b == 1) {
-                    ua3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + qa3Var.d + "\"";
-                } else if (b == 2) {
-                    ua3.d(wifiConfiguration, 2);
-                    wifiConfiguration.preSharedKey = "\"" + qa3Var.d + "\"";
-                } else if (b == 3) {
-                    ua3.d(wifiConfiguration, 3);
-                    WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                    wifiEnterpriseConfig.setEapMethod(0);
-                    wifiEnterpriseConfig.setIdentity(qa3Var.c);
-                    wifiEnterpriseConfig.setPassword(qa3Var.d);
-                    wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                }
-                return wifiConfiguration;
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeL.objValue;
-    }
-
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, qa3 qa3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, qa3Var)) == null) {
-            if (qa3Var != null && f(qa3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), qa3Var.a)) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
-                return null;
-            }
-            try {
-                if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") != 0) {
-                    return null;
-                }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                sw1.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (length = str.length()) <= 1 || str.charAt(0) != '\"') {
-                return str;
-            }
-            int i = length - 1;
-            return str.charAt(i) == '\"' ? str.substring(1, i) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.equals("<unknown ssid>")) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var == null) {
+                hx1.c("getAutoRotationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (e23.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
+                }
                 return false;
+            } else if (context == null) {
+                hx1.c("getAutoRotationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (e23.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                }
+                return false;
+            } else {
+                try {
+                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
+                    if (e23.b) {
+                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("isRotateOn", i != 0);
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        return true;
+                    } catch (JSONException unused) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                        if (e23.b) {
+                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
+                        }
+                        return false;
+                    }
+                } catch (Exception e) {
+                    if (e23.b) {
+                        e.printStackTrace();
+                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
+                    }
+                    return false;
+                }
             }
-            return StandardCharsets.UTF_8.newEncoder().canEncode(str);
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

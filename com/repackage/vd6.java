@@ -1,75 +1,61 @@
 package com.repackage;
 
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.frs.FrsActivity;
+import android.util.SparseArray;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class vd6 {
     public static /* synthetic */ Interceptable $ic;
+    public static vd6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ny4 a;
-    public FrsActivity b;
+    public SparseArray<wd6> a;
 
-    public vd6(FrsActivity frsActivity) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755234967, "Lcom/repackage/vd6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755234967, "Lcom/repackage/vd6;");
+                return;
+            }
+        }
+        b = new vd6();
+    }
+
+    public vd6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = frsActivity;
+        this.a = new SparseArray<>();
     }
 
-    public void a() {
-        ny4 ny4Var;
+    public static vd6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ny4Var = this.a) == null) {
-            return;
-        }
-        ny4Var.q();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (vd6) invokeV.objValue;
     }
 
-    public void b() {
-        FrsActivity frsActivity;
+    public wd6 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsActivity = this.b) == null || frsActivity.getPageContext() == null) {
-            return;
-        }
-        boolean z = false;
-        if (UbsABTestHelper.isPushOpenNewStyle()) {
-            if (NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !oy4.g(TbadkCoreApplication.getInst(), 0)) {
-                return;
-            }
-            FrsActivity frsActivity2 = this.b;
-            if (frsActivity2 != null && frsActivity2.w0() != null) {
-                z = this.b.w0().G;
-            }
-            HashMap hashMap = new HashMap();
-            if (z) {
-                hashMap.put("view_params_key_style", "short");
-            }
-            ny4 ny4Var = this.a;
-            if (ny4Var != null) {
-                ny4Var.q();
-            }
-            this.a = oy4.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-        } else if (my4.g(this.b, 0)) {
-            my4.i(this.b.getPageContext(), 4, 2000L);
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (wd6) invokeI.objValue;
     }
 }

@@ -1,12 +1,12 @@
 package com.kwad.sdk.core.video.kwai.kwai;
 
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.report.n;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.core.report.s;
+import com.kwad.sdk.utils.r;
 import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b {
+public final class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b {
     public String b;
     public String c;
     public long d;
@@ -16,15 +16,14 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
     public c(String str, String str2) {
         this.a = UUID.randomUUID().toString();
         this.d = System.currentTimeMillis();
-        this.e = n.b();
-        this.f = n.d();
+        this.e = s.b();
+        this.f = s.d();
         this.b = str;
         this.c = str2;
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
-        super.parseJson(jSONObject);
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -44,23 +43,24 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
                 this.c = jSONObject.optString("mediaPlayerMsg");
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
         }
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject json = super.toJson();
-        t.a(json, "actionId", this.a);
-        t.a(json, "timestamp", this.d);
-        t.a(json, "sessionId", this.e);
-        t.a(json, "seq", this.f);
-        t.a(json, "mediaPlayerAction", this.b);
-        t.a(json, "mediaPlayerMsg", this.c);
-        return json;
+    public final JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        r.a(jSONObject, "actionId", this.a);
+        r.a(jSONObject, "timestamp", this.d);
+        r.a(jSONObject, "sessionId", this.e);
+        r.a(jSONObject, "seq", this.f);
+        r.a(jSONObject, "mediaPlayerAction", this.b);
+        r.a(jSONObject, "mediaPlayerMsg", this.c);
+        return jSONObject;
     }
 
-    public String toString() {
+    @Override // com.kwad.sdk.core.response.kwai.a
+    public final String toString() {
         return "MediaPlayerReportAction{actionId='" + this.a + "', timestamp=" + this.d + ", sessionId='" + this.e + "', seq=" + this.f + ", mediaPlayerAction='" + this.b + "', mediaPlayerMsg='" + this.c + "'}";
     }
 }

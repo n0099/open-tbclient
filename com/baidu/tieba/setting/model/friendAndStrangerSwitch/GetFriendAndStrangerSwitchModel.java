@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ht4;
+import com.repackage.xt4;
 /* loaded from: classes4.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -59,13 +59,13 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
                 int i = getFriendAndStrangerSwitchResMsg.mMaskType;
                 if (i > -1) {
                     GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
-                    ht4 k = ht4.k();
+                    xt4 k = xt4.k();
                     k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
                 }
                 int i2 = getFriendAndStrangerSwitchResMsg.mPushType;
                 if (i2 > -1) {
                     GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = i2;
-                    ht4 k2 = ht4.k();
+                    xt4 k2 = xt4.k();
                     k2.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
                 }
             }

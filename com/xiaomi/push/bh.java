@@ -15,10 +15,10 @@ public class bh {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f131a;
+    public String f858a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f132a;
+    public Map<String, String> f859a;
 
     public bh() {
         Interceptable interceptable = $ic;
@@ -33,18 +33,18 @@ public class bh {
                 return;
             }
         }
-        this.f132a = new HashMap();
+        this.f859a = new HashMap();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f131a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f858a : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.a), this.f132a.toString(), this.f131a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.a), this.f859a.toString(), this.f858a) : (String) invokeV.objValue;
     }
 }

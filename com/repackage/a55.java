@@ -1,47 +1,25 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.ColorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.url.UrlUtils;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.module.hottopic.HotTopicStat;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbContent;
 /* loaded from: classes5.dex */
-public class a55 {
+public class a55 extends v45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public ThreadData a;
-    @NonNull
-    public PbContent b;
-    public boolean c;
-    public int d;
-    public int e;
-    @Nullable
-    public PostData f;
-    @NonNull
-    public HotTopicStat.Locate g;
-    @Nullable
-    public String h;
-    public boolean i;
+    public String a;
 
-    public a55(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+    public a55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData, pbContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,166 +29,48 @@ public class a55 {
                 return;
             }
         }
-        this.g = HotTopicStat.Locate.UNDEFINED;
-        this.a = threadData;
-        this.b = pbContent;
-        this.c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
+        this.a = "";
     }
 
-    @NonNull
-    public static a55 f(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, pbContent)) == null) ? new a55(threadData, pbContent) : (a55) invokeLL.objValue;
-    }
-
-    @NonNull
-    public a55 a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (a55) invokeZ.objValue;
-    }
-
-    @NonNull
-    public a55 b(@NonNull HotTopicStat.Locate locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            this.g = locate;
-            return this;
-        }
-        return (a55) invokeL.objValue;
-    }
-
-    @NonNull
-    public a55 c(@Nullable PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData)) == null) {
-            this.f = postData;
-            return this;
-        }
-        return (a55) invokeL.objValue;
-    }
-
-    @NonNull
-    public a55 d(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.d = i;
-            return this;
-        }
-        return (a55) invokeI.objValue;
-    }
-
-    @NonNull
-    public a55 e(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.e = i;
-            return this;
-        }
-        return (a55) invokeI.objValue;
-    }
-
-    @NonNull
-    public String g() {
+    @Override // com.repackage.v45
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.valueOf(this.a.getFid()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
     }
 
-    @NonNull
-    public String h() {
-        InterceptResult invokeV;
+    @Override // com.repackage.v45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.h == null) {
-                this.h = UrlUtils.appendParam(this.b.link, "locate", i().toString());
-            }
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public HotTopicStat.Locate i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (HotTopicStat.Locate) invokeV.objValue;
-    }
-
-    @NonNull
-    public PbContent j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (PbContent) invokeV.objValue;
-    }
-
-    @Nullable
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PostData postData = this.f;
-            if (postData == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
                 return null;
             }
-            return postData.J();
+            l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.loadResizedBitmap(this.a, pi.k(TbadkCoreApplication.getInst()), pi.i(TbadkCoreApplication.getInst()));
         }
-        return (String) invokeV.objValue;
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    @NonNull
-    public ThreadData l() {
-        InterceptResult invokeV;
+    @Override // com.repackage.v45
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, pi.k(TbadkCoreApplication.getInst()), pi.i(TbadkCoreApplication.getInst())), true) : (Bitmap) invokeL.objValue;
     }
 
-    @ColorRes
-    public int m() {
-        InterceptResult invokeV;
+    @Override // com.repackage.v45
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (o()) {
-                int i = this.e;
-                if (i != 0) {
-                    return i;
-                }
-            } else {
-                int i2 = this.d;
-                if (i2 != 0) {
-                    return i2;
-                }
-            }
-            return R.color.CAM_X0304;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
-        return invokeV.intValue;
     }
 
-    public boolean n() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
     }
 }

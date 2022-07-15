@@ -327,15 +327,13 @@ public final class ImageLoaderConfiguration {
             if (this.taskExecutor != null || this.taskExecutorForCachedImages != null) {
                 L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
             }
-            int i2 = 1;
-            if (i >= 1) {
-                i2 = 10;
-                if (i <= 10) {
-                    this.threadPriority = i;
-                    return this;
-                }
+            if (i <= 0) {
+                i = 1;
+            } else if (i > 10) {
+                this.threadPriority = 10;
+                return this;
             }
-            this.threadPriority = i2;
+            this.threadPriority = i;
             return this;
         }
 
@@ -412,7 +410,7 @@ public final class ImageLoaderConfiguration {
         return new Builder(context).build();
     }
 
-    public ImageSize getMaxImageSize() {
+    public final ImageSize getMaxImageSize() {
         DisplayMetrics displayMetrics = this.resources.getDisplayMetrics();
         int i = this.maxImageWidthForMemoryCache;
         if (i <= 0) {

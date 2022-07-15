@@ -1,56 +1,39 @@
 package com.repackage;
 
-import com.baidu.live.business.base.LiveBaseFragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
 public class x80 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static WeakReference<LiveBaseFragment> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755217855, "Lcom/repackage/x80;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755217855, "Lcom/repackage/x80;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
+    public static String a(Context context, int i) {
+        InterceptResult invokeLI;
+        String string;
+        Float valueOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
-            WeakReference<LiveBaseFragment> weakReference = b;
-            if (weakReference != null) {
-                weakReference.clear();
-                b = null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            if (i < 0) {
+                return "";
             }
+            long j = i;
+            if (j < 10000) {
+                return i + context.getString(R.string.obfuscated_res_0x7f0f09ff);
+            }
+            if (j < 100000000) {
+                string = context.getString(R.string.obfuscated_res_0x7f0f09fd);
+                valueOf = Float.valueOf(i / 10000.0f);
+            } else {
+                string = context.getString(R.string.obfuscated_res_0x7f0f09f7);
+                valueOf = Float.valueOf(i / 1.0E8f);
+            }
+            DecimalFormat decimalFormat = new DecimalFormat("####.#");
+            return decimalFormat.format(valueOf) + string;
         }
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
-        }
+        return (String) invokeLI.objValue;
     }
 }

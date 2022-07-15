@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i17;
 import com.repackage.nn;
-import com.repackage.s07;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +75,9 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         this.mDataList = new ArrayList();
         for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
             if (topicThread != null) {
-                s07 s07Var = new s07();
-                s07Var.f(topicThread);
-                this.mDataList.add(s07Var);
+                i17 i17Var = new i17();
+                i17Var.d(topicThread);
+                this.mDataList.add(i17Var);
             }
         }
     }

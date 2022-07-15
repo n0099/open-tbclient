@@ -1,71 +1,41 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsFeedAd;
 /* loaded from: classes7.dex */
-public class xh9 {
+public abstract class xh9 implements KsFeedAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755171448, "Lcom/repackage/xh9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755171448, "Lcom/repackage/xh9;");
-                return;
+    public xh9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b = new Object();
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a != null) {
-                return a;
-            }
-            synchronized (b) {
-                if (a != null) {
-                    return a;
-                }
-                a = b(oh9.getContext().provideContext());
-                return a;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (String) invokeL.objValue;
     }
 }

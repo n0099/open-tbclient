@@ -19,25 +19,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c23;
-import com.repackage.cg1;
-import com.repackage.h53;
-import com.repackage.md3;
-import com.repackage.od4;
-import com.repackage.pk2;
-import com.repackage.rw2;
-import com.repackage.tw2;
-import com.repackage.zi2;
-import com.repackage.zy1;
+import com.repackage.be3;
+import com.repackage.de4;
+import com.repackage.el2;
+import com.repackage.gx2;
+import com.repackage.ix2;
+import com.repackage.oj2;
+import com.repackage.oz1;
+import com.repackage.r23;
+import com.repackage.rg1;
+import com.repackage.w53;
 /* loaded from: classes2.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
-    public pk2 j;
+    public el2 j;
     public ForbiddenInfo k;
     public String l;
-    public h53 m;
+    public w53 m;
     public int n;
     public int o;
     public int p;
@@ -59,7 +59,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
         }
-        u = cg1.a;
+        u = rg1.a;
     }
 
     public SwanAppErrorActivity() {
@@ -87,7 +87,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
         }
-        this.j = pk2.d1(intent);
+        this.j = el2.d1(intent);
         this.k = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
         this.p = intent.getIntExtra("swan_error_menu_notice_count", 0);
         this.q = intent.getIntExtra("swan_error_menu_privacy_count", 0);
@@ -123,7 +123,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            z(zi2.M().a());
+            z(oj2.M().a());
         }
     }
 
@@ -136,14 +136,14 @@ public class SwanAppErrorActivity extends FragmentActivity {
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.gd4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.vd4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             B(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010023);
-            int c0 = md3.c0(this);
+            int c0 = be3.c0(this);
             super.onCreate(bundle);
-            md3.g(this, c0);
+            be3.g(this, c0);
             setContentView(R.layout.obfuscated_res_0x7f0d009e);
             A(getIntent());
             y();
@@ -171,12 +171,12 @@ public class SwanAppErrorActivity extends FragmentActivity {
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
-        rw2 i;
+        gx2 i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onStart();
-            if (TextUtils.equals(this.l, "type_app_forbidden") && (i = tw2.k().i(this.k.appId)) != null && i.E()) {
-                c23.K(this.k.appId);
+            if (TextUtils.equals(this.l, "type_app_forbidden") && (i = ix2.k().i(this.k.appId)) != null && i.E()) {
+                r23.K(this.k.appId);
             }
         }
     }
@@ -187,19 +187,19 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : (ForbiddenInfo) invokeV.objValue;
     }
 
-    public pk2 x() {
+    public el2 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (pk2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (el2) invokeV.objValue;
     }
 
     public final void y() {
-        zy1 zy1Var;
+        oz1 oz1Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            od4 a = l().a();
+            de4 a = l().a();
             if (getIntent() != null) {
-                zy1Var = zy1.f3(this.r, this.l, this.s, this.t, this.k, this.p, this.q);
+                oz1Var = oz1.f3(this.r, this.l, this.s, this.t, this.k, this.p, this.q);
             } else if (this.j == null) {
                 if (u) {
                     Log.e("SwanAppErrorActivity", "launchInfo is null,error");
@@ -207,9 +207,9 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 }
                 return;
             } else {
-                zy1Var = new zy1();
+                oz1Var = new oz1();
             }
-            a.a(R.id.obfuscated_res_0x7f090171, zy1Var);
+            a.a(R.id.obfuscated_res_0x7f090172, oz1Var);
             a.e();
         }
     }
@@ -226,7 +226,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
             if (this.m == null) {
-                this.m = new h53();
+                this.m = new w53();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {

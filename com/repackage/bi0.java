@@ -1,55 +1,78 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.crius.view.AdCriusPopView;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bi0 {
+public class bi0 extends dc1<t41> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static tx0 a(@NonNull ii0 ii0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ii0Var)) == null) {
-            tx0 tx0Var = new tx0();
-            tx0Var.h(ii0Var.d());
-            tx0Var.n(ii0Var.b);
-            tx0Var.m(ii0Var.c.status);
-            tx0Var.j(ii0Var.d);
-            tx0Var.o(ii0Var.g);
-            File file = ii0Var.h;
-            if (file != null) {
-                tx0Var.f(file.getAbsolutePath());
-            } else {
-                tx0Var.f("");
+    /* loaded from: classes5.dex */
+    public class a implements t41 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(bi0 bi0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bi0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            tx0Var.k((int) (ii0Var.i * 1000.0f));
-            tx0Var.p((int) (ii0Var.j * 1000.0f));
-            tx0Var.l(ii0Var.l);
-            tx0Var.g(ii0Var.m);
-            li0 li0Var = ii0Var.p;
-            if (li0Var != null) {
-                tx0Var.i(li0.a(li0Var));
-            } else {
-                tx0Var.i("");
-            }
-            ji0 ji0Var = ii0Var.q;
-            if (ji0Var != null) {
-                tx0Var.d(ji0.a(ji0Var));
-            } else {
-                tx0Var.d("");
-            }
-            ki0 ki0Var = ii0Var.r;
-            if (ki0Var != null) {
-                tx0Var.e(ki0.a(ki0Var));
-            } else {
-                tx0Var.e("");
-            }
-            return tx0Var;
         }
-        return (tx0) invokeL.objValue;
+
+        @Override // com.repackage.t41
+        public Object a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? zh0.b(jSONObject) : invokeL.objValue;
+        }
+
+        @Override // com.repackage.t41
+        public h51<View> b(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new AdCriusPopView(context) : (h51) invokeL.objValue;
+        }
+    }
+
+    public bi0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dc1
+    /* renamed from: a */
+    public t41 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (t41) invokeV.objValue;
     }
 }

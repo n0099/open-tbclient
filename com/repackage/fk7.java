@@ -1,41 +1,41 @@
 package com.repackage;
 
-import android.graphics.Color;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class fk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public GridView a;
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public fk7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Color.parseColor(b(str));
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f4b);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public void a(bk7 bk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ef) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1378) + str;
-            }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ef) + str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bk7Var) == null) {
+            this.a.setAdapter((ListAdapter) bk7Var);
         }
-        return (String) invokeL.objValue;
     }
 }

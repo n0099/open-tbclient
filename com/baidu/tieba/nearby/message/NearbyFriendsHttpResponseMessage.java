@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sl7;
+import com.repackage.km7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl7 nearbyFriendData;
+    public km7 nearbyFriendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NearbyFriendsHttpResponseMessage() {
@@ -40,16 +40,16 @@ public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                sl7 sl7Var = new sl7();
-                this.nearbyFriendData = sl7Var;
-                sl7Var.a(jSONObject);
+                km7 km7Var = new km7();
+                this.nearbyFriendData = km7Var;
+                km7Var.a(jSONObject);
             }
         }
     }
 
-    public sl7 getNearbyFriendData() {
+    public km7 getNearbyFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nearbyFriendData : (sl7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nearbyFriendData : (km7) invokeV.objValue;
     }
 }

@@ -65,7 +65,7 @@ public final class DebugKt {
 
     @InlineOnly
     /* renamed from: assert  reason: not valid java name */
-    public static final void m2071assert(Function0<Boolean> function0) {
+    public static final void m3014assert(Function0<Boolean> function0) {
         if (getASSERTIONS_ENABLED() && !function0.invoke().booleanValue()) {
             throw new AssertionError();
         }

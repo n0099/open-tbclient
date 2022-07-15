@@ -2,70 +2,70 @@ package com.repackage;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ProgressBar;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.callback.OneKeyLoginCallback;
-import com.baidu.sapi2.callback.SmsViewLoginCallback;
-import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
-import com.baidu.sapi2.dto.FaceIDVerifyDTO;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.sapi2.result.OneKeyLoginResult;
-import com.baidu.sapi2.result.RealNameFaceIDResult;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.result.UnRealNameFaceIDResult;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.switchs.FunAdSplashClickRegionSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
+import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dg3;
-import com.repackage.ki3;
-import com.repackage.vg3;
-import com.repackage.wy2;
-import com.repackage.zg3;
-import java.util.ArrayList;
-import java.util.List;
-@Service
+import com.repackage.kk5;
+import com.repackage.s55;
+import com.repackage.zq6;
+import java.io.PrintStream;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class rl5 implements ug3 {
+public class rl5 implements hm5 {
     public static /* synthetic */ Interceptable $ic;
+    public static String m;
+    public static volatile boolean n;
+    public static volatile zq6.h o;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry2 a;
+    public WeakReference<ViewGroup> b;
+    public ViewGroup c;
+    public FrameLayout d;
+    public ViewGroup e;
+    public AdLoadState f;
+    public nl4 g;
+    public ViewGroup.OnHierarchyChangeListener h;
+    public boolean i;
+    public long j;
+    public final SplashNativePolicy k;
+    public final zq6.i l;
 
     /* loaded from: classes7.dex */
-    public class a extends GetTplStokenCallback {
+    public class a extends zq6.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dg3.a a;
+        public final /* synthetic */ rl5 a;
 
-        public a(rl5 rl5Var, dg3.a aVar) {
+        public a(rl5 rl5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rl5Var, aVar};
+                Object[] objArr = {rl5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,312 +75,238 @@ public class rl5 implements ug3 {
                     return;
                 }
             }
-            this.a = aVar;
+            this.a = rl5Var;
         }
 
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            dg3.a aVar;
+        @Override // com.repackage.zq6.i
+        public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.a) == null) {
-                return;
-            }
-            aVar.onFinish();
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            dg3.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.a) == null) {
-                return;
-            }
-            aVar.onStart();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetTplStokenResult getTplStokenResult) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.a == null) {
-                return;
-            }
-            dg3 dg3Var = new dg3();
-            if (getTplStokenResult != null) {
-                dg3Var.b = getTplStokenResult.tplStokenMap;
-                dg3Var.a = getTplStokenResult.getResultCode();
-                getTplStokenResult.getResultMsg();
-                GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
-                if (failureType != null) {
-                    failureType.name();
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (hm5.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash BEAR ad onAdClicked : " + str);
+                }
+                FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.CLICK_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
+                if (this.a.g != null) {
+                    this.a.g.e(false, false, 6, str, str2, str3);
                 }
             }
-            this.a.a(dg3Var);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetTplStokenResult getTplStokenResult) {
+        @Override // com.repackage.zq6.i
+        public void onAdClose(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.a == null) {
-                return;
-            }
-            dg3 dg3Var = new dg3();
-            if (getTplStokenResult != null) {
-                dg3Var.b = getTplStokenResult.tplStokenMap;
-                dg3Var.a = getTplStokenResult.getResultCode();
-                getTplStokenResult.getResultMsg();
-                GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
-                if (failureType != null) {
-                    failureType.name();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                FunAdRecordHttpMessage.uploadSplashSkipRecord("1");
+                if (this.a.g != null) {
+                    this.a.g.onAdDismiss();
+                }
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.g == null ? 0 : this.a.g.hashCode()));
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 6).param("obj_type", "a064").param("obj_param1", 4).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.i ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.a.j).eventStat();
+                if (hm5.a) {
+                    System.out.println("IAdSdkSplash bear ad onAdClose");
                 }
             }
-            this.a.b(dg3Var);
+        }
+
+        @Override // com.repackage.zq6.i
+        public void onAdError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                if (hm5.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash BEAR ad onAdError : " + str);
+                }
+                mm5.l(mm5.c, "1", null, null, str, null, this.a.j);
+                FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "1", null, null, null, null, null, null, null);
+                if (this.a.g != null) {
+                    this.a.g.onAdDismiss();
+                }
+            }
+        }
+
+        @Override // com.repackage.zq6.i
+        public void onAdShow(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+                if (hm5.a) {
+                    System.out.println("IAdSdkSplash BEAR ad onAdshow");
+                }
+                this.a.g.g(false, false, 6);
+                mm5.l(mm5.c, "0", null, str2, str, str3, this.a.j);
+                FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a064", "0", null, null, null, null, null, null, null);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.g != null ? this.a.g.hashCode() : 0));
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends SmsViewLoginCallback {
+    public class b implements s55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppPhoneLoginDialog.g a;
-        public final /* synthetic */ Context b;
+        public final /* synthetic */ Context a;
 
-        /* loaded from: classes7.dex */
-        public class a implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                }
-            }
-        }
-
-        /* renamed from: com.repackage.rl5$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class DialogInterface$OnClickListenerC0516b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            /* renamed from: com.repackage.rl5$b$b$a */
-            /* loaded from: classes7.dex */
-            public class a implements eg1 {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0516b a;
-
-                public a(DialogInterface$OnClickListenerC0516b dialogInterface$OnClickListenerC0516b) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0516b};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = dialogInterface$OnClickListenerC0516b;
-                }
-
-                @Override // com.repackage.eg1
-                public void onResult(int i) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                        if (i == 0) {
-                            this.a.a.a.onSuccess();
-                        } else {
-                            this.a.a.a.onFailure();
-                        }
-                    }
-                }
-            }
-
-            public DialogInterface$OnClickListenerC0516b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    sf3.M((FragmentActivity) this.a.b, false, null, new a(this));
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class c implements eg1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public c(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.repackage.eg1
-            public void onResult(int i) {
-                SwanAppPhoneLoginDialog.g gVar;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (gVar = this.a.a) == null) {
+        public b(rl5 rl5Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rl5Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                if (i == 0) {
-                    gVar.onSuccess();
+            }
+            this.a = context;
+        }
+
+        @Override // com.repackage.s55.a
+        public Object build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0795, (ViewGroup) null, false) : invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements zq6.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rl5 a;
+
+        public c(rl5 rl5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rl5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rl5Var;
+        }
+
+        @Override // com.repackage.zq6.h
+        public void a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (hm5.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash BEAR ad onAdLoaded successed: " + str);
+                }
+                if (this.a.f == AdLoadState.FORCESHOW) {
+                    return;
+                }
+                if (this.a.g != null) {
+                    this.a.g.f(mm5.c, true);
+                }
+                FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
+                if (zq6.m().w(str)) {
+                    this.a.f = AdLoadState.SUCCEED;
+                    mm5.k(mm5.c, "0", null, null, 0, i, this.a.i, this.a.j);
                 } else {
-                    gVar.onFailure();
+                    this.a.f = AdLoadState.FAILED;
+                    mm5.k(mm5.c, "1", str, null, 2, i, this.a.i, this.a.j);
+                    ((ViewGroup) this.a.b.get()).removeView(this.a.c);
                 }
+                gm5.e().n(this.a.g);
+                if (this.a.k != null) {
+                    this.a.k.onSplashEvent(81);
+                }
+                lm5.e(this.a.j);
             }
         }
 
-        public b(rl5 rl5Var, SwanAppPhoneLoginDialog.g gVar, Context context) {
+        @Override // com.repackage.zq6.h
+        public void onError(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rl5Var, gVar, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (hm5.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash BEAR ad onLoadError: " + str);
+                }
+                if (this.a.f == AdLoadState.FORCESHOW) {
                     return;
                 }
-            }
-            this.a = gVar;
-            this.b = context;
-        }
-
-        @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
-        public void onCheckCodeViewHide() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
-        public void onCheckCodeViewShow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.a();
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
-        public void onNeedBack(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                Context context = this.b;
-                tc3.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
-                String string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0074);
-                String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0076);
-                if (webAuthResult.getResultCode() == 12) {
-                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0075);
-                    string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0077);
+                if (this.a.g != null) {
+                    this.a.g.f(mm5.c, false);
                 }
-                wy2.a aVar = new wy2.a(this.b);
-                aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0078));
-                aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0516b(this));
-                aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0073), new a(this));
-                aVar.X();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.onFailure();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, webAuthResult) == null) {
-                pl5.l().x(new c(this));
+                FunAdRecordHttpMessage.uploadRequestRecord("a064", "1", null, null, "0");
+                mm5.k(mm5.c, "1", str, null, 1, 0, this.a.i, this.a.j);
+                this.a.f = AdLoadState.FAILED;
+                ((ViewGroup) this.a.b.get()).removeView(this.a.c);
+                gm5.e().n(this.a.g);
+                if (this.a.k != null) {
+                    this.a.k.onSplashEvent(82);
+                }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends OneKeyLoginCallback {
+    public class d implements zq6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zh3 a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ rl5 c;
+        public final /* synthetic */ rl5 a;
 
         /* loaded from: classes7.dex */
-        public class a implements eg1 {
+        public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ int b;
 
-            public a(c cVar) {
+            public a(d dVar, String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {dVar, str, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = i;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || rl5.o == null) {
+                    return;
+                }
+                rl5.o.a(this.a, this.b);
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+
+            public b(d dVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, str};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -390,30 +316,25 @@ public class rl5 implements ug3 {
                         return;
                     }
                 }
-                this.a = cVar;
+                this.a = str;
             }
 
-            @Override // com.repackage.eg1
-            public void onResult(int i) {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                    if (i == 0) {
-                        this.a.a.onResult(0);
-                    } else {
-                        this.a.a.onResult(-1);
-                    }
-                    c cVar = this.a;
-                    cVar.c.q(cVar.b);
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || rl5.o == null) {
+                    return;
                 }
+                rl5.o.onError(this.a);
             }
         }
 
-        public c(rl5 rl5Var, zh3 zh3Var, Activity activity) {
+        public d(rl5 rl5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rl5Var, zh3Var, activity};
+                Object[] objArr = {rl5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -423,98 +344,55 @@ public class rl5 implements ug3 {
                     return;
                 }
             }
-            this.c = rl5Var;
-            this.a = zh3Var;
-            this.b = activity;
+            this.a = rl5Var;
         }
 
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+        @Override // com.repackage.zq6.h
+        public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.a.onResult(-1);
-                this.c.q(this.b);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                this.a.onResult(-1);
-                this.c.q(this.b);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
-                pl5.l().x(new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends VerifyUserFaceIDCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tg3 a;
-
-        public d(rl5 rl5Var, tg3 tg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rl5Var, tg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (rl5.o == null) {
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("sid", str);
+                    hashMap.put("loadSize", Integer.valueOf(i));
+                    kk5.c().a(this.a.f(), "onAdLoaded", hashMap);
+                } else if (pi.C()) {
+                    rl5.o.a(str, i);
+                } else {
+                    qg.a().post(new a(this, str, i));
                 }
             }
-            this.a = tg3Var;
         }
 
-        @Override // com.baidu.sapi2.callback.FaceIDCallback
-        public void onFailure(SapiResult sapiResult) {
+        @Override // com.repackage.zq6.h
+        public void onError(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-                this.a.onFailure(sapiResult.getResultMsg());
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.FaceIDCallback
-        public void onSuccess(SapiResult sapiResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) {
-                rg3 rg3Var = new rg3();
-                if (sapiResult instanceof RealNameFaceIDResult) {
-                    rg3Var.a = ((RealNameFaceIDResult) sapiResult).callBackKey;
-                    this.a.a(rg3Var);
-                } else if (sapiResult instanceof UnRealNameFaceIDResult) {
-                    rg3Var.a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
-                    this.a.a(rg3Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (rl5.o == null) {
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("sid", str);
+                    kk5.c().a(this.a.f(), "onError", hashMap);
+                } else if (pi.C()) {
+                    rl5.o.onError(str);
+                } else {
+                    qg.a().post(new b(this, str));
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e extends AccountRealNameCallback {
+    public class e implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tg3 a;
+        public final /* synthetic */ rl5 a;
 
-        public e(rl5 rl5Var, tg3 tg3Var) {
+        public e(rl5 rl5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rl5Var, tg3Var};
+                Object[] objArr = {rl5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -524,251 +402,278 @@ public class rl5 implements ug3 {
                     return;
                 }
             }
-            this.a = tg3Var;
+            this.a = rl5Var;
         }
 
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewAdded(View view2, View view3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    rg3 rg3Var = new rg3();
-                    if (accountRealNameResult.seniorRealNameSuc) {
-                        rg3Var.a = accountRealNameResult.callbackkey;
-                        this.a.a(rg3Var);
-                        return;
-                    }
-                }
-                this.a.onFailure(accountRealNameResult.getResultMsg());
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) || this.a.e == null || this.a.e.getVisibility() == 0) {
+                return;
+            }
+            this.a.e.setVisibility(0);
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewRemoved(View view2, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
             }
         }
     }
 
-    public rl5() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755346474, "Lcom/repackage/rl5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755346474, "Lcom/repackage/rl5;");
+                return;
+            }
+        }
+        m = zq6.p();
+        n = false;
+    }
+
+    public rl5(SplashNativePolicy splashNativePolicy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {splashNativePolicy};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f = AdLoadState.INIT;
+        this.g = null;
+        this.h = null;
+        this.i = false;
+        this.j = -1L;
+        this.l = new a(this);
+        this.k = splashNativePolicy;
+        m = xt4.k().l("splash_bear_sid_type_key", 0) == 1 ? zq6.q() : zq6.p();
     }
 
-    public static String p(Context context) {
-        InterceptResult invokeL;
+    public static void v(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? CommonParam.getCUID(context) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeI(65548, null, i) == null) {
+            m = i == 1 ? zq6.q() : zq6.p();
+            xt4.k().w("splash_bear_sid_type_key", i);
+        }
     }
 
-    public static String r(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.hm5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() <= 7) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            d dVar = new d(this);
+            zq6.m().x(context, m, (int) (pi.i(context) * 0.85d), dVar, zq6.b("spalsh", gm5.e().d() + ""));
+            n = true;
+        }
+    }
+
+    @Override // com.repackage.hm5
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = this.d;
+            return frameLayout != null && frameLayout.getChildCount() > 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.hm5
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hm5
+    public AdLoadState d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (AdLoadState) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hm5
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            zq6.m().d(m);
+            o = null;
+        }
+    }
+
+    @Override // com.repackage.hm5
+    public void e(ql4 ql4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ql4Var) == null) {
+            Context context = ql4Var.b().getContext();
+            if (!(context instanceof Activity) || ql4Var.b() == null) {
+                return;
             }
-            String substring = str.substring(0, 8);
-            String substring2 = str.substring(8, str.length());
-            String upperCase = SapiUtils.getClientId(context).toUpperCase();
-            return substring + wf4.d((substring2 + wf4.d(upperCase.getBytes(), false)).getBytes(), false);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ug3
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? g83.a().getString("bd_box_ptoken", "") : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ug3
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? pl5.l().p() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ug3
-    public void c(Context context, Bundle bundle, eg1 eg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, bundle, eg1Var) == null) {
-            pl5.l().t(context, bundle, eg1Var);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public sg3 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            sg3 sg3Var = new sg3();
-            sg3Var.a = pl5.l().k();
-            sg3Var.b = pl5.l().i();
-            return sg3Var;
-        }
-        return (sg3) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ug3
-    public void e(Activity activity, String str, String str2, tg3 tg3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, str, str2, tg3Var) == null) {
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = str;
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(activity, new e(this, tg3Var), realNameDTO);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public void f(Context context, ki3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, dVar) == null) {
-            pl5.l().h(context, "1", dVar);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? pl5.l().s() : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.ug3
-    public String getBduss(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? pl5.l().j() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ug3
-    public void h(gg1 gg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gg1Var) == null) {
-            pl5.l().f(gg1Var);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public void i(Context context, vg3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, dVar) == null) {
-            pl5.l().g(context, "1", dVar);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, context, gVar, str) == null) {
-            PassportSDK.getInstance().startSmsViewLogin(new b(this, gVar, context), str);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("aps_identity", 0);
-            String string = sharedPreferences.getString("uid_v3", "");
-            if (TextUtils.isEmpty(string)) {
-                String p = p(context);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString("uid_v3", p);
-                edit.apply();
-                return p;
+            this.i = ql4Var.d();
+            this.j = ql4Var.c();
+            this.b = new WeakReference<>(ql4Var.b());
+            ViewGroup viewGroup = (ViewGroup) s55.e().d(1007, new b(this, context));
+            this.c = viewGroup;
+            if (viewGroup == null) {
+                return;
             }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ug3
-    public void l(Activity activity, String str, String str2, tg3 tg3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048588, this, activity, str, str2, tg3Var) == null) {
-            FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
-            faceIDVerifyDTO.businessSence = str;
-            faceIDVerifyDTO.bduss = str2;
-            PassportSDK.getInstance().verifyUserFaceId(activity, new d(this, tg3Var), faceIDVerifyDTO);
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public void m(Activity activity, String str, zh3 zh3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, activity, str, zh3Var) == null) {
-            s(activity);
-            PassportSDK.getInstance().loadOneKeyLogin(activity, r(activity, str), new c(this, zh3Var, activity));
-        }
-    }
-
-    @Override // com.repackage.ug3
-    public void n(String str, ArrayList<String> arrayList, zg3.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048590, this, str, arrayList, cVar) == null) {
-            pl5.l().n(str, arrayList, cVar);
+            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091deb);
+            q();
+            this.g = ql4Var.a();
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.k(context), (int) (pi.i(this.b.get().getContext()) * 0.85d));
+            layoutParams.addRule(14, -1);
+            this.b.get().addView(this.c, layoutParams);
+            if (hm5.a) {
+                System.out.println("IAdSdkSplash BEAR ad start load");
+            }
+            o = new c(this);
+            if (n) {
+                t();
+                n = false;
+            } else {
+                zq6 m2 = zq6.m();
+                Activity activity = (Activity) context;
+                String str = m;
+                int i = (int) (pi.i(context) * 0.85d);
+                zq6.h hVar = o;
+                m2.x(activity, str, i, hVar, zq6.b("spalsh", gm5.e().d() + ""));
+            }
+            if (this.f == AdLoadState.INIT) {
+                this.f = AdLoadState.LOADING;
+            }
+            FunAdRecordHttpMessage.uploadRequestRecord("a064", null, null, null, null);
         }
     }
 
-    @Override // com.repackage.ug3
-    public void o(dg3.a aVar, String str, List<String> list) {
+    @Override // com.repackage.hm5
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048591, this, aVar, str, list) == null) {
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, aVar), str, list);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "bear" : (String) invokeV.objValue;
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c != null && FunAdSplashClickRegionSwitch.isOpen()) {
+            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091dea);
+            this.e = viewGroup;
+            ur4 d2 = ur4.d(this.e);
+            d2.n(R.string.J_X01);
+            d2.f(R.color.CAM_X0608);
+            ur4 d3 = ur4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ded));
+            d3.A(R.string.F_X01);
+            d3.v(R.color.CAM_X0101);
+            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091dec), R.drawable.obfuscated_res_0x7f08091f, R.color.CAM_X0201, null);
         }
     }
 
-    public void q(Context context) {
-        ry2 ry2Var;
+    public final void r() {
+        WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, context) == null) || !(context instanceof Activity) || ((Activity) context).isFinishing() || (ry2Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (weakReference = this.b) == null || weakReference.get().getParent() == null) {
             return;
         }
-        ry2Var.dismiss();
+        ViewGroup.LayoutParams layoutParams = this.b.get().getLayoutParams();
+        layoutParams.width = pi.k(this.b.get().getContext());
+        layoutParams.height = (int) (pi.i(this.b.get().getContext()) * 0.85d);
+        this.b.get().setLayoutParams(layoutParams);
     }
 
-    public final void s(Context context) {
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
-            ry2 ry2Var = new ry2(context, 16973833);
-            this.a = ry2Var;
-            Window window = ry2Var.getWindow();
-            if (window != null) {
-                window.setBackgroundDrawableResource(17170445);
-                window.setDimAmount(0.0f);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.height = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700d9);
-                attributes.width = -1;
-                window.setAttributes(attributes);
-            }
-            this.a.setCanceledOnTouchOutside(false);
-            this.a.setCancelable(false);
-            this.a.a(true);
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d050d);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ac5);
-            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0912ca);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913c2);
-            if (findViewById != null) {
-                findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e72));
-            }
-            if (progressBar != null) {
-                progressBar.setIndeterminateDrawable(progressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d50));
-            }
-            if (textView != null) {
-                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f060780));
-                textView.setText(R.string.obfuscated_res_0x7f0f007c);
-            }
-            this.a.show();
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.b == null || !u() || this.f == AdLoadState.FORCESHOW) {
+            return;
         }
+        r();
+        this.f = AdLoadState.FORCESHOW;
+        w();
+    }
+
+    @Override // com.repackage.hm5
+    public void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.b != null && this.f == AdLoadState.SUCCEED) {
+            r();
+            this.f = AdLoadState.SHOWED;
+            w();
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || o == null || kk5.c().d(f()).isEmpty()) {
+            return;
+        }
+        for (kk5.a aVar : kk5.c().d(f())) {
+            String str = aVar.a;
+            char c2 = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1349867671) {
+                if (hashCode == 861234439 && str.equals("onAdLoaded")) {
+                    c2 = 0;
+                }
+            } else if (str.equals("onError")) {
+                c2 = 1;
+            }
+            if (c2 == 0) {
+                o.a((String) aVar.b.get("sid"), ((Integer) aVar.b.get("loadSize")).intValue());
+            } else if (c2 == 1) {
+                o.onError((String) aVar.b.get("sid"));
+            }
+        }
+        kk5.c().b(f());
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? zq6.m().w(m) : invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.c != null && this.d != null) {
+                if (this.h == null) {
+                    this.h = new e(this);
+                }
+                this.d.setOnHierarchyChangeListener(this.h);
+                if (this.b.get() != null) {
+                    Context context = this.b.get().getContext();
+                    if (context instanceof Activity) {
+                        mt4.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
+                        if (hm5.a) {
+                            PrintStream printStream = System.out;
+                            printStream.println("IAdSdkSplash BEAR ad showSplash: " + m);
+                        }
+                        zq6.m().H((Activity) context, m, this.d, this.l, zq6.b("spalsh", gm5.e().d() + ""));
+                        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

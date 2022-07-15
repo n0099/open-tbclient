@@ -1,45 +1,49 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class t implements com.kwad.sdk.core.d<AdStyleInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdStyleInfo adStyleInfo, JSONObject jSONObject) {
+public final class t implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        AdStyleInfo.PlayDetailInfo playDetailInfo = new AdStyleInfo.PlayDetailInfo();
-        adStyleInfo.playDetailInfo = playDetailInfo;
-        playDetailInfo.parseJson(jSONObject.optJSONObject("playDetailInfo"));
-        AdStyleInfo.PlayEndInfo playEndInfo = new AdStyleInfo.PlayEndInfo();
-        adStyleInfo.playEndInfo = playEndInfo;
-        playEndInfo.parseJson(jSONObject.optJSONObject("playEndInfo"));
-        AdStyleInfo.FeedAdInfo feedAdInfo = new AdStyleInfo.FeedAdInfo();
-        adStyleInfo.feedAdInfo = feedAdInfo;
-        feedAdInfo.parseJson(jSONObject.optJSONObject("feedAdInfo"));
-        AdStyleInfo.AdBrowseInfo adBrowseInfo = new AdStyleInfo.AdBrowseInfo();
-        adStyleInfo.adBrowseInfo = adBrowseInfo;
-        adBrowseInfo.parseJson(jSONObject.optJSONObject("adBrowseInfo"));
-        AdStyleInfo.ExtraDisplayInfo extraDisplayInfo = new AdStyleInfo.ExtraDisplayInfo();
-        adStyleInfo.extraDisplayInfo = extraDisplayInfo;
-        extraDisplayInfo.parseJson(jSONObject.optJSONObject("extraDisplayInfo"));
-        adStyleInfo.slideClick = jSONObject.optBoolean("slideClick");
+        adMaterialInfo.materialType = jSONObject.optInt("materialType", new Integer("2").intValue());
+        adMaterialInfo.videoVoice = jSONObject.optBoolean("videoVoice", new Boolean("false").booleanValue());
+        adMaterialInfo.materialFeatureList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = new AdInfo.AdMaterialInfo.MaterialFeature();
+                materialFeature.parseJson(optJSONArray.optJSONObject(i));
+                adMaterialInfo.materialFeatureList.add(materialFeature);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdStyleInfo adStyleInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "playDetailInfo", adStyleInfo.playDetailInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "playEndInfo", adStyleInfo.playEndInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "feedAdInfo", adStyleInfo.feedAdInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "adBrowseInfo", adStyleInfo.adBrowseInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "extraDisplayInfo", adStyleInfo.extraDisplayInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "slideClick", adStyleInfo.slideClick);
+        com.kwad.sdk.utils.r.a(jSONObject, "materialType", adMaterialInfo.materialType);
+        com.kwad.sdk.utils.r.a(jSONObject, "videoVoice", adMaterialInfo.videoVoice);
+        com.kwad.sdk.utils.r.a(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+        a2(adMaterialInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+        return b2(adMaterialInfo, jSONObject);
     }
 }

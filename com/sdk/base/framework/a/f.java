@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
-import com.kuaishou.weapon.un.x;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.File;
 import java.net.HttpURLConnection;
@@ -195,12 +194,12 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                         HttpURLConnection a2 = hVar.a(headerField, com.sdk.base.framework.f.d.a.a(headerField));
                         if (com.sdk.base.framework.a.a.c.b(headerField2).booleanValue()) {
                             if ("/ctcnet/gctcmc.do".equals(path)) {
-                                com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), x.F, headerField2);
+                                com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), "ctc", headerField2);
                                 com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.a);
                             }
                             a2.setRequestProperty("Cookie", headerField2);
                         } else {
-                            a2.setRequestProperty("Cookie", com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), x.F));
+                            a2.setRequestProperty("Cookie", com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), "ctc"));
                         }
                         if (a2 == null) {
                             return new l<>(0, c(), false);

@@ -1,118 +1,87 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yg4 {
+public class yg4 implements tg4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public Context b;
-    public int c;
-    public b d;
+    public Context a;
 
-    /* loaded from: classes7.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yg4 this$0;
-
-        public a(yg4 yg4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = yg4Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int d;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (d = this.this$0.d()) != this.this$0.c) {
-                if (this.this$0.d != null) {
-                    this.this$0.d.a(this.this$0.c, d);
-                }
-                this.this$0.c = d;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i, int i2);
-    }
-
-    public yg4() {
+    public yg4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getApplicationContext();
     }
 
-    public int d() {
+    @Override // com.repackage.tg4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (SwanAppNetworkUtils.j(this.b)) {
-                return 1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(get()) : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.tg4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() : (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (bh4.a(this.a, "android.permission.WRITE_SETTINGS")) {
+                try {
+                    return Settings.System.getString(this.a.getContentResolver(), "com.baidu.uuid");
+                } catch (Exception unused) {
+                    return null;
+                }
             }
-            return SwanAppNetworkUtils.i(this.b) ? 2 : 0;
+            return null;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void e(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.tg4
+    /* renamed from: d */
+    public void put(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.b = context;
-            this.c = d();
-            a aVar = new a(this);
-            this.a = aVar;
-            this.b.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-        }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            e(str);
         }
     }
 
-    public void g() {
-        Context context;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (context = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && bh4.a(this.a, "android.permission.WRITE_SETTINGS")) {
+            try {
+                Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
+            } catch (Exception unused) {
+            }
         }
-        context.unregisterReceiver(this.a);
     }
 }

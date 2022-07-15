@@ -11,6 +11,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
@@ -48,7 +49,7 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static g a;
@@ -622,7 +623,7 @@ public class g {
                             bundle2.putString("mac", k3);
                             bundle2.putString(com.tencent.connect.common.Constants.PARAM_PLATFORM, "1");
                             bundle2.putString("os_ver", Build.VERSION.RELEASE);
-                            bundle2.putString("position", "");
+                            bundle2.putString(CriusAttrConstants.POSITION, "");
                             bundle2.putString("network", a.a(com.tencent.open.utils.f.a()));
                             bundle2.putString("language", c.b());
                             bundle2.putString("resolution", c.a(com.tencent.open.utils.f.a()));

@@ -16,7 +16,7 @@ public class sw {
     public RelativeLayout.LayoutParams a;
     public int b;
     public View c;
-    public by d;
+    public cy d;
 
     public sw() {
         Interceptable interceptable = $ic;
@@ -83,10 +83,10 @@ public class sw {
         }
     }
 
-    public void j(by byVar) {
+    public void j(cy cyVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byVar) == null) {
-            this.d = byVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cyVar) == null) {
+            this.d = cyVar;
         }
     }
 }

@@ -1,16 +1,52 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class d63 {
+public class d63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(JSONObject jSONObject, @Nullable String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? str.equals("mobile") ? "getPhoneNumberButton" : str : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
+            g63.l(true, str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
+            if (optJSONObject == null) {
+                return;
+            }
+            hx1.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
+            g63.n(str, optJSONObject.optInt("_SwanStartupStability_"));
+            g63.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
+            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
+            if (optInt > 0) {
+                g63.i(str, true);
+                g63.j(str, optInt);
+            }
+        }
+    }
+
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            g63.m(true, str);
+        }
+    }
+
+    public static void c(JSONObject jSONObject, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, str) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("performance_type");
+        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
+            a(jSONObject, str);
+        } else if (TextUtils.equals(optString, "stabilityProfile")) {
+            b(str);
+        }
     }
 }

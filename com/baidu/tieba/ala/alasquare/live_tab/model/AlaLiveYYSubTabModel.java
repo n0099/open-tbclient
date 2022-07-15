@@ -12,18 +12,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bp5;
+import com.repackage.mq5;
 import com.repackage.ni;
 import com.repackage.nn;
-import com.repackage.no5;
-import com.repackage.np5;
 import com.repackage.pi;
+import com.repackage.pp5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
@@ -33,7 +33,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean b;
     public boolean c;
     public BdUniqueId d;
-    public np5 e;
+    public mq5 e;
     public long f;
     public int g;
     public String h;
@@ -80,16 +80,16 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                         this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.c);
                     }
                 } else {
-                    no5 no5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    pp5 pp5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.c) {
-                        this.a.e.a(no5Var);
+                        this.a.e.a(pp5Var);
                     } else {
-                        AlaLiveTabFragment.y1(this.a.g);
+                        bp5.a(this.a.g);
                         if (this.a.e != null) {
                             this.a.e.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.e = new np5(no5Var, alaLiveYYSubTabModel.h, this.a.i);
+                        alaLiveYYSubTabModel.e = new mq5(pp5Var, alaLiveYYSubTabModel.h, this.a.i);
                     }
                     AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
                     alaLiveYYSubTabModel2.b = alaLiveYYSubTabModel2.e.f();
@@ -132,7 +132,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         this.g = i;
     }
 
-    public final void K(int i, int i2) {
+    public final void L(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
@@ -161,26 +161,26 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            np5 np5Var = this.e;
-            return (np5Var == null || ListUtils.isEmpty(np5Var.d())) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b && !this.c) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b && !this.c) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.f >= this.j * 30 * 1000) {
                 this.f = currentTimeMillis;
             }
             this.c = true;
-            K(1, AlaLiveTabFragment.A1(this.g) - 1);
+            L(1, bp5.b(this.g) - 1);
         }
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            mq5 mq5Var = this.e;
+            return (mq5Var == null || ListUtils.isEmpty(mq5Var.d())) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -222,7 +222,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = System.currentTimeMillis();
             this.c = false;
-            K(0, AlaLiveTabFragment.A1(this.g));
+            L(0, bp5.b(this.g));
         }
     }
 

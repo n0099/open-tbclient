@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes3.dex */
 public class ImageViewerActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -51,7 +50,7 @@ public class ImageViewerActivityStatic {
                         if (ImageViewerConfig.START_ACTIVITY_NORMAL.equals(intent.getStringExtra(ImageViewerConfig.START_ACTIVITY_TYPE))) {
                             data.startActivityForRemote(ImageViewerActivity.class);
                         } else {
-                            data.startActivityForResultForRemote(w0.P1, ImageViewerActivity.class);
+                            data.startActivityForResultForRemote(14001, ImageViewerActivity.class);
                         }
                     }
                 }

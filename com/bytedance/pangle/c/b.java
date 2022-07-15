@@ -1,262 +1,41 @@
 package com.bytedance.pangle.c;
 
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.multidex.MultiDex;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.PluginClassLoader;
-import com.bytedance.pangle.PluginContext;
+import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
-import dalvik.system.DexFile;
+import com.bytedance.pangle.util.FieldUtils;
+import com.bytedance.pangle.util.g;
+import com.bytedance.pangle.util.h;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<File> a;
-    public static final boolean b;
+    public static String a;
+    public static String b;
+    public static Map<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int a = 4;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final InterfaceC0261a b;
-
-        /* renamed from: com.bytedance.pangle.c.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public interface InterfaceC0261a {
-            Object a(File file, DexFile dexFile);
-        }
-
-        /* renamed from: com.bytedance.pangle.c.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C0262b implements InterfaceC0261a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final Constructor<?> a;
-
-            public C0262b(Class<?> cls) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                Constructor<?> constructor = cls.getConstructor(File.class, ZipFile.class, DexFile.class);
-                this.a = constructor;
-                constructor.setAccessible(true);
-            }
-
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC0261a
-            public final Object a(File file, DexFile dexFile) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.a.newInstance(file, new ZipFile(file), dexFile) : invokeLL.objValue;
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public static class c implements InterfaceC0261a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final Constructor<?> a;
-
-            public c(Class<?> cls) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                Constructor<?> constructor = cls.getConstructor(File.class, File.class, DexFile.class);
-                this.a = constructor;
-                constructor.setAccessible(true);
-            }
-
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC0261a
-            public final Object a(File file, DexFile dexFile) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.a.newInstance(file, file, dexFile) : invokeLL.objValue;
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public static class d implements InterfaceC0261a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final Constructor<?> a;
-
-            public d(Class<?> cls) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
-                this.a = constructor;
-                constructor.setAccessible(true);
-            }
-
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC0261a
-            public final Object a(File file, DexFile dexFile) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, dexFile)) == null) ? this.a.newInstance(file, Boolean.FALSE, file, dexFile) : invokeLL.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(712826134, "Lcom/bytedance/pangle/c/b$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(712826134, "Lcom/bytedance/pangle/c/b$a;");
-            }
-        }
-
-        public a() {
-            InterfaceC0261a dVar;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
-            try {
-                try {
-                    dVar = new C0262b(cls);
-                } catch (NoSuchMethodException unused) {
-                    dVar = new d(cls);
-                }
-            } catch (NoSuchMethodException unused2) {
-                dVar = new c(cls);
-            }
-            this.b = dVar;
-        }
-
-        public static void a(ClassLoader classLoader, List<? extends File> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, classLoader, list) == null) {
-                Object obj = b.b(classLoader, "pathList").get(classLoader);
-                a aVar = new a();
-                int size = list.size();
-                Object[] objArr = new Object[size];
-                for (int i = 0; i < size; i++) {
-                    File file = list.get(i);
-                    InterfaceC0261a interfaceC0261a = aVar.b;
-                    String path = file.getPath();
-                    File parentFile = file.getParentFile();
-                    String name = file.getName();
-                    objArr[i] = interfaceC0261a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - a) + ".dex").getPath(), 0));
-                }
-                try {
-                    b.a(obj, "dexElements", objArr);
-                } catch (NoSuchFieldException e) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed find field 'dexElements' attempting 'pathElements'", e);
-                    b.a(obj, "pathElements", objArr);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(ClassLoader classLoader, List<? extends File> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65536, null, classLoader, list) == null) {
-                int size = list.size();
-                Field b = b.b(classLoader, "path");
-                StringBuilder sb = new StringBuilder((String) b.get(classLoader));
-                String[] strArr = new String[size];
-                File[] fileArr = new File[size];
-                ZipFile[] zipFileArr = new ZipFile[size];
-                DexFile[] dexFileArr = new DexFile[size];
-                ListIterator<? extends File> listIterator = list.listIterator();
-                while (listIterator.hasNext()) {
-                    File next = listIterator.next();
-                    String absolutePath = next.getAbsolutePath();
-                    sb.append(':');
-                    sb.append(absolutePath);
-                    int previousIndex = listIterator.previousIndex();
-                    strArr[previousIndex] = absolutePath;
-                    fileArr[previousIndex] = next;
-                    zipFileArr[previousIndex] = new ZipFile(next);
-                    dexFileArr[previousIndex] = DexFile.loadDex(absolutePath, absolutePath + ".dex", 0);
-                }
-                b.set(classLoader, sb.toString());
-                b.a(classLoader, "mPaths", strArr);
-                b.a(classLoader, "mFiles", fileArr);
-                b.a(classLoader, "mZips", zipFileArr);
-                b.a(classLoader, "mDexs", dexFileArr);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -271,283 +50,488 @@ public final class b {
                 return;
             }
         }
-        a = new HashSet();
-        b = a(System.getProperty("java.vm.version"));
+        c = new HashMap();
+        if (h.a()) {
+            b = Build.SUPPORTED_ABIS[0];
+        } else {
+            b = Build.CPU_ABI;
+        }
+        c.put("arm64-v8a", 64);
+        c.put(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, 32);
+        c.put("armeabi", 32);
+        c.put("x86_64", 64);
+        c.put("x86", 32);
+        c.put("mips64", 64);
+        c.put("mips", 32);
+        a = c();
     }
 
-    public static Field b(Object obj, String str) {
-        InterceptResult invokeLL;
+    public static void a(File file, File file2, String str) {
+        ZipFile zipFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Field declaredField = cls.getDeclaredField(str);
-                    if (!declaredField.isAccessible()) {
-                        declaredField.setAccessible(true);
-                    }
-                    return declaredField;
-                } catch (NoSuchFieldException unused) {
-                }
-            }
-            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static void a(PluginContext pluginContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, pluginContext) == null) {
-            ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Installing application");
-            if (b) {
-                ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex VM has multidex support, MultiDex support library is disabled.");
-            } else if (Build.VERSION.SDK_INT >= 4) {
-                try {
-                    ApplicationInfo a2 = a((Context) pluginContext);
-                    if (a2 == null) {
-                        ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex No ApplicationInfo available, i.e. running on a test Context: MultiDex support library is disabled.");
-                        return;
-                    }
-                    a(a2, pluginContext, new File(pluginContext.mPlugin.mHostApplicationInfoHookSomeField.sourceDir), "secondary-dexes", a2.packageName);
-                    ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex install done");
-                } catch (Exception e) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDex installation failure", e);
-                    throw new RuntimeException("MultiDex installation failed (" + e.getMessage() + ").");
-                }
-            } else {
-                throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
-            }
-        }
-    }
-
-    public static Method b(Object obj, String str, Class... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, obj, str, clsArr)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                    if (!declaredMethod.isAccessible()) {
-                        declaredMethod.setAccessible(true);
-                    }
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
-            }
-            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static void b(PluginContext pluginContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, pluginContext) == null) {
-            File file = new File(pluginContext.getDataDir().getAbsolutePath() + "/files/secondary-dexes");
-            if (file.isDirectory()) {
-                ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Clearing old secondary dex dir (" + file.getPath() + ").");
-                File[] listFiles = file.listFiles();
-                if (listFiles == null) {
-                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to list secondary dex dir content (" + file.getPath() + ").");
-                    return;
-                }
-                for (File file2 : listFiles) {
-                    ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Trying to delete old file " + file2.getPath() + " of size " + file2.length());
-                    if (file2.delete()) {
-                        ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Deleted old file " + file2.getPath());
-                    } else {
-                        ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to delete old file " + file2.getPath());
-                    }
-                }
-                if (!file.delete()) {
-                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to delete secondary dex dir " + file.getPath());
-                    return;
-                }
-                ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Deleted old secondary dex dir " + file.getPath());
-            }
-        }
-    }
-
-    public static void a(@NonNull ApplicationInfo applicationInfo, PluginContext pluginContext, File file, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65541, null, applicationInfo, pluginContext, file, str, str2) == null) {
-            synchronized (a) {
-                if (!a.contains(file)) {
-                    a.add(file);
-                    if (Build.VERSION.SDK_INT > 20) {
-                        ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
-                    }
-                    try {
-                        PluginClassLoader pluginClassLoader = pluginContext.mPlugin.mClassLoader;
-                        if (pluginClassLoader == null) {
-                            ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Context class loader is null. Must be running in test mode. Skip patching.");
-                        } else {
-                            String str3 = applicationInfo.packageName;
-                            b(pluginContext);
-                            File a2 = a(pluginContext, pluginContext.getDataDir(), str);
-                            com.bytedance.pangle.c.a aVar = new com.bytedance.pangle.c.a(file, a2);
-                            IOException e = null;
-                            try {
-                                a(pluginClassLoader, a2, aVar.a(pluginContext, str2, false));
-                            } catch (IOException e2) {
-                                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDexFailed to install extracted secondary dex files, retrying with forced extraction", e2);
-                                a(pluginClassLoader, a2, aVar.a(pluginContext, str2, true));
-                            }
-                            try {
-                                aVar.close();
-                            } catch (IOException e3) {
-                                e = e3;
-                            }
-                            if (e != null) {
-                                throw e;
-                            }
-                        }
-                    } catch (RuntimeException e4) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e4);
-                    }
-                }
-            }
-        }
-    }
-
-    /* renamed from: com.bytedance.pangle.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C0263b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(ClassLoader classLoader, List<? extends File> list, File file) {
-            IOException[] iOExceptionArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65536, null, classLoader, list, file) == null) {
-                Object obj = b.b(classLoader, "pathList").get(classLoader);
-                ArrayList arrayList = new ArrayList();
-                b.a(obj, "dexElements", a(obj, new ArrayList(list), file, arrayList));
-                if (arrayList.size() > 0) {
-                    Iterator it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Exception in makeDexElement", (IOException) it.next());
-                    }
-                    Field b = b.b(obj, "dexElementsSuppressedExceptions");
-                    IOException[] iOExceptionArr2 = (IOException[]) b.get(obj);
-                    if (iOExceptionArr2 == null) {
-                        iOExceptionArr = (IOException[]) arrayList.toArray(new IOException[arrayList.size()]);
-                    } else {
-                        IOException[] iOExceptionArr3 = new IOException[arrayList.size() + iOExceptionArr2.length];
-                        arrayList.toArray(iOExceptionArr3);
-                        System.arraycopy(iOExceptionArr2, 0, iOExceptionArr3, arrayList.size(), iOExceptionArr2.length);
-                        iOExceptionArr = iOExceptionArr3;
-                    }
-                    b.set(obj, iOExceptionArr);
-                    IOException iOException = new IOException("I/O exception during makeDexElement");
-                    iOException.initCause((Throwable) arrayList.get(0));
-                    throw iOException;
-                }
-            }
-        }
-
-        public static Object[] a(Object obj, ArrayList<File> arrayList, File file, ArrayList<IOException> arrayList2) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, obj, arrayList, file, arrayList2)) == null) ? (Object[]) b.b(obj, "makeDexElements", ArrayList.class, File.class, ArrayList.class).invoke(obj, arrayList, file, arrayList2) : (Object[]) invokeLLLL.objValue;
-        }
-    }
-
-    public static ApplicationInfo a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, str) == null) {
+            ZipFile zipFile2 = null;
+            LinkedList<ZipEntry> linkedList = null;
             try {
-                return context.getApplicationInfo();
-            } catch (RuntimeException e) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDexFailure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e);
-                return null;
+                zipFile = new ZipFile(file);
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                Map<String, List<ZipEntry>> a2 = a(zipFile);
+                boolean containsKey = a2.containsKey(a);
+                ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper copyNativeLib pre-verify-matchHostAbi[" + containsKey + "], pkg=" + str);
+                if (containsKey) {
+                    if (!a2.isEmpty()) {
+                        linkedList = new LinkedList();
+                        HashSet hashSet = new HashSet();
+                        String str2 = a != null ? a : b;
+                        char c2 = 65535;
+                        switch (str2.hashCode()) {
+                            case -1073971299:
+                                if (str2.equals("mips64")) {
+                                    c2 = 5;
+                                    break;
+                                }
+                                break;
+                            case -806050265:
+                                if (str2.equals("x86_64")) {
+                                    c2 = 3;
+                                    break;
+                                }
+                                break;
+                            case -738963905:
+                                if (str2.equals("armeabi")) {
+                                    c2 = 2;
+                                    break;
+                                }
+                                break;
+                            case 117110:
+                                if (str2.equals("x86")) {
+                                    c2 = 4;
+                                    break;
+                                }
+                                break;
+                            case 3351711:
+                                if (str2.equals("mips")) {
+                                    c2 = 6;
+                                    break;
+                                }
+                                break;
+                            case 145444210:
+                                if (str2.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A)) {
+                                    c2 = 1;
+                                    break;
+                                }
+                                break;
+                            case 1431565292:
+                                if (str2.equals("arm64-v8a")) {
+                                    c2 = 0;
+                                    break;
+                                }
+                                break;
+                        }
+                        switch (c2) {
+                            case 0:
+                                a(a2, "arm64-v8a", linkedList, hashSet);
+                                break;
+                            case 1:
+                                a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
+                                a(a2, "armeabi", linkedList, hashSet);
+                                break;
+                            case 2:
+                                a(a2, "armeabi", linkedList, hashSet);
+                                break;
+                            case 3:
+                                a(a2, "x86_64", linkedList, hashSet);
+                                if (linkedList.size() == 0) {
+                                    a(a2, "arm64-v8a", linkedList, hashSet);
+                                    break;
+                                }
+                                break;
+                            case 4:
+                                a(a2, "x86", linkedList, hashSet);
+                                if (linkedList.size() == 0) {
+                                    a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
+                                    a(a2, "armeabi", linkedList, hashSet);
+                                    break;
+                                }
+                                break;
+                            case 5:
+                                a(a2, "mips64", linkedList, hashSet);
+                                break;
+                            case 6:
+                                a(a2, "mips", linkedList, hashSet);
+                                break;
+                        }
+                    }
+                    if (linkedList != null && !linkedList.isEmpty()) {
+                        if (!file2.exists()) {
+                            file2.mkdirs();
+                        }
+                        for (ZipEntry zipEntry : linkedList) {
+                            a(zipFile, zipEntry, file2);
+                        }
+                    }
+                    ZeusLogger.i(ZeusLogger.TAG_INSTALL, "NativeLibHelper copyNativeLib, supportedSoEntries empty, pkg=".concat(String.valueOf(str)));
+                    zipFile.close();
+                    return;
+                }
+                zipFile.close();
+            } catch (Throwable th2) {
+                th = th2;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    zipFile2.close();
+                }
+                throw th;
             }
         }
-        return (ApplicationInfo) invokeL.objValue;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            boolean z = false;
-            if (str != null) {
-                Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
-                if (matcher.matches()) {
-                    try {
-                        int parseInt = Integer.parseInt(matcher.group(1));
-                        int parseInt2 = Integer.parseInt(matcher.group(2));
-                        if (parseInt > 2 || (parseInt == 2 && parseInt2 > 0)) {
-                            z = true;
-                        }
-                    } catch (NumberFormatException unused) {
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.get(a()).intValue() : invokeV.intValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            JSONObject d = d();
+            String a2 = a(d);
+            return a2 == null ? b(d) : a2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("primaryCpuAbi", "0");
+                jSONObject.put("processMode", "0");
+                jSONObject.put("supportedABI0", "0");
+                jSONObject.put("matchCpuAbi", "0");
+                jSONObject.put("defaultABI0", "0");
+                jSONObject.put("defaultABI", "0");
+                jSONObject.put("autoError", "0");
+                jSONObject.put("manualError", "0");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static String b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        HashSet hashSet;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
+            try {
+                ZipFile zipFile = new ZipFile(new File(Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 0).applicationInfo.sourceDir));
+                hashSet = new HashSet(a(zipFile).keySet());
+                try {
+                    zipFile.close();
+                } catch (IOException unused) {
+                    ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiManual, close sourceApkZipFile error!");
+                }
+                strArr = h.a() ? Build.SUPPORTED_ABIS : new String[]{Build.CPU_ABI, Build.CPU_ABI2};
+            } catch (Throwable th) {
+                ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiManual failed!", th);
+                a(jSONObject, "manualError", "1");
+            }
+            if (hashSet.isEmpty()) {
+                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiManual, host source apk .so is empty, use supportedABIs[0]=" + strArr[0]);
+                a(jSONObject, "supportedABI0", strArr[0]);
+                return strArr[0];
+            }
+            for (String str : strArr) {
+                if (hashSet.contains(str)) {
+                    ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiManual, match cpuAbi=".concat(String.valueOf(str)));
+                    a(jSONObject, "matchCpuAbi", str);
+                    return str;
                 }
             }
-            StringBuilder sb = new StringBuilder("PluginMultiDex VM with version ");
-            sb.append(str);
-            sb.append(z ? " has multidex support" : " does not have multidex support");
-            ZeusLogger.i(ZeusLogger.TAG_LOAD, sb.toString());
-            return z;
+            if (h.a()) {
+                a(jSONObject, "defaultABI0", Build.SUPPORTED_ABIS[0]);
+                return Build.SUPPORTED_ABIS[0];
+            }
+            a(jSONObject, "defaultABI", Build.CPU_ABI);
+            return Build.CPU_ABI;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(File file) {
+        InterceptResult invokeL;
+        ZipFile zipFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, file)) == null) {
+            ZipFile zipFile2 = null;
+            try {
+                try {
+                    zipFile = new ZipFile(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException e) {
+                e = e;
+            }
+            try {
+                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                Pattern compile = Pattern.compile("^lib/[^/]+/lib[^/]+.so$");
+                while (entries.hasMoreElements()) {
+                    ZipEntry nextElement = entries.nextElement();
+                    if (!nextElement.isDirectory() && compile.matcher(nextElement.getName()).matches()) {
+                        try {
+                            zipFile.close();
+                            return true;
+                        } catch (IOException unused) {
+                            ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, close sourceApkZipFile error!");
+                            return true;
+                        }
+                    }
+                }
+                try {
+                    zipFile.close();
+                } catch (IOException unused2) {
+                    ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, close sourceApkZipFile error!");
+                }
+                return false;
+            } catch (IOException e2) {
+                e = e2;
+                zipFile2 = zipFile;
+                ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, get sourceApk ZipFile failed!", e);
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException unused3) {
+                        ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, close sourceApkZipFile error!");
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException unused4) {
+                        ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, close sourceApkZipFile error!");
+                    }
+                }
+                throw th;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    public static void a(ClassLoader classLoader, File file, List<? extends File> list) {
+    public static Map<String, List<ZipEntry>> a(ZipFile zipFile) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, classLoader, file, list) == null) || list.isEmpty()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zipFile)) == null) {
+            HashMap hashMap = new HashMap();
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            Pattern compile = Pattern.compile("^lib/[^/]+/lib[^/]+.so$");
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                if (!nextElement.isDirectory() && !nextElement.getName().contains("../") && compile.matcher(nextElement.getName()).matches() && (split = nextElement.getName().split(File.separator)) != null && split.length >= 2) {
+                    String str = split[split.length - 2];
+                    if (c.containsKey(str)) {
+                        if (hashMap.get(str) == null) {
+                            hashMap.put(str, new LinkedList());
+                        }
+                        ((List) hashMap.get(str)).add(nextElement);
+                    }
+                }
+            }
+            ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper getAllSoZipEntries, zipFile=" + zipFile.getName() + ", soEntries=" + hashMap.toString());
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static void a(Map<String, List<ZipEntry>> map, String str, List<ZipEntry> list, Set<String> set) {
+        List<ZipEntry> list2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65541, null, map, str, list, set) == null) || (list2 = map.get(str)) == null || list2.size() == 0) {
             return;
         }
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
-            C0263b.a(classLoader, list, file);
-        } else if (i >= 14) {
-            a.a(classLoader, list);
-        } else {
-            c.a(classLoader, list);
+        for (ZipEntry zipEntry : list2) {
+            String substring = zipEntry.getName().substring(zipEntry.getName().lastIndexOf(File.separator) + 1);
+            if (!set.contains(substring)) {
+                list.add(zipEntry);
+                set.add(substring);
+            }
         }
     }
 
-    public static File a(Context context, File file, String str) {
-        InterceptResult invokeLLL;
+    public static void a(ZipFile zipFile, ZipEntry zipEntry, File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, file, str)) == null) {
-            File file2 = new File(file, MultiDex.CODE_CACHE_NAME);
+        if (interceptable == null || interceptable.invokeLLL(65542, null, zipFile, zipEntry, file) == null) {
+            File file2 = new File(file, zipEntry.getName().substring(zipEntry.getName().lastIndexOf(File.separator) + 1));
+            int i = 0;
+            boolean z = false;
+            do {
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                try {
+                    ZeusLogger.i(ZeusLogger.TAG_INSTALL, "NativeLibHelper copySoZipEntry, soZipEntry=" + zipEntry + ", targetSoFile=" + file2);
+                    g.a(zipFile.getInputStream(zipEntry), new FileOutputStream(file2));
+                    z = true;
+                    continue;
+                } catch (IOException e) {
+                    if (i >= 3) {
+                        throw e;
+                    }
+                    i++;
+                    continue;
+                }
+            } while (!z);
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = a;
+            if (str != null) {
+                return str;
+            }
+            String c2 = c();
+            a = c2;
+            return c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (h.a()) {
+                try {
+                    String str = (String) FieldUtils.readField(Zeus.getAppApplication().getApplicationInfo(), "primaryCpuAbi");
+                    ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, primaryCpuAbi=".concat(String.valueOf(str)));
+                    a(jSONObject, "primaryCpuAbi", str);
+                    if (str != null) {
+                        int i = 0;
+                        if (Build.VERSION.SDK_INT >= 23) {
+                            try {
+                                i = Process.is64Bit() ? 64 : 32;
+                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode=".concat(String.valueOf(i)));
+                            } catch (Exception unused) {
+                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode exception default=".concat(String.valueOf(i)));
+                            }
+                        } else {
+                            ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode default=0");
+                        }
+                        a(jSONObject, "processMode", String.valueOf(i));
+                        if (i != 0) {
+                            if (c.get(str).intValue() == i) {
+                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto2, sHostAbi=".concat(String.valueOf(str)));
+                                return str;
+                            }
+                            return null;
+                        }
+                        ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto1, sHostAbi=".concat(String.valueOf(str)));
+                        return str;
+                    }
+                    return null;
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto failed!", e);
+                    a(jSONObject, "autoError", "1");
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean a(File file) {
+        InterceptResult invokeL;
+        ZipFile zipFile;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, file)) == null) {
+            ZipFile zipFile2 = null;
             try {
-                a(file2);
-            } catch (IOException unused) {
-                file2 = new File(context.getFilesDir(), MultiDex.CODE_CACHE_NAME);
-                a(file2);
+                try {
+                    zipFile = new ZipFile(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException e) {
+                e = e;
             }
-            File file3 = new File(file2, str);
-            a(file3);
-            return file3;
+            try {
+                Map<String, List<ZipEntry>> a2 = a(zipFile);
+                if (a2.isEmpty()) {
+                    containsKey = true;
+                    ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi [true] soEntries empty, ".concat(String.valueOf(file)));
+                } else {
+                    containsKey = a2.containsKey(a);
+                    if (containsKey) {
+                        ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi [" + containsKey + "], " + file);
+                    } else {
+                        ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi [" + containsKey + "], " + file);
+                    }
+                }
+                try {
+                    zipFile.close();
+                } catch (IOException unused) {
+                    ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi, close sourceApkZipFile error!");
+                }
+                return containsKey;
+            } catch (IOException e2) {
+                e = e2;
+                zipFile2 = zipFile;
+                ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi, get sourceApk ZipFile failed!", e);
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                        return false;
+                    } catch (IOException unused2) {
+                        ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi, close sourceApkZipFile error!");
+                        return false;
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException unused3) {
+                        ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi, close sourceApkZipFile error!");
+                    }
+                }
+                throw th;
+            }
         }
-        return (File) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void a(File file) {
+    public static void a(JSONObject jSONObject, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, file) == null) {
-            file.mkdir();
-            if (file.isDirectory()) {
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, jSONObject, str, str2) == null) {
+            try {
+                jSONObject.put(str, str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            File parentFile = file.getParentFile();
-            if (parentFile == null) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to create dir " + file.getPath() + ". Parent file is null.");
-            } else {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed to create dir " + file.getPath() + ". parent file is a dir " + parentFile.isDirectory() + ", a file " + parentFile.isFile() + ", exists " + parentFile.exists() + ", readable " + parentFile.canRead() + ", writable " + parentFile.canWrite());
-            }
-            throw new IOException("Failed to create directory " + file.getPath());
         }
-    }
-
-    public static /* synthetic */ void a(Object obj, String str, Object[] objArr) {
-        Field b2 = b(obj, str);
-        Object[] objArr2 = (Object[]) b2.get(obj);
-        Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-        System.arraycopy(objArr2, 0, objArr3, 0, objArr2.length);
-        System.arraycopy(objArr, 0, objArr3, objArr2.length, objArr.length);
-        b2.set(obj, objArr3);
     }
 }

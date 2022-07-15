@@ -66,8 +66,8 @@ public abstract class DispatchedTask<T> extends Task {
 
     @Override // java.lang.Runnable
     public final void run() {
-        Object m693constructorimpl;
-        Object m693constructorimpl2;
+        Object m1636constructorimpl;
+        Object m1636constructorimpl2;
         TaskContext taskContext = this.taskContext;
         try {
             Continuation<T> delegate$kotlinx_coroutines_core = getDelegate$kotlinx_coroutines_core();
@@ -86,26 +86,26 @@ public abstract class DispatchedTask<T> extends Task {
                     if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                         cancellationException = StackTraceRecoveryKt.access$recoverFromStackFrame(cancellationException, (CoroutineStackFrame) continuation);
                     }
-                    continuation.resumeWith(Result.m693constructorimpl(ResultKt.createFailure(cancellationException)));
+                    continuation.resumeWith(Result.m1636constructorimpl(ResultKt.createFailure(cancellationException)));
                 } else if (exceptionalResult$kotlinx_coroutines_core != null) {
                     Result.Companion companion2 = Result.Companion;
-                    continuation.resumeWith(Result.m693constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core)));
+                    continuation.resumeWith(Result.m1636constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core)));
                 } else {
                     T successfulResult$kotlinx_coroutines_core = getSuccessfulResult$kotlinx_coroutines_core(takeState$kotlinx_coroutines_core);
                     Result.Companion companion3 = Result.Companion;
-                    continuation.resumeWith(Result.m693constructorimpl(successfulResult$kotlinx_coroutines_core));
+                    continuation.resumeWith(Result.m1636constructorimpl(successfulResult$kotlinx_coroutines_core));
                 }
                 Unit unit = Unit.INSTANCE;
                 ThreadContextKt.restoreThreadContext(context, updateThreadContext);
                 try {
                     Result.Companion companion4 = Result.Companion;
                     taskContext.afterTask();
-                    m693constructorimpl2 = Result.m693constructorimpl(Unit.INSTANCE);
+                    m1636constructorimpl2 = Result.m1636constructorimpl(Unit.INSTANCE);
                 } catch (Throwable th) {
                     Result.Companion companion5 = Result.Companion;
-                    m693constructorimpl2 = Result.m693constructorimpl(ResultKt.createFailure(th));
+                    m1636constructorimpl2 = Result.m1636constructorimpl(ResultKt.createFailure(th));
                 }
-                handleFatalException$kotlinx_coroutines_core(null, Result.m696exceptionOrNullimpl(m693constructorimpl2));
+                handleFatalException$kotlinx_coroutines_core(null, Result.m1639exceptionOrNullimpl(m1636constructorimpl2));
                 return;
             }
             throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.DispatchedContinuation<T>");
@@ -113,12 +113,12 @@ public abstract class DispatchedTask<T> extends Task {
             try {
                 Result.Companion companion6 = Result.Companion;
                 taskContext.afterTask();
-                m693constructorimpl = Result.m693constructorimpl(Unit.INSTANCE);
+                m1636constructorimpl = Result.m1636constructorimpl(Unit.INSTANCE);
             } catch (Throwable th3) {
                 Result.Companion companion7 = Result.Companion;
-                m693constructorimpl = Result.m693constructorimpl(ResultKt.createFailure(th3));
+                m1636constructorimpl = Result.m1636constructorimpl(ResultKt.createFailure(th3));
             }
-            handleFatalException$kotlinx_coroutines_core(th2, Result.m696exceptionOrNullimpl(m693constructorimpl));
+            handleFatalException$kotlinx_coroutines_core(th2, Result.m1639exceptionOrNullimpl(m1636constructorimpl));
         }
     }
 

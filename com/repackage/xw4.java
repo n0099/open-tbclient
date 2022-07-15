@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +9,8 @@ import org.json.JSONObject;
 public class xw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public int b;
 
     public xw4() {
         Interceptable interceptable = $ic;
@@ -28,16 +28,14 @@ public class xw4 {
 
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        jSONObject.optInt("offline");
-        jSONObject.optString("title");
-        String optString = jSONObject.optString("link");
-        this.a = optString;
-        if (TextUtils.isEmpty(optString)) {
-            return;
+        try {
+            this.a = jSONObject.optInt("logined");
+            this.b = jSONObject.optInt("unlogin");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.a = this.a.replaceFirst("webview:", "http://");
     }
 }

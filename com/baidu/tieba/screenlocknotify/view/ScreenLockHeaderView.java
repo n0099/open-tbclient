@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.xa8;
+import com.repackage.sb8;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScreenLockHeaderView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public xa8 h;
+    public sb8 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -55,20 +55,20 @@ public class ScreenLockHeaderView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0725, (ViewGroup) this, true);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090a86);
-        this.b = findViewById(R.id.obfuscated_res_0x7f090a85);
-        this.c = findViewById(R.id.obfuscated_res_0x7f091417);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091165);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b9);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092250);
-        this.g = findViewById(R.id.obfuscated_res_0x7f09120f);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0742, (ViewGroup) this, true);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090a8e);
+        this.b = findViewById(R.id.obfuscated_res_0x7f090a8d);
+        this.c = findViewById(R.id.obfuscated_res_0x7f0914bf);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091206);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091662);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f6);
+        this.g = findViewById(R.id.obfuscated_res_0x7f0912b0);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f081094);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081013);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091be7);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091be8);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091be6);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c86);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c87);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091c85);
         this.k.setVisibility(8);
     }
 
@@ -103,21 +103,21 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(xa8 xa8Var) {
+    public void d(sb8 sb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xa8Var) == null) {
-            this.h = xa8Var;
-            this.a.setText(xa8Var.a);
-            this.d.setText(a(xa8Var.l));
-            this.e.setText(xa8Var.e);
-            this.f.setText(b(xa8Var.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, sb8Var) == null) {
+            this.h = sb8Var;
+            this.a.setText(sb8Var.a);
+            this.d.setText(a(sb8Var.l));
+            this.e.setText(sb8Var.e);
+            this.f.setText(b(sb8Var.i));
         }
     }
 
-    public xa8 getData() {
+    public sb8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (xa8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (sb8) invokeV.objValue;
     }
 
     public View getEditText() {

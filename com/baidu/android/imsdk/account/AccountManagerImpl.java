@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i60;
+import com.repackage.j60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -180,7 +180,7 @@ public class AccountManagerImpl {
                 this.mToken = str2;
                 Utility.writeAccessToken(mContext, str2);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
                 } catch (Exception e) {
                     Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
@@ -211,7 +211,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (i60.e) {
+                    if (j60.e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i, str, str2, str3, str4, iLoginListener);
                         return;
@@ -326,10 +326,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             try {
-                Intent intent = new Intent(mContext, i60.class);
+                Intent intent = new Intent(mContext, j60.class);
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setPackage(mContext.getPackageName());
-                i60.g(context).f(mContext, intent);
+                j60.g(context).f(mContext, intent);
             } catch (Exception unused) {
                 LogUtils.e(TAG, "tryConnection failed......");
             }
@@ -373,7 +373,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!i60.e) {
+            if (!j60.e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -407,11 +407,11 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                Intent intent = new Intent(mContext, i60.class);
+                Intent intent = new Intent(mContext, j60.class);
                 intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
                 intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
                 intent.setPackage(mContext.getPackageName());
-                i60.g(mContext).f(mContext, intent);
+                j60.g(mContext).f(mContext, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "disconnect", e);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -831,7 +831,7 @@ public class AccountManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
                 try {
-                    i60.g(mContext).f(mContext, creatMethodIntent);
+                    j60.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
@@ -884,7 +884,7 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!i60.e) {
+                if (!j60.e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {
@@ -1205,10 +1205,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             try {
-                Intent intent = new Intent(mContext, i60.class);
+                Intent intent = new Intent(mContext, j60.class);
                 intent.setPackage(mContext.getPackageName());
                 intent.setAction(Constants.ACTION_STOP);
-                i60.g(mContext).f(mContext, intent);
+                j60.g(mContext).f(mContext, intent);
                 return true;
             } catch (Exception unused) {
                 LogUtils.e(TAG, "Stop Service SecurityException");

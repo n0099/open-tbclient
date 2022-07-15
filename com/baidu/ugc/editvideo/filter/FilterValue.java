@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.r89;
+import com.repackage.q99;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -122,7 +122,7 @@ public class FilterValue implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (r89.a(str)) {
+            if (q99.a(str)) {
                 return null;
             }
             try {

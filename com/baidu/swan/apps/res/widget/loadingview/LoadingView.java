@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz2;
-import com.repackage.cu2;
-import com.repackage.g53;
-import com.repackage.tt2;
-import com.repackage.zi2;
+import com.repackage.iu2;
+import com.repackage.oj2;
+import com.repackage.qz2;
+import com.repackage.ru2;
+import com.repackage.v53;
 /* loaded from: classes2.dex */
-public class LoadingView extends FrameLayout implements bz2<LoadingView> {
+public class LoadingView extends FrameLayout implements qz2<LoadingView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -30,7 +30,7 @@ public class LoadingView extends FrameLayout implements bz2<LoadingView> {
     public TextView c;
 
     /* loaded from: classes2.dex */
-    public class a implements g53 {
+    public class a implements v53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingView a;
@@ -78,21 +78,21 @@ public class LoadingView extends FrameLayout implements bz2<LoadingView> {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View d = tt2.e() ? cu2.a().d(R.layout.obfuscated_res_0x7f0d00b6) : null;
+            View d = iu2.e() ? ru2.a().d(R.layout.obfuscated_res_0x7f0d00b6) : null;
             if (d != null) {
-                addView(d, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063a)));
+                addView(d, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070699)));
             } else {
                 LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b6, (ViewGroup) this, true);
             }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091ac5);
-            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0912ca);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c2);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b64);
+            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091370);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091468);
             setPageResources();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bz2
+    @Override // com.repackage.qz2
     public LoadingView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LoadingView extends FrameLayout implements bz2<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            zi2.M().f(this, new a(this));
+            oj2.M().f(this, new a(this));
         }
     }
 
@@ -113,7 +113,7 @@ public class LoadingView extends FrameLayout implements bz2<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            zi2.M().g(this);
+            oj2.M().g(this);
         }
     }
 
@@ -137,7 +137,7 @@ public class LoadingView extends FrameLayout implements bz2<LoadingView> {
             }
             TextView textView = this.c;
             if (textView != null) {
-                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0603bc));
+                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0603bf));
             }
         }
     }

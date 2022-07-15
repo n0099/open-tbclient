@@ -1,25 +1,26 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
-import org.webrtc.VideoDecoder;
-import org.webrtc.VideoDecoderFactory;
-/* compiled from: VideoDecoderFactory.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractQueue;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class su9 {
+public abstract class su9<E> extends AbstractQueue<E> implements tu9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    @Deprecated
-    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
-        InterceptResult invokeLL;
+    public su9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
-            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (VideoDecoder) invokeLL.objValue;
     }
 }

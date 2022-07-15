@@ -1,363 +1,120 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Rect;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pe5;
-import java.io.IOException;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class ve5 {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static PostWriteCallBackData a;
+    @Nullable
+    public static fy4 b;
+    @Nullable
+    public static WriteData c;
+    @Nullable
+    public static AntiData d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qe5 a;
-    public final BitmapRegionDecoder b;
-    public dg<pe5.a, pe5> c;
-    public eg<pe5> d;
-    public final ThreadPoolExecutor e;
-    public BdAsyncTask<Void, Void, Void> f;
 
-    /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ve5 a;
-
-        public a(ve5 ve5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ve5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ve5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void[] voidArr) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                try {
-                    this.a.e.shutdownNow();
-                    this.a.e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (this.a.b != null) {
-                    this.a.b.recycle();
-                    return null;
-                }
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
                 return null;
             }
-            return (Void) invokeL.objValue;
+            int indexOf = str.indexOf("(");
+            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
+                return null;
+            }
+            return str.substring(i, indexOf2);
         }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements RejectedExecutionHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(ve5 ve5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ve5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
+            return str.equals("4") || str.equals("5");
         }
-
-        @Override // java.util.concurrent.RejectedExecutionHandler
-        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
-            }
-        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class c extends dg<pe5.a, pe5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ve5 h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ve5 ve5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ve5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean c(int i, int i2, @Nullable Intent intent) {
+        InterceptResult invokeIIL;
+        PostWriteCallBackData postWriteCallBackData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
+            if (i != 12006) {
+                return false;
             }
-            this.h = ve5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dg
-        /* renamed from: o */
-        public void b(boolean z, pe5.a aVar, pe5 pe5Var, pe5 pe5Var2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), aVar, pe5Var, pe5Var2}) == null) || !z || this.h.d == null || pe5Var == null) {
-                return;
-            }
-            pe5Var.a();
-            this.h.d.e(pe5Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dg
-        /* renamed from: p */
-        public int m(pe5.a aVar, pe5 pe5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aVar, pe5Var)) == null) {
-                if (pe5Var == null) {
-                    return 0;
-                }
-                return BitmapHelper.getBitmapSize(pe5Var.b());
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public qe5 d;
-        public BitmapRegionDecoder e;
-        public dg<pe5.a, pe5> f;
-        public re5 g;
-        public ve5 h;
-
-        public d(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-        }
-
-        public final void b(ve5 ve5Var, qe5 qe5Var, BitmapRegionDecoder bitmapRegionDecoder, dg<pe5.a, pe5> dgVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, ve5Var, qe5Var, bitmapRegionDecoder, dgVar) == null) {
-                this.d = qe5Var;
-                this.e = bitmapRegionDecoder;
-                this.f = dgVar;
-                this.h = ve5Var;
-            }
-        }
-
-        public final boolean c(Rect rect) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) ? rect.right <= rect.left || rect.bottom <= rect.top : invokeL.booleanValue;
-        }
-
-        public void d(re5 re5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, re5Var) == null) {
-                this.g = re5Var;
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            pe5 c;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f != null && this.d.b(this.a, this.b, this.c)) {
-                Rect j = this.d.j(this.a, this.b, this.c);
-                this.d.a(j);
-                if (c(j)) {
-                    return;
-                }
+            boolean z = i2 == -1 && intent != null;
+            if (a != null && b != null && c != null && d != null && z) {
                 try {
-                    c = this.h.f().b();
-                    if (c != null) {
-                        if (!c.g(j)) {
-                            System.currentTimeMillis();
-                            c.a();
-                        }
-                    } else {
-                        c = this.d.c();
-                    }
-                } catch (Throwable unused) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    dg<pe5.a, pe5> dgVar = this.f;
-                    dgVar.k((int) (dgVar.g() * 0.8d));
-                    System.gc();
-                    try {
-                        c = this.d.c();
-                    } catch (Throwable unused2) {
-                        return;
-                    }
+                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    postWriteCallBackData = null;
                 }
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = this.c;
-                options.inBitmap = c.b();
-                options.inMutable = true;
-                System.currentTimeMillis();
-                Bitmap decodeRegion = this.e.decodeRegion(j, options);
-                if (decodeRegion == null) {
-                    options.inBitmap = null;
-                    decodeRegion = this.e.decodeRegion(j, options);
-                    if (decodeRegion == null) {
-                        return;
-                    }
+                if (postWriteCallBackData == null) {
+                    return false;
                 }
-                decodeRegion.prepareToDraw();
-                c.h(decodeRegion);
-                c.j(this.a, this.b, this.c);
-                this.f.h(c.d(), c);
-                re5 re5Var = this.g;
-                if (re5Var != null) {
-                    re5Var.onLoadFinished();
+                kk8.k().h(true, postWriteCallBackData, b, c, d);
+            } else {
+                kk8.k().h(false, a, null, c, d);
+            }
+            a = null;
+            b = null;
+            c = null;
+            d = null;
+            return true;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable fy4 fy4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, fy4Var, writeData, antiData)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            boolean z = (currentActivity == null || writeData == null || fy4Var == null || TextUtils.isEmpty(fy4Var.c())) ? false : true;
+            if (z) {
+                a = postWriteCallBackData;
+                b = fy4Var;
+                c = writeData;
+                d = antiData;
+                writeData.setVcodeMD5(fy4Var.b());
+                writeData.setVcodeUrl(fy4Var.c());
+                writeData.setVcodeExtra(fy4Var.a());
+                if (b(fy4Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, fy4Var.d())));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }
             }
+            return z;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755234037, "Lcom/repackage/ve5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755234037, "Lcom/repackage/ve5;");
-        }
-    }
-
-    public ve5(qe5 qe5Var, BitmapRegionDecoder bitmapRegionDecoder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qe5Var, bitmapRegionDecoder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = qe5Var;
-        this.b = bitmapRegionDecoder;
-        j35.k().u((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
-        this.c = new c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        eg<pe5> p = j35.k().p(this.a.e());
-        this.d = p;
-        p.f(6);
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.e.purge();
-            if (z && this.f == null) {
-                a aVar = new a(this);
-                this.f = aVar;
-                aVar.execute(new Void[0]);
-            }
-        }
-    }
-
-    public dg<pe5.a, pe5> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (dg) invokeV.objValue;
-    }
-
-    public eg<pe5> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (eg) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d(true);
-            dg<pe5.a, pe5> dgVar = this.c;
-            if (dgVar != null) {
-                dgVar.k(0);
-                this.c.a();
-                this.c = null;
-            }
-            this.d = null;
-        }
-    }
-
-    public void h(d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) && dVar != null && this.f == null) {
-            dVar.b(this, this.a, this.b, e());
-            this.e.submit(dVar);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

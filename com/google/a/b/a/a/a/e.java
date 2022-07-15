@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yh9;
+import com.repackage.mj9;
 /* loaded from: classes4.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public static /* synthetic */ Interceptable $ic;
@@ -37,13 +37,13 @@ public abstract class e extends com.google.a.a.b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
             if (i == 1) {
-                a((Bundle) yh9.a(parcel, Bundle.CREATOR));
+                a((Bundle) mj9.a(parcel, Bundle.CREATOR));
             } else if (i == 2) {
-                b((Bundle) yh9.a(parcel, Bundle.CREATOR));
+                b((Bundle) mj9.a(parcel, Bundle.CREATOR));
             } else if (i != 3) {
                 return false;
             } else {
-                yh9.a(parcel, Bundle.CREATOR);
+                mj9.a(parcel, Bundle.CREATOR);
                 a();
             }
             return true;

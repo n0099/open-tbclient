@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.button.StyleHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class LoginShareStrategy {
@@ -33,7 +32,7 @@ public final class LoginShareStrategy {
                 return;
             }
         }
-        DISABLED = new LoginShareStrategy("DISABLED", 0, StyleHelper.KEY_ONDISABLE);
+        DISABLED = new LoginShareStrategy("DISABLED", 0, "disabled");
         LoginShareStrategy loginShareStrategy = new LoginShareStrategy("CHOICE", 1, "choice");
         CHOICE = loginShareStrategy;
         $VALUES = new LoginShareStrategy[]{DISABLED, loginShareStrategy};

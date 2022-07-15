@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ds6;
+import com.repackage.rs6;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ds6 channelTabRespData;
+    public rs6 channelTabRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomePageChannelTabHttpResponsedMessage() {
@@ -40,7 +40,7 @@ public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMes
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.channelTabRespData = new ds6();
+                this.channelTabRespData = new rs6();
                 Message<?> orginalMessage = getOrginalMessage();
                 if (orginalMessage instanceof HttpMessage) {
                     Object obj = ((HttpMessage) orginalMessage).getParams().get("tab_code");

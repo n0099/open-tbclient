@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ed6;
-import com.repackage.n45;
-import com.repackage.o45;
+import com.repackage.be6;
+import com.repackage.p55;
+import com.repackage.q55;
 /* loaded from: classes3.dex */
-public class FrsGameStrategyFragmentDelegateStatic extends n45 {
+public class FrsGameStrategyFragmentDelegateStatic extends p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,19 +54,19 @@ public class FrsGameStrategyFragmentDelegateStatic extends n45 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            o45 b;
+            q55 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ed6 ed6Var = (ed6) customResponsedMessage.getData();
+            be6 be6Var = (be6) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            ed6Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (ed6Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
+            be6Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (be6Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", ed6Var.d());
+            bundle.putString("name", be6Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
@@ -104,26 +104,26 @@ public class FrsGameStrategyFragmentDelegateStatic extends n45 {
         }
     }
 
-    @Override // com.repackage.n45
-    public o45 a() {
+    @Override // com.repackage.p55
+    public q55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o45 o45Var = new o45();
-            o45Var.a = new FrsGameStrategyMainFragment();
-            o45Var.e = 3;
-            o45Var.i = o45.k;
-            return o45Var;
+            q55 q55Var = new q55();
+            q55Var.a = new FrsGameStrategyMainFragment();
+            q55Var.e = 3;
+            q55Var.i = q55.k;
+            return q55Var;
         }
-        return (o45) invokeV.objValue;
+        return (q55) invokeV.objValue;
     }
 
-    @Override // com.repackage.n45
+    @Override // com.repackage.p55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e4, (ViewGroup) null);
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e6, (ViewGroup) null);
             this.b = fragmentTabIndicator;
             fragmentTabIndicator.setTextSize(2.0f);
             return this.b;
@@ -131,7 +131,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends n45 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.n45
+    @Override // com.repackage.p55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

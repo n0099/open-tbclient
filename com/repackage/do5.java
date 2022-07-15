@@ -1,79 +1,75 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class do5 extends an<io5, SdkDoubleLiveViewHolder> {
+public class do5 implements kk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public sp5 j;
-    public int k;
-    public boolean l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public do5(TbPageContext tbPageContext, int i, boolean z) {
-        super(tbPageContext.getPageActivity(), z ? io5.d : io5.c);
+    public do5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.kk2
+    public boolean a(Context context, String str, ac3 ac3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, ac3Var)) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
+            statisticItem.param("uid", sm5.l().p() == null ? "" : sm5.l().p());
+            statisticItem.param("obj_param1", ac3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, ac3Var.e());
+            TiebaStatic.log(statisticItem);
+            if (ac3Var.j() == 10 && ac3Var.h() == 1013) {
+                b(context, ac3Var);
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void b(Context context, ac3 ac3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ac3Var) == null) {
+            h03 b0 = h03.b0();
+            if (context == null || b0 == null) {
                 return;
             }
-        }
-        this.i = tbPageContext;
-        this.k = i;
-        this.l = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public SdkDoubleLiveViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.j = new sp5(this.i, viewGroup, this.k, this.l);
-            return new SdkDoubleLiveViewHolder(this.j);
-        }
-        return (SdkDoubleLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, io5 io5Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
-        InterceptResult invokeCommon;
-        sp5 sp5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, io5Var, sdkDoubleLiveViewHolder})) == null) {
-            if (sdkDoubleLiveViewHolder == null || (sp5Var = sdkDoubleLiveViewHolder.a) == null) {
-                return null;
+            String i = m93.i(ul2.U().M(), b0.Y().G());
+            long h = ac3Var.h();
+            String r = ac3Var.r();
+            if (!(1020 == h && !TextUtils.isEmpty(r))) {
+                r = dc4.b().a(h);
             }
-            sp5Var.i(io5Var);
-            sdkDoubleLiveViewHolder.a.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return sdkDoubleLiveViewHolder.b();
+            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + be3.D() + "/" + i + "/" + ac3Var.a());
+            forbiddenInfo.enableSlidingFlag = -1;
+            bl2.l(context, "type_need_update_sdk", ac3Var, forbiddenInfo, b0.Y().D());
         }
-        return (View) invokeCommon.objValue;
     }
 }

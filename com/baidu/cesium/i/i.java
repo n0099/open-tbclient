@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz;
-import com.repackage.nz;
+import com.repackage.lz;
+import com.repackage.pz;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class i {
@@ -84,8 +84,8 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] a2 = nz.a();
-            return new String(jz.c(a2, a2, bArr));
+            byte[] a2 = pz.a();
+            return new String(lz.c(a2, a2, bArr));
         }
         return (String) invokeL.objValue;
     }

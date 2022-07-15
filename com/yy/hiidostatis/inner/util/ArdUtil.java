@@ -28,6 +28,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.z;
+import com.kuaishou.weapon.p0.C0294;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.BufferedReader;
 import java.io.File;
@@ -269,7 +270,7 @@ public class ArdUtil {
             return str;
         }
         try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+            bufferedReader = new BufferedReader(new FileReader(C0294.f19));
             try {
                 String str2 = bufferedReader.readLine().split(":\\s+", 2)[1];
                 mCpuAbi = str2;
@@ -311,7 +312,7 @@ public class ArdUtil {
             return mCpuName;
         }
         try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+            bufferedReader = new BufferedReader(new FileReader(C0294.f19));
             try {
                 String str = bufferedReader.readLine().split(":\\s+", 2)[1];
                 mCpuName = str;
@@ -494,7 +495,7 @@ public class ArdUtil {
                 return str;
             }
             try {
-                if (checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+                if (checkPermissions(context, PermissionChecker.ACCESS_WIFI_STATE) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
@@ -571,7 +572,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream(z.b);
+                    fileInputStream = new FileInputStream("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -1129,7 +1130,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
-                if (!checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+                if (!checkPermissions(context, PermissionChecker.ACCESS_WIFI_STATE) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                     return null;
                 }
                 return wifiManager.getConnectionInfo();
@@ -1149,7 +1150,7 @@ public class ArdUtil {
             return (String) invokeL.objValue;
         }
         try {
-            if (!checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, PermissionChecker.ACCESS_WIFI_STATE) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();

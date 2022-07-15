@@ -456,7 +456,7 @@ public class ZeusPerformanceTiming {
                 jSONObject.putOpt(KEY_FORCE_INIT_ZEUS, Boolean.valueOf(isforceInitT7()));
                 jSONObject.putOpt(KEY_NEW_SYS_WEBVIEW, Long.valueOf(getRecordedTime(KEY_NEW_SYS_WEBVIEW)));
                 jSONObject.putOpt(KEY_INIT_SYS_WEBKIT, Long.valueOf(getRecordedTime(KEY_INIT_SYS_WEBKIT)));
-                jSONObject.putOpt(KEY_WEBVIEWCHROMIUM_CONSTRUCT, Long.valueOf(getRecordedTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT)));
+                jSONObject.putOpt("p0", Long.valueOf(getRecordedTime("p0")));
                 jSONObject.putOpt(KEY_BROWSER_STARTUP, Long.valueOf(getRecordedTime(KEY_BROWSER_STARTUP)));
                 jSONObject.putOpt("p2", Long.valueOf(getRecordedTime("p2")));
                 jSONObject.putOpt(KEY_WEBVIEW_ZWSETTINGS_CREATED, Long.valueOf(getRecordedTime(KEY_WEBVIEW_ZWSETTINGS_CREATED)));
@@ -465,7 +465,7 @@ public class ZeusPerformanceTiming {
                 jSONObject.putOpt(KEY_WEBVIEW_WAITING_RESOURCE, Long.valueOf(getRecordedTime(KEY_WEBVIEW_WAITING_RESOURCE)));
                 jSONObject.putOpt(KEY_WEBVIEWCHROMIUM_INIT, Long.valueOf(getRecordedTime(KEY_WEBVIEWCHROMIUM_INIT)));
                 jSONObject.putOpt(KEY_WEBVIEW_PROVIDER_INIT, Long.valueOf(getRecordedTime(KEY_WEBVIEW_PROVIDER_INIT)));
-                jSONObject.putOpt(KEY_WEBVIEWCHROMIUM_CONSTRUCT_THREAD, Long.valueOf(getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT)));
+                jSONObject.putOpt(KEY_WEBVIEWCHROMIUM_CONSTRUCT_THREAD, Long.valueOf(getRecordedThreadTime("p0")));
                 jSONObject.putOpt(KEY_BROWSER_STARTUP_THREAD, Long.valueOf(getRecordedThreadTime(KEY_BROWSER_STARTUP)));
                 jSONObject.putOpt(KEY_WEBVIEW_CONTENT_CLIENT_ADAPTER_CREATED_THREAD, Long.valueOf(getRecordedThreadTime("p2")));
                 jSONObject.putOpt(KEY_WEBVIEW_ZWSETTINGS_CREATED_THREAD, Long.valueOf(getRecordedThreadTime(KEY_WEBVIEW_ZWSETTINGS_CREATED)));
@@ -556,13 +556,13 @@ public class ZeusPerformanceTiming {
     public static long newWebViewThreadTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedThreadTime(KEY_BROWSER_STARTUP) + getRecordedThreadTime("p2") + getRecordedThreadTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedThreadTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getRecordedThreadTime("p0") + getRecordedThreadTime(KEY_BROWSER_STARTUP) + getRecordedThreadTime("p2") + getRecordedThreadTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedThreadTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
     }
 
     public static long newWebViewTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? getRecordedTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedTime(KEY_BROWSER_STARTUP) + getRecordedTime("p2") + getRecordedTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? getRecordedTime("p0") + getRecordedTime(KEY_BROWSER_STARTUP) + getRecordedTime("p2") + getRecordedTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
     }
 
     public static void record(Stage stage, String str) {

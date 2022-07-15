@@ -52,7 +52,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -140,7 +139,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                             return;
                         }
                         return;
-                    case w0.d3 /* 3007 */:
+                    case 3007:
                         this.aX.W = (DuMixOutput) message.obj;
                         if (this.aX.g != null) {
                             this.aX.g.changeOutput(this.aX.W);
@@ -908,7 +907,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         if (!(interceptable == null || interceptable.invokeL(1048586, this, duMixOutput) == null) || duMixOutput == null || (handler = this.aO) == null) {
             return;
         }
-        handler.sendMessage(handler.obtainMessage(w0.d3, duMixOutput));
+        handler.sendMessage(handler.obtainMessage(3007, duMixOutput));
     }
 
     @Override // com.baidu.ar.IDuMix

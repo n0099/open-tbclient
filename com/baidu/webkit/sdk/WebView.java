@@ -1978,13 +1978,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
                 } else {
                     ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_NEW_SYS_WEBVIEW);
                 }
-                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT);
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, "p0");
             }
             sEnforceThreadChecking = context.getApplicationInfo().targetSdkVersion >= 18;
             checkThread();
             ensureProviderCreated();
             if (!this.mIsPrivateInit) {
-                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT);
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, "p0");
                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_INIT);
             }
             this.mProvider.init(map, z);

@@ -1,109 +1,94 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class i81 {
+public class i81 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
+    public Context a;
+    public Handler b;
     public String c;
-    public String d;
-    public JSONObject e;
+    public ImageView d;
+    public int e;
+    public int f;
 
-    public i81(String str) {
+    public i81(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new JSONObject();
-        this.a = str;
-        this.b = System.currentTimeMillis();
-        this.c = w81.c();
+        this.a = context.getApplicationContext();
+        this.b = handler;
+        this.c = str;
+        this.d = imageView;
+        this.e = i;
+        this.f = i2;
     }
 
-    public i81 a(String str, Object obj) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Bitmap a(String str, int i, int i2) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
-                this.e.put(str, obj);
-            } catch (JSONException unused) {
+                bitmap = c81.b(this.a).c(str, i, i2);
+            } catch (IOException e) {
+                e = e;
+                bitmap = null;
             }
-            return this;
-        }
-        return (i81) invokeLL.objValue;
-    }
-
-    public i81 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (i81) invokeL.objValue;
-    }
-
-    public i81 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            this.e = jSONObject;
-            return this;
-        }
-        return (i81) invokeL.objValue;
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                u81.d("statistics action can not null");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("a", this.a);
-                jSONObject.put("t", this.b);
-                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
-                if (this.e != null) {
-                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.e);
-                } else if (!TextUtils.isEmpty(this.d)) {
-                    try {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.d));
-                    } catch (JSONException unused) {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.d);
-                    }
-                }
-            } catch (JSONException e) {
-                if (u81.d) {
-                    e.printStackTrace();
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                bitmap2 = bitmap;
+                if (bitmap2 != null) {
                 }
             }
-            return jSONObject;
+            if (bitmap != null) {
+                c81.c().a(str, bitmap);
+                return bitmap;
+            }
+            c81.b(this.a).a(str);
+            bitmap2 = c81.b(this.a).c(str, i, i2);
+            return bitmap2 != null ? f81.a(str) : bitmap2;
         }
-        return (JSONObject) invokeV.objValue;
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Bitmap a = a(this.c, this.e, this.f);
+            if (this.b != null) {
+                this.b.obtainMessage(1, new h81(this.d, this.c, a)).sendToTarget();
+            }
+        }
     }
 }

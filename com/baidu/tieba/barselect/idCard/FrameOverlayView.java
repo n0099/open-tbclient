@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zv5;
+import com.repackage.ww5;
 /* loaded from: classes3.dex */
 public class FrameOverlayView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -241,8 +241,8 @@ public class FrameOverlayView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.i = new GestureDetector(getContext(), this.a);
-            this.d = zv5.a(18);
-            this.e = zv5.a(3);
+            this.d = ww5.a(18);
+            this.e = ww5.a(3);
         }
     }
 
@@ -331,7 +331,7 @@ public class FrameOverlayView extends View {
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
             canvas.drawColor(this.f);
-            this.g.setStrokeWidth(zv5.a(1));
+            this.g.setStrokeWidth(ww5.a(1));
             canvas.drawRect(this.k, this.g);
             canvas.drawRect(this.k, this.h);
             b(canvas);

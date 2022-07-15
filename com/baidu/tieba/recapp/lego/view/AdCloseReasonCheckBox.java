@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.xf8;
+import com.repackage.sg8;
 /* loaded from: classes3.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
@@ -73,7 +73,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             this.c = gradientDrawable2;
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
-            this.c.setStroke(i2, xf8.a(SkinManager.getColor(i4), 0.5f));
+            this.c.setStroke(i2, sg8.a(SkinManager.getColor(i4), 0.5f));
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.d = stateListDrawable;
             stateListDrawable.addState(new int[]{-16842912}, this.b);

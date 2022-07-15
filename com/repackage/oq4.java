@@ -1,92 +1,180 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes6.dex */
 public class oq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public Activity b;
-    public View c;
+    public String a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public String g;
+    public int h;
+    public int i;
+    public String j;
 
-    public oq4(Activity activity) {
+    public oq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = activity;
     }
 
-    public void a() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
-            this.a.dismiss();
-        }
-    }
-
-    public int b() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 19 ? 5894 : 1280 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.longValue;
     }
 
-    public void c(View view2) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b + "";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (this.a == null) {
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.a = create;
-            create.requestWindowFeature(b());
+        try {
+            this.a = jSONObject.optString("forum_name");
+            this.b = jSONObject.optLong("forum_id");
+            this.c = jSONObject.optLong("task_id");
+            this.d = jSONObject.optLong("thread_id");
+            jSONObject.optString("bgimg");
+            this.e = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+            this.f = jSONObject.optLong("end_time");
+            this.g = jSONObject.optString("thread_img");
+            String optString = jSONObject.optString("thread_img_size");
+            if (optString != null && optString.length() > 0) {
+                String[] split = optString.split(",");
+                if (split.length > 1) {
+                    this.h = Integer.valueOf(split[0]).intValue();
+                    this.i = Integer.valueOf(split[1]).intValue();
+                }
+            }
+            if (this.h <= 0) {
+                this.h = 1;
+            }
+            if (this.i <= 0) {
+                this.i = 1;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
-        if (this.a.isShowing()) {
-            this.a.dismiss();
+    }
+
+    public void l(TaskInfo taskInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, taskInfo) == null) || taskInfo == null) {
+            return;
         }
-        this.a.setCancelable(true);
-        this.a.show();
-        Window window = this.a.getWindow();
-        window.getDecorView().setSystemUiVisibility(b());
-        window.addFlags(Integer.MIN_VALUE);
-        window.setStatusBarColor(0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -1;
-        window.setNavigationBarColor(0);
-        window.setAttributes(attributes);
-        window.setDimAmount(0.0f);
-        View view2 = this.c;
-        if (view2 != null) {
-            this.a.setContentView(view2);
+        this.a = taskInfo.forum_name;
+        this.b = taskInfo.forum_id.longValue();
+        Long l = taskInfo.task_id;
+        this.c = l != null ? l.longValue() : -1L;
+        Long l2 = taskInfo.thread_id;
+        this.d = l2 != null ? l2.longValue() : -1L;
+        String str = taskInfo.bgimg;
+        this.g = taskInfo.thread_img;
+        Long l3 = taskInfo.start_time;
+        this.e = l3 != null ? l3.longValue() : -1L;
+        Long l4 = taskInfo.end_time;
+        this.f = l4 != null ? l4.longValue() : -1L;
+        String str2 = taskInfo.thread_img_size;
+        if (str2 != null) {
+            try {
+                String[] split = str2.split(",");
+                this.h = ng.e(split[0], 1);
+                this.i = ng.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
+        if (this.h <= 0) {
+            this.h = 1;
+        }
+        if (this.i <= 0) {
+            this.i = 1;
+        }
+        this.j = taskInfo.obj_id;
     }
 }

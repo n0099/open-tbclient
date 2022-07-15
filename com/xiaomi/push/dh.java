@@ -14,7 +14,7 @@ public class dh extends ao.b {
     public ao.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ df f212a;
+    public final /* synthetic */ df f939a;
 
     public dh(df dfVar) {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class dh extends ao.b {
                 return;
             }
         }
-        this.f212a = dfVar;
+        this.f939a = dfVar;
     }
 
     @Override // com.xiaomi.push.ao.b
     public void b() {
         df.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (df.b) this.f212a.f200a.peek()) != null && bVar.a()) {
-            if (this.f212a.f200a.remove(bVar)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (df.b) this.f939a.f927a.peek()) != null && bVar.a()) {
+            if (this.f939a.f927a.remove(bVar)) {
                 this.a = bVar;
             }
             ao.b bVar2 = this.a;
@@ -51,12 +51,12 @@ public class dh extends ao.b {
 
     @Override // com.xiaomi.push.ao.b
     /* renamed from: c */
-    public void mo260c() {
+    public void mo1203c() {
         ao.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.a) == null) {
             return;
         }
-        bVar.mo260c();
+        bVar.mo1203c();
     }
 }

@@ -1,7 +1,8 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +12,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class xs3 {
+public class xs3 extends ms3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,10 +30,12 @@ public final class xs3 {
                 return;
             }
         }
-        b = cg1.a;
+        c = rg1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xs3() {
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,62 +43,38 @@ public final class xs3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static xs3 d(zr1 zr1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ms3
+    public hs1 a(@NonNull JSONObject jSONObject, @NonNull ld2 ld2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zr1Var)) == null) {
-            if (zr1Var == null) {
-                return null;
-            }
-            xs3 xs3Var = new xs3();
-            xs3Var.a = zt3.e(zr1Var);
-            return xs3Var;
-        }
-        return (xs3) invokeL.objValue;
-    }
-
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", ep3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ld2Var)) == null) {
+            h03 b0 = h03.b0();
+            if (b0 != null && b0.w() != null) {
+                try {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                    ld3.f(b0.w());
+                }
+                ld2Var.a(null);
+            } else {
+                ld2Var.onFail(100, "swan or activity is null");
+                if (c) {
+                    Log.d("StartAppUsagePage", "swan or activity is null");
                 }
             }
-            return jSONObject;
+            return null;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            zt3 zt3Var = this.a;
-            if (zt3Var != null) {
-                zt3Var.b(a);
-            }
-        }
-    }
-
-    public void c() {
-        zt3 zt3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (zt3Var = this.a) == null) {
-            return;
-        }
-        zt3Var.c();
+        return (hs1) invokeLL.objValue;
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cp8;
-import com.repackage.dp8;
+import com.repackage.yp8;
+import com.repackage.zp8;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class VideoConvertUtil {
@@ -29,7 +29,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public dp8 g;
+    public zp8 g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -172,7 +172,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = cp8.f;
+        String str = yp8.f;
     }
 
     public VideoConvertUtil(Context context) {
@@ -262,12 +262,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            dp8 dp8Var = this.g;
-            if (dp8Var != null) {
+            zp8 zp8Var = this.g;
+            if (zp8Var != null) {
                 if (i == 0) {
-                    dp8Var.b();
+                    zp8Var.b();
                 } else {
-                    dp8Var.a(i);
+                    zp8Var.a(i);
                 }
             }
         }
@@ -290,10 +290,10 @@ public class VideoConvertUtil {
         return invokeV.booleanValue;
     }
 
-    public void o(dp8 dp8Var) {
+    public void o(zp8 zp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dp8Var) == null) {
-            this.g = dp8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zp8Var) == null) {
+            this.g = zp8Var;
         }
     }
 }

@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.cn0;
-import com.repackage.dn0;
-import com.repackage.eg0;
-import com.repackage.jm0;
-import com.repackage.km0;
-import com.repackage.kx0;
-import com.repackage.mm0;
-import com.repackage.om0;
-import com.repackage.sm0;
-import com.repackage.um0;
+import com.repackage.bn0;
+import com.repackage.fn0;
+import com.repackage.hn0;
+import com.repackage.kg0;
+import com.repackage.mn0;
+import com.repackage.pn0;
+import com.repackage.qn0;
+import com.repackage.wm0;
+import com.repackage.xm0;
+import com.repackage.xx0;
 import com.repackage.zm0;
-import com.tachikoma.core.component.TKBase;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -44,26 +44,26 @@ public class AdBaseModel {
     @NonNull
     public final List<MonitorUrl> e;
     @NonNull
-    public final sm0 f;
+    public final fn0 f;
     @Nullable
-    public final jm0 g;
+    public final wm0 g;
     @Nullable
     public final AdOperator h;
     @Nullable
-    public final dn0 i;
+    public final qn0 i;
     @Nullable
-    public final zm0 j;
+    public final mn0 j;
     @Nullable
-    public final List<um0> k;
+    public final List<hn0> k;
     @Nullable
-    public final km0 l;
+    public final xm0 l;
     @Nullable
-    public om0 m;
+    public bn0 m;
     public int n;
     @NonNull
     public List<String> o;
-    public cn0 p;
-    public eg0 q;
+    public pn0 p;
+    public kg0 q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -104,8 +104,8 @@ public class AdBaseModel {
             FLOAT = new STYLE("FLOAT", 5, ShaderParams.VALUE_TYPE_FLOAT);
             REWARD_VIDEO_LP = new STYLE("REWARD_VIDEO_LP", 6, "reward_video_lp");
             REWARD_VIDEO_LP_IMPL = new STYLE("REWARD_VIDEO_LP_IMPL", 7, "reward_video_lp_impl");
-            MAX = new STYLE("MAX", 8, "max");
-            STYLE style = new STYLE("HIDDEN", 9, TKBase.VISIBILITY_HIDDEN);
+            MAX = new STYLE("MAX", 8, FunAdSdk.PLATFORM_MAX);
+            STYLE style = new STYLE("HIDDEN", 9, "hidden");
             HIDDEN = style;
             $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, FLOAT, REWARD_VIDEO_LP, REWARD_VIDEO_LP_IMPL, MAX, style};
         }
@@ -165,12 +165,12 @@ public class AdBaseModel {
         }
     }
 
-    public AdBaseModel(@NonNull sm0 sm0Var, @NonNull JSONObject jSONObject) throws ParseError {
+    public AdBaseModel(@NonNull fn0 fn0Var, @NonNull JSONObject jSONObject) throws ParseError {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sm0Var, jSONObject};
+            Object[] objArr = {fn0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -182,21 +182,21 @@ public class AdBaseModel {
         }
         this.e = new ArrayList();
         this.o = new ArrayList();
-        String str = sm0Var.b;
+        String str = fn0Var.b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
-        this.g = optJSONObject == null ? null : jm0.a(optJSONObject);
-        this.f = sm0Var;
-        this.j = zm0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
-        this.k = um0.a(jSONObject.optJSONArray("prefetch_video"));
-        this.l = km0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
-        this.m = om0.a(jSONObject.optJSONObject("enhance"));
-        mm0.a(jSONObject.optJSONObject("interaction"));
+        this.g = optJSONObject == null ? null : wm0.a(optJSONObject);
+        this.f = fn0Var;
+        this.j = mn0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+        this.k = hn0.a(jSONObject.optJSONArray("prefetch_video"));
+        this.l = xm0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
+        this.m = bn0.a(jSONObject.optJSONObject("enhance"));
+        zm0.a(jSONObject.optJSONObject("interaction"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         AdOperator a = optJSONObject2 == null ? null : AdOperator.a(optJSONObject2);
         this.h = a;
         this.d = a != null;
         JSONObject optJSONObject3 = jSONObject.optJSONObject("app_info");
-        dn0 c = optJSONObject3 == null ? null : dn0.c(optJSONObject3);
+        qn0 c = optJSONObject3 == null ? null : qn0.c(optJSONObject3);
         this.i = (c == null || !c.k) ? null : c;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
@@ -206,7 +206,7 @@ public class AdBaseModel {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    kx0.b(this.e, new MonitorUrl(optString, optString2));
+                    xx0.b(this.e, new MonitorUrl(optString, optString2));
                 }
             }
         }
@@ -217,28 +217,28 @@ public class AdBaseModel {
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString("word");
                 if (!TextUtils.isEmpty(optString3)) {
-                    kx0.b(this.o, optString3);
+                    xx0.b(this.o, optString3);
                 }
             }
         }
-        zm0 zm0Var = this.j;
-        if (zm0Var != null) {
-            zm0Var.d(this);
+        mn0 mn0Var = this.j;
+        if (mn0Var != null) {
+            mn0Var.d(this);
         }
         this.c = null;
     }
 
-    public void a(@Nullable cn0 cn0Var) {
-        List<um0> list;
+    public void a(@Nullable pn0 pn0Var) {
+        List<hn0> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cn0Var) == null) {
-            this.p = cn0Var;
-            if (cn0Var == null || cn0Var.c) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, pn0Var) == null) {
+            this.p = pn0Var;
+            if (pn0Var == null || pn0Var.c) {
                 this.f.b();
             }
-            if ((cn0Var == null || cn0Var.d) && (list = this.k) != null && list.size() > 0) {
-                for (um0 um0Var : this.k) {
-                    um0Var.b();
+            if ((pn0Var == null || pn0Var.d) && (list = this.k) != null && list.size() > 0) {
+                for (hn0 hn0Var : this.k) {
+                    hn0Var.b();
                 }
             }
         }

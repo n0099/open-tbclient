@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hg;
-import com.repackage.j35;
 import com.repackage.kg;
+import com.repackage.l45;
 import com.repackage.pi;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
@@ -147,7 +147,7 @@ public class LocalFileImageLoaderProc2 implements kg<ym> {
             if (ymVar.u()) {
                 ymVar.A(i);
                 ymVar.z(i2);
-                j35.k().d(toCacheKey(str, i, i2), ymVar);
+                l45.k().d(toCacheKey(str, i, i2), ymVar);
             }
         }
     }
@@ -174,7 +174,7 @@ public class LocalFileImageLoaderProc2 implements kg<ym> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), j35.k().m(toCacheKey(str, i, i2)), i, i2);
+            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), l45.k().m(toCacheKey(str, i, i2)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

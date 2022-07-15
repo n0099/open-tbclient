@@ -1,11 +1,27 @@
 package com.repackage;
+
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes7.dex */
-public interface r69 {
-    void onCancel();
+public interface r69 extends Runnable {
 
-    void onExceptionThrown(String str);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(DownloadException downloadException);
 
-    void onProgressChanged(int i, double d, long j);
+        void onDownloadCanceled();
 
-    void onTrackEnd(int i);
+        void onDownloadCompleted(String str);
+
+        void onDownloadPaused();
+
+        void onDownloadProgress(long j, long j2);
+    }
+
+    void cancel();
+
+    boolean isComplete();
+
+    boolean isDownloading();
+
+    void pause();
 }

@@ -15,7 +15,6 @@ import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
-import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public final class DtsUtil {
@@ -39,7 +38,7 @@ public final class DtsUtil {
             }
         }
         CHANNELS_BY_AMODE = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
-        SAMPLE_RATE_BY_SFREQ = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, w0.X3, 24000, 48000, -1, -1};
+        SAMPLE_RATE_BY_SFREQ = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, 12000, 24000, 48000, -1, -1};
         TWICE_BITRATE_KBPS_BY_RATE = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, 1536, 1920, 2048, 2304, 2560, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
     }
 

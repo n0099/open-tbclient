@@ -1,24 +1,120 @@
 package com.kwad.sdk.core.config;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.kwad.sdk.core.config.item.InstallActivateReminderConfigItem;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
+import com.kwad.sdk.core.config.item.e;
+import com.kwad.sdk.core.config.item.f;
+import com.kwad.sdk.core.config.item.g;
+import com.kwad.sdk.core.config.item.h;
+import com.kwad.sdk.core.config.item.i;
+import com.kwad.sdk.core.config.item.j;
+import com.kwad.sdk.core.config.item.k;
+import com.kwad.sdk.core.config.item.l;
+import com.kwad.sdk.core.config.item.m;
+import com.kwad.sdk.core.config.item.n;
+import com.kwad.sdk.core.config.item.o;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class c {
-    public static volatile c b;
-    public Map<String, String> a = new HashMap();
+public final class c {
+    public static i a = new i("batchReportCatchLimit", 20);
+    public static i b = new i("exceptionCollectorSwitch", 1);
+    public static i c = new i("mediaPlayerLogReport", 0);
+    public static i d = new i("didCopySwitch", 1);
+    public static i e = new i("enableHodor", 0);
+    public static i f = new i("speedLimitSwitch", 1);
+    public static i g = new i("speedLimitThreshold", 200);
+    public static i h = new i("ksNativeAdCustomSwitch", 0);
+    public static i i = new i("forceActivateAfterInstalled", 0);
+    public static i j = new i("formAdExitInterceptSwitch", 0);
+    public static i k = new i("adLeaveConfirmSwitch", 0);
+    public static i l = new i("viewLandingPageTaskDuration", 15);
+    public static i m = new i("rewardAdVideoPreCacheSize", 800);
+    public static com.kwad.sdk.core.config.item.d n = new com.kwad.sdk.core.config.item.d("dataFlowAutoStartSwitch", false);
+    public static k o = new k("deviceInfoDisableConfig", 0L);
+    public static com.kwad.sdk.core.config.item.d p = new com.kwad.sdk.core.config.item.d("playerEnable", false);
+    public static com.kwad.sdk.core.config.item.d q = new com.kwad.sdk.core.config.item.d("dynamicEnable", false);
+    public static e r = new e("commercialLogReportRate", 1.0f);
+    public static e s = new e("sdkInitLogReportRate", 1.0f);
+    public static e t = new e("sdkSplashReportRate", 1.0f);
+    public static e u = new e("sdkWebHybridReportRate", 1.0f);
+    public static e v = new e("sdkRewardReportRate", 1.0f);
+    public static e w = new e("sdkFullScreenReportRate", 1.0f);
+    public static e x = new e("sdkRewardErrorReportRate", 1.0f);
+    public static e y = new e("sdkFullScreenErrorReportRate", 1.0f);
+    public static n z = new n("webpSoUrlV7a", "");
+    public static n A = new n("webpSoUrlV8a", "");
+    public static n B = new n("tkSoUrlV7a", "");
+    public static n C = new n("tkSoUrlV8a", "");
+    public static com.kwad.sdk.core.config.item.d D = new com.kwad.sdk.core.config.item.d("disableTkLite", false);
+    public static j E = new j("playerConfig", null);
+    public static o F = new o("pkgNameList", new ArrayList(0));
+    public static o G = new o("hostList", new ArrayList(0));
+    public static TipsConfigItem H = new TipsConfigItem();
+    public static com.kwad.sdk.core.config.item.c I = new com.kwad.sdk.core.config.item.c();
+    public static InstallActivateReminderConfigItem J = new InstallActivateReminderConfigItem();
+    public static l K = new l("realtimeReportActions", "");
+    public static m L = new m();
+    public static i M = new i("appInstallNoticeSecond", 0);
+    public static i N = new i("installFloatingLayerPostion", 0);
+    public static i O = new i("watermarkKwaiIdSwitch", 0);
+    public static i P = new i("insertScreenV2Switch", 0);
+    public static i Q = new i("insertScreenAutoPlaySwitch", 0);
+    public static h R = new h("insertScreenV2ShowConfig");
+    public static i S = new i("environmentDetectEnable", 0);
+    public static i T = new i("simCardInfoEnable", 0);
+    public static i U = new i("baseStationEnable", 0);
+    public static i V = new i("sensorEventEnable2", 0);
+    public static i W = new i("lpAutoDownloadApkSwitch", 1);
+    public static i X = new i("autoDownloadUrlSwitch", 0);
+    public static i Y = new i("insertScreenAdType", 0);
+    public static i Z = new i("mediaControlPlaySwitch", 1);
+    public static n aa = new n("appStatusSoUrlV7a", "");
+    public static n ab = new n("appStatusSoUrlV8a", "");
+    public static n ac = new n("appStatusSoVersion", "");
+    public static i ad = new i("deeplinkCheckSwitch", -3);
+    public static com.kwad.sdk.core.config.item.d ae = new com.kwad.sdk.core.config.item.d("deeplinkWindowSwitch", false);
+    public static f af = new f();
+    public static com.kwad.sdk.core.config.item.d ag = new com.kwad.sdk.core.config.item.d("TKSwitch", true);
+    public static com.kwad.sdk.core.config.item.d ah = new com.kwad.sdk.core.config.item.d("reduceDeviceSigSwitch", true);
+    public static com.kwad.sdk.core.config.item.d ai = new com.kwad.sdk.core.config.item.d("personalRecommend", false);
+    public static i aj = new i("forceActivate", 0);
+    public static i ak = new i("remindOpen", -1);
+    public static com.kwad.sdk.core.config.item.d al = new com.kwad.sdk.core.config.item.d("viewVisibleCheckLegacy", false);
+    public static i am = new i("enableAnrReportReal", 0);
+    public static i an = new i("enableNativeCrashReport", 0);
+    public static n ao = new n("exceptionSoUrlV7a", "");
+    public static n ap = new n("exceptionSoUrlV8a", "");
+    public static i aq = new i("kwaiAppVersionSwitch", 1);
+    public static n ar = new n(TTDownloadField.TT_USERAGENT, com.kwad.sdk.core.network.n.b());
+    public static i as = new i("biddingLogSwitch", 0);
+    public static i at = new i("forceActiveThreshold", 5);
+    public static i au = new i("forceActiveInterval", 3);
+    public static i av = new i("hybridEnable", 1);
+    public static com.kwad.sdk.core.config.item.d aw = new com.kwad.sdk.core.config.item.d("wifiResumeDownload", false);
+    public static e ax = new e("adExposureAreaPercent", 0.3f);
+    public static e ay = new e("adExposureTime", -1.0f);
+    public static com.kwad.sdk.core.config.item.d az = new com.kwad.sdk.core.config.item.d("appInAdExposureBlacklist", false);
+    public static com.kwad.sdk.core.config.item.d aA = new com.kwad.sdk.core.config.item.d("soDownloadBreakpointContinuation", true);
+    public static i aB = new i("soLoadMaxRetryCount", 1);
+    public static com.kwad.sdk.core.config.item.d aC = new com.kwad.sdk.core.config.item.d("feedAdForceGetAudioFocus", false);
+    public static com.kwad.sdk.core.config.item.d aD = new com.kwad.sdk.core.config.item.d("logCommandSwitch", false);
+    public static com.kwad.sdk.core.config.item.d aE = new com.kwad.sdk.core.config.item.d("logRecordAllSwitch", false);
+    public static k aF = new k("obiwanLogFilesDiskQuota", 52428800L);
+    public static j aG = new j("logCommandResult", "", false);
+    public static k aH = new k("validClickConvertTime", 1000L);
+    public static i aI = new i("playableAutoPlayEnable", 1);
+    public static i aJ = new i("netMonitorSwitch", 0);
+    public static e aK = new e("netMonitorReportSuccessRate", 0.01f);
+    public static e aL = new e("netMonitorReportErrorRate", 0.1f);
+    public static com.kwad.sdk.core.config.item.d aM = new com.kwad.sdk.core.config.item.d("ipDirectEnable", false);
+    public static com.kwad.sdk.core.config.item.d aN = new com.kwad.sdk.core.config.item.d("ipPreferEnable", false);
+    public static i aO = new i("weaponSwitch", 1);
+    public static g aP = new g();
+    public static k aQ = new k("currentServerTimeMs");
+    public static com.kwad.sdk.core.config.item.d aR = new com.kwad.sdk.core.config.item.d("clientProofreadTimeSwitch", false);
+    public static i aS = new i("clientProofreadTimeErrorRangeHours", 100);
 
-    public static c a() {
-        if (b == null) {
-            synchronized (c.class) {
-                if (b == null) {
-                    b = new c();
-                }
-            }
-        }
-        return b;
-    }
-
-    public synchronized void a(String str, String str2) {
-        this.a.put(str, str2);
+    public static void a() {
     }
 }

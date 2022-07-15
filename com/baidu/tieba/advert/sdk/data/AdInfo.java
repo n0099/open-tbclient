@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
-import com.repackage.jl5;
-import com.repackage.rk5;
+import com.repackage.mm5;
+import com.repackage.ul5;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -187,7 +187,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            rk5 b = rk5.b(jl5.f());
+            ul5 b = ul5.b(mm5.f());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

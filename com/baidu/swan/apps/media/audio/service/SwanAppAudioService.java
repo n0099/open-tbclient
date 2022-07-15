@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.vm2;
-import com.repackage.y63;
-import com.repackage.zi2;
-import com.repackage.zm2;
+import com.repackage.kn2;
+import com.repackage.n73;
+import com.repackage.oj2;
+import com.repackage.on2;
+import com.repackage.rg1;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
-public final class SwanAppAudioService extends Service implements zm2 {
+public final class SwanAppAudioService extends Service implements on2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final int INVALID_DURATION = -1;
@@ -535,8 +535,8 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vm2.b(SwanAppAudioService.TAG, "post#setParams id=" + this.a + " params=" + this.b);
-                zi2.f().a(this.b, this.c);
+                kn2.b(SwanAppAudioService.TAG, "post#setParams id=" + this.a + " params=" + this.b);
+                oj2.f().a(this.b, this.c);
             }
         }
     }
@@ -627,8 +627,8 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vm2.b(SwanAppAudioService.TAG, "post#play  id=" + this.a);
-                zi2.f().play();
+                kn2.b(SwanAppAudioService.TAG, "post#play  id=" + this.a);
+                oj2.f().play();
             }
         }
     }
@@ -663,8 +663,8 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vm2.b(SwanAppAudioService.TAG, "post#pause  id=" + this.a);
-                zi2.f().pause();
+                kn2.b(SwanAppAudioService.TAG, "post#pause  id=" + this.a);
+                oj2.f().pause();
             }
         }
     }
@@ -699,8 +699,8 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vm2.b(SwanAppAudioService.TAG, "post#stop id=" + this.a);
-                zi2.f().stop();
+                kn2.b(SwanAppAudioService.TAG, "post#stop id=" + this.a);
+                oj2.f().stop();
             }
         }
     }
@@ -737,8 +737,8 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vm2.b(SwanAppAudioService.TAG, "post#seek id=" + this.a + " position=" + this.b);
-                zi2.f().seek(this.b);
+                kn2.b(SwanAppAudioService.TAG, "post#seek id=" + this.a + " position=" + this.b);
+                oj2.f().seek(this.b);
             }
         }
     }
@@ -773,10 +773,10 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vm2.b(SwanAppAudioService.TAG, "post#release id=" + this.a);
+                kn2.b(SwanAppAudioService.TAG, "post#release id=" + this.a);
                 this.b.notifyEventOnStop();
                 this.b.stopSelf();
-                zi2.f().onRelease();
+                oj2.f().onRelease();
             }
         }
     }
@@ -915,7 +915,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         public void onCallbackDied(IAudioListener iAudioListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iAudioListener) == null) {
-                vm2.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
+                kn2.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
                 this.a.stop();
             }
         }
@@ -938,7 +938,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
                 return;
             }
         }
-        DEBUG = cg1.a;
+        DEBUG = rg1.a;
     }
 
     public SwanAppAudioService() {
@@ -1051,7 +1051,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? zi2.f().getDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? oj2.f().getDuration() : invokeV.intValue;
     }
 
     public boolean isDestroyed() {
@@ -1066,7 +1066,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? zi2.f().isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? oj2.f().isPlaying() : invokeV.booleanValue;
     }
 
     @Override // android.app.Service
@@ -1075,7 +1075,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
-            vm2.b(TAG, "#onBind");
+            kn2.b(TAG, "#onBind");
             return this.mBinder;
         }
         return (IBinder) invokeL.objValue;
@@ -1086,7 +1086,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onCreate();
-            vm2.b(TAG, "#onCreate");
+            kn2.b(TAG, "#onCreate");
         }
     }
 
@@ -1094,7 +1094,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            vm2.b(TAG, "#onDestroy");
+            kn2.b(TAG, "#onDestroy");
             this.mCallback.kill();
             this.mMainHandler.removeCallbacksAndMessages(null);
             release();
@@ -1105,12 +1105,12 @@ public final class SwanAppAudioService extends Service implements zm2 {
     public void onError(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            y63.b("audio", 2008, "error code is" + i2, -1, "");
+            n73.b("audio", 2008, "error code is" + i2, -1, "");
             notifyEventOnError(i2);
         }
     }
 
-    @Override // com.repackage.zm2
+    @Override // com.repackage.on2
     public void onGetCurrentSong(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -1118,7 +1118,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         }
     }
 
-    @Override // com.repackage.zm2
+    @Override // com.repackage.on2
     public void onGetDownloadProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
@@ -1126,14 +1126,14 @@ public final class SwanAppAudioService extends Service implements zm2 {
         }
     }
 
-    @Override // com.repackage.zm2
+    @Override // com.repackage.on2
     public void onGetDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
         }
     }
 
-    @Override // com.repackage.zm2
+    @Override // com.repackage.on2
     public void onGetPosition(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
@@ -1141,11 +1141,11 @@ public final class SwanAppAudioService extends Service implements zm2 {
         }
     }
 
-    @Override // com.repackage.zm2
+    @Override // com.repackage.on2
     public void onInvokeFailed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            y63.b("audio", 2001, "invoke fail", -1, "");
+            n73.b("audio", 2001, "invoke fail", -1, "");
             notifyEventOnError(-1);
         }
     }
@@ -1184,11 +1184,11 @@ public final class SwanAppAudioService extends Service implements zm2 {
         }
     }
 
-    @Override // com.repackage.zm2
+    @Override // com.repackage.on2
     public void onStateChanged(BgMusicPlayState bgMusicPlayState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bgMusicPlayState) == null) {
-            vm2.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
+            kn2.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
             handleStateChanged(bgMusicPlayState);
         }
     }
@@ -1198,7 +1198,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, intent)) == null) {
-            vm2.b(TAG, "#onUnbind");
+            kn2.b(TAG, "#onUnbind");
             return false;
         }
         return invokeL.booleanValue;
@@ -1208,7 +1208,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             long nanoTime = System.nanoTime();
-            vm2.b(TAG, "#pause id=" + nanoTime);
+            kn2.b(TAG, "#pause id=" + nanoTime);
             this.mMainHandler.post(new n(this, nanoTime));
         }
     }
@@ -1217,7 +1217,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             long nanoTime = System.nanoTime();
-            vm2.b(TAG, "#play id=" + nanoTime);
+            kn2.b(TAG, "#play id=" + nanoTime);
             this.mMainHandler.post(new m(this, nanoTime));
         }
     }
@@ -1226,7 +1226,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             long nanoTime = System.nanoTime();
-            vm2.b(TAG, "#release id=" + nanoTime);
+            kn2.b(TAG, "#release id=" + nanoTime);
             this.mMainHandler.post(new q(this, nanoTime));
         }
     }
@@ -1235,7 +1235,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
             long nanoTime = System.nanoTime();
-            vm2.b(TAG, "#seek id=" + nanoTime);
+            kn2.b(TAG, "#seek id=" + nanoTime);
             this.mMainHandler.post(new p(this, nanoTime, i2));
         }
     }
@@ -1244,7 +1244,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             long nanoTime = System.nanoTime();
-            vm2.b(TAG, "#setParams id=" + nanoTime);
+            kn2.b(TAG, "#setParams id=" + nanoTime);
             this.mMainHandler.post(new k(this, nanoTime, str));
         }
     }
@@ -1253,7 +1253,7 @@ public final class SwanAppAudioService extends Service implements zm2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             long nanoTime = System.nanoTime();
-            vm2.b(TAG, "#stop id=" + nanoTime);
+            kn2.b(TAG, "#stop id=" + nanoTime);
             this.mMainHandler.post(new o(this, nanoTime));
         }
     }

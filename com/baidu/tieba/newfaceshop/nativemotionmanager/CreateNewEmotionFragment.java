@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.en7;
+import com.repackage.ho7;
 import com.repackage.pi;
-import com.repackage.pn7;
+import com.repackage.wn7;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pn7 a;
+    public ho7 a;
     public CustomMessageListener b;
 
     /* loaded from: classes3.dex */
@@ -83,12 +83,12 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         if (!TextUtils.isEmpty(str)) {
                             pi.L(this.a.getActivity(), str);
                         } else {
-                            pi.L(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0543));
+                            pi.L(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f054d));
                         }
                         this.a.a.l();
                     }
                 } else {
-                    BdToast.c(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05e1)).n();
+                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05eb)).h();
                     if (this.a.a != null) {
                         this.a.a.i();
                     }
@@ -119,9 +119,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            pn7 pn7Var = this.a;
-            if (pn7Var != null) {
-                pn7Var.g(i);
+            ho7 ho7Var = this.a;
+            if (ho7Var != null) {
+                ho7Var.g(i);
             }
         }
     }
@@ -132,9 +132,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            pn7 pn7Var = new pn7(getPageContext(), t1());
-            this.a = pn7Var;
-            return pn7Var.f();
+            ho7 ho7Var = new ho7(getPageContext(), u1());
+            this.a = ho7Var;
+            return ho7Var.f();
         }
         return (View) invokeLLL.objValue;
     }
@@ -144,9 +144,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            pn7 pn7Var = this.a;
-            if (pn7Var != null) {
-                pn7Var.h();
+            ho7 ho7Var = this.a;
+            if (ho7Var != null) {
+                ho7Var.h();
             }
         }
     }
@@ -156,25 +156,25 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            s1();
+            t1();
         }
     }
 
-    public final void s1() {
+    public final void t1() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null) {
             return;
         }
-        if (en7.l().r()) {
+        if (wn7.l().r()) {
             this.a.j();
-        } else if (en7.l().k() == null) {
+        } else if (wn7.l().k() == null) {
             this.a.i();
         } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f053c));
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f0546));
         }
     }
 
-    public final int t1() {
+    public final int u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

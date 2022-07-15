@@ -44,6 +44,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
+import com.qq.e.comm.constants.ErrorCode;
 import com.tencent.connect.auth.b;
 import com.tencent.open.a.g;
 import com.tencent.open.log.SLog;
@@ -86,12 +87,12 @@ public class a extends Dialog {
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0651a extends WebViewClient {
+    public class C0841a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0651a(a aVar) {
+        public C0841a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +165,7 @@ public class a extends Dialog {
                     this.a.d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ C0651a a;
+                        public final /* synthetic */ C0841a a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -223,7 +224,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0651a b;
+                    public final /* synthetic */ C0841a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -256,7 +257,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0651a b;
+                    public final /* synthetic */ C0841a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -557,7 +558,7 @@ public class a extends Dialog {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SLog.v("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.a + " | mRetryUrl: " + this.b.p);
                 if (this.a.equals(this.b.p)) {
-                    this.b.b.onError(new UiError(9002, "请求页面超时，请稍后重试！", this.b.p));
+                    this.b.b.onError(new UiError(ErrorCode.PrivateError.PARAM_ERROR, "请求页面超时，请稍后重试！", this.b.p));
                     this.b.dismiss();
                 }
             }
@@ -671,7 +672,7 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.k.setVerticalScrollBarEnabled(false);
             this.k.setHorizontalScrollBarEnabled(false);
-            this.k.setWebViewClient(new C0651a());
+            this.k.setWebViewClient(new C0841a());
             this.k.setWebChromeClient(new WebChromeClient());
             this.k.clearFormData();
             this.k.clearSslPreferences();

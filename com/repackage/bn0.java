@@ -1,187 +1,152 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bn0 {
+public final class bn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a j;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    @JvmField
+    public int a;
+    @JvmField
     public String b;
+    @JvmField
     public String c;
-    public String d;
-    public final String e;
-    public final int f;
+    @JvmField
+    public List<en0> d;
+    @JvmField
+    public xm0 e;
+    @JvmField
+    public an0 f;
+    @JvmField
     public String g;
-    public String h;
-    public final String i;
-    public String j;
-    public String k;
-    public String l;
-    public km0 m;
-    public String n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public String r;
-    public String s;
-    public String t;
+    @JvmField
+    public qn0 h;
+    @JvmField
+    public String i;
 
-    public bn0(JSONObject jSONObject) {
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final bn0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("convert");
+                    if (optJSONObject == null) {
+                        optJSONObject = yx0.c(jSONObject.optString("convert"));
+                    }
+                    if (optJSONObject != null) {
+                        bn0 bn0Var = new bn0();
+                        bn0Var.b = optJSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+                        bn0Var.c = optJSONObject.optString("button_icon");
+                        optJSONObject.optString("textColor");
+                        optJSONObject.optInt("buttonShineType");
+                        bn0Var.g = optJSONObject.optString("background_color");
+                        bn0Var.i = optJSONObject.optString("button_scheme");
+                        ArrayList arrayList = new ArrayList();
+                        JSONArray optJSONArray = optJSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+                        if (optJSONArray != null) {
+                            int length = optJSONArray.length();
+                            for (int i = 0; i < length; i++) {
+                                en0 a = en0.d.a(optJSONArray.optJSONObject(i));
+                                if (a != null) {
+                                    arrayList.add(a);
+                                }
+                            }
+                        }
+                        Unit unit = Unit.INSTANCE;
+                        bn0Var.d = arrayList;
+                        return bn0Var;
+                    }
+                    return null;
+                }
+                return null;
+            }
+            return (bn0) invokeL.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755821363, "Lcom/repackage/bn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755821363, "Lcom/repackage/bn0;");
+                return;
+            }
+        }
+        j = new a(null);
+    }
+
+    public bn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.o = true;
-        this.q = false;
-        jSONObject.optString("style");
-        this.a = jSONObject.optString("user_name");
-        this.b = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.c = jSONObject.optString("scheme");
-        this.d = jSONObject.optString("button_scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.f = jSONObject.optInt("duration") * 1000;
-        this.g = jSONObject.optString("trade");
-        jSONObject.optString("score");
-        this.h = jSONObject.optString("title");
-        jSONObject.optString("sub_title");
-        this.i = jSONObject.optString("popularity_text");
-        this.j = jSONObject.optString("cover_url");
-        this.s = jSONObject.optString("bottom_button_text");
-        this.r = jSONObject.optString("bottom_button_icon");
-        this.t = jSONObject.optString("bottom_button_scheme");
+        this.a = 1;
     }
 
-    @Nullable
-    public static bn0 a(JSONObject jSONObject) {
+    @JvmStatic
+    public static final bn0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new bn0(jSONObject);
-        }
-        return (bn0) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? j.a(jSONObject) : (bn0) invokeL.objValue;
     }
 
-    public bn0 b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.d = wz0.a(this.d, str, "__BTN_SCHEME__");
-            return this;
-        }
-        return (bn0) invokeL.objValue;
-    }
-
-    public bn0 c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (bn0) invokeL.objValue;
-    }
-
-    public void d(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) {
-            zm0 zm0Var = adBaseModel.j;
-            if (zm0Var != null && !TextUtils.isEmpty(zm0Var.c)) {
-                c(adBaseModel.j.c);
-            }
-            if (!TextUtils.isEmpty(adBaseModel.f.d)) {
-                f(adBaseModel.f.d);
-            }
-            km0 km0Var = adBaseModel.l;
-            if (km0Var != null) {
-                e(km0Var);
-            }
-            if (!TextUtils.isEmpty(adBaseModel.f.c)) {
-                g(adBaseModel.f.c);
-            }
-            AdOperator adOperator = adBaseModel.h;
-            if (adOperator != null && !TextUtils.isEmpty(adOperator.d)) {
-                b(adBaseModel.h.d);
-            }
-            if (adBaseModel.f != null) {
-                if (TextUtils.isEmpty(this.h)) {
-                    this.h = adBaseModel.f.g;
-                }
-                if (TextUtils.isEmpty(this.g)) {
-                    this.g = adBaseModel.f.h;
-                }
-            }
-        }
-    }
-
-    public bn0 e(@NonNull km0 km0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, km0Var)) == null) {
-            this.m = km0Var;
-            return this;
-        }
-        return (bn0) invokeL.objValue;
-    }
-
-    public bn0 f(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.l = str;
-            return this;
-        }
-        return (bn0) invokeL.objValue;
-    }
-
-    public bn0 g(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.c = wz0.a(this.c, str, "__SCHEME__");
-            return this;
-        }
-        return (bn0) invokeL.objValue;
-    }
-
-    public boolean h() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            km0 km0Var = this.m;
-            return km0Var != null && km0Var.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? h() || !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.a == 2 && this.e == null) ? false : true : invokeV.booleanValue;
     }
 }

@@ -64,23 +64,6 @@ public final class b {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
-            return (a) invokeL.objValue;
-        }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, "r");
-        try {
-            a a2 = a(randomAccessFile, f.a(randomAccessFile, (int) ApkSignatureSchemeV2Verifier.APK_SIGNATURE_SCHEME_V2_BLOCK_ID));
-            randomAccessFile.close();
-            return a2;
-        } finally {
-        }
-    }
-
     public static a a(RandomAccessFile randomAccessFile, m mVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -122,7 +105,7 @@ public final class b {
         InterceptResult invokeLLL;
         int a2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65539, null, byteBuffer, map, certificateFactory)) != null) {
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, byteBuffer, map, certificateFactory)) != null) {
             return (X509Certificate[]) invokeLLL.objValue;
         }
         ByteBuffer a3 = f.a(byteBuffer);
@@ -242,7 +225,7 @@ public final class b {
 
     public static void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, byteBuffer) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, byteBuffer) == null) {
             while (byteBuffer.hasRemaining()) {
                 ByteBuffer a2 = f.a(byteBuffer);
                 if (a2.remaining() >= 4) {

@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an;
-import com.repackage.nt6;
+import com.repackage.bu6;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
-public class ConcernTipAdapter extends an<nt6, ConcernTipViewHolder> {
+public class ConcernTipAdapter extends an<bu6, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int i;
     public static int j;
@@ -53,8 +53,8 @@ public class ConcernTipAdapter extends an<nt6, ConcernTipViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090681);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090680);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090686);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090685);
         }
 
         public void c(int i) {
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends an<nt6, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, nt6.f);
+        super(context, bu6.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,16 +113,16 @@ public class ConcernTipAdapter extends an<nt6, ConcernTipViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: a0 */
-    public View S(int i2, View view2, ViewGroup viewGroup, nt6 nt6Var, ConcernTipViewHolder concernTipViewHolder) {
+    public View S(int i2, View view2, ViewGroup viewGroup, bu6 bu6Var, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view2, viewGroup, nt6Var, concernTipViewHolder})) == null) {
-            concernTipViewHolder.a.setText(nt6Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view2, viewGroup, bu6Var, concernTipViewHolder})) == null) {
+            concernTipViewHolder.a.setText(bu6Var.b);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.a.getLayoutParams();
-            if (nt6Var.c) {
+            if (bu6Var.c) {
                 layoutParams.height = j;
                 concernTipViewHolder.b.setVisibility(0);
-            } else if (nt6Var.d) {
+            } else if (bu6Var.d) {
                 layoutParams.height = i;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);

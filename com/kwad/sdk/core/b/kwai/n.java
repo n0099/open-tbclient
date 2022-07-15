@@ -1,39 +1,36 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+public final class n implements com.kwad.sdk.core.d<com.kwad.components.core.f.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.core.f.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        adMaterialInfo.materialType = jSONObject.optInt("materialType", new Integer("2").intValue());
-        adMaterialInfo.videoVoice = jSONObject.optBoolean("videoVoice", new Boolean("false").booleanValue());
-        adMaterialInfo.materialFeatureList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = new AdInfo.AdMaterialInfo.MaterialFeature();
-                materialFeature.parseJson(optJSONArray.optJSONObject(i));
-                adMaterialInfo.materialFeatureList.add(materialFeature);
-            }
-        }
+        aVar.a = jSONObject.optInt("currentActiveCount");
+        aVar.b = jSONObject.optLong("lastForceActiveTimestamp");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.core.f.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "materialType", adMaterialInfo.materialType);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoVoice", adMaterialInfo.videoVoice);
-        com.kwad.sdk.utils.t.a(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
+        com.kwad.sdk.utils.r.a(jSONObject, "currentActiveCount", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "lastForceActiveTimestamp", aVar.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.core.f.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.core.f.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

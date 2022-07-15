@@ -1,20 +1,16 @@
 package com.repackage;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-/* loaded from: classes5.dex */
-public class ei9 implements ArCoreApk.a {
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.fi9;
+import com.repackage.id9;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public class ei9 implements fi9.a<fd9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ fi9 a;
@@ -37,74 +33,28 @@ public class ei9 implements ArCoreApk.a {
         this.a = fi9Var;
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.fi9.a
+    public void a(fd9 fd9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build() : (Uri) invokeL.objValue;
-    }
-
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, fd9Var) == null) {
+            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", fd9Var.a);
         }
-        return (ArCoreApk.Availability) invokeL.objValue;
     }
 
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.fi9.a
+    public void b(fd9 fd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
-                    }
-                    throw new UnavailableUserDeclinedInstallationException();
-                }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
-                return null;
-            }
-        }
-        return (PendingIntent) invokeL.objValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                fi9.c(this.a, availability);
-                fi9.f(this.a, false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fd9Var) == null) {
+            fd9 fd9Var2 = fd9Var;
+            LogPrinter.v("Update SerialSlotId:%s", fd9Var2.a);
+            HashMap<String, kd9> hashMap = this.a.c;
+            String str = fd9Var2.a;
+            hashMap.put(str, new kd9(str, new rd9(this, fd9Var2)));
+            id9 id9Var = this.a.b;
+            synchronized (id9Var.a) {
+                id9Var.a(fd9Var2.a).add(new id9.b(fd9Var2));
             }
         }
     }

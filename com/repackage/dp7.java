@@ -1,118 +1,174 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class dp7 extends yo7 {
+public class dp7 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ShareStorage.StorageModel i;
 
-    /* loaded from: classes5.dex */
-    public class a extends WebAuthListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dp7 a;
-
-        public a(dp7 dp7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dp7Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755759642, "Lcom/repackage/dp7;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f1159), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.f();
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755759642, "Lcom/repackage/dp7;");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dp7(TbPageContext tbPageContext, zo7 zo7Var) {
-        super(tbPageContext, zo7Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
+    public dp7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zo7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (zo7) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.yo7
-    public void j(ap7 ap7Var) {
+    public void a(int i, yo7 yo7Var, int i2, List<nn> list, BdTypeRecyclerView bdTypeRecyclerView) {
+        List<wo7> list2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ap7Var) == null) || ap7Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), yo7Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) || yo7Var == null || (list2 = yo7Var.a) == null || ListUtils.isEmpty(list2)) {
             return;
         }
-        this.e = ap7Var;
-        this.i = (ShareStorage.StorageModel) new Gson().fromJson(ap7Var.d, (Class<Object>) ShareStorage.StorageModel.class);
-    }
-
-    @Override // com.repackage.yo7
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f0912f3) {
-                r();
+        ArrayList arrayList = new ArrayList();
+        c(i, arrayList, list);
+        List<wo7> list3 = yo7Var.a;
+        if (list3 == null || list3.size() <= 0) {
+            return;
+        }
+        int i3 = 0;
+        for (wo7 wo7Var : list3) {
+            if (wo7Var != null && i == wo7Var.b.intValue()) {
+                List<cp7> list4 = wo7Var.a;
+                if (list4 == null || list4.size() <= 0) {
+                    return;
+                }
+                for (int i4 = 0; i4 < list4.size(); i4++) {
+                    if (list4.get(i4) != null) {
+                        if (arrayList.size() >= 20) {
+                            d(list.get(i2));
+                            bdTypeRecyclerView.setData(list);
+                            return;
+                        } else if (i3 >= 4) {
+                            bdTypeRecyclerView.setData(list);
+                            return;
+                        } else {
+                            if (i4 == list4.size() - 1) {
+                                d(list.get(i2));
+                            }
+                            RecommendForumInfo recommendForumInfo = list4.get(i4).a;
+                            if (!arrayList.contains(recommendForumInfo.forum_id)) {
+                                zo7 zo7Var = new zo7();
+                                zo7Var.m(wo7Var.b.intValue());
+                                zo7Var.l(recommendForumInfo.avatar);
+                                zo7Var.p(recommendForumInfo.forum_id.longValue());
+                                zo7Var.r(recommendForumInfo.forum_name);
+                                zo7Var.s(recommendForumInfo.member_count.intValue());
+                                zo7Var.w(recommendForumInfo.thread_count.intValue());
+                                zo7Var.u(recommendForumInfo.slogan);
+                                zo7Var.t(false);
+                                list.add(i2, zo7Var);
+                                arrayList.add(recommendForumInfo.forum_id);
+                                i2++;
+                                i3++;
+                            }
+                        }
+                    }
+                }
+                bdTypeRecyclerView.setData(list);
             }
         }
     }
 
-    public void r() {
+    public List<nn> b(List<wo7> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.i == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (list == null || list.size() <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (wo7 wo7Var : list) {
+                if (wo7Var != null) {
+                    bp7 bp7Var = new bp7();
+                    bp7Var.d(wo7Var.b.intValue());
+                    bp7Var.c(wo7Var.d);
+                    bp7Var.g(wo7Var.c);
+                    arrayList.add(bp7Var);
+                    List<cp7> list2 = wo7Var.a;
+                    if (list2 != null && list2.size() > 0) {
+                        a = 0;
+                        for (cp7 cp7Var : list2) {
+                            if (cp7Var != null) {
+                                if (a >= 4) {
+                                    break;
+                                }
+                                zo7 zo7Var = new zo7();
+                                RecommendForumInfo recommendForumInfo = cp7Var.a;
+                                zo7Var.m(wo7Var.b.intValue());
+                                zo7Var.o(wo7Var.c);
+                                zo7Var.l(recommendForumInfo.avatar);
+                                zo7Var.p(recommendForumInfo.forum_id.longValue());
+                                zo7Var.r(recommendForumInfo.forum_name);
+                                zo7Var.s(recommendForumInfo.member_count.intValue());
+                                zo7Var.w(recommendForumInfo.thread_count.intValue());
+                                zo7Var.u(recommendForumInfo.slogan);
+                                arrayList.add(zo7Var);
+                                a++;
+                            }
+                        }
+                        ap7 ap7Var = new ap7();
+                        ap7Var.d(wo7Var.b.intValue());
+                        ap7Var.g(wo7Var.c);
+                        arrayList.add(ap7Var);
+                    }
+                }
+            }
+            return arrayList;
         }
-        PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
+        return (List) invokeL.objValue;
+    }
+
+    public final void c(int i, List<Long> list, List<nn> list2) {
+        zo7 zo7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
+            for (nn nnVar : list2) {
+                if ((nnVar instanceof zo7) && (zo7Var = (zo7) nnVar) != null && zo7Var.b() == i) {
+                    list.add(Long.valueOf(zo7Var.c()));
+                }
+            }
+        }
+    }
+
+    public final void d(nn nnVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, nnVar) == null) && (nnVar instanceof ap7)) {
+            ((ap7) nnVar).h(false);
+        }
     }
 }

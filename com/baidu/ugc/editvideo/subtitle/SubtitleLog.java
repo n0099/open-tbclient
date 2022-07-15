@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
-import com.repackage.c89;
+import com.repackage.b99;
 import java.util.List;
 /* loaded from: classes4.dex */
 public final class SubtitleLog {
@@ -69,7 +69,7 @@ public final class SubtitleLog {
     public static <T extends RichStickerBaseUnit> void d(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            if (c89.e(list)) {
+            if (b99.e(list)) {
                 d("list empty");
                 return;
             }

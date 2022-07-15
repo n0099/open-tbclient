@@ -1,38 +1,38 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ed5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public b h;
+    public Runnable i;
 
-    /* loaded from: classes5.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ad5<T> a;
-        public gc5<T> b;
+        public final /* synthetic */ ed5 a;
 
-        public a(ad5<T> ad5Var, gc5<T> gc5Var) {
+        public a(ed5 ed5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ad5Var, gc5Var};
+                Object[] objArr = {ed5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,88 +42,103 @@ public class ed5 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
-            this.a = ad5Var;
-            this.b = gc5Var;
+            this.a = ed5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public T doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    if (this.a != null) {
-                        return this.a.doInBackground();
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    return null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.a.g > this.a.f) {
+                    ed5 ed5Var = this.a;
+                    ed5Var.f = currentTimeMillis - ed5Var.d;
+                    ed5 ed5Var2 = this.a;
+                    ed5Var2.g = ed5Var2.f;
                 }
+                long j = currentTimeMillis - this.a.f;
+                this.a.c += this.a.d;
+                if (this.a.c < this.a.b) {
+                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
+                    if (this.a.h != null) {
+                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
+                    }
+                } else {
+                    ed5 ed5Var3 = this.a;
+                    ed5Var3.c = ed5Var3.b;
+                    this.a.m();
+                }
+                this.a.f = currentTimeMillis;
             }
-            return (T) invokeL.objValue;
         }
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(T t) {
-            gc5<T> gc5Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (gc5Var = this.b) == null) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onCountDown(long j, long j2);
+
+        void onCountDownFinish(long j);
+    }
+
+    public ed5(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            gc5Var.onReturnDataInUI(t);
         }
+        this.a = new Handler(Looper.getMainLooper());
+        this.i = new a(this);
+        this.b = j;
+        this.d = j2;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755741445, "Lcom/repackage/ed5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755741445, "Lcom/repackage/ed5;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
-    }
-
-    public static void a() {
+    public final void m() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            BdAsyncTask.removeAllTask(a);
-        }
-    }
-
-    public static <T> void b(ad5<T> ad5Var, gc5<T> gc5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, ad5Var, gc5Var) == null) || ad5Var == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.h) == null) {
             return;
         }
-        a aVar = new a(ad5Var, gc5Var);
-        aVar.setParallel(b);
-        aVar.setTag(a);
-        aVar.setPriority(4);
-        aVar.execute(new String[0]);
+        bVar.onCountDownFinish(this.b);
     }
 
-    public static <T> void c(ad5<T> ad5Var, gc5<T> gc5Var) {
+    public void n(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, ad5Var, gc5Var) == null) || ad5Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.h = bVar;
         }
-        a aVar = new a(ad5Var, gc5Var);
-        aVar.setParallel(TiebaIMConfig.getParallel());
-        aVar.setTag(a);
-        aVar.setPriority(4);
-        aVar.execute(new String[0]);
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.e = currentTimeMillis;
+            this.f = currentTimeMillis;
+            b bVar = this.h;
+            if (bVar != null) {
+                long j = this.b;
+                bVar.onCountDown(j, j - this.c);
+            }
+            this.a.postDelayed(this.i, this.d);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = this.e;
+            this.f = j;
+            this.g = j;
+            this.a.removeCallbacks(this.i);
+        }
     }
 }

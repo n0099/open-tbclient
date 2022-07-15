@@ -1,101 +1,100 @@
 package com.repackage;
 
-import android.view.View;
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.container.base.AbsContainer;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.x21;
 /* loaded from: classes5.dex */
-public interface a21 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "navBarTool");
-    public static final a21 b = new a();
+public class a21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public Handler b;
 
     /* loaded from: classes5.dex */
-    public static class a implements a21 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x21.a a;
+        public final /* synthetic */ a21 b;
 
-        /* renamed from: com.repackage.a21$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0382a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AbsContainer a;
-
-            public View$OnClickListenerC0382a(a aVar, AbsContainer absContainer) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, absContainer};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = absContainer;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                AbsContainer absContainer;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (absContainer = this.a) == null) {
-                    return;
-                }
-                absContainer.x();
-            }
-        }
-
-        public a() {
+        public a(a21 a21Var, x21.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a21Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = a21Var;
+            this.a = aVar;
         }
 
-        @Override // com.repackage.a21
-        public int[] a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e39} : (int[]) invokeV.objValue;
-        }
-
-        @Override // com.repackage.a21
-        public void b(View view2, AbsContainer absContainer) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080e39) {
-                view2.setOnClickListener(new View$OnClickListenerC0382a(this, absContainer));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c(this.a.a);
             }
-        }
-
-        @Override // com.repackage.a21
-        public int[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e3b} : (int[]) invokeV.objValue;
         }
     }
 
-    int[] a();
+    public a21() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
 
-    void b(View view2, AbsContainer absContainer);
+    public void b(x21.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.a || aVar == null || !aVar.a()) {
+            return;
+        }
+        if (this.b == null) {
+            this.b = new Handler();
+        }
+        this.b.postDelayed(new a(this, aVar), (long) (aVar.c * 1000.0d));
+    }
 
-    int[] c();
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        jy0.b(str);
+        this.a = true;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+                this.b = null;
+            }
+            this.a = false;
+        }
+    }
 }

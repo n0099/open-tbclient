@@ -40,7 +40,6 @@ public final class b implements c {
                 Method method2 = (Method) declaredMethod.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
                 method2.setAccessible(true);
                 method2.invoke(invoke, new String[]{"L"});
-                Log.e("FlippedV1Impl", "V1 invokeHiddenApiRestrictions success.");
             } catch (Exception e) {
                 Log.e("FlippedV1Impl", "V1 invokeHiddenApiRestrictions fail: " + Log.getStackTraceString(e));
             }

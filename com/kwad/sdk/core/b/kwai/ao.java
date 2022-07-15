@@ -1,57 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
-import com.kwad.sdk.core.response.model.SdkConfigData;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ao implements com.kwad.sdk.core.d<SdkConfigData.CouponActiveConfig> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
+public final class ao implements com.kwad.sdk.core.d<AdMatrixInfo.BottomBannerInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        couponActiveConfig.popUpShowTimeSeconds = jSONObject.optInt("popUpShowTimeSeconds");
-        couponActiveConfig.title = jSONObject.optString("title");
-        if (jSONObject.opt("title") == JSONObject.NULL) {
-            couponActiveConfig.title = "";
-        }
-        couponActiveConfig.secondTitle = jSONObject.optString("secondTitle");
-        if (jSONObject.opt("secondTitle") == JSONObject.NULL) {
-            couponActiveConfig.secondTitle = "";
-        }
-        couponActiveConfig.bottomTitle = jSONObject.optString("bottomTitle");
-        if (jSONObject.opt("bottomTitle") == JSONObject.NULL) {
-            couponActiveConfig.bottomTitle = "";
-        }
-        couponActiveConfig.videoThreshold = jSONObject.optInt("videoThreshold");
-        couponActiveConfig.videoSeconds = jSONObject.optInt("videoSeconds");
-        SdkConfigData.TemplateConfig templateConfig = new SdkConfigData.TemplateConfig();
-        couponActiveConfig.couponOpenConfig = templateConfig;
-        templateConfig.parseJson(jSONObject.optJSONObject("couponOpenConfig"));
-        SdkConfigData.TemplateConfig templateConfig2 = new SdkConfigData.TemplateConfig();
-        couponActiveConfig.couponInfoConfig = templateConfig2;
-        templateConfig2.parseJson(jSONObject.optJSONObject("couponInfoConfig"));
-        ActivityInfo activityInfo = new ActivityInfo();
-        couponActiveConfig.activityInfo = activityInfo;
-        activityInfo.parseJson(jSONObject.optJSONObject("activityInfo"));
+        bottomBannerInfo.bannerSizeType = jSONObject.optInt("bannerSizeType");
+        bottomBannerInfo.bannerAdType = jSONObject.optInt("bannerAdType");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "popUpShowTimeSeconds", couponActiveConfig.popUpShowTimeSeconds);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", couponActiveConfig.title);
-        com.kwad.sdk.utils.t.a(jSONObject, "secondTitle", couponActiveConfig.secondTitle);
-        com.kwad.sdk.utils.t.a(jSONObject, "bottomTitle", couponActiveConfig.bottomTitle);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoThreshold", couponActiveConfig.videoThreshold);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoSeconds", couponActiveConfig.videoSeconds);
-        com.kwad.sdk.utils.t.a(jSONObject, "couponOpenConfig", couponActiveConfig.couponOpenConfig);
-        com.kwad.sdk.utils.t.a(jSONObject, "couponInfoConfig", couponActiveConfig.couponInfoConfig);
-        com.kwad.sdk.utils.t.a(jSONObject, "activityInfo", couponActiveConfig.activityInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "bannerSizeType", bottomBannerInfo.bannerSizeType);
+        com.kwad.sdk.utils.r.a(jSONObject, "bannerAdType", bottomBannerInfo.bannerAdType);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
+        a2(bottomBannerInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.BottomBannerInfo bottomBannerInfo, JSONObject jSONObject) {
+        return b2(bottomBannerInfo, jSONObject);
     }
 }

@@ -1,22 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView;
-import com.baidu.tbadk.coreExtra.view.FaceGroupDownloadLayout;
-import com.baidu.tbadk.coreExtra.view.FloorImageTextViewNew;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,56 +17,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class sy4 {
     public static /* synthetic */ Interceptable $ic;
+    public static sy4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageViewerBottomLayout b;
-    public AbsFloorImageTextView c;
-    public LinearLayout d;
-    public FaceGroupDownloadLayout e;
-    public boolean f;
-    public final ImageViewerBottomLayout.a g;
+    public my4 a;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public class a implements ImageViewerBottomLayout.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy4 a;
-
-        public a(sy4 sy4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sy4Var;
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
-        public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, imageViewerBottomLayout, z) == null) {
-                this.a.f = z;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(this.a.f)));
-                this.a.r(z);
-            }
-        }
-    }
-
-    public sy4(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
+    public sy4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,192 +35,149 @@ public class sy4 {
                 return;
             }
         }
-        this.f = true;
-        this.g = new a(this);
-        this.a = context;
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.d = linearLayout;
-        linearLayout.setOrientation(1);
-        this.d.setVisibility(8);
-        SkinManager.setBackgroundColorToTransparent(this.d, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.addRule(12);
-        relativeLayout.addView(this.d, layoutParams);
-        d();
-        e();
-        f();
+        this.a = b();
     }
 
-    public int c() {
+    public static sy4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout == null || this.c == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (sy4.class) {
+                    if (c == null) {
+                        c = new sy4();
+                    }
+                }
             }
-            return imageViewerBottomLayout.getHeight() + AbsFloorImageTextView.i;
+            return c;
+        }
+        return (sy4) invokeV.objValue;
+    }
+
+    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup) {
+        my4 my4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeILL(1048576, this, i, tbPageContext, viewGroup) == null) || (my4Var = this.a) == null) {
+            return;
+        }
+        my4Var.c(i, tbPageContext, viewGroup);
+    }
+
+    public final my4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, my4.class);
+            if (runTask != null) {
+                return (my4) runTask.getData();
+            }
+            return null;
+        }
+        return (my4) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            my4 my4Var = this.a;
+            if (my4Var != null) {
+                return my4Var.g();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public final void d() {
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            FaceGroupDownloadLayout faceGroupDownloadLayout = new FaceGroupDownloadLayout(this.a);
-            this.e = faceGroupDownloadLayout;
-            this.d.addView(faceGroupDownloadLayout, layoutParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            my4 my4Var = this.a;
+            if (my4Var != null) {
+                return my4Var.b();
+            }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public final void e() {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            FloorImageTextViewNew floorImageTextViewNew = new FloorImageTextViewNew(this.a);
-            this.c = floorImageTextViewNew;
-            this.d.addView(floorImageTextViewNew, layoutParams);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.r);
-            ImageViewerBottomLayout imageViewerBottomLayout = new ImageViewerBottomLayout(this.a);
-            this.b = imageViewerBottomLayout;
-            this.d.addView(imageViewerBottomLayout, layoutParams);
-            this.b.setExpandButtonListener(this.g);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? i(this.d) : invokeV.booleanValue;
-    }
-
-    public final boolean i(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) ? view2 != null && view2.getVisibility() == 0 : invokeL.booleanValue;
-    }
-
-    public void j(ImageUrlData imageUrlData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, imageUrlData) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.f(imageUrlData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            my4 my4Var = this.a;
+            if (my4Var != null) {
+                return my4Var.a();
             }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.d(imageUrlData);
-            }
-            FaceGroupDownloadLayout faceGroupDownloadLayout = this.e;
-            if (faceGroupDownloadLayout != null) {
-                faceGroupDownloadLayout.j(imageUrlData);
-                AbsFloorImageTextView absFloorImageTextView2 = this.c;
-                if (absFloorImageTextView2 != null) {
-                    this.e.setFloorImageTextViewVisible(absFloorImageTextView2.getVisibility() == 0);
-                }
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void k(ImageViewerBottomLayout.b bVar) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void h(boolean z) {
+        my4 my4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) || (imageViewerBottomLayout = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (my4Var = this.a) == null) {
             return;
         }
-        imageViewerBottomLayout.setOnDownloadImageListener(bVar);
+        my4Var.h(z);
     }
 
-    public void l(View.OnClickListener onClickListener) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void i(int i, int i2) {
+        my4 my4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) || (imageViewerBottomLayout = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) || (my4Var = this.a) == null) {
             return;
         }
-        imageViewerBottomLayout.setOnReplyClickListener(onClickListener);
+        my4Var.f(i, i2);
     }
 
-    public void m(ImageViewerBottomLayout.c cVar) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) || (imageViewerBottomLayout = this.b) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public NavigationBarCoverTip k(Activity activity, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, activity, viewGroup)) == null) {
+            my4 my4Var = this.a;
+            if (my4Var != null) {
+                return my4Var.e(activity, viewGroup);
+            }
+            return null;
+        }
+        return (NavigationBarCoverTip) invokeLL.objValue;
+    }
+
+    public Dialog l(int i, TbPageContext tbPageContext, kh5 kh5Var) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, tbPageContext, kh5Var)) == null) {
+            my4 my4Var = this.a;
+            if (my4Var != null) {
+                return my4Var.i(i, tbPageContext, kh5Var);
+            }
+            return null;
+        }
+        return (Dialog) invokeILL.objValue;
+    }
+
+    public void m() {
+        my4 my4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (my4Var = this.a) == null) {
             return;
         }
-        imageViewerBottomLayout.setOnShareImageListener(cVar);
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.setUserId(str);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.setUserId(str);
-            }
-        }
-    }
-
-    public void o(int i) {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (linearLayout = this.d) == null) {
-            return;
-        }
-        linearLayout.clearAnimation();
-        this.d.setVisibility(i);
-    }
-
-    public void p(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
-            if (i == 0) {
-                mo8.c(this.d, i2);
-            } else {
-                mo8.a(this.d, i2);
-            }
-        }
-    }
-
-    public void q(boolean z) {
-        ImageViewerBottomLayout imageViewerBottomLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (imageViewerBottomLayout = this.b) == null) {
-            return;
-        }
-        imageViewerBottomLayout.setYoungterCoverSomeView(z);
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.c;
-            if (absFloorImageTextView != null) {
-                absFloorImageTextView.e(z);
-            }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
-            if (imageViewerBottomLayout != null) {
-                imageViewerBottomLayout.e(!z);
-            }
-            FaceGroupDownloadLayout faceGroupDownloadLayout = this.e;
-            if (faceGroupDownloadLayout != null) {
-                faceGroupDownloadLayout.l(!z);
-            }
-        }
+        my4Var.d();
     }
 }

@@ -18,18 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fa8;
+import com.repackage.ab8;
+import com.repackage.km7;
+import com.repackage.lm7;
+import com.repackage.mm7;
 import com.repackage.nn;
-import com.repackage.sl7;
-import com.repackage.tl7;
-import com.repackage.ul7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements tl7 {
+public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements lm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ul7 a;
+    public mm7 a;
     public int b;
     public List<nn> c;
     public boolean d;
@@ -89,7 +89,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
                 if (this.a.b == 1) {
                     this.a.c.clear();
                 }
-                sl7 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
+                km7 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
                 if (!ListUtils.isEmpty(nearbyFriendData.a)) {
                     this.a.c.addAll(nearbyFriendData.a);
                 }
@@ -100,18 +100,18 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
                 this.a.a.g(this.a.e, this.a.c);
                 this.a.a.n(this.a.d);
                 if (this.a.d) {
-                    NearbyFriendsModel.B(this.a);
+                    NearbyFriendsModel.C(this.a);
                 }
             }
         }
     }
 
-    public NearbyFriendsModel(ul7 ul7Var, BdUniqueId bdUniqueId) {
+    public NearbyFriendsModel(mm7 mm7Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ul7Var, bdUniqueId};
+            Object[] objArr = {mm7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -124,18 +124,18 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         this.b = 1;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
         this.f = aVar;
-        this.a = ul7Var;
+        this.a = mm7Var;
         aVar.setTag(bdUniqueId);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int B(NearbyFriendsModel nearbyFriendsModel) {
+    public static /* synthetic */ int C(NearbyFriendsModel nearbyFriendsModel) {
         int i = nearbyFriendsModel.b;
         nearbyFriendsModel.b = i + 1;
         return i;
     }
 
-    public void H(Intent intent) {
+    public void I(Intent intent) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
@@ -143,10 +143,17 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         this.e = intent.getBooleanExtra(NearbyFriendsActivityConfig.KEY_NEED_COMPLETE_PROFILE, false);
     }
 
-    @Override // com.repackage.tl7
+    @Override // com.repackage.lm7
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.lm7
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             loadData();
         }
     }
@@ -155,17 +162,10 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.tl7
-    public boolean hasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -176,7 +176,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
             httpMessage.addParam(Config.PACKAGE_NAME, this.b);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam("app_pos", fa8.e().b());
+            httpMessage.addParam("app_pos", ab8.e().b());
             MessageManager.getInstance().sendMessage(httpMessage);
             return false;
         }
@@ -190,27 +190,27 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.repackage.tl7
+    @Override // com.repackage.lm7
     public void refresh() {
-        ul7 ul7Var;
+        mm7 mm7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ul7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (mm7Var = this.a) == null) {
             return;
         }
-        ul7Var.p();
+        mm7Var.p();
         this.a.m();
         this.b = 1;
         loadData();
     }
 
-    @Override // com.repackage.tl7
+    @Override // com.repackage.lm7
     public void reload() {
-        ul7 ul7Var;
+        mm7 mm7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (ul7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (mm7Var = this.a) == null) {
             return;
         }
-        ul7Var.p();
+        mm7Var.p();
         this.a.a();
         this.b = 1;
         loadData();

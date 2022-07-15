@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.ub5;
+import com.repackage.xc5;
 import java.util.HashMap;
 @Keep
 /* loaded from: classes3.dex */
@@ -51,8 +51,8 @@ public class AdExtParam {
                 a aVar = new a();
                 HashMap hashMap = new HashMap();
                 aVar.a = hashMap;
-                hashMap.put(AdExtParam.KEY_IADEX, ub5.e());
-                aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.21");
+                hashMap.put(AdExtParam.KEY_IADEX, xc5.e());
+                aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.5.0.11");
                 return aVar;
             }
             return (a) invokeV.objValue;

@@ -48,16 +48,16 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0791);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914bf);
+            setContentView(R.layout.obfuscated_res_0x7f0d07af);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setTitleText(R.string.obfuscated_res_0x7f0f0269);
+            this.a.setTitleText(R.string.obfuscated_res_0x7f0f026b);
             if (bundle == null) {
                 AlaSquareLiveFragment alaSquareLiveFragment = new AlaSquareLiveFragment(true);
                 this.b = alaSquareLiveFragment;
                 alaSquareLiveFragment.setPrimary(true);
-                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069b, this.b).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906a0, this.b).commitAllowingStateLoss();
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

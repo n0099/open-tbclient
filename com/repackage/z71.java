@@ -1,66 +1,110 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
+import com.heytap.mcssdk.mode.CommandMessage;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class z71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755159203, "Lcom/repackage/z71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755159203, "Lcom/repackage/z71;");
-                return;
+    public static final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = m91.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = m91.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
             }
         }
-        a = Charset.forName("US-ASCII");
-        Charset.forName("UTF-8");
+        return (String) invokeV.objValue;
     }
 
-    public static void a(Closeable closeable) {
+    public static final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Context a = m91.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = m91.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final void c(s71 s71Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, s71Var, str) == null) || s71Var == null) {
             return;
         }
-        try {
-            closeable.close();
-        } catch (RuntimeException e) {
-            throw e;
-        } catch (Exception unused) {
+        boolean z = false;
+        if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
+            return;
         }
+        String a = s71Var.a("Cookie");
+        String str2 = "BDUSS=" + str;
+        if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
+            s71Var.d("Cookie", str2);
+            return;
+        }
+        s71Var.d("Cookie", a + "; " + str2);
     }
 
-    public static void b(File file) {
+    public static final void d(s71 s71Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        b(file2);
-                    }
-                    if (!file2.delete()) {
-                        throw new IOException("failed to delete file: " + file2);
-                    }
-                }
-                return;
-            }
-            throw new IOException("not a readable directory: " + file);
+        if (!(interceptable == null || interceptable.invokeL(65539, null, s71Var) == null) || s71Var == null) {
+            return;
         }
+        s71Var.d("channel", "cashiersdk");
+        s71Var.d("deviceType", "ANDROID");
+        s71Var.d("osVersion", Build.VERSION.RELEASE);
+        s71Var.d(CommandMessage.SDK_VERSION, "2.8.7.9");
+        s71Var.d("appVersion", b());
+        s71Var.d("sdkPgName", a());
+        s71Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+    }
+
+    public static final r71 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            r71 r71Var = new r71();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    r71Var.d(next, jSONObject.optString(next));
+                }
+            }
+            return r71Var;
+        }
+        return (r71) invokeL.objValue;
     }
 }

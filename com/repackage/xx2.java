@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yx2;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class xx2 extends sv2 {
+public class xx2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public xx2() {
@@ -28,26 +27,31 @@ public final class xx2 extends sv2 {
         }
     }
 
-    @Override // com.repackage.sv2
-    public void b(Bundle params) {
-        yx2.a b;
-        yx2.a b2;
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
-            String string2 = params.getString("swanId");
-            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            String string4 = params.getString("hostName");
-            if (ProcessUtils.isMainProcess()) {
-                if (string != null && (b2 = yx2.c.b()) != null) {
-                    b2.a(string, string3, string4);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? c(context).getInt("softinput.height", i) : invokeLI.intValue;
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) ? c(context).edit().putInt("softinput.height", i).commit() : invokeLI.booleanValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == null) {
+                synchronized (xx2.class) {
+                    if (a == null) {
+                        a = new u83("swan.publisher", false);
+                    }
                 }
-                if (string2 == null || (b = yx2.c.b()) == null) {
-                    return;
-                }
-                b.b(string2, string3, string4);
             }
+            return a;
         }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

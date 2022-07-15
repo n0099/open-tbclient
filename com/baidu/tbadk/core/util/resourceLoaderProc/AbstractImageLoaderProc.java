@@ -28,18 +28,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cg;
 import com.repackage.gg;
 import com.repackage.hg;
-import com.repackage.j35;
 import com.repackage.jg;
-import com.repackage.kc5;
 import com.repackage.kg;
-import com.repackage.km4;
+import com.repackage.l45;
 import com.repackage.mg;
+import com.repackage.nd5;
 import com.repackage.ni;
 import com.repackage.oi;
 import com.repackage.pi;
 import com.repackage.ub;
 import com.repackage.yb;
 import com.repackage.ym;
+import com.repackage.zm4;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public abstract class AbstractImageLoaderProc implements kg<ym> {
@@ -208,7 +208,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? km4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? zm4.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -219,7 +219,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                j35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -263,7 +263,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
                 long currentTimeMillis = System.currentTimeMillis();
                 ymVar.A(i);
                 ymVar.z(i2);
-                j35.k().d(str, ymVar);
+                l45.k().d(str, ymVar);
                 gg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -339,7 +339,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            ym m = j35.k().m(str);
+            ym m = l45.k().m(str);
             if (z) {
                 gg.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -396,8 +396,8 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
             int i8 = suggestHeight;
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, i7, i8);
-            kc5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = kc5.d(urlbyClientServerAddr);
+            nd5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = nd5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -427,7 +427,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
                     webClient2 = webClient3;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b92, new TypedValue());
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b9c, new TypedValue());
                     byte[] d2 = cg.d(openRawResource);
                     Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
                     WebClient webClient4 = webClient2;
@@ -493,7 +493,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            j35.k().i(TbConfig.getPbImageSize() + bArr3.length);
+            l45.k().i(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i6 = 1;
                 p = m41decodeToResource(bArr3, rect).p();
@@ -504,7 +504,7 @@ public abstract class AbstractImageLoaderProc implements kg<ym> {
                 p = decodeToResourceWithWH(bArr3, i5, i4).p();
             }
             if (z && p == null) {
-                kc5.b(str4);
+                nd5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z4);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {

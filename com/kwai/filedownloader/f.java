@@ -8,16 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f extends com.kwai.filedownloader.event.a {
+public final class f extends com.kwai.filedownloader.event.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: com.kwai.filedownloader.f$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -38,7 +31,7 @@ public class f extends com.kwai.filedownloader.event.a {
                     return;
                 }
             }
-            a = new f(null);
+            a = new f((byte) 0);
         }
     }
 
@@ -56,7 +49,7 @@ public class f extends com.kwai.filedownloader.event.a {
         }
     }
 
-    public /* synthetic */ f(AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ f(byte b) {
         this();
     }
 

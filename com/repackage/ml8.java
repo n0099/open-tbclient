@@ -1,33 +1,41 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tieba.R;
 import com.baidu.tieba.interest.InterestPanelShowManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ml8 extends CustomMessageListener {
+public class ml8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ml8(MainTabActivity mainTabActivity, dk8 dk8Var) {
-        super(2921673);
+    public ml8(MainTabActivity mainTabActivity, al8 al8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, dk8Var};
+            Object[] objArr = {mainTabActivity, al8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,13 +44,85 @@ public class ml8 extends CustomMessageListener {
         this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            InterestPanelShowManager.a().e(this.a, true);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
+            return;
+        }
+        if (c() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && TbSingleton.getInstance().isNeedShowInterestGuide()) {
+            this.b = true;
+            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
+            if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
+                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0910), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0911), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f090c)});
+                interestGuideActivityConfig.setScene(10);
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
             TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
         }
+        xt4.k().x("key_app_launch_time", System.currentTimeMillis());
+        b();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+            return;
+        }
+        TbSingleton.getInstance().setHasPerformedFirstLoginTest(true);
+        if (UbsABTestHelper.isFirstLoginTestA()) {
+            if (TbadkCoreApplication.isLogin() || LoginActivity.class.getName().equals(pi.w())) {
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
+            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        } else if (UbsABTestHelper.isFirstLoginTestB()) {
+            if (TbadkApplication.getInst().isNeedNewUserLead()) {
+                InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
+                interestGuideActivityConfig.setRequestCode(25060);
+                interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
+                TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+            }
+        } else if (TbadkApplication.getInst().isNeedNewUserLead()) {
+            InterestGuideActivityConfig interestGuideActivityConfig2 = new InterestGuideActivityConfig(this.a, 4);
+            interestGuideActivityConfig2.setRequestCode(25060);
+            interestGuideActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig2));
+            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Activity b = z8.g().b();
+            String localClassName = b != null ? b.getLocalClassName() : "";
+            return localClassName.contains("MainTabActivity") || localClassName.contains("FrsActivity") || localClassName.contains("PbActivity") || localClassName.contains("NewSquareSearchActivity") || localClassName.contains("PbCommentFloatActivity");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || TbSingleton.getInstance().hasPerformInterestPanelShow) {
+            return;
+        }
+        TbSingleton.getInstance().hasPerformInterestPanelShow = true;
+        if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+            InterestPanelShowManager.a().d(this.a);
+            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        }
+        xt4.k().x("key_app_launch_time", System.currentTimeMillis());
+        b();
+        if (!UbsABTestHelper.isFirstLoginTestA() && !UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
+            InterestPanelShowManager.a().d(this.a);
+            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        }
+        if (!UbsABTestHelper.isFirstLoginTestB() || TbadkApplication.getInst().isNeedNewUserLead()) {
+            return;
+        }
+        InterestPanelShowManager.a().d(this.a);
+        TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
     }
 }

@@ -1,156 +1,42 @@
 package com.kwad.sdk.utils;
 
-import android.app.AppOpsManager;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Binder;
-import android.os.Build;
-import android.os.Process;
-import android.provider.Settings;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 /* loaded from: classes5.dex */
-public class ah {
-    public static Map<String, Integer> a;
-    public static Set<String> b;
-    public static Method c;
-
-    static {
-        HashSet hashSet = new HashSet();
-        b = hashSet;
-        hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        b.add("android.permission.WRITE_SETTINGS");
-        b.add("android.permission.SYSTEM_ALERT_WINDOW");
-    }
-
-    public static int a(Context context, String str) {
-        int b2;
-        if (a == null) {
-            try {
-                a(context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions);
-            } catch (PackageManager.NameNotFoundException unused) {
-            }
-        }
-        if (!b.contains(str) || (b2 = b(context, str)) == -2) {
-            int c2 = c(context, str);
-            return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
-        }
-        return b2;
-    }
-
-    public static String a(String str) {
-        if (str == null) {
-            return null;
-        }
-        int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf < 0) {
-            return str;
-        }
-        try {
-            return str.substring(lastIndexOf + 1);
-        } catch (Exception unused) {
-            return str;
-        }
-    }
-
-    public static void a(String[] strArr) {
-        if (Build.VERSION.SDK_INT < 19 || strArr == null) {
-            return;
-        }
-        a = new HashMap();
-        for (String str : strArr) {
-            try {
-                Field declaredField = AppOpsManager.class.getDeclaredField("OP_" + a(str));
-                declaredField.setAccessible(true);
-                int intValue = ((Integer) declaredField.get(null)).intValue();
-                if (intValue >= 0) {
-                    a.put(str, Integer.valueOf(intValue));
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static boolean a(Context context) {
-        int i;
-        try {
-            i = Settings.Secure.getInt(context.getContentResolver(), "accessibility_enabled");
-        } catch (Throwable unused) {
-            i = 0;
-        }
-        return i == 1;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:29:0x004b A[RETURN, SYNTHETIC] */
+public final class ah {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x0010 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x0008 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x000c */
+    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
+        r0 = r0;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int b(Context context, String str) {
-        char c2;
-        int hashCode = str.hashCode();
-        if (hashCode == -2078357533) {
-            if (str.equals("android.permission.WRITE_SETTINGS")) {
-                c2 = 1;
-            }
-            c2 = 65535;
-        } else if (hashCode != -1561629405) {
-            if (hashCode == 1777263169 && str.equals("android.permission.REQUEST_INSTALL_PACKAGES")) {
-                c2 = 0;
-            }
-            c2 = 65535;
-        } else {
-            if (str.equals("android.permission.SYSTEM_ALERT_WINDOW")) {
-                c2 = 2;
-            }
-            c2 = 65535;
+    public static int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, int i) {
+        boolean z7;
+        if (z2) {
+            z7 = (z ? 1 : 0) | true;
         }
-        if (c2 == 0) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                if (context.getPackageManager().canRequestPackageInstalls()) {
-                    return 0;
-                }
-            }
-            return -2;
-        } else if (c2 != 1) {
-            if (c2 == 2 && Build.VERSION.SDK_INT >= 23) {
-                return Settings.canDrawOverlays(context) ? 0 : -1;
-            }
-            return -2;
-        } else {
-            if (Build.VERSION.SDK_INT >= 23) {
-                if (Settings.System.canWrite(context)) {
-                    return 0;
-                }
-            }
-            return -2;
+        if (z3) {
+            z7 = (z7 ? 1 : 0) | true;
         }
-    }
-
-    public static int c(Context context, String str) {
-        if (str == null) {
-            return -2;
+        if (z4) {
+            z7 = (z7 ? 1 : 0) | 8;
         }
-        if (Build.VERSION.SDK_INT < 19) {
-            return 0;
+        if (z5) {
+            z7 = (z7 == true ? 1 : 0) | 16;
         }
-        if (a.containsKey(str)) {
-            int intValue = a.get(str).intValue();
-            try {
-                if (c == null) {
-                    Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                    c = declaredMethod;
-                    declaredMethod.setAccessible(true);
-                }
-                return ((Integer) c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
-                return 0;
-            }
+        if (z6) {
+            z7 = (z7 == true ? 1 : 0) | WebvttCueParser.CHAR_SPACE;
         }
-        return -2;
+        return i == 2 ? z7 | 64 : z7;
     }
 }

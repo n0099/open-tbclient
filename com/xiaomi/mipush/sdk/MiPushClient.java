@@ -566,8 +566,8 @@ public abstract class MiPushClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            if (b.m126a(context).m135c()) {
-                return b.m126a(context).f();
+            if (b.m1069a(context).m1078c()) {
+                return b.m1069a(context).f();
             }
             return null;
         }
@@ -577,7 +577,7 @@ public abstract class MiPushClient {
     public static boolean getDefaultSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? com.xiaomi.push.m.m559b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? com.xiaomi.push.m.m1502b() : invokeV.booleanValue;
     }
 
     public static boolean getOpenFCMPush(Context context) {
@@ -620,8 +620,8 @@ public abstract class MiPushClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
-            if (b.m126a(context).m135c()) {
-                return b.m126a(context).m134c();
+            if (b.m1069a(context).m1078c()) {
+                return b.m1069a(context).m1077c();
             }
             return null;
         }
@@ -693,7 +693,7 @@ public abstract class MiPushClient {
                 public void onCallback() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        en.m305a(this.val$context);
+                        en.m1248a(this.val$context);
                     }
                 }
             });
@@ -722,20 +722,20 @@ public abstract class MiPushClient {
                 if (iCallbackResult != null) {
                     PushMessageHandler.a(iCallbackResult);
                 }
-                if (com.xiaomi.push.v.m685a(sContext)) {
+                if (com.xiaomi.push.v.m1628a(sContext)) {
                     v.a(sContext);
                 }
-                boolean z = b.m126a(sContext).a() != Constants.a();
+                boolean z = b.m1069a(sContext).a() != Constants.a();
                 if (!z && !shouldSendRegRequest(sContext)) {
-                    ao.a(sContext).m117a();
-                    com.xiaomi.channel.commonutils.logger.b.m84a("Could not send  register message within 5s repeatly .");
+                    ao.a(sContext).m1060a();
+                    com.xiaomi.channel.commonutils.logger.b.m1027a("Could not send  register message within 5s repeatly .");
                     return;
                 }
-                if (z || !b.m126a(sContext).a(str, str2) || b.m126a(sContext).m138f()) {
+                if (z || !b.m1069a(sContext).a(str, str2) || b.m1069a(sContext).m1081f()) {
                     String a = bp.a(6);
-                    b.m126a(sContext).m128a();
-                    b.m126a(sContext).a(Constants.a());
-                    b.m126a(sContext).a(str, str2, a);
+                    b.m1069a(sContext).m1071a();
+                    b.m1069a(sContext).a(Constants.a());
+                    b.m1069a(sContext).a(str, str2, a);
                     MiTinyDataClient.a.a().b(MiTinyDataClient.PENDING_REASON_APPID);
                     clearExtras(sContext);
                     clearNotification(context);
@@ -745,7 +745,7 @@ public abstract class MiPushClient {
                     ijVar.e(str2);
                     ijVar.d(sContext.getPackageName());
                     ijVar.f(a);
-                    ijVar.c(com.xiaomi.push.h.m379a(sContext, sContext.getPackageName()));
+                    ijVar.c(com.xiaomi.push.h.m1322a(sContext, sContext.getPackageName()));
                     ijVar.b(com.xiaomi.push.h.a(sContext, sContext.getPackageName()));
                     ijVar.h("4_9_0");
                     ijVar.a(40090);
@@ -753,7 +753,7 @@ public abstract class MiPushClient {
                     if (!TextUtils.isEmpty(str3)) {
                         ijVar.g(str3);
                     }
-                    if (!com.xiaomi.push.m.m561d()) {
+                    if (!com.xiaomi.push.m.m1504d()) {
                         String e = com.xiaomi.push.j.e(sContext);
                         if (!TextUtils.isEmpty(e)) {
                             ijVar.i(bp.a(e) + "," + com.xiaomi.push.j.h(sContext));
@@ -768,38 +768,38 @@ public abstract class MiPushClient {
                 } else {
                     if (1 == PushMessageHelper.getPushMode(sContext)) {
                         checkNotNull(miPushClientCallback, WebChromeClient.KEY_ARG_CALLBACK);
-                        miPushClientCallback.onInitializeResult(0L, null, b.m126a(sContext).m134c());
+                        miPushClientCallback.onInitializeResult(0L, null, b.m1069a(sContext).m1077c());
                     } else {
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(b.m126a(sContext).m134c());
-                        PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(ey.a.f326a, arrayList, 0L, null, null, null));
+                        arrayList.add(b.m1069a(sContext).m1077c());
+                        PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(ey.a.f1053a, arrayList, 0L, null, null, null));
                     }
-                    ao.a(sContext).m117a();
-                    if (b.m126a(sContext).m130a()) {
+                    ao.a(sContext).m1060a();
+                    if (b.m1069a(sContext).m1073a()) {
                         ii iiVar = new ii();
-                        iiVar.b(b.m126a(sContext).m127a());
-                        iiVar.c(ht.g.f498a);
+                        iiVar.b(b.m1069a(sContext).m1070a());
+                        iiVar.c(ht.g.f1225a);
                         iiVar.a(bd.a());
                         HashMap hashMap = new HashMap();
-                        iiVar.f637a = hashMap;
-                        hashMap.put("app_version", com.xiaomi.push.h.m379a(sContext, sContext.getPackageName()));
-                        iiVar.f637a.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.h.a(sContext, sContext.getPackageName())));
-                        iiVar.f637a.put("push_sdk_vn", "4_9_0");
-                        iiVar.f637a.put("push_sdk_vc", Integer.toString(40090));
-                        String e2 = b.m126a(sContext).e();
+                        iiVar.f1364a = hashMap;
+                        hashMap.put("app_version", com.xiaomi.push.h.m1322a(sContext, sContext.getPackageName()));
+                        iiVar.f1364a.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.h.a(sContext, sContext.getPackageName())));
+                        iiVar.f1364a.put("push_sdk_vn", "4_9_0");
+                        iiVar.f1364a.put("push_sdk_vc", Integer.toString(40090));
+                        String e2 = b.m1069a(sContext).e();
                         if (!TextUtils.isEmpty(e2)) {
-                            iiVar.f637a.put("deviceid", e2);
+                            iiVar.f1364a.put("deviceid", e2);
                         }
                         ao.a(sContext).a((ao) iiVar, hj.i, false, (hw) null);
                     }
-                    if (!com.xiaomi.push.n.m563a(sContext, "update_devId", false)) {
+                    if (!com.xiaomi.push.n.m1506a(sContext, "update_devId", false)) {
                         updateImeiOrOaid();
                         com.xiaomi.push.n.a(sContext, "update_devId", true);
                     }
                     if (shouldUseMIUIPush(sContext) && shouldPullNotification(sContext)) {
                         ii iiVar2 = new ii();
-                        iiVar2.b(b.m126a(sContext).m127a());
-                        iiVar2.c(ht.j.f498a);
+                        iiVar2.b(b.m1069a(sContext).m1070a());
+                        iiVar2.c(ht.j.f1225a);
                         iiVar2.a(bd.a());
                         iiVar2.a(false);
                         ao.a(sContext).a((ao) iiVar2, hj.i, false, (hw) null, false);
@@ -860,20 +860,20 @@ public abstract class MiPushClient {
         if (interceptable == null || interceptable.invokeLL(65577, null, context, hxVar) == null) {
             com.xiaomi.channel.commonutils.logger.b.e("re-register reason: " + hxVar);
             String a = bp.a(6);
-            String m127a = b.m126a(context).m127a();
-            String b = b.m126a(context).b();
-            b.m126a(context).m128a();
+            String m1070a = b.m1069a(context).m1070a();
+            String b = b.m1069a(context).b();
+            b.m1069a(context).m1071a();
             clearExtrasForInitialize(context);
             clearNotification(context);
-            b.m126a(context).a(Constants.a());
-            b.m126a(context).a(m127a, b, a);
+            b.m1069a(context).a(Constants.a());
+            b.m1069a(context).a(m1070a, b, a);
             ij ijVar = new ij();
             ijVar.a(bd.a());
-            ijVar.b(m127a);
+            ijVar.b(m1070a);
             ijVar.e(b);
             ijVar.f(a);
             ijVar.d(context.getPackageName());
-            ijVar.c(com.xiaomi.push.h.m379a(context, context.getPackageName()));
+            ijVar.c(com.xiaomi.push.h.m1322a(context, context.getPackageName()));
             ijVar.b(com.xiaomi.push.h.a(context, context.getPackageName()));
             ijVar.h("4_9_0");
             ijVar.a(40090);
@@ -904,7 +904,7 @@ public abstract class MiPushClient {
                 com.xiaomi.push.o.a(context.getApplicationContext(), new NetworkStatusReceiver(null), intentFilter);
                 com.xiaomi.push.o.a(context, NetworkStatusReceiver.class);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("dynamic register network status receiver failed:" + th);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("dynamic register network status receiver failed:" + th);
             }
         }
     }
@@ -1071,17 +1071,17 @@ public abstract class MiPushClient {
     public static void removeWindow(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
-            ao.a(context).m125e();
+            ao.a(context).m1068e();
         }
     }
 
     public static void reportAppRunInBackground(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65593, null, context, z) == null) && b.m126a(context).m133b()) {
+        if ((interceptable == null || interceptable.invokeLZ(65593, null, context, z) == null) && b.m1069a(context).m1076b()) {
             ht htVar = z ? ht.R : ht.Q;
             ii iiVar = new ii();
-            iiVar.b(b.m126a(context).m127a());
-            iiVar.c(htVar.f498a);
+            iiVar.b(b.m1069a(context).m1070a());
+            iiVar.c(htVar.f1225a);
             iiVar.d(context.getPackageName());
             iiVar.a(bd.a());
             iiVar.a(false);
@@ -1134,11 +1134,11 @@ public abstract class MiPushClient {
         if (interceptable == null || interceptable.invokeLLLL(65597, null, context, str, hwVar, str2) == null) {
             ii iiVar = new ii();
             if (TextUtils.isEmpty(str2)) {
-                if (!b.m126a(context).m133b()) {
+                if (!b.m1069a(context).m1076b()) {
                     com.xiaomi.channel.commonutils.logger.b.d("do not report clicked message");
                     return;
                 }
-                str2 = b.m126a(context).m127a();
+                str2 = b.m1069a(context).m1070a();
             }
             iiVar.b(str2);
             iiVar.c("bar:click");
@@ -1213,11 +1213,11 @@ public abstract class MiPushClient {
             arrayList2.add(String.format("%1$02d:%2$02d", Integer.valueOf(i), Integer.valueOf(i2)));
             arrayList2.add(String.format("%1$02d:%2$02d", Integer.valueOf(i3), Integer.valueOf(i4)));
             if (!acceptTimeSet(context, (String) arrayList.get(0), (String) arrayList.get(1))) {
-                setCommand(context, ey.i.f326a, arrayList, str);
+                setCommand(context, ey.i.f1053a, arrayList, str);
             } else if (1 == PushMessageHelper.getPushMode(context)) {
-                PushMessageHandler.a(context, str, ey.i.f326a, 0L, null, arrayList2);
+                PushMessageHandler.a(context, str, ey.i.f1053a, 0L, null, arrayList2);
             } else {
-                PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ey.i.f326a, arrayList2, 0L, null, null, null));
+                PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ey.i.f1053a, arrayList2, 0L, null, null, null));
             }
         }
     }
@@ -1227,7 +1227,7 @@ public abstract class MiPushClient {
         if (!(interceptable == null || interceptable.invokeLLL(65602, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        setCommand(context, ey.c.f326a, str, str2);
+        setCommand(context, ey.c.f1053a, str, str2);
     }
 
     public static void setCommand(Context context, String str, String str2, String str3) {
@@ -1240,27 +1240,27 @@ public abstract class MiPushClient {
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(str2);
             }
-            if (ey.c.f326a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 86400000) {
+            if (ey.c.f1053a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 86400000) {
                 if (1 != PushMessageHelper.getPushMode(context)) {
                     eyVar = ey.c;
-                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(eyVar.f326a, arrayList, 0L, null, str3, null));
+                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(eyVar.f1053a, arrayList, 0L, null, str3, null));
                     return;
                 }
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
                 return;
             }
-            if (ey.d.f326a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
+            if (ey.d.f1053a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
                 sb = new StringBuilder();
                 str4 = "Don't cancel alias for ";
-            } else if (ey.e.f326a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
+            } else if (ey.e.f1053a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
                 if (1 != PushMessageHelper.getPushMode(context)) {
                     eyVar = ey.e;
-                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(eyVar.f326a, arrayList, 0L, null, str3, null));
+                    PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(eyVar.f1053a, arrayList, 0L, null, str3, null));
                     return;
                 }
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
                 return;
-            } else if (!ey.f.f326a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
+            } else if (!ey.f.f1053a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
                 setCommand(context, str, arrayList, str3);
                 return;
             } else {
@@ -1270,23 +1270,23 @@ public abstract class MiPushClient {
             sb.append(str4);
             sb.append(bp.a(arrayList.toString(), 3));
             sb.append(" is unseted");
-            com.xiaomi.channel.commonutils.logger.b.m84a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m1027a(sb.toString());
         }
     }
 
     public static void setCommand(Context context, String str, ArrayList<String> arrayList, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65604, null, context, str, arrayList, str2) == null) || TextUtils.isEmpty(b.m126a(context).m127a())) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65604, null, context, str, arrayList, str2) == null) || TextUtils.isEmpty(b.m1069a(context).m1070a())) {
             return;
         }
         id idVar = new id();
         String a = bd.a();
         idVar.a(a);
-        idVar.b(b.m126a(context).m127a());
+        idVar.b(b.m1069a(context).m1070a());
         idVar.c(str);
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            idVar.m451a(it.next());
+            idVar.m1394a(it.next());
         }
         idVar.e(str2);
         idVar.d(context.getPackageName());
@@ -1306,7 +1306,7 @@ public abstract class MiPushClient {
         if (!(interceptable == null || interceptable.invokeLLL(65606, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        setCommand(context, ey.e.f326a, str, str2);
+        setCommand(context, ey.e.f1053a, str, str2);
     }
 
     public static boolean shouldPullNotification(Context context) {
@@ -1324,12 +1324,12 @@ public abstract class MiPushClient {
     public static boolean shouldUseMIUIPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65609, null, context)) == null) ? ao.a(context).m119a() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65609, null, context)) == null) ? ao.a(context).m1062a() : invokeL.booleanValue;
     }
 
     public static void subscribe(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65610, null, context, str, str2) == null) || TextUtils.isEmpty(b.m126a(context).m127a()) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65610, null, context, str, str2) == null) || TextUtils.isEmpty(b.m1069a(context).m1070a()) || TextUtils.isEmpty(str)) {
             return;
         }
         if (Math.abs(System.currentTimeMillis() - topicSubscribedTime(context, str)) <= 86400000) {
@@ -1339,13 +1339,13 @@ public abstract class MiPushClient {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
-            PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ey.g.f326a, arrayList, 0L, null, null, null));
+            PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ey.g.f1053a, arrayList, 0L, null, null, null));
             return;
         }
         in inVar = new in();
         String a = bd.a();
         inVar.a(a);
-        inVar.b(b.m126a(context).m127a());
+        inVar.b(b.m1069a(context).m1070a());
         inVar.c(str);
         inVar.d(context.getPackageName());
         inVar.e(str2);
@@ -1437,17 +1437,17 @@ public abstract class MiPushClient {
         if (interceptable == null || interceptable.invokeL(65619, null, context) == null) {
             i.c(context);
             ba.a(context).a();
-            if (b.m126a(context).m133b()) {
+            if (b.m1069a(context).m1076b()) {
                 ip ipVar = new ip();
                 ipVar.a(bd.a());
-                ipVar.b(b.m126a(context).m127a());
-                ipVar.c(b.m126a(context).m134c());
-                ipVar.e(b.m126a(context).b());
+                ipVar.b(b.m1069a(context).m1070a());
+                ipVar.c(b.m1069a(context).m1077c());
+                ipVar.e(b.m1069a(context).b());
                 ipVar.d(context.getPackageName());
                 ao.a(context).a(ipVar);
                 PushMessageHandler.a();
                 PushMessageHandler.b();
-                b.m126a(context).m132b();
+                b.m1069a(context).m1075b();
                 clearLocalNotificationType(context);
                 clearNotification(context);
                 clearExtras(context);
@@ -1458,28 +1458,28 @@ public abstract class MiPushClient {
     public static void unsetAlias(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65620, null, context, str, str2) == null) {
-            setCommand(context, ey.d.f326a, str, str2);
+            setCommand(context, ey.d.f1053a, str, str2);
         }
     }
 
     public static void unsetUserAccount(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65621, null, context, str, str2) == null) {
-            setCommand(context, ey.f.f326a, str, str2);
+            setCommand(context, ey.f.f1053a, str, str2);
         }
     }
 
     public static void unsubscribe(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65622, null, context, str, str2) == null) && b.m126a(context).m133b()) {
+        if ((interceptable == null || interceptable.invokeLLL(65622, null, context, str, str2) == null) && b.m1069a(context).m1076b()) {
             if (topicSubscribedTime(context, str) < 0) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("Don't cancel subscribe for " + str + " is unsubscribed");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("Don't cancel subscribe for " + str + " is unsubscribed");
                 return;
             }
             ir irVar = new ir();
             String a = bd.a();
             irVar.a(a);
-            irVar.b(b.m126a(context).m127a());
+            irVar.b(b.m1069a(context).m1070a());
             irVar.c(str);
             irVar.d(context.getPackageName());
             irVar.e(str2);
@@ -1513,13 +1513,13 @@ public abstract class MiPushClient {
                 public void run() {
                     String d;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || com.xiaomi.push.m.m561d()) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || com.xiaomi.push.m.m1504d()) {
                         return;
                     }
                     if (com.xiaomi.push.j.d(MiPushClient.sContext) != null || com.xiaomi.push.ba.a(MiPushClient.sContext).a()) {
                         ii iiVar = new ii();
-                        iiVar.b(b.m126a(MiPushClient.sContext).m127a());
-                        iiVar.c(ht.g.f498a);
+                        iiVar.b(b.m1069a(MiPushClient.sContext).m1070a());
+                        iiVar.c(ht.g.f1225a);
                         iiVar.a(bd.a());
                         iiVar.a(new HashMap());
                         String str = "";
@@ -1531,12 +1531,12 @@ public abstract class MiPushClient {
                             str = str + "," + f;
                         }
                         if (!TextUtils.isEmpty(str)) {
-                            iiVar.m476a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+                            iiVar.m1419a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
                         }
-                        com.xiaomi.push.ba.a(MiPushClient.sContext).a(iiVar.m476a());
+                        com.xiaomi.push.ba.a(MiPushClient.sContext).a(iiVar.m1419a());
                         int a = com.xiaomi.push.j.a();
                         if (a >= 0) {
-                            iiVar.m476a().put("space_id", Integer.toString(a));
+                            iiVar.m1419a().put("space_id", Integer.toString(a));
                         }
                         ao.a(MiPushClient.sContext).a((ao) iiVar, hj.i, false, (hw) null);
                     }

@@ -4,49 +4,85 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.repackage.rg2;
 /* loaded from: classes7.dex */
-public class ue2 extends md2<dg2> {
+public class ue2 extends ce2<rg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ue2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class a implements rg2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ue2 ue2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.repackage.md2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ue2(@NonNull rg2 rg2Var) {
+        super(rg2Var);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAns" : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rg2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ee2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        e();
+        this.a.a(new cf2());
+        this.a.a(new df2());
+        this.a.a(new ef2());
+        this.a.a(new ff2());
+        this.a.a(new gf2());
+        this.a.a(new ze2());
+        this.a.a(new hf2());
+        this.a.a(new af2());
+        this.a.a(new bf2());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.md2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull dg2 dg2Var) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, dg2Var) == null) {
-            String str = command.what;
-            d(dg2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                dg2Var.i(((Boolean) obj).booleanValue());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ((rg2) this.c).o(new a(this));
+        }
+    }
+
+    @Override // com.repackage.ce2, com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
+            String str = command == null ? "" : command.what;
+            if (((rg2) this.c).q()) {
+                hx1.i("InlineRtcItemController", "isReleased command：" + str);
+                return;
             }
+            hx1.i("InlineRtcItemController", "authorize type：" + ((rg2) this.c).a() + " command：" + str);
+            super.sendCommand(command);
         }
     }
 }

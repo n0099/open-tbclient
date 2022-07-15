@@ -1,56 +1,40 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public class cp9 extends Handler {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ wp9 a;
+public interface cp9 {
+    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cp9(wp9 wp9Var, Looper looper) {
-        super(looper);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wp9Var, looper};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = wp9Var;
-    }
+    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            int i = message.what;
-            wp9.h();
-            if (i == 100101) {
-                this.a.j.removeMessages(100101);
-                un9 a = yn9.a(this.a.a);
-                co9 co9Var = new co9(null);
-                co9Var.a = this.a.b;
-                a.g(co9Var, in9.L(this.a.a) * 1000, 2002, 0);
-                a.m();
-                this.a.d(PBError.TIMEOUT);
-            }
-        }
-    }
+    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+
+    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketError(WebSocket webSocket, Exception exc);
+
+    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, qp9 qp9Var, xp9 xp9Var) throws InvalidDataException;
+
+    yp9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, qp9 qp9Var) throws InvalidDataException;
+
+    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, qp9 qp9Var) throws InvalidDataException;
+
+    void onWebsocketMessage(WebSocket webSocket, String str);
+
+    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
+
+    void onWebsocketOpen(WebSocket webSocket, vp9 vp9Var);
+
+    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
+
+    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
+
+    void onWriteDemand(WebSocket webSocket);
 }

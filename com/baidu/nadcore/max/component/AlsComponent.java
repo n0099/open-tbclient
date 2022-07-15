@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f21;
-import com.repackage.hm0;
-import com.repackage.kl0;
-import com.repackage.ll0;
-import com.repackage.lx0;
-import com.repackage.ml0;
-import com.repackage.sl0;
-import com.repackage.vl0;
-import com.repackage.vx0;
+import com.repackage.fh0;
+import com.repackage.fm0;
+import com.repackage.im0;
+import com.repackage.iy0;
+import com.repackage.lm0;
+import com.repackage.mm0;
+import com.repackage.t21;
+import com.repackage.um0;
+import com.repackage.xl0;
 import com.repackage.yl0;
-import com.repackage.zg0;
+import com.repackage.yx0;
 import com.repackage.zl0;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -38,7 +38,7 @@ public final class AlsComponent extends AbsComponentPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
-    public final hm0 e;
+    public final um0 e;
     public boolean f;
     public boolean g;
     public final Lazy h;
@@ -56,7 +56,7 @@ public final class AlsComponent extends AbsComponentPlugin {
                 return;
             }
         }
-        this.e = new hm0();
+        this.e = new um0();
         this.h = LazyKt__LazyJVMKt.lazy(new AlsComponent$alsService$2(this));
     }
 
@@ -71,17 +71,17 @@ public final class AlsComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(zg0 event) {
+    public void c(fh0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.c(event);
             String a = event.a();
-            if (Intrinsics.areEqual(a, ml0.class.getSimpleName())) {
-                n((ml0) event);
-            } else if (Intrinsics.areEqual(a, sl0.class.getSimpleName())) {
-                o((sl0) event);
-            } else if (Intrinsics.areEqual(a, ll0.class.getSimpleName())) {
+            if (Intrinsics.areEqual(a, zl0.class.getSimpleName())) {
+                n((zl0) event);
+            } else if (Intrinsics.areEqual(a, fm0.class.getSimpleName())) {
+                o((fm0) event);
+            } else if (Intrinsics.areEqual(a, yl0.class.getSimpleName())) {
                 if (this.e.b() == 0) {
                     this.e.h(System.currentTimeMillis());
                 }
@@ -89,13 +89,13 @@ public final class AlsComponent extends AbsComponentPlugin {
                     return;
                 }
                 this.g = true;
-                yl0 yl0Var = (yl0) l().q(yl0.class);
-                if (yl0Var == null || !yl0Var.k()) {
+                lm0 lm0Var = (lm0) l().q(lm0.class);
+                if (lm0Var == null || !lm0Var.k()) {
                     return;
                 }
                 long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                hm0 hm0Var = this.e;
-                hm0Var.i(hm0Var.c() + max);
+                um0 um0Var = this.e;
+                um0Var.i(um0Var.c() + max);
             }
         }
     }
@@ -105,20 +105,20 @@ public final class AlsComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.f();
-            l().t(vl0.class, m());
+            l().t(im0.class, m());
         }
     }
 
-    public final vl0 m() {
+    public final im0 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (vl0) this.h.getValue() : (vl0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (im0) this.h.getValue() : (im0) invokeV.objValue;
     }
 
-    public final void n(ml0 ml0Var) {
+    public final void n(zl0 zl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ml0Var) == null) {
-            int i = kl0.$EnumSwitchMapping$0[ml0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048580, this, zl0Var) == null) {
+            int i = xl0.$EnumSwitchMapping$0[zl0Var.getType().ordinal()];
             if (i == 1) {
                 this.e.l(System.currentTimeMillis());
                 this.g = false;
@@ -129,10 +129,10 @@ public final class AlsComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void o(sl0 sl0Var) {
+    public final void o(fm0 fm0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sl0Var) == null) {
-            int i = kl0.$EnumSwitchMapping$1[sl0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048581, this, fm0Var) == null) {
+            int i = xl0.$EnumSwitchMapping$1[fm0Var.getType().ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     return;
@@ -140,8 +140,8 @@ public final class AlsComponent extends AbsComponentPlugin {
                 s();
                 return;
             }
-            yl0 yl0Var = (yl0) l().q(yl0.class);
-            if (yl0Var != null && !yl0Var.k()) {
+            lm0 lm0Var = (lm0) l().q(lm0.class);
+            if (lm0Var != null && !lm0Var.k()) {
                 this.e.h(System.currentTimeMillis());
             } else {
                 this.e.g(System.currentTimeMillis());
@@ -154,14 +154,14 @@ public final class AlsComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            yl0 yl0Var = (yl0) l().q(yl0.class);
-            if (yl0Var == null || !yl0Var.k()) {
+            lm0 lm0Var = (lm0) l().q(lm0.class);
+            if (lm0Var == null || !lm0Var.k()) {
                 return;
             }
             this.e.j(System.currentTimeMillis());
             long max = Math.max(this.e.d() - Math.max(this.e.e(), this.e.f()), 0L);
-            hm0 hm0Var = this.e;
-            hm0Var.i(hm0Var.c() + max);
+            um0 um0Var = this.e;
+            um0Var.i(um0Var.c() + max);
         }
     }
 
@@ -170,8 +170,8 @@ public final class AlsComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            yl0 yl0Var = (yl0) l().q(yl0.class);
-            if (yl0Var == null || !yl0Var.k()) {
+            lm0 lm0Var = (lm0) l().q(lm0.class);
+            if (lm0Var == null || !lm0Var.k()) {
                 return;
             }
             this.e.k(System.currentTimeMillis());
@@ -212,37 +212,37 @@ public final class AlsComponent extends AbsComponentPlugin {
             Intrinsics.checkNotNullParameter(type, "type");
             Intrinsics.checkNotNullParameter(area, "area");
             Intrinsics.checkNotNullParameter(ext1, "ext1");
-            ClogBuilder s = new ClogBuilder().x(type).s(ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP);
+            ClogBuilder u = new ClogBuilder().z(type).u(ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP);
             if (!TextUtils.isEmpty(area)) {
-                s.h(area);
+                u.j(area);
             }
             if (!TextUtils.isEmpty(this.d)) {
-                s.n(this.d);
+                u.p(this.d);
             }
             if (!TextUtils.isEmpty(ext1)) {
-                s.i(ext1);
+                u.k(ext1);
             }
-            vx0.c(s);
+            iy0.b(u);
         }
     }
 
     public final void s() {
-        f21 e;
+        t21 e;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            yl0 yl0Var = (yl0) l().q(yl0.class);
-            if (yl0Var == null || yl0Var.k()) {
+            lm0 lm0Var = (lm0) l().q(lm0.class);
+            if (lm0Var == null || lm0Var.k()) {
                 long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                hm0 hm0Var = this.e;
-                hm0Var.i(hm0Var.c() + max);
+                um0 um0Var = this.e;
+                um0Var.i(um0Var.c() + max);
             }
-            zl0 zl0Var = (zl0) l().q(zl0.class);
-            if (zl0Var == null || (e = zl0Var.b().e()) == null || (jSONObject = e.d) == null) {
+            mm0 mm0Var = (mm0) l().q(mm0.class);
+            if (mm0Var == null || (e = mm0Var.b().e()) == null || (jSONObject = e.d) == null) {
                 return;
             }
-            lx0.e(jSONObject, "immersive_video_stay_time", this.e.c());
-            lx0.e(jSONObject, "immersive_webview_first_show_time", this.e.b());
+            yx0.e(jSONObject, "immersive_video_stay_time", this.e.c());
+            yx0.e(jSONObject, "immersive_webview_first_show_time", this.e.b());
         }
     }
 }

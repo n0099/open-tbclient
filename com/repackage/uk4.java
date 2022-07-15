@@ -1,78 +1,86 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class uk4 {
+public class uk4 {
     public static /* synthetic */ Interceptable $ic;
+    public static uk4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<wk4> a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755258093, "Lcom/repackage/uk4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755258093, "Lcom/repackage/uk4;");
+        }
     }
 
     public uk4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
     }
 
-    public static uk4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
+    public static uk4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, uk4.class, baseActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (uk4.class) {
+                    if (b == null) {
+                        b = new uk4();
+                    }
+                }
             }
-            return (uk4) runTask.getData();
+            return b;
         }
-        return (uk4) invokeL.objValue;
+        return (uk4) invokeV.objValue;
     }
 
-    public static uk4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
+    public View a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, uk4.class, baseFragmentActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (this.a.get(i) != null) {
+                return this.a.get(i).a(context);
             }
-            return (uk4) runTask.getData();
+            return null;
         }
-        return (uk4) invokeL.objValue;
+        return (View) invokeLI.objValue;
     }
 
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
+    public void c(int i, wk4 wk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, wk4Var) == null) {
+            this.a.put(i, wk4Var);
+        }
+    }
 }

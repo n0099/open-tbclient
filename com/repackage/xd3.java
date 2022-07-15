@@ -1,13 +1,17 @@
 package com.repackage;
 
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class xd3 {
+public class xd3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
     public xd3() {
         Interceptable interceptable = $ic;
@@ -21,5 +25,34 @@ public abstract class xd3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                View view3 = this.a;
+                if (view3 == null) {
+                    view2.setAlpha(oj2.M().a() ? 0.5f : 0.2f);
+                    return false;
+                }
+                view3.setAlpha(oj2.M().a() ? 0.5f : 0.2f);
+                return false;
+            } else if (action != 2) {
+                View view4 = this.a;
+                if (view4 == null) {
+                    view2.setAlpha(1.0f);
+                    return false;
+                }
+                view4.setAlpha(1.0f);
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,13 +1,154 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostByteRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.repackage.i74;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
 /* loaded from: classes7.dex */
-public class vj3 extends pj3 {
+public class vj3<T> extends wj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public ResponseCallback<T> f;
+    public int g;
+    public i74.a h;
+
+    /* loaded from: classes7.dex */
+    public class a extends ResponseCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public T a;
+        public final /* synthetic */ vj3 b;
+
+        public a(vj3 vj3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vj3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vj3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (cj3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
+                }
+                if (TextUtils.equals(str, "recovery")) {
+                    if (!ij3.l().m().b()) {
+                        this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                        return;
+                    }
+                    ij3.l().m().a();
+                    this.b.i(true);
+                    this.b.p();
+                    return;
+                }
+                ij3.l().m().k();
+                vj3 vj3Var = this.b;
+                if (!vj3Var.a) {
+                    if (vj3Var.f != null) {
+                        this.b.f.onSuccess(this.a, i);
+                        this.b.g = 0;
+                    }
+                } else if (vj3Var.b == 1) {
+                    hj3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                    if (this.b.f != null) {
+                        this.b.f.onSuccess(this.a, i);
+                    }
+                    this.b.g = 0;
+                } else if (vj3.m(vj3Var) >= 3) {
+                    ResponseCallback responseCallback = this.b.f;
+                    responseCallback.onFail(new IOException("request fail : " + this.a));
+                    this.b.g = 0;
+                } else {
+                    vj3 vj3Var2 = this.b;
+                    vj3Var2.q(vj3Var2.d, this.b.e, this.b.f);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (cj3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
+                }
+                if (this.b.f != null) {
+                    this.b.f.onFail(exc);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                Headers headers = response.headers();
+                String str = headers.get("Bdtls");
+                if (headers != null && TextUtils.equals(str, "recovery")) {
+                    ij3.l().m().s(0);
+                    return "recovery";
+                }
+                vj3 vj3Var = this.b;
+                if (!vj3Var.a) {
+                    if (vj3Var.f != null) {
+                        this.a = (T) this.b.f.parseResponse(response, i);
+                        return "";
+                    }
+                    return "";
+                }
+                ResponseBody body = response.body();
+                String g = this.b.g(body.bytes());
+                if (cj3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                }
+                if (this.b.b == 1) {
+                    Buffer buffer = new Buffer();
+                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                    if (this.b.f != null) {
+                        this.a = (T) this.b.f.parseResponse(build, i);
+                    }
+                }
+                return g;
+            }
+            return (String) invokeLI.objValue;
+        }
+    }
 
     public vj3() {
         Interceptable interceptable = $ic;
@@ -19,7 +160,93 @@ public class vj3 extends pj3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = null;
+        this.e = null;
+        this.f = null;
+    }
+
+    public static /* synthetic */ int m(vj3 vj3Var) {
+        int i = vj3Var.g;
+        vj3Var.g = i + 1;
+        return i;
+    }
+
+    @Override // com.repackage.wj3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wj3
+    public void e(IOException iOException) {
+        ResponseCallback<T> responseCallback;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f) == null) {
+            return;
+        }
+        responseCallback.onFail(iOException);
+    }
+
+    @Override // com.repackage.wj3
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (cj3.a) {
+                Log.d("BDTLS", "onRequestError=" + i);
+            }
+            ResponseCallback<T> responseCallback = this.f;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
+            }
+        }
+    }
+
+    @Override // com.repackage.wj3
+    public void h(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.d;
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
+            }
+            if (cj3.a) {
+                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
+            }
+            j53 a2 = oj2.q().a();
+            PostByteRequest.PostByteRequestBuilder postByteRequest = j74.g().postByteRequest();
+            i74.a aVar = this.h;
+            if (aVar != null) {
+                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
+            }
+            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q(this.d, this.e, this.f);
+        }
+    }
+
+    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, responseCallback) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.d = str;
+        this.e = str2;
+        this.f = responseCallback;
+        if (cj3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
+        }
+        a(this.e);
     }
 }

@@ -1,39 +1,112 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class p68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+    public ImageView b;
+    public VideoLoadingProgressView c;
+    public ObjectAnimator d;
+    public ObjectAnimator e;
+    public ObjectAnimator f;
 
-    public static boolean a(i45 i45Var) {
-        InterceptResult invokeL;
+    public p68(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, i45Var)) == null) {
-            if (i45Var != null) {
-                return i45Var.isViewAttached();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = viewGroup;
+        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902e5);
+        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902e6);
+        d();
     }
 
-    public static void b(i45 i45Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{i45Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(i45Var) || context == null || view2 == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.cancel();
+            this.e.cancel();
+            this.f.cancel();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            this.a.setVisibility(8);
+            this.c.h();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            this.e.start();
+            this.f.start();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = ObjectAnimator.ofFloat(this.b, "alpha", 1.0f, 0.5f);
+            this.e = ObjectAnimator.ofFloat(this.b, "alpha", 0.5f, 0.0f);
+            this.f = ObjectAnimator.ofFloat(this.c, "alpha", 1.0f, 0.0f);
+            this.d.setDuration(50L);
+            this.e.setDuration(50L);
+            this.f.setDuration(50L);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            this.c.j();
+        }
+    }
+
+    public void f(VideoLoadingProgressView.c cVar) {
+        VideoLoadingProgressView videoLoadingProgressView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.c) == null) {
             return;
         }
-        if (i45Var == null) {
-            i45Var = new i45(context, onClickListener);
+        videoLoadingProgressView.setLoadingAnimationListener(cVar);
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a();
+            this.b.setAlpha(1.0f);
+            this.c.setAlpha(1.0f);
+            this.a.setVisibility(0);
+            this.c.l();
+            this.d.start();
         }
-        i45Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-        i45Var.attachView(view2, z);
-        i45Var.p();
-        i45Var.onChangeSkinType();
     }
 }

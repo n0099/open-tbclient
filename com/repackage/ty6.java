@@ -1,21 +1,28 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes7.dex */
-public class ty6 {
+public class ty6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
-    public static boolean b;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -30,32 +37,57 @@ public class ty6 {
                 return;
             }
         }
-        a = new ArrayList();
-        b = false;
+        e = BdUniqueId.gen();
     }
 
-    public static synchronized void a(String str) {
+    public ty6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            synchronized (ty6.class) {
-                if (b) {
-                    return;
-                }
-                a.add(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static synchronized void b() {
+    public void c(LiveAnswer liveAnswer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (ty6.class) {
-                if (b) {
-                    return;
-                }
-                b = true;
-                TiebaStatic.log(new StatisticItem("HomePageDataInspect").param("obj_param1", TextUtils.join("_", a)));
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, liveAnswer) == null) || liveAnswer == null) {
+            return;
+        }
+        this.c = liveAnswer.banner_url;
+        this.a = liveAnswer.banner_high.intValue();
+        this.b = liveAnswer.banner_width.intValue();
+        this.d = liveAnswer.jump_url;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("img_width", this.b);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, this.c);
+                jSONObject.put("img_height", this.a);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.d);
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (String) invokeV.objValue;
     }
 }

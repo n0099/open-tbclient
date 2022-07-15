@@ -1,56 +1,109 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public final class yc3 {
+public class yc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755146648, "Lcom/repackage/yc3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755146648, "Lcom/repackage/yc3;");
-        }
-    }
-
-    public static Context a() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
-    }
-
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) ? c().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = PreferenceManager.getDefaultSharedPreferences(a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return a;
+            return TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) || TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) || TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str);
         }
-        return (SharedPreferences) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            String lowerCase = str.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    str2 = DocumentOpenUtil.PDF_TYPE;
+                    break;
+                case 1:
+                    str2 = DocumentOpenUtil.WORD_TYPE;
+                    break;
+                case 2:
+                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str2 = DocumentOpenUtil.EXCEL_TYPE;
+                    break;
+                case 4:
+                    str2 = DocumentOpenUtil.SHEET_TYPE;
+                    break;
+                case 5:
+                    str2 = DocumentOpenUtil.PPT_TYPE;
+                    break;
+                case 6:
+                    str2 = DocumentOpenUtil.PRESENT_TYPE;
+                    break;
+                default:
+                    str2 = "";
+                    break;
+            }
+            return a(str2) ? str2 : "";
+        }
+        return (String) invokeL.objValue;
     }
 }
