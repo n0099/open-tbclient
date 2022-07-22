@@ -254,9 +254,6 @@ public class oa7 extends BaseCardInfo {
             if (this.t) {
                 this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e1);
             }
-        } else if (agreeList.type.intValue() == 1) {
-            this.a = B;
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e3);
         } else if (agreeList.type.intValue() == 4) {
             this.a = C;
             this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e2);
@@ -268,6 +265,9 @@ public class oa7 extends BaseCardInfo {
             OriginalThreadInfo originalThreadInfo2 = this.g;
             originalThreadInfo2.a = 5;
             originalThreadInfo2.k = 70;
+        } else {
+            this.a = B;
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e3);
         }
     }
 

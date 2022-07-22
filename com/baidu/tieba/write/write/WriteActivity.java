@@ -81,6 +81,7 @@ import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.RelevanceItemSearchActivityConfig;
 import com.baidu.tbadk.core.atomData.SelectForumConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
@@ -6342,8 +6343,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (this.r0.u()) {
                 this.r0.q();
             }
-            tw8.a();
-            if (tw8.b()) {
+            int a2 = tw8.a();
+            if (tw8.c(a2)) {
+                tw8.e(getPageContext().getPageActivity(), a2, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else if (tw8.b()) {
                 if (this.y == null || this.v == null) {
                     return;
                 }
@@ -6356,13 +6359,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
                 if (this.U1 == null && this.v.getForumName() != null) {
                     tw8.f(getPageContext(), str, this.S.getText().toString(), this.v.getForumId(), this.v.getForumName(), 3, Boolean.FALSE, "", "", "");
-                    return;
                 } else {
                     tw8.f(getPageContext(), str, this.S.getText().toString(), this.v.getForumId(), this.v.getForumName(), i2, Boolean.TRUE, "", "", "");
-                    return;
                 }
+            } else {
+                i6(0);
             }
-            i6(0);
         }
     }
 
