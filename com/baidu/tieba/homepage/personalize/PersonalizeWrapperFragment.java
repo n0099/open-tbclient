@@ -239,10 +239,24 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
         }
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
+            if (personalizeWrapperTabHost != null) {
+                return personalizeWrapperTabHost.getCurrentPageKey();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onActivityCreated(bundle);
             vk8.b(new a(this, bundle), 3);
         }
@@ -251,7 +265,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
@@ -263,7 +277,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -273,13 +287,13 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) ? this.a : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) ? this.a : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
@@ -291,7 +305,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
@@ -303,7 +317,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPrimary();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
@@ -315,7 +329,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
             PersonalizeWrapperTabHost personalizeWrapperTabHost = this.a;
             if (personalizeWrapperTabHost != null) {
@@ -329,7 +343,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     public void t() {
         PersonalizeWrapperTabHost personalizeWrapperTabHost;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (personalizeWrapperTabHost = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (personalizeWrapperTabHost = this.a) == null) {
             return;
         }
         personalizeWrapperTabHost.F();
@@ -337,7 +351,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
 
     public final void u1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             nu6 nu6Var = new nu6(getPageContext(), getUniqueId());
             this.b = nu6Var;
             nu6Var.k(new b(this));
@@ -347,7 +361,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
 
     public void v1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) || getHost() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) || getHost() == null) {
             return;
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(4014);
@@ -383,7 +397,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
     @Override // com.repackage.ge6
     public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 }
